@@ -1,0 +1,2779 @@
+{
+  "version": 1,
+  "placeId": "new-york",
+  "sourceScene": {
+    "indexPath": "assets/art/place-scenes/new-york/index.json",
+    "sha256": "1025e434bea1724b0212100cb92687faf95650d3c39c71734bf1b56fbf9713ad",
+    "navigationPath": "assets/art/place-scenes/new-york/navigation.json",
+    "navigationSha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+  },
+  "geometryCoordinateFrame": "binding-local",
+  "matrixCoordinateFrame": "emitted-world; source offset already applied",
+  "sourceOffsetAlreadyApplied": true,
+  "geometryIdMeaning": "sha256 of canonical geometry JSON without trailing LF; after.sha256 hashes actual file bytes",
+  "replacements": [
+    {
+      "sourcePartId": "replacement/edge-0/cornice-0",
+      "partId": "replacement/edge-0/cornice-0",
+      "sectionId": "3_1_0",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "d4178633a72c3ad37bb470e599956ce02b793b7ff0ddf2ee52e91a8d98feb909",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/d4178633a72c3ad37bb470e599956ce02b793b7ff0ddf2ee52e91a8d98feb909.json",
+        "sha256": "50803ff976678ccdc033b30c05c06ef66dcd7a1425766ed2b90aea4987711869",
+        "triangleCount": 28
+      },
+      "after": {
+        "geometryId": "8b785f054dcafec332a98cdd527c972922d09d4a84ffc4d6289f4143c73df587",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/8b785f054dcafec332a98cdd527c972922d09d4a84ffc4d6289f4143c73df587.json",
+        "sha256": "f3ad299af8f87a202a0b741a4830fb6c91e621f15638f64cd835e1912532a21b",
+        "triangleCount": 44
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.809999465942383,
+          2,
+          25.810000002384186
+        ],
+        "max": [
+          80.19000053405762,
+          2.119999885559082,
+          26.189999997615814
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 28,
+        "effectiveStart": 0,
+        "effectiveCount": 28,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 28,
+        "count": 16
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 252,
+          "sha256Float32Bytes": "9c5c31f8f74540be573e7e2755081925ade263b78016acc8090861fe6f8f7356",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 252,
+          "sha256Float32Bytes": "61afddd3194b8feb409ed1caae3cea9c899e53274d5d06e1a859f2e971732101",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 168,
+          "sha256Float32Bytes": "da19c415a4ce0684a82aebf87c297f9b7d1baf7684c26a0d7dc0d825dd30d7ed",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 168,
+          "sha256Float32Bytes": "da19c415a4ce0684a82aebf87c297f9b7d1baf7684c26a0d7dc0d825dd30d7ed",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/edge-0/cornice-0",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/edge-0/cornice-0"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "edge-0/cornice-0",
+        "originalSourceGeometrySha256": "f6facf4a0c193f2c9943d8744182bb496f61930203717d555ab82fb33340a3f2",
+        "cutIds": [
+          "ny-front/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/edge-1/cornice-0",
+      "partId": "replacement/edge-1/cornice-0",
+      "sectionId": "5_2_0",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "ccac5ea8d251f7c4bc56b9cd8032654a9648223f287f9ba2def26f8f55a41831",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/ccac5ea8d251f7c4bc56b9cd8032654a9648223f287f9ba2def26f8f55a41831.json",
+        "sha256": "32791fb9d21136e550805f81678331d0d0e13eed9d3f2a4d6082703bf4e8fbf2",
+        "triangleCount": 28
+      },
+      "after": {
+        "geometryId": "c3a069ac8268b4c22fc50e1452f35c86bced82b19cb142907a57ff5129b1015e",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/c3a069ac8268b4c22fc50e1452f35c86bced82b19cb142907a57ff5129b1015e.json",
+        "sha256": "66a5e48bbfed8c7f2cc17658bb177557b6607bb19ef07d5b322cd6c18c722b8c",
+        "triangleCount": 44
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          79.80999946594238,
+          2,
+          25.810000002384186
+        ],
+        "max": [
+          80.19000053405762,
+          2.119999885559082,
+          54.19000053405762
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 28,
+        "effectiveStart": 0,
+        "effectiveCount": 28,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 28,
+        "count": 16
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 252,
+          "sha256Float32Bytes": "d1b043c4988a91408eb7ff86eddcbc7d19a64f531596d0d96dd098d980aa6a6b",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 252,
+          "sha256Float32Bytes": "b2905daaff41470575c57f1fba47ddea0b4604c8ddf060a2ee42210b7b3a7097",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 168,
+          "sha256Float32Bytes": "056462cfebdf46d88b9492e0703f9fdeb6a569839372453f786cea24b8b96d51",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 168,
+          "sha256Float32Bytes": "056462cfebdf46d88b9492e0703f9fdeb6a569839372453f786cea24b8b96d51",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/edge-1/cornice-0",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/edge-1/cornice-0"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "edge-1/cornice-0",
+        "originalSourceGeometrySha256": "8d8391ce8e716ff120dd912568eda1f1f5316e6c3ee7ef85c6573b80625acb28",
+        "cutIds": [
+          "ny-east/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/edge-1/cornice-1",
+      "partId": "replacement/edge-1/cornice-1",
+      "sectionId": "5_2_3",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "bf9aa1295699eec3ba38e076afda5e95b1fe7ae3446b47da8212c3cc8547165d",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/bf9aa1295699eec3ba38e076afda5e95b1fe7ae3446b47da8212c3cc8547165d.json",
+        "sha256": "acfcfeeaec262da2245a26991df495800dcaee9079e0daf0b918858e5c0bca1a",
+        "triangleCount": 40
+      },
+      "after": {
+        "geometryId": "4dc4871026554e9358a8684c72412c703007dc425e129a2f7d9bd9096083a766",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/4dc4871026554e9358a8684c72412c703007dc425e129a2f7d9bd9096083a766.json",
+        "sha256": "0b370e274b4446e69386050ed47e2b03d31f5f4d1ef544e975c9702f731f16cc",
+        "triangleCount": 66
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          79.81999969482422,
+          8.130000114440918,
+          25.819999992847443
+        ],
+        "max": [
+          80.18000030517578,
+          8.329999923706055,
+          54.18000030517578
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 40,
+        "effectiveStart": 0,
+        "effectiveCount": 52,
+        "retessellated": true
+      },
+      "appendedClosureTriangles": {
+        "start": 52,
+        "count": 14
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 360,
+          "sha256Float32Bytes": "cb2ab7c8e59ae7f956209c2a7707f1de2e06673217a6f1ea792024a3451f3bbd",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 360,
+          "sha256Float32Bytes": "3002347e1097ac8ec1148e768b59666c9221417307fd22867a2c374ae82d27d9",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 240,
+          "sha256Float32Bytes": "864149fed374c603627182cb9a64d76f364c23693fb29eb5687cea7cda21be3d",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 240,
+          "sha256Float32Bytes": "864149fed374c603627182cb9a64d76f364c23693fb29eb5687cea7cda21be3d",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/edge-1/cornice-1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/edge-1/cornice-1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "topologyAmendmentCommit": "2ec28370bdb7e0b4c57b687a5b58f8b2d78215ae",
+        "originalSourcePartId": "edge-1/cornice-1",
+        "originalSourceGeometrySha256": "60fde49208d4b073721386882a70de5bd5e1766e03e757148bee228b32619118",
+        "cutIds": [
+          "ny-east-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/edge-1/cornice-2",
+      "partId": "replacement/edge-1/cornice-2",
+      "sectionId": "5_2_3",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "3ae9b1c085683fffe8877b23ebefa10d5237d47becabe643f0d86ac215c7a6d0",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/3ae9b1c085683fffe8877b23ebefa10d5237d47becabe643f0d86ac215c7a6d0.json",
+        "sha256": "b4b6def90c899bd733a7c648c34738c6e65237238671cc9b17451e543f590759",
+        "triangleCount": 28
+      },
+      "after": {
+        "geometryId": "d7c17a84a127ccdf74e87c2f798ad30a5c99ba6bd839215841c2b4edcf3fe5f4",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/d7c17a84a127ccdf74e87c2f798ad30a5c99ba6bd839215841c2b4edcf3fe5f4.json",
+        "sha256": "7a6da114325b0df6ea78bab2b26bfbe8b8d0bd8a26d5d90ebd4d4ec0ea76f350",
+        "triangleCount": 44
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          79.75,
+          8.329999923706055,
+          25.75
+        ],
+        "max": [
+          80.25,
+          8.630000114440918,
+          54.25
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 28,
+        "effectiveStart": 0,
+        "effectiveCount": 28,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 28,
+        "count": 16
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 252,
+          "sha256Float32Bytes": "8b876bf7f094d2fa76012ac1eaa3c3147d5e92558aeb1d37ea2ab80fe60f4328",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 252,
+          "sha256Float32Bytes": "df41bff835fe1e64a9ab599481972f504b1f0ccef481c160868d4f2fefcd2f55",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 168,
+          "sha256Float32Bytes": "c311cddc8a0152f0036ed70c283692f3cab397369dfa6d35d9d727b81b509163",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 168,
+          "sha256Float32Bytes": "c311cddc8a0152f0036ed70c283692f3cab397369dfa6d35d9d727b81b509163",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/edge-1/cornice-2",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/edge-1/cornice-2"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "edge-1/cornice-2",
+        "originalSourceGeometrySha256": "bd33453ce5212346b9cd7d54d5c09f1bcc05a9bcdd721bc7fb9f2a348d2b71d8",
+        "cutIds": [
+          "ny-east-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/edge-1/cornice-3",
+      "partId": "replacement/edge-1/cornice-3",
+      "sectionId": "5_2_4",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "45516532725e5d75cf3b84ee4bcca3d17012cd98bd968ec86144438dd37dac3d",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/45516532725e5d75cf3b84ee4bcca3d17012cd98bd968ec86144438dd37dac3d.json",
+        "sha256": "cec1ddae61e1bab9dd30bcfe93ca4027ecfaa8ca80e656b7c6252c97a63956f2",
+        "triangleCount": 28
+      },
+      "after": {
+        "geometryId": "46db2f29d3df48b9e211e622af00a925a58d7eebd32762c98c0b2cf79c75fc38",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/46db2f29d3df48b9e211e622af00a925a58d7eebd32762c98c0b2cf79c75fc38.json",
+        "sha256": "0833c15ff1b63de6e90e3ce1a7ec68adfeab19cdf2623ca04258aa7ab15699ce",
+        "triangleCount": 44
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          79.68000030517578,
+          8.630000114440918,
+          25.680000007152557
+        ],
+        "max": [
+          80.31999969482422,
+          8.8100004196167,
+          54.31999969482422
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 28,
+        "effectiveStart": 0,
+        "effectiveCount": 28,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 28,
+        "count": 16
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 252,
+          "sha256Float32Bytes": "0dcd61f6acb55999ab585bdc426478b3dc3c9f69d86dea3bba463cdfeb0dbc41",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 252,
+          "sha256Float32Bytes": "1e2b883d488fe590c909bcbc3d30beb1aa2f0af4f46b679c95fbfafba0183e70",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 168,
+          "sha256Float32Bytes": "0a1f2c6438ea70fbadbcdf3cafe8cdd5f6e51b1af6e5aaf4f3b69f4f123b0b79",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 168,
+          "sha256Float32Bytes": "0a1f2c6438ea70fbadbcdf3cafe8cdd5f6e51b1af6e5aaf4f3b69f4f123b0b79",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/edge-1/cornice-3",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/edge-1/cornice-3"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "edge-1/cornice-3",
+        "originalSourceGeometrySha256": "498009b711c36fd5bf2abdeb5e17496365c711517e28f4fce8f2f7eaef25f1f9",
+        "cutIds": [
+          "ny-east-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/edge-11/cornice-0",
+      "partId": "replacement/edge-11/cornice-0",
+      "sectionId": "2_2_0",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "8dedbcca1d971b2523d9f1dd2b2929e2020bef87e38171bcbd111a6355e9345a",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/8dedbcca1d971b2523d9f1dd2b2929e2020bef87e38171bcbd111a6355e9345a.json",
+        "sha256": "c5737cc5d6b9dfcac9f5aa24753af910005566cff31eb1a2858dcc770925da1e",
+        "triangleCount": 28
+      },
+      "after": {
+        "geometryId": "38132d0309fbc93591688470c1e2e58136f64cd22fb32aa0952671afcc8062bf",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/38132d0309fbc93591688470c1e2e58136f64cd22fb32aa0952671afcc8062bf.json",
+        "sha256": "6d50a4b6da87d33ce87cad5f428cf6a8a058a48ca6b28b860b30183a672da725",
+        "triangleCount": 44
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.809999465942383,
+          2,
+          25.810000002384186
+        ],
+        "max": [
+          32.19000053405762,
+          2.119999885559082,
+          54.19000053405762
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 28,
+        "effectiveStart": 0,
+        "effectiveCount": 28,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 28,
+        "count": 16
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 252,
+          "sha256Float32Bytes": "b8dd6a944db947ee9227a831c89a10ba447a80776c69e9c50b84278c1a61cec2",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 252,
+          "sha256Float32Bytes": "c39d13e5b644fba5a8fd13d554572922680371e640db41685e11b4a5824339b3",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 168,
+          "sha256Float32Bytes": "d28578fd6ffc07365d99ac31489c964a25544dc3ac6cc5e33c81d28b0f8c4466",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 168,
+          "sha256Float32Bytes": "d28578fd6ffc07365d99ac31489c964a25544dc3ac6cc5e33c81d28b0f8c4466",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/edge-11/cornice-0",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/edge-11/cornice-0"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "edge-11/cornice-0",
+        "originalSourceGeometrySha256": "c9645074ed9e198fda5bca8a0b233f9a2662b481ba6d8f10f4ff38de95602c9b",
+        "cutIds": [
+          "ny-west/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/edge-11/cornice-1",
+      "partId": "replacement/edge-11/cornice-1",
+      "sectionId": "2_2_3",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "d57af05c7e3b2ba4be35a7f3afc5ac31f51aeb53b51f3e43d86428a8e41a11b7",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/d57af05c7e3b2ba4be35a7f3afc5ac31f51aeb53b51f3e43d86428a8e41a11b7.json",
+        "sha256": "c449335367e15e801850b0b1811b5c6a71bf435d3b1e1684ae25539925e1d657",
+        "triangleCount": 40
+      },
+      "after": {
+        "geometryId": "e313cc8c2218520c2b1aee3bc87d75ac3a822a4d765e6650c04efa823e132de1",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/e313cc8c2218520c2b1aee3bc87d75ac3a822a4d765e6650c04efa823e132de1.json",
+        "sha256": "bd9f2c6dc3fb74a09447088c565a85cc2db9687e8f30e4b54a83eedbc67ed7d1",
+        "triangleCount": 66
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.81999969482422,
+          8.130000114440918,
+          25.819999992847443
+        ],
+        "max": [
+          32.18000030517578,
+          8.329999923706055,
+          54.18000030517578
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 40,
+        "effectiveStart": 0,
+        "effectiveCount": 52,
+        "retessellated": true
+      },
+      "appendedClosureTriangles": {
+        "start": 52,
+        "count": 14
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 360,
+          "sha256Float32Bytes": "fecd60a0160d13401caeeb98d72e4a7a5062580f6a2f03e414e5387fe5e6def3",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 360,
+          "sha256Float32Bytes": "36f665a8661b0ddb645a2df8905da967a7d18da8067bfccdcf8ac3e0758784ae",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 240,
+          "sha256Float32Bytes": "2beba98169c834a33b2c2cca0282359cc4e4457c1da5ff74bbbd8ade6362523f",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 240,
+          "sha256Float32Bytes": "2beba98169c834a33b2c2cca0282359cc4e4457c1da5ff74bbbd8ade6362523f",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/edge-11/cornice-1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/edge-11/cornice-1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "topologyAmendmentCommit": "2ec28370bdb7e0b4c57b687a5b58f8b2d78215ae",
+        "originalSourcePartId": "edge-11/cornice-1",
+        "originalSourceGeometrySha256": "ec2247eec2f18bbde28062cd224bcf48178820fb3929931ee83e3a0cc8f6d150",
+        "cutIds": [
+          "ny-west-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/edge-11/cornice-2",
+      "partId": "replacement/edge-11/cornice-2",
+      "sectionId": "2_2_3",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "95812d3cfb36bc6c67dbffd82dab92c43779c05a817558dac75f300eacaff91f",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/95812d3cfb36bc6c67dbffd82dab92c43779c05a817558dac75f300eacaff91f.json",
+        "sha256": "47447d2b5a1471efa5f1fb19fa770a0017ad085635c0c8a380c21d78879a315b",
+        "triangleCount": 28
+      },
+      "after": {
+        "geometryId": "5ff83f26642d7d7e6dcab5722c907702a9897de34942a36c68c3b249dbad80d7",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/5ff83f26642d7d7e6dcab5722c907702a9897de34942a36c68c3b249dbad80d7.json",
+        "sha256": "e9f57f8a17c592a8783d9ad33c0f45defc53c8c44f41f0fdeb6474966066cd45",
+        "triangleCount": 44
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.75,
+          8.329999923706055,
+          25.75
+        ],
+        "max": [
+          32.25,
+          8.630000114440918,
+          54.25
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 28,
+        "effectiveStart": 0,
+        "effectiveCount": 28,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 28,
+        "count": 16
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 252,
+          "sha256Float32Bytes": "e9af81fff981329a4e0e8f131e3fe095e1c4becdfee9fa2305ca57b3bac8f9a3",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 252,
+          "sha256Float32Bytes": "549ae78144b76d1b5155033efc8c75b75d891254431e1e59e94cc6e0036018ca",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 168,
+          "sha256Float32Bytes": "c360d00a2a28f66a3264e466626bcef6f70d3ea1e5250a1680f6e290236de95a",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 168,
+          "sha256Float32Bytes": "c360d00a2a28f66a3264e466626bcef6f70d3ea1e5250a1680f6e290236de95a",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/edge-11/cornice-2",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/edge-11/cornice-2"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "edge-11/cornice-2",
+        "originalSourceGeometrySha256": "6ab87a1cd94e555dd444b0adeeafd8978e9dc1e5ce808bae4b81d91089aa0b3b",
+        "cutIds": [
+          "ny-west-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/edge-11/cornice-3",
+      "partId": "replacement/edge-11/cornice-3",
+      "sectionId": "2_2_4",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "e0b68c200d7564cc96f3200b6c7d5553dee8563ad1f68f88bf0a31bdca59b9b9",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/e0b68c200d7564cc96f3200b6c7d5553dee8563ad1f68f88bf0a31bdca59b9b9.json",
+        "sha256": "03fd7e8fdf42ed6049566bf0bedfd840bae8401c117faf6e64b052fc6618cebc",
+        "triangleCount": 28
+      },
+      "after": {
+        "geometryId": "d2f0cb46eb67d7acab3cfd534a22fce7520c847e9747f481f6315f346256702e",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/d2f0cb46eb67d7acab3cfd534a22fce7520c847e9747f481f6315f346256702e.json",
+        "sha256": "98c7f7565faaf1bf9fa732fa3e0c4c45c18d4e2f02d88ef1419fbde35494a1a2",
+        "triangleCount": 44
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.68000030517578,
+          8.630000114440918,
+          25.680000007152557
+        ],
+        "max": [
+          32.31999969482422,
+          8.8100004196167,
+          54.31999969482422
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 28,
+        "effectiveStart": 0,
+        "effectiveCount": 28,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 28,
+        "count": 16
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 252,
+          "sha256Float32Bytes": "acb9ab880e5a9de6084a5fd32c7cf9ced88ff77c17843e9a0ae241bbbaed95ee",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 252,
+          "sha256Float32Bytes": "4f9c51f02f7f3c8c33bb0c4b0306b918572e87b0aab57cd2f1b51cf7ad1c2897",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 168,
+          "sha256Float32Bytes": "f3e5d77cb1775ac28d863a86dc0bb5e67a3059b9d87b1422256729c394ae1854",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 168,
+          "sha256Float32Bytes": "f3e5d77cb1775ac28d863a86dc0bb5e67a3059b9d87b1422256729c394ae1854",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/edge-11/cornice-3",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/edge-11/cornice-3"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "edge-11/cornice-3",
+        "originalSourceGeometrySha256": "8c3bd74663a1a4c8ac87fb7b0cb6f671b6f22738a928a78638e1d2dc8d1a52d3",
+        "cutIds": [
+          "ny-west-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/0/entry/header-3.77",
+      "partId": "replacement/main/0/entry/header-3.77",
+      "sectionId": "3_1_1",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "982a1389851b3bbaba8bf2abd5fd1ea849a513dffe2ceb1db537f8e90432b6b9",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/982a1389851b3bbaba8bf2abd5fd1ea849a513dffe2ceb1db537f8e90432b6b9.json",
+        "sha256": "12ba05f9d47d6fc1033a7ad6d838e89df83bd83512622d82c79e50e2052e909c",
+        "triangleCount": 28
+      },
+      "after": {
+        "geometryId": "b090b89cfaec3e6e2570dcf33fd1b3964575ed060b0fb032d5f7817c7ea12359",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/b090b89cfaec3e6e2570dcf33fd1b3964575ed060b0fb032d5f7817c7ea12359.json",
+        "sha256": "6a98852af70706ecd55b377bf635cd11817054745772e716807004a20c4cc0a7",
+        "triangleCount": 44
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          54.85000002384186,
+          3.700000047683716,
+          25.730000019073486
+        ],
+        "max": [
+          57.14999997615814,
+          3.8399999141693115,
+          25.989999994635582
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 28,
+        "effectiveStart": 0,
+        "effectiveCount": 28,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 28,
+        "count": 16
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 252,
+          "sha256Float32Bytes": "befa21a4ca852c1c49b119f7e5f882919e41dc052c6af12489096d2b68e81314",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 252,
+          "sha256Float32Bytes": "140e4cda92500e1ccddbeb4b625adee46108fc03c831489e60980741566365e9",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 168,
+          "sha256Float32Bytes": "5cf5877e2716e5eaacc906751b25e2d41935b671ecc7747679fbf7e91c96c588",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 168,
+          "sha256Float32Bytes": "d5beef986f53b1406b8bb38381bb48722f1572175267aeba7c5a77615080a04c",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/0/entry/header-3.77",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/0/entry/header-3.77"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/0/entry/header-3.77",
+        "originalSourceGeometrySha256": "30f27034e24d703fc842d7c217ff35d97baba928d9d708b1bba6e951c4032d4d",
+        "cutIds": [
+          "ny-front/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/0/entry/transom-mullion",
+      "partId": "replacement/main/0/entry/transom-mullion",
+      "sectionId": "3_1_2",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "78f77590c4ec0ef997656a238101b82e071882f5a4eae04e7fab37ac3923b135",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/78f77590c4ec0ef997656a238101b82e071882f5a4eae04e7fab37ac3923b135.json",
+        "sha256": "52c3c32283d3c9d846dcce0fd3afcedf911cd1b48ac06213a77c7abee2ce4007",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "54c2ffb1ecdce05cc972219f886bf521ccace04eee733aae9a4bb7f5fb44816b",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/54c2ffb1ecdce05cc972219f886bf521ccace04eee733aae9a4bb7f5fb44816b.json",
+        "sha256": "57e15b2051d229e505b0236f0f874fae348d619676acca62ce52c1968c12ea9c",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          55.95499999821186,
+          4.920000076293945,
+          25.799999997019768
+        ],
+        "max": [
+          56.04500000178814,
+          6.239999771118164,
+          25.980000004172325
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "17d3af260e2ddbd3737917c2204a662230eaec767298f042b6e415423a3289bd",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "577dc8c9e71cf7ef167903d3d35bd97bd1005c9b2c2044fb5ba2768580208da5",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "a6a54a9cb4c21f44978e7af396aaf3d98d4c797547e8604c67bb34eb14c441af",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "884b904748f12c9cc743e75ed9811ebba91470558cd89a24f3ed62f3638d5199",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/0/entry/transom-mullion",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/0/entry/transom-mullion"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/0/entry/transom-mullion",
+        "originalSourceGeometrySha256": "98494082dfddbfb368383212687f6d7a0476b192ba77f023d08a11d0ec86bf34",
+        "cutIds": [
+          "ny-front/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/1/cell-3-13/1",
+      "partId": "replacement/main/1/cell-3-13/1",
+      "sectionId": "5_2_3",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "8686c63d555630efc6b54de709030451610ebcb1c81d65deb20fc002f3deeef6",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/8686c63d555630efc6b54de709030451610ebcb1c81d65deb20fc002f3deeef6.json",
+        "sha256": "c2bac5d52813d0ba08d212a2ee40840db07cacdded99c191a47417f593ea9e23",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "18c08ec93f988838d0c259ffa1ac933f3b4bed29256be46c456756db310bc4cb",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/18c08ec93f988838d0c259ffa1ac933f3b4bed29256be46c456756db310bc4cb.json",
+        "sha256": "158e1dde89f0157f5137f65a00cde4824cbbc8f66ac986aea950484f14aaa8e4",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          79.92000007629395,
+          6.360000133514404,
+          39
+        ],
+        "max": [
+          80.07999992370605,
+          8.319999694824219,
+          40
+        ]
+      },
+      "appearanceMaterialId": "195d861c8e37b8c436767ffd709ed3ef39de5082da81965b7b92a93aad4d6959",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "eb4005978a125a209e609489c1293fe17d04ce5f1712924aa3a3a9ee5bc04bc4",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "e1bc1139398e00a3cf432df11eece1624ff3397aa5a7e18970ae67514c9ea1a4",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "97cbd6618569eaea4b2165de1e55be57da2fb6401a1750d418508073b4bafce8",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "38b001421f1eb6e0e219908bb0f5693384ce098498c542143d374f439798bd0f",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/1/cell-3-13/1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/1/cell-3-13/1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/1/cell-3-13/1",
+        "originalSourceGeometrySha256": "b1f4008c6e91a7a85d5a8e44b46c167e22b9f41e8070d17baa829819804d184b",
+        "cutIds": [
+          "ny-east-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/1/cell-3-14/1",
+      "partId": "replacement/main/1/cell-3-14/1",
+      "sectionId": "5_2_3",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "cb4ff0ef1a86fb80fa9997706591725c7801e3c6ffc31f31a43d820ce8e5d20f",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/cb4ff0ef1a86fb80fa9997706591725c7801e3c6ffc31f31a43d820ce8e5d20f.json",
+        "sha256": "a871595597db4aafc6a4cacf1f7631d28958e129863a9b12dcea3121ad815a40",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "ad3953d802e5e531817ebd13f47c57149d280fc789beac88ee0ec3156b08c2a5",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/ad3953d802e5e531817ebd13f47c57149d280fc789beac88ee0ec3156b08c2a5.json",
+        "sha256": "2ac83eeab81e8b85393103a283d6152a6d8a09050f9400f90dd19d9e639171a2",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          79.92000007629395,
+          6.360000133514404,
+          40
+        ],
+        "max": [
+          80.07999992370605,
+          8.319999694824219,
+          41
+        ]
+      },
+      "appearanceMaterialId": "195d861c8e37b8c436767ffd709ed3ef39de5082da81965b7b92a93aad4d6959",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "5bd0c1ce8bd349ebe3601271a439bc8455ddd81327be5dcb9e39a8d2085d5f1a",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "e1bc1139398e00a3cf432df11eece1624ff3397aa5a7e18970ae67514c9ea1a4",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "97cbd6618569eaea4b2165de1e55be57da2fb6401a1750d418508073b4bafce8",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "c4e65a2ff9555c19a0d3519aa099bb2de056725b6cab3e5d75a686398fe89341",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/1/cell-3-14/1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/1/cell-3-14/1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/1/cell-3-14/1",
+        "originalSourceGeometrySha256": "9a5455abf9e7634c41bb608dd51f88decf63d33e4a88681da8b1bf038dba92ac",
+        "cutIds": [
+          "ny-east-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/1/cell-5-13/1",
+      "partId": "replacement/main/1/cell-5-13/1",
+      "sectionId": "5_2_5",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "0586a11a5c063e9185df0f1292e2072e77dfdb50bc2a4d93847a31a88d7e8696",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/0586a11a5c063e9185df0f1292e2072e77dfdb50bc2a4d93847a31a88d7e8696.json",
+        "sha256": "7404709dffbd47b0ecd43ebfd4b47756b69a8d46b201b5cc9a4744b7bb55ec16",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "1f4527267b41479b9de96348dcd183b941039a5e887bba47df96872849c51ea1",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/1f4527267b41479b9de96348dcd183b941039a5e887bba47df96872849c51ea1.json",
+        "sha256": "3eaa16d92c533196ed3f3a4d9f465790b7c960421f6372c329deeb64b307b362",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          79.92000007629395,
+          11.279999732971191,
+          39
+        ],
+        "max": [
+          80.07999992370605,
+          12.600000381469727,
+          40
+        ]
+      },
+      "appearanceMaterialId": "195d861c8e37b8c436767ffd709ed3ef39de5082da81965b7b92a93aad4d6959",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "dd1003c0656148d09a33b78c4c0e1e5fbf0ae5c8bffe364648e5ca4eede93860",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "99b6d38ff98bbbddd40443d89ff7da6b8cf02eb90fcbcf449644175e19b1247b",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "2249da835149a295b1be9196576242c162b55208f9e1b198d970f99ddd9d31fe",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "a942da0e2fb12f8ad6aff6dad1e53a5cc2b63b09f9c5e232e63df3a4f468afad",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/1/cell-5-13/1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/1/cell-5-13/1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/1/cell-5-13/1",
+        "originalSourceGeometrySha256": "4d6d8c7d455fbac4570031e5e02024dd9fbf6fbf767faf24fa5f584eadea36bc",
+        "cutIds": [
+          "ny-east-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/1/cell-5-14/1",
+      "partId": "replacement/main/1/cell-5-14/1",
+      "sectionId": "5_2_5",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "ebeafd230fe48567afd974db1df2f16a2e7e24f241a2edf3796ccbebbffb62e4",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/ebeafd230fe48567afd974db1df2f16a2e7e24f241a2edf3796ccbebbffb62e4.json",
+        "sha256": "943fcb2b636769fee08ce79bb967ec295c70bab9416058600a6f27698905f109",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "ba0f3b4c193c5cb447f56b6951fd5dd0a5c2173ced18dbd998ba83e62d6d638b",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/ba0f3b4c193c5cb447f56b6951fd5dd0a5c2173ced18dbd998ba83e62d6d638b.json",
+        "sha256": "6a65af2d68973f8646e8f3673ddd3b138f2574a014924acb71f744b92c8cc856",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          79.92000007629395,
+          11.279999732971191,
+          40
+        ],
+        "max": [
+          80.07999992370605,
+          12.600000381469727,
+          41
+        ]
+      },
+      "appearanceMaterialId": "195d861c8e37b8c436767ffd709ed3ef39de5082da81965b7b92a93aad4d6959",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "5b40f942f743563e56a907b983380fc7a08c1c24c5bb06641df0ba0de223cceb",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "99b6d38ff98bbbddd40443d89ff7da6b8cf02eb90fcbcf449644175e19b1247b",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "2249da835149a295b1be9196576242c162b55208f9e1b198d970f99ddd9d31fe",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "c3d1a4a8f41281131e6985152bcc868d71366bc2ea009065ff420a81215005da",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/1/cell-5-14/1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/1/cell-5-14/1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/1/cell-5-14/1",
+        "originalSourceGeometrySha256": "c6717e191c169777ab2bf227412f0dc30468bc199a390976b680810ceca60667",
+        "cutIds": [
+          "ny-east-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/1/entry/header-3.77",
+      "partId": "replacement/main/1/entry/header-3.77",
+      "sectionId": "5_2_1",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "865bb626c7e4ae6fb3f6935be134040f5c470d8a50a0c96b44f3581f5e35e9c2",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/865bb626c7e4ae6fb3f6935be134040f5c470d8a50a0c96b44f3581f5e35e9c2.json",
+        "sha256": "a2e319586ae8eafc7d4e02c8adc1048be3e0c132447183c401f46a17082424cf",
+        "triangleCount": 28
+      },
+      "after": {
+        "geometryId": "5ab7133f363c881829e1a9199660eea3b0fcaaa32f7fc3e3091c82483abf4564",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/5ab7133f363c881829e1a9199660eea3b0fcaaa32f7fc3e3091c82483abf4564.json",
+        "sha256": "63b33e5abde4f34f2632cbd9300dfb7def52718aec3940b0fd42ed0b816ea0a1",
+        "triangleCount": 44
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          80.01000022888184,
+          3.700000047683716,
+          38.85000038146973
+        ],
+        "max": [
+          80.26999855041504,
+          3.8399999141693115,
+          41.14999961853027
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 28,
+        "effectiveStart": 0,
+        "effectiveCount": 28,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 28,
+        "count": 16
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 252,
+          "sha256Float32Bytes": "6daf15ace7ae936b2d65b69b441115ea0a496a7c1c6602ec8ad2d7b463049eb4",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 252,
+          "sha256Float32Bytes": "e767db1483e18f1131b5a62d435dff79718257b9772114da41275ed8269c1fe0",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 168,
+          "sha256Float32Bytes": "5cf5877e2716e5eaacc906751b25e2d41935b671ecc7747679fbf7e91c96c588",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 168,
+          "sha256Float32Bytes": "d5beef986f53b1406b8bb38381bb48722f1572175267aeba7c5a77615080a04c",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/1/entry/header-3.77",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/1/entry/header-3.77"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/1/entry/header-3.77",
+        "originalSourceGeometrySha256": "7331a571504777e36781d31854d271d3220a0083649ea77b37870ef69f5d40fb",
+        "cutIds": [
+          "ny-east/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/1/entry/jamb--1",
+      "partId": "replacement/main/1/entry/jamb--1",
+      "sectionId": "5_2_1",
+      "operation": "restore-original-closed-jamb",
+      "before": {
+        "geometryId": "27c30c081c1f3a23bad392c5ae328c81c66a0c07b560d2ed7a46009f2888623f",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/27c30c081c1f3a23bad392c5ae328c81c66a0c07b560d2ed7a46009f2888623f.json",
+        "sha256": "329524b1bcc6edc86e61f2913396d0638d10f4143effeaea6c0a19282b660b73",
+        "triangleCount": 22
+      },
+      "after": {
+        "geometryId": "c864e343e360d2b080d6c3e112ffea4c28709e878182b8a05b7080263b2e2d72",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/c864e343e360d2b080d6c3e112ffea4c28709e878182b8a05b7080263b2e2d72.json",
+        "sha256": "443d5145daf90dbfb7ab772ee23992644c5823622ff7fe6eb6db8ee9bf46691e",
+        "triangleCount": 12
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          79.9900016784668,
+          2.119999885559082,
+          38.84000015258789
+        ],
+        "max": [
+          80.25,
+          6.239999771118164,
+          39
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": null,
+      "appendedClosureTriangles": null,
+      "sourceAttributePrefix": null,
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/1/entry/jamb--1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/1/entry/jamb--1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/1/entry/jamb--1",
+        "originalSourceGeometrySha256": "bb2025d85a4778043e994ced993b02ee2c64d1b54ce636272f9802dce1cd1547",
+        "cutIds": [
+          "ny-east/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/1/entry/jamb-1",
+      "partId": "replacement/main/1/entry/jamb-1",
+      "sectionId": "5_2_1",
+      "operation": "restore-original-closed-jamb",
+      "before": {
+        "geometryId": "f0dacfc02b56b2dd4eed0a558c2819304ea163e47c9a97639f624881e6243752",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/f0dacfc02b56b2dd4eed0a558c2819304ea163e47c9a97639f624881e6243752.json",
+        "sha256": "fe2b5562220b61100a474806f37a002c2d3197f5fdc18fe2edae4dd7200bdfef",
+        "triangleCount": 22
+      },
+      "after": {
+        "geometryId": "3e59eb4cec60891a9337fe42340344cc6a138cb869fec139e1a40bcdabccfd61",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/3e59eb4cec60891a9337fe42340344cc6a138cb869fec139e1a40bcdabccfd61.json",
+        "sha256": "689962493077829b3a78536eecd1efa124a82cd78d833441c1c6585182bb8a96",
+        "triangleCount": 12
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          79.9900016784668,
+          2.119999885559082,
+          41
+        ],
+        "max": [
+          80.25,
+          6.239999771118164,
+          41.15999984741211
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": null,
+      "appendedClosureTriangles": null,
+      "sourceAttributePrefix": null,
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/1/entry/jamb-1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/1/entry/jamb-1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/1/entry/jamb-1",
+        "originalSourceGeometrySha256": "6daa9d08414112165728183a6ee076843f5e2a9593a464c7fa6d0483934dd78a",
+        "cutIds": [
+          "ny-east/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/1/entry/transom-mullion",
+      "partId": "replacement/main/1/entry/transom-mullion",
+      "sectionId": "5_2_2",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "1db28a80614033094dcb68eed86a778cf8a836d43d4ae13c866400a168affe74",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/1db28a80614033094dcb68eed86a778cf8a836d43d4ae13c866400a168affe74.json",
+        "sha256": "b10412e469b6103ecc9ad31fd044496303cc0d97e59eccc700a600946772498c",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "089464cde7fd998b3b3abca78368b2c14c8119924ccdb15762263f11115ce161",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/089464cde7fd998b3b3abca78368b2c14c8119924ccdb15762263f11115ce161.json",
+        "sha256": "e979a2b8bb3cfdf816763bdfb1e6fbfbabe7111713ebcecc5661fa82bef05726",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          80.02000045776367,
+          4.920000076293945,
+          39.954999923706055
+        ],
+        "max": [
+          80.20000076293945,
+          6.239999771118164,
+          40.045000076293945
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "c09bacfb82df2ff3d4ab7a6efeee934d353b1d4a73e292bc215a0d99f16f48c0",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "99b6d38ff98bbbddd40443d89ff7da6b8cf02eb90fcbcf449644175e19b1247b",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "a6a54a9cb4c21f44978e7af396aaf3d98d4c797547e8604c67bb34eb14c441af",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "884b904748f12c9cc743e75ed9811ebba91470558cd89a24f3ed62f3638d5199",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/1/entry/transom-mullion",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/1/entry/transom-mullion"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/1/entry/transom-mullion",
+        "originalSourceGeometrySha256": "54b06dfe525cf9335581d2fe5f7064ec8f8d60e2be210f5fb497a1d89a12dece",
+        "cutIds": [
+          "ny-east/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/11/cell-3-13/1",
+      "partId": "replacement/main/11/cell-3-13/1",
+      "sectionId": "2_2_3",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "6f4e22ae9c6394b44f26d148b089fa53314c55ab4910b1420c57c0898d8447fc",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/6f4e22ae9c6394b44f26d148b089fa53314c55ab4910b1420c57c0898d8447fc.json",
+        "sha256": "89ce61a3e89b1c17ae3da791a97cb703178f247eb17b046f0421cfca5a96bdda",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "dadf312cb34dc95e80f846a611cd0e29769c9f36654965733bde2fe7ca8f65b0",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/dadf312cb34dc95e80f846a611cd0e29769c9f36654965733bde2fe7ca8f65b0.json",
+        "sha256": "357374a556b172c1bdb3a427d3df5535ffc80c6803b193b1d4d9cd69d10c836b",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.920000076293945,
+          6.360000133514404,
+          40
+        ],
+        "max": [
+          32.079999923706055,
+          8.319999694824219,
+          41
+        ]
+      },
+      "appearanceMaterialId": "195d861c8e37b8c436767ffd709ed3ef39de5082da81965b7b92a93aad4d6959",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "2c20f8f64413dc8c51459e7f1b45cf21b2bfe581e46bf5b831864c820c2694f8",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "10c9c9e565e5a3ebe368cc1ebb530a8e0f5db20af1d6029bef61f749c7e19adb",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "97cbd6618569eaea4b2165de1e55be57da2fb6401a1750d418508073b4bafce8",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "38b001421f1eb6e0e219908bb0f5693384ce098498c542143d374f439798bd0f",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/11/cell-3-13/1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/11/cell-3-13/1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/11/cell-3-13/1",
+        "originalSourceGeometrySha256": "6b5d47d3d3b5d886e15d9c7549da51df4bc29d6e28044b6d547e6ad21e4f8e63",
+        "cutIds": [
+          "ny-west-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/11/cell-3-14/1",
+      "partId": "replacement/main/11/cell-3-14/1",
+      "sectionId": "2_2_3",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "480cd870d990552702ef285f3cfba64c819110fcaa69c972f39d7e0198a58e65",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/480cd870d990552702ef285f3cfba64c819110fcaa69c972f39d7e0198a58e65.json",
+        "sha256": "8bfd67b6533950b90c11353a5a445987f8b76051fccf20af17144b028547e15d",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "b8fce2ee830893b1f681f5577a2b0dc0c019df9923710396729ae653b5d903e4",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/b8fce2ee830893b1f681f5577a2b0dc0c019df9923710396729ae653b5d903e4.json",
+        "sha256": "fa0251a4f84773ca868fa5d7dfc6798d52fd1fc7b4bd18760a4ae6c7a72ed2aa",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.920000076293945,
+          6.360000133514404,
+          39
+        ],
+        "max": [
+          32.079999923706055,
+          8.319999694824219,
+          40
+        ]
+      },
+      "appearanceMaterialId": "195d861c8e37b8c436767ffd709ed3ef39de5082da81965b7b92a93aad4d6959",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "fbff1c65547285c46da40a7c2021556c6d42a88ef77d1a257bb53ea95fa94a36",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "10c9c9e565e5a3ebe368cc1ebb530a8e0f5db20af1d6029bef61f749c7e19adb",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "97cbd6618569eaea4b2165de1e55be57da2fb6401a1750d418508073b4bafce8",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "c4e65a2ff9555c19a0d3519aa099bb2de056725b6cab3e5d75a686398fe89341",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/11/cell-3-14/1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/11/cell-3-14/1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/11/cell-3-14/1",
+        "originalSourceGeometrySha256": "b97c3e6529778a9a17a3a8b0e2926554c6f2cb00d6c35c43703a1ac406237914",
+        "cutIds": [
+          "ny-west-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/11/cell-5-13/1",
+      "partId": "replacement/main/11/cell-5-13/1",
+      "sectionId": "2_2_5",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "45bfcaf93fa6827383d2829c94fe9d41cc748c433ed3fbb0bfcebb2d90fc1e48",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/45bfcaf93fa6827383d2829c94fe9d41cc748c433ed3fbb0bfcebb2d90fc1e48.json",
+        "sha256": "1120deac50d92586355686b1d09aa9b6594685ea6afb542cdbc8179d4f5fc393",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "84c25c316e3110ff09df1e1255791526da4e7792b418dcac46fc8fd4afbcf4a9",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/84c25c316e3110ff09df1e1255791526da4e7792b418dcac46fc8fd4afbcf4a9.json",
+        "sha256": "9fc9567df067a4a1fa22102eddffce5092a75bb9e15b4955ffd96d8cf384e18d",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.920000076293945,
+          11.279999732971191,
+          40
+        ],
+        "max": [
+          32.079999923706055,
+          12.600000381469727,
+          41
+        ]
+      },
+      "appearanceMaterialId": "195d861c8e37b8c436767ffd709ed3ef39de5082da81965b7b92a93aad4d6959",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "235be9323a2993a6b835016ae7b8c9af47330ee6b48f8200cee620a0919ad733",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "96623d8558fa0ffaa1a057099727b19f218e0797e8125f2a9da4d461071ce1f5",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "2249da835149a295b1be9196576242c162b55208f9e1b198d970f99ddd9d31fe",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "a942da0e2fb12f8ad6aff6dad1e53a5cc2b63b09f9c5e232e63df3a4f468afad",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/11/cell-5-13/1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/11/cell-5-13/1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/11/cell-5-13/1",
+        "originalSourceGeometrySha256": "554f168a51088fb7ea923f8b36a6acf6c0ef14b92b5e67d452405009b887da8f",
+        "cutIds": [
+          "ny-west-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/11/cell-5-14/1",
+      "partId": "replacement/main/11/cell-5-14/1",
+      "sectionId": "2_2_5",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "97af119a3f95419192f371ae45bb0153bb3c7e8ce103a72519a2d78847c7c106",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/97af119a3f95419192f371ae45bb0153bb3c7e8ce103a72519a2d78847c7c106.json",
+        "sha256": "899ae76cd49b61e182c3d426fdc6d37e67ea5667f7747a27196b577df8e5c493",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "7591a6b2e4a7b44333f8e03e8875318a9a1077a8311d5083ece46a584a8247e4",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/7591a6b2e4a7b44333f8e03e8875318a9a1077a8311d5083ece46a584a8247e4.json",
+        "sha256": "e6b56d1508dc0f6933723646c5679e9e8fa20b4fb09b296a4dc29126c914e8a4",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.920000076293945,
+          11.279999732971191,
+          39
+        ],
+        "max": [
+          32.079999923706055,
+          12.600000381469727,
+          40
+        ]
+      },
+      "appearanceMaterialId": "195d861c8e37b8c436767ffd709ed3ef39de5082da81965b7b92a93aad4d6959",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "11e0f4e3d950b05a6d2811a6a7bcbbf0b82bf57d7a22d1fe5596d6685181a0ac",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "96623d8558fa0ffaa1a057099727b19f218e0797e8125f2a9da4d461071ce1f5",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "2249da835149a295b1be9196576242c162b55208f9e1b198d970f99ddd9d31fe",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "c3d1a4a8f41281131e6985152bcc868d71366bc2ea009065ff420a81215005da",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/11/cell-5-14/1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/11/cell-5-14/1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/11/cell-5-14/1",
+        "originalSourceGeometrySha256": "5056e85a1ad32d587b9db06b53c6efe460658afc1fa7310e82a404808eb9db34",
+        "cutIds": [
+          "ny-west-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/11/entry/header-3.77",
+      "partId": "replacement/main/11/entry/header-3.77",
+      "sectionId": "1_2_1",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "414071f888bca356eda8a63615e6c54df568e10dc5140aa0ee4259f23b48a294",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/414071f888bca356eda8a63615e6c54df568e10dc5140aa0ee4259f23b48a294.json",
+        "sha256": "3960fae41cc650851b09ffc489b5a54a03ea5feb033766eca0a28524f5dbffd9",
+        "triangleCount": 28
+      },
+      "after": {
+        "geometryId": "ff6f3005be40a865d0acb5c6769fb268af2702eed84ce79cc06d08a0843aeffa",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/ff6f3005be40a865d0acb5c6769fb268af2702eed84ce79cc06d08a0843aeffa.json",
+        "sha256": "8a2fbb81efaaa7ee593fbe4cb7e286b91711aa8e887eb7bc4736784806f21b13",
+        "triangleCount": 44
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.73000144958496,
+          3.700000047683716,
+          38.85000038146973
+        ],
+        "max": [
+          31.989999771118164,
+          3.8399999141693115,
+          41.14999961853027
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 28,
+        "effectiveStart": 0,
+        "effectiveCount": 28,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 28,
+        "count": 16
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 252,
+          "sha256Float32Bytes": "cc99a4623e1dbf2d0f5aaaedf2e5a25442844ed358b9806c85f04f50f014e559",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 252,
+          "sha256Float32Bytes": "a2642e81553c0114df9c2ed9aea487b1abc5904bac97cc3e4e9a9cc0f7087bb3",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 168,
+          "sha256Float32Bytes": "5cf5877e2716e5eaacc906751b25e2d41935b671ecc7747679fbf7e91c96c588",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 168,
+          "sha256Float32Bytes": "d5beef986f53b1406b8bb38381bb48722f1572175267aeba7c5a77615080a04c",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/11/entry/header-3.77",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/11/entry/header-3.77"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/11/entry/header-3.77",
+        "originalSourceGeometrySha256": "df21aa61a7a0e2a7e6a47b9f38b294378383579af6f56b4e1f59cab2234a95d1",
+        "cutIds": [
+          "ny-west/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/11/entry/jamb--1",
+      "partId": "replacement/main/11/entry/jamb--1",
+      "sectionId": "1_2_1",
+      "operation": "restore-original-closed-jamb",
+      "before": {
+        "geometryId": "5742413cd3508fb604d0122b5ef5257e6f97e6598ec466dff05f3bf7421fd07c",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/5742413cd3508fb604d0122b5ef5257e6f97e6598ec466dff05f3bf7421fd07c.json",
+        "sha256": "fb0a74b853640354e8517930c493d175622f079e25509f4c60b8b9051b5082be",
+        "triangleCount": 22
+      },
+      "after": {
+        "geometryId": "0ab38aa789001fecc362d980f5b72235b990bd673a8633f2d434a7e9245cf6e0",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/0ab38aa789001fecc362d980f5b72235b990bd673a8633f2d434a7e9245cf6e0.json",
+        "sha256": "18799c2929f5704b7c0b4653c1e53b33332d2101d22fc5bd8e4eda4ed9218a9d",
+        "triangleCount": 12
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.75,
+          2.119999885559082,
+          41
+        ],
+        "max": [
+          32.0099983215332,
+          6.239999771118164,
+          41.15999984741211
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": null,
+      "appendedClosureTriangles": null,
+      "sourceAttributePrefix": null,
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/11/entry/jamb--1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/11/entry/jamb--1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/11/entry/jamb--1",
+        "originalSourceGeometrySha256": "8dcc4cb925556ac5235facb1361ca5ce238bf50a45dbedfb63744c18535128b5",
+        "cutIds": [
+          "ny-west/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/11/entry/jamb-1",
+      "partId": "replacement/main/11/entry/jamb-1",
+      "sectionId": "1_2_1",
+      "operation": "restore-original-closed-jamb",
+      "before": {
+        "geometryId": "9315baaff44da3fb944a7c81537102a45821abb79ce71b36742326c520146546",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/9315baaff44da3fb944a7c81537102a45821abb79ce71b36742326c520146546.json",
+        "sha256": "b64d458fbc0375e3f457c9d52725ee7474d7f50bf963bb47ac84a648b8501b76",
+        "triangleCount": 22
+      },
+      "after": {
+        "geometryId": "42d913adcdfa224af193ebf9a54d93ec4d845571f83fab2da9d864cda680ab27",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/42d913adcdfa224af193ebf9a54d93ec4d845571f83fab2da9d864cda680ab27.json",
+        "sha256": "4a726a3e6a08edacbc368a7b5cfbd078b88bc638ce43d06807b0187ad5a546e4",
+        "triangleCount": 12
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.75,
+          2.119999885559082,
+          38.84000015258789
+        ],
+        "max": [
+          32.0099983215332,
+          6.239999771118164,
+          39
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": null,
+      "appendedClosureTriangles": null,
+      "sourceAttributePrefix": null,
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/11/entry/jamb-1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/11/entry/jamb-1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/11/entry/jamb-1",
+        "originalSourceGeometrySha256": "d714c175a8a74c136ad6342e6f4f6f81b362a085111e1564507d56da1897b9e7",
+        "cutIds": [
+          "ny-west/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/main/11/entry/transom-mullion",
+      "partId": "replacement/main/11/entry/transom-mullion",
+      "sectionId": "1_2_2",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "d8117557e040039f7dd6777f0f6ee90573a030b0503df15f4c4135c22a1c7a4f",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/d8117557e040039f7dd6777f0f6ee90573a030b0503df15f4c4135c22a1c7a4f.json",
+        "sha256": "a9884758210c3af27aaa6a4e065041d8633dc8d7ce7f7900c75ad455fd018319",
+        "triangleCount": 14
+      },
+      "after": {
+        "geometryId": "22db56be2880687d7c4419837ca778400682e3923eb60b21eb896877d824c0d1",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/22db56be2880687d7c4419837ca778400682e3923eb60b21eb896877d824c0d1.json",
+        "sha256": "be5fc4e62bc551a9c013b87926237457a1863c87b93ac55a7919492b4273aa59",
+        "triangleCount": 22
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          31.799999237060547,
+          4.920000076293945,
+          39.954999923706055
+        ],
+        "max": [
+          31.979999542236328,
+          6.239999771118164,
+          40.045000076293945
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 14,
+        "effectiveStart": 0,
+        "effectiveCount": 14,
+        "retessellated": false
+      },
+      "appendedClosureTriangles": {
+        "start": 14,
+        "count": 8
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 126,
+          "sha256Float32Bytes": "0c9a6544edf77239f399949ba3312abf75563ff6d5acecb9a56ed73d98a30446",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 126,
+          "sha256Float32Bytes": "96623d8558fa0ffaa1a057099727b19f218e0797e8125f2a9da4d461071ce1f5",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 84,
+          "sha256Float32Bytes": "a6a54a9cb4c21f44978e7af396aaf3d98d4c797547e8604c67bb34eb14c441af",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 84,
+          "sha256Float32Bytes": "884b904748f12c9cc743e75ed9811ebba91470558cd89a24f3ed62f3638d5199",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/main/11/entry/transom-mullion",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/main/11/entry/transom-mullion"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "originalSourcePartId": "main/11/entry/transom-mullion",
+        "originalSourceGeometrySha256": "81ed850f29e3df9517846d451a217a32a218532360e1b2547489155902a0226e",
+        "cutIds": [
+          "ny-west/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/porch-east/cornice-1",
+      "partId": "replacement/porch-east/cornice-1",
+      "sectionId": "5_2_3",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "d0326ac8d199ebb982576e87209a0677109b564b6d694fe5bdb58a84662e22fa",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/d0326ac8d199ebb982576e87209a0677109b564b6d694fe5bdb58a84662e22fa.json",
+        "sha256": "ca72112a6d59e0d793441afe0c24239bfba2e5371ff005a1d348856af33f5777",
+        "triangleCount": 216
+      },
+      "after": {
+        "geometryId": "ae67eb2f149be2ce0cf72d493e28e3b8df7b884b97b324e71017bad7df8bbe53",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/ae67eb2f149be2ce0cf72d493e28e3b8df7b884b97b324e71017bad7df8bbe53.json",
+        "sha256": "5f177dcc4b4400008fdfe897119423fc8051cfec39e2aeb9f9fab40b55091c49",
+        "triangleCount": 248
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          80,
+          8.180000305175781,
+          31.75
+        ],
+        "max": [
+          89.25,
+          8.420000076293945,
+          48.25
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 216,
+        "effectiveStart": 0,
+        "effectiveCount": 230,
+        "retessellated": true
+      },
+      "appendedClosureTriangles": {
+        "start": 230,
+        "count": 18
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 1944,
+          "sha256Float32Bytes": "ec84da80d31117d67048fa73bfdd1bd8a8f55df0b5f04fc041dcb8105461de35",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 1944,
+          "sha256Float32Bytes": "947d5e931139ebb9c9acad65c91145de80137d466d460ee76530078ec836a6a8",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 1296,
+          "sha256Float32Bytes": "11938b0faded64c8d966b9c82e235f9dc6d729477b74ef50c3cc2ce6bea3c01c",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 1296,
+          "sha256Float32Bytes": "11938b0faded64c8d966b9c82e235f9dc6d729477b74ef50c3cc2ce6bea3c01c",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/porch-east/cornice-1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/porch-east/cornice-1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "topologyAmendmentCommit": "2ec28370bdb7e0b4c57b687a5b58f8b2d78215ae",
+        "originalSourcePartId": "porch-east/cornice-1",
+        "originalSourceGeometrySha256": "1050dd29a78083600532a11489e1c8614b5b369b756e6e5e0ac6dca6c59f0dbd",
+        "cutIds": [
+          "ny-east-upper/opening"
+        ]
+      }
+    },
+    {
+      "sourcePartId": "replacement/porch-west/cornice-1",
+      "partId": "replacement/porch-west/cornice-1",
+      "sectionId": "1_2_3",
+      "operation": "append-cut-plane-caps",
+      "before": {
+        "geometryId": "04824f0583d05e546494e35226271707f3b57ca39337014a90a1096488b7ef77",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/04824f0583d05e546494e35226271707f3b57ca39337014a90a1096488b7ef77.json",
+        "sha256": "ffe927ae61333917edec9842e4083627e86eef252e14bd69af9397f0c5167765",
+        "triangleCount": 216
+      },
+      "after": {
+        "geometryId": "438a80bbcd5a6be1b571c3dc3baff7ad05ba72728e5327c59b49d281cd85efd3",
+        "geometryPath": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/438a80bbcd5a6be1b571c3dc3baff7ad05ba72728e5327c59b49d281cd85efd3.json",
+        "sha256": "a57dd9b525f2e6b5aae1e19b8c888fd7bf6886a57d65178b0138022828a0cc02",
+        "triangleCount": 248
+      },
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "bounds": {
+        "min": [
+          22.75,
+          8.180000305175781,
+          31.75
+        ],
+        "max": [
+          32,
+          8.420000076293945,
+          48.25
+        ]
+      },
+      "appearanceMaterialId": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+      "retainedSourceTriangles": {
+        "sourceCount": 216,
+        "effectiveStart": 0,
+        "effectiveCount": 230,
+        "retessellated": true
+      },
+      "appendedClosureTriangles": {
+        "start": 230,
+        "count": 18
+      },
+      "sourceAttributePrefix": {
+        "position": {
+          "elements": 1944,
+          "sha256Float32Bytes": "f9b8dc08b2f18847013a1fa4ccea7ab61cfd437f967051a2bc5c2ad3b44c18e0",
+          "identicalPrefix": true
+        },
+        "normal": {
+          "elements": 1944,
+          "sha256Float32Bytes": "4241e4893e7269340148f078b771dc93526f4cc258e6c93ae78293008fd880cb",
+          "identicalPrefix": true
+        },
+        "uv": {
+          "elements": 1296,
+          "sha256Float32Bytes": "11938b0faded64c8d966b9c82e235f9dc6d729477b74ef50c3cc2ce6bea3c01c",
+          "identicalPrefix": true
+        },
+        "grossUV": {
+          "elements": 1296,
+          "sha256Float32Bytes": "11938b0faded64c8d966b9c82e235f9dc6d729477b74ef50c3cc2ce6bea3c01c",
+          "identicalPrefix": true
+        }
+      },
+      "closedSolid": true,
+      "retirement": {
+        "fuelOwnerId": "carrier/replacement/porch-west/cornice-1",
+        "physicalState": "local-native-fragments",
+        "wholeCarrierRetirementFromSinglePatch": false
+      },
+      "evidenceRef": {
+        "path": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+        "sourcePartId": "replacement/porch-west/cornice-1"
+      },
+      "provenance": {
+        "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+        "topologyAmendmentCommit": "2ec28370bdb7e0b4c57b687a5b58f8b2d78215ae",
+        "originalSourcePartId": "porch-west/cornice-1",
+        "originalSourceGeometrySha256": "cd809923bc6e6cf11831c33947c5df149bdbee47db648eeea9f76f943b6f04b8",
+        "cutIds": [
+          "ny-west-upper/opening"
+        ]
+      }
+    }
+  ],
+  "ownership": "Same effective buffer and matrix for rendering, collision, aiming, heat and support; original sources are immutable. Canonical fuel once, local patch retirement.",
+  "evidencePath": "art/source/shared-map-fire-bindings/completion-v1/geometry-evidence.json",
+  "authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65",
+  "topologyAmendmentCommit": "2ec28370bdb7e0b4c57b687a5b58f8b2d78215ae"
+}

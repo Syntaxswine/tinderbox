@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "inputBindingsSha256": "7490e3bfeeab4a6080d2c9d97b99fc81bac875d711c83fcbe4c10e34e008b1f9",
+  "attempts": [
+    {
+      "stage": "append-closure-only",
+      "sourcePartId": "replacement/edge-1/cornice-1",
+      "result": "failed strict edge pairing",
+      "unmatchedEdges": 12,
+      "reason": "Retained source triangles have T-junctions across the low portal cut. Appending closure alone leaves nonconforming triangulation.",
+      "correction": "Preserve attribute buffers and all source coordinates; split derived triangle indices at existing edge knots, with an explicit source-to-effective triangle map. No closedness waiver."
+    }
+  ]
+}

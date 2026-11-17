@@ -1,0 +1,494 @@
+{
+  "additionalMountProposalsNotApplied": [
+    {
+      "affectedUnsupportedCarrierIds": [
+        "carrier/entry/cameo-bust--1",
+        "carrier/entry/cameo-head--1",
+        "carrier/entry/medallion--1",
+        "carrier/entry/medallion-field--1"
+      ],
+      "applied": false,
+      "authorityRequired": true,
+      "childRegion": {
+        "bounds": {
+          "max": [
+            50.19999997615814,
+            10.529999542236329,
+            25.900000002235174
+          ],
+          "min": [
+            50.14999997615814,
+            10.429999542236327,
+            25.850000002235173
+          ]
+        },
+        "boundsMeaning": "local selector only; exact effective source geometry remains authoritative",
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryId": "439984403f802b07df16a3905eef05c5493b9fc53a618a2813e4800c79f4f597",
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/439984403f802b07df16a3905eef05c5493b9fc53a618a2813e4800c79f4f597.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              2.220446049250313e-16,
+              1,
+              0,
+              0,
+              -1,
+              2.220446049250313e-16,
+              0,
+              51,
+              10.479999542236328,
+              25.84000000357628,
+              1
+            ],
+            "partId": "entry/medallion--1",
+            "sourcePartId": "entry/medallion--1",
+            "sourceRange": null
+          }
+        ],
+        "witnessPoint": [
+          50.14999997615814,
+          10.479999542236328,
+          25.900000002235174
+        ]
+      },
+      "gapMetres": 0.019999999552965164,
+      "geometricBearing": false,
+      "groundAnchor": false,
+      "kind": "fixed-assembly-mount",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            50.19999997615814,
+            10.479999542236328,
+            25.97000000178814
+          ],
+          "min": [
+            50.099999976158145,
+            10.429999542236327,
+            25.92000000178814
+          ]
+        },
+        "boundsMeaning": "local selector only; exact effective source geometry remains authoritative",
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryId": "96412d3b60ee647c605f9d28e052a23527cfd374d8639abe147d00366b65b793",
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/96412d3b60ee647c605f9d28e052a23527cfd374d8639abe147d00366b65b793.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              50.5,
+              9.479999542236328,
+              26,
+              1
+            ],
+            "partId": "main/0/cell-4-18/1",
+            "sourcePartId": "main/0/cell-4-18/1",
+            "sourceRange": null
+          }
+        ],
+        "witnessPoint": [
+          50.14999997615814,
+          10.479999542236328,
+          25.92000000178814
+        ]
+      },
+      "proposedChildCarrierId": "carrier/entry/medallion--1",
+      "proposedParentCarrierId": "carrier/main/0/cell-4-18/1",
+      "reason": "Medallion assembly has actual internal overlaps but its backing disc stands about 20 mm off the real facade."
+    },
+    {
+      "affectedUnsupportedCarrierIds": [
+        "carrier/entry/cameo-bust-1",
+        "carrier/entry/cameo-head-1",
+        "carrier/entry/medallion-1",
+        "carrier/entry/medallion-field-1"
+      ],
+      "applied": false,
+      "authorityRequired": true,
+      "childRegion": {
+        "bounds": {
+          "max": [
+            60.19999997615814,
+            10.529999542236329,
+            25.900000002235174
+          ],
+          "min": [
+            60.14999997615814,
+            10.429999542236327,
+            25.850000002235173
+          ]
+        },
+        "boundsMeaning": "local selector only; exact effective source geometry remains authoritative",
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryId": "439984403f802b07df16a3905eef05c5493b9fc53a618a2813e4800c79f4f597",
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/439984403f802b07df16a3905eef05c5493b9fc53a618a2813e4800c79f4f597.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              2.220446049250313e-16,
+              1,
+              0,
+              0,
+              -1,
+              2.220446049250313e-16,
+              0,
+              61,
+              10.479999542236328,
+              25.84000000357628,
+              1
+            ],
+            "partId": "entry/medallion-1",
+            "sourcePartId": "entry/medallion-1",
+            "sourceRange": null
+          }
+        ],
+        "witnessPoint": [
+          60.14999997615814,
+          10.479999542236328,
+          25.900000002235174
+        ]
+      },
+      "gapMetres": 0.019999999552965164,
+      "geometricBearing": false,
+      "groundAnchor": false,
+      "kind": "fixed-assembly-mount",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            60.19999997615814,
+            10.479999542236328,
+            25.97000000178814
+          ],
+          "min": [
+            60.099999976158145,
+            10.429999542236327,
+            25.92000000178814
+          ]
+        },
+        "boundsMeaning": "local selector only; exact effective source geometry remains authoritative",
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryId": "96412d3b60ee647c605f9d28e052a23527cfd374d8639abe147d00366b65b793",
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/96412d3b60ee647c605f9d28e052a23527cfd374d8639abe147d00366b65b793.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              60.5,
+              9.479999542236328,
+              26,
+              1
+            ],
+            "partId": "main/0/cell-4-28/1",
+            "sourcePartId": "main/0/cell-4-28/1",
+            "sourceRange": null
+          }
+        ],
+        "witnessPoint": [
+          60.14999997615814,
+          10.479999542236328,
+          25.92000000178814
+        ]
+      },
+      "proposedChildCarrierId": "carrier/entry/medallion-1",
+      "proposedParentCarrierId": "carrier/main/0/cell-4-28/1",
+      "reason": "Medallion assembly has actual internal overlaps but its backing disc stands about 20 mm off the real facade."
+    },
+    {
+      "affectedUnsupportedCarrierIds": [
+        "carrier/tower-east/terminal"
+      ],
+      "applied": false,
+      "authorityRequired": true,
+      "bearingArea": 0,
+      "childRegion": {
+        "bounds": {
+          "max": [
+            66.05,
+            34.15000122338533,
+            42.05
+          ],
+          "min": [
+            65.95,
+            34.100001223385334,
+            41.95
+          ]
+        },
+        "boundsMeaning": "local selector only; exact effective source geometry remains authoritative",
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryId": "67eabb41be18799998aa9ace79a9cd6596caf202ce9b1f3deb26d690b0f3d46e",
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/67eabb41be18799998aa9ace79a9cd6596caf202ce9b1f3deb26d690b0f3d46e.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              66,
+              34.220001220703125,
+              42,
+              1
+            ],
+            "partId": "tower-east/terminal",
+            "sourcePartId": "tower-east/terminal",
+            "sourceRange": null
+          }
+        ],
+        "witnessPoint": [
+          66.0,
+          34.100001223385334,
+          42.0
+        ]
+      },
+      "geometricBearing": false,
+      "groundAnchor": false,
+      "kind": "fixed-assembly-mount",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            66.05,
+            34.09999942779541,
+            42.05
+          ],
+          "min": [
+            65.95,
+            34.04999942779541,
+            41.95
+          ]
+        },
+        "boundsMeaning": "local selector only; exact effective source geometry remains authoritative",
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryId": "0eed801b9f30869a4cd3187f3bcc18f4c42aa932b56858d5c932ee9843cb606a",
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/0eed801b9f30869a4cd3187f3bcc18f4c42aa932b56858d5c932ee9843cb606a.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              66,
+              31.979999542236328,
+              42,
+              1
+            ],
+            "partId": "tower-east/cap-hip",
+            "sourcePartId": "tower-east/cap-hip",
+            "sourceRange": null
+          }
+        ],
+        "witnessPoint": [
+          66.0,
+          34.09999942779541,
+          42.0
+        ]
+      },
+      "pointSeparationMetres": 1.7955899238586426e-06,
+      "proposedChildCarrierId": "carrier/tower-east/terminal",
+      "proposedParentCarrierId": "carrier/tower-east/cap-hip",
+      "reason": "Finial foot meets the roof apex at a point; no positive-area bearing or embedded fastening is modelled."
+    },
+    {
+      "affectedUnsupportedCarrierIds": [
+        "carrier/tower-west/terminal"
+      ],
+      "applied": false,
+      "authorityRequired": true,
+      "bearingArea": 0,
+      "childRegion": {
+        "bounds": {
+          "max": [
+            46.05,
+            34.15000122338533,
+            42.05
+          ],
+          "min": [
+            45.95,
+            34.100001223385334,
+            41.95
+          ]
+        },
+        "boundsMeaning": "local selector only; exact effective source geometry remains authoritative",
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryId": "67eabb41be18799998aa9ace79a9cd6596caf202ce9b1f3deb26d690b0f3d46e",
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/67eabb41be18799998aa9ace79a9cd6596caf202ce9b1f3deb26d690b0f3d46e.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              46,
+              34.220001220703125,
+              42,
+              1
+            ],
+            "partId": "tower-west/terminal",
+            "sourcePartId": "tower-west/terminal",
+            "sourceRange": null
+          }
+        ],
+        "witnessPoint": [
+          46.0,
+          34.100001223385334,
+          42.0
+        ]
+      },
+      "geometricBearing": false,
+      "groundAnchor": false,
+      "kind": "fixed-assembly-mount",
+      "parentRegion": {
+        "bounds": {
+          "max": [
+            46.05,
+            34.09999942779541,
+            42.05
+          ],
+          "min": [
+            45.95,
+            34.04999942779541,
+            41.95
+          ]
+        },
+        "boundsMeaning": "local selector only; exact effective source geometry remains authoritative",
+        "frame": "emitted-world",
+        "geometryRefs": [
+          {
+            "geometryId": "0eed801b9f30869a4cd3187f3bcc18f4c42aa932b56858d5c932ee9843cb606a",
+            "geometryPath": "assets/art/place-scenes/new-york/geometry/0eed801b9f30869a4cd3187f3bcc18f4c42aa932b56858d5c932ee9843cb606a.json",
+            "matrix": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              46,
+              31.979999542236328,
+              42,
+              1
+            ],
+            "partId": "tower-west/cap-hip",
+            "sourcePartId": "tower-west/cap-hip",
+            "sourceRange": null
+          }
+        ],
+        "witnessPoint": [
+          46.0,
+          34.09999942779541,
+          42.0
+        ]
+      },
+      "pointSeparationMetres": 1.7955899238586426e-06,
+      "proposedChildCarrierId": "carrier/tower-west/terminal",
+      "proposedParentCarrierId": "carrier/tower-west/cap-hip",
+      "reason": "Finial foot meets the roof apex at a point; no positive-area bearing or embedded fastening is modelled."
+    }
+  ],
+  "completedBindingsSha256": "c23b5d0cd9422f1dfd31b82b8fab3977828a723eb4d3f815311defd803a872f1",
+  "effectiveGeometryOverlay": {
+    "indexPath": "assets/art/shared-map-derived-geometry/new-york/v1/index.json",
+    "sha256": "f1252c7364adfeb025f573fc4650020e71915a3e17e71bcf2e725e56c3f1c941",
+    "version": 1
+  },
+  "finiteLedger": {
+    "awningCount": 58,
+    "coreByClass": {
+      "clapboard": 2843.006532,
+      "cloth": 17.4,
+      "door": 12.6,
+      "frame": 11179.439092,
+      "roof": 1715.398329
+    },
+    "coreTotal": 15767.843953,
+    "doorLeafCount": 10,
+    "finishCarrierIds": [
+      "carrier/main/0/cell-1-22/1"
+    ],
+    "finishTotal": 0.1,
+    "oneOwnerPerLogicalSourcePart": true,
+    "total": 15767.943953,
+    "unassignedExcluded": false,
+    "unit": "prototype-fuel-unit",
+    "unverifiedClosedVolumeExcluded": false
+  },
+  "initialUnsupportedCarrierIds": [
+    "carrier/entry/cameo-bust--1",
+    "carrier/entry/cameo-bust-1",
+    "carrier/entry/cameo-head--1",
+    "carrier/entry/cameo-head-1",
+    "carrier/entry/medallion--1",
+    "carrier/entry/medallion-1",
+    "carrier/entry/medallion-field--1",
+    "carrier/entry/medallion-field-1",
+    "carrier/tower-east/terminal",
+    "carrier/tower-west/terminal"
+  ],
+  "proposedAuthorityAtThisStage": null,
+  "stage": "Before the architect-approved four additional mounts; source geometry and fuel already verified",
+  "version": 1
+}

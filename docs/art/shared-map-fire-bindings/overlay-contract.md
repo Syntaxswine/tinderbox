@@ -42,7 +42,7 @@ replace exact collision/heat geometry. IDs stay place-local and are qualified on
     "matrix": ["<same sixteen numeric matrix elements>"],
     "bounds": {"min": ["<world>"], "max": ["<world>"]},
     "appearanceMaterialId": "<unchanged source appearance hash>",
-    "retainedSourceTriangles": {"start": 0, "count": 14},
+    "retainedSourceTriangles": {"sourceCount": 14, "effectiveStart": 0, "effectiveCount": 14, "retessellated": false},
     "appendedClosureTriangles": {"start": 14, "count": 2},
     "provenance": {"authorityCommit": "fe29be3a174121914cc762e1bc9f10004186fb65", "originalSourcePartId": "<native original>", "originalSourceGeometrySha256": "<original factory record>", "cutIds": ["<existing cut>"]}
   }]
@@ -56,8 +56,12 @@ Geometry payloads use the existing `{attributes:{position,normal,uv,grossUV},ind
 shape, preserving item sizes and existing arrays. `geometryId` hashes the canonical JSON
 payload without its trailing LF; `sha256` hashes actual file bytes including LF.
 
-Exactly 25 records use `append-cut-plane-caps`: existing buffers and triangles remain
-an identical prefix; new triangles close only existing retained-solid cut faces.
+Exactly 25 records use `append-cut-plane-caps`: existing attribute buffers remain
+an identical prefix; new triangles close only existing retained-solid cut faces. Where
+retained source triangles have T-junctions, derived index-only subdivision keeps the
+same source surfaces/UV registration and records an explicit source-to-effective
+triangle map. Those cases report the retained effective interval and mapping rather
+than claiming unchanged original triangle indices.
 Exactly four use `restore-original-closed-jamb`: the full effective buffer comes from
 the verified original native source, with original UV/normal/grossUV preserved; no
 retained-prefix claim is made for those four. Their original/emitted before hashes and
@@ -102,3 +106,15 @@ finite quantities, exact source/patch ownership and affected native clearance ch
 All 75 accepted material choices are applied explicitly, with no extra coating. Remaining
 unsupported new carriers are listed rather than grounded. No renderer/JPG helper starts
 until the later shared pilot grant.
+
+## Narrow retained-topology amendment
+
+Only `replacement/edge-1/cornice-1`, `replacement/edge-11/cornice-1`,
+`replacement/porch-east/cornice-1` and `replacement/porch-west/cornice-1` need
+derived index subdivision at existing retained T-junctions. Original position,
+normal, UV and grossUV arrays remain an identical prefix. Appended attributes are
+interpolated on their original source face. Evidence records every affected original
+triangle/index range and its derived triangle interval, coplanarity, covered union
+area, nonoverlap and interpolation error at Float32 precision. No unrelated part is
+remeshed and no closedness/clearance condition is weakened. The original-triangle
+sequence is not claimed unchanged in these four cases.

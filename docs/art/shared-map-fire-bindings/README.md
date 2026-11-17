@@ -1,5 +1,9 @@
 # New York shared-map physical bindings
 
+The [completed additive package](completion-v1.md) applies the accepted coverage and
+geometry work. This page and `new-york.json` remain the preserved original pilot/source
+control; the completed compiler input is `new-york-complete-v1.json`.
+
 Artist source candidate for [Milestone 29](../../milestones/29-shared-gameplay-maps.md).
 This follows [shared modular art workflow Version 2](../shared-modular-art-workflow.md),
 including separate appearance, physical meaning, fuel, native dimensions and delivery status.
