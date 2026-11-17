@@ -3,6 +3,35 @@ import assert from 'node:assert/strict';
 import {EventEmitter} from 'node:events';
 import {createHash} from 'node:crypto';
 import {createPageContextOwner,runIsolatedLanes,endpointStateSha256,scalarWorkload,assertScalarWorkload,fireComparisonMode} from '../../tools/review/browser-lanes.mjs';
+import {reviewHelperRecord,launchRecordedBrowser,finishReviewHelper} from '../../tools/review/catalogue-browser.mjs';
+
+function launchFixture(){
+  const records=new Map(),save=(name,value)=>records.set(name,structuredClone(value)),driver={pid:101,creationFiletime:'123456',executable:'task-owned-node'};
+  const record=reviewHelperRecord({purpose:'Mock pre-page lifecycle control',driver,root:'/fixture',output:'/fixture/artifacts/review',manifestSha256:'f'.repeat(64),started:1000,lifetimeMs:180000,target:'nested local package',stopFile:'/fixture/STOP'});
+  // The real owner publishes this actual server port immediately after listen,
+  // before calling the recorded launch boundary.
+  record.ports.push(43123);save('helper.json',record);return {records,save,record,driver};
+}
+
+test('a pre-page browser launch failure records the original deadline/identity/server port and verified cleanup without creating a renderer',async()=>{
+  const f=launchFixture(),failure=Object.assign(Error('Mock CDP launch failure'),{logs:'<launched> pid=202\n[pid=202] <process did exit: exitCode=0, signal=null>'});let closed=false;
+  await assert.rejects(launchRecordedBrowser({...f,identity:()=>assert.fail('No browser handle was returned'),launch:async()=>{const saved=f.records.get('helper.json');assert.equal(saved.launchState,'launching');assert.deepEqual(saved.driver,f.driver);assert.deepEqual(saved.ports,[43123]);assert.equal(Date.parse(saved.expiresAt),181000);throw failure;}}),e=>e===failure);
+  const receipt=await finishReviewHelper({...f,close:async()=>{closed=true;},listening:async port=>{assert.equal(port,43123);assert.equal(closed,true);return false;},processPresent:pid=>{assert.equal(pid,202);return false;},alive:()=>assert.fail('An unknown creation identity must not be fabricated')});
+  assert.equal(receipt.browserExited,true);assert.deepEqual(receipt.portsListening,[false]);assert.equal(receipt.helper.browser,null);assert.equal(receipt.helper.failedLaunch.pid,202);assert.equal(receipt.helper.launchState,'failed');assert.equal(Date.parse(receipt.helper.expiresAt),181000);assert.equal(f.records.get('launch-failure.json').logs,failure.logs);assert.ok(f.records.has('cleanup-receipt.json'));
+});
+
+test('an unverified launch cannot produce a passing cleanup receipt when no browser identity or exit evidence exists',async()=>{
+  const f=launchFixture();await assert.rejects(launchRecordedBrowser({...f,launch:async()=>{throw Error('No process evidence');},identity:()=>assert.fail()}),/No process evidence/);
+  await assert.rejects(finishReviewHelper({...f,close:async()=>{},listening:async()=>false,processPresent:()=>assert.fail(),alive:()=>assert.fail()}),/cleanup incomplete/);assert.equal(f.records.get('cleanup-receipt.json').browserExited,false);
+});
+
+test('successful launch adds its exact browser identity and debug port without extending the original helper deadline',async()=>{
+  const f=launchFixture(),child={pid:202,exitCode:null,signalCode:null},handle={process:()=>child,wsEndpoint:()=> 'ws://127.0.0.1:43124/mock'};
+  assert.equal(await launchRecordedBrowser({...f,launch:async()=>handle,identity:pid=>({pid,creationFiletime:'987654',executable:'task-owned-browser'})}),handle);
+  assert.deepEqual(f.record.ports,[43123,43124]);assert.equal(Date.parse(f.record.expiresAt),181000);
+  const receipt=await finishReviewHelper({...f,child,close:async()=>{child.exitCode=0;},listening:async()=>false,alive:()=>assert.fail('The process handle already confirms exit'),processPresent:()=>assert.fail()});
+  assert.equal(receipt.browserExited,true);assert.deepEqual(receipt.helper.browser,{pid:202,creationFiletime:'987654',executable:'task-owned-browser'});assert.equal(Date.parse(receipt.helper.expiresAt),181000);
+});
 
 function fixture({onPage=()=>{},failRoute=false}={}){
   const log=[],contexts=[];

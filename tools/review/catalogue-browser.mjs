@@ -7,6 +7,30 @@ import {createRequire} from 'node:module';
 import {createHash} from 'node:crypto';
 import {createPageContextOwner} from './browser-lanes.mjs';
 
+export function reviewHelperRecord({purpose,driver,root,output,manifestSha256,started,lifetimeMs,target,stopFile}){
+ return {owner:'Coder Tinderbox',project:'Catalogue modular host',purpose,driver,browser:null,launchState:'not-started',ports:[],target,startedAt:new Date(started).toISOString(),expiresAt:new Date(started+lifetimeMs).toISOString(),automaticStop:'Driver deadline calls context/browser/server close',stopFile,stopMethod:'STOP file, deadline, or finally',restart:{cwd:root,executable:process.execPath,args:process.argv.slice(1),output,manifestSha256}};
+}
+
+export async function launchRecordedBrowser({record,save,launch,identity,closeHandle=handle=>handle.close()}){
+ record.launchState='launching';save('helper.json',record);let handle;
+ try{
+  handle=await launch();record.browser=identity(handle.process().pid);record.launchState='launched';record.ports.push(Number(new URL(handle.wsEndpoint()).port));save('helper.json',record);return handle;
+ }catch(error){
+  const logs=error.logs||'',pid=handle?.process().pid||Number(logs.match(/<launched> pid=(\d+)/)?.[1]);
+  if(handle)await closeHandle(handle);
+  record.failedLaunch={pid:pid||null,libraryReportedExit:handle?handle.process().exitCode!==null||handle.process().signalCode!==null:!!pid&&logs.includes('[pid='+pid+'] <process did exit:'),identityUnavailable:'Launch did not provide a complete browser identity; no creation time or executable is invented.'};record.launchState='failed';save('helper.json',record);save('launch-failure.json',{stack:error.stack,logs});throw error;
+ }
+}
+
+export async function finishReviewHelper({record,save,close,listening,alive,processPresent,child,contextLifecycle}){
+ let cleanupError;try{await close();}catch(error){cleanupError=error.stack||String(error);}
+ if(record){
+  const portsListening=await Promise.all(record.ports.map(listening)),browserExited=record.browser?!!child&&(child.exitCode!==null||child.signalCode!==null)||!alive(record.browser):record.launchState==='not-started'||!!record.failedLaunch?.libraryReportedExit&&!processPresent(record.failedLaunch.pid),warning=cleanupError&&browserExited&&portsListening.every(v=>!v)?cleanupError:undefined;
+  if(warning)cleanupError=undefined;const receipt={closedAt:new Date().toISOString(),helper:record,portsListening,browserExited,contextLifecycle:contextLifecycle?.(),warning,cleanupError};save('cleanup-receipt.json',receipt);
+  if(!browserExited||portsListening.some(Boolean))throw Error('QA helper cleanup incomplete');if(cleanupError)throw Error(cleanupError);return receipt;
+ }if(cleanupError)throw Error(cleanupError);
+}
+
 // Reuses the furnished-house review lifecycle, serving the real packaged title
 // and Catalogue visit. No fixture page, alternate game controller or retained
 // browser/profile is created.
@@ -25,6 +49,7 @@ export async function withCatalogueBrowser(run,{output,lifetimeMs=900000,url,ref
  }
  const identity=pid=>JSON.parse(execFileSync('powershell.exe',['-NoProfile','-Command','$p=Get-Process -Id '+pid+';[pscustomobject]@{pid=$p.Id;creationFiletime=$p.StartTime.ToUniversalTime().ToFileTimeUtc().ToString();executable=$p.Path}|ConvertTo-Json -Compress'],{encoding:'utf8',windowsHide:true}));
  const alive=r=>JSON.parse(execFileSync('powershell.exe',['-NoProfile','-Command','$p=Get-Process -Id '+r.pid+' -ErrorAction SilentlyContinue;if($null -eq $p){"false"}else{($p.StartTime.ToUniversalTime().ToFileTimeUtc().ToString() -eq "'+r.creationFiletime+'")|ConvertTo-Json -Compress}'],{encoding:'utf8',windowsHide:true}));
+ const processPresent=pid=>JSON.parse(execFileSync('powershell.exe',['-NoProfile','-Command','[bool](Get-Process -Id '+pid+' -ErrorAction SilentlyContinue)|ConvertTo-Json -Compress'],{encoding:'utf8',windowsHide:true}));
  const listening=port=>new Promise(resolve=>{const s=net.connect({host:'127.0.0.1',port}),done=v=>{s.destroy();resolve(v);};s.once('connect',()=>done(true));s.once('error',()=>done(false));s.setTimeout(500,()=>done(false));});
  const mime={'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.png':'image/png','.jpg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.woff2':'font/woff2','.ttf':'font/ttf','.ogg':'audio/ogg','.mp3':'audio/mpeg'};
  const server=http.createServer((req,res)=>{let relative,delivery;try{const pathname=decodeURIComponent(new URL(req.url,'http://127.0.0.1').pathname);delivery=deliveries.find(d=>pathname.startsWith(d.prefix));if(!delivery)return res.writeHead(404).end();relative=pathname.slice(delivery.prefix.length)||'index.html';}catch{return res.writeHead(400).end();}const p=path.resolve(delivery.directory,relative);if(!p.startsWith(delivery.directory+path.sep)||!delivery.files.has(relative))return res.writeHead(404).end();res.writeHead(200,{'Content-Type':mime[path.extname(p)]||'application/octet-stream','Cache-Control':'no-store'});fs.createReadStream(p).on('error',()=>res.destroy()).pipe(res);});
@@ -34,15 +59,18 @@ export async function withCatalogueBrowser(run,{output,lifetimeMs=900000,url,ref
  const close=()=>closing??=(async()=>{clearTimeout(deadline);clearInterval(watcher);try{if(contextOwner)await bounded(()=>contextOwner.closeAll(),'contexts');}finally{try{if(browser)await bounded(()=>browser.close(),'client');}finally{try{if(edge)await bounded(()=>edge.close(),'browser');}finally{if(server.listening){server.closeAllConnections();await bounded(()=>new Promise(resolve=>server.close(resolve)),'server');}}}}})();
  try{
   const started=Date.now();deadline=setTimeout(()=>{save('deadline.json',{expiredAt:new Date().toISOString()});void close();},lifetimeMs);
-  if(!remote)await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});edge=await chromium.launchServer({channel:'msedge',headless:true,args:['--enable-gpu','--use-angle=d3d11'],timeout:30000});
-  record={owner:'Coder Tinderbox',project:'Catalogue modular host',purpose,driver:identity(process.pid),browser:identity(edge.process().pid),ports:[...(!remote?[server.address().port]:[]),Number(new URL(edge.wsEndpoint()).port)],target:remote?.href||'nested local package',startedAt:new Date(started).toISOString(),expiresAt:new Date(started+lifetimeMs).toISOString(),automaticStop:'Driver deadline calls context/browser/server close',stopFile,stopMethod:'STOP file, deadline, or finally',restart:{cwd:root,executable:process.execPath,args:process.argv.slice(1),output:out,manifestSha256:createHash('sha256').update(bytes).digest('hex')}};save('helper.json',record);watcher=setInterval(()=>{if(fs.existsSync(stopFile))void close();},300);console.log(JSON.stringify({output:out,helper:record}));
+  record=reviewHelperRecord({purpose,driver:identity(process.pid),root,output:out,manifestSha256:createHash('sha256').update(bytes).digest('hex'),started,lifetimeMs,target:remote?.href||'nested local package',stopFile});save('helper.json',record);
+  if(!remote){await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});record.ports.push(server.address().port);save('helper.json',record);}
+  watcher=setInterval(()=>{if(fs.existsSync(stopFile))void close();},300);
+  edge=await launchRecordedBrowser({record,save,identity,closeHandle:handle=>bounded(()=>handle.close(),'launch-failure-browser'),launch:()=>chromium.launchServer({channel:'msedge',headless:true,args:['--enable-gpu','--use-angle=d3d11'],timeout:30000})});console.log(JSON.stringify({output:out,helper:record}));
+  if(closing){await bounded(()=>edge.close(),'late-browser');throw Error('Review stopped during browser launch');}
   browser=await chromium.connect(edge.wsEndpoint());const origin=remote?.origin||'http://127.0.0.1:'+record.ports[0];
   contextOwner=createPageContextOwner({browser,origin,bounded,onPage(page){page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url());});}});
   const pageContext=await contextOwner.create(),page=pageContext.page;context=pageContext.context;
   if(reference){record.restart.reference={directory:reference.directory,manifestSha256:reference.manifestSha256};save('helper.json',record);}
   const result=await run({page,context,pageContext,createPageContext:contextOwner.create,contextDiagnostics:contextOwner.diagnostics,origin,baseUrl:remote?.href||origin+'/tinderbox/',referenceBaseUrl:reference?origin+reference.prefix:undefined,referenceManifest:reference?.manifest,referenceManifestSha256:reference?.manifestSha256,output:out,save,errors,manifest,manifestSha256:record.restart.manifestSha256});save('result.json',{result,errors});return {output:out,result,errors};
- }catch(error){save('failure.json',{stack:error.stack,errors});throw error;}
+ }catch(error){save('failure.json',{stack:error.stack,logs:error.logs||'',errors});throw error;}
  finally{
-  let cleanupError;try{await close();}catch(error){cleanupError=error.stack||String(error);}if(record){const portsListening=await Promise.all(record.ports.map(listening)),child=edge?.process(),browserExited=!!child&&(child.exitCode!==null||child.signalCode!==null)||!alive(record.browser),warning=cleanupError&&browserExited&&portsListening.every(v=>!v)?cleanupError:undefined;if(warning)cleanupError=undefined;save('cleanup-receipt.json',{closedAt:new Date().toISOString(),helper:record,portsListening,browserExited,contextLifecycle:contextOwner?.diagnostics(),warning,cleanupError});if(!browserExited||portsListening.some(Boolean))throw Error('QA helper cleanup incomplete');}if(cleanupError)throw Error(cleanupError);
+  await finishReviewHelper({record,save,close,listening,alive,processPresent,child:edge?.process(),contextLifecycle:()=>contextOwner?.diagnostics()});
  }
 }
