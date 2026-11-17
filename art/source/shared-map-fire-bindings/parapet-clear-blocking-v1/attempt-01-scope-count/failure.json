@@ -1,0 +1,48 @@
+{
+  "actualCount": 16,
+  "actualNamedParents": [
+    "carrier/edge-1/cornice-7",
+    "carrier/edge-10/cornice-7",
+    "carrier/edge-11/cornice-7",
+    "carrier/edge-2/cornice-7",
+    "carrier/edge-3/cornice-7",
+    "carrier/edge-4/cornice-7",
+    "carrier/edge-8/cornice-7",
+    "carrier/edge-9/cornice-7",
+    "carrier/main-parapet-1/base",
+    "carrier/main-parapet-10/base",
+    "carrier/main-parapet-11/base",
+    "carrier/main-parapet-2/base",
+    "carrier/main-parapet-3/base",
+    "carrier/main-parapet-4/base",
+    "carrier/main-parapet-8/base",
+    "carrier/main-parapet-9/base"
+  ],
+  "cause": "Checker expected nine clear families / 18 original parents / 114 shapes. The immutable table actually has eight clear families / 16 parents / 112 shapes. No source placement, geometry or contact tolerance correction is needed.",
+  "failedSources": [
+    {
+      "path": "check.py",
+      "sha256": "8c9279f09e1ff6020970d762865c8fe48dbc2c230391eaececd8a33a20bc3251"
+    },
+    {
+      "path": "check-native-contacts.mjs",
+      "sha256": "23a89e8de52299b69990a736fa67a96c5c334593292add35d013f858690e1d14"
+    }
+  ],
+  "nativeActivationStarted": false,
+  "node": {
+    "at": "check-native-contacts.mjs:65",
+    "completedBeforeFailure": "192 triangle-contact queries without a missing-contact exception",
+    "error": "Error: Incomplete finite check",
+    "exitCode": 1
+  },
+  "python": {
+    "at": "check.py:80",
+    "completedBeforeFailure": "96 measured solids and 192 exact source-face bearing comparisons",
+    "error": "AssertionError: scope: geometry measures limited to 96 pieces and 18 named parents",
+    "exitCode": 1
+  },
+  "rendererStarted": false,
+  "status": "PRESERVED_FAILED_CHECKER_SCOPE_ASSERTIONS",
+  "version": 1
+}

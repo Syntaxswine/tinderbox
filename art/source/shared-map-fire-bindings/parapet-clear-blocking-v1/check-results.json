@@ -1,0 +1,128 @@
+{
+  "addedStaticFramePrototypeUnits": 4.3008,
+  "checks": {
+    "appearance": 3,
+    "bearing": 192,
+    "determinism": 5,
+    "geometry": 2,
+    "identity": 96,
+    "modular": 96,
+    "native": 2,
+    "placement": 192,
+    "preserved": 2,
+    "quantity": 98,
+    "region": 576,
+    "scope": 1,
+    "solid": 96,
+    "source-proof": 278,
+    "uv": 24
+  },
+  "instanceTriangles": 1152,
+  "localBearings": 192,
+  "manifestPath": "assets/art/shared-map-support-additions/new-york-parapet-clear-blocking-v1/index.json",
+  "manifestSha256": "08bcb4f535a59c67dcaa4e71ac57d7e7034d870ffb690d48ce191d3937b4dd78",
+  "members": 96,
+  "nativeActivationStarted": false,
+  "nativeTriangleContacts": 192,
+  "negativeControls": [
+    {
+      "invalidManifestSha256": "460bfeae9013935657992d16912d477fea89233546d651544b5f42ea601d7fa4",
+      "name": "missing top bearing",
+      "reason": "bearing: missing or duplicated lower/upper bearing",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "invalidManifestSha256": "62177b98cec4ef30f884d3308b2631839403ee3d4230c0a175b292fa81925bbc",
+      "name": "duplicate earlier front ID",
+      "reason": "scope: exact 96 distinct new IDs, excluding original/front IDs",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "invalidManifestSha256": "e5861795defd85ad36bb0857d587c3d72432ca060c1dfc334f224a7cc215f689",
+      "name": "obstructed roof-saddle row",
+      "reason": "scope: obstructed roof-saddle row rejected",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "invalidManifestSha256": "85489723efcb4d3bcf7ba9d3cbf0850e4d7e888147b9d47a65c6834792b6e3da",
+      "name": "widen native contact tolerance",
+      "reason": "bearing: exact witnesses, separation and unchanged native tolerance",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "invalidManifestSha256": "929c643281820832e82b5a1240c9e3c83bf6f5e1630cd8f8e0c99df1cfc47cb5",
+      "name": "inflate accepted static quantity",
+      "reason": "quantity: same accepted frame prototype amount",
+      "result": "EXPECTED_REJECTION"
+    }
+  ],
+  "newGroundAnchors": 0,
+  "originalParents": 16,
+  "preservation": {
+    "artistBaseline": "0f5ef12e737588361b42da6ed30973218eec295d",
+    "earlierTrackedPathsUnchanged": 3543,
+    "vegetationArchives": [
+      {
+        "bytes": 659,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/check-results.json.gz",
+        "sha256": "c6e9389b670497893d41f4ee8102f064d6cb148b598515dee7b9dd8f9a7f061c"
+      },
+      {
+        "bytes": 56140,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/dependency-exceptions.json.gz",
+        "sha256": "c047aa3573c5d7067fdf5680631022c49e96476ceef23a02f65210f8c8430bad"
+      },
+      {
+        "bytes": 9019662,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/glazing-local-damage-proposal.json.gz",
+        "sha256": "456a7133f5158897c95c2a082a1aab51321d38baf4d6a1f6b9b2da15b62c624b"
+      },
+      {
+        "bytes": 375078,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/glazing-source-catalogue.json.gz",
+        "sha256": "a3f3e1bbcdf4a0f55d68d963f5b2ae815a52c275443d8244e3fb10e9447e559a"
+      },
+      {
+        "bytes": 84238,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/input-pins.json.gz",
+        "sha256": "b92cb5eb9800a6baf6b6d8089963375ef3647d1dfbcc41e3efe7e33d31e8daf8"
+      },
+      {
+        "bytes": 379,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/negative-controls.json.gz",
+        "sha256": "d0d291710be67c21625fcdbecd432d722eb34d632ef2436e7f3bc4fd6a9d4688"
+      },
+      {
+        "bytes": 6377,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/original-calculator.py.gz",
+        "sha256": "a6d4516d1fd6ba748cb78b35895481d336fc4fea36a573cd5ed036287a4849f3"
+      },
+      {
+        "bytes": 29448,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/plant-parent-evidence.json.gz",
+        "sha256": "d45879c205ffec7e49c295a0cdd93e8c6a294e0bd0e26496e42ecb6b2450c6e0"
+      },
+      {
+        "bytes": 424877,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/plant-quantity-proofs.json.gz",
+        "sha256": "be69615d713ab9b0b90e239dc8dcc292dae49f01bad8d6a93c5181e5373ed1d6"
+      },
+      {
+        "bytes": 1128,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/schema-proposal.json.gz",
+        "sha256": "23426a5f4c708465cbb7e496c1a701d0f5e089de1b27f1b03d3813efb523f4c6"
+      },
+      {
+        "bytes": 40369,
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/vegetation-owners-proposal.json.gz",
+        "sha256": "fefc91f1ac71978b6bf0fdad0bd0a9445954246eaef13cd5843336ffe6ac2f2d"
+      }
+    ]
+  },
+  "rendererStartedByChecker": false,
+  "result": "PASS",
+  "runtimeBehaviorAcceptance": false,
+  "scope": "Additive source export and finite contacts only. Source-solid exclusions replay the already accepted proof by exact geometry identity; no whole-building native activation or runtime installation.",
+  "sourceProducerSha256": "7a14e099403e474ed5e8184d876b71df59e1573d6d1452cf7044d85eefced0cc",
+  "version": 1
+}

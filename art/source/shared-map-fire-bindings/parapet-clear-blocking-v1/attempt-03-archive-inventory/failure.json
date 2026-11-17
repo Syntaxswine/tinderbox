@@ -1,0 +1,54 @@
+{
+  "cause": "Ten compressed calculation outputs total 10031978 bytes; the original calculator is separately preserved as a 6377-byte gzip. The checker must include all eleven files, 10038355 bytes. No archive bytes are modified.",
+  "error": "AssertionError: preserved: complete compressed vegetation calculation archive",
+  "nativeActivationStarted": false,
+  "observedArchives": [
+    {
+      "bytes": 659,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/check-results.json.gz"
+    },
+    {
+      "bytes": 56140,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/dependency-exceptions.json.gz"
+    },
+    {
+      "bytes": 9019662,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/glazing-local-damage-proposal.json.gz"
+    },
+    {
+      "bytes": 375078,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/glazing-source-catalogue.json.gz"
+    },
+    {
+      "bytes": 84238,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/input-pins.json.gz"
+    },
+    {
+      "bytes": 379,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/negative-controls.json.gz"
+    },
+    {
+      "bytes": 6377,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/original-calculator.py.gz"
+    },
+    {
+      "bytes": 29448,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/plant-parent-evidence.json.gz"
+    },
+    {
+      "bytes": 424877,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/plant-quantity-proofs.json.gz"
+    },
+    {
+      "bytes": 1128,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/schema-proposal.json.gz"
+    },
+    {
+      "bytes": 40369,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/calculation-archive/vegetation-owners-proposal.json.gz"
+    }
+  ],
+  "rendererStarted": false,
+  "status": "PRESERVED_FAILED_ARCHIVE_COUNT_ASSERTION",
+  "version": 1
+}

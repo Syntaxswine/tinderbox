@@ -1,0 +1,1767 @@
+{
+  "version": 1,
+  "result": "PASS",
+  "scope": "Only 96 new clear pieces plus their 16 named original parents. Triangle predicate only; no native activation or runtime behavior acceptance.",
+  "manifestPath": "assets/art/shared-map-support-additions/new-york-parapet-clear-blocking-v1/index.json",
+  "manifestSha256": "08bcb4f535a59c67dcaa4e71ac57d7e7034d870ffb690d48ce191d3937b4dd78",
+  "geometrySha256": "c7356e7897372390040edb82ec1a92e33920230ca68de7e92ca52a7ff8d4d1ec",
+  "sharedGeometryCount": 1,
+  "uniqueMembers": 96,
+  "originalParentCount": 16,
+  "sourceShapesRead": 112,
+  "originalParentIds": [
+    "carrier/edge-1/cornice-7",
+    "carrier/edge-10/cornice-7",
+    "carrier/edge-11/cornice-7",
+    "carrier/edge-2/cornice-7",
+    "carrier/edge-3/cornice-7",
+    "carrier/edge-4/cornice-7",
+    "carrier/edge-8/cornice-7",
+    "carrier/edge-9/cornice-7",
+    "carrier/main-parapet-1/base",
+    "carrier/main-parapet-10/base",
+    "carrier/main-parapet-11/base",
+    "carrier/main-parapet-2/base",
+    "carrier/main-parapet-3/base",
+    "carrier/main-parapet-4/base",
+    "carrier/main-parapet-8/base",
+    "carrier/main-parapet-9/base"
+  ],
+  "geometryBuffersRead": 13,
+  "nativeTriangleContacts": 192,
+  "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+  "producerSha256": "7317391976f43ff3df80262511ce51b544b540267557364675bd2099c8ad9350",
+  "controls": [
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-00/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-00",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-00",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-00/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-00",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-00",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-01/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-01",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-01",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-01/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-01",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-01",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-02/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-02",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-02",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-02/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-02",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-02",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-03/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-03",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-03",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-03/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-03",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-03",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-04/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-04",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-04",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-04/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-04",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-04",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-05/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-05",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-05",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-05/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-05",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-05",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-06/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-06",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-06",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-06/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-06",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-06",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-07/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-07",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-07",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-07/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-07",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-07",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-08/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-08",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-08",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-08/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-08",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-08",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-09/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-09",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-09",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-09/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-09",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-09",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-10/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-10",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-10",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-10/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-10",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-10",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-11/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-11",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-11",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-11/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-11",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-11",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-12/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-12",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-12",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-12/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-12",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-12",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-13/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-13",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-13",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-13/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-13",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-13",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-14/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-14",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-14",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-14/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-14",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-14",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-15/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-15",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-15",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-15/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-15",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-15",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-16/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-16",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-16",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-16/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-16",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-16",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-17/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-17",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-17",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-17/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-17",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-17",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-18/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-18",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-18",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-18/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-18",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-18",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-19/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-19",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-19",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-19/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-19",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-19",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-20/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-20",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-20",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-20/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-20",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-20",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-21/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-21",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-21",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-21/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-21",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-21",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-22/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-22",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-22",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-22/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-22",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-22",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-23/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-23",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-23",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-23/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-23",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-23",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-24/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-24",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-24",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-24/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-24",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-24",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-25/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-25",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-25",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-25/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-25",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-25",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-26/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-26",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-26",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-26/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-26",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-26",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-27/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-27",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-27",
+      "parentCarrierId": "carrier/edge-1/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-27/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-27",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-1/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-27",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-00/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-00",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-00",
+      "parentCarrierId": "carrier/edge-2/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-00/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-00",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-2/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-00",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-01/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-01",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-01",
+      "parentCarrierId": "carrier/edge-2/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-01/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-01",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-2/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-01",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-02/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-02",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-02",
+      "parentCarrierId": "carrier/edge-2/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-02/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-02",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-2/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-02",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-03/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-03",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-03",
+      "parentCarrierId": "carrier/edge-2/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-03/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-03",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-2/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-03",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-04/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-04",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-04",
+      "parentCarrierId": "carrier/edge-2/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-04/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-04",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-2/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-04",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-05/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-05",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-05",
+      "parentCarrierId": "carrier/edge-2/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-05/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-05",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-2/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-05",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-06/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-06",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-06",
+      "parentCarrierId": "carrier/edge-2/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-06/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-06",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-2/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-06",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-07/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-07",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-07",
+      "parentCarrierId": "carrier/edge-2/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-07/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-07",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-2/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-07",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-08/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-08",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-08",
+      "parentCarrierId": "carrier/edge-2/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-08/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-08",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-2/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-08",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-09/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-09",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-09",
+      "parentCarrierId": "carrier/edge-2/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-09/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-09",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-2/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-09",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-00/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-00",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-00",
+      "parentCarrierId": "carrier/edge-3/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-00/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-00",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-3/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-00",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-01/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-01",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-01",
+      "parentCarrierId": "carrier/edge-3/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-01/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-01",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-3/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-01",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-02/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-02",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-02",
+      "parentCarrierId": "carrier/edge-3/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-02/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-02",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-3/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-02",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-03/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-03",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-03",
+      "parentCarrierId": "carrier/edge-3/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-03/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-03",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-3/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-03",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-00/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-00",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-00",
+      "parentCarrierId": "carrier/edge-4/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-00/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-00",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-4/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-00",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-01/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-01",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-01",
+      "parentCarrierId": "carrier/edge-4/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-01/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-01",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-4/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-01",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-02/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-02",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-02",
+      "parentCarrierId": "carrier/edge-4/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-02/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-02",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-4/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-02",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-03/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-03",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-03",
+      "parentCarrierId": "carrier/edge-4/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-03/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-03",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-4/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-03",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-04/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-04",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-04",
+      "parentCarrierId": "carrier/edge-4/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-04/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-04",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-4/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-04",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-05/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-05",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-05",
+      "parentCarrierId": "carrier/edge-4/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-05/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-05",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-4/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-05",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-00/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-00",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-00",
+      "parentCarrierId": "carrier/edge-8/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-00/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-00",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-8/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-00",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-01/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-01",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-01",
+      "parentCarrierId": "carrier/edge-8/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-01/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-01",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-8/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-01",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-02/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-02",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-02",
+      "parentCarrierId": "carrier/edge-8/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-02/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-02",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-8/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-02",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-03/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-03",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-03",
+      "parentCarrierId": "carrier/edge-8/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-03/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-03",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-8/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-03",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-04/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-04",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-04",
+      "parentCarrierId": "carrier/edge-8/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-04/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-04",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-8/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-04",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-05/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-05",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-05",
+      "parentCarrierId": "carrier/edge-8/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-05/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-05",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-8/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-05",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-00/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-00",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-00",
+      "parentCarrierId": "carrier/edge-9/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-00/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-00",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-9/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-00",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-01/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-01",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-01",
+      "parentCarrierId": "carrier/edge-9/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-01/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-01",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-9/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-01",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-02/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-02",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-02",
+      "parentCarrierId": "carrier/edge-9/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-02/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-02",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-9/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-02",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-03/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-03",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-03",
+      "parentCarrierId": "carrier/edge-9/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-03/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-03",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-9/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-03",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-00/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-00",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-00",
+      "parentCarrierId": "carrier/edge-10/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-00/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-00",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-10/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-00",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-01/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-01",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-01",
+      "parentCarrierId": "carrier/edge-10/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-01/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-01",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-10/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-01",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-02/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-02",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-02",
+      "parentCarrierId": "carrier/edge-10/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-02/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-02",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-10/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-02",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-03/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-03",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-03",
+      "parentCarrierId": "carrier/edge-10/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-03/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-03",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-10/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-03",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-04/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-04",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-04",
+      "parentCarrierId": "carrier/edge-10/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-04/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-04",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-10/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-04",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-05/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-05",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-05",
+      "parentCarrierId": "carrier/edge-10/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-05/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-05",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-10/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-05",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-06/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-06",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-06",
+      "parentCarrierId": "carrier/edge-10/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-06/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-06",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-10/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-06",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-07/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-07",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-07",
+      "parentCarrierId": "carrier/edge-10/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-07/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-07",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-10/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-07",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-08/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-08",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-08",
+      "parentCarrierId": "carrier/edge-10/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-08/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-08",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-10/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-08",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-09/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-09",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-09",
+      "parentCarrierId": "carrier/edge-10/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-09/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-09",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-10/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-09",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-00/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-00",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-00",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-00/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-00",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-00",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-01/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-01",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-01",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-01/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-01",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-01",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-02/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-02",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-02",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-02/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-02",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-02",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-03/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-03",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-03",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-03/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-03",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-03",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-04/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-04",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-04",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-04/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-04",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-04",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-05/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-05",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-05",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-05/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-05",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-05",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-06/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-06",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-06",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-06/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-06",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-06",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-07/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-07",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-07",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-07/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-07",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-07",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-08/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-08",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-08",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-08/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-08",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-08",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-09/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-09",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-09",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-09/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-09",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-09",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-10/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-10",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-10",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-10/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-10",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-10",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-11/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-11",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-11",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-11/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-11",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-11",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-12/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-12",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-12",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-12/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-12",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-12",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-13/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-13",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-13",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-13/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-13",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-13",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-14/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-14",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-14",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-14/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-14",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-14",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-15/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-15",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-15",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-15/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-15",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-15",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-16/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-16",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-16",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-16/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-16",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-16",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-17/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-17",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-17",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-17/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-17",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-17",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-18/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-18",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-18",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-18/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-18",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-18",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-19/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-19",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-19",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-19/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-19",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-19",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-20/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-20",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-20",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-20/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-20",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-20",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-21/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-21",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-21",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-21/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-21",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-21",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-22/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-22",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-22",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-22/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-22",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-22",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-23/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-23",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-23",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-23/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-23",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-23",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-24/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-24",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-24",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-24/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-24",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-24",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-25/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-25",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-25",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-25/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-25",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-25",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-26/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-26",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-26",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-26/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-26",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-26",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-27/bearing-bottom",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-27",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-27",
+      "parentCarrierId": "carrier/edge-11/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-27/bearing-top",
+      "blockCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-27",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-11/base",
+      "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-27",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    }
+  ],
+  "runtimeBehaviorAcceptance": false,
+  "nativeActivationStarted": false,
+  "rendererStarted": false
+}

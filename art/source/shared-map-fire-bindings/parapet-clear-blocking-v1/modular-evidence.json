@@ -1,0 +1,6941 @@
+{
+  "allowedPlacementTransforms": "Only the exact approved source matrices in this batch; no new rotated, mirrored or procedural placements approved.",
+  "cellIndices": "X, Y/level, Z; zero-based world-cell coordinates, positive occupied volume only.",
+  "connectionRule": "One block at each selected clear one-metre bay; bottom cornice bearing and top parapet bearing only. No saddle, brace or anchor.",
+  "dimensionsMetres": [
+    0.16,
+    0.20999999821185966,
+    0.16
+  ],
+  "geometryBufferShared": {
+    "id": "a91bddde99e47a78d59ef47a12b88a7833b9ce17e686f48699325dc9e8f6e6ad",
+    "path": "assets/art/shared-map-support-additions/new-york-parapet-blocking-v1/geometry/a91bddde99e47a78d59ef47a12b88a7833b9ce17e686f48699325dc9e8f6e6ad.json",
+    "sha256": "c7356e7897372390040edb82ec1a92e33920230ca68de7e92ca52a7ff8d4d1ec",
+    "triangleCount": 12
+  },
+  "levelNote": "These are subcell architectural fittings, not new floor surfaces. No floor height or native level pitch changes.",
+  "manifestPath": "assets/art/shared-map-support-additions/new-york-parapet-clear-blocking-v1/index.json",
+  "manifestSha256": "08bcb4f535a59c67dcaa4e71ac57d7e7034d870ffb690d48ce191d3937b4dd78",
+  "members": [
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-00",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            26.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-00/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            26.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97333333333334,
+            17.26000015437603,
+            26.526666666666667
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-00/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-00",
+          "parentPoint": [
+            79.97333333333334,
+            17.260000001788136,
+            26.526666666666667
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-00",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          26.0,
+          27.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          26
+        ],
+        [
+          80,
+          8,
+          26
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          26.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          26.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        26.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-01",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            27.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-01/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            27.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97333333333334,
+            17.26000015437603,
+            27.526666666666667
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-01/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-01",
+          "parentPoint": [
+            79.97333333333334,
+            17.260000001788136,
+            27.526666666666667
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-01",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          27.0,
+          28.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          27
+        ],
+        [
+          80,
+          8,
+          27
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          27.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          27.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        27.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-02",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            28.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-02/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            28.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97333333333334,
+            17.26000015437603,
+            28.526666666666667
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-02/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-02",
+          "parentPoint": [
+            79.97333333333334,
+            17.260000001788136,
+            28.526666666666667
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-02",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          28.0,
+          29.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          28
+        ],
+        [
+          80,
+          8,
+          28
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          28.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          28.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        28.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-03",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            29.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-03/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            29.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97333333333334,
+            17.26000015437603,
+            29.526666666666667
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-03/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-03",
+          "parentPoint": [
+            79.97333333333334,
+            17.260000001788136,
+            29.526666666666667
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-03",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          29.0,
+          30.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          29
+        ],
+        [
+          80,
+          8,
+          29
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          29.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          29.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        29.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-04",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            30.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-04/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            30.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97333333333334,
+            17.26000015437603,
+            30.526666666666667
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-04/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-04",
+          "parentPoint": [
+            79.97333333333334,
+            17.260000001788136,
+            30.526666666666667
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-04",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          30.0,
+          31.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          30
+        ],
+        [
+          80,
+          8,
+          30
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          30.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          30.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        30.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-05",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            31.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-05/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            31.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.99759995259166,
+            17.26000015437603,
+            31.538805309734514
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-05/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-05",
+          "parentPoint": [
+            79.99759995259166,
+            17.260000001788136,
+            31.538805309734514
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-05",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          31.0,
+          32.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          31
+        ],
+        [
+          80,
+          8,
+          31
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          31.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          31.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        31.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-06",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            32.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-06/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            32.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.99315542035399,
+            17.26000015437603,
+            32.53659292035398
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-06/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-06",
+          "parentPoint": [
+            79.99315542035399,
+            17.260000001788136,
+            32.53659292035398
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-06",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          32.0,
+          33.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          32
+        ],
+        [
+          80,
+          8,
+          32
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          32.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          32.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        32.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-07",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            33.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-07/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            33.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.98871088811632,
+            17.26000015437603,
+            33.53438053097345
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-07/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-07",
+          "parentPoint": [
+            79.98871088811632,
+            17.260000001788136,
+            33.53438053097345
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-07",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          33.0,
+          34.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          33
+        ],
+        [
+          80,
+          8,
+          33
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          33.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          33.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        33.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-08",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            34.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-08/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            34.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.98426635587863,
+            17.26000015437603,
+            34.53216814159292
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-08/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-08",
+          "parentPoint": [
+            79.98426635587863,
+            17.260000001788136,
+            34.53216814159292
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-08",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          34.0,
+          35.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          34
+        ],
+        [
+          80,
+          8,
+          34
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          34.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          34.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        34.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-09",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            35.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-09/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            35.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97982182364096,
+            17.26000015437603,
+            35.52995575221239
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-09/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-09",
+          "parentPoint": [
+            79.97982182364096,
+            17.260000001788136,
+            35.52995575221239
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-09",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          35.0,
+          36.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          35
+        ],
+        [
+          80,
+          8,
+          35
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          35.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          35.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        35.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-10",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            36.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-10/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            36.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97537729140329,
+            17.26000015437603,
+            36.527743362831856
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-10/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-10",
+          "parentPoint": [
+            79.97537729140329,
+            17.260000001788136,
+            36.527743362831856
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-10",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          36.0,
+          37.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          36
+        ],
+        [
+          80,
+          8,
+          36
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          36.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          36.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        36.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-11",
+          "childPoint": [
+            79.99766017780144,
+            17.05000000357628,
+            37.46119161553503
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-11/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.99766017780144,
+            17.05000000357628,
+            37.46119161553503
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97093275916562,
+            17.26000015437603,
+            37.525530973451325
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-11/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-11",
+          "parentPoint": [
+            79.97093275916562,
+            17.260000001788136,
+            37.525530973451325
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-11",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          37.0,
+          38.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          37
+        ],
+        [
+          80,
+          8,
+          37
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          37.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          37.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        37.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-12",
+          "childPoint": [
+            79.97910158077879,
+            17.05000000357628,
+            38.470643065535796
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-12/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97910158077879,
+            17.05000000357628,
+            38.470643065535796
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.96648822692794,
+            17.26000015437603,
+            38.52331858407079
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-12/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-12",
+          "parentPoint": [
+            79.96648822692794,
+            17.260000001788136,
+            38.52331858407079
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-12",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          38.0,
+          39.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          38
+        ],
+        [
+          80,
+          8,
+          38
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          38.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          38.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        38.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-13",
+          "childPoint": [
+            79.96054298375616,
+            17.05000000357628,
+            39.48009451553657
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-13/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.96054298375616,
+            17.05000000357628,
+            39.48009451553657
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.96204369469027,
+            17.26000015437603,
+            39.52110619469026
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-13/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-13",
+          "parentPoint": [
+            79.96204369469027,
+            17.260000001788136,
+            39.52110619469026
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-13",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          39.0,
+          40.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          39
+        ],
+        [
+          80,
+          8,
+          39
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          39.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          39.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        39.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-14",
+          "childPoint": [
+            79.94198438673351,
+            17.05000000357628,
+            40.489545965537346
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-14/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.94198438673351,
+            17.05000000357628,
+            40.489545965537346
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.9575991624526,
+            17.26000015437603,
+            40.51889380530973
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-14/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-14",
+          "parentPoint": [
+            79.9575991624526,
+            17.260000001788136,
+            40.51889380530973
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-14",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          40.0,
+          41.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          40
+        ],
+        [
+          80,
+          8,
+          40
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          40.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          40.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        40.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-15",
+          "childPoint": [
+            79.92342578971088,
+            17.05000000357628,
+            41.49899741553812
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-15/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.92342578971088,
+            17.05000000357628,
+            41.49899741553812
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.95315463021493,
+            17.26000015437603,
+            41.5166814159292
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-15/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-15",
+          "parentPoint": [
+            79.95315463021493,
+            17.260000001788136,
+            41.5166814159292
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-15",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          41.0,
+          42.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          41
+        ],
+        [
+          80,
+          8,
+          41
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          41.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          41.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        41.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-16",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            42.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-16/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            42.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.94871009797725,
+            17.26000015437603,
+            42.514469026548674
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-16/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-16",
+          "parentPoint": [
+            79.94871009797725,
+            17.260000001788136,
+            42.514469026548674
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-16",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          42.0,
+          43.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          42
+        ],
+        [
+          80,
+          8,
+          42
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          42.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          42.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        42.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-17",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            43.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-17/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            43.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.94426556573957,
+            17.26000015437603,
+            43.51225663716814
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-17/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-17",
+          "parentPoint": [
+            79.94426556573957,
+            17.260000001788136,
+            43.51225663716814
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-17",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          43.0,
+          44.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          43
+        ],
+        [
+          80,
+          8,
+          43
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          43.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          43.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        43.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-18",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            44.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-18/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            44.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.9398210335019,
+            17.26000015437603,
+            44.51004424778761
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-18/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-18",
+          "parentPoint": [
+            79.9398210335019,
+            17.260000001788136,
+            44.51004424778761
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-18",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          44.0,
+          45.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          44
+        ],
+        [
+          80,
+          8,
+          44
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          44.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          44.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        44.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-19",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            45.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-19/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            45.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.93537650126422,
+            17.26000015437603,
+            45.50783185840708
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-19/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-19",
+          "parentPoint": [
+            79.93537650126422,
+            17.260000001788136,
+            45.50783185840708
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-19",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          45.0,
+          46.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          45
+        ],
+        [
+          80,
+          8,
+          45
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          45.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          45.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        45.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-20",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            46.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-20/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            46.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.93093196902655,
+            17.26000015437603,
+            46.50561946902655
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-20/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-20",
+          "parentPoint": [
+            79.93093196902655,
+            17.260000001788136,
+            46.50561946902655
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-20",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          46.0,
+          47.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          46
+        ],
+        [
+          80,
+          8,
+          46
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          46.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          46.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        46.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-21",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            47.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-21/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            47.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.92648743678888,
+            17.26000015437603,
+            47.50340707964602
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-21/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-21",
+          "parentPoint": [
+            79.92648743678888,
+            17.260000001788136,
+            47.50340707964602
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-21",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          47.0,
+          48.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          47
+        ],
+        [
+          80,
+          8,
+          47
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          47.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          47.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        47.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-22",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            48.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-22/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            48.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.9220429045512,
+            17.26000015437603,
+            48.501194690265486
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-22/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-22",
+          "parentPoint": [
+            79.9220429045512,
+            17.260000001788136,
+            48.501194690265486
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-22",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          48.0,
+          49.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          48
+        ],
+        [
+          80,
+          8,
+          48
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          48.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          48.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        48.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-23",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            49.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-23/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            49.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97333333333334,
+            17.26000015437603,
+            49.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-23/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-23",
+          "parentPoint": [
+            79.97333333333334,
+            17.260000001788136,
+            49.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-23",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          49.0,
+          50.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          49
+        ],
+        [
+          80,
+          8,
+          49
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          49.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          49.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        49.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-24",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            50.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-24/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            50.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97333333333334,
+            17.26000015437603,
+            50.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-24/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-24",
+          "parentPoint": [
+            79.97333333333334,
+            17.260000001788136,
+            50.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-24",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          50.0,
+          51.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          50
+        ],
+        [
+          80,
+          8,
+          50
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          50.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          50.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        50.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-25",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            51.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-25/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            51.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97333333333334,
+            17.26000015437603,
+            51.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-25/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-25",
+          "parentPoint": [
+            79.97333333333334,
+            17.260000001788136,
+            51.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-25",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          51.0,
+          52.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          51
+        ],
+        [
+          80,
+          8,
+          51
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          51.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          51.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        51.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-26",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            52.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-26/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            52.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97333333333334,
+            17.26000015437603,
+            52.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-26/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-26",
+          "parentPoint": [
+            79.97333333333334,
+            17.260000001788136,
+            52.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-26",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          52.0,
+          53.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          52
+        ],
+        [
+          80,
+          8,
+          52
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          52.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          52.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        52.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-27",
+          "childPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            53.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-27/bearing-bottom",
+          "parentCarrierId": "carrier/edge-1/cornice-7",
+          "parentPoint": [
+            79.97333333333334,
+            17.05000000357628,
+            53.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-1/base",
+          "childPoint": [
+            79.97333333333334,
+            17.26000015437603,
+            53.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-1/bay-27/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-1/bay-27",
+          "parentPoint": [
+            79.97333333333334,
+            17.260000001788136,
+            53.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-27",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          53.0,
+          54.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          53
+        ],
+        [
+          80,
+          8,
+          53
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          80.08,
+          17.260000001788136,
+          53.58
+        ],
+        "min": [
+          79.92,
+          17.05000000357628,
+          53.42
+        ]
+      },
+      "pivotWorldMetres": [
+        80.0,
+        17.155000002682208,
+        53.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-00",
+          "childPoint": [
+            70.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-00/bearing-bottom",
+          "parentCarrierId": "carrier/edge-2/cornice-7",
+          "parentPoint": [
+            70.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-2/base",
+          "childPoint": [
+            70.47333333333334,
+            17.26000015437603,
+            54.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-00/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-00",
+          "parentPoint": [
+            70.47333333333334,
+            17.260000001788136,
+            54.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-2/bay-00",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          70.0,
+          71.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          70,
+          8,
+          53
+        ],
+        [
+          70,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          70.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          70.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        70.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-01",
+          "childPoint": [
+            71.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-01/bearing-bottom",
+          "parentCarrierId": "carrier/edge-2/cornice-7",
+          "parentPoint": [
+            71.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-2/base",
+          "childPoint": [
+            71.47333333333334,
+            17.26000015437603,
+            54.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-01/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-01",
+          "parentPoint": [
+            71.47333333333334,
+            17.260000001788136,
+            54.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-2/bay-01",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          71.0,
+          72.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          71,
+          8,
+          53
+        ],
+        [
+          71,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          71.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          71.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        71.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-02",
+          "childPoint": [
+            72.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-02/bearing-bottom",
+          "parentCarrierId": "carrier/edge-2/cornice-7",
+          "parentPoint": [
+            72.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-2/base",
+          "childPoint": [
+            72.42529914529915,
+            17.26000015437603,
+            53.93046581196581
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-02/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-02",
+          "parentPoint": [
+            72.42529914529915,
+            17.260000001788136,
+            53.93046581196581
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-2/bay-02",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          72.0,
+          73.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          72,
+          8,
+          53
+        ],
+        [
+          72,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          72.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          72.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        72.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-03",
+          "childPoint": [
+            73.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-03/bearing-bottom",
+          "parentCarrierId": "carrier/edge-2/cornice-7",
+          "parentPoint": [
+            73.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-2/base",
+          "childPoint": [
+            73.43384615384616,
+            17.26000015437603,
+            53.947346153846155
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-03/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-03",
+          "parentPoint": [
+            73.43384615384616,
+            17.260000001788136,
+            53.947346153846155
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-2/bay-03",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          73.0,
+          74.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          73,
+          8,
+          53
+        ],
+        [
+          73,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          73.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          73.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        73.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-04",
+          "childPoint": [
+            74.49058970494396,
+            17.05000000357628,
+            53.93598923695876
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-04/bearing-bottom",
+          "parentCarrierId": "carrier/edge-2/cornice-7",
+          "parentPoint": [
+            74.49058970494396,
+            17.05000000357628,
+            53.93598923695876
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-2/base",
+          "childPoint": [
+            74.44239316239316,
+            17.26000015437603,
+            53.9642264957265
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-04/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-04",
+          "parentPoint": [
+            74.44239316239316,
+            17.260000001788136,
+            53.9642264957265
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-2/bay-04",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          74.0,
+          75.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          74,
+          8,
+          53
+        ],
+        [
+          74,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          74.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          74.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        74.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-05",
+          "childPoint": [
+            75.46941029505604,
+            17.05000000357628,
+            53.98030840218682
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-05/bearing-bottom",
+          "parentCarrierId": "carrier/edge-2/cornice-7",
+          "parentPoint": [
+            75.46941029505604,
+            17.05000000357628,
+            53.98030840218682
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-2/base",
+          "childPoint": [
+            75.45094017094017,
+            17.26000015437603,
+            53.98110683760684
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-05/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-05",
+          "parentPoint": [
+            75.45094017094017,
+            17.260000001788136,
+            53.98110683760684
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-2/bay-05",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          75.0,
+          76.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          75,
+          8,
+          53
+        ],
+        [
+          75,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          75.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          75.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        75.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-06",
+          "childPoint": [
+            76.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-06/bearing-bottom",
+          "parentCarrierId": "carrier/edge-2/cornice-7",
+          "parentPoint": [
+            76.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-2/base",
+          "childPoint": [
+            76.45948717948717,
+            17.26000015437603,
+            53.99798717948718
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-06/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-06",
+          "parentPoint": [
+            76.45948717948717,
+            17.260000001788136,
+            53.99798717948718
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-2/bay-06",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          76.0,
+          77.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          76,
+          8,
+          53
+        ],
+        [
+          76,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          76.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          76.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        76.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-07",
+          "childPoint": [
+            77.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-07/bearing-bottom",
+          "parentCarrierId": "carrier/edge-2/cornice-7",
+          "parentPoint": [
+            77.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-2/base",
+          "childPoint": [
+            77.4680341880342,
+            17.26000015437603,
+            54.01486752136751
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-07/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-07",
+          "parentPoint": [
+            77.4680341880342,
+            17.260000001788136,
+            54.01486752136751
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-2/bay-07",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          77.0,
+          78.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          77,
+          8,
+          53
+        ],
+        [
+          77,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          77.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          77.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        77.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-08",
+          "childPoint": [
+            78.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-08/bearing-bottom",
+          "parentCarrierId": "carrier/edge-2/cornice-7",
+          "parentPoint": [
+            78.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-2/base",
+          "childPoint": [
+            78.47333333333334,
+            17.26000015437603,
+            54.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-08/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-08",
+          "parentPoint": [
+            78.47333333333334,
+            17.260000001788136,
+            54.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-2/bay-08",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          78.0,
+          79.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          78,
+          8,
+          53
+        ],
+        [
+          78,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          78.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          78.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        78.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-09",
+          "childPoint": [
+            79.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-09/bearing-bottom",
+          "parentCarrierId": "carrier/edge-2/cornice-7",
+          "parentPoint": [
+            79.47333333333334,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-2/base",
+          "childPoint": [
+            79.47333333333334,
+            17.26000015437603,
+            54.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-2/bay-09/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-2/bay-09",
+          "parentPoint": [
+            79.47333333333334,
+            17.260000001788136,
+            54.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-2/bay-09",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          79.0,
+          80.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          79,
+          8,
+          53
+        ],
+        [
+          79,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          79.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          79.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        79.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-00",
+          "childPoint": [
+            69.97333333333334,
+            17.05000000357628,
+            54.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-00/bearing-bottom",
+          "parentCarrierId": "carrier/edge-3/cornice-7",
+          "parentPoint": [
+            69.97333333333334,
+            17.05000000357628,
+            54.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-3/base",
+          "childPoint": [
+            69.97333333333334,
+            17.26000015437603,
+            54.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-00/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-00",
+          "parentPoint": [
+            69.97333333333334,
+            17.260000001788136,
+            54.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-3/bay-00",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          54.0,
+          55.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          69,
+          8,
+          54
+        ],
+        [
+          70,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          70.08,
+          17.260000001788136,
+          54.58
+        ],
+        "min": [
+          69.92,
+          17.05000000357628,
+          54.42
+        ]
+      },
+      "pivotWorldMetres": [
+        70.0,
+        17.155000002682208,
+        54.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-01",
+          "childPoint": [
+            69.97333333333334,
+            17.05000000357628,
+            55.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-01/bearing-bottom",
+          "parentCarrierId": "carrier/edge-3/cornice-7",
+          "parentPoint": [
+            69.97333333333334,
+            17.05000000357628,
+            55.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-3/base",
+          "childPoint": [
+            69.97391544117647,
+            17.26000015437603,
+            55.527352941176474
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-01/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-01",
+          "parentPoint": [
+            69.97391544117647,
+            17.260000001788136,
+            55.527352941176474
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-3/bay-01",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          55.0,
+          56.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          69,
+          8,
+          55
+        ],
+        [
+          70,
+          8,
+          55
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          70.08,
+          17.260000001788136,
+          55.58
+        ],
+        "min": [
+          69.92,
+          17.05000000357628,
+          55.42
+        ]
+      },
+      "pivotWorldMetres": [
+        70.0,
+        17.155000002682208,
+        55.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-02",
+          "childPoint": [
+            69.97333333333334,
+            17.05000000357628,
+            56.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-02/bearing-bottom",
+          "parentCarrierId": "carrier/edge-3/cornice-7",
+          "parentPoint": [
+            69.97333333333334,
+            17.05000000357628,
+            56.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-3/base",
+          "childPoint": [
+            69.94358455882353,
+            17.26000015437603,
+            56.51264705882353
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-02/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-02",
+          "parentPoint": [
+            69.94358455882353,
+            17.260000001788136,
+            56.51264705882353
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-3/bay-02",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          56.0,
+          57.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          69,
+          8,
+          56
+        ],
+        [
+          70,
+          8,
+          56
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          70.08,
+          17.260000001788136,
+          56.58
+        ],
+        "min": [
+          69.92,
+          17.05000000357628,
+          56.42
+        ]
+      },
+      "pivotWorldMetres": [
+        70.0,
+        17.155000002682208,
+        56.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-03",
+          "childPoint": [
+            69.97333333333334,
+            17.05000000357628,
+            57.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-03/bearing-bottom",
+          "parentCarrierId": "carrier/edge-3/cornice-7",
+          "parentPoint": [
+            69.97333333333334,
+            17.05000000357628,
+            57.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-3/base",
+          "childPoint": [
+            69.97333333333334,
+            17.26000015437603,
+            57.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-3/bay-03/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-3/bay-03",
+          "parentPoint": [
+            69.97333333333334,
+            17.260000001788136,
+            57.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-3/bay-03",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          57.0,
+          58.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          69,
+          8,
+          57
+        ],
+        [
+          70,
+          8,
+          57
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          70.08,
+          17.260000001788136,
+          57.58
+        ],
+        "min": [
+          69.92,
+          17.05000000357628,
+          57.42
+        ]
+      },
+      "pivotWorldMetres": [
+        70.0,
+        17.155000002682208,
+        57.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-00",
+          "childPoint": [
+            64.47333333333334,
+            17.05000000357628,
+            57.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-00/bearing-bottom",
+          "parentCarrierId": "carrier/edge-4/cornice-7",
+          "parentPoint": [
+            64.47333333333334,
+            17.05000000357628,
+            57.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-4/base",
+          "childPoint": [
+            64.47333333333334,
+            17.26000015437603,
+            58.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-00/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-00",
+          "parentPoint": [
+            64.47333333333334,
+            17.260000001788136,
+            58.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-4/bay-00",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          64.0,
+          65.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          64,
+          8,
+          57
+        ],
+        [
+          64,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          64.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          64.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        64.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-01",
+          "childPoint": [
+            65.47333333333334,
+            17.05000000357628,
+            57.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-01/bearing-bottom",
+          "parentCarrierId": "carrier/edge-4/cornice-7",
+          "parentPoint": [
+            65.47333333333334,
+            17.05000000357628,
+            57.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-4/base",
+          "childPoint": [
+            65.42492753623189,
+            17.26000015437603,
+            57.929649758454104
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-01/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-01",
+          "parentPoint": [
+            65.42492753623189,
+            17.260000001788136,
+            57.929649758454104
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-4/bay-01",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          65.0,
+          66.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          65,
+          8,
+          57
+        ],
+        [
+          65,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          65.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          65.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        65.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-02",
+          "childPoint": [
+            66.53095036534779,
+            17.05000000357628,
+            57.92552213793879
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-02/bearing-bottom",
+          "parentCarrierId": "carrier/edge-4/cornice-7",
+          "parentPoint": [
+            66.53095036534779,
+            17.05000000357628,
+            57.92552213793879
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-4/base",
+          "childPoint": [
+            66.43942028985508,
+            17.26000015437603,
+            57.958031400966185
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-02/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-02",
+          "parentPoint": [
+            66.43942028985508,
+            17.260000001788136,
+            57.958031400966185
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-4/bay-02",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          66.0,
+          67.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          66,
+          8,
+          57
+        ],
+        [
+          66,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          66.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          66.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        66.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-03",
+          "childPoint": [
+            67.46414201979707,
+            17.05000000357628,
+            57.9911141293641
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-03/bearing-bottom",
+          "parentCarrierId": "carrier/edge-4/cornice-7",
+          "parentPoint": [
+            67.46414201979707,
+            17.05000000357628,
+            57.9911141293641
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-4/base",
+          "childPoint": [
+            67.45391304347827,
+            17.26000015437603,
+            57.98641304347826
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-03/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-03",
+          "parentPoint": [
+            67.45391304347827,
+            17.260000001788136,
+            57.98641304347826
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-4/bay-03",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          67.0,
+          68.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          67,
+          8,
+          57
+        ],
+        [
+          67,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          67.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          67.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        67.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-04",
+          "childPoint": [
+            68.47333333333334,
+            17.05000000357628,
+            57.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-04/bearing-bottom",
+          "parentCarrierId": "carrier/edge-4/cornice-7",
+          "parentPoint": [
+            68.47333333333334,
+            17.05000000357628,
+            57.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-4/base",
+          "childPoint": [
+            68.46840579710145,
+            17.26000015437603,
+            58.014794685990346
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-04/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-04",
+          "parentPoint": [
+            68.46840579710145,
+            17.260000001788136,
+            58.014794685990346
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-4/bay-04",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          68.0,
+          69.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          68,
+          8,
+          57
+        ],
+        [
+          68,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          68.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          68.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        68.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-05",
+          "childPoint": [
+            69.47333333333334,
+            17.05000000357628,
+            57.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-05/bearing-bottom",
+          "parentCarrierId": "carrier/edge-4/cornice-7",
+          "parentPoint": [
+            69.47333333333334,
+            17.05000000357628,
+            57.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-4/base",
+          "childPoint": [
+            69.47333333333334,
+            17.26000015437603,
+            58.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-4/bay-05/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-4/bay-05",
+          "parentPoint": [
+            69.47333333333334,
+            17.260000001788136,
+            58.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-4/bay-05",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          69.0,
+          70.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          69,
+          8,
+          57
+        ],
+        [
+          69,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          69.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          69.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        69.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-00",
+          "childPoint": [
+            42.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-00/bearing-bottom",
+          "parentCarrierId": "carrier/edge-8/cornice-7",
+          "parentPoint": [
+            42.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-8/base",
+          "childPoint": [
+            42.473333333333336,
+            17.26000015437603,
+            58.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-00/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-00",
+          "parentPoint": [
+            42.473333333333336,
+            17.260000001788136,
+            58.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-8/bay-00",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          42.0,
+          43.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          42,
+          8,
+          57
+        ],
+        [
+          42,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          42.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          42.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        42.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-01",
+          "childPoint": [
+            43.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-01/bearing-bottom",
+          "parentCarrierId": "carrier/edge-8/cornice-7",
+          "parentPoint": [
+            43.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-8/base",
+          "childPoint": [
+            43.424927536231884,
+            17.26000015437603,
+            57.929649758454104
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-01/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-01",
+          "parentPoint": [
+            43.424927536231884,
+            17.260000001788136,
+            57.929649758454104
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-8/bay-01",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          43.0,
+          44.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          43,
+          8,
+          57
+        ],
+        [
+          43,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          43.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          43.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        43.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-02",
+          "childPoint": [
+            44.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-02/bearing-bottom",
+          "parentCarrierId": "carrier/edge-8/cornice-7",
+          "parentPoint": [
+            44.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-8/base",
+          "childPoint": [
+            44.43942028985507,
+            17.26000015437603,
+            57.958031400966185
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-02/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-02",
+          "parentPoint": [
+            44.43942028985507,
+            17.260000001788136,
+            57.958031400966185
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-8/bay-02",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          44.0,
+          45.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          44,
+          8,
+          57
+        ],
+        [
+          44,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          44.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          44.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        44.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-03",
+          "childPoint": [
+            45.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-03/bearing-bottom",
+          "parentCarrierId": "carrier/edge-8/cornice-7",
+          "parentPoint": [
+            45.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-8/base",
+          "childPoint": [
+            45.45391304347826,
+            17.26000015437603,
+            57.98641304347826
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-03/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-03",
+          "parentPoint": [
+            45.45391304347826,
+            17.260000001788136,
+            57.98641304347826
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-8/bay-03",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          45.0,
+          46.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          45,
+          8,
+          57
+        ],
+        [
+          45,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          45.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          45.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        45.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-04",
+          "childPoint": [
+            46.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-04/bearing-bottom",
+          "parentCarrierId": "carrier/edge-8/cornice-7",
+          "parentPoint": [
+            46.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-8/base",
+          "childPoint": [
+            46.46840579710145,
+            17.26000015437603,
+            58.014794685990346
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-04/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-04",
+          "parentPoint": [
+            46.46840579710145,
+            17.260000001788136,
+            58.014794685990346
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-8/bay-04",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          46.0,
+          47.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          46,
+          8,
+          57
+        ],
+        [
+          46,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          46.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          46.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        46.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-05",
+          "childPoint": [
+            47.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-05/bearing-bottom",
+          "parentCarrierId": "carrier/edge-8/cornice-7",
+          "parentPoint": [
+            47.473333333333336,
+            17.05000000357628,
+            57.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-8/base",
+          "childPoint": [
+            47.473333333333336,
+            17.26000015437603,
+            58.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-8/bay-05/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-8/bay-05",
+          "parentPoint": [
+            47.473333333333336,
+            17.260000001788136,
+            58.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-8/bay-05",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          47.0,
+          48.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          47,
+          8,
+          57
+        ],
+        [
+          47,
+          8,
+          58
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          47.58,
+          17.260000001788136,
+          58.08
+        ],
+        "min": [
+          47.42,
+          17.05000000357628,
+          57.92
+        ]
+      },
+      "pivotWorldMetres": [
+        47.5,
+        17.155000002682208,
+        58.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-00",
+          "childPoint": [
+            41.973333333333336,
+            17.05000000357628,
+            54.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-00/bearing-bottom",
+          "parentCarrierId": "carrier/edge-9/cornice-7",
+          "parentPoint": [
+            41.973333333333336,
+            17.05000000357628,
+            54.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-9/base",
+          "childPoint": [
+            41.973333333333336,
+            17.26000015437603,
+            54.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-00/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-00",
+          "parentPoint": [
+            41.973333333333336,
+            17.260000001788136,
+            54.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-9/bay-00",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          54.0,
+          55.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          41,
+          8,
+          54
+        ],
+        [
+          42,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          42.08,
+          17.260000001788136,
+          54.58
+        ],
+        "min": [
+          41.92,
+          17.05000000357628,
+          54.42
+        ]
+      },
+      "pivotWorldMetres": [
+        42.0,
+        17.155000002682208,
+        54.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-01",
+          "childPoint": [
+            41.973333333333336,
+            17.05000000357628,
+            55.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-01/bearing-bottom",
+          "parentCarrierId": "carrier/edge-9/cornice-7",
+          "parentPoint": [
+            41.973333333333336,
+            17.05000000357628,
+            55.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-9/base",
+          "childPoint": [
+            42.04522058823529,
+            17.26000015437603,
+            55.56313725490196
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-01/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-01",
+          "parentPoint": [
+            42.04522058823529,
+            17.260000001788136,
+            55.56313725490196
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-9/bay-01",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          55.0,
+          56.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          41,
+          8,
+          55
+        ],
+        [
+          42,
+          8,
+          55
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          42.08,
+          17.260000001788136,
+          55.58
+        ],
+        "min": [
+          41.92,
+          17.05000000357628,
+          55.42
+        ]
+      },
+      "pivotWorldMetres": [
+        42.0,
+        17.155000002682208,
+        55.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-02",
+          "childPoint": [
+            41.973333333333336,
+            17.05000000357628,
+            56.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-02/bearing-bottom",
+          "parentCarrierId": "carrier/edge-9/cornice-7",
+          "parentPoint": [
+            41.973333333333336,
+            17.05000000357628,
+            56.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-9/base",
+          "childPoint": [
+            42.0047794117647,
+            17.26000015437603,
+            56.5435294117647
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-02/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-02",
+          "parentPoint": [
+            42.0047794117647,
+            17.260000001788136,
+            56.5435294117647
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-9/bay-02",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          56.0,
+          57.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          41,
+          8,
+          56
+        ],
+        [
+          42,
+          8,
+          56
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          42.08,
+          17.260000001788136,
+          56.58
+        ],
+        "min": [
+          41.92,
+          17.05000000357628,
+          56.42
+        ]
+      },
+      "pivotWorldMetres": [
+        42.0,
+        17.155000002682208,
+        56.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-03",
+          "childPoint": [
+            41.973333333333336,
+            17.05000000357628,
+            57.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-03/bearing-bottom",
+          "parentCarrierId": "carrier/edge-9/cornice-7",
+          "parentPoint": [
+            41.973333333333336,
+            17.05000000357628,
+            57.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-9/base",
+          "childPoint": [
+            41.973333333333336,
+            17.26000015437603,
+            57.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-9/bay-03/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-9/bay-03",
+          "parentPoint": [
+            41.973333333333336,
+            17.260000001788136,
+            57.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-9/bay-03",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          57.0,
+          58.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          41,
+          8,
+          57
+        ],
+        [
+          42,
+          8,
+          57
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          42.08,
+          17.260000001788136,
+          57.58
+        ],
+        "min": [
+          41.92,
+          17.05000000357628,
+          57.42
+        ]
+      },
+      "pivotWorldMetres": [
+        42.0,
+        17.155000002682208,
+        57.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-00",
+          "childPoint": [
+            32.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-00/bearing-bottom",
+          "parentCarrierId": "carrier/edge-10/cornice-7",
+          "parentPoint": [
+            32.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-10/base",
+          "childPoint": [
+            32.473333333333336,
+            17.26000015437603,
+            54.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-00/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-00",
+          "parentPoint": [
+            32.473333333333336,
+            17.260000001788136,
+            54.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-10/bay-00",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          32.0,
+          33.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          32,
+          8,
+          53
+        ],
+        [
+          32,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          32.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        32.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-01",
+          "childPoint": [
+            33.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-01/bearing-bottom",
+          "parentCarrierId": "carrier/edge-10/cornice-7",
+          "parentPoint": [
+            33.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-10/base",
+          "childPoint": [
+            33.473333333333336,
+            17.26000015437603,
+            54.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-01/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-01",
+          "parentPoint": [
+            33.473333333333336,
+            17.260000001788136,
+            54.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-10/bay-01",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          33.0,
+          34.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          33,
+          8,
+          53
+        ],
+        [
+          33,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          33.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          33.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        33.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-02",
+          "childPoint": [
+            34.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-02/bearing-bottom",
+          "parentCarrierId": "carrier/edge-10/cornice-7",
+          "parentPoint": [
+            34.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-10/base",
+          "childPoint": [
+            34.42529914529914,
+            17.26000015437603,
+            53.93046581196581
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-02/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-02",
+          "parentPoint": [
+            34.42529914529914,
+            17.260000001788136,
+            53.93046581196581
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-10/bay-02",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          34.0,
+          35.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          34,
+          8,
+          53
+        ],
+        [
+          34,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          34.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          34.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        34.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-03",
+          "childPoint": [
+            35.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-03/bearing-bottom",
+          "parentCarrierId": "carrier/edge-10/cornice-7",
+          "parentPoint": [
+            35.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-10/base",
+          "childPoint": [
+            35.433846153846154,
+            17.26000015437603,
+            53.947346153846155
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-03/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-03",
+          "parentPoint": [
+            35.433846153846154,
+            17.260000001788136,
+            53.947346153846155
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-10/bay-03",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          35.0,
+          36.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          35,
+          8,
+          53
+        ],
+        [
+          35,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          35.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          35.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        35.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-04",
+          "childPoint": [
+            36.492750005722044,
+            17.05000000357628,
+            53.93078005286202
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-04/bearing-bottom",
+          "parentCarrierId": "carrier/edge-10/cornice-7",
+          "parentPoint": [
+            36.492750005722044,
+            17.05000000357628,
+            53.93078005286202
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-10/base",
+          "childPoint": [
+            36.44239316239317,
+            17.26000015437603,
+            53.9642264957265
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-04/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-04",
+          "parentPoint": [
+            36.44239316239317,
+            17.260000001788136,
+            53.9642264957265
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-10/bay-04",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          36.0,
+          37.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          36,
+          8,
+          53
+        ],
+        [
+          36,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          36.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          36.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        36.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-05",
+          "childPoint": [
+            37.46724999427796,
+            17.05000000357628,
+            53.98467651502324
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-05/bearing-bottom",
+          "parentCarrierId": "carrier/edge-10/cornice-7",
+          "parentPoint": [
+            37.46724999427796,
+            17.05000000357628,
+            53.98467651502324
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-10/base",
+          "childPoint": [
+            37.45094017094017,
+            17.26000015437603,
+            53.98110683760684
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-05/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-05",
+          "parentPoint": [
+            37.45094017094017,
+            17.260000001788136,
+            53.98110683760684
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-10/bay-05",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          37.0,
+          38.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          37,
+          8,
+          53
+        ],
+        [
+          37,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          37.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          37.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        37.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-06",
+          "childPoint": [
+            38.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-06/bearing-bottom",
+          "parentCarrierId": "carrier/edge-10/cornice-7",
+          "parentPoint": [
+            38.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-10/base",
+          "childPoint": [
+            38.45948717948718,
+            17.26000015437603,
+            53.99798717948718
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-06/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-06",
+          "parentPoint": [
+            38.45948717948718,
+            17.260000001788136,
+            53.99798717948718
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-10/bay-06",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          38.0,
+          39.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          38,
+          8,
+          53
+        ],
+        [
+          38,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          38.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          38.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        38.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-07",
+          "childPoint": [
+            39.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-07/bearing-bottom",
+          "parentCarrierId": "carrier/edge-10/cornice-7",
+          "parentPoint": [
+            39.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-10/base",
+          "childPoint": [
+            39.46803418803419,
+            17.26000015437603,
+            54.01486752136751
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-07/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-07",
+          "parentPoint": [
+            39.46803418803419,
+            17.260000001788136,
+            54.01486752136751
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-10/bay-07",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          39.0,
+          40.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          39,
+          8,
+          53
+        ],
+        [
+          39,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          39.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          39.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        39.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-08",
+          "childPoint": [
+            40.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-08/bearing-bottom",
+          "parentCarrierId": "carrier/edge-10/cornice-7",
+          "parentPoint": [
+            40.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-10/base",
+          "childPoint": [
+            40.473333333333336,
+            17.26000015437603,
+            54.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-08/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-08",
+          "parentPoint": [
+            40.473333333333336,
+            17.260000001788136,
+            54.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-10/bay-08",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          40.0,
+          41.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          40,
+          8,
+          53
+        ],
+        [
+          40,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          40.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          40.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        40.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-09",
+          "childPoint": [
+            41.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-09/bearing-bottom",
+          "parentCarrierId": "carrier/edge-10/cornice-7",
+          "parentPoint": [
+            41.473333333333336,
+            17.05000000357628,
+            53.973333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-10/base",
+          "childPoint": [
+            41.473333333333336,
+            17.26000015437603,
+            54.026666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-10/bay-09/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-10/bay-09",
+          "parentPoint": [
+            41.473333333333336,
+            17.260000001788136,
+            54.026666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-10/bay-09",
+      "nativeBay": {
+        "axis": "x",
+        "intervalMetres": [
+          41.0,
+          42.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          41,
+          8,
+          53
+        ],
+        [
+          41,
+          8,
+          54
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          41.58,
+          17.260000001788136,
+          54.08
+        ],
+        "min": [
+          41.42,
+          17.05000000357628,
+          53.92
+        ]
+      },
+      "pivotWorldMetres": [
+        41.5,
+        17.155000002682208,
+        54.0
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-00",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            26.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-00/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            26.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.973333333333333,
+            17.26000015437603,
+            26.526666666666667
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-00/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-00",
+          "parentPoint": [
+            31.973333333333333,
+            17.260000001788136,
+            26.526666666666667
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-00",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          26.0,
+          27.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          26
+        ],
+        [
+          32,
+          8,
+          26
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          26.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          26.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        26.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-01",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            27.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-01/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            27.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.973333333333333,
+            17.26000015437603,
+            27.526666666666667
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-01/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-01",
+          "parentPoint": [
+            31.973333333333333,
+            17.260000001788136,
+            27.526666666666667
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-01",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          27.0,
+          28.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          27
+        ],
+        [
+          32,
+          8,
+          27
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          27.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          27.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        27.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-02",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            28.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-02/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            28.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.973333333333333,
+            17.26000015437603,
+            28.526666666666667
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-02/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-02",
+          "parentPoint": [
+            31.973333333333333,
+            17.260000001788136,
+            28.526666666666667
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-02",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          28.0,
+          29.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          28
+        ],
+        [
+          32,
+          8,
+          28
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          28.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          28.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        28.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-03",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            29.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-03/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            29.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.973333333333333,
+            17.26000015437603,
+            29.526666666666667
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-03/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-03",
+          "parentPoint": [
+            31.973333333333333,
+            17.260000001788136,
+            29.526666666666667
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-03",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          29.0,
+          30.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          29
+        ],
+        [
+          32,
+          8,
+          29
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          29.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          29.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        29.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-04",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            30.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-04/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            30.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.973333333333333,
+            17.26000015437603,
+            30.526666666666667
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-04/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-04",
+          "parentPoint": [
+            31.973333333333333,
+            17.260000001788136,
+            30.526666666666667
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-04",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          30.0,
+          31.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          30
+        ],
+        [
+          32,
+          8,
+          30
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          30.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          30.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        30.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-05",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            31.473333333333333
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-05/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            31.473333333333333
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.07679993678888,
+            17.26000015437603,
+            31.578407079646016
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-05/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-05",
+          "parentPoint": [
+            32.07679993678888,
+            17.260000001788136,
+            31.578407079646016
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-05",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          31.0,
+          32.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          31
+        ],
+        [
+          32,
+          8,
+          31
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          31.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          31.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        31.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-06",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            32.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-06/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            32.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.070873893805306,
+            17.26000015437603,
+            32.575457227138635
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-06/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-06",
+          "parentPoint": [
+            32.070873893805306,
+            17.260000001788136,
+            32.575457227138635
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-06",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          32.0,
+          33.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          32
+        ],
+        [
+          32,
+          8,
+          32
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          32.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          32.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        32.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-07",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            33.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-07/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            33.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.064947850821746,
+            17.26000015437603,
+            33.572507374631265
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-07/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-07",
+          "parentPoint": [
+            32.064947850821746,
+            17.260000001788136,
+            33.572507374631265
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-07",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          33.0,
+          34.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          33
+        ],
+        [
+          32,
+          8,
+          33
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          33.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          33.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        33.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-08",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            34.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-08/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            34.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.05902180783818,
+            17.26000015437603,
+            34.569557522123894
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-08/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-08",
+          "parentPoint": [
+            32.05902180783818,
+            17.260000001788136,
+            34.569557522123894
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-08",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          34.0,
+          35.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          34
+        ],
+        [
+          32,
+          8,
+          34
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          34.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          34.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        34.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-09",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            35.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-09/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            35.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.05309576485461,
+            17.26000015437603,
+            35.566607669616516
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-09/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-09",
+          "parentPoint": [
+            32.05309576485461,
+            17.260000001788136,
+            35.566607669616516
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-09",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          35.0,
+          36.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          35
+        ],
+        [
+          32,
+          8,
+          35
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          35.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          35.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        35.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-10",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            36.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-10/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            36.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.04716972187105,
+            17.26000015437603,
+            36.563657817109146
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-10/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-10",
+          "parentPoint": [
+            32.04716972187105,
+            17.260000001788136,
+            36.563657817109146
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-10",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          36.0,
+          37.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          36
+        ],
+        [
+          32,
+          8,
+          36
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          36.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          36.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        36.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-11",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            37.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-11/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            37.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.04124367888748,
+            17.26000015437603,
+            37.56070796460177
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-11/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-11",
+          "parentPoint": [
+            32.04124367888748,
+            17.260000001788136,
+            37.56070796460177
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-11",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          37.0,
+          38.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          37
+        ],
+        [
+          32,
+          8,
+          37
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          37.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          37.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        37.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-12",
+          "childPoint": [
+            32.077375137536954,
+            17.05000000357628,
+            38.42133677973018
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-12/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            32.077375137536954,
+            17.05000000357628,
+            38.42133677973018
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.035317635903915,
+            17.26000015437603,
+            38.5577581120944
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-12/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-12",
+          "parentPoint": [
+            32.035317635903915,
+            17.260000001788136,
+            38.5577581120944
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-12",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          38.0,
+          39.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          38
+        ],
+        [
+          32,
+          8,
+          38
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          38.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          38.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        38.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-13",
+          "childPoint": [
+            32.052630341936286,
+            17.05000000357628,
+            39.43393871284183
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-13/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            32.052630341936286,
+            17.05000000357628,
+            39.43393871284183
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.02939159292035,
+            17.26000015437603,
+            39.55480825958702
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-13/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-13",
+          "parentPoint": [
+            32.02939159292035,
+            17.260000001788136,
+            39.55480825958702
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-13",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          39.0,
+          40.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          39
+        ],
+        [
+          32,
+          8,
+          39
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          39.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          39.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        39.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-14",
+          "childPoint": [
+            32.02788554633562,
+            17.05000000357628,
+            40.44654064595346
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-14/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            32.02788554633562,
+            17.05000000357628,
+            40.44654064595346
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.02346554993679,
+            17.26000015437603,
+            40.55185840707964
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-14/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-14",
+          "parentPoint": [
+            32.02346554993679,
+            17.260000001788136,
+            40.55185840707964
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-14",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          40.0,
+          41.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          40
+        ],
+        [
+          32,
+          8,
+          40
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          40.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          40.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        40.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-15",
+          "childPoint": [
+            32.00314075073495,
+            17.05000000357628,
+            41.45914257906511
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-15/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            32.00314075073495,
+            17.05000000357628,
+            41.45914257906511
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.01753950695322,
+            17.26000015437603,
+            41.54890855457227
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-15/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-15",
+          "parentPoint": [
+            32.01753950695322,
+            17.260000001788136,
+            41.54890855457227
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-15",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          41.0,
+          42.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          41
+        ],
+        [
+          32,
+          8,
+          41
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          41.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          41.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        41.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-16",
+          "childPoint": [
+            31.97839595513428,
+            17.05000000357628,
+            42.47174451217675
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-16/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.97839595513428,
+            17.05000000357628,
+            42.47174451217675
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.01161346396966,
+            17.26000015437603,
+            42.545958702064894
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-16/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-16",
+          "parentPoint": [
+            32.01161346396966,
+            17.260000001788136,
+            42.545958702064894
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-16",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          42.0,
+          43.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          42
+        ],
+        [
+          32,
+          8,
+          42
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          42.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          42.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        42.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-17",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            43.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-17/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            43.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            32.00568742098609,
+            17.26000015437603,
+            43.543008849557516
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-17/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-17",
+          "parentPoint": [
+            32.00568742098609,
+            17.260000001788136,
+            43.543008849557516
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-17",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          43.0,
+          44.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          43
+        ],
+        [
+          32,
+          8,
+          43
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          43.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          43.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        43.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-18",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            44.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-18/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            44.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.99976137800253,
+            17.26000015437603,
+            44.540058997050146
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-18/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-18",
+          "parentPoint": [
+            31.99976137800253,
+            17.260000001788136,
+            44.540058997050146
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-18",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          44.0,
+          45.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          44
+        ],
+        [
+          32,
+          8,
+          44
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          44.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          44.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        44.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-19",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            45.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-19/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            45.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.99383533501896,
+            17.26000015437603,
+            45.53710914454277
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-19/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-19",
+          "parentPoint": [
+            31.99383533501896,
+            17.260000001788136,
+            45.53710914454277
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-19",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          45.0,
+          46.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          45
+        ],
+        [
+          32,
+          8,
+          45
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          45.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          45.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        45.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-20",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            46.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-20/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            46.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.987909292035397,
+            17.26000015437603,
+            46.53415929203539
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-20/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-20",
+          "parentPoint": [
+            31.987909292035397,
+            17.260000001788136,
+            46.53415929203539
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-20",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          46.0,
+          47.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          46
+        ],
+        [
+          32,
+          8,
+          46
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          46.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          46.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        46.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-21",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            47.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-21/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            47.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.981983249051833,
+            17.26000015437603,
+            47.53120943952803
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-21/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-21",
+          "parentPoint": [
+            31.981983249051833,
+            17.260000001788136,
+            47.53120943952803
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-21",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          47.0,
+          48.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          47
+        ],
+        [
+          32,
+          8,
+          47
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          47.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          47.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        47.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-22",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            48.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-22/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            48.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.976057206068266,
+            17.26000015437603,
+            48.52825958702065
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-22/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-22",
+          "parentPoint": [
+            31.976057206068266,
+            17.260000001788136,
+            48.52825958702065
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-22",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          48.0,
+          49.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          48
+        ],
+        [
+          32,
+          8,
+          48
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          48.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          48.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        48.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-23",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            49.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-23/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            49.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.973333333333333,
+            17.26000015437603,
+            49.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-23/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-23",
+          "parentPoint": [
+            31.973333333333333,
+            17.260000001788136,
+            49.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-23",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          49.0,
+          50.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          49
+        ],
+        [
+          32,
+          8,
+          49
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          49.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          49.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        49.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-24",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            50.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-24/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            50.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.973333333333333,
+            17.26000015437603,
+            50.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-24/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-24",
+          "parentPoint": [
+            31.973333333333333,
+            17.260000001788136,
+            50.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-24",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          50.0,
+          51.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          50
+        ],
+        [
+          32,
+          8,
+          50
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          50.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          50.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        50.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-25",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            51.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-25/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            51.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.973333333333333,
+            17.26000015437603,
+            51.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-25/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-25",
+          "parentPoint": [
+            31.973333333333333,
+            17.260000001788136,
+            51.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-25",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          51.0,
+          52.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          51
+        ],
+        [
+          32,
+          8,
+          51
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          51.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          51.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        51.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-26",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            52.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-26/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            52.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.973333333333333,
+            17.26000015437603,
+            52.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-26/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-26",
+          "parentPoint": [
+            31.973333333333333,
+            17.260000001788136,
+            52.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-26",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          52.0,
+          53.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          52
+        ],
+        [
+          32,
+          8,
+          52
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          52.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          52.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        52.5
+      ]
+    },
+    {
+      "connections": [
+        {
+          "childCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-27",
+          "childPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            53.473333333333336
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-27/bearing-bottom",
+          "parentCarrierId": "carrier/edge-11/cornice-7",
+          "parentPoint": [
+            31.973333333333333,
+            17.05000000357628,
+            53.473333333333336
+          ]
+        },
+        {
+          "childCarrierId": "carrier/main-parapet-11/base",
+          "childPoint": [
+            31.973333333333333,
+            17.26000015437603,
+            53.526666666666664
+          ],
+          "joinId": "carrier/clear-parapet-blocking/main-parapet-11/bay-27/bearing-top",
+          "parentCarrierId": "carrier/clear-parapet-blocking/main-parapet-11/bay-27",
+          "parentPoint": [
+            31.973333333333333,
+            17.260000001788136,
+            53.526666666666664
+          ]
+        }
+      ],
+      "id": "carrier/clear-parapet-blocking/main-parapet-11/bay-27",
+      "nativeBay": {
+        "axis": "z",
+        "intervalMetres": [
+          53.0,
+          54.0
+        ],
+        "pitchMetres": 1
+      },
+      "occupiedStockCells": [
+        [
+          31,
+          8,
+          53
+        ],
+        [
+          32,
+          8,
+          53
+        ]
+      ],
+      "physicalBounds": {
+        "max": [
+          32.08,
+          17.260000001788136,
+          53.58
+        ],
+        "min": [
+          31.92,
+          17.05000000357628,
+          53.42
+        ]
+      },
+      "pivotWorldMetres": [
+        32.0,
+        17.155000002682208,
+        53.5
+      ]
+    }
+  ],
+  "physicalTextureDensity": "Original metre-scaled UV and grossUV arrays unchanged.",
+  "pivot": "Original normalized cube centre. Original world matrix and attachment surfaces retained.",
+  "stockCellSizeXYZMetres": [
+    1,
+    2.12,
+    1
+  ],
+  "version": 1
+}
