@@ -1,0 +1,758 @@
+{
+  "version": 1,
+  "scope": "Failed fifth single-session engineering review; successful traversal and intended contacts do not waive actual held-input timing failure.",
+  "passed": false,
+  "firstFailure": {
+    "stage": "sustained-ignition-attempt",
+    "message": "Actual held input exceeded its two-second limit",
+    "actualHoldMs": 2599.8999996185303,
+    "scheduledReleaseMs": 1800,
+    "maxWallMs": 2000,
+    "keyDown": {
+      "type": "keydown",
+      "trusted": true,
+      "at": 16774.300000190735,
+      "code": "Space",
+      "target": "CANVAS"
+    },
+    "keyUp": {
+      "type": "keyup",
+      "trusted": true,
+      "at": 19374.199999809265,
+      "code": "Space",
+      "target": "CANVAS"
+    }
+  },
+  "source": {
+    "version": 1,
+    "runtimeCommit": "76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+    "authority": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+    "productionDiff": [],
+    "runtimeFiles": 22,
+    "addedFiles": 40,
+    "sourcePins": [
+      {
+        "path": "assets/runtime/map-sources/new-york/index.json",
+        "bytes": 8021251,
+        "rawSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+        "lfSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+      },
+      {
+        "path": "assets/runtime/map-sources/new-york/library.json",
+        "bytes": 3150020,
+        "rawSha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296",
+        "lfSha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "bytes": 13327,
+        "rawSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+        "lfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c"
+      }
+    ],
+    "reviewSources": [
+      {
+        "path": "tools/review/shared-map-phone.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37",
+        "lfSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37"
+      },
+      {
+        "path": "tools/review/catalogue-browser.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "a2ef2a2831a0f98231236627d0af4b89c12f264bff7123389692b1d7dd6cd376",
+        "lfSha256": "a2ef2a2831a0f98231236627d0af4b89c12f264bff7123389692b1d7dd6cd376"
+      },
+      {
+        "path": "tools/review/browser-lanes.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "b4b29d47414fda1e7f72919cd965136773dc26081400c2599712d076832d90bc",
+        "lfSha256": "b4b29d47414fda1e7f72919cd965136773dc26081400c2599712d076832d90bc"
+      },
+      {
+        "path": "tools/review/shared-map-actions.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "5bbb4b0e9803b864cf023eaf84720ea431220711bce6c142beef66e391a7ffb7",
+        "lfSha256": "5bbb4b0e9803b864cf023eaf84720ea431220711bce6c142beef66e391a7ffb7"
+      },
+      {
+        "path": "tools/review/shared-map-layout.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "9b43df21f5d3b971cb075bb69eeba196f2940357102e0002b0d162897532d85a",
+        "lfSha256": "9b43df21f5d3b971cb075bb69eeba196f2940357102e0002b0d162897532d85a"
+      },
+      {
+        "path": "tools/build.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "e900dfd55f680d3137afdaf3e7d490fbd38b8ccbc52546a8ed10f855fe4435bc",
+        "lfSha256": "220a7806e05a46cad69d45b249c71334a09fa5b6b61aab81dc72b35212dbe929"
+      },
+      {
+        "path": "tools/check-release.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "0b3a286048222f9ebe5d8f39e7ba9f4e257f4d6731ee7d6d1d7166f6dbb36146",
+        "lfSha256": "19cc17082c006922e1803f00c1ac9f13756cea0a2bf2c8eb92103357c44f7e11"
+      }
+    ],
+    "wipPreserved": {
+      "path": "docs/engineering/shared-maps/support-regions-proposal.md",
+      "sha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f"
+    },
+    "noOtherMapOrSupportProposalInstalled": true,
+    "harnessCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+    "harnessSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37",
+    "canonicalCarriers": 12446,
+    "laterSupportOrMaterialChangesInstalled": false
+  },
+  "build": {
+    "manifestSha256": "cf39fcfc2dd961f60d2ad6af8a03d738510d0aa2090c879e41b1bf958a8f8aac",
+    "files": 3619,
+    "bytes": 264636740
+  },
+  "layout": {
+    "browser": {
+      "width": 844,
+      "height": 390
+    },
+    "canvas": {
+      "left": 0,
+      "top": 0,
+      "width": 844,
+      "height": 390
+    },
+    "metrics": {
+      "width": 844,
+      "height": 390
+    },
+    "player": {
+      "feet": {
+        "x": 422,
+        "y": 194.9999999999997,
+        "visible": true
+      },
+      "center": {
+        "x": 422,
+        "y": 177.34049105921417,
+        "visible": true
+      },
+      "head": {
+        "x": 422,
+        "y": 159.68098211842863,
+        "visible": true
+      },
+      "pointerTarget": "CANVAS"
+    },
+    "minSceneHeight": 300,
+    "scope": "Measured DOM/projection/input guard; JPG review still establishes actual native-model visibility."
+  },
+  "nativeBodyProjectionPixels": 35.31901788157106,
+  "route": {
+    "normalControls": true,
+    "interiorElevation": 2.12,
+    "frontDoorOpened": true,
+    "frontDoorClosed": true,
+    "noForcedState": true,
+    "menuExitStageReached": false
+  },
+  "tools": {
+    "rapidSelection": [
+      {
+        "code": "Digit4",
+        "selectUp": {
+          "type": "keyup",
+          "trusted": true,
+          "at": 11336.300000190735,
+          "code": "Digit4",
+          "target": "CANVAS"
+        },
+        "actionDown": {
+          "type": "keydown",
+          "trusted": true,
+          "at": 11337.400000095367,
+          "code": "Space",
+          "target": "CANVAS"
+        },
+        "gapMs": 1.0999999046325684
+      },
+      {
+        "code": "Digit5",
+        "selectUp": {
+          "type": "keyup",
+          "trusted": true,
+          "at": 16773.099999904633,
+          "code": "Digit5",
+          "target": "CANVAS"
+        },
+        "actionDown": {
+          "type": "keydown",
+          "trusted": true,
+          "at": 16774.300000190735,
+          "code": "Space",
+          "target": "CANVAS"
+        },
+        "gapMs": 1.200000286102295
+      }
+    ],
+    "torchLight": {
+      "id": 37,
+      "tick": 374,
+      "type": "tool-use",
+      "x": 50.499942227501016,
+      "y": 25.108001557032328,
+      "tool": "torch",
+      "result": "lit"
+    },
+    "glass": {
+      "event": {
+        "id": 38,
+        "tick": 394,
+        "type": "tool-rejected",
+        "x": 50.51666697228441,
+        "y": 25.979999999515712,
+        "tool": "torch",
+        "result": "no-fuel",
+        "reason": "no-fuel",
+        "heatedCells": 0,
+        "cellIds": []
+      },
+      "aim": {
+        "screen": {
+          "x": 405.6832037206857,
+          "y": 162.78459370396718,
+          "visible": true
+        },
+        "x": 405.6832037206857,
+        "y": 162.78459370396718,
+        "picked": {
+          "x": 50.51666666707021,
+          "y": 25.979999999515712,
+          "h": 3.043333333898346,
+          "distance": 210.98189501080216,
+          "sourceSurfaceId": "new-york::carrier/main/0/lower-3/glass",
+          "ownerInstanceId": "new-york"
+        },
+        "element": "CANVAS"
+      },
+      "distance": 0.8721588104080313,
+      "range": 1.1,
+      "heatInput": 0
+    },
+    "timber": {
+      "event": {
+        "id": 40,
+        "tick": 519,
+        "type": "tool-use",
+        "x": 54.999999955296516,
+        "y": 25.759999738366005,
+        "tool": "matches",
+        "result": "heated",
+        "tile": {
+          "x": 54,
+          "y": 25,
+          "width": 1,
+          "depth": 1
+        },
+        "heatedCells": 1,
+        "cellIds": [
+          "110,3,51"
+        ]
+      },
+      "aim": {
+        "screen": {
+          "x": 419.24129672348715,
+          "y": 160.02958830127616,
+          "visible": true
+        },
+        "x": 419.24129672348715,
+        "y": 160.02958830127616,
+        "picked": {
+          "x": 54.999999955296516,
+          "y": 25.76000005364415,
+          "h": 3.2999999374151514,
+          "distance": 210.70491826135785,
+          "sourceSurfaceId": "new-york::carrier/main/0/entry/jamb--1/part/6562/face/0",
+          "ownerInstanceId": "new-york"
+        },
+        "element": "CANVAS"
+      },
+      "distance": 0.5262132097297428,
+      "range": 0.85,
+      "heatInput": 1.05
+    },
+    "held": {
+      "executed": true,
+      "before": {
+        "tick": 545,
+        "world": 9.083333333333364,
+        "hp": 100,
+        "selectedTool": "matches",
+        "torch": {
+          "phase": "lit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 38.80000000000032
+        },
+        "inventory": {
+          "matches": 11,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 4.656000000000038,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "burning": 0,
+        "heat": {
+          "generated": 0,
+          "input": 1.05,
+          "ambient": 0.0787873521292836,
+          "blocked": 0,
+          "cap": 0,
+          "escaped": 0,
+          "stored": 0.9712126478707166,
+          "radiationInTransit": 0,
+          "error": -1.1102230246251565e-16,
+          "relativeError": -1.0573552615477681e-16
+        },
+        "carriers": {
+          "staticInitial": 15767.943953000535,
+          "activeInitial": 704.8916540000006,
+          "coldReserve": 15063.052299000316,
+          "canonicalCarriers": 12446,
+          "activeCarriers": 720,
+          "reservedCarriers": 11726,
+          "nativeStaticBirths": 704.891997660365,
+          "nativeClippingDelta": 0.0003436603643649505,
+          "nativePartitionError": {
+            "signedDelta": 0.0003436603643649505,
+            "positive": 0.0007524332194655772,
+            "negative": 0.010551287378306278,
+            "roundoffBound": 0.0000017539327796357273
+          },
+          "world": {
+            "initial": 15767.943953000535,
+            "added": 0,
+            "remaining": 15767.944296660673,
+            "airborne": 0,
+            "burned": 0,
+            "escaped": 0,
+            "error": -0.0003436601382418303
+          }
+        },
+        "support": {
+          "nodes": 19239,
+          "coldCarrierNodes": 11726,
+          "declaredPairs": 15285,
+          "adjacencyPairs": 25198,
+          "anchors": 4560,
+          "initiallySupported": 18619,
+          "unresolvedInitial": 1038,
+          "missingLocalLinks": 0,
+          "checks": 5,
+          "topologyCache": {
+            "entries": 3208,
+            "entryLimit": 52929,
+            "variantsPerCalculation": 1,
+            "directedEdges": 269541,
+            "peakDirectedEdges": 269541,
+            "hits": 2448,
+            "misses": 3343,
+            "invalidations": 135,
+            "watchedBoundaries": 32097,
+            "retainedColdMeshes": 0,
+            "disposed": false,
+            "continuityBuilds": 724,
+            "peakTemporaryRecords": 1068,
+            "peakTemporaryMemberships": 9008,
+            "retainedTemporaryIndexes": 0
+          }
+        }
+      },
+      "after": {
+        "tick": 577,
+        "world": 9.616666666666724,
+        "hp": 100,
+        "selectedTool": "flamethrower",
+        "torch": {
+          "phase": "lit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 38.26666666666704
+        },
+        "inventory": {
+          "matches": 11,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 4.592000000000045,
+          "flamethrowerFuel": 5.940000000000001,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "burning": 1,
+        "heat": {
+          "generated": 0.37100014925433716,
+          "input": 3.4499999999999917,
+          "ambient": 0.3498080187702089,
+          "blocked": 0.11469400118323497,
+          "cap": 0,
+          "escaped": 0.05566691599802412,
+          "stored": 3.3008312133028688,
+          "radiationInTransit": 0,
+          "error": -7.549516567451064e-15,
+          "relativeError": -1.9757959362876125e-15
+        },
+        "carriers": {
+          "staticInitial": 15767.943953000535,
+          "activeInitial": 1834.625174999997,
+          "coldReserve": 13933.318778000263,
+          "canonicalCarriers": 12446,
+          "activeCarriers": 1577,
+          "reservedCarriers": 10869,
+          "nativeStaticBirths": 1834.6261287150205,
+          "nativeClippingDelta": 0.000953715023570112,
+          "nativePartitionError": {
+            "signedDelta": 0.000953715023570112,
+            "positive": 0.002059858937931026,
+            "negative": 0.024180248645889538,
+            "roundoffBound": 0.000004247383921170295
+          },
+          "world": {
+            "initial": 15767.943953000535,
+            "added": 0,
+            "remaining": 15767.94181504742,
+            "airborne": 0,
+            "burned": 0.00309166791045281,
+            "escaped": 0,
+            "error": -0.0009537147950730231
+          }
+        },
+        "support": {
+          "nodes": 34318,
+          "coldCarrierNodes": 10869,
+          "declaredPairs": 15285,
+          "adjacencyPairs": 25198,
+          "anchors": 5178,
+          "initiallySupported": 31738,
+          "unresolvedInitial": 1038,
+          "missingLocalLinks": 0,
+          "checks": 9,
+          "topologyCache": {
+            "entries": 7487,
+            "entryLimit": 52929,
+            "variantsPerCalculation": 1,
+            "directedEdges": 535031,
+            "peakDirectedEdges": 535031,
+            "hits": 20429,
+            "misses": 8041,
+            "invalidations": 554,
+            "watchedBoundaries": 47176,
+            "retainedColdMeshes": 0,
+            "disposed": false,
+            "continuityBuilds": 1581,
+            "peakTemporaryRecords": 2124,
+            "peakTemporaryMemberships": 9068,
+            "retainedTemporaryIndexes": 0
+          }
+        }
+      },
+      "observations": [
+        {
+          "at": 1794916513070,
+          "tick": 546,
+          "world": 9.100000000000032,
+          "tool": "matches",
+          "usingTool": false,
+          "dischargeActive": false,
+          "dischargeTool": null,
+          "fuel": 6
+        },
+        {
+          "at": 1794916513253,
+          "tick": 547,
+          "world": 9.1166666666667,
+          "tool": "flamethrower",
+          "usingTool": true,
+          "dischargeActive": true,
+          "dischargeTool": "flamethrower",
+          "fuel": 5.995
+        },
+        {
+          "at": 1794916515737,
+          "tick": 573,
+          "world": 9.550000000000054,
+          "tool": "flamethrower",
+          "usingTool": false,
+          "dischargeActive": false,
+          "dischargeTool": null,
+          "fuel": 5.940000000000001
+        },
+        {
+          "at": 1794916515772,
+          "tick": 577,
+          "world": 9.616666666666724,
+          "tool": "flamethrower",
+          "usingTool": false,
+          "dischargeActive": false,
+          "dischargeTool": null,
+          "fuel": 5.940000000000001
+        }
+      ],
+      "trustedInputs": [
+        {
+          "type": "keydown",
+          "trusted": true,
+          "at": 16772.300000190735,
+          "code": "Digit5",
+          "target": "CANVAS"
+        },
+        {
+          "type": "keyup",
+          "trusted": true,
+          "at": 16773.099999904633,
+          "code": "Digit5",
+          "target": "CANVAS"
+        },
+        {
+          "type": "keydown",
+          "trusted": true,
+          "at": 16774.300000190735,
+          "code": "Space",
+          "target": "CANVAS"
+        },
+        {
+          "type": "keyup",
+          "trusted": true,
+          "at": 19374.199999809265,
+          "code": "Space",
+          "target": "CANVAS"
+        }
+      ],
+      "boundedDurationPassed": false
+    }
+  },
+  "timing": {
+    "before": {
+      "tick": 545,
+      "world": 9.083333333333364,
+      "frames": 422,
+      "activeCarriers": 720,
+      "cells": 14694,
+      "activation": {
+        "batches": 3,
+        "activatedCarriers": 720,
+        "probedCells": 2,
+        "lastBatchMs": 90.80000019073486,
+        "totalBatchMs": 918,
+        "peakBatchMs": 819.5,
+        "peakBatchCarriers": 547
+      },
+      "hostWork": {
+        "hostSteps": 545,
+        "nativeSteps": 272,
+        "nativeSimulationMs": 124.4999942779541,
+        "backendAdvanceMs": 1269.099995136261,
+        "metricsQueriesMs": 5.30000114440918,
+        "looseFuelQueriesMs": 2.1999993324279785,
+        "physicalPublicationMs": 25.899999618530273,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 9.70000171661377,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 684.6000080108643
+      }
+    },
+    "after": {
+      "tick": 577,
+      "world": 9.616666666666724,
+      "frames": 427,
+      "activeCarriers": 1577,
+      "cells": 27952,
+      "activation": {
+        "batches": 28,
+        "activatedCarriers": 1577,
+        "probedCells": 49,
+        "lastBatchMs": 320.69999980926514,
+        "totalBatchMs": 1730.1999998092651,
+        "peakBatchMs": 819.5,
+        "peakBatchCarriers": 547
+      },
+      "hostWork": {
+        "hostSteps": 577,
+        "nativeSteps": 288,
+        "nativeSimulationMs": 1279.8999953269958,
+        "backendAdvanceMs": 3390.999994277954,
+        "metricsQueriesMs": 34.90000057220459,
+        "looseFuelQueriesMs": 2.499999523162842,
+        "physicalPublicationMs": 43.39999961853027,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 9.800001621246338,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 709.9000091552734
+      }
+    },
+    "delta": {
+      "backendAdvanceMs": 2121.899999141693,
+      "nativeSimulationMs": 1155.4000010490417,
+      "activationBatchesMs": 812.1999998092651
+    },
+    "countersAreInclusive": true,
+    "perBlockingFrameAttributionAvailable": false,
+    "noMatchedOrIsolatedBenchmarkClaim": true
+  },
+  "sections": {
+    "initial": {
+      "activeSections": 19,
+      "pendingSections": 0,
+      "geometries": 0,
+      "materials": 0,
+      "externalViews": 19,
+      "peakSections": 19,
+      "peakGeometries": 0,
+      "sectionLoads": 19,
+      "sectionReleases": 0,
+      "maxSections": 192,
+      "view": "follow",
+      "cutaway": false,
+      "failed": false
+    },
+    "final": {
+      "activeSections": 45,
+      "pendingSections": 0,
+      "geometries": 0,
+      "materials": 0,
+      "externalViews": 45,
+      "peakSections": 45,
+      "peakGeometries": 0,
+      "sectionLoads": 45,
+      "sectionReleases": 0,
+      "maxSections": 192,
+      "view": "follow",
+      "cutaway": false,
+      "failed": false
+    }
+  },
+  "lighting": {
+    "torchPhaseObserved": true,
+    "finalArtDiagnosticReached": false,
+    "visualFireLightAcceptance": false
+  },
+  "cleanup": {
+    "closedAt": "2026-11-17T11:55:16.747Z",
+    "helper": {
+      "owner": "Coder Tinderbox",
+      "project": "Catalogue modular host",
+      "purpose": "M29 822038cc7c3f3814f8aaa8e48c7973304b384fc2: one frozen New York phone-sized normal-input engineering review",
+      "driver": {
+        "pid": 40560,
+        "creationFiletime": "134393900935538442",
+        "executable": "C:\\Program Files\\nodejs\\node.exe"
+      },
+      "browser": {
+        "pid": 60744,
+        "creationFiletime": "134393900953049314",
+        "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+      },
+      "launchState": "launched",
+      "ports": [
+        59697,
+        59698
+      ],
+      "target": "nested local package",
+      "startedAt": "2026-11-17T11:54:54.912Z",
+      "expiresAt": "2026-11-17T11:57:54.912Z",
+      "automaticStop": "Driver deadline calls context/browser/server close",
+      "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\shared-map-runtime\\phone-review-v5\\STOP",
+      "stopMethod": "STOP file, deadline, or finally",
+      "restart": {
+        "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+        "executable": "C:\\Program Files\\nodejs\\node.exe",
+        "args": [
+          "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tools\\review\\shared-map-phone.mjs",
+          "--output=artifacts/qa/shared-map-runtime/phone-review-v5",
+          "--manifest-sha256=cf39fcfc2dd961f60d2ad6af8a03d738510d0aa2090c879e41b1bf958a8f8aac",
+          "--runtime-commit=76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+          "--authority=822038cc7c3f3814f8aaa8e48c7973304b384fc2"
+        ],
+        "output": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\shared-map-runtime\\phone-review-v5",
+        "manifestSha256": "cf39fcfc2dd961f60d2ad6af8a03d738510d0aa2090c879e41b1bf958a8f8aac"
+      }
+    },
+    "portsListening": [
+      false,
+      false
+    ],
+    "browserExited": true,
+    "contextLifecycle": {
+      "created": 1,
+      "closed": 1,
+      "remaining": 0,
+      "pending": 0,
+      "maxLive": 1,
+      "stopping": true
+    }
+  },
+  "independentCleanup": {
+    "checkedAt": "2026-11-17T11:55:44.7972539Z",
+    "sessionCompleted": 49785,
+    "sessionExitCode": 1,
+    "processes": [
+      {
+        "identity": {
+          "pid": 40560,
+          "creationFiletime": "134393900935538442",
+          "executable": "C:\\Program Files\\nodejs\\node.exe"
+        },
+        "pidPresent": false,
+        "originalIdentityPresent": false
+      },
+      {
+        "identity": {
+          "pid": 60744,
+          "creationFiletime": "134393900953049314",
+          "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+        },
+        "pidPresent": false,
+        "originalIdentityPresent": false
+      }
+    ],
+    "ports": [
+      {
+        "port": 59697,
+        "listening": false
+      },
+      {
+        "port": 59698,
+        "listening": false
+      }
+    ]
+  },
+  "evidenceDirectory": "docs/engineering/shared-maps/phone-review-v5/",
+  "archiveManifest": {
+    "path": "docs/engineering/shared-maps/phone-review-v5/archive-manifest.json",
+    "sha256": "fcb4e1a621c17a663597b9e62d52e29950a63fe1c5a7bf142784108684febb56",
+    "files": 49
+  },
+  "images": [
+    {
+      "path": "docs/engineering/shared-maps/phone-review-v5/interior.jpg",
+      "bytes": 45443,
+      "sha256": "f0e87fe6776f8ddca247161b2a57a8a6ab6b3a55df407f2bb4776bccc7faef15"
+    },
+    {
+      "path": "docs/engineering/shared-maps/phone-review-v5/first-failure.jpg",
+      "bytes": 70986,
+      "sha256": "5e0b467714bf43d430c8e37a20f35c28ed620ce8dc407756ad62ff49a2990f4c"
+    }
+  ],
+  "remaining": [
+    "Actual <=2-second held input and successful menu/disposal path",
+    "Final art/fire-light diagnostics",
+    "Source/support/accounting and other-map rollout gates",
+    "Physical iPhone Safari and whole-game performance acceptance"
+  ],
+  "helpersRunning": false,
+  "grantConsumed": true
+}

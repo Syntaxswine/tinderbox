@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "owner": "Coder Tinderbox",
+  "purpose": "Preserve the consumed v5 browser investigation; do not automatically replay",
+  "authority": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+  "runtimeCommit": "76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+  "grantConsumed": true,
+  "helpersRunning": false,
+  "sourceCode": {
+    "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+    "files": [
+      {
+        "path": "tools/review/shared-map-phone.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37",
+        "lfSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37"
+      },
+      {
+        "path": "tools/review/catalogue-browser.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "a2ef2a2831a0f98231236627d0af4b89c12f264bff7123389692b1d7dd6cd376",
+        "lfSha256": "a2ef2a2831a0f98231236627d0af4b89c12f264bff7123389692b1d7dd6cd376"
+      },
+      {
+        "path": "tools/review/browser-lanes.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "b4b29d47414fda1e7f72919cd965136773dc26081400c2599712d076832d90bc",
+        "lfSha256": "b4b29d47414fda1e7f72919cd965136773dc26081400c2599712d076832d90bc"
+      },
+      {
+        "path": "tools/review/shared-map-actions.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "5bbb4b0e9803b864cf023eaf84720ea431220711bce6c142beef66e391a7ffb7",
+        "lfSha256": "5bbb4b0e9803b864cf023eaf84720ea431220711bce6c142beef66e391a7ffb7"
+      },
+      {
+        "path": "tools/review/shared-map-layout.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "9b43df21f5d3b971cb075bb69eeba196f2940357102e0002b0d162897532d85a",
+        "lfSha256": "9b43df21f5d3b971cb075bb69eeba196f2940357102e0002b0d162897532d85a"
+      },
+      {
+        "path": "tools/build.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "e900dfd55f680d3137afdaf3e7d490fbd38b8ccbc52546a8ed10f855fe4435bc",
+        "lfSha256": "220a7806e05a46cad69d45b249c71334a09fa5b6b61aab81dc72b35212dbe929"
+      },
+      {
+        "path": "tools/check-release.mjs",
+        "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+        "rawSha256": "0b3a286048222f9ebe5d8f39e7ba9f4e257f4d6731ee7d6d1d7166f6dbb36146",
+        "lfSha256": "19cc17082c006922e1803f00c1ac9f13756cea0a2bf2c8eb92103357c44f7e11"
+      }
+    ]
+  },
+  "localBuildProducer": "build-producer.mjs",
+  "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+  "runtime": {
+    "node": "v24.15.0",
+    "edgeChannel": "msedge",
+    "playwrightModuleResolution": "tools/review/catalogue-browser.mjs: installed playwright or USERPROFILE/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
+    "browserLaunchFlags": [
+      "--enable-gpu",
+      "--use-angle=d3d11"
+    ]
+  },
+  "build": {
+    "manifestSha256": "cf39fcfc2dd961f60d2ad6af8a03d738510d0aa2090c879e41b1bf958a8f8aac",
+    "args": [
+      "tools/build.mjs"
+    ],
+    "checks": [
+      "tools/check-release.mjs"
+    ],
+    "files": 3619,
+    "bytes": 264636740
+  },
+  "browser": {
+    "owner": "Coder Tinderbox",
+    "project": "Catalogue modular host",
+    "purpose": "M29 822038cc7c3f3814f8aaa8e48c7973304b384fc2: one frozen New York phone-sized normal-input engineering review",
+    "driver": {
+      "pid": 40560,
+      "creationFiletime": "134393900935538442",
+      "executable": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    "browser": {
+      "pid": 60744,
+      "creationFiletime": "134393900953049314",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+    },
+    "launchState": "launched",
+    "ports": [
+      59697,
+      59698
+    ],
+    "target": "nested local package",
+    "startedAt": "2026-11-17T11:54:54.912Z",
+    "expiresAt": "2026-11-17T11:57:54.912Z",
+    "automaticStop": "Driver deadline calls context/browser/server close",
+    "stopFile": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\shared-map-runtime\\phone-review-v5\\STOP",
+    "stopMethod": "STOP file, deadline, or finally",
+    "restart": {
+      "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tools\\review\\shared-map-phone.mjs",
+        "--output=artifacts/qa/shared-map-runtime/phone-review-v5",
+        "--manifest-sha256=cf39fcfc2dd961f60d2ad6af8a03d738510d0aa2090c879e41b1bf958a8f8aac",
+        "--runtime-commit=76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+        "--authority=822038cc7c3f3814f8aaa8e48c7973304b384fc2"
+      ],
+      "output": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\shared-map-runtime\\phone-review-v5",
+      "manifestSha256": "cf39fcfc2dd961f60d2ad6af8a03d738510d0aa2090c879e41b1bf958a8f8aac"
+    }
+  },
+  "inputs": "Trusted mouse joystick, contextual E and real canvas/keyboard actions in the pinned harness; no manual world-time stepping or state placement",
+  "outputs": "All raw receipts and both reached JPGs in this directory",
+  "pending": "Actual <=2000 ms held-key proof and successful menu route, final art/fire-light diagnostics, whole-map source/support/accounting/other-map gates",
+  "restartPolicy": "A new deliberate architect grant and fresh output directory are required; this record grants no second session, build, profile or publication."
+}

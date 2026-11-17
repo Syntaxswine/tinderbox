@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "authority": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+  "runtimeCommit": "76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+  "harnessCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+  "harnessSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37",
+  "scope": "One phone-sized Edge engineering visit, not iPhone Safari, benchmark or production acceptance.",
+  "viewport": {
+    "width": 844,
+    "height": 390
+  },
+  "input": {
+    "cameraRelative": true,
+    "cameraX": 10,
+    "cameraY": -12
+  },
+  "normalZoom": true,
+  "absoluteBrowserLifetimeMs": 180000,
+  "lanes": 1,
+  "route": [
+    "title",
+    "goat selection",
+    "New York",
+    "front stair",
+    "open door",
+    "interior",
+    "return and close",
+    "original landing around column row",
+    "glass torch light/use",
+    "visible timber jamb match",
+    "short held flamethrower ignition attempt",
+    "places and disposal"
+  ],
+  "boundedSustainedAttempt": {
+    "tool": "flamethrower",
+    "maxWallMs": 2000,
+    "releaseAfterMs": 1800,
+    "requiresIgnition": false
+  },
+  "toolContacts": {
+    "glass": {
+      "x": 50.5,
+      "y": 26,
+      "h": 3.02,
+      "carrier": "new-york::carrier/main/0/lower-3/glass",
+      "tool": "torch",
+      "key": "Digit4"
+    },
+    "timber": {
+      "x": 54.999999955296516,
+      "y": 25.760000053644177,
+      "h": 3.299999937415123,
+      "carrier": "new-york::carrier/main/0/entry/jamb--1",
+      "tool": "matches",
+      "key": "Digit1"
+    }
+  },
+  "inputs": "Trusted Playwright mouse joystick using the map input configuration, canvas aim taps, contextual E, ordinary torch/match/held-flame keys; public read-only visit handles",
+  "stop": "First unexpected error/stall/contact mismatch, STOP file, fixed three-minute deadline or finally cleanup"
+}

@@ -1,0 +1,1074 @@
+{
+  "before": {
+    "app": {
+      "phase": "visit",
+      "loadingId": null,
+      "error": null,
+      "placeId": "new-york",
+      "selectedCharacterId": "goat",
+      "capabilities": {
+        "version": 1,
+        "mode": "gameplay",
+        "tools": true,
+        "health": true,
+        "interact": true,
+        "overview": true
+      }
+    },
+    "player": {
+      "id": "hero",
+      "characterId": "goat",
+      "species": "goat",
+      "height": 1.66,
+      "x": 50.499942227501016,
+      "y": 25.108001557032328,
+      "radius": 0.5,
+      "heading": 1.5516188906788133,
+      "moving": false,
+      "hp": 100,
+      "maxHp": 100,
+      "tool": "torch",
+      "pouring": false,
+      "usingTool": false,
+      "inventory": {
+        "matches": 12,
+        "gas": 4,
+        "molotovs": 4,
+        "torchFuel": 4.960000000000004,
+        "flamethrowerFuel": 6,
+        "powder": 4,
+        "healing": 3,
+        "inversion": 3
+      },
+      "travelled": 26.107338168714897,
+      "lanternAim": null,
+      "torch": {
+        "phase": "lit",
+        "durationSeconds": 41.66666666666667,
+        "remainingSeconds": 41.33333333333337
+      },
+      "elevation": 2.12,
+      "level": 1,
+      "surfaceId": "front-landing",
+      "interior": false,
+      "moduleOwner": "new-york",
+      "verticalVelocity": 0,
+      "locationLabel": "Main hall",
+      "characterFire": {
+        "version": 1,
+        "active": false,
+        "mode": "none",
+        "intensity": 0,
+        "age": 0
+      },
+      "interaction": null
+    },
+    "clocks": {
+      "active": 6.549999999999982,
+      "player": 6.549999999999982,
+      "world": 6.549999999999982,
+      "playerScale": 1,
+      "worldScale": 1
+    },
+    "tick": 393,
+    "paused": false,
+    "navigation": {
+      "activeSections": 45,
+      "pendingSections": 0,
+      "geometries": 0,
+      "materials": 0,
+      "externalViews": 45,
+      "peakSections": 45,
+      "peakGeometries": 0,
+      "sectionLoads": 45,
+      "sectionReleases": 0,
+      "maxSections": 192,
+      "view": "follow",
+      "cutaway": false,
+      "failed": false,
+      "placeId": "new-york",
+      "waitingForSection": false,
+      "portalStates": {
+        "ny-front": false,
+        "ny-east": false,
+        "ny-west": false,
+        "ny-east-upper": false,
+        "ny-west-upper": false
+      },
+      "collision": {
+        "querySurfaces": 12859,
+        "sourceParts": 12858,
+        "sourceCarriers": 12446,
+        "claimedCarriers": 4,
+        "cachedShapes": 136,
+        "cachedTriangles": 2842,
+        "peakShapes": 136,
+        "peakTriangles": 2842,
+        "shapeBuilds": 142,
+        "maxSingleQueryTriangles": 200,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0,
+        "bodies": [
+          {
+            "detailedColliders": 1207,
+            "cachedShapes": 0,
+            "cachedTriangles": 0,
+            "peakCachedShapes": 0,
+            "peakCachedTriangles": 0,
+            "maxCachedShapes": 192,
+            "maxCachedTriangles": 65536
+          }
+        ]
+      },
+      "navigation": {}
+    },
+    "discharge": {
+      "version": 1,
+      "tick": 393,
+      "active": false,
+      "tool": null,
+      "origin": null,
+      "shapeOrigin": null,
+      "heading": 0,
+      "range": 0,
+      "radius": 0,
+      "halfAngle": 0,
+      "connectRays": false,
+      "rays": [],
+      "lead": null
+    },
+    "thermal": {
+      "backend": "native-map-trial",
+      "representation": "native-map-sparse-sources",
+      "nativeTick": 196,
+      "nativeWorldTime": 6.533333333333333,
+      "residual": 0.016666666666666666,
+      "pendingDepositedFuel": 0,
+      "metrics": {
+        "tick": 196,
+        "worldTime": 6.533333333333333,
+        "fuel": {
+          "initial": 0,
+          "added": 2.520000864000084,
+          "burned": 0,
+          "escaped": 0,
+          "remaining": 2.520000864000084,
+          "airborne": 0,
+          "error": 0
+        },
+        "heat": {
+          "generated": 0,
+          "input": 0,
+          "ambient": 0,
+          "blocked": 0,
+          "cap": 0,
+          "escaped": 0,
+          "stored": 0,
+          "radiationInTransit": 0,
+          "error": 0,
+          "relativeError": 0
+        },
+        "burningCount": 0,
+        "burningArea": 0,
+        "combustibleArea": 5.600001824632722,
+        "burningAreaFraction": 0,
+        "burnedFraction": 0,
+        "activeCells": 0,
+        "fallingCount": 0,
+        "queuedRadiationSources": 0,
+        "queuedRays": 0,
+        "oldestRadiationQueryDelay": 0,
+        "oldestRadiationEnergyAge": 0,
+        "stats": {
+          "ticks": 196,
+          "cellVisits": 0,
+          "burnVisits": 2016,
+          "linkBuilds": 0,
+          "rayBuilds": 0,
+          "rayTests": 0,
+          "invalidations": 0,
+          "ignitions": 0,
+          "failures": 0,
+          "landings": 0,
+          "peakActive": 0,
+          "maxBurnsPerFuelPerTick": 0
+        }
+      },
+      "gridCells": 120,
+      "activation": {
+        "batches": 1,
+        "activatedCarriers": 4,
+        "probedCells": 0,
+        "lastBatchMs": 7.699999809265137,
+        "totalBatchMs": 7.699999809265137,
+        "peakBatchMs": 7.699999809265137,
+        "peakBatchCarriers": 4
+      },
+      "query": {
+        "querySurfaces": 12859,
+        "sourceParts": 12858,
+        "sourceCarriers": 12446,
+        "claimedCarriers": 4,
+        "cachedShapes": 136,
+        "cachedTriangles": 2842,
+        "peakShapes": 136,
+        "peakTriangles": 2842,
+        "shapeBuilds": 142,
+        "maxSingleQueryTriangles": 200,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "carriers": {
+        "staticInitial": 15767.943953000535,
+        "activeInitial": 2.52,
+        "coldReserve": 15765.423953000534,
+        "canonicalCarriers": 12446,
+        "activeCarriers": 4,
+        "reservedCarriers": 12442,
+        "nativeStaticBirths": 2.520000864000084,
+        "nativeClippingDelta": 8.640000839221784e-7,
+        "nativePartitionError": {
+          "signedDelta": 8.640000839221784e-7,
+          "positive": 0.0000017302163324380746,
+          "negative": 0.000016187486682509532,
+          "roundoffBound": 2.2160205620144933e-9
+        },
+        "world": {
+          "initial": 15767.943953000535,
+          "added": 0,
+          "remaining": 15767.943953864535,
+          "airborne": 0,
+          "burned": 0,
+          "escaped": 0,
+          "error": -8.639999578008428e-7
+        }
+      },
+      "limitations": {
+        "declaredSupportUnresolved": [],
+        "unassignedParts": 0
+      },
+      "support": {
+        "nodes": 36,
+        "coldCarrierNodes": 12442,
+        "declaredPairs": 15285,
+        "adjacencyPairs": 25198,
+        "anchors": 231,
+        "initiallySupported": 36,
+        "unresolvedInitial": 1038,
+        "missingLocalLinks": 0,
+        "checks": 3,
+        "topologyCache": {
+          "entries": 0,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 0,
+          "peakDirectedEdges": 216,
+          "hits": 0,
+          "misses": 8,
+          "invalidations": 8,
+          "watchedBoundaries": 12894,
+          "retainedColdMeshes": 0,
+          "disposed": false,
+          "continuityBuilds": 4,
+          "peakTemporaryRecords": 10,
+          "peakTemporaryMemberships": 48,
+          "retainedTemporaryIndexes": 0
+        }
+      },
+      "navigation": {},
+      "resident": {
+        "state": "routine",
+        "routeIndex": 0,
+        "holdUntil": null,
+        "smokeSince": null,
+        "lookSince": null,
+        "exitIndex": 0,
+        "blocked": null
+      },
+      "instances": [
+        "new-york"
+      ],
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "profiles": {
+        "grass": {
+          "threshold": 0.85,
+          "delay": 0.18,
+          "seconds": 1,
+          "energy": 36.666666666666664
+        },
+        "oil": {
+          "threshold": 0.6,
+          "delay": 0,
+          "seconds": 14,
+          "energy": 800
+        },
+        "clapboard": {
+          "threshold": 1.1,
+          "delay": 5,
+          "seconds": 180,
+          "energy": 3420
+        },
+        "partition": {
+          "threshold": 1.1,
+          "delay": 5,
+          "seconds": 180,
+          "energy": 2200
+        },
+        "door": {
+          "threshold": 1.1,
+          "delay": 5,
+          "seconds": 60,
+          "energy": 1000
+        },
+        "roof": {
+          "threshold": 1.1,
+          "delay": 3,
+          "seconds": 180,
+          "energy": 1980
+        },
+        "frame": {
+          "threshold": 1.3,
+          "delay": 3,
+          "seconds": 180,
+          "energy": 2250
+        },
+        "furniture": {
+          "threshold": 1.1,
+          "delay": 3,
+          "seconds": 60,
+          "energy": 1200
+        },
+        "cloth": {
+          "threshold": 0.8,
+          "delay": 0.5,
+          "seconds": 20,
+          "energy": 600
+        },
+        "lacquer": {
+          "threshold": 0.5,
+          "delay": 0,
+          "seconds": 4,
+          "energy": 120
+        },
+        "coal": {
+          "threshold": 1.6,
+          "delay": 15,
+          "seconds": 300,
+          "energy": 1800
+        },
+        "embers": {
+          "threshold": 0.7,
+          "delay": 0,
+          "seconds": 8,
+          "energy": 500
+        }
+      },
+      "inputProfiles": {
+        "matches": 1.05,
+        "torch": 1.8,
+        "flamethrowerEnergyPerSecond": 12,
+        "lanternPayload": 0.5,
+        "gasPerMetre": 0.08
+      },
+      "timing": {
+        "nativeSteps": 0,
+        "nativeSimulationMs": 0,
+        "physicalPublicationMs": 0,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0.09999990463256836,
+        "nativePhases": {
+          "commandsAndFallsMs": 0,
+          "burnRegistryMs": 0,
+          "transportMs": 0,
+          "preheatMs": 0,
+          "coolingMs": 0,
+          "boundaryAndSupportMs": 0,
+          "itemsMs": 0
+        },
+        "hostWork": {
+          "hostSteps": 393,
+          "nativeSteps": 196,
+          "nativeSimulationMs": 78.89999485015869,
+          "backendAdvanceMs": 176.79999589920044,
+          "metricsQueriesMs": 3.8000006675720215,
+          "looseFuelQueriesMs": 1.4999995231628418,
+          "physicalPublicationMs": 7.999998569488525,
+          "rasterPublicationMs": 0,
+          "diagnosticsMs": 7.800002098083496,
+          "smokeSignalCalls": 0,
+          "smokeSignalsMs": 0,
+          "smokeSightMs": 0,
+          "navigationMs": 339.40000772476196
+        }
+      }
+    },
+    "events": [
+      {
+        "id": 1,
+        "tick": 142,
+        "type": "portal-state",
+        "x": 56.00000013567268,
+        "y": 24.726500321601016,
+        "portalId": "ny-front",
+        "open": true,
+        "backend": "native-map-trial",
+        "nativeTick": 71
+      },
+      {
+        "id": 18,
+        "tick": 258,
+        "type": "portal-state",
+        "x": 56.000000271345414,
+        "y": 24.767248888848492,
+        "portalId": "ny-front",
+        "open": false,
+        "backend": "native-map-trial",
+        "nativeTick": 129
+      },
+      {
+        "id": 35,
+        "tick": 374,
+        "type": "tool-selected",
+        "x": 50.499942227501016,
+        "y": 25.108001557032328,
+        "tool": "torch"
+      },
+      {
+        "id": 36,
+        "tick": 374,
+        "type": "torch-lit",
+        "x": 50.499942227501016,
+        "y": 25.108001557032328,
+        "tool": "torch",
+        "durationSeconds": 41.66666666666667
+      },
+      {
+        "id": 37,
+        "tick": 374,
+        "type": "tool-use",
+        "x": 50.499942227501016,
+        "y": 25.108001557032328,
+        "tool": "torch",
+        "result": "lit"
+      }
+    ],
+    "metrics": {
+      "frames": 306,
+      "simulationMs": 1.5999999046325684,
+      "artCpuMs": 2.1999998092651367,
+      "uiCpuMs": 0.5,
+      "renderSubmitCpuMs": 2.0999999046325684,
+      "rendererDescription": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+      "streaming": {
+        "activeSections": 45,
+        "pendingSections": 0,
+        "geometries": 0,
+        "materials": 0,
+        "externalViews": 45,
+        "peakSections": 45,
+        "peakGeometries": 0,
+        "sectionLoads": 45,
+        "sectionReleases": 0,
+        "maxSections": 192,
+        "view": "follow",
+        "cutaway": false,
+        "failed": false
+      },
+      "simulationCpuP95Ms": 4.800000190734863,
+      "observedHz": 33.17941770121934,
+      "renderCpuP95Ms": 5.699999809265137,
+      "drawCalls": 92,
+      "geometries": 151,
+      "textures": 57,
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "threeRevision": "180",
+      "camera": {
+        "target": [
+          50.499942227501016,
+          2.12,
+          25.108001557032328
+        ],
+        "span": 13.65,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      }
+    },
+    "inputCount": 38
+  },
+  "after": {
+    "app": {
+      "phase": "visit",
+      "loadingId": null,
+      "error": null,
+      "placeId": "new-york",
+      "selectedCharacterId": "goat",
+      "capabilities": {
+        "version": 1,
+        "mode": "gameplay",
+        "tools": true,
+        "health": true,
+        "interact": true,
+        "overview": true
+      }
+    },
+    "player": {
+      "id": "hero",
+      "characterId": "goat",
+      "species": "goat",
+      "height": 1.66,
+      "x": 50.499942227501016,
+      "y": 25.108001557032328,
+      "radius": 0.5,
+      "heading": 1.5516188906788133,
+      "moving": false,
+      "hp": 100,
+      "maxHp": 100,
+      "tool": "torch",
+      "pouring": false,
+      "usingTool": false,
+      "inventory": {
+        "matches": 12,
+        "gas": 4,
+        "molotovs": 4,
+        "torchFuel": 4.922000000000009,
+        "flamethrowerFuel": 6,
+        "powder": 4,
+        "healing": 3,
+        "inversion": 3
+      },
+      "travelled": 26.107338168714897,
+      "lanternAim": null,
+      "torch": {
+        "phase": "lit",
+        "durationSeconds": 41.66666666666667,
+        "remainingSeconds": 41.01666666666674
+      },
+      "elevation": 2.12,
+      "level": 1,
+      "surfaceId": "front-landing",
+      "interior": false,
+      "moduleOwner": "new-york",
+      "verticalVelocity": 0,
+      "locationLabel": "Main hall",
+      "characterFire": {
+        "version": 1,
+        "active": false,
+        "mode": "none",
+        "intensity": 0,
+        "age": 0
+      },
+      "interaction": null
+    },
+    "clocks": {
+      "active": 6.866666666666648,
+      "player": 6.866666666666648,
+      "world": 6.866666666666648,
+      "playerScale": 1,
+      "worldScale": 1
+    },
+    "tick": 412,
+    "paused": false,
+    "navigation": {
+      "activeSections": 45,
+      "pendingSections": 0,
+      "geometries": 0,
+      "materials": 0,
+      "externalViews": 45,
+      "peakSections": 45,
+      "peakGeometries": 0,
+      "sectionLoads": 45,
+      "sectionReleases": 0,
+      "maxSections": 192,
+      "view": "follow",
+      "cutaway": false,
+      "failed": false,
+      "placeId": "new-york",
+      "waitingForSection": false,
+      "portalStates": {
+        "ny-front": false,
+        "ny-east": false,
+        "ny-west": false,
+        "ny-east-upper": false,
+        "ny-west-upper": false
+      },
+      "collision": {
+        "querySurfaces": 12859,
+        "sourceParts": 12858,
+        "sourceCarriers": 12446,
+        "claimedCarriers": 551,
+        "cachedShapes": 169,
+        "cachedTriangles": 2948,
+        "peakShapes": 169,
+        "peakTriangles": 2948,
+        "shapeBuilds": 438,
+        "maxSingleQueryTriangles": 200,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0,
+        "bodies": [
+          {
+            "detailedColliders": 1207,
+            "cachedShapes": 0,
+            "cachedTriangles": 0,
+            "peakCachedShapes": 0,
+            "peakCachedTriangles": 0,
+            "maxCachedShapes": 192,
+            "maxCachedTriangles": 65536
+          }
+        ]
+      },
+      "navigation": {}
+    },
+    "discharge": {
+      "version": 1,
+      "tick": 412,
+      "active": false,
+      "tool": null,
+      "origin": null,
+      "shapeOrigin": null,
+      "heading": 0,
+      "range": 0,
+      "radius": 0,
+      "halfAngle": 0,
+      "connectRays": false,
+      "rays": [],
+      "lead": null
+    },
+    "thermal": {
+      "backend": "native-map-trial",
+      "representation": "native-map-sparse-sources",
+      "nativeTick": 206,
+      "nativeWorldTime": 6.866666666666666,
+      "residual": 0,
+      "pendingDepositedFuel": 0,
+      "metrics": {
+        "tick": 206,
+        "worldTime": 6.866666666666666,
+        "fuel": {
+          "initial": 0,
+          "added": 578.8214004249478,
+          "burned": 0,
+          "escaped": 0,
+          "remaining": 578.8214004249473,
+          "airborne": 0,
+          "error": 4.547473508864641e-13
+        },
+        "heat": {
+          "generated": 0,
+          "input": 0,
+          "ambient": 0,
+          "blocked": 0,
+          "cap": 0,
+          "escaped": 0,
+          "stored": 0,
+          "radiationInTransit": 0,
+          "error": 0,
+          "relativeError": 0
+        },
+        "burningCount": 0,
+        "burningArea": 0,
+        "combustibleArea": 1036.9759499622114,
+        "burningAreaFraction": 0,
+        "burnedFraction": 0,
+        "activeCells": 0,
+        "fallingCount": 0,
+        "queuedRadiationSources": 0,
+        "queuedRays": 0,
+        "oldestRadiationQueryDelay": 0,
+        "oldestRadiationEnergyAge": 0,
+        "stats": {
+          "ticks": 206,
+          "cellVisits": 0,
+          "burnVisits": 79706,
+          "linkBuilds": 0,
+          "rayBuilds": 0,
+          "rayTests": 0,
+          "invalidations": 0,
+          "ignitions": 0,
+          "failures": 0,
+          "landings": 0,
+          "peakActive": 0,
+          "maxBurnsPerFuelPerTick": 0
+        }
+      },
+      "gridCells": 13084,
+      "activation": {
+        "batches": 2,
+        "activatedCarriers": 551,
+        "probedCells": 1,
+        "lastBatchMs": 819.5,
+        "totalBatchMs": 827.1999998092651,
+        "peakBatchMs": 819.5,
+        "peakBatchCarriers": 547
+      },
+      "query": {
+        "querySurfaces": 12859,
+        "sourceParts": 12858,
+        "sourceCarriers": 12446,
+        "claimedCarriers": 551,
+        "cachedShapes": 169,
+        "cachedTriangles": 2948,
+        "peakShapes": 169,
+        "peakTriangles": 2948,
+        "shapeBuilds": 438,
+        "maxSingleQueryTriangles": 200,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "carriers": {
+        "staticInitial": 15767.943953000535,
+        "activeInitial": 578.8211030000004,
+        "coldReserve": 15189.122850000338,
+        "canonicalCarriers": 12446,
+        "activeCarriers": 551,
+        "reservedCarriers": 11895,
+        "nativeStaticBirths": 578.8214004249478,
+        "nativeClippingDelta": 0.00029742494734819047,
+        "nativePartitionError": {
+          "signedDelta": 0.00029742494734819047,
+          "positive": 0.0006453400711620113,
+          "negative": 0.009309581584079529,
+          "roundoffBound": 0.0000015497741878195307
+        },
+        "world": {
+          "initial": 15767.943953000535,
+          "added": 0,
+          "remaining": 15767.944250425286,
+          "airborne": 0,
+          "burned": 0,
+          "escaped": 0,
+          "error": -0.0002974247508973349
+        }
+      },
+      "limitations": {
+        "declaredSupportUnresolved": [],
+        "unassignedParts": 0
+      },
+      "support": {
+        "nodes": 17509,
+        "coldCarrierNodes": 11895,
+        "declaredPairs": 15285,
+        "adjacencyPairs": 25198,
+        "anchors": 4516,
+        "initiallySupported": 17167,
+        "unresolvedInitial": 1038,
+        "missingLocalLinks": 0,
+        "checks": 4,
+        "topologyCache": {
+          "entries": 2575,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 241480,
+          "peakDirectedEdges": 241480,
+          "hits": 0,
+          "misses": 2583,
+          "invalidations": 8,
+          "watchedBoundaries": 30367,
+          "retainedColdMeshes": 0,
+          "disposed": false,
+          "continuityBuilds": 555,
+          "peakTemporaryRecords": 1068,
+          "peakTemporaryMemberships": 9008,
+          "retainedTemporaryIndexes": 0
+        }
+      },
+      "navigation": {},
+      "resident": {
+        "state": "routine",
+        "routeIndex": 0,
+        "holdUntil": null,
+        "smokeSince": null,
+        "lookSince": null,
+        "exitIndex": 0,
+        "blocked": null
+      },
+      "instances": [
+        "new-york"
+      ],
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "profiles": {
+        "grass": {
+          "threshold": 0.85,
+          "delay": 0.18,
+          "seconds": 1,
+          "energy": 36.666666666666664
+        },
+        "oil": {
+          "threshold": 0.6,
+          "delay": 0,
+          "seconds": 14,
+          "energy": 800
+        },
+        "clapboard": {
+          "threshold": 1.1,
+          "delay": 5,
+          "seconds": 180,
+          "energy": 3420
+        },
+        "partition": {
+          "threshold": 1.1,
+          "delay": 5,
+          "seconds": 180,
+          "energy": 2200
+        },
+        "door": {
+          "threshold": 1.1,
+          "delay": 5,
+          "seconds": 60,
+          "energy": 1000
+        },
+        "roof": {
+          "threshold": 1.1,
+          "delay": 3,
+          "seconds": 180,
+          "energy": 1980
+        },
+        "frame": {
+          "threshold": 1.3,
+          "delay": 3,
+          "seconds": 180,
+          "energy": 2250
+        },
+        "furniture": {
+          "threshold": 1.1,
+          "delay": 3,
+          "seconds": 60,
+          "energy": 1200
+        },
+        "cloth": {
+          "threshold": 0.8,
+          "delay": 0.5,
+          "seconds": 20,
+          "energy": 600
+        },
+        "lacquer": {
+          "threshold": 0.5,
+          "delay": 0,
+          "seconds": 4,
+          "energy": 120
+        },
+        "coal": {
+          "threshold": 1.6,
+          "delay": 15,
+          "seconds": 300,
+          "energy": 1800
+        },
+        "embers": {
+          "threshold": 0.7,
+          "delay": 0,
+          "seconds": 8,
+          "energy": 500
+        }
+      },
+      "inputProfiles": {
+        "matches": 1.05,
+        "torch": 1.8,
+        "flamethrowerEnergyPerSecond": 12,
+        "lanternPayload": 0.5,
+        "gasPerMetre": 0.08
+      },
+      "timing": {
+        "nativeSteps": 1,
+        "nativeSimulationMs": 0.5999999046325684,
+        "physicalPublicationMs": 0,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0,
+        "nativePhases": {
+          "commandsAndFallsMs": 0,
+          "burnRegistryMs": 0,
+          "transportMs": 0,
+          "preheatMs": 0,
+          "coolingMs": 0,
+          "boundaryAndSupportMs": 0,
+          "itemsMs": 0
+        },
+        "hostWork": {
+          "hostSteps": 412,
+          "nativeSteps": 206,
+          "nativeSimulationMs": 89.49999475479126,
+          "backendAdvanceMs": 1040.399995803833,
+          "metricsQueriesMs": 4.600000858306885,
+          "looseFuelQueriesMs": 1.6999993324279785,
+          "physicalPublicationMs": 19.79999876022339,
+          "rasterPublicationMs": 0,
+          "diagnosticsMs": 7.800002098083496,
+          "smokeSignalCalls": 0,
+          "smokeSignalsMs": 0,
+          "smokeSightMs": 0,
+          "navigationMs": 357.60000801086426
+        }
+      }
+    },
+    "events": [
+      {
+        "id": 1,
+        "tick": 142,
+        "type": "portal-state",
+        "x": 56.00000013567268,
+        "y": 24.726500321601016,
+        "portalId": "ny-front",
+        "open": true,
+        "backend": "native-map-trial",
+        "nativeTick": 71
+      },
+      {
+        "id": 18,
+        "tick": 258,
+        "type": "portal-state",
+        "x": 56.000000271345414,
+        "y": 24.767248888848492,
+        "portalId": "ny-front",
+        "open": false,
+        "backend": "native-map-trial",
+        "nativeTick": 129
+      },
+      {
+        "id": 35,
+        "tick": 374,
+        "type": "tool-selected",
+        "x": 50.499942227501016,
+        "y": 25.108001557032328,
+        "tool": "torch"
+      },
+      {
+        "id": 36,
+        "tick": 374,
+        "type": "torch-lit",
+        "x": 50.499942227501016,
+        "y": 25.108001557032328,
+        "tool": "torch",
+        "durationSeconds": 41.66666666666667
+      },
+      {
+        "id": 37,
+        "tick": 374,
+        "type": "tool-use",
+        "x": 50.499942227501016,
+        "y": 25.108001557032328,
+        "tool": "torch",
+        "result": "lit"
+      },
+      {
+        "id": 38,
+        "tick": 394,
+        "type": "tool-rejected",
+        "x": 50.51666697228441,
+        "y": 25.979999999515712,
+        "tool": "torch",
+        "result": "no-fuel",
+        "reason": "no-fuel",
+        "heatedCells": 0,
+        "cellIds": []
+      }
+    ],
+    "metrics": {
+      "frames": 311,
+      "simulationMs": 0.7999997138977051,
+      "artCpuMs": 2.5999999046325684,
+      "uiCpuMs": 0.19999980926513672,
+      "renderSubmitCpuMs": 1.700000286102295,
+      "rendererDescription": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+      "streaming": {
+        "activeSections": 45,
+        "pendingSections": 0,
+        "geometries": 0,
+        "materials": 0,
+        "externalViews": 45,
+        "peakSections": 45,
+        "peakGeometries": 0,
+        "sectionLoads": 45,
+        "sectionReleases": 0,
+        "maxSections": 192,
+        "view": "follow",
+        "cutaway": false,
+        "failed": false
+      },
+      "simulationCpuP95Ms": 5.100000381469727,
+      "observedHz": 26.181722975552812,
+      "renderCpuP95Ms": 5.699999809265137,
+      "drawCalls": 92,
+      "geometries": 151,
+      "textures": 57,
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "threeRevision": "180",
+      "camera": {
+        "target": [
+          50.499942227501016,
+          2.12,
+          25.108001557032328
+        ],
+        "span": 13.65,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      }
+    },
+    "inputCount": 40
+  },
+  "aim": {
+    "screen": {
+      "x": 405.6832037206857,
+      "y": 162.78459370396718,
+      "visible": true
+    },
+    "x": 405.6832037206857,
+    "y": 162.78459370396718,
+    "picked": {
+      "x": 50.51666666707021,
+      "y": 25.979999999515712,
+      "h": 3.043333333898346,
+      "distance": 210.98189501080216,
+      "sourceSurfaceId": "new-york::carrier/main/0/lower-3/glass",
+      "ownerInstanceId": "new-york"
+    },
+    "element": "CANVAS"
+  },
+  "event": {
+    "id": 38,
+    "tick": 394,
+    "type": "tool-rejected",
+    "x": 50.51666697228441,
+    "y": 25.979999999515712,
+    "tool": "torch",
+    "result": "no-fuel",
+    "reason": "no-fuel",
+    "heatedCells": 0,
+    "cellIds": []
+  },
+  "distance": 0.8721588104080313,
+  "range": 1.1
+}
