@@ -66,3 +66,44 @@ Keep active calculation commands finite and coordinate their timing with the
 coder's one large-source cost observation. No renderer, build, benchmark series,
 new chat/worktree or retained helper. Commit/push the scoped successor proof and
 stop. Artist's retained-cut batch and coder runtime work stay separate.
+
+## Completeness successor review
+
+Root independently verifies UI `1308af2e7eeec2891686d1621aa415fa0739be71`
+with persistence replaced by compare-to-archive assertions. All 42 raw artifact
+hashes, 445 section pins, 61,954 captured placements, 629 scalar palettes, source
+selection digests, two completed masks/scalars and 12 negative controls pass.
+Verification uses 1,267 clips and does not rerun the stopped rear solve. The
+captured-extrema/affine enclosures prove source selection without rounded bounds.
+
+Accept End 0's completed area reference and classify End 1's four substantial
+H22 sources `end-upper-cornice-1-{0,1,2,3}-2` as covers by the same explicit
+inert-solid interpretation. Accept End 1's separate completed reference. The
+directed-lower exposed-area scalars are respectively `2868.23166938182` (bits
+`40a668769d5e84ce`) and `2868.2318097381167` (`40a66876afc41836`). Retain the
+exact enclosures/recipe proof and distinct values; no averaging or copied result.
+This assigns no runtime stock, support or weather field.
+
+The rear roof's complete selection has 569 candidates, including 12 newly found
+H05 IDs, 25 geometry files and 7,468 source triangles including the roof. Its
+union stops at clip 200,001 against the unchanged 200,000 limit. No exposed area
+or scalar is accepted for it. Preserve that exact source, failure and all earlier
+results; the selection proof is not an exposure proof.
+
+Reuse the UI worktree for one bounded exact-union successor on this **same 569
+candidate rear set**. Prefer canonical exact duplicate/containment elimination,
+large-mask-first processing and a conservative broadphase before expensive
+polygon operations. Union is commutative; changed witness allocation/partition
+order must not change the represented geometric set. Prove any reordered or
+reduced representation against the old successful masks and source witnesses.
+Do not discard a real positive-height/area sliver or any of the 12 added IDs.
+
+Keep all source coordinates, exact predicates, count definitions and existing
+placement/geometry/triangle/clip/polygon/piece/rational/deadline limits. Do not
+hide work by redefining counters or widen a cap. Bound/report any additional
+helper work. Use meaningful set-equivalence, duplication, containment, positive
+tiny-area and unchanged-input controls before one rear attempt. If it hits a cap
+again, stop and retain that result; no automatic repeat or third-roof scalar.
+No new native/world simulation, artist output, stock/binding/runtime change,
+renderer, build, benchmark or retained helper. Commit/push the scoped source
+proof or failure and stop for review.
