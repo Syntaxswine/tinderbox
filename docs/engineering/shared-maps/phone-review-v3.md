@@ -82,8 +82,15 @@ fails immediately if it used the wrong tool instead of waiting for the desired
 positive. Three focused controls reproduce this exact event sequence, reject
 old/selection-only events and accept a truthful new `no-fuel` result. They pass,
 as do the four existing measured-layout controls and syntax/whitespace checks.
-The bounded held-flame attempt also releases through a fixed two-second timer
-and finally cleanup. No gameplay/UI source is changed by those QA checks.
+The bounded held-flame attempt now requires actual authoritative flamethrower
+selection plus an active discharge, `usingTool` or finite stock-debit receipt.
+Selection alone cannot be reported as a heating-only attempt. It records the
+trusted keydown/up times and compact model observations, schedules release at
+1.8 seconds within the two-second maximum, releases again through finally if
+needed, and rejects missing release or an actual hold exceeding two seconds.
+Seven action controls pass, including no-emission, wrong-tool/discharge,
+stock-debit and hold-limit negatives; the four layout controls remain passing.
+No gameplay/UI source is changed by those QA checks.
 
 These are frozen failed-run facts plus QA preparation. The UI race candidate and
 any later build/session still require exact architect intake and a fresh grant.
