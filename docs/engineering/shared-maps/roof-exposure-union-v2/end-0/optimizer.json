@@ -1,0 +1,2468 @@
+{
+  "helperCaps": {
+    "calls": 20000000,
+    "bboxTests": 2000000,
+    "edgePredicates": 8000000,
+    "canonicalInputRecords": 200000,
+    "canonicalVertices": 2000000,
+    "cacheEntries": 50000
+  },
+  "helperCounts": {
+    "calls": 38465,
+    "intersectionCalls": 2830,
+    "bboxTests": 5966,
+    "infoQueries": 12428,
+    "cacheEntries": 981,
+    "containmentTests": 3074,
+    "edgePredicates": 8471,
+    "bboxRejections": 1715,
+    "canonicalInputRecords": 498,
+    "canonicalVertices": 1975,
+    "canonicalDuplicates": 2,
+    "differenceCalls": 62,
+    "containedRecords": 463
+  },
+  "cachedPolygons": 981,
+  "unions": [
+    {
+      "call": 0,
+      "inputRecords": 4,
+      "uniquePositiveRecords": 3,
+      "retainedAfterContainment": 3,
+      "outputCells": 2,
+      "originalHalfPlaneClips": 15,
+      "reductions": [
+        {
+          "input": 2,
+          "reason": "exact cyclic duplicate",
+          "witnessInput": 1
+        }
+      ]
+    },
+    {
+      "call": 1,
+      "inputRecords": 2,
+      "uniquePositiveRecords": 2,
+      "retainedAfterContainment": 2,
+      "outputCells": 2,
+      "originalHalfPlaneClips": 9,
+      "reductions": []
+    },
+    {
+      "call": 2,
+      "inputRecords": 158,
+      "uniquePositiveRecords": 158,
+      "retainedAfterContainment": 5,
+      "outputCells": 4,
+      "originalHalfPlaneClips": 29,
+      "reductions": [
+        {
+          "input": 127,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 143,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 137,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 153,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 139,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 155,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 141,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 111,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 95,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 113,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 97,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 115,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 129,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 99,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 117,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 101,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 119,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 103,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 121,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 105,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 123,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 107,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 125,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 145,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 109,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 79,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 63,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 81,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 65,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 83,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 67,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 69,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 87,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 131,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 71,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 89,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 73,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 91,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 75,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 93,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 77,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 45,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 29,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 47,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 147,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 31,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 49,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 33,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 51,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 35,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 53,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 37,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 55,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 39,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 57,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 133,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 41,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 59,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 43,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 15,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 149,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 135,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 151,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 3,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 17,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 13,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 5,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 19,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 7,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 21,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 9,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 23,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 11,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 25,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 142,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 136,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 152,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 138,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 154,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 140,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 110,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 94,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 112,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 96,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 114,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 128,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 98,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 116,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 100,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 118,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 102,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 120,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 104,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 122,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 106,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 124,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 144,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 108,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 78,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 62,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 80,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 64,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 82,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 66,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 84,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 68,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 86,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 130,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 70,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 88,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 72,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 90,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 74,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 92,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 76,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 44,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 28,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 46,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 146,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 30,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 48,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 32,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 50,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 34,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 52,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 36,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 54,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 38,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 56,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 132,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 40,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 58,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 42,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 14,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 148,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 134,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 150,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 2,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 16,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 12,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 26,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 4,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 18,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 6,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 20,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 8,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 22,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 10,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 24,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        },
+        {
+          "input": 126,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 0,
+          "reason": "exact convex containment",
+          "witnessInput": 27
+        },
+        {
+          "input": 156,
+          "reason": "exact convex containment",
+          "witnessInput": 61
+        },
+        {
+          "input": 1,
+          "reason": "exact convex containment",
+          "witnessInput": 60
+        }
+      ]
+    },
+    {
+      "call": 3,
+      "inputRecords": 3,
+      "uniquePositiveRecords": 3,
+      "retainedAfterContainment": 3,
+      "outputCells": 3,
+      "originalHalfPlaneClips": 6,
+      "reductions": []
+    },
+    {
+      "call": 4,
+      "inputRecords": 165,
+      "uniquePositiveRecords": 165,
+      "retainedAfterContainment": 3,
+      "outputCells": 2,
+      "originalHalfPlaneClips": 17,
+      "reductions": [
+        {
+          "input": 33,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 30,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 29,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 27,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 31,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 28,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 32,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 34,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 13,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 52,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 44,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 62,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 46,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 64,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 48,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 66,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 50,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 86,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 70,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 88,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 36,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 72,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 90,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 74,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 92,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 76,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 78,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 96,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 80,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 98,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 54,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 82,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 100,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 84,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 118,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 102,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 120,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 104,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 122,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 106,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 124,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 38,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 108,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 126,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 110,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 128,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 112,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 130,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 114,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 132,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 116,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 150,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 56,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 134,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 152,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 136,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 154,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 138,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 156,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 140,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 158,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 142,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 160,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 40,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 144,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 162,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 146,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 58,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 42,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 60,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 1,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 16,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 11,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 26,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 3,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 18,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 5,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 20,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 7,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 22,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 9,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 24,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 164,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 12,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 51,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 43,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 61,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 45,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 63,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 47,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 65,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 49,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 85,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 69,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 87,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 35,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 71,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 89,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 73,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 91,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 75,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 93,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 77,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 95,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 79,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 97,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 53,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 81,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 99,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 83,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 117,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 101,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 119,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 103,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 121,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 105,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 123,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 37,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 107,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 125,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 109,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 127,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 111,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 129,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 113,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 131,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 115,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 149,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 55,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 133,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 151,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 135,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 153,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 137,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 155,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 139,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 157,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 141,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 159,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 39,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 143,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 161,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 145,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 163,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 57,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 41,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 59,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 15,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 10,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 25,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 2,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 17,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 4,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 19,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 6,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 21,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 8,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 23,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 0,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 14,
+          "reason": "exact convex containment",
+          "witnessInput": 68
+        },
+        {
+          "input": 147,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        },
+        {
+          "input": 148,
+          "reason": "exact convex containment",
+          "witnessInput": 67
+        }
+      ]
+    },
+    {
+      "call": 5,
+      "inputRecords": 2,
+      "uniquePositiveRecords": 2,
+      "retainedAfterContainment": 2,
+      "outputCells": 2,
+      "originalHalfPlaneClips": 9,
+      "reductions": []
+    },
+    {
+      "call": 6,
+      "inputRecords": 3,
+      "uniquePositiveRecords": 2,
+      "retainedAfterContainment": 1,
+      "outputCells": 1,
+      "originalHalfPlaneClips": 0,
+      "reductions": [
+        {
+          "input": 2,
+          "reason": "exact cyclic duplicate",
+          "witnessInput": 1
+        },
+        {
+          "input": 1,
+          "reason": "exact convex containment",
+          "witnessInput": 0
+        }
+      ]
+    },
+    {
+      "call": 7,
+      "inputRecords": 1,
+      "uniquePositiveRecords": 1,
+      "retainedAfterContainment": 1,
+      "outputCells": 1,
+      "originalHalfPlaneClips": 0,
+      "reductions": []
+    },
+    {
+      "call": 8,
+      "inputRecords": 77,
+      "uniquePositiveRecords": 77,
+      "retainedAfterContainment": 3,
+      "outputCells": 2,
+      "originalHalfPlaneClips": 20,
+      "reductions": [
+        {
+          "input": 55,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 68,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 65,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 39,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 23,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 41,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 25,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 43,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 27,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 29,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 47,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 57,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 31,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 49,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 33,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 51,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 35,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 53,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 37,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 11,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 3,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 13,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 70,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 5,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 15,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 7,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 17,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 9,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 59,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 72,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 61,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 74,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 63,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 76,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 19,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 67,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 64,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 38,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 22,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 40,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 24,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 42,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 26,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 44,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 28,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 46,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 56,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 30,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 48,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 32,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 50,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 34,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 52,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 36,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 10,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 2,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 12,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 69,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 4,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 14,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 6,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 16,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 8,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 18,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 58,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 71,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 60,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 73,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 62,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 75,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 54,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 66,
+          "reason": "exact convex containment",
+          "witnessInput": 21
+        },
+        {
+          "input": 0,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 1,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        }
+      ]
+    },
+    {
+      "call": 9,
+      "inputRecords": 2,
+      "uniquePositiveRecords": 2,
+      "retainedAfterContainment": 2,
+      "outputCells": 2,
+      "originalHalfPlaneClips": 12,
+      "reductions": []
+    },
+    {
+      "call": 10,
+      "inputRecords": 78,
+      "uniquePositiveRecords": 78,
+      "retainedAfterContainment": 5,
+      "outputCells": 4,
+      "originalHalfPlaneClips": 36,
+      "reductions": [
+        {
+          "input": 1,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 11,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 22,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 40,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 24,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 42,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 26,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 44,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 28,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 30,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 48,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 3,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 32,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 50,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 34,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 52,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 36,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 66,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 54,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 68,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 56,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 70,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 13,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 58,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 72,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 60,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 74,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 62,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 5,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 15,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 7,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 17,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 9,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 38,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 10,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 21,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 39,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 23,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 41,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 25,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 43,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 27,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 45,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 29,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 47,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 2,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 31,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 49,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 33,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 51,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 35,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 65,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 53,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 67,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 55,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 69,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 12,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 57,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 71,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 59,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 73,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 61,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 75,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        },
+        {
+          "input": 4,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 14,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 6,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 16,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 8,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 37,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 0,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 18,
+          "reason": "exact convex containment",
+          "witnessInput": 20
+        },
+        {
+          "input": 63,
+          "reason": "exact convex containment",
+          "witnessInput": 76
+        },
+        {
+          "input": 64,
+          "reason": "exact convex containment",
+          "witnessInput": 19
+        }
+      ]
+    },
+    {
+      "call": 11,
+      "inputRecords": 3,
+      "uniquePositiveRecords": 3,
+      "retainedAfterContainment": 3,
+      "outputCells": 3,
+      "originalHalfPlaneClips": 12,
+      "reductions": []
+    }
+  ],
+  "originalHalfPlaneClips": 3559
+}

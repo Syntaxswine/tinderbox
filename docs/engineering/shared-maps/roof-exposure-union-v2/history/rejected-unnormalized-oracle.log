@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\roof-exposure-union-v2\preflight.py", line 62, in <module>
+    if sys.argv[1]=="synthetic":synthetic()
+                                ^^^^^^^^^^^
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\roof-exposure-union-v2\preflight.py", line 30, in synthetic
+    equivalent(G,old_intersection,[plain_intersection] if G.area(plain_intersection) else [],[fast_intersection] if G.area(fast_intersection) else [])
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\roof-exposure-union-v2\support.py", line 54, in equivalent
+    assert sum((G.area(original_intersection(a,b)) for b in right),F(0))==G.area(a)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
