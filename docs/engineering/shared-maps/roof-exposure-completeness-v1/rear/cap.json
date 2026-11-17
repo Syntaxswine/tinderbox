@@ -1,0 +1,41 @@
+{
+  "status": "exact-union-cap-stop",
+  "target": "rear-curtain-roof",
+  "candidateSelectionComplete": true,
+  "exposureProved": false,
+  "originalCandidates": 557,
+  "certifiedCandidates": 569,
+  "newBoundaryCandidates": [
+    "court-1-3-piece-0-tier-0:2:0/seam-1",
+    "court-1-1-piece-0-tier-0:2:27/seam-1",
+    "end-upper-inner-1-piece-0-tier-0:0:47/wall-1",
+    "end-upper-inner-1-piece-0-tier-0:0:47/seam-1",
+    "outer-10-piece-0-tier-0:2:35/seam-1",
+    "court-0-3-piece-0-tier-0:2:0/seam-1",
+    "end-upper-inner--1-piece-0-tier-0:0:47/wall-1",
+    "end-upper-inner--1-piece-0-tier-0:0:47/seam-1",
+    "outer-10-piece-4-tier-0:2:14/seam-1",
+    "end-upper-back--1-piece-0-tier-0:0:0/wall-1",
+    "end-upper-back--1-piece-0-tier-0:0:0/seam-1",
+    "court-0-1-piece-0-tier-0:2:27/seam-1"
+  ],
+  "fixedCaps": {
+    "placements": 1200,
+    "expandedGeometries": 128,
+    "triangles": 20000
+  },
+  "placementsIncludingRoof": 570,
+  "expandedGeometries": 25,
+  "trianglesIncludingRoof": 7468,
+  "clipOperationCap": 200000,
+  "failure": {
+    "type": "AssertionError",
+    "error": "Finite exact clipping operation bound",
+    "exactClipOperations": 200001
+  },
+  "retryOrCapWidening": false,
+  "exposedArea": null,
+  "stockBindingsRuntimeAssigned": false,
+  "executedSourceLfSha256": "d5605cbe110444e2ca6c89ebb7032e3e821c2f6ef01106fbc108b79f97d89152",
+  "failureStage": "union_cells after all bounded candidate faces were visited"
+}

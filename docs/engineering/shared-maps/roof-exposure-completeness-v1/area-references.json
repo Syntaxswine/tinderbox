@@ -1,0 +1,829 @@
+{
+  "end-0": {
+    "source": "2b350309d9116812a1d3988af090614bdaefbc25",
+    "target": "replacement/end-pavilion-roof-0",
+    "quantityRule": "weather-area",
+    "classification": "accepted covers",
+    "upperOffsets": [
+      0,
+      3,
+      6,
+      9,
+      12,
+      15
+    ],
+    "upperPlanes": [
+      {
+        "offset": 0,
+        "planeYFromXZ": [
+          {
+            "n": "416809",
+            "d": "1179648",
+            "approx": 0.35333336724175346
+          },
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "833615",
+            "d": "2359296",
+            "approx": 0.35333209567599827
+          }
+        ]
+      },
+      {
+        "offset": 3,
+        "planeYFromXZ": [
+          {
+            "n": "416809",
+            "d": "1179648",
+            "approx": 0.35333336724175346
+          },
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "833615",
+            "d": "2359296",
+            "approx": 0.35333209567599827
+          }
+        ]
+      },
+      {
+        "offset": 6,
+        "planeYFromXZ": [
+          {
+            "n": "-416809",
+            "d": "1179648",
+            "approx": -0.35333336724175346
+          },
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "69190291",
+            "d": "2359296",
+            "approx": 29.326668209499783
+          }
+        ]
+      },
+      {
+        "offset": 9,
+        "planeYFromXZ": [
+          {
+            "n": "-416809",
+            "d": "1179648",
+            "approx": -0.35333336724175346
+          },
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "69190291",
+            "d": "2359296",
+            "approx": 29.326668209499783
+          }
+        ]
+      },
+      {
+        "offset": 12,
+        "planeYFromXZ": [
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "-416809",
+            "d": "1179648",
+            "approx": -0.35333336724175346
+          },
+          {
+            "n": "125876315",
+            "d": "2359296",
+            "approx": 53.35333718193902
+          }
+        ]
+      },
+      {
+        "offset": 15,
+        "planeYFromXZ": [
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "416809",
+            "d": "1179648",
+            "approx": 0.35333336724175346
+          },
+          {
+            "n": "-7502563",
+            "d": "786432",
+            "approx": -9.5400021870931
+          }
+        ]
+      }
+    ],
+    "squaredSlopeFactor": {
+      "n": "1565299146385",
+      "d": "1391569403904",
+      "approx": 1.1248444684063958
+    },
+    "areas": {
+      "total": {
+        "projected": {
+          "n": "2736",
+          "d": "1",
+          "approx": 2736.0
+        },
+        "sloped": {
+          "radicand": {
+            "n": "565072991844985",
+            "d": "67108864",
+            "approx": 8420243.737771884
+          },
+          "lower": {
+            "n": "987419674851597645992923072410656200918173",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 2901.7656241970826
+          },
+          "upper": {
+            "n": "493709837425798822996461536205328100459087",
+            "d": "170141183460469231731687303715884105728",
+            "approx": 2901.7656241970826
+          },
+          "width": {
+            "n": "1",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 2.938735877055719e-39
+          },
+          "bits": 128
+        }
+      },
+      "covered": {
+        "projected": {
+          "n": "6333043222778495784580634197455",
+          "d": "200296756096154580289853587456",
+          "approx": 31.618301495298564
+        },
+        "sloped": {
+          "radicand": {
+            "n": "775063408111145613253559535950214925068065433021341583939572492661534625",
+            "d": "689235572655698674372548623210072553079946184596197009158747637940224",
+            "approx": 1124.5261255520272
+          },
+          "lower": {
+            "n": "1426376689594640442998040093575696061761",
+            "d": "42535295865117307932921825928971026432",
+            "approx": 33.53395481526191
+          },
+          "upper": {
+            "n": "11411013516757123543984320748605568494089",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 33.53395481526191
+          },
+          "width": {
+            "n": "1",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 2.938735877055719e-39
+          },
+          "bits": 128
+        }
+      },
+      "exposed": {
+        "projected": {
+          "n": "541678881456300435888458781082161",
+          "d": "200296756096154580289853587456",
+          "approx": 2704.3816985047015
+        },
+        "sloped": {
+          "radicand": {
+            "n": "5670170752500292147341784610686502811405074364693059393669218054813155962785",
+            "d": "689235572655698674372548623210072553079946184596197009158747637940224",
+            "approx": 8226752.909244825
+          },
+          "lower": {
+            "n": "976008661334840522448938751662050632424085",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 2868.2316693818207
+          },
+          "upper": {
+            "n": "488004330667420261224469375831025316212043",
+            "d": "170141183460469231731687303715884105728",
+            "approx": 2868.2316693818207
+          },
+          "width": {
+            "n": "1",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 2.938735877055719e-39
+          },
+          "bits": 128
+        }
+      }
+    },
+    "directedLowerAreaScalar": {
+      "value": 2868.23166938182,
+      "hex": "0x1.668769d5e84cep+11",
+      "bits": "40a668769d5e84ce",
+      "representedExact": {
+        "n": "3153654071640679",
+        "d": "1099511627776",
+        "approx": 2868.23166938182
+      },
+      "nextValue": 2868.2316693818207,
+      "nextBits": "40a668769d5e84cf",
+      "greatestBinary64NotAboveExactAreaProvedBySquaring": true,
+      "measurementAreaOnly": true,
+      "stockAssigned": false
+    },
+    "covers": [
+      {
+        "sourceId": "end-upper-cornice--1-1-2",
+        "geometry": "cfdda715d27aaaed4dd21f46e58952468f74f4d8f8d7751dd5295a851acf56b2",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          176,
+          8.440000000000001,
+          39,
+          1
+        ],
+        "capturedMaterial": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+        "capturedRole": null,
+        "fromAccess": false,
+        "sourceSection": "assets/art/place-scenes/horticulture/sections/1_5_3.json",
+        "sourceUpperOffsets": [
+          0,
+          6
+        ],
+        "closedOutwardConvex": true,
+        "positiveVolume": true,
+        "acceptedFamily": "H22",
+        "acceptedMaterial": "mineral-staff-proxy",
+        "acceptedRecipe": "inert",
+        "acceptedOwnership": "one-per-original-logical-solid",
+        "weatherClassification": "accepted by 68dc1533 for end-0; proposed for architect review for end-1",
+        "builderReference": "assets/art/exposition-horticulture/index.js:15-18,76-83"
+      },
+      {
+        "sourceId": "end-upper-cornice--1-0-2",
+        "geometry": "ff8d117a2836d7684470596d9de8ca22eb344d1aedd497f14082cef0d32a8e66",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          176,
+          8.440000000000001,
+          39,
+          1
+        ],
+        "capturedMaterial": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+        "capturedRole": null,
+        "fromAccess": false,
+        "sourceSection": "assets/art/place-scenes/horticulture/sections/2_3_3.json",
+        "sourceUpperOffsets": [
+          0,
+          6
+        ],
+        "closedOutwardConvex": true,
+        "positiveVolume": true,
+        "acceptedFamily": "H22",
+        "acceptedMaterial": "mineral-staff-proxy",
+        "acceptedRecipe": "inert",
+        "acceptedOwnership": "one-per-original-logical-solid",
+        "weatherClassification": "accepted by 68dc1533 for end-0; proposed for architect review for end-1",
+        "builderReference": "assets/art/exposition-horticulture/index.js:15-18,76-83"
+      },
+      {
+        "sourceId": "end-upper-cornice--1-2-2",
+        "geometry": "04237f0c186b6b7bff807add410664c71dc0076f3c03c13564345cd6ba8a385c",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          176,
+          8.440000000000001,
+          39,
+          1
+        ],
+        "capturedMaterial": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+        "capturedRole": null,
+        "fromAccess": false,
+        "sourceSection": "assets/art/place-scenes/horticulture/sections/2_7_3.json",
+        "sourceUpperOffsets": [
+          0,
+          6
+        ],
+        "closedOutwardConvex": true,
+        "positiveVolume": true,
+        "acceptedFamily": "H22",
+        "acceptedMaterial": "mineral-staff-proxy",
+        "acceptedRecipe": "inert",
+        "acceptedOwnership": "one-per-original-logical-solid",
+        "weatherClassification": "accepted by 68dc1533 for end-0; proposed for architect review for end-1",
+        "builderReference": "assets/art/exposition-horticulture/index.js:15-18,76-83"
+      },
+      {
+        "sourceId": "end-upper-cornice--1-3-2",
+        "geometry": "bfbe03808ba2a4dfb9434c3ad2baf054d54b668233b00613c14a59a44da94234",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          176,
+          8.440000000000001,
+          39,
+          1
+        ],
+        "capturedMaterial": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+        "capturedRole": null,
+        "fromAccess": false,
+        "sourceSection": "assets/art/place-scenes/horticulture/sections/3_5_3.json",
+        "sourceUpperOffsets": [
+          0,
+          6
+        ],
+        "closedOutwardConvex": true,
+        "positiveVolume": true,
+        "acceptedFamily": "H22",
+        "acceptedMaterial": "mineral-staff-proxy",
+        "acceptedRecipe": "inert",
+        "acceptedOwnership": "one-per-original-logical-solid",
+        "weatherClassification": "accepted by 68dc1533 for end-0; proposed for architect review for end-1",
+        "builderReference": "assets/art/exposition-horticulture/index.js:15-18,76-83"
+      }
+    ],
+    "stockBindingRuntimeAssigned": false
+  },
+  "end-1": {
+    "source": "2b350309d9116812a1d3988af090614bdaefbc25",
+    "target": "replacement/end-pavilion-roof-1",
+    "quantityRule": "weather-area",
+    "classification": "four H22 covers proposed",
+    "upperOffsets": [
+      0,
+      3,
+      6,
+      9,
+      12,
+      15
+    ],
+    "upperPlanes": [
+      {
+        "offset": 0,
+        "planeYFromXZ": [
+          {
+            "n": "416809",
+            "d": "1179648",
+            "approx": 0.35333336724175346
+          },
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "-224243245",
+            "d": "2359296",
+            "approx": -95.04667705959744
+          }
+        ]
+      },
+      {
+        "offset": 3,
+        "planeYFromXZ": [
+          {
+            "n": "416809",
+            "d": "1179648",
+            "approx": 0.35333336724175346
+          },
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "-224243245",
+            "d": "2359296",
+            "approx": -95.04667705959744
+          }
+        ]
+      },
+      {
+        "offset": 6,
+        "planeYFromXZ": [
+          {
+            "n": "-416809",
+            "d": "1179648",
+            "approx": -0.35333336724175346
+          },
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "294267151",
+            "d": "2359296",
+            "approx": 124.72667736477322
+          }
+        ]
+      },
+      {
+        "offset": 9,
+        "planeYFromXZ": [
+          {
+            "n": "-416809",
+            "d": "1179648",
+            "approx": -0.35333336724175346
+          },
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "294267151",
+            "d": "2359296",
+            "approx": 124.72667736477322
+          }
+        ]
+      },
+      {
+        "offset": 12,
+        "planeYFromXZ": [
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "-416809",
+            "d": "1179648",
+            "approx": -0.35333336724175346
+          },
+          {
+            "n": "125876315",
+            "d": "2359296",
+            "approx": 53.35333718193902
+          }
+        ]
+      },
+      {
+        "offset": 15,
+        "planeYFromXZ": [
+          {
+            "n": "0",
+            "d": "1",
+            "approx": 0.0
+          },
+          {
+            "n": "416809",
+            "d": "1179648",
+            "approx": 0.35333336724175346
+          },
+          {
+            "n": "-7502563",
+            "d": "786432",
+            "approx": -9.5400021870931
+          }
+        ]
+      }
+    ],
+    "squaredSlopeFactor": {
+      "n": "1565299146385",
+      "d": "1391569403904",
+      "approx": 1.1248444684063958
+    },
+    "areas": {
+      "total": {
+        "projected": {
+          "n": "2736",
+          "d": "1",
+          "approx": 2736.0
+        },
+        "sloped": {
+          "radicand": {
+            "n": "565072991844985",
+            "d": "67108864",
+            "approx": 8420243.737771884
+          },
+          "lower": {
+            "n": "987419674851597645992923072410656200918173",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 2901.7656241970826
+          },
+          "upper": {
+            "n": "493709837425798822996461536205328100459087",
+            "d": "170141183460469231731687303715884105728",
+            "approx": 2901.7656241970826
+          },
+          "width": {
+            "n": "1",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 2.938735877055719e-39
+          },
+          "bits": 128
+        }
+      },
+      "covered": {
+        "projected": {
+          "n": "44564204147080838876243750399108333179959",
+          "d": "1409449229202567470279672954347776376832",
+          "approx": 31.61816915696509
+        },
+        "sloped": {
+          "radicand": {
+            "n": "38378203346434280584420866391851899565700815756492047719773741993792398988526562355461882385",
+            "d": "34128619816091725986355975515531210293052825200440095643613632224005283146346396664201216",
+            "approx": 1124.516712168327
+          },
+          "lower": {
+            "n": "11410965755984386915344523866067855932077",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 33.53381445896555
+          },
+          "upper": {
+            "n": "5705482877992193457672261933033927966039",
+            "d": "170141183460469231731687303715884105728",
+            "approx": 33.53381445896555
+          },
+          "width": {
+            "n": "1",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 2.938735877055719e-39
+          },
+          "bits": 128
+        }
+      },
+      "exposed": {
+        "projected": {
+          "n": "3811688886951143759808941452696407833832393",
+          "d": "1409449229202567470279672954347776376832",
+          "approx": 2704.381830843035
+        },
+        "sloped": {
+          "radicand": {
+            "n": "280767749839159399676450742860517414315278118007164421874479176613454172538446962644983790043665",
+            "d": "34128619816091725986355975515531210293052825200440095643613632224005283146346396664201216",
+            "approx": 8226753.714393593
+          },
+          "lower": {
+            "n": "976008709095613259077578548544588344986095",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 2868.231809738117
+          },
+          "upper": {
+            "n": "61000544318475828692348659284036771561631",
+            "d": "21267647932558653966460912964485513216",
+            "approx": 2868.231809738117
+          },
+          "width": {
+            "n": "1",
+            "d": "340282366920938463463374607431768211456",
+            "approx": 2.938735877055719e-39
+          },
+          "bits": 128
+        }
+      }
+    },
+    "directedLowerAreaScalar": {
+      "value": 2868.2318097381167,
+      "hex": "0x1.66876afc41836p+11",
+      "bits": "40a66876afc41836",
+      "representedExact": {
+        "n": "3153654225964059",
+        "d": "1099511627776",
+        "approx": 2868.2318097381167
+      },
+      "nextValue": 2868.231809738117,
+      "nextBits": "40a66876afc41837",
+      "greatestBinary64NotAboveExactAreaProvedBySquaring": true,
+      "measurementAreaOnly": true,
+      "stockAssigned": false
+    },
+    "covers": [
+      {
+        "sourceId": "end-upper-cornice-1-3-2",
+        "geometry": "30752995ffc9992e97c31ae047158d1c3e41c1156c12e0589ba103595a9a7fc8",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          176,
+          8.440000000000001,
+          39,
+          1
+        ],
+        "capturedMaterial": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+        "capturedRole": null,
+        "fromAccess": false,
+        "sourceSection": "assets/art/place-scenes/horticulture/sections/18_5_3.json",
+        "sourceUpperOffsets": [
+          0,
+          6
+        ],
+        "closedOutwardConvex": true,
+        "positiveVolume": true,
+        "acceptedFamily": "H22",
+        "acceptedMaterial": "mineral-staff-proxy",
+        "acceptedRecipe": "inert",
+        "acceptedOwnership": "one-per-original-logical-solid",
+        "weatherClassification": "accepted by 68dc1533 for end-0; proposed for architect review for end-1",
+        "builderReference": "assets/art/exposition-horticulture/index.js:15-18,76-83"
+      },
+      {
+        "sourceId": "end-upper-cornice-1-0-2",
+        "geometry": "9f7c162982fe4d1ad7551632a82209d328bd763fbe712e662f0b5f568d77cbc9",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          176,
+          8.4399995803833,
+          39,
+          1
+        ],
+        "capturedMaterial": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+        "capturedRole": null,
+        "fromAccess": false,
+        "sourceSection": "assets/art/place-scenes/horticulture/sections/19_3_3.json",
+        "sourceUpperOffsets": [
+          0,
+          6
+        ],
+        "closedOutwardConvex": true,
+        "positiveVolume": true,
+        "acceptedFamily": "H22",
+        "acceptedMaterial": "mineral-staff-proxy",
+        "acceptedRecipe": "inert",
+        "acceptedOwnership": "one-per-original-logical-solid",
+        "weatherClassification": "accepted by 68dc1533 for end-0; proposed for architect review for end-1",
+        "builderReference": "assets/art/exposition-horticulture/index.js:15-18,76-83"
+      },
+      {
+        "sourceId": "end-upper-cornice-1-2-2",
+        "geometry": "2de3c045bb1b0489ca51b126ed1de11bfc27e57af68ebbe76d356057af3b2a46",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          176,
+          8.440000000000001,
+          39,
+          1
+        ],
+        "capturedMaterial": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+        "capturedRole": null,
+        "fromAccess": false,
+        "sourceSection": "assets/art/place-scenes/horticulture/sections/19_7_3.json",
+        "sourceUpperOffsets": [
+          0,
+          6
+        ],
+        "closedOutwardConvex": true,
+        "positiveVolume": true,
+        "acceptedFamily": "H22",
+        "acceptedMaterial": "mineral-staff-proxy",
+        "acceptedRecipe": "inert",
+        "acceptedOwnership": "one-per-original-logical-solid",
+        "weatherClassification": "accepted by 68dc1533 for end-0; proposed for architect review for end-1",
+        "builderReference": "assets/art/exposition-horticulture/index.js:15-18,76-83"
+      },
+      {
+        "sourceId": "end-upper-cornice-1-1-2",
+        "geometry": "410e3bdb7947b8577786bff685eb2c66cb32e0eb3daf426718a2eb3f0e7492cc",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          176,
+          8.4399995803833,
+          39,
+          1
+        ],
+        "capturedMaterial": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+        "capturedRole": null,
+        "fromAccess": false,
+        "sourceSection": "assets/art/place-scenes/horticulture/sections/20_5_3.json",
+        "sourceUpperOffsets": [
+          0,
+          6
+        ],
+        "closedOutwardConvex": true,
+        "positiveVolume": true,
+        "acceptedFamily": "H22",
+        "acceptedMaterial": "mineral-staff-proxy",
+        "acceptedRecipe": "inert",
+        "acceptedOwnership": "one-per-original-logical-solid",
+        "weatherClassification": "accepted by 68dc1533 for end-0; proposed for architect review for end-1",
+        "builderReference": "assets/art/exposition-horticulture/index.js:15-18,76-83"
+      }
+    ],
+    "stockBindingRuntimeAssigned": false
+  },
+  "rear": {
+    "sourceSelectionComplete": true,
+    "exposureProved": false,
+    "reason": "exact clipping cap 200000",
+    "area": null,
+    "newBoundaryCandidates": [
+      "court-1-3-piece-0-tier-0:2:0/seam-1",
+      "court-1-1-piece-0-tier-0:2:27/seam-1",
+      "end-upper-inner-1-piece-0-tier-0:0:47/wall-1",
+      "end-upper-inner-1-piece-0-tier-0:0:47/seam-1",
+      "outer-10-piece-0-tier-0:2:35/seam-1",
+      "court-0-3-piece-0-tier-0:2:0/seam-1",
+      "end-upper-inner--1-piece-0-tier-0:0:47/wall-1",
+      "end-upper-inner--1-piece-0-tier-0:0:47/seam-1",
+      "outer-10-piece-4-tier-0:2:14/seam-1",
+      "end-upper-back--1-piece-0-tier-0:0:0/wall-1",
+      "end-upper-back--1-piece-0-tier-0:0:0/seam-1",
+      "court-0-1-piece-0-tier-0:2:27/seam-1"
+    ],
+    "stockBindingRuntimeAssigned": false
+  }
+}
