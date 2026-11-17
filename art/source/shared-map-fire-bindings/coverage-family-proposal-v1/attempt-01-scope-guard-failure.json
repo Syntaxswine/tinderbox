@@ -1,0 +1,6 @@
+{
+  "assetsChanged": false,
+  "exception": "AssertionError",
+  "message": "",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\art\\source\\shared-map-fire-bindings\\coverage-family-proposal-v1\\check.py\", line 147, in <module>\n    result,dispositions=validate()\n                        ^^^^^^^^^^\n  File \"C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\art\\source\\shared-map-fire-bindings\\coverage-family-proposal-v1\\check.py\", line 47, in validate\n    assert 'cornice' in cs and (by[parent]['role'] in {'exterior-wall','perimeter-closure','building-deck','raised-base','column','exterior-paving','approach-stair'} or 'cornice' in ps or '/column-' in parent)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+}

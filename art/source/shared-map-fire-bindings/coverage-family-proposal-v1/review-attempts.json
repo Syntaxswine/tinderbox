@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "scope": "Read-only proposal iterations; gameplay assets and runtime unchanged.",
+  "attempts": [
+    {
+      "attempt": 1,
+      "result": "SCOPE_GUARD_FAILED",
+      "evidence": "attempt-01-scope-guard-failure.json",
+      "finding": "The first batch included normalization of inherited dependent-to-cornice support interpretations, requiring explicit dependency intent review. Eight inherited tower cap-eave joins also required family review.",
+      "resolution": "Propose retiring exactly 206 dentil-to-cornice and ten upper-railing-to-cornice interpretations while retaining physical records. Locally normalize the eight existing cap-eave-to-trim joins whose assembly roles differ from upper railing braces."
+    },
+    {
+      "attempt": 2,
+      "result": "PASS",
+      "evidence": "check-results.json",
+      "changesAppliedToAssets": false,
+      "meaning": "Final 3276 pairs / 6018 local regions pass source-only checks. Runtime and visual acceptance remain separate."
+    }
+  ],
+  "generatorReproduction": "propose.py --check and gap-design.py --check passed byte for byte.",
+  "temporaryProcesses": "All foreground commands completed; no retained helper or renderer."
+}

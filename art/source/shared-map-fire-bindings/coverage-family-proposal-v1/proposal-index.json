@@ -1,0 +1,144 @@
+{
+  "actions": {
+    "add-exact-local-dependency": 3241,
+    "normalize-existing-pair-to-local-regions": 35
+  },
+  "authoringSources": [
+    {
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/inputs.py",
+      "sha256": "6ea2a0184d5fcd4e07bccb00dcc27b2717d396a6b8d31e269abe5fd60d481e87"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/geometry.py",
+      "sha256": "4c88d74fb5701a4fe9ae5b4873ef4a8ff52ceae4742626774a9050299db857d5"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/propose.py",
+      "sha256": "8c79836d4d3db8d6775cc18299f71fa5ae019baa92f6c48970b0a6c36992ac09"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/export.py",
+      "sha256": "ae42ec633ab21e8d065ee0b3e3779292591c20cceb9d0f1dd3cd76b1600327aa"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/propose-new-york-coverage.py",
+      "sha256": "c9ccb5f44898b5d8476220ddef024ea20ca955e79c6b8a57a6448a81e58ffec4"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/reachability-review-v1/review.py",
+      "sha256": "c87c1d2587aa620131e7915e61e63a864c5d8b57fec2d258cb7f6c84ba0e2a96"
+    }
+  ],
+  "corniceCoverage": {
+    "cellStatuses": {
+      "actual-local-hosts": 3302,
+      "occupied-source-native-continuity-only": 222,
+      "source-native-empty-column": 320
+    },
+    "gridCells": 3844,
+    "newForcedBreaks": 0,
+    "pieces": 109
+  },
+  "currentDiagnostic": {
+    "carriers": 12446,
+    "components": 458,
+    "originalAnchors": 231,
+    "rooted": 11408,
+    "unrooted": 1038
+  },
+  "groupPairCounts": {
+    "cornice-full-local-coverage": 1694,
+    "dentil-to-own-cornice": 202,
+    "fixed-portal-frame": 26,
+    "fixed-window-frame": 649,
+    "native-rail-to-real-posts": 34,
+    "native-source-paving-seams": 16,
+    "porch-rail-and-neck-frame": 92,
+    "railing-cap-to-real-members": 479,
+    "railing-pier-to-base": 84
+  },
+  "groupRegionCounts": {
+    "cornice-full-local-coverage": 4436,
+    "dentil-to-own-cornice": 202,
+    "fixed-portal-frame": 26,
+    "fixed-window-frame": 649,
+    "native-rail-to-real-posts": 34,
+    "native-source-paving-seams": 16,
+    "porch-rail-and-neck-frame": 92,
+    "railing-cap-to-real-members": 479,
+    "railing-pier-to-base": 84
+  },
+  "hypotheticalInterpretationOnly": {
+    "afterAlsoSeparateApprovedBlocksOriginalUnrooted": 235,
+    "afterFamilyRecordsOriginalUnrooted": 346,
+    "newAnchors": 0,
+    "newUnapprovedGeometryIncluded": false,
+    "rootRuntimeAcceptance": false
+  },
+  "inputs": {
+    "baseBindings": {
+      "path": "assets/art/shared-map-fire-bindings/new-york-complete-v1.json",
+      "sha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba"
+    },
+    "compactIndexPath": "assets/runtime/map-sources/new-york/index.json",
+    "compactIndexSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+    "diagnosticPath": "docs/engineering/shared-maps/unrooted-components-v3.json",
+    "diagnosticSha256": "83ac99b3895cfa2df23810d518b4669dee975c763123e597bec393b00243120c",
+    "producerPins": [
+      {
+        "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+        "committedSha256": "331992b91559d618b3b2d64fcc8b5ac4a6e6dc99be7563c0c3c005c9fc2513cd",
+        "diagnosticReportedSha256": "331992b91559d618b3b2d64fcc8b5ac4a6e6dc99be7563c0c3c005c9fc2513cd",
+        "exactMatch": true,
+        "lfSha256": "331992b91559d618b3b2d64fcc8b5ac4a6e6dc99be7563c0c3c005c9fc2513cd",
+        "path": "tools/review/shared-map-support-components.mjs"
+      },
+      {
+        "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+        "committedSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+        "diagnosticReportedSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+        "exactMatch": true,
+        "lfSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+        "path": "src/simulation/source-support.js"
+      },
+      {
+        "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+        "committedSha256": "2dbd12836903500db136f262e72d8ea924e4cddb0393c87e19a0241d5ee7c54c",
+        "diagnosticReportedSha256": "2dbd12836903500db136f262e72d8ea924e4cddb0393c87e19a0241d5ee7c54c",
+        "exactMatch": true,
+        "lfSha256": "2dbd12836903500db136f262e72d8ea924e4cddb0393c87e19a0241d5ee7c54c",
+        "path": "src/content/map-source-support-data.js"
+      }
+    ],
+    "runtimeCommit": "2b350309d9116812a1d3988af090614bdaefbc25",
+    "separateApprovedBlocks": {
+      "artistCommit": "88538bb687e06911d63f728a17bd8668448805fe",
+      "includedInCurrentDiagnostic": false,
+      "path": "assets/art/shared-map-support-additions/new-york-parapet-blocking-v1/index.json",
+      "sha256": "a5a34f18a4d18b5a316096edf58b941e727a7546e544636a5a29469bc5c5b1c2"
+    },
+    "tenControls": {
+      "path": "assets/art/shared-map-support-overrides/new-york-controls-v1.json",
+      "sha256": "f3f28fda72742c6bc04d32f70331ab96e036662f953153952297fae9ce3bc915"
+    }
+  },
+  "newFuelApplied": 0,
+  "newGeometryApplied": 0,
+  "normalizationRequirement": "Every local region of a canonical pair must be consumed with actual local patch correspondence. Current first-attachment-per-parent and all-selected cross pairing cannot be assumed to implement this proposal. Existing raw records remain evidence.",
+  "preservedExistingFamilyMeasurements": {
+    "cornice-full-local-coverage": 3810,
+    "fixed-portal-frame": 4,
+    "fixed-window-frame": 19,
+    "native-rail-to-real-posts": 76
+  },
+  "proposedCanonicalPairs": 3276,
+  "proposedLocalRegions": 6018,
+  "rendererStarted": false,
+  "retiredDependentBracingInterpretations": 216,
+  "retiredObservedMovingLeafSupportCount": 8,
+  "scope": "Bounded New York original-geometry/source interpretation review only. No new support, anchors, stock, roles, geometry, runtime or rendered acceptance.",
+  "sourceQuantitiesAndRolesUnchanged": true,
+  "status": "UNACCEPTED_FAMILY_PROPOSAL",
+  "unapprovedFamilyRecordsApplied": 0,
+  "version": 1
+}
