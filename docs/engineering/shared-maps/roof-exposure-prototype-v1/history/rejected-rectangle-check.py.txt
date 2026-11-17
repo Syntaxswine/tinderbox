@@ -1,0 +1,106 @@
+"""Independent source-derived cornice-ring cross-check; no polygon clipper import."""
+from pathlib import Path
+from fractions import Fraction as F
+from collections import Counter
+import json,subprocess,hashlib
+
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[3]
+SOURCE="2b350309d9116812a1d3988af090614bdaefbc25"
+PREFIX="assets/art/place-scenes/horticulture/"
+selection=json.loads((HERE/"selection.json").read_text(encoding="utf-8"))
+result=json.loads((HERE/"result.json").read_text(encoding="utf-8"))
+pins=json.loads((HERE/"input-pins.json").read_text(encoding="utf-8"))
+pinned={r["path"]:r for r in pins["reads"] if r["commit"]==SOURCE}
+reads=[]
+def load(path):
+    raw=subprocess.check_output(["git","show",SOURCE+":"+path],cwd=ROOT)
+    assert hashlib.sha256(raw).hexdigest()==pinned[path]["sha256"]
+    reads.append(path);return json.loads(raw)
+def packed(v):
+    if isinstance(v,F):return {"n":str(v.numerator),"d":str(v.denominator),"approx":float(v)}
+    if isinstance(v,dict):return {k:packed(x) for k,x in v.items()}
+    if isinstance(v,(tuple,list)):return [packed(x) for x in v]
+    return v
+def from_q(v):return F(int(v["n"]),int(v["d"]))
+def cross(a,b):return (a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0])
+def sub(a,b):return tuple(x-y for x,y in zip(a,b))
+def orient(a,b,c):return (b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0])
+def area(t):return abs(orient(*t))/2
+def world(part,sid):
+    original=next(p for p in load(PREFIX+"sections/"+sid+".json")["parts"] if p["id"]==part["id"])
+    assert original=={k:part[k] for k in original}
+    g=load(PREFIX+"geometry/"+part["geometry"]+".json")
+    a=g["attributes"]["position"]["array"];vertices=[tuple(map(F,a[i:i+3])) for i in range(0,len(a),3)]
+    idx=g["index"]["array"] if g["index"] else list(range(len(vertices)))
+    m=list(map(F,part["matrix"]))
+    def point(p):return tuple(m[12+k]+sum(m[k+4*j]*p[j] for j in range(3)) for k in range(3))
+    return [(i,tuple(point(vertices[j]) for j in idx[i:i+3])) for i in range(0,len(idx),3)]
+roof=selection["target"]
+faces=world(roof,"2_5_4")
+assert [i for i,_ in faces]==[0,3,6,9,12,15]
+triangles=[t for _,t in faces]
+points=set(p for t in triangles for p in t)
+xmin,xmax=min(p[0] for p in points),max(p[0] for p in points)
+zmin,zmax=min(p[2] for p in points),max(p[2] for p in points)
+y0,y1=min(p[1] for p in points),max(p[1] for p in points)
+width,depth=xmax-xmin,zmax-zmin
+slope=(y1-y0)/(width/2)
+distances=[lambda x,z:x-xmin,lambda x,z:xmax-x,lambda x,z:z-zmin,lambda x,z:zmax-z]
+roof_planes=[];edges=Counter();balance=Counter();projected=[]
+for offset,t in faces:
+    uv=[(p[0],p[2]) for p in t];assert orient(*uv)<0
+    assert all(xmin<=p[0]<=xmax and zmin<=p[1]<=zmax for p in uv)
+    which=[i for i,f in enumerate(distances) if all(y0+slope*f(p[0],p[2])==p[1] for p in t)]
+    assert len(which)==1
+    assert all(p[1]<=y0+slope*f(p[0],p[2]) for p in t for f in distances)
+    roof_planes.append({"offset":offset,"exactNearestEavePlane":which[0]});projected.append(uv)
+    for a,b in zip(uv,uv[1:]+uv[:1]):
+        key=tuple(sorted((a,b)));edges[key]+=1;balance[key]+=1 if a<b else -1
+corners=[(xmin,zmin),(xmax,zmin),(xmax,zmax),(xmin,zmax)]
+expected_boundary={tuple(sorted((a,b))) for a,b in zip(corners,corners[1:]+corners[:1])}
+assert {e for e,n in edges.items() if n==1}==expected_boundary
+assert all(n==1 or n==2 and balance[e]==0 for e,n in edges.items())
+all_edges=list(edges)
+for i,(a,b) in enumerate(all_edges):
+    for c,d in all_edges[:i]:
+        if {a,b}&{c,d}:continue
+        assert not(orient(a,b,c)*orient(a,b,d)<0 and orient(c,d,a)*orient(c,d,b)<0)
+assert sum(map(area,projected),F(0))==width*depth==from_q(result["roofProjectedArea"])
+cornices=[p for p in selection["candidateRecords"] if p["id"].startswith("end-upper-cornice")]
+assert len(cornices)==4
+rectangles=[]
+for part in cornices:
+    ts=world(part,part["sectionId"]);upper=[(i,t) for i,t in ts if cross(sub(t[1],t[0]),sub(t[2],t[0]))[1]>0]
+    assert len(upper)==2
+    ps=set(p for _,t in upper for p in t);heights={p[1] for p in ps};assert len(heights)==1
+    x0,x1=min(p[0] for p in ps),max(p[0] for p in ps);z0,z1=min(p[2] for p in ps),max(p[2] for p in ps)
+    expected_corners={(x,z) for x in (x0,x1) for z in (z0,z1)}
+    uv=[[(p[0],p[2]) for p in t] for _,t in upper]
+    assert set(p for t in uv for p in t)==expected_corners
+    assert sum(map(area,uv),F(0))==(x1-x0)*(z1-z0)
+    shared=set(uv[0])&set(uv[1]);assert len(shared)==2
+    p,q=tuple(shared);assert p[0]!=q[0] and p[1]!=q[1]
+    assert all(orient(*t)<0 for t in uv)
+    rectangles.append({"sourceId":part["id"],"upperOffsets":[i for i,_ in upper],"rectangle":(x0,x1,z0,z1),"height":next(iter(heights)),"fullTopRectangleProvedFromActualTriangles":True})
+heights={r["height"] for r in rectangles};assert len(heights)==1
+h=next(iter(heights));strip=(h-y0)/slope
+assert 0<strip<min(width,depth)/2
+conditions=[
+ lambda r:r[0]<=xmin and r[1]>=xmin+strip and r[2]<=zmin and r[3]>=zmax,
+ lambda r:r[0]<=xmax-strip and r[1]>=xmax and r[2]<=zmin and r[3]>=zmax,
+ lambda r:r[0]<=xmin and r[1]>=xmax and r[2]<=zmin and r[3]>=zmin+strip,
+ lambda r:r[0]<=xmin and r[1]>=xmax and r[2]<=zmax-strip and r[3]>=zmax,
+]
+for condition in conditions:assert any(condition(r["rectangle"]) for r in rectangles)
+covered=width*depth-(width-2*strip)*(depth-2*strip)
+assert covered==from_q(result["cornicesAloneCoveredProjectedArea"])==from_q(result["geometricCoveredProjectedArea"])
+exposed=width*depth-covered
+assert exposed==from_q(result["geometricExposedProjectedArea"])
+assert exposed**2*(1+slope*slope)==from_q(result["geometricExposedActualRoofArea"]["radicand"])
+report={"passed":True,"method":"Independent actual-triangle rectangle and roof-plane proof, then exact inward-ring formula; does not import clipping/union helpers",
+        "sourceCommit":SOURCE,"roofPlanes":roof_planes,"targetRectangle":(xmin,xmax,zmin,zmax),"eaveHeight":y0,"commonCorniceHeight":h,"capturedRoofRise":y1-y0,"capturedSlope":slope,"inwardStripWidth":strip,
+        "actualCorniceTopCertificates":rectangles,"exactCoveredProjectedArea":covered,"exactExposedProjectedArea":exposed,"matches230CandidateTriangleUnion":True,
+        "onlyPreviouslyPinnedGeometryRead":True,"geometryFilesRead":5,"metadataSectionsRead":5,"readPaths":reads,"weatherClassificationAssigned":False}
+(HERE/"independent-ring-check.json").write_text(json.dumps(packed(report),indent=2)+"\n",encoding="utf-8",newline="\n")
+print(json.dumps({"passed":True,"ringMatchesTriangleUnion":True,"projectedCovered":float(covered),"stripWidth":float(strip),"additionalGeometryScope":0}))

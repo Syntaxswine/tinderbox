@@ -1,0 +1,100 @@
+{
+  "controls": [
+    {
+      "control": "missing/duplicated candidate IDs",
+      "result": "REJECT_COUNT_OR_ID_SET",
+      "expectedCount": 230,
+      "exactIdSetSha256": "1b807a719c1494f1eb2b4fa1e88b31efbccb0d8cdc5ff1750f6bd6137ba10c9c"
+    },
+    {
+      "control": "duplicate original upper roof triangle",
+      "result": "REJECT_POSITIVE_SELF_OVERLAP",
+      "intersectionArea": {
+        "n": "360",
+        "d": "1",
+        "approx": 360.0
+      }
+    },
+    {
+      "control": "one upper triangle omitted",
+      "result": "REJECT_EXHAUSTIVE_MEMBERSHIP",
+      "remainingProjectedArea": {
+        "n": "2376",
+        "d": "1",
+        "approx": 2376.0
+      }
+    },
+    {
+      "control": "tall original vertical rafter face used as covering area",
+      "result": "REJECT_ZERO_PROJECTION",
+      "witness": {
+        "sourceId": "front-glass-gallery-0/rafter--1--42",
+        "sourceOffset": 0,
+        "normalY": {
+          "n": "0",
+          "d": "1",
+          "approx": 0.0
+        },
+        "actualProjectedArea": {
+          "n": "0",
+          "d": "1",
+          "approx": 0.0
+        },
+        "actualHeightMin": {
+          "n": "14243702772332787",
+          "d": "2251799813685248",
+          "approx": 6.325474709504414
+        },
+        "actualHeightMax": {
+          "n": "23946820006184717",
+          "d": "2251799813685248",
+          "approx": 10.634524374968242
+        }
+      }
+    },
+    {
+      "control": "original rafter footprint treated as wholly above from its maximum height",
+      "result": "REJECT_BOUNDS_HEIGHT_SHORTCUT",
+      "witness": {
+        "sourceId": "front-glass-gallery-0/rafter--1--42",
+        "sourceOffset": 33,
+        "roofOffset": 6,
+        "intersectionProjectedArea": {
+          "n": "1328165626344036640875",
+          "d": "4722366482869645213696",
+          "approx": 0.2812500112310108
+        },
+        "gapMin": {
+          "n": "-42533180781375115",
+          "d": "20266198323167232",
+          "approx": -2.098725182845638
+        },
+        "gapMax": {
+          "n": "43395500388111605",
+          "d": "20266198323167232",
+          "approx": 2.141274830933841
+        },
+        "strictAboveProjectedArea": {
+          "n": "571348665300709722842612070875",
+          "d": "5938091452409514514709370372096",
+          "approx": 0.0962175591062802
+        },
+        "coincident": false
+      }
+    },
+    {
+      "control": "same actual projected cover counted twice",
+      "result": "UNION_UNCHANGED",
+      "singleArea": {
+        "n": "360",
+        "d": "1",
+        "approx": 360.0
+      },
+      "doubleUnionArea": {
+        "n": "360",
+        "d": "1",
+        "approx": 360.0
+      }
+    }
+  ]
+}

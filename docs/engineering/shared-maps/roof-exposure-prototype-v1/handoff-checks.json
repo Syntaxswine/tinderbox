@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "scope": "One roof, 230 supplied candidates, source-only",
+  "authority": "03de2860aa7f09e068922bb1b85aae3e24918849",
+  "artist": "e347fe4a3eec5d57c83447144982d3a7c70713cd",
+  "original": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "checks": {
+    "passed": true,
+    "originalPinsVerified": 26,
+    "exactCandidateCount": 230,
+    "selectedGeometryFiles": 8,
+    "disjointAnalyticalPartitionVerified": true,
+    "projectedAreaConserved": 2736,
+    "areaRadicandsAnd128BitIntervalsVerified": true,
+    "cornicesOnlyUnionMatchesAll230": true,
+    "fourH22OwnSourceSolidsVerified": true,
+    "retainedRectangleShortcut": "rejected on actual mitered tops; no bounds substitution",
+    "failedShortcutSource": "history/rejected-rectangle-check.py.txt",
+    "failedShortcutLog": "history/rejected-rectangle-check.log",
+    "weatherCoverRemainsArchitectDecision": true,
+    "runtimeFieldOrAdditionalExposureSolver": false,
+    "sourceHashes": {
+      "proof.py": "4eebb213cb1d683e465945c5f56bafa2d8c52675118751b7e41f755c36e169d8",
+      "geometry.py": "7f93a93a6d809d83f4ffb7a938b5a08c806d45ec05f718d7c7b7bb24661ed6d0",
+      "verify.py": "a8aa59327e99112b53601fdfb26d6cff4323da360f8f4f2e13543eb5051d2382"
+    }
+  },
+  "materialReferenceFourIds": [
+    "end-upper-cornice--1-0-2",
+    "end-upper-cornice--1-1-2",
+    "end-upper-cornice--1-2-2",
+    "end-upper-cornice--1-3-2"
+  ],
+  "noAdditionalGeometryReadForRoles": true,
+  "documentationLinksVerified": true,
+  "rejectedShortcutRetained": true,
+  "codecAndTrainPreserved": true,
+  "backgroundHelpersCreated": 0,
+  "factoryOrSceneIndexReconstructed": false,
+  "weatherCoverProposedNotAssigned": true,
+  "fileLfSha256": {
+    ".gitattributes": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+    "candidate-ledger.json": "bb1a7363547136be53e1f8bfaca31506a3d4bbc623a242bdcfa8b0cc4e58d758",
+    "checks.json": "16777380bf29b029aca9dc467bdebe7a31a0b852abe8b5c8a69764cdb91a388b",
+    "exposure-cells.json": "647db3d2c54fccaf34baaee835023b3737b3feb8849cd49ea2050782827d3d26",
+    "geometry.py": "7f93a93a6d809d83f4ffb7a938b5a08c806d45ec05f718d7c7b7bb24661ed6d0",
+    "history/rejected-rectangle-check.log": "0236da81d88ca6f2ef417717a51e1fb5ae345fa0c2389cc6c00a7b349ae87af8",
+    "history/rejected-rectangle-check.py.txt": "4dbeadbee0c2c4a01b61261c4851ccd17d2d7518f407f2cbeb22058b66cbf2cc",
+    "input-pins.json": "f8bee50243cea63ab1dd4f971b1237cb1ed900f882af4dc78a657103a1b8d766",
+    "material-role-references.json": "a17e468e991189b0efdb734fa1177bf4397431ecd2395daa4f8f3db566b360c3",
+    "negative-controls.json": "358a9e839e25d8ddbe18f3e971e3eca2d71660f96c713f377e28ecdf5dcc7324",
+    "proof.log": "e2438c1214e496911024f556d4719e16f34e462d2b0d13032931102000775b96",
+    "proof.py": "4eebb213cb1d683e465945c5f56bafa2d8c52675118751b7e41f755c36e169d8",
+    "README.md": "0cab74599a4582ca34abbdaf422968cc1e7e7e06fc9aad5b88c6243b56ef288a",
+    "result.json": "889205d960fddaf491ae31d3b2e135a953c65a06fc2dd78683b9823d64e23cba",
+    "selection.json": "fb4a3b77b4812f65e2642b455b856e72689f576ca60418db45a1e2f20a793b4d",
+    "verify.log": "2d7f152505fca62d43df146c10cb7a78b5ed71bd8106a8e03a476735df1d69de",
+    "verify.py": "a8aa59327e99112b53601fdfb26d6cff4323da360f8f4f2e13543eb5051d2382"
+  },
+  "textHashConvention": "Committed text identity: CRLF normalized to LF"
+}
