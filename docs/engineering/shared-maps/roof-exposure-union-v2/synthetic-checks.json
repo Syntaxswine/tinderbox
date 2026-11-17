@@ -1,0 +1,197 @@
+{
+  "passed": true,
+  "sourceCodeHashes": {
+    "exact_union.py": "e8c0f933e5950fe9d997055b7faf237429904b93183adc943be2318d3ecf8e5b",
+    "support.py": "41e7e0a4e739632e4bc7960a6320dc8e6ad6d88c026fdc1c936e1983fafc1654",
+    "preflight.py": "bc24cff52ca6219f4053968428eb4f8d5d5db8c12dbf187afe254c5319d7e28f",
+    "attempt.py": "6a75af22056b26f9b7d4bdd14012877156d086d5e22f1f020097b9a5047dc39f"
+  },
+  "cases": [
+    {
+      "case": "cyclic-reversed-duplicate",
+      "setEquivalent": true,
+      "area": {
+        "n": "1",
+        "d": "1",
+        "approx": 1.0
+      },
+      "clipsIncludingReference": 68
+    },
+    {
+      "case": "strict-contained",
+      "setEquivalent": true,
+      "area": {
+        "n": "9",
+        "d": "1",
+        "approx": 9.0
+      },
+      "clipsIncludingReference": 68
+    },
+    {
+      "case": "boundary-touch",
+      "setEquivalent": true,
+      "area": {
+        "n": "2",
+        "d": "1",
+        "approx": 2.0
+      },
+      "clipsIncludingReference": 42
+    },
+    {
+      "case": "positive-tiny-outside-strip",
+      "setEquivalent": true,
+      "area": {
+        "n": "1208925819614629174706177",
+        "d": "1208925819614629174706176",
+        "approx": 1.0
+      },
+      "clipsIncludingReference": 76
+    },
+    {
+      "case": "positive-tiny-island",
+      "setEquivalent": true,
+      "area": {
+        "n": "1461501637330902918203684832716283019655932542977",
+        "d": "1461501637330902918203684832716283019655932542976",
+        "approx": 1.0
+      },
+      "clipsIncludingReference": 36
+    },
+    {
+      "case": "crossed-partial-overlap",
+      "setEquivalent": true,
+      "area": {
+        "n": "7",
+        "d": "4",
+        "approx": 1.75
+      },
+      "clipsIncludingReference": 126
+    },
+    {
+      "case": "bbox-is-not-containment",
+      "setEquivalent": true,
+      "area": {
+        "n": "23",
+        "d": "8",
+        "approx": 2.875
+      },
+      "clipsIncludingReference": 72
+    }
+  ],
+  "positiveTinyHeightRetained": true,
+  "allClipsIncludingReference": 621,
+  "optimizer": {
+    "helperCaps": {
+      "calls": 20000000,
+      "bboxTests": 2000000,
+      "edgePredicates": 8000000,
+      "canonicalInputRecords": 200000,
+      "canonicalVertices": 2000000,
+      "cacheEntries": 50000
+    },
+    "helperCounts": {
+      "calls": 913,
+      "canonicalInputRecords": 16,
+      "canonicalVertices": 63,
+      "canonicalDuplicates": 2,
+      "infoQueries": 176,
+      "cacheEntries": 14,
+      "containmentTests": 47,
+      "bboxTests": 81,
+      "edgePredicates": 466,
+      "intersectionCalls": 18,
+      "differenceCalls": 16,
+      "containedRecords": 2,
+      "bboxRejections": 12
+    },
+    "cachedPolygons": 14,
+    "unions": [
+      {
+        "call": 0,
+        "inputRecords": 3,
+        "uniquePositiveRecords": 1,
+        "retainedAfterContainment": 1,
+        "outputCells": 1,
+        "originalHalfPlaneClips": 0,
+        "reductions": [
+          {
+            "input": 1,
+            "reason": "exact cyclic duplicate",
+            "witnessInput": 0
+          },
+          {
+            "input": 2,
+            "reason": "exact cyclic duplicate",
+            "witnessInput": 0
+          }
+        ]
+      },
+      {
+        "call": 1,
+        "inputRecords": 3,
+        "uniquePositiveRecords": 3,
+        "retainedAfterContainment": 1,
+        "outputCells": 1,
+        "originalHalfPlaneClips": 0,
+        "reductions": [
+          {
+            "input": 1,
+            "reason": "exact convex containment",
+            "witnessInput": 0
+          },
+          {
+            "input": 2,
+            "reason": "exact convex containment",
+            "witnessInput": 0
+          }
+        ]
+      },
+      {
+        "call": 2,
+        "inputRecords": 2,
+        "uniquePositiveRecords": 2,
+        "retainedAfterContainment": 2,
+        "outputCells": 2,
+        "originalHalfPlaneClips": 0,
+        "reductions": []
+      },
+      {
+        "call": 3,
+        "inputRecords": 2,
+        "uniquePositiveRecords": 2,
+        "retainedAfterContainment": 2,
+        "outputCells": 2,
+        "originalHalfPlaneClips": 8,
+        "reductions": []
+      },
+      {
+        "call": 4,
+        "inputRecords": 2,
+        "uniquePositiveRecords": 2,
+        "retainedAfterContainment": 2,
+        "outputCells": 2,
+        "originalHalfPlaneClips": 0,
+        "reductions": []
+      },
+      {
+        "call": 5,
+        "inputRecords": 2,
+        "uniquePositiveRecords": 2,
+        "retainedAfterContainment": 2,
+        "outputCells": 3,
+        "originalHalfPlaneClips": 8,
+        "reductions": []
+      },
+      {
+        "call": 6,
+        "inputRecords": 2,
+        "uniquePositiveRecords": 2,
+        "retainedAfterContainment": 2,
+        "outputCells": 2,
+        "originalHalfPlaneClips": 8,
+        "reductions": []
+      }
+    ],
+    "originalHalfPlaneClips": 621
+  }
+}
