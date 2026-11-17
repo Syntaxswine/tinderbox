@@ -1,0 +1,17 @@
+{"syntheticNativeCompilerCalls":{"original":4,"current":5,"regional":14,"total":23},"retainedReceipts":0,"worldTrials":0,"worldSteps":0}
+✔ default native compiler and strict allowance remain exact against the pinned original (106.0762ms)
+✔ one-cell IDs survive regional restriction and partial outputs cannot install in a whole world (4.3347ms)
+✔ boundary regions preserve every original geometry/fuel and close canonical stock in either order (7.7545ms)
+✔ two disconnected patches retain separate IDs and empty regions never receive native fuel (3.1213ms)
+✔ a closed interior region visits only its restricted cells and creates no caps or stock (5.5256ms)
+✔ a certifiable discarded sliver exposes its loss without creating or normalizing fuel (1.1822ms)
+✔ overlap, corrupt receipt and stale generation reject before changing staging stock (1.4371ms)
+✔ unprovable source measure and incorrect original allocation fail closed before native compilation (0.5061ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 459.5205

@@ -23,7 +23,7 @@ const reasons={
   'src/simulation/catalogue-thermal.js':'Compatibility entry delegates to the single scene-thermal provider; Catalogue remains the control.',
   'src/ui/index.js':'Accepted UI capability intake 2c866a6b and queued tool-intent correction 8f0cd574; immediate use follows the ordered input request while presentation remains snapshot-owned.',
   'workbenches/furnished-house/geometry.js':'Extract the unchanged native gravity step and prevalidate atomic physical-index batches; return reference-counted unsubscribe handles for owned boundary watches.',
-  'workbenches/furnished-house/scene.js':'Stage sparse sources with the unchanged compiler/clipper/profiles, derive a separate local quantity envelope and preserve exact rigid door hardware.',
+  'workbenches/furnished-house/scene.js':'Stage sparse sources with the unchanged compiler/clipper/profiles, derive a separate local quantity envelope and preserve exact rigid door hardware; isolate the opt-in bounded compiler pilot and reject its partial outputs at the ordinary installer.',
   'workbenches/furnished-house/simulation.js':'Commit native source batches without resetting heat/time; reuse native local support, inert falls, real rubble and pane retirement without fuel creation; dispose owned source-support memoization with the trial.',
   'workbenches/furnished-house/support.js':'Recognize shared-scene instance scope for the existing explicit native stair/support graph.',
   'tools/review/catalogue-browser.mjs':'Record task identity/deadline/server port before launch and verify cleanup even when browser launch fails; QA tooling only.'

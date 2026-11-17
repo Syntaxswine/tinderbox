@@ -1,0 +1,15 @@
+{
+  "toolChunk": "1478ec",
+  "stage": "Text-only dependency source audit",
+  "error": "spawnSync git ENOBUFS",
+  "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+  "cause": "Node execFileSync's default 1 MiB text-output buffer was smaller than the original vendor source.",
+  "resolution": "Allow an 8 MiB source-read buffer and report compact Git errors; no native/resource/admission limit changed.",
+  "nativeCalculations": 0,
+  "actualComparisonStarted": false,
+  "nodeExitCode": 1,
+  "gitSignalReported": "SIGTERM",
+  "childPidRetained": false,
+  "rawStdoutRetained": false,
+  "rawStdoutNote": "The tool reported the source-bearing error with truncation. This compact receipt retains its identity and cause without duplicating the vendor source."
+}

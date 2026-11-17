@@ -1,6 +1,7 @@
 import {bounds,centre,triangleArea,clipTriangle,unit,cross,sub,createBoundaryIndex,extrudePlane,EPS} from './geometry.js';
 import {prepareFurnishedData} from './prepare-data.js';
 import {sourcePartitionAllowance} from './partition-error.js';
+import {readRegionalCompileDomain} from './regional-domain.js';
 
 export const CELL=[.5,1.06,.5], STEP=1/30;
 export const DEFAULT_PROFILES=Object.freeze({
@@ -26,7 +27,9 @@ export function doorGeometry(b,fraction){
   const solidTriangles=b.sourceRigidPose?(b.closedSolidTriangles||b.closedTriangles).map(t=>t.map(rotate)):extrudePlane(plane,normal,-(b.thickness||.12)/2,(b.thickness||.12)/2);
   return {solidTriangles,bounds:bounds(solidTriangles.flat()),position:centre(plane.flat()),normal};
 }
-export function compileScene(data,{profiles={},onLoadPhase,querySource}={}) {
+export function compileScene(data,{profiles={},onLoadPhase,querySource,regionalPilot=null}={}) {
+  const region=regionalPilot?readRegionalCompileDomain(regionalPilot,data):null;
+  if(data.partialCompilation&&!region||region&&querySource)throw Error('Isolated partial compilation is unavailable to world installation');
   data=prepareFurnishedData(data);
   if(data.version!==1||!Array.isArray(data.surfaces))throw Error('Expected version-1 artist house data');
   const origin=data.gridOrigin||[0,.48,0],pitch=data.thermalCell||CELL,cells=new Map(),fuels=new Map(),items=new Map(),parts=new Map(),boundaries=[];
@@ -54,7 +57,11 @@ export function compileScene(data,{profiles={},onLoadPhase,querySource}={}) {
     const axis=normal.map(Math.abs).indexOf(Math.max(...normal.map(Math.abs))),lo=coords(box.min),hi=coords(box.max);
     // A plane exactly on a cell edge belongs to one canonical patch, not two.
     for(let i=0;i<3;i++)if(box.max[i]-box.min[i]<EPS)hi[i]=lo[i];else hi[i]=Math.ceil((box.max[i]-origin[i])/pitch[i]-EPS)-1;
-    for(let z=lo[2];z<=hi[2];z++)for(let y=lo[1];y<=hi[1];y++)for(let x=lo[0];x<=hi[0];x++) {
+    const first=region?lo.map((v,i)=>Math.max(v,region.min[i])):lo,last=region?hi.map((v,i)=>Math.min(v,region.max[i])):hi;
+    const visited=region?{sourceId:s.id,full:{min:[...lo],max:[...hi]},restricted:{min:[...first],max:[...last]},cells:0}:null;
+    if(region)region.trace.sources.push(visited);
+    for(let z=first[2];z<=last[2];z++)for(let y=first[1];y<=last[1];y++)for(let x=first[0];x<=last[0];x++) {
+      if(region){visited.cells++;region.trace.visitedCells++;}
       const c=[x,y,z],clipBox={min:c.map((v,i)=>origin[i]+v*pitch[i]-EPS),max:c.map((v,i)=>origin[i]+(v+1)*pitch[i]+EPS)},clipped=triangles.flatMap(t=>clipTriangle(t,clipBox)),area=clipped.reduce((a,t)=>a+triangleArea(t),0);
       if(area<EPS)continue;
       const p=centre(clipped.flat()),single=[0,1,2].every(i=>lo[i]===hi[i]),id=single?s.id:`${s.id}@${key(c)}`,mat=typeof s.material==='string'?s.material:s.material?.physical||s.material?.id||'timber';
@@ -127,6 +134,7 @@ export function compileScene(data,{profiles={},onLoadPhase,querySource}={}) {
   onLoadPhase?.({phase:'physical-scene-ready',boundaries:index.surfaces.size,fuels:fuels.size,cells:cells.size,items:items.size,parts:parts.size});
   const sourceDefinitions=new Map(data.surfaces.map(s=>[s.id,s]));
   function prepareSources(sources){
+    if(region||sources?.partialCompilation)throw Error('Partial compiler receipts cannot enter whole-source installation');
     if(!Array.isArray(sources?.surfaces)||!sources.surfaces.length)throw Error('Explicit native source surfaces required');
     const ids=new Set();for(const s of sources.surfaces){if(!s.id||sourceDefinitions.has(s.id)||ids.has(s.id))throw Error('Duplicate native source '+s.id);ids.add(s.id);}
     // Reuse the exact native clipper and profiles. Only the staged sources and
@@ -146,6 +154,6 @@ export function compileScene(data,{profiles={},onLoadPhase,querySource}={}) {
       return {quantity:fragment.initialFuel,boundaries:added,fuelIds:fuelRecords.map(f=>f.id),sourceIds:[...ids],newCellIds};
     }};
   }
-  return {data,origin,pitch,profile,cells,fuels,items,parts,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor,sourceDefinitions,prepareSources};
+  return {data,origin,pitch,profile,cells,fuels,items,parts,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor,sourceDefinitions,prepareSources,...(region?{partialCompilation:true,regionalTrace:region.trace}:{})};
 }
 const dotPlane=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];

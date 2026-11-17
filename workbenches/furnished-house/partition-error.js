@@ -3,10 +3,13 @@ import {EPS,bounds,triangleArea} from './geometry.js';
 // Independent zero-tolerance clipping measures a source-local envelope around
 // the native clipper's two epsilon bands: its expanded cell and its inside test.
 // This measures numeric partition error only; it never changes a fuel amount.
-export function sourcePartitionAllowance(surface,{origin,pitch}){
+export function sourcePartitionAllowance(surface,{origin,pitch,region=null}){
   const ts=surface.triangles,box=bounds(ts.flat()),amount=surface.fuelAmount+(surface.finish?.amount||0),sourceArea=ts.reduce((n,t)=>n+triangleArea(t),0);
   const lo=box.min.map((v,i)=>Math.floor((v-origin[i])/pitch[i]+EPS)),hi=box.max.map((v,i)=>box.max[i]-box.min[i]<EPS?lo[i]:Math.ceil((v-origin[i])/pitch[i]-EPS)-1),skip=box.min.map((v,i)=>box.max[i]-v<EPS);
   const coordinateScale=Math.max(1,...ts.flat().flat().map(Math.abs),...pitch),u=Number.EPSILON/2;let lowerArea=0,upperArea=0,roundoffArea=0,candidateTriangleCells=0,minCrossingDelta=Infinity;
+  if(region&&(!Array.isArray(region.min)||!Array.isArray(region.max)||region.min.length!==3||region.max.length!==3||!region.min.every(Number.isSafeInteger)||!region.max.every(Number.isSafeInteger)||region.min.some((v,i)=>v>region.max[i])))throw Error('Invalid regional measure domain');
+  const first=region?lo.map((v,i)=>Math.max(v,region.min[i])):lo,last=region?hi.map((v,i)=>Math.min(v,region.max[i])):hi;
+  let canonicalArea=0,canonicalRoundoffArea=0;
   function strictArea(t,cellBox){
     let poly=t.map(p=>({p:[...p],error:[0,0,0]}));
     for(let axis=0;axis<3;axis++)if(!skip[axis])for(const [value,above]of [[cellBox.min[axis],true],[cellBox.max[axis],false]]){
@@ -30,11 +33,25 @@ export function sourcePartitionAllowance(surface,{origin,pitch}){
     const e=Math.max(0,...poly.map(v=>Math.hypot(...v.error))),roundoff=perimeter*e+Math.PI*poly.length*e*e+64*u*poly.length*coordinateScale**2;
     return {area,roundoff};
   }
-  for(let z=lo[2];z<=hi[2];z++)for(let y=lo[1];y<=hi[1];y++)for(let x=lo[0];x<=hi[0];x++)for(const t of ts){
+  for(let z=first[2];z<=last[2];z++)for(let y=first[1];y<=last[1];y++)for(let x=first[0];x<=last[0];x++)for(const t of ts){
     const cell=[x,y,z],outer={min:cell.map((v,i)=>origin[i]+v*pitch[i]-2*EPS),max:cell.map((v,i)=>origin[i]+(v+1)*pitch[i]+2*EPS)},inner={min:cell.map((v,i)=>origin[i]+v*pitch[i]+2*EPS),max:cell.map((v,i)=>origin[i]+(v+1)*pitch[i]-2*EPS)},a=strictArea(t,outer),b=strictArea(t,inner);
     upperArea+=a.area;lowerArea+=b.area;roundoffArea+=a.roundoff+b.roundoff;candidateTriangleCells++;
+    if(region){const exact={min:cell.map((v,i)=>origin[i]+v*pitch[i]),max:cell.map((v,i)=>origin[i]+(v+1)*pitch[i])},canonical=strictArea(t,exact);canonicalArea+=canonical.area;canonicalRoundoffArea+=canonical.roundoff;}
   }
   const areaDiscardBound=7*EPS*candidateTriangleCells,coreThresholdLoss=EPS*candidateTriangleCells*(1+(surface.finish?.amount||0)/(surface.fuelAmount||1)),roundoffBound=amount*roundoffArea/sourceArea;
+  if(region){
+    if(!(sourceArea>0)||!Number.isFinite(sourceArea)||!Number.isFinite(amount)||amount<0)throw Error('Uncertifiable regional source measure');
+    const canonicalQuantity=amount*canonicalArea/sourceArea;
+    // Same strict intersection/area uncertainty convention, including the
+    // original denominator's uncut triangle-area arithmetic and final sums.
+    const sourceAreaRoundoff=64*u*ts.length*3*coordinateScale**2,denominator=sourceArea-sourceAreaRoundoff;
+    if(!(denominator>0))throw Error('Uncertifiable regional source denominator');
+    const canonicalRoundoff=amount*(canonicalRoundoffArea+canonicalArea*sourceAreaRoundoff/denominator)/sourceArea+64*Number.EPSILON*Math.max(1,amount)*Math.max(1,candidateTriangleCells);
+    return {epsilon:EPS,sourceArea,canonicalArea,canonicalQuantity,canonicalRoundoff,candidateTriangleCells,lowerArea,upperArea,areaDiscardBound,coordinateScale,minCrossingDelta:Number.isFinite(minCrossingDelta)?minCrossingDelta:null,
+      positive:amount*Math.max(0,(upperArea-canonicalArea)/sourceArea)+roundoffBound+canonicalRoundoff,
+      negative:amount*Math.max(0,(canonicalArea-lowerArea)/sourceArea)+amount*areaDiscardBound/sourceArea+coreThresholdLoss+roundoffBound+canonicalRoundoff,
+      roundoffBound:roundoffBound+canonicalRoundoff};
+  }
   return {epsilon:EPS,sourceArea,lowerArea,upperArea,candidateTriangleCells,areaDiscardBound,coordinateScale,minCrossingDelta:Number.isFinite(minCrossingDelta)?minCrossingDelta:null,
     positive:amount*Math.max(0,upperArea/sourceArea-1)+roundoffBound,negative:amount*Math.max(0,1-lowerArea/sourceArea)+amount*areaDiscardBound/sourceArea+coreThresholdLoss+roundoffBound,roundoffBound};
 }
