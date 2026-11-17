@@ -1,0 +1,18 @@
+{
+  "attempts": [
+    {
+      "correction": "Handle zero-area triangles as their actual finite segments/points; five independent closest-point controls added. No source triangle removed or repaired.",
+      "exception": "ZeroDivisionError",
+      "stage": "vertex-to-triangle projection while sampling an existing urn mesh"
+    },
+    {
+      "correction": "Use the exact diagnostic-proven pair carrier/upper-terrace/rail-front/cap-2 and carrier/upper-terrace/rail-front/pier-2.",
+      "exception": "KeyError: carrier/upper-terrace/rail-east/pier-0",
+      "stage": "Explicit target-pair selection after all 74 families were sampled"
+    }
+  ],
+  "geometryChanged": false,
+  "rendererStarted": false,
+  "scope": "Read-only review-script development failures; physical source assets and accepted checkers unchanged.",
+  "version": 1
+}

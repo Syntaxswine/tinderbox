@@ -1,0 +1,101 @@
+{
+  "baseBindingsSha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba",
+  "checks": {
+    "authority": 2,
+    "butt": 2,
+    "embed": 8,
+    "evidence": 11,
+    "frame": 1,
+    "geometry": 60,
+    "native": 10,
+    "pin": 2,
+    "preserved": 4,
+    "region": 40,
+    "retired": 5,
+    "schema": 2,
+    "scope": 23
+  },
+  "descriptorBytes": 49012,
+  "descriptorPath": "assets/art/shared-map-support-overrides/new-york-controls-v1.json",
+  "descriptorSha256": "f3f28fda72742c6bc04d32f70331ab96e036662f953153952297fae9ce3bc915",
+  "effectiveOverlaySha256": "f1252c7364adfeb025f573fc4650020e71915a3e17e71bcf2e725e56c3f1c941",
+  "existingNativeContactReceiptSha256": "14dec933992a65739ce952514f6afc1aafc42fa59464e63cab40b70c9da27ed4",
+  "fuelChanges": 0,
+  "geometryChanges": 0,
+  "groundAnchorAdditions": 0,
+  "joinCount": 10,
+  "kinds": {
+    "carpentry-butt-joint": 1,
+    "fixed-embed": 8,
+    "structural-seam": 1
+  },
+  "negativeControlCount": 12,
+  "negativeControls": [
+    {
+      "name": "unapproved eleventh pair",
+      "reason": "scope:exact ten approved pairs only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "unapproved parent",
+      "reason": "scope:exact ten approved pairs only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "seam loses exact symmetry",
+      "reason": "scope:exact approved direction closure-cap-to-actual-deck",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "butt joint falsely becomes volume embed",
+      "reason": "scope:exact eight seam butt kinds",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "fabricated ground anchor",
+      "reason": "scope:local dependency no anchor portal-jamb-to-floor",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "altered local region",
+      "reason": "region:exact approved bounds frame and witness portal-jamb-to-floor/childRegion",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "source offset applied twice",
+      "reason": "geometry:original reference matrix and range portal-jamb-to-floor/childRegion",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "unreviewed base bindings",
+      "reason": "pin:accepted completed bindings",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "fuel addition smuggled into support override",
+      "reason": "scope:no geometry fuel profile or anchors",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "new geometry payload smuggled into descriptor",
+      "reason": "schema:only support descriptor fields",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "retiring a hinge instead of observed header contact",
+      "reason": "retired:only two moving leaf to fixed header interpretations",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "removing original geometry evidence",
+      "reason": "retired:contact stays physical evidence",
+      "result": "EXPECTED_REJECTION"
+    }
+  ],
+  "parapetProposalApplied": false,
+  "rendererStarted": false,
+  "result": "PASS",
+  "retiredInterpretationCount": 2,
+  "runtimeBehaviorAcceptance": false,
+  "version": 1
+}
