@@ -110,4 +110,15 @@ Reproduced retained cornice T-junctions permit one narrow topology amendment ins
 
 The old living-actor navigation freezes when support disappears. The M29 support-loss adapter may reuse the existing native 9.81 m/s² debris integration through one shared helper, advancing the single authoritative actor on native world ticks against live swept body/solid/support geometry. Preserve the original debris result, native body radius/headroom, pause/powder timing and supported-path pouring; do not create an airborne floor. Add no fall damage, jumping or separate movement clock. Check a ticking shared-host actor's descent/landing after local floor retirement while a neighboring floor remains intact, including newly registered physical fragments.
 
+Review of the completion export's explicit four additional mount proposals accepts these exact child-to-parent pairs:
+
+| Child carrier | Parent carrier |
+| --- | --- |
+| `carrier/entry/medallion--1` | `carrier/main/0/cell-4-18/1` |
+| `carrier/entry/medallion-1` | `carrier/main/0/cell-4-28/1` |
+| `carrier/tower-east/terminal` | `carrier/tower-east/cap-hip` |
+| `carrier/tower-west/terminal` | `carrier/tower-west/cap-hip` |
+
+The two backing-disc mounts span their measured approximately 20 mm facade gaps; other medallion/cameo members retain measured internal joins. The finials use explicitly declared socket/fastening relationships at their roof point contacts (approximately 1.7956 µm separation), not positive-area bearing. Preserve exact local child/parent regions, actual gaps and `groundAnchor:false`. Local parent loss removes support; none becomes an independent earth anchor or whole-building fallback. No geometry, movement, fuel/profile change or other new mount is authorized. Verify the resulting graph rather than assuming these four mounts clear every remaining exception.
+
 The coder's corrected CPU extraction is source accepted through `6f54554ceaefe0d63ad617836bd30e63466d66d4`. Continue New York runtime/presentation, source-aware aiming and persistent sparse activation, preserving local retirement and atomic replacement of static proxies. No renderer is granted by this amendment. Administration/Horticulture rollout still follows the actual New York pilot review; plan bounded source shards or compact authoring rules before exporting their larger tables, and keep authoring evidence out of startup fetches.
