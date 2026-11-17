@@ -1,0 +1,30 @@
+{
+  "allOtherPackageFieldsEqual": true,
+  "approvedVerificationCommit": "df3dbcea7d6823e4c44479ded6c58d8bb176a94a",
+  "changedDependencyPins": [
+    {
+      "approvedVerificationSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+      "historicalProducerSha256": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
+      "path": "workbenches/furnished-house/geometry.js"
+    },
+    {
+      "approvedVerificationSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372",
+      "historicalProducerSha256": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b",
+      "path": "workbenches/furnished-house/support.js"
+    }
+  ],
+  "differingPackageFields": [
+    "dependencyPins"
+  ],
+  "exceptionClass": "AssertionError",
+  "legacyVerifierSha256": "8058579962019a011843c4c0e916e4889ddf4a90f86b353f318fbb10ff9ee0f7",
+  "message": "Package hash or reference inventory changed",
+  "method": "Execute the unmodified original default verifier in-process. Substitute only SHA reads for the two exact approved Git-source files, byte-matched to actual root read-only files; all assets/other package fields remain original. No JavaScript or native geometry is executed.",
+  "nativeGeometryRendererOrWorldRun": false,
+  "originalCommit": "7698e083b36635694e73dc07aa38748355e670a8",
+  "originalPackageSha256": "38c7028cd0551c96a1119a570036c7f056fa6057732888edc95ee6e8a8e03fb3",
+  "rootReport": "Architect independently reports export --check, fresh 192 native contacts and check.py pass (1663 checks, five rejecting controls). Those physical checks were not rerun for this metadata correction.",
+  "status": "PRESERVED_ORIGINAL_DEFAULT_PACKAGE_FAILURE",
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 17, in <module>\n  File \"C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\art\\source\\shared-map-fire-bindings\\parapet-clear-blocking-v1\\review.py\", line 96, in main\n    else:assert path.read_bytes()==E.encode(package),'Package hash or reference inventory changed'\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Package hash or reference inventory changed\n",
+  "version": 1
+}

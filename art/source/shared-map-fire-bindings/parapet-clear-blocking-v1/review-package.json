@@ -6,6 +6,14 @@
   "candidateCommitIdentity": "Containing Git commit; pushed worker branch is a candidate, not promotion.",
   "combinedWorldLedgerComputed": false,
   "deliveredJpgs": 2,
+  "dependencyContextPolicy": {
+    "approvedVerificationCommit": "df3dbcea7d6823e4c44479ded6c58d8bb176a94a",
+    "dependencyPinsMeaning": "Frozen historical producer dependencies from 7698e083b36635694e73dc07aa38748355e670a8; current verification context is admitted separately and reported only in command output.",
+    "historicalProducerPackageSha256": "38c7028cd0551c96a1119a570036c7f056fa6057732888edc95ee6e8a8e03fb3",
+    "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/dependency-contexts.json",
+    "runtimeAcceptanceGranted": false,
+    "sha256": "6ee5fcdf2846fc2f719149152b7b3012a3db27b5cc9c99bc618c8e17c824c953"
+  },
   "dependencyPins": [
     {
       "path": "art/source/shared-map-fire-bindings/export.py",
@@ -110,9 +118,49 @@
       "sha256": "7a14e099403e474ed5e8184d876b71df59e1573d6d1452cf7044d85eefced0cc"
     },
     {
+      "bytes": 2609,
+      "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/context-portability-v1/check-package-contexts.py",
+      "sha256": "4c722e5b812f8e1a3681b8445d128998c1f6ef17837bca619431c958911a3916"
+    },
+    {
+      "bytes": 2208,
+      "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/context-portability-v1/original-failure.json",
+      "sha256": "171d8a5eb4309547323335a5001c927d458528d20eae68a41a9ed8f25252ed5b"
+    },
+    {
+      "bytes": 3886,
+      "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/context-portability-v1/package-context-verification.json",
+      "sha256": "c5427cae31b680c5db931376798bc72a3192cb9bc82b00cfa92991e10386ef6d"
+    },
+    {
+      "bytes": 10703,
+      "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/context-portability-v1/review-before.py",
+      "sha256": "8058579962019a011843c4c0e916e4889ddf4a90f86b353f318fbb10ff9ee0f7"
+    },
+    {
+      "bytes": 12654,
+      "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/context-portability-v1/review-package-before.json",
+      "sha256": "38c7028cd0551c96a1119a570036c7f056fa6057732888edc95ee6e8a8e03fb3"
+    },
+    {
+      "bytes": 8933,
+      "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/context-portability-v1/verification-controls.json",
+      "sha256": "c37ace9e6ffa372b475b299a309317fc7fce34f77570e06217c0ac324a845bcd"
+    },
+    {
       "bytes": 3635,
       "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/contract-efe2b030.md",
       "sha256": "f9524e4ac97f4513f6d61bad6b032d1cbceaff1a9db52ce1a7ff931a77f0aca6"
+    },
+    {
+      "bytes": 9419,
+      "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/dependency-context.py",
+      "sha256": "f7be7a9ddb4ffd593329601566ccea289dde8b1b0a1bf5fea1a8b1be661e2174"
+    },
+    {
+      "bytes": 4506,
+      "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/dependency-contexts.json",
+      "sha256": "6ee5fcdf2846fc2f719149152b7b3012a3db27b5cc9c99bc618c8e17c824c953"
     },
     {
       "bytes": 4034,
@@ -215,9 +263,9 @@
       "sha256": "251f60b08b3f2da3630d930678a065b53c4db4227f6a695d6a6deef84625039d"
     },
     {
-      "bytes": 10703,
+      "bytes": 11229,
       "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/review.py",
-      "sha256": "8058579962019a011843c4c0e916e4889ddf4a90f86b353f318fbb10ff9ee0f7"
+      "sha256": "72290c8e585b183e6c55425857dbf63cf8e04e14123bfca43a0aed2024d337fe"
     },
     {
       "bytes": 25681,
@@ -245,13 +293,13 @@
       "sha256": "f3b57155bae5897d59d997a07a946a1b98ff443ad17eb6332a0e5fff4791dcba"
     },
     {
-      "bytes": 8964,
+      "bytes": 10835,
       "path": "docs/art/shared-map-fire-bindings/parapet-clear-blocking-v1/README.md",
-      "sha256": "a1a8ced0660f870501feec4afe82f765762d5dec13d45f4f2e11fc83b6770ff5"
+      "sha256": "d3f2819ef0a120f4b24cad3589e9510560b423734d1a3dfcbce2a9db75d5f4c4"
     }
   ],
   "geometrySharedFromExistingPrototype": true,
-  "handoffReferencesReviewed": 9,
+  "handoffReferencesReviewed": 11,
   "instanceTriangles": 1152,
   "limitations": [
     "Cold/active accounting, native fragment mapping and damage behavior remain coder work.",
@@ -266,8 +314,8 @@
   "nativeActivationRun": false,
   "newGroundAnchors": 0,
   "originalParents": 16,
-  "payloadBytes": 2153369,
-  "payloadCount": 43,
+  "payloadBytes": 2210684,
+  "payloadCount": 51,
   "previewHelpersClosed": true,
   "rasterSessions": 1,
   "rejectingControls": 5,

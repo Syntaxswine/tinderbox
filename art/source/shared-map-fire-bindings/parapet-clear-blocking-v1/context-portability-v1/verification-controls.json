@@ -1,0 +1,195 @@
+{
+  "allowedVerificationContexts": [
+    {
+      "admission": "Exact paired verification source only; no new runtime or geometry acceptance.",
+      "files": [
+        {
+          "committedBytes": 11461,
+          "committedSha256": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
+          "gitBlobSha1": "af8646960094de99581590e513149b9b36228c36",
+          "lfBytes": 11461,
+          "lfSha256": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
+          "path": "workbenches/furnished-house/geometry.js"
+        },
+        {
+          "committedBytes": 7748,
+          "committedSha256": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b",
+          "gitBlobSha1": "76d225e79e503d1e837f906be75b33115060deee",
+          "lfBytes": 7748,
+          "lfSha256": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b",
+          "path": "workbenches/furnished-house/support.js"
+        }
+      ],
+      "id": "original-producer",
+      "sourceCommit": "7698e083b36635694e73dc07aa38748355e670a8"
+    },
+    {
+      "admission": "Exact paired verification source only; no new runtime or geometry acceptance.",
+      "files": [
+        {
+          "committedBytes": 12868,
+          "committedSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+          "gitBlobSha1": "c490e5165605b6bb765b2b618f8057a02f5a500c",
+          "lfBytes": 12868,
+          "lfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+          "path": "workbenches/furnished-house/geometry.js"
+        },
+        {
+          "committedBytes": 7779,
+          "committedSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372",
+          "gitBlobSha1": "b25c7014b8f6415d135b62c671c404ff86f04021",
+          "lfBytes": 7779,
+          "lfSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372",
+          "path": "workbenches/furnished-house/support.js"
+        }
+      ],
+      "id": "approved-combined-m29",
+      "sourceCommit": "df3dbcea7d6823e4c44479ded6c58d8bb176a94a"
+    }
+  ],
+  "controls": [
+    {
+      "context": {
+        "id": "original-producer",
+        "lfSha256": {
+          "workbenches/furnished-house/geometry.js": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
+          "workbenches/furnished-house/support.js": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b"
+        },
+        "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+        "requiredSourceBlocksUnchanged": true,
+        "runtimeAcceptanceGranted": false,
+        "sourceCommit": "7698e083b36635694e73dc07aa38748355e670a8"
+      },
+      "name": "original-producer LF",
+      "result": "PASS_EXACT_ADMISSION"
+    },
+    {
+      "context": {
+        "id": "original-producer",
+        "lfSha256": {
+          "workbenches/furnished-house/geometry.js": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
+          "workbenches/furnished-house/support.js": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b"
+        },
+        "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+        "requiredSourceBlocksUnchanged": true,
+        "runtimeAcceptanceGranted": false,
+        "sourceCommit": "7698e083b36635694e73dc07aa38748355e670a8"
+      },
+      "name": "original-producer CRLF",
+      "result": "PASS_EXACT_ADMISSION"
+    },
+    {
+      "context": {
+        "id": "approved-combined-m29",
+        "lfSha256": {
+          "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+          "workbenches/furnished-house/support.js": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372"
+        },
+        "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+        "requiredSourceBlocksUnchanged": true,
+        "runtimeAcceptanceGranted": false,
+        "sourceCommit": "df3dbcea7d6823e4c44479ded6c58d8bb176a94a"
+      },
+      "name": "approved-combined-m29 LF",
+      "result": "PASS_EXACT_ADMISSION"
+    },
+    {
+      "context": {
+        "id": "approved-combined-m29",
+        "lfSha256": {
+          "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+          "workbenches/furnished-house/support.js": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372"
+        },
+        "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+        "requiredSourceBlocksUnchanged": true,
+        "runtimeAcceptanceGranted": false,
+        "sourceCommit": "df3dbcea7d6823e4c44479ded6c58d8bb176a94a"
+      },
+      "name": "approved-combined-m29 CRLF",
+      "result": "PASS_EXACT_ADMISSION"
+    },
+    {
+      "name": "unknown geometry source with unchanged predicate",
+      "reason": "Unapproved whole-source pair; unchanged contact predicate alone does not admit a context",
+      "result": "EXPECTED_REJECTION",
+      "sourceLFSha256": {
+        "workbenches/furnished-house/geometry.js": "6076cd02c835122733e1831d886230471f99a7d7441f61229a267fcf0d4814bb",
+        "workbenches/furnished-house/support.js": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b"
+      }
+    },
+    {
+      "name": "unknown support scene marker with unchanged predicate",
+      "reason": "Unapproved whole-source pair; unchanged contact predicate alone does not admit a context",
+      "result": "EXPECTED_REJECTION",
+      "sourceLFSha256": {
+        "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+        "workbenches/furnished-house/support.js": "6304dca2fcd4f4b6ebe01cee0cb10086d2c5b4025ad88e4f994208951e12d8b3"
+      }
+    },
+    {
+      "name": "changed contact predicate",
+      "reason": "Unapproved whole-source pair; unchanged contact predicate alone does not admit a context",
+      "result": "EXPECTED_REJECTION",
+      "sourceLFSha256": {
+        "workbenches/furnished-house/geometry.js": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
+        "workbenches/furnished-house/support.js": "15945e6b57842a3ac6fd0854cd1412e297c795274b249b634fafbc35cb46d7fe"
+      }
+    },
+    {
+      "name": "mixed original geometry and approved support",
+      "reason": "Unapproved whole-source pair; unchanged contact predicate alone does not admit a context",
+      "result": "EXPECTED_REJECTION",
+      "sourceLFSha256": {
+        "workbenches/furnished-house/geometry.js": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
+        "workbenches/furnished-house/support.js": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372"
+      }
+    },
+    {
+      "name": "bare carriage return",
+      "reason": "Only CRLF-to-LF normalization is approved",
+      "result": "EXPECTED_REJECTION",
+      "sourceLFSha256": {
+        "workbenches/furnished-house/support.js": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b"
+      }
+    }
+  ],
+  "historicalProducerDependencyPins": [
+    {
+      "path": "art/source/shared-map-fire-bindings/export.py",
+      "sha256": "ae42ec633ab21e8d065ee0b3e3779292591c20cceb9d0f1dd3cd76b1600327aa"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/geometry.py",
+      "sha256": "4c88d74fb5701a4fe9ae5b4873ef4a8ff52ceae4742626774a9050299db857d5"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/propose-new-york-coverage.py",
+      "sha256": "c9ccb5f44898b5d8476220ddef024ea20ca955e79c6b8a57a6448a81e58ffec4"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/reachability-review-v1/review.py",
+      "sha256": "c87c1d2587aa620131e7915e61e63a864c5d8b57fec2d258cb7f6c84ba0e2a96"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "sha256": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847"
+    },
+    {
+      "path": "workbenches/furnished-house/support.js",
+      "sha256": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b"
+    }
+  ],
+  "nativeGeometryRendererOrWorldRun": false,
+  "oldPhysicalSourcesAssetsImagesOrReceiptsRewritten": false,
+  "originalPayloadsPreserved": 41,
+  "positiveControls": 4,
+  "rejectingControls": 5,
+  "requiredUnchangedSourceBlocks": {
+    "geometryMathPrefixWithoutExactApprovedGravityAdditionLFSha256": "5ae95dee51bc239c27ff66f6c4caf363fcda60137964481e44998fbfdec523dd",
+    "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+    "supportImportsPrismAndContactPrefixLFSha256": "f7028aacf4fd691a7d8f4a569ca4a8fd11c838579c5270f88bd7c26a21e47a1c"
+  },
+  "result": "PASS_EXACT_DEPENDENCY_CONTEXT_CONTROLS",
+  "runtimeAcceptanceGranted": false,
+  "version": 1
+}

@@ -147,6 +147,37 @@ connections, retained helper, browser or server. The renderer's 120-second
 worker deadline was real; the failed first encoding record is preserved
 rather than relabeled as a successful end-to-end run.
 
+## Package verification source contexts
+
+The original package at `7698e083b36635694e73dc07aa38748355e670a8` records
+historical producer dependency hashes. The approved combined M29 tree
+`df3dbcea7d6823e4c44479ded6c58d8bb176a94a` evolved two complete native helper
+files while preserving the actual contact predicate and consumed geometry math.
+The first default package verifier incorrectly compared those current whole-file
+hashes with producer provenance. Its exact failure and original verifier/package
+are [preserved](../../../../art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/context-portability-v1/original-failure.json).
+
+The [context policy](../../../../art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/dependency-contexts.json)
+now admits only the exact original pair or exact approved pair, from frozen Git
+objects, with LF/CRLF normalization. Unknown edits, mixed pairs and a matching
+predicate alone are rejected. Historical `dependencyPins` remain unchanged;
+the current verification context appears in command output and is not rewritten
+into producer provenance. The unchanged contact predicate SHA-256 remains
+`4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441`.
+
+Run the additional source-only controls with:
+
+```text
+python -B art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/dependency-context.py
+python -B art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/context-portability-v1/check-package-contexts.py
+```
+
+This correction changes only the package verifier, its context evidence and this
+handoff. All 41 other original payload files, producer dependencies, asset bytes,
+JPGs, receipts, modular/quantity/contact evidence and the original failure remain
+preserved. No geometry, rendering, native activation, runtime feature or combined
+world accounting is rerun or newly accepted.
+
 ## Review boundary
 
 Ready for architect review as an additive asset/source batch. The original
