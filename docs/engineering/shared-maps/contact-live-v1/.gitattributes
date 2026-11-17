@@ -1,0 +1,8 @@
+*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Immutable Node failure output includes its original indented blank lines.
+failed-focused-v1.log -diff
+*.mjs -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.js -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.md text eol=lf
+.gitattributes text eol=lf

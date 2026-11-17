@@ -8,6 +8,7 @@ import {worldToStick,DEFAULT_CONFIG} from '../../src/simulation/index.js';
 import {NEW_YORK_GAMEPLAY_CONFIGURATION} from '../../src/content/shared-map.js';
 import {checkSharedMapLayout} from './shared-map-layout.mjs';
 import {firstPrimaryReceipt,requirePrimaryTool,requireHeldFlameAttempt} from './shared-map-actions.mjs';
+import {captureSharedMapFailureArt} from './shared-map-failure-art.mjs';
 
 // One architect-granted investigation. No second lane, manual simulation tick,
 // app-command shortcut, pawn placement, positive fire state or extra renderer.
@@ -112,6 +113,7 @@ await withCatalogueBrowser(async({page,baseUrl,manifestSha256,save,errors})=>{
     guard();return {passed:true,authority,runtimeCommit,manifestSha256,viewport:plan.viewport,normalZoom:true,jpgs,scope:plan.scope};
   }catch(error){
     try{save('first-finding.json',{stage,error:error.stack,state:await read()});if(jpgs.length<2){await page.screenshot({path:path.join(output,'first-failure.jpg'),type:'jpeg',quality:88});jpgs.push('first-failure.jpg');}}catch{/* Preserve the original failure if its page has already closed. */}
+    await captureSharedMapFailureArt({stop,readArt:()=>page.evaluate(()=>qa.app.visit()?.artDiagnostics?.()),save});
     throw error;
   }finally{
     try{await stop();save('frame-contacts-input.json',await page.evaluate(()=>({rows:qa.rows,phases:qa.phases,inputEvents:qa.inputEvents})));await page.evaluate(()=>qa.app.dispose());}catch{/* The existing lifecycle still closes the complete context/browser/server. */}

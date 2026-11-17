@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "owner": "Coder Tinderbox",
+  "purpose": "Preserve unaccepted contact/live source experiment; no automatic replay or runtime push",
+  "authority": "746c2ab02294f975728d0d8844d7f3f8943f546b",
+  "referenceRoles": {
+    "algorithm": "55cd9b597744244fbd0168939b13fbc66662d7b3",
+    "strictWholeTree": "76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+    "supportBytesIdentical": true,
+    "baselineCorrection": "Explicit architect clarification after preserved initial-source-gate-failure; no subtree is ignored"
+  },
+  "candidate": {
+    "path": "src/simulation/source-support.js",
+    "beforeLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+    "afterLfSha256": "18545e679d8318cb0115e7a144af62995e41b2f8cda400b40f1c3ed3a9452021"
+  },
+  "sourceCode": {
+    "producer": "measure.mjs",
+    "preparation": "prepare.mjs",
+    "auditor": "audit.mjs",
+    "verifier": "verify.mjs",
+    "fixture": "run/fixture.mjs",
+    "focusedTests": [
+      "--test",
+      "tests/integration/source-contact-reach.test.mjs",
+      "tests/integration/source-continuity.test.mjs",
+      "tests/integration/source-support.test.mjs",
+      "tests/integration/source-activation.test.mjs",
+      "tests/integration/source-carriers.test.mjs",
+      "tests/integration/source-partition-error.test.mjs",
+      "tests/integration/shared-map-support-controls.test.mjs",
+      "tests/integration/shared-map.test.mjs",
+      "tests/integration/actor-support.test.mjs",
+      "tests/integration/shared-map-host-diff.test.mjs"
+    ],
+    "nativeCheck": [
+      "tools/review/check-shared-map-integrated.mjs",
+      "--output=artifacts/qa/shared-map-runtime/contact-live-native-v1"
+    ],
+    "archivedCandidate": "candidate-payload/"
+  },
+  "runtime": {
+    "node": "v24.15.0",
+    "dependencies": "Repository-local pinned native modules and shared Three.js; no install or browser needed"
+  },
+  "process": {
+    "owner": "Coder Tinderbox",
+    "purpose": "M29 746c2ab0 one unprofiled active-contact and live-reach measurement",
+    "identity": {
+      "pid": 19180,
+      "creationFiletime": "134393918625839227",
+      "executable": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    "ports": [],
+    "mode": "control",
+    "startedAt": "2026-11-17T12:24:23.474Z",
+    "expiresAt": "2026-11-17T12:25:23.474Z",
+    "bounds": {
+      "wallMs": 60000,
+      "totalHostSteps": 1000,
+      "heldWindowHostSteps": 32,
+      "heldWorldSeconds": 0.5333333333333333
+    },
+    "stopMethod": "Finite step guards, profiler disconnect and ordinary process exit",
+    "restart": {
+      "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\shared-map-runtime\\contact-live-v1\\measure.mjs",
+        "--mode=control",
+        "--run-dir=artifacts/qa/shared-map-runtime/contact-live-v1/run"
+      ]
+    },
+    "source": {
+      "frozenRuntime": "76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+      "workspaceCommit": "8628834adab044b4c02768aaa20ad33886cc1d8f",
+      "productionDiffEmpty": false,
+      "candidateProductionDelta": {
+        "path": "src/simulation/source-support.js",
+        "beforeLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+        "afterLfSha256": "18545e679d8318cb0115e7a144af62995e41b2f8cda400b40f1c3ed3a9452021"
+      },
+      "lane": "contact-live-candidate",
+      "candidateMeasurement": true,
+      "algorithmReference": {
+        "commit": "55cd9b597744244fbd0168939b13fbc66662d7b3",
+        "supportLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c"
+      },
+      "authority": "746c2ab02294f975728d0d8844d7f3f8943f546b",
+      "parentContinuityCommit": "55cd9b597744244fbd0168939b13fbc66662d7b3",
+      "priorPhoneEvidence": "8628834adab044b4c02768aaa20ad33886cc1d8f",
+      "originalLfSha256": "61dd3d834093d3a4abb5d3a5387aa3f8aed3d3421982ecb03384a36225190474",
+      "derivedLfSha256": "43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253",
+      "producerSha256": "7fe4d0866b7c0c265180615cd73d313991543414a5eeaa92a919b96db7fea25b",
+      "sourceIntakes": {
+        "uiCapabilities": "2c866a6bf173e1549c54d34c124a9d055febda3d",
+        "uiPresentation": "47f87fb01fe922b1085c05e3082986c50b04a5c7",
+        "uiShortLandscapeLayout": "130fe10db3af8a7efcd04e71139a2fbed74b1e91",
+        "uiToolSelectionOrdering": "8f0cd5743d159c53f56eeeb4eabd137cd3d7621c",
+        "artistPilot": "59b9373f47d51531c7e505613f67dd1e426b37f1",
+        "artistComplete": "82b7fc604eb183d65e7569366c47f45e5f07c1b5",
+        "artistCheckerContext": "90c226f674d51a2d030fcdd4679e61a3bdd9ebfe",
+        "artistFirstSupportControls": "9a88959d2011d182377a9eeb95d5ed9d222e46b1"
+      },
+      "runtimePackages": [
+        {
+          "path": "assets/runtime/map-sources/new-york/index.json",
+          "bytes": 8021251,
+          "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+        },
+        {
+          "path": "assets/runtime/map-sources/new-york/library.json",
+          "bytes": 3150020,
+          "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+        }
+      ]
+    },
+    "configChanges": false
+  },
+  "inputs": {
+    "fixtureSha256": "43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253",
+    "commands": "run/commands.json",
+    "packages": [
+      {
+        "path": "assets/runtime/map-sources/new-york/index.json",
+        "bytes": 8021251,
+        "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+      },
+      {
+        "path": "assets/runtime/map-sources/new-york/library.json",
+        "bytes": 3150020,
+        "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+      }
+    ]
+  },
+  "outputs": [
+    "run/receipt.json",
+    "run/cold-host.json",
+    "run/before-host.json",
+    "run/after-host.json",
+    "verification.json",
+    "recorded-work-analysis.json",
+    "focused.log",
+    "native-result.json"
+  ],
+  "pending": "Architect baseline/intake decision; no runtime push. Actual input, lighting and source/support/accounting remain open. Separate failure-art QA stays queued.",
+  "helpersRunning": false,
+  "grantConsumed": true,
+  "candidateAccepted": false,
+  "runtimePushHeld": true,
+  "restartPolicy": "A deliberate new architect grant is required for any measurement, build, profile or renderer. Do not replay the consumed command automatically."
+}

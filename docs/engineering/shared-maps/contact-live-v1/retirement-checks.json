@@ -1,0 +1,74 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Verify restored accepted baseline and preserved archived candidate tests; no performance measurement",
+  "startedAt": "2026-11-17T12:54:19.650Z",
+  "steps": [
+    {
+      "name": "declaration",
+      "args": [
+        "tools/record-shared-map-runtime.mjs",
+        "--check"
+      ],
+      "pid": 14052,
+      "startedAt": "2026-11-17T12:54:19.651Z",
+      "endedAt": "2026-11-17T12:54:22.378Z",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "loader-pins",
+      "args": [
+        "docs/engineering/shared-maps/contact-live-v1/candidate-loader.mjs",
+        "--check"
+      ],
+      "pid": 65248,
+      "startedAt": "2026-11-17T12:54:22.381Z",
+      "endedAt": "2026-11-17T12:54:22.634Z",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "baseline-focused",
+      "args": [
+        "--test",
+        "tests/integration/source-continuity.test.mjs",
+        "tests/integration/source-support.test.mjs",
+        "tests/integration/source-activation.test.mjs",
+        "tests/integration/source-carriers.test.mjs",
+        "tests/integration/source-partition-error.test.mjs",
+        "tests/integration/shared-map-support-controls.test.mjs",
+        "tests/integration/shared-map.test.mjs",
+        "tests/integration/actor-support.test.mjs",
+        "tests/integration/shared-map-host-diff.test.mjs"
+      ],
+      "pid": 22264,
+      "startedAt": "2026-11-17T12:54:22.635Z",
+      "endedAt": "2026-11-17T12:54:29.621Z",
+      "status": 0,
+      "signal": null
+    },
+    {
+      "name": "archived-candidate-focused",
+      "args": [
+        "--import",
+        "./docs/engineering/shared-maps/contact-live-v1/candidate-loader.mjs",
+        "--test",
+        "docs/engineering/shared-maps/contact-live-v1/candidate-payload/tests/integration/source-contact-reach.test.mjs",
+        "docs/engineering/shared-maps/contact-live-v1/candidate-payload/tests/integration/source-support.test.mjs",
+        "tests/integration/source-continuity.test.mjs",
+        "tests/integration/source-activation.test.mjs",
+        "tests/integration/source-carriers.test.mjs",
+        "tests/integration/source-partition-error.test.mjs",
+        "tests/integration/shared-map-support-controls.test.mjs",
+        "tests/integration/shared-map.test.mjs",
+        "tests/integration/actor-support.test.mjs",
+        "tests/integration/shared-map-host-diff.test.mjs"
+      ],
+      "pid": 43364,
+      "startedAt": "2026-11-17T12:54:29.623Z",
+      "endedAt": "2026-11-17T12:54:37.643Z",
+      "status": 0,
+      "signal": null
+    }
+  ]
+}

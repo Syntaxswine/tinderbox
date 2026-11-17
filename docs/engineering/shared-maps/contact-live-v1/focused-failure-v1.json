@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "owner": "Coder Tinderbox",
+  "stage": "focused equivalence controls",
+  "passed": false,
+  "tests": 56,
+  "pass": 55,
+  "fail": 1,
+  "failingTest": "contact pruning preserves the exact cold shape query sequence in all four endpoint combinations",
+  "failure": "Expected 8 cold shape calls from cd443 pre-cache reference; candidate made 4. New contact/live controls and all previous 46 checks passed.",
+  "diagnosis": "New diagnostic query-trace test used the existing full-state cd443 referenceFactory, which predates the already-accepted edge-block cache. Its forced second rebuild therefore repeats cold query work. Contract algorithm baseline55cd uses that cache. This is a proposed oracle-baseline correction, not an accepted exception.",
+  "candidateSourceLfSha256": "18545e679d8318cb0115e7a144af62995e41b2f8cda400b40f1c3ed3a9452021",
+  "failedTestRawSha256": "ba49732e00ebd9852f793ba0a3c161515d389dbd7e4e01d2dd7efb7c4b3ac7a3",
+  "measurementStarted": false,
+  "nativeWrapperStarted": false,
+  "grantConsumed": false,
+  "sourceEditsStopped": true
+}

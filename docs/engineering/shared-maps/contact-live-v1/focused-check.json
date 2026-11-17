@@ -1,0 +1,23 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Prior 46 controls plus separate ordered contact/live reach equivalence controls",
+  "startedAt": "2026-11-17T12:21:24.063Z",
+  "endedAt": "2026-11-17T12:21:31.203Z",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "tests/integration/source-contact-reach.test.mjs",
+    "tests/integration/source-continuity.test.mjs",
+    "tests/integration/source-support.test.mjs",
+    "tests/integration/source-activation.test.mjs",
+    "tests/integration/source-carriers.test.mjs",
+    "tests/integration/source-partition-error.test.mjs",
+    "tests/integration/shared-map-support-controls.test.mjs",
+    "tests/integration/shared-map.test.mjs",
+    "tests/integration/actor-support.test.mjs",
+    "tests/integration/shared-map-host-diff.test.mjs"
+  ],
+  "pid": 12292,
+  "status": 0,
+  "signal": null
+}

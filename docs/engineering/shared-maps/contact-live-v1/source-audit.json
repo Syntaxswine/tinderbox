@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "baseRuntime": "55cd9b597744244fbd0168939b13fbc66662d7b3",
+  "wholeTreeBase": "76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+  "referenceRoles": {
+    "algorithm": "55cd9b597744244fbd0168939b13fbc66662d7b3",
+    "strictWholeTree": "76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+    "supportBytesIdentical": true,
+    "baselineCorrection": "Explicit architect clarification after preserved initial-source-gate-failure; no subtree is ignored"
+  },
+  "authority": "746c2ab02294f975728d0d8844d7f3f8943f546b",
+  "authorityLfSha256": "9e442d979db1c5f62c7adf6c4d6fdc8c467f03ad7cde7b8fd863e98d314823ee",
+  "currentSource": {
+    "path": "src/simulation/source-support.js",
+    "beforeLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+    "afterLfSha256": "18545e679d8318cb0115e7a144af62995e41b2f8cda400b40f1c3ed3a9452021"
+  },
+  "sourceChanges": [
+    "temporary native broadphase for active/active contact only, second-piece registration order restored",
+    "direct BFS live roots/targets in state() only",
+    "scalar completed contact index bounds"
+  ],
+  "coldScanExact": true,
+  "unfilteredRebuildExact": true,
+  "allOtherProductionExact": true,
+  "declarationHashDeltas": 1,
+  "declarationCounts": {
+    "runtimeFiles": 22,
+    "addedFiles": 40
+  },
+  "candidatePadding": ".00002 * 2 + native EPS; original final overlap/contact predicates retained",
+  "retainedTemporaryIndexes": 0
+}

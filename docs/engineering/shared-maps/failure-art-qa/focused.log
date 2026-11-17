@@ -1,0 +1,33 @@
+✔ a pre-page browser launch failure records the original deadline/identity/server port and verified cleanup without creating a renderer (4.911ms)
+✔ an unverified launch cannot produce a passing cleanup receipt when no browser identity or exit evidence exists (0.6291ms)
+✔ successful launch adds its exact browser identity and debug port without extending the original helper deadline (0.3839ms)
+✔ isolated lanes close each prior page/context before the next lane and only then permit report collection (1.1679ms)
+✔ lane failure closes its context, prevents subsequent timing and keeps owned cleanup idempotent (0.4007ms)
+✔ next lane creation waits for asynchronous context shutdown, not just a close request (0.4569ms)
+✔ route/page setup failures close newly owned contexts and the origin restriction remains intact (0.6597ms)
+✔ shutdown includes a context whose creation was still pending and rejects its late page setup (0.9593ms)
+✔ cleanup attempts every context even if one close fails, allowing browser finally cleanup to release the rest (0.3859ms)
+✔ endpoint digest matches original canonical JSON and Node SHA without mutating timing or state (6.8459ms)
+✔ scalar checks preserve every row and reject clock, upload or workload drift while excluding timing noise (2.0038ms)
+✔ quality-only selects exactly reference then candidate without a CPU comparison while existing orders stay unchanged (0.161ms)
+✔ quality, isolated timing and CPU profile flags cannot be combined (0.2494ms)
+✔ the recorded same-tick torch/matches race fails on the actual first match outcome rather than waiting for a torch positive (1.7761ms)
+✔ prior actions and selection-only records cannot masquerade as a new primary outcome (0.1995ms)
+✔ a genuine new torch rejection remains truthful without requiring or inventing ignition (0.7633ms)
+✔ selection with no emission cannot masquerade as a heating-only held attempt (0.3592ms)
+✔ real selected usingTool or stock debit proves an attempt without requiring burning (0.1654ms)
+✔ a correct active flame discharge is accepted while an unrelated discharge is not (0.1688ms)
+✔ missing release or excess actual/scheduled hold time fails even if flame stock was spent (0.2521ms)
+✔ failure diagnostics wait for input stop and preserve the full read-only result (1.5074ms)
+✔ an absent visit diagnostic is recorded as unavailable without invented art data (0.2666ms)
+✔ a diagnostic read failure is recorded without escaping or replacing the original outcome (0.3954ms)
+✔ a failed input stop skips the read and leaves cleanup to the caller (1.0928ms)
+✔ even failure of both artifact writes preserves the first error identity and caller finally cleanup (0.596ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 164.8698
