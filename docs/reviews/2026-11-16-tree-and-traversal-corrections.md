@@ -1,6 +1,6 @@
 # Hopkins 15 traversal and native edge sliding
 
-Status: architect accepts candidate `605ce43efdfc65de2a3f4909b9e6833697f0c6a2` after source, physical, package and all nine actual-input cases, with five actual-game JPGs reviewed. Promotion and public Pages verification are pending; M27 remains live until the publication receipt below is completed.
+Status: **published and verified** through architect commit `9a765f2f24171ba4cab82432bfb5778544fe4572`. Pages, complete public package/resource verification and all three selected public input checks pass. All nine local actual-input cases and five archived actual-game JPG reviews pass. No helper is retained.
 
 ## What changes
 
@@ -50,7 +50,8 @@ The [corrected gate report](../engineering/house-traversal/corrected-gate.md) an
 | Build/release/nested loader | 3,554 files, 183,508,404 bytes; all hashes, relative resources/MIME and three actual JSON responses pass; one paired action and two flights |
 | Final real keyboard/mouse matrix | 9/9 pass; 366 arrivals, nine actual closed/occupied-door negatives, zero page/console/HTTP errors |
 | Architect actual-game JPG review | Five fresh normal-zoom captures accepted, including the kitchen passage and upper landing |
-| Pages and public package/route verification | Pending |
+| Pages and public package verification | Run `43990743600` succeeds; complete canonical manifest and 18 actual HTTP/hash/MIME resources match |
+| Fresh public input spot check | 3/3 pass; 90 arrivals, two occupied-door negatives, kitchen out/back and barrel glance; six other cases explicitly excluded |
 
 The frozen local raw manifest is `be39c5910422c731fbe35fa3acfbc4a2c8e36683818dd8796dc61aad991de77d`. Common canonical identity is `9ef4ce5a7fa9efa4eb33f8381a91929d2348edac72da43bf9170002b0de25178`: ordinal-sort files by path and all object keys, preserve other metadata/array order, then hash compact UTF-8 JSON. Fifteen runtime files change or are added relative to M27; none are removed. A prior files-only sorted digest is a different serialization of the identical raw manifest, explicitly distinguished in the gate report.
 
@@ -76,4 +77,12 @@ The primary checkout's three source exports were byte-identical to HEAD but stal
 
 ## Publication receipt
 
-Architect promotion, successful Pages run, complete canonical manifest/public-resource verification and a fresh bounded public route check remain pending. No additional approval exception is used.
+The architect fast-forwarded the accepted history to `master` and pushed release `9a765f2f24171ba4cab82432bfb5778544fe4572`. [Pages run 43990743600](https://github.com/Syntaxswine/tinderbox/actions/runs/43990743600) completes both build and deploy successfully. No force push or approval exception is used. The live destination is [Catalogue Street](https://syntaxswine.github.io/tinderbox/?catalogue=modules).
+
+At 2026-11-17 00:53:20.697 UTC, independent architect HTTP verification matches the complete 3,554-entry manifest, preserving every metadata field and the other array orders. The public raw manifest is `9d88f92977fe9d146a1ea0d92822eafde1473886c925c0f936346e93b0f38b92`; its canonical identity is exactly the reviewed `9ef4ce5a7fa9efa4eb33f8381a91929d2348edac72da43bf9170002b0de25178`. Different raw serialization is not treated as different file content. All 15 changed runtime resources plus the actual index, main entry and module loader return matching bytes/SHA-256 and appropriate MIME: **18/18**. The receipt and complete live manifest remain in `artifacts/qa/m28-architect-intake/public-43990743600/`.
+
+The separately granted public followup passes **3/3** at the exact deployed HTTPS base: the goat's walked 20 mm offset exit, bear mouse stairs/kitchen roundtrip and street-barrel mouse glance. It records 90 waypoint arrivals, two actual occupied-door rejections, the nine kitchen points in and out plus normal inside return, and no page/console/HTTP errors or unexpected stalls. Six other public cases are explicitly excluded; two optional canonical wall/unsupported probes are unrun. The complete nine-case matrix and mandatory physical negatives remain the separate acceptance evidence. Existing arrival/stall/90-second limits are unchanged.
+
+This one public helper ran from 01:07:11.346 to 01:09:20.026 UTC on November 17 (November 16, 8:07–8:09 p.m. Eastern), 128,680 ms, before its unchanged 01:27:11.346 expiry. It created/closed one context, maximum one live, none remaining. Two source-planning H15 providers and one barrel fixture disposed before launch. There was no local HTTP server. The architect inspected the actual public kitchen JPG and independently confirmed driver 40860/browser 34744 absent and port 64608 released at 01:13:41.899 UTC. No service remains. Exact source, selected/excluded matrix, trusted input, snapshots, JPGs and cleanup receipts remain under `artifacts/qa/house-traversal-gameplay/be39c591-public-43990743600/`.
+
+This final receipt changes Markdown only. It leaves the reviewed/deployed package unchanged and uses the workflow's documented Markdown exclusion; no additional build or deployment is required.
