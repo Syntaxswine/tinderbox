@@ -155,3 +155,44 @@ support integration and Administration/Horticulture runtime rollout remain open.
 All work remains on the review/worker branches. Master/Pages is unchanged; M29 is
 not a completed or published cross-map rollout. Root confirms the consumed UI
 proof process 28720 is absent and no new retained helper was created.
+
+## Current continuation checkpoint
+
+Coder `989ecd67` is accepted as a source-only calculation extraction, disabled
+provider and offline producer: root 64/64 focused checks, declaration 22/45,
+exact original/default-graph reconstruction, 18 raw evidence files, nine source
+pins and the complete 30-module compiler closure pass. All map factories still
+use the ordinary calculation path. [Large-source authority and source review](../engineering/shared-maps/support-large-proof-decision.md)
+preserves the failed first launcher, then one real large-pair observation at
+`778f6948`. Five ordered calculations match; admission stops at 512,131 values
+against 500,000. No replay/fallback or new actual-input pass follows.
+
+The full-snapshot reference format is **not accepted for shipping**. Its sampled
+identity construction exceeds the corresponding sampled calculation cost, and
+four blocks serialize to 24 MB. The [bounded-source design assignment](../engineering/shared-maps/bounded-source-design.md)
+uses the saved native roof result to plan smaller nearby activation regions,
+preserving canonical stock, geometry, queries and original support ownership.
+No new native run, format enablement or larger guard is implied.
+
+The artist's source measurement references now cover all 530 radial cases,
+all 126 direct wall fronts, both clipped balusters and the reviewed cut-box
+batches. [Cut/reference decisions](../engineering/shared-maps/cut-front-measurement-decision.md)
+accept the two final prototype constructions at `5607a80b`; eight exact cases
+still await their per-instance completion. Reference closure never declares the
+unchanged physical mesh closed. No Administration/Horticulture binding or stock
+export is installed. Living-plant decisions, pane damage ownership, full support
+integration and the remaining rollout still need work.
+
+Root accepts two distinct Horticulture exposed-roof area references after
+complete source selection and cover classification. The rear set gains 12
+previously omitted candidates and its exact union hits a 200,000-clip cap;
+its quantity stays withheld. [Roof decision](../engineering/shared-maps/roof-exposure-decision.md)
+assigns a bounded exact-union successor without increasing limits. Root's
+certificate verification rewrites no archive and reruns no stopped solve.
+
+The New York pilot remains the only converted landmark. Its last actual held
+release is still 2,599.9 ms; firelight/menu acceptance is pending. Administration,
+Horticulture and compatibility corrections are not declared finished. Master and
+Pages remain unchanged; no source-proof branch is a new playable release. All
+temporary proof/check processes have exited; only the existing assigned chats
+continue their bounded work.
