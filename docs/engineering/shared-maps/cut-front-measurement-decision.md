@@ -220,3 +220,13 @@ any different/unproved construction rather than extending by constructor name.
 No stock/binding/support/profile/runtime or physical mesh/UV/opening/scale change.
 Return a final resolved/unresolved ledger and scoped evidence commit/push, then
 stop. Roof calculations and bounded-source design remain separate worker tasks.
+
+## Final eight references accepted
+
+Root independently passes artist `e3b301860fad13855c7d2a8926f81bb1c4aed6be`
+read-only reproduction, all ten payload hashes, 54 negative controls, 2,593
+face-pair checks, 133 preserved earlier files and 1,572 geometry inputs. Accept
+all eight per-case measurement/scalar references. No cut-box or clipped-baluster
+case remains withheld in this quantity audit. The physical meshes remain open;
+source facts, original units/UVs, stock, supports and runtime remain unchanged.
+Roof quantities and vegetation/glazing decisions retain their separate status.

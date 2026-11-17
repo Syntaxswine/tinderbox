@@ -194,5 +194,5 @@ The New York pilot remains the only converted landmark. Its last actual held
 release is still 2,599.9 ms; firelight/menu acceptance is pending. Administration,
 Horticulture and compatibility corrections are not declared finished. Master and
 Pages remain unchanged; no source-proof branch is a new playable release. All
-temporary proof/check processes have exited; only the existing assigned chats
-continue their bounded work.
+recorded completed proof/check processes have exited; the existing assigned
+chats continue their bounded work.
