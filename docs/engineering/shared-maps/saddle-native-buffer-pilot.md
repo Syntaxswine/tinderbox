@@ -1,4 +1,30 @@
-# One roof saddle: accepted source form, native-buffer gate still open
+# One roof saddle: source and native-buffer asset accepted
+
+## Native-buffer intake, 17 November 2026
+
+Artist `c1ed407aedfc5ffec8b473dc7b88c697e140c054`, intaken as
+`4381962e`, passes root's deterministic export, actual buffer/contact check,
+170 geometry/quantity checks, four rejecting controls and default package
+verification. Root verifies the 37 added paths/36 payload pins and reviews both
+new actual-buffer JPGs. Both recorded preview PIDs 53900/35772 are absent.
+
+Accept this one separate asset: ten physical vertices, 48 mapped render
+vertices, sixteen triangles, three fixed local port contacts, and quantity
+reference `0.04011965567822286`. The old 3,733 protected source/art/proof paths,
+earlier literal quantities and double-precision previews remain unchanged.
+Actual Float32 conversion needs no further cut rounding; positive roof
+separation, closure and metric UV precision pass. This is CPU-transformed
+buffer evidence, not a GPU/world damage or support acceptance.
+
+The [asset handoff](../../../art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/README.md)
+records the remaining runtime interface gate. A single geometry reference and
+flat independent joins cannot encode both physical/render mappings and the
+required **all-of** lower-port condition. Preserve both fixed original lower
+ports and the directed top dependency; do not install this as any-parent
+support. The other nineteen remain unauthored pending their next explicit
+source assignment. Compiler/query/support integration remains separate.
+
+## Earlier source-form review and native-buffer assignment
 
 Root independently reviews artist `9df30ffc4b8e06ca3a36df2a624cb04f52480297`:
 deterministic source proposal, 303 checks/two rejecting controls, three fresh

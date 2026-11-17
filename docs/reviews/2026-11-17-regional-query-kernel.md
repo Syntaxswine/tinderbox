@@ -1,5 +1,44 @@
 # M29 isolated query-kernel review: held for correction
 
+## Successor re-review, 17 November
+
+Coder `68b6e3995bc4bad5f270275578a630fb2646c501`, intaken as `3a99e328`,
+corrects all four original findings. Root independently passes 18 focused tests,
+23 manifest pins/24-path scope, declaration 22/48 and one fresh read-only
+239-check saved-array comparison with exact archive-record agreement. All 92
+prior raw archive files, seventeen original source pins and eight unchanged
+query/control files pass. All four recorded test PIDs are absent. No old archive
+is rewritten and no compiler, proof replay or world operation runs.
+
+The UI specialist independently reruns the exact original eight public repros
+and 18-test baseline. All pass. Its two permitted additional cases expose one
+new P2 at successor lines 155–156, in both cold and fully native unit cubes:
+
+```js
+const p = {x: .5, y: 1.01}; // XZ; vertical cylinder is wholly above the cube.
+kernel.sweptCylinderClear(view, p, p, .1, 1.0000003, 1.0000007);
+```
+
+Regional clearance is false while the unchanged ordinary sweep is true.
+The expanded body envelope allows an off-centre parity witness to introduce
+blocking absent from the original control. Preserve the correctly blocked
+centred near-outside band and inside band while removing this false block.
+Keep logical planes, original tolerances, scoped native retirement and mixed
+full-body overlap semantics unchanged. Do not fall back globally to a centre
+point, bounding-box solid, whole-parent barrier or unscoped query.
+
+The exact two-case public script/results remain in the UI worker's ignored
+`artifacts/ui-qa/regional-query-68b6e399/additional.mjs` and
+`additional-results.json`. The coder receives those paths and this concrete
+regression. Make a bounded correction and focused regression, rerun relevant
+small controls and one saved-array correctness comparison if the correction
+changes that path, then commit/push the scoped candidate and stop for re-review.
+No native/compiler/world/graph, live consumer, renderer, benchmark or build is
+granted. Root push and promotion remain held. All passing and failing evidence
+is preserved; the four earlier findings are resolved rather than reclassified.
+
+## Original candidate and first hostile review
+
 Coder candidate `c9b02eb278854380cc41f1de77ed4b0c57e4dc47` is intaken locally
 as `ae83cbcd`. This is an isolated static prototype; no existing factory,
 registry, collision kernel, simulation or live consumer is changed.
