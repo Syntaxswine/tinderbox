@@ -151,9 +151,20 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
       const ts=piece.polygon.length<3?[[piece.polygon[0],piece.polygon[1]||piece.polygon[0],piece.polygon[1]||piece.polygon[0]]]:fan(piece.polygon);if(!sweptCylinderClear(from,to,radius,minY,maxY,{triangles:ts,closed:false}))return false;
     }
     const inside=(point,ts)=>!sweptCylinderClear({x:point[0],y:point[2]},{x:point[0],y:point[2]},0,point[1],point[1],{triangles:ts,closed:true});
+    function closedBodyIntersects(p,c,shapeBox,ts){
+      const domain=bodyWitnessBox(p,c,shapeBox),physical={min:domain.min.map((v,i)=>Math.max(v,shapeBox.min[i])),max:domain.max.map((v,i)=>Math.min(v,shapeBox.max[i]))};
+      // Bounds only constrain the witness search; the original mesh predicate
+      // still decides containment, including full radius/height/sweep overlap.
+      if(physical.min.every((v,i)=>v<physical.max[i])){const point=bodyCellWitness(from,to,radius,minY,maxY,physical);if(point&&inside(point,ts))return true;}
+      // Outside the actual bounds, parity's tolerance belongs to the original
+      // endpoint/height samples. An arbitrary off-centre capsule witness must
+      // not create another tolerance sample. Keep each endpoint domain scoped.
+      const height=(minY+maxY)/2;
+      return [from,to].some(end=>{const point=[end.x,height,end.y];return point.some((v,i)=>v<shapeBox.min[i]||v>shapeBox.max[i])&&point.every((v,i)=>v>=domain.min[i]&&v<domain.max[i])&&inside(point,ts);});
+    }
     for(const p of parts.values()){
-      if(p.spec.closed&&p.spec.rayRecord.intact!==false)for(const c of cellsIn(p,box))if(status(state,p,c)==='cold'){const point=bodyCellWitness(from,to,radius,minY,maxY,bodyWitnessBox(p,c,p.box));if(point&&inside(point,p.solid))return false;}
-      for(const [id,n]of p.records)if(n.entry.record.closedShape!==false&&n.entry.record.intact!==false&&status(state,p,n.entry.cell)==='native'&&!state.retired.has(id)&&overlap(bodyProbeBounds(n.box),box))for(const c of cellsIn(p,bodyProbeBounds(n.box)))if(status(state,p,c)==='native'){const point=bodyCellWitness(from,to,radius,minY,maxY,bodyWitnessBox(p,c,n.box));if(point&&inside(point,n.solid))return false;}
+      if(p.spec.closed&&p.spec.rayRecord.intact!==false)for(const c of cellsIn(p,box))if(status(state,p,c)==='cold'&&closedBodyIntersects(p,c,p.box,p.solid))return false;
+      for(const [id,n]of p.records)if(n.entry.record.closedShape!==false&&n.entry.record.intact!==false&&status(state,p,n.entry.cell)==='native'&&!state.retired.has(id)&&overlap(bodyProbeBounds(n.box),box))for(const c of cellsIn(p,bodyProbeBounds(n.box)))if(status(state,p,c)==='native'&&closedBodyIntersects(p,c,n.box,n.solid))return false;
     }return true;
   }
   function coverage({partId,cells,records:ids,complete}){

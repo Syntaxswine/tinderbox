@@ -1,0 +1,68 @@
+{
+  "commit": "68b6e3995bc4bad5f270275578a630fb2646c501",
+  "additionalCases": 2,
+  "nativeCompilerCalls": 0,
+  "worldTrials": 0,
+  "results": [
+    {
+      "case": "additional-1-cold",
+      "sourceBounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1,
+          1,
+          1
+        ]
+      },
+      "from": {
+        "x": 0.5,
+        "y": 1.01
+      },
+      "to": {
+        "x": 0.5,
+        "y": 1.01
+      },
+      "radius": 0.1,
+      "minY": 1.0000003,
+      "maxY": 1.0000007,
+      "actualVerticalGap": 2.9999999995311555e-7,
+      "regionalClear": false,
+      "ordinaryClear": true,
+      "rationale": "New bodyProbeBounds moves the parity witness into the capsule footprint while the original endpoint centre is outside the solid. The band is wholly above every actual face."
+    },
+    {
+      "case": "additional-2-native",
+      "sourceBounds": {
+        "min": [
+          0,
+          0,
+          0
+        ],
+        "max": [
+          1,
+          1,
+          1
+        ]
+      },
+      "from": {
+        "x": 0.5,
+        "y": 1.01
+      },
+      "to": {
+        "x": 0.5,
+        "y": 1.01
+      },
+      "radius": 0.1,
+      "minY": 1.0000003,
+      "maxY": 1.0000007,
+      "actualVerticalGap": 2.9999999995311555e-7,
+      "regionalClear": false,
+      "ordinaryClear": true,
+      "rationale": "New bodyProbeBounds moves the parity witness into the capsule footprint while the original endpoint centre is outside the solid. The band is wholly above every actual face."
+    }
+  ]
+}
