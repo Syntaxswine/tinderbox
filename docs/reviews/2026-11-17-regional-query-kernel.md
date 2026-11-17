@@ -1,4 +1,32 @@
-# M29 isolated query-kernel review: held for correction
+# M29 isolated query-kernel review: accepted source prototype
+
+## Current decision: scoped source acceptance
+
+Accept coder `e84ed22c43d99177848c6226ad25e8eaea9678e4`, intaken as
+`55b218ab`, as the corrected **isolated fixed-inventory query prototype**.
+All five reproduced findings from the two earlier rounds are resolved.
+Root independently passes 20 focused tests, 29 manifest pins/30-path scope,
+declaration 22/48, 113 preserved raw files/twenty historical source pins/nine
+unchanged code/control files, and one fresh read-only 239-case comparison with
+exact saved check-record agreement. No archive is rewritten; no compiler,
+native proof, world or graph is run. Four recorded child PIDs are absent and
+the worker's unrelated forty-line WIP retains its original hash.
+
+The UI specialist independently inspects the changed containment predicate,
+runs all ten preserved public repros once with expected results and runs the
+20-test baseline once. Both previous snapshots remain unchanged. Its ignored
+evidence is `artifacts/ui-qa/regional-query-e84ed22c/verification.json` in the
+existing UI checkout. It finds no remaining blocker within that scope; it adds
+no new crafted cases, tracked edits or helper. The native floor overhang remains
+an explicit admission rejection, not a supported case.
+
+This clears the root **review-branch push** hold. It does not promote master,
+publish Pages, clear the prior 2,599.9 ms browser failure, install source art,
+admit unsupported floors or establish four-map/runtime/rendered acceptance.
+Proceed with the selected [lazy receipt bridge](../engineering/shared-maps/regional-receipt-bridge-pilot.md)
+in the existing coder worktree. Its limited implementation/validation allowance
+is separate from the spent full-roof compiler proof. The earlier holds and
+their evidence below remain historical records.
 
 ## Successor re-review, 17 November
 
