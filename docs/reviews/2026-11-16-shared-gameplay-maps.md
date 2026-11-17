@@ -126,3 +126,32 @@ Architect authorizes a bounded source-local cache experiment on the exact frozen
 Root also independently passes both remaining-material proposal checks: 1,098 descriptors / 105,310 IDs, 34 input objects, four original pins, 38 families and 53 compound groups. The [material decision](../engineering/shared-maps/remaining-material-decision.md) accepts exact nonplant design choices/recipes as game adaptations, with geometry/quantity/support proof still pending. All 412 living plant parts remain withheld; source-only geometry readiness and wet-plant representation proposals are assigned. Actual Administration/Horticulture conversion still follows the New York engineering gate.
 
 Review the performance correction and renew a concrete finite visual result, resolving failures before further rendering. Resolve substantial source/material/support gaps explicitly. Then reuse the adapter for the remaining production destinations and compatibility routes, run one coherent combined verification/package gate, and review actual inputs and appearance before promotion. Record helper ownership, actual expiry and verified cleanup for every later preview session.
+
+## 17 November continuation
+
+The fifth actual-input run still fails held release at 2,599.9 ms. Exact later
+contact/live-reach experiments do not establish an improvement and are archived,
+with the accepted `55cd9b59` runtime restored. The separate failure-art QA helper
+passes 25 focused checks and declaration 22/41; its new actual failure diagnostics
+have not yet been collected. See [non-adoption and restoration](../engineering/shared-maps/contact-and-live-reach-decision.md).
+
+Root accepts the bounded offline calculation-replay mechanism after independently
+verifying UI `e3c35226` source pins, copies, exact patches and payload. Its archived
+25 comparisons cover two floors only; there is no new speed, firelight, phone or
+whole-map pass. The [next source contract](../engineering/shared-maps/support-bake-consumer-decision.md)
+assigns the shared producer/calculation seam to coder and the compact portable
+codec to the existing UI worker. Provider use remains disabled in production.
+No new benchmark/build/browser/helper grant follows from that decision.
+
+Artist `0b43868b` supplies accepted measurement inputs for all 530 uncut radial
+cases and eight table unions; see [radial decision](../engineering/shared-maps/radial-measurement-decision.md).
+Root independently verifies artist `f584ebcc` and accepts two additional exact
+measurement references, preserving the real missing physical cut faces. The
+[cut/front decision](../engineering/shared-maps/cut-front-measurement-decision.md)
+assigns the remaining case proofs. None of these source measurements installs
+new canonical stock, geometry or map bindings. Living plants, glazing ownership,
+support integration and Administration/Horticulture runtime rollout remain open.
+
+All work remains on the review/worker branches. Master/Pages is unchanged; M29 is
+not a completed or published cross-map rollout. Root confirms the consumed UI
+proof process 28720 is absent and no new retained helper was created.
