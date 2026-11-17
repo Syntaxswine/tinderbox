@@ -1,0 +1,26 @@
+{
+  "kind": "Focused synthetic correctness, not a cost observation",
+  "args": [
+    "--test",
+    "tests/integration/regional-source-compiler.test.mjs"
+  ],
+  "pid": 26628,
+  "startedAt": "2026-11-17T18:22:22.349Z",
+  "endedAt": "2026-11-17T18:22:22.898Z",
+  "exitCode": 0,
+  "signal": null,
+  "initialAttempt": {
+    "toolChunk": "73619f",
+    "tests": 8,
+    "pass": 8,
+    "fail": 0,
+    "nativeCallsFromPreservedSource": {
+      "original": 4,
+      "current": 4,
+      "regional": 14,
+      "total": 22
+    },
+    "rawStdoutRetained": false
+  },
+  "noWorldTrialOrTick": true
+}

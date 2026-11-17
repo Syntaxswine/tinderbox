@@ -1,0 +1,23 @@
+{
+  "retainedHelpers": [],
+  "checkedAt": "2026-11-17T18:39:47.0578217Z",
+  "identities": [
+    {
+      "result": "PID absent",
+      "role": "comparison",
+      "exactOwnedProcessAlive": false,
+      "expectedCreatedUtc": "2026-11-17T18:36:00.9502425Z",
+      "pid": 6520
+    },
+    {
+      "result": "PID absent",
+      "role": "finite supervisor",
+      "exactOwnedProcessAlive": false,
+      "expectedCreatedUtc": "2026-11-17T18:36:00.2685206Z",
+      "pid": 2976
+    }
+  ],
+  "portsAllocated": [],
+  "releasedPorts": "No listener or network service was created",
+  "cleanup": "Calculation disposed all scenes/receipts/ledger/metadata and both finite processes exited"
+}

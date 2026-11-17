@@ -146,8 +146,8 @@
     {
       "path": "workbenches/furnished-house/scene.js",
       "beforeLfSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
-      "afterLfSha256": "5f763d6e9a28174f64d908e4ffca8284beca24ecfaf8afff671870a448473f36",
-      "reason": "Stage sparse sources with the unchanged compiler/clipper/profiles, derive a separate local quantity envelope and preserve exact rigid door hardware."
+      "afterLfSha256": "8acefb0429d03033ecb81d8fa76fc3d56d6bba3ef910dbe104aa75ed5411d21b",
+      "reason": "Stage sparse sources with the unchanged compiler/clipper/profiles, derive a separate local quantity envelope and preserve exact rigid door hardware; isolate the opt-in bounded compiler pilot and reject its partial outputs at the ordinary installer."
     },
     {
       "path": "workbenches/furnished-house/simulation.js",
@@ -248,6 +248,10 @@
       "lfSha256": "d6fba04596aca131f90db7f41fdbd2d4688e809a1f41773b4420bea5bce3980e"
     },
     {
+      "path": "src/simulation/regional-source-pilot.js",
+      "lfSha256": "ff50095edf15eb5bbd1e620c9b171d152c5b35a99e4e4a09dbd7d746287c0bac"
+    },
+    {
       "path": "src/simulation/scene-thermal.js",
       "lfSha256": "99e9a1ef618d8cc62bda54352d5042fcffb1578a6f15daabda3bf17362b7a478"
     },
@@ -289,7 +293,7 @@
     },
     {
       "path": "tools/record-shared-map-runtime.mjs",
-      "lfSha256": "c766c094d8eeb63644a724aa6933e870b18049b3a28f325d57c819a5644b67f2"
+      "lfSha256": "8394c9b2626855049376cfae7092f5fae5fef68b670b8e90848ac950d7b386b2"
     },
     {
       "path": "tools/review/check-shared-map-integrated.mjs",
@@ -341,7 +345,11 @@
     },
     {
       "path": "workbenches/furnished-house/partition-error.js",
-      "lfSha256": "789d95810f23c1035064bdf3d80ddba78c63cd73a87969ed230048a6e6ce14e6"
+      "lfSha256": "418dfed7111863c5519ac258c97227a61adf96fe5aa103c0086980654a2faab1"
+    },
+    {
+      "path": "workbenches/furnished-house/regional-domain.js",
+      "lfSha256": "abf58c65b71e9cf1b85a37821a1c5bd619e1fc148c79052e8307d2a32ee2c92a"
     }
   ]
 }

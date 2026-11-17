@@ -1,0 +1,21 @@
+{
+  "authority": "1a88cf4748bf62c1456285ff43412c929d311199",
+  "kind": "Focused compiler/quantity checkpoint only",
+  "checks": [
+    {"check": "Initial synthetic fixtures", "toolChunk": "73619f", "result": "8 passed", "nativeCalls": 22, "rawStdoutRetained": false},
+    {"check": "Counter-instrumented synthetic fixtures", "receipt": "synthetic-second-checks.json", "result": "8 passed", "nativeCalls": 22, "guardRejections": 1, "note": "The printed entry-call counter included the guard rejection; the preserved correction is in synthetic-checks.json."},
+    {"check": "Final synthetic fixtures with degenerate/malformed/corrupt negatives", "toolChunk": "a6403f", "receipt": "synthetic-checks.json", "result": "8 passed", "nativeCalls": 22, "guardRejections": 1},
+    {"check": "Source-only preparation", "toolChunk": "7f51de", "receipt": "preflight.json", "result": "passed after preserved text-buffer failure", "actualNativeCalculations": 0},
+    {"check": "JavaScript syntax and PowerShell parsing", "toolChunk": "977684", "result": "passed", "paths": ["compare.mjs", "launch.ps1", "src/simulation/regional-source-pilot.js", "workbenches/furnished-house/regional-domain.js", "workbenches/furnished-house/partition-error.js", "workbenches/furnished-house/scene.js"]},
+    {"check": "Single bounded actual-data comparison", "toolChunk": "c4dfde", "receipt": "receipt.json", "result": "passed", "originalReferenceCalls": 1, "regionalCalls": 960, "fullRoofEquivalentPasses": 4, "noRetry": true},
+    {"check": "Fresh exact helper-lifetime closure", "toolChunk": "b7f882", "receipt": "cleanup.json", "result": "both task-owned PIDs absent; no ports allocated"},
+    {"check": "Runtime declaration generation and check", "toolChunk": "fb3e2a", "result": "passed", "modifiedModules": 22, "addedModules": 47},
+    {"check": "Saved-output/source/scope audit", "receipt": "verification.json", "result": "passed", "nativeReruns": 0},
+    {"check": "Owned-file hash manifest", "receipt": "manifest.json", "result": "passed", "nativeCalculations": 0}
+  ],
+  "excludedByContract": ["world/trial ticks", "support graph rebuild", "production map factory", "native whole-building run", "benchmark/profile", "new dataset/export/codec/provider/stamp", "build", "browser/renderer", "live query/support/activation", "Pages promotion"],
+  "preservedPriorFailure": "The 2,599.9 ms browser interaction failure is unresolved.",
+  "deadlineEnforcementBranchesExercised": false,
+  "productionEnabled": false,
+  "retainedHelpers": []
+}
