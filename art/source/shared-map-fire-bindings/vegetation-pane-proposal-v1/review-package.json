@@ -3,10 +3,65 @@
   "authoredDisconnectedVentOpeningMemberships": 12,
   "authorityCommit": "02aa95bbcc2b95927837fbab05a4a6002f201ff9",
   "coderDraftCommit": "5478eb5cbb4c701ce88e3642c58a13eb7547f282",
+  "compilerContextPortability": {
+    "allowedExactLFContexts": [
+      {
+        "gitBlobSha1": "fede6e85aed6914a1a57716b6bf5d40654b41c8d",
+        "id": "original-calculation-e3b30186",
+        "lfBytes": 11266,
+        "lfSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
+        "sourceCommit": "e3b301860fad13855c7d2a8926f81bb1c4aed6be",
+        "sourcePath": "workbenches/furnished-house/scene.js",
+        "verificationStatus": "original-calculation-context"
+      },
+      {
+        "gitBlobSha1": "c656261daadaca1d1a770d0db72459464926256a",
+        "id": "approved-combined-1a88cf47",
+        "lfBytes": 15523,
+        "lfSha256": "5f763d6e9a28174f64d908e4ffca8284beca24ecfaf8afff671870a448473f36",
+        "sourceCommit": "1a88cf4748bf62c1456285ff43412c929d311199",
+        "sourcePath": "workbenches/furnished-house/scene.js",
+        "verificationStatus": "explicit-approved-combined-source-context"
+      },
+      {
+        "gitBlobSha1": "785ccb0b81dd8800ad1ecdf9607996b4f0aeaf0e",
+        "id": "candidate-verification-c66e6594",
+        "lfBytes": 16400,
+        "lfSha256": "8acefb0429d03033ecb81d8fa76fc3d56d6bba3ef910dbe104aa75ed5411d21b",
+        "sourceCommit": "c66e659451284309e48dc420791369dd5af37e1e",
+        "sourcePath": "workbenches/furnished-house/scene.js",
+        "verificationStatus": "candidate-source-verification-only; runtime candidate acceptance not granted"
+      }
+    ],
+    "archivesOriginalCalculatorOrGeometryRewritten": false,
+    "nativeWorldRendererRun": false,
+    "positiveControls": 6,
+    "preservedOriginalFailurePath": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/profile-context-original-failure.json",
+    "rejectingControls": 3,
+    "requiredProfileBlocksEqualAcrossContexts": true,
+    "requiredProfileValues": {
+      "cloth": {
+        "delay": 0.5,
+        "energy": 600,
+        "seconds": 20,
+        "threshold": 0.8
+      },
+      "frame": {
+        "delay": 3,
+        "energy": 2250,
+        "seconds": 180,
+        "threshold": 1.3
+      }
+    },
+    "runtimeAcceptanceGrantedByThisCheck": false,
+    "sourcePath": "workbenches/furnished-house/scene.js",
+    "unaffectedOriginalPayloadFiles": 34,
+    "workingContextReportedSeparatelyInStdout": true
+  },
   "compressedCalculationBytes": 10031978,
   "directLocalFrameContactRequiredAtEveryMask": false,
   "documentationReferenceReview": {
-    "authoredLocalLinks": 23,
+    "authoredLocalLinks": 26,
     "result": "PASS",
     "verbatimSnapshotLinksAtOriginalGitContext": 6
   },
@@ -107,6 +162,11 @@
       "sha256": "045517f638f55f29a67fa6dd230c508a090b057d86b0e4a8b86a4d94596e65ec"
     },
     {
+      "bytes": 2211,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/compiler-contexts.json",
+      "sha256": "20b68723a893e8c2030023899a25fcbe6788c11d0c1e0ae19ef4b5bd81d0d22a"
+    },
+    {
       "bytes": 31962,
       "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/dependency-exceptions.json",
       "sha256": "5944ec53b3d3c9b91b8dbaa156251948be18d336579a9a5391bd80f099ec5605"
@@ -157,9 +217,24 @@
       "sha256": "699457802a5f66645cb847b6adb4412b89a9f88e6b332badd217fdabd6f9ce1e"
     },
     {
-      "bytes": 16801,
+      "bytes": 894,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/profile-context-original-failure.json",
+      "sha256": "b57f12e21acce3f0bc4ee3d383a7b4a50023e732c6cd2cae84c395a9635cd1e4"
+    },
+    {
+      "bytes": 3487,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/profile-context-verification.json",
+      "sha256": "5447486b4c5169ecb4078477261ef6f8e5a4b2cbe62b4a4ebe2d23c600169557"
+    },
+    {
+      "bytes": 5921,
+      "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/profile-context.py",
+      "sha256": "217f7ed01adf7555c04a068debddb5305d542d21294f2d3cd6a7f67a911aef94"
+    },
+    {
+      "bytes": 17184,
       "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/review.py",
-      "sha256": "58bbf855afcfd79740818910ddad19c8310dbe06100a37cd4e19fed6e23ece87"
+      "sha256": "5eee483fc8623f5f5b5b1b5de5214472574da4e36f1cd8cdc685fcf5c4b354a5"
     },
     {
       "bytes": 3082,
@@ -187,9 +262,9 @@
       "sha256": "fa8cb255afc34f94337efb0a87c775eb27193fb0f7569441a97d866c6f200ce6"
     },
     {
-      "bytes": 7292,
+      "bytes": 9831,
       "path": "docs/art/shared-map-fire-bindings/vegetation-pane-proposal-v1.md",
-      "sha256": "da339288dad442001f10a595f1a1d18efbc39df298baf3ee3836b15d8997dbf0"
+      "sha256": "e4d8a007df3552a73429c3a3c6652194d4024f8c596d59d95580f84cb85c35b6"
     }
   ],
   "negativeControls": 12,
@@ -209,6 +284,7 @@
   "runtimeBindingsStockProfilesGeometryOrFullAuthoringExport": false,
   "schemaProposalsUnaccepted": 8,
   "trunkQuantityCertificates": 22,
+  "verifierCorrectionParentArtistCommit": "c50f590c6d62676cabbca87c24a13e8fee16849e",
   "version": 1,
   "worldNativeFactoryRendererOrRetainedHelper": false,
   "zeroAdditionalStockFollowers": 204

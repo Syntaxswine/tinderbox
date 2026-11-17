@@ -1,0 +1,58 @@
+{
+  "allowedContexts": [
+    {
+      "gitBlobSha1": "fede6e85aed6914a1a57716b6bf5d40654b41c8d",
+      "id": "original-calculation-e3b30186",
+      "lfBytes": 11266,
+      "lfSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
+      "sourceCommit": "e3b301860fad13855c7d2a8926f81bb1c4aed6be",
+      "sourcePath": "workbenches/furnished-house/scene.js",
+      "verificationStatus": "original-calculation-context"
+    },
+    {
+      "gitBlobSha1": "c656261daadaca1d1a770d0db72459464926256a",
+      "id": "approved-combined-1a88cf47",
+      "lfBytes": 15523,
+      "lfSha256": "5f763d6e9a28174f64d908e4ffca8284beca24ecfaf8afff671870a448473f36",
+      "sourceCommit": "1a88cf4748bf62c1456285ff43412c929d311199",
+      "sourcePath": "workbenches/furnished-house/scene.js",
+      "verificationStatus": "explicit-approved-combined-source-context"
+    },
+    {
+      "gitBlobSha1": "785ccb0b81dd8800ad1ecdf9607996b4f0aeaf0e",
+      "id": "candidate-verification-c66e6594",
+      "lfBytes": 16400,
+      "lfSha256": "8acefb0429d03033ecb81d8fa76fc3d56d6bba3ef910dbe104aa75ed5411d21b",
+      "sourceCommit": "c66e659451284309e48dc420791369dd5af37e1e",
+      "sourcePath": "workbenches/furnished-house/scene.js",
+      "verificationStatus": "candidate-source-verification-only; runtime candidate acceptance not granted"
+    }
+  ],
+  "newGeometryBaselineOrRuntimeGrant": false,
+  "normalization": "CRLF to LF only; every other source byte is significant",
+  "requiredProfileBlockSha256": {
+    "cloth": "0713a82996e662ce6b7eea305fe1be363cca40e3ea2c8b9f5d80dcb812812281",
+    "frame": "47581068ea60d5a4e2f0d84dd6a02d5b6c993ceb0688dfb8ba0048a276300110"
+  },
+  "requiredProfileBlocksLF": {
+    "cloth": "  cloth:{threshold:.8,delay:.5,seconds:20,energy:600},\n",
+    "frame": "  frame:{threshold:1.3,delay:3,seconds:180,energy:2250},\n"
+  },
+  "requiredValues": {
+    "cloth": {
+      "delay": 0.5,
+      "energy": 600,
+      "seconds": 20,
+      "threshold": 0.8
+    },
+    "frame": {
+      "delay": 3,
+      "energy": 2250,
+      "seconds": 180,
+      "threshold": 1.3
+    }
+  },
+  "runtimeAcceptanceGrantedByThisCheck": false,
+  "sourcePath": "workbenches/furnished-house/scene.js",
+  "version": 1
+}
