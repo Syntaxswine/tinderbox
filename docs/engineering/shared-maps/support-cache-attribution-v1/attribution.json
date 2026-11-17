@@ -1,0 +1,2595 @@
+{
+  "version": 1,
+  "scope": "One attribution-only profile, no control or improvement comparison. Existing model references are used only for correctness.",
+  "source": {
+    "frozenRuntime": "0e1ab9ddc42a0f7e301858044c82a221f73d8805",
+    "workspaceCommit": "0e1ab9ddc42a0f7e301858044c82a221f73d8805",
+    "productionDiffEmpty": true,
+    "finalProductionPins": {
+      "src/simulation/source-support.js": {
+        "referenceLfSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+        "successorLfSha256": "88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109"
+      },
+      "workbenches/furnished-house/geometry.js": {
+        "referenceLfSha256": "cf8b8be2a752be959e0beea7c35b68701706b2ff4e4cdb2d5e8d67304a2c5873",
+        "successorLfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+      },
+      "workbenches/furnished-house/simulation.js": {
+        "referenceLfSha256": "75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012",
+        "successorLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9"
+      }
+    },
+    "lane": "final-source-attribution",
+    "attributionOnly": true,
+    "authority": "7e6ba530b92d8cc26544d13059bea9528332ef1b",
+    "originalLfSha256": "61dd3d834093d3a4abb5d3a5387aa3f8aed3d3421982ecb03384a36225190474",
+    "derivedLfSha256": "43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253",
+    "producerSha256": "0c1d6027e041a51dab97da6de619ef7255ce4e824831ab1708a9404eaeeecfb4",
+    "sourceIntakes": {
+      "uiCapabilities": "2c866a6bf173e1549c54d34c124a9d055febda3d",
+      "uiPresentation": "47f87fb01fe922b1085c05e3082986c50b04a5c7",
+      "uiShortLandscapeLayout": "130fe10db3af8a7efcd04e71139a2fbed74b1e91",
+      "uiToolSelectionOrdering": "8f0cd5743d159c53f56eeeb4eabd137cd3d7621c",
+      "artistPilot": "59b9373f47d51531c7e505613f67dd1e426b37f1",
+      "artistComplete": "82b7fc604eb183d65e7569366c47f45e5f07c1b5",
+      "artistCheckerContext": "90c226f674d51a2d030fcdd4679e61a3bdd9ebfe",
+      "artistFirstSupportControls": "9a88959d2011d182377a9eeb95d5ed9d222e46b1"
+    },
+    "runtimePackages": [
+      {
+        "path": "assets/runtime/map-sources/new-york/index.json",
+        "bytes": 8021251,
+        "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+      },
+      {
+        "path": "assets/runtime/map-sources/new-york/library.json",
+        "bytes": 3150020,
+        "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+      }
+    ]
+  },
+  "helper": {
+    "owner": "Coder Tinderbox",
+    "purpose": "M29 7e6ba530 one final-source attribution profile",
+    "identity": {
+      "pid": 57192,
+      "creationFiletime": "134393870481081439",
+      "executable": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    "ports": [],
+    "mode": "profile",
+    "startedAt": "2026-11-17T11:04:08.916Z",
+    "expiresAt": "2026-11-17T11:05:08.916Z",
+    "bounds": {
+      "wallMs": 60000,
+      "totalHostSteps": 1000,
+      "heldWindowHostSteps": 32,
+      "heldWorldSeconds": 0.5333333333333333
+    },
+    "stopMethod": "Finite step guards, profiler disconnect and ordinary process exit",
+    "restart": {
+      "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\shared-map-runtime\\support-cache-attribution-v1\\profile.mjs",
+        "--mode=profile",
+        "--run-dir=artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run"
+      ]
+    },
+    "source": {
+      "frozenRuntime": "0e1ab9ddc42a0f7e301858044c82a221f73d8805",
+      "workspaceCommit": "0e1ab9ddc42a0f7e301858044c82a221f73d8805",
+      "productionDiffEmpty": true,
+      "finalProductionPins": {
+        "src/simulation/source-support.js": {
+          "referenceLfSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+          "successorLfSha256": "88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109"
+        },
+        "workbenches/furnished-house/geometry.js": {
+          "referenceLfSha256": "cf8b8be2a752be959e0beea7c35b68701706b2ff4e4cdb2d5e8d67304a2c5873",
+          "successorLfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+        },
+        "workbenches/furnished-house/simulation.js": {
+          "referenceLfSha256": "75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012",
+          "successorLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9"
+        }
+      },
+      "lane": "final-source-attribution",
+      "attributionOnly": true,
+      "authority": "7e6ba530b92d8cc26544d13059bea9528332ef1b",
+      "originalLfSha256": "61dd3d834093d3a4abb5d3a5387aa3f8aed3d3421982ecb03384a36225190474",
+      "derivedLfSha256": "43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253",
+      "producerSha256": "0c1d6027e041a51dab97da6de619ef7255ce4e824831ab1708a9404eaeeecfb4",
+      "sourceIntakes": {
+        "uiCapabilities": "2c866a6bf173e1549c54d34c124a9d055febda3d",
+        "uiPresentation": "47f87fb01fe922b1085c05e3082986c50b04a5c7",
+        "uiShortLandscapeLayout": "130fe10db3af8a7efcd04e71139a2fbed74b1e91",
+        "uiToolSelectionOrdering": "8f0cd5743d159c53f56eeeb4eabd137cd3d7621c",
+        "artistPilot": "59b9373f47d51531c7e505613f67dd1e426b37f1",
+        "artistComplete": "82b7fc604eb183d65e7569366c47f45e5f07c1b5",
+        "artistCheckerContext": "90c226f674d51a2d030fcdd4679e61a3bdd9ebfe",
+        "artistFirstSupportControls": "9a88959d2011d182377a9eeb95d5ed9d222e46b1"
+      },
+      "runtimePackages": [
+        {
+          "path": "assets/runtime/map-sources/new-york/index.json",
+          "bytes": 8021251,
+          "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+        },
+        {
+          "path": "assets/runtime/map-sources/new-york/library.json",
+          "bytes": 3150020,
+          "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+        }
+      ]
+    },
+    "configChanges": false
+  },
+  "bounds": {
+    "wallMs": 60000,
+    "hostSteps": 1000,
+    "withinBounds": true
+  },
+  "model": {
+    "cold": {
+      "againstReference": {
+        "strictEqual": true,
+        "semanticEqual": true,
+        "differences": []
+      },
+      "againstCandidate": {
+        "strictEqual": true,
+        "semanticEqual": true,
+        "differences": []
+      },
+      "rawHostSha256": "9a9d84d2383e5588cf329a808d26f52993644f2c043ff19c54870b1bdc7b4f21",
+      "digests": {
+        "nativeSha256": "e4658d98b81cbcf6a2ec36ecd1c1b03e27a06d75ad162d467442cb09a0c783d9",
+        "hostSha256": "73caa8ead89504c31b94e179aa62a7806d903d04e00b009c8f92af01aa1a9f5f",
+        "supportLinksSha256": "9cf37b5466d3d643df25a8f5d059d5691963fa49175538e7420087275a2b0298",
+        "replaySha256": "d636bc7e874b16d88b12e6a21c9378548d136debf6e9d7ffeb2be78fc9fa0afb",
+        "counts": {
+          "boundaries": 12859,
+          "fuels": 0,
+          "cells": 0,
+          "supportNodes": 12446,
+          "supportEdges": 58270
+        },
+        "fuel": {
+          "initial": 0,
+          "added": 0,
+          "burned": 0,
+          "escaped": 0,
+          "remaining": 0,
+          "airborne": 0,
+          "error": 0
+        },
+        "heat": {
+          "generated": 0,
+          "input": 0,
+          "ambient": 0,
+          "blocked": 0,
+          "cap": 0,
+          "escaped": 0,
+          "stored": 0,
+          "radiationInTransit": 0,
+          "error": 0,
+          "relativeError": 0
+        }
+      }
+    },
+    "before": {
+      "againstReference": {
+        "strictEqual": false,
+        "semanticEqual": true,
+        "differences": [
+          {
+            "path": "/navigation/collision/cachedTriangles",
+            "referencePresent": true,
+            "candidatePresent": true,
+            "reference": 2336,
+            "candidate": 2528,
+            "classification": "observational-counter"
+          },
+          {
+            "path": "/navigation/collision/peakTriangles",
+            "referencePresent": true,
+            "candidatePresent": true,
+            "reference": 2528,
+            "candidate": 2560,
+            "classification": "observational-counter"
+          },
+          {
+            "path": "/navigation/collision/shapeBuilds",
+            "referencePresent": true,
+            "candidatePresent": true,
+            "reference": 496,
+            "candidate": 432,
+            "classification": "observational-counter"
+          }
+        ]
+      },
+      "againstCandidate": {
+        "strictEqual": true,
+        "semanticEqual": true,
+        "differences": []
+      },
+      "rawHostSha256": "7211e897cd9d2c78d8720ee6fa96a654819325a278d2435dca2afadfaab5d8db",
+      "digests": {
+        "nativeSha256": "c7a4280165a8844d630812784ee59bfcff03e3882df3aa4cfb9d79d07cf5f16c",
+        "hostSha256": "e923bc6d78900a97155dc303c0eec06145b18ee7c41b8ca565c9f03adbf235f0",
+        "supportLinksSha256": "6705563d082cea6ad75751cface9a1e7ffc1b87ad8104e638962ada4da5d3aea",
+        "replaySha256": "956661bd81281b297e36a92735ad125ac8b5ba26c741b7f7d9b5e678d827b637",
+        "counts": {
+          "boundaries": 32098,
+          "fuels": 8973,
+          "cells": 14694,
+          "supportNodes": 30965,
+          "supportEdges": 297889
+        },
+        "fuel": {
+          "initial": 0,
+          "added": 704.891997660365,
+          "burned": 0,
+          "escaped": 0,
+          "remaining": 704.8919976603568,
+          "airborne": 0,
+          "error": 8.185452315956354e-12
+        },
+        "heat": {
+          "generated": 0,
+          "input": 1.05,
+          "ambient": 0.012524701494972909,
+          "blocked": 0,
+          "cap": 0,
+          "escaped": 0,
+          "stored": 1.037475298505027,
+          "radiationInTransit": 0,
+          "error": 0,
+          "relativeError": 0
+        }
+      }
+    },
+    "after": {
+      "againstReference": {
+        "strictEqual": false,
+        "semanticEqual": true,
+        "differences": [
+          {
+            "path": "/navigation/collision/peakTriangles",
+            "referencePresent": true,
+            "candidatePresent": true,
+            "reference": 15432,
+            "candidate": 15244,
+            "classification": "observational-counter"
+          },
+          {
+            "path": "/navigation/collision/shapeBuilds",
+            "referencePresent": true,
+            "candidatePresent": true,
+            "reference": 1775,
+            "candidate": 1482,
+            "classification": "observational-counter"
+          }
+        ]
+      },
+      "againstCandidate": {
+        "strictEqual": true,
+        "semanticEqual": true,
+        "differences": []
+      },
+      "rawHostSha256": "79bebfcbda95f00143e2c41a3cb3233543e275e0dbdfaf6dd6006a1380b7f2b7",
+      "digests": {
+        "nativeSha256": "51f62e860eec43d560dbc765a92bbb63e8fe34b75a7588b942bcc834847b6ff0",
+        "hostSha256": "3c6125c9455ce918d0e59a407030ce80ff08f1d28163b1514ff12e92247c0cc3",
+        "supportLinksSha256": "4e48260e7503a28c04db306061fc7a486b592a384278ef7766a91e5c819874c9",
+        "replaySha256": "f1a9a559f7d2562c70a63e67325e5968bd62c047a04644b3bc12a366328ca7fe",
+        "counts": {
+          "boundaries": 47177,
+          "fuels": 21530,
+          "cells": 27952,
+          "supportNodes": 45187,
+          "supportEdges": 536363
+        },
+        "fuel": {
+          "initial": 0,
+          "added": 1834.6261287150205,
+          "burned": 0.003312501332628011,
+          "escaped": 0,
+          "remaining": 1834.6228162137343,
+          "airborne": 0,
+          "error": -4.638422979041934e-11
+        },
+        "heat": {
+          "generated": 0.39750015991536125,
+          "input": 3.2499999999999925,
+          "ambient": 0.29139033757911825,
+          "blocked": 0.12288663885204286,
+          "cap": 0,
+          "escaped": 0.05964652516432357,
+          "stored": 3.1735766583198783,
+          "radiationInTransit": 0,
+          "error": -8.881784197001252e-15,
+          "relativeError": -2.435033257738738e-15
+        }
+      }
+    }
+  },
+  "commandTapeEqual": true,
+  "derivedFixtureEqual": true,
+  "rawHostPreimagesPreserved": true,
+  "profile": {
+    "path": "raw.cpuprofile",
+    "sha256": "15e00230eadd532e559b97dc85025bed6bd2145b235dd4e957f55b9a7339491f",
+    "nodes": 2218,
+    "samples": 7102,
+    "startTime": 2950263466507,
+    "endTime": 2950273751723
+  },
+  "diagnosticReads": "Identical three digest reads and ordinary fixture reads; host recorder uses only the existing sim.advance return value.",
+  "profileClockAligned": true,
+  "sampleAttribution": "Each recorded sample interval is clipped to the actual host/held monotonic interval; inclusive call paths overlap and cannot be added.",
+  "whole": {
+    "startUs": 2950263466507,
+    "endUs": 2950273751723,
+    "wallIntervalMs": 10285.216,
+    "sampledMs": 10285.057,
+    "self": [
+      {
+        "name": "(garbage collector)",
+        "path": "",
+        "line": 0,
+        "column": 0,
+        "ms": 658.957
+      },
+      {
+        "name": "directed",
+        "path": "src/simulation/source-support.js",
+        "line": 62,
+        "column": 20,
+        "ms": 471.647
+      },
+      {
+        "name": "(anonymous)",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 99,
+        "column": 63,
+        "ms": 470.972
+      },
+      {
+        "name": "digest",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/profile.mjs",
+        "line": 60,
+        "column": 9,
+        "ms": 403.631
+      },
+      {
+        "name": "candidates",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 99,
+        "column": 22,
+        "ms": 355.307
+      },
+      {
+        "name": "connectContact",
+        "path": "src/simulation/source-support.js",
+        "line": 71,
+        "column": 26,
+        "ms": 354.173
+      },
+      {
+        "name": "(anonymous)",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 111,
+        "column": 29,
+        "ms": 284.385
+      },
+      {
+        "name": "reachable",
+        "path": "src/simulation/source-support.js",
+        "line": 49,
+        "column": 21,
+        "ms": 283.251
+      },
+      {
+        "name": "(anonymous)",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 6,
+        "column": 38,
+        "ms": 223.613
+      },
+      {
+        "name": "dot",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 6,
+        "column": 20,
+        "ms": 215.604
+      },
+      {
+        "name": "compileScene",
+        "path": "workbenches/furnished-house/scene.js",
+        "line": 29,
+        "column": 29,
+        "ms": 211.722
+      },
+      {
+        "name": "rebuild",
+        "path": "src/simulation/source-support.js",
+        "line": 83,
+        "column": 19,
+        "ms": 187.764
+      },
+      {
+        "name": "sub",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 4,
+        "column": 20,
+        "ms": 183.605
+      },
+      {
+        "name": "segmentCandidates",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 100,
+        "column": 29,
+        "ms": 174.617
+      },
+      {
+        "name": "strictArea",
+        "path": "workbenches/furnished-house/partition-error.js",
+        "line": 10,
+        "column": 22,
+        "ms": 169.505
+      },
+      {
+        "name": "commit",
+        "path": "workbenches/furnished-house/simulation.js",
+        "line": 460,
+        "column": 136,
+        "ms": 166.76
+      },
+      {
+        "name": "(anonymous)",
+        "path": "src/simulation/source-support.js",
+        "line": 104,
+        "column": 181,
+        "ms": 162.724
+      },
+      {
+        "name": "(anonymous)",
+        "path": "src/runtime/place-navigation.js",
+        "line": 75,
+        "column": 66,
+        "ms": 152.694
+      },
+      {
+        "name": "owner.<computed>",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/profile.mjs",
+        "line": 58,
+        "column": 132,
+        "ms": 144.413
+      },
+      {
+        "name": "put",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 93,
+        "column": 15,
+        "ms": 142.149
+      },
+      {
+        "name": "live",
+        "path": "src/simulation/source-support.js",
+        "line": 61,
+        "column": 16,
+        "ms": 138.6
+      },
+      {
+        "name": "visit",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 92,
+        "column": 17,
+        "ms": 130.63
+      },
+      {
+        "name": "crossings",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 113,
+        "column": 21,
+        "ms": 128.493
+      },
+      {
+        "name": "(anonymous)",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 99,
+        "column": 188,
+        "ms": 120.025
+      },
+      {
+        "name": "(anonymous)",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 4,
+        "column": 35,
+        "ms": 119.553
+      },
+      {
+        "name": "calculate",
+        "path": "src/simulation/source-support.js",
+        "line": 33,
+        "column": 21,
+        "ms": 107.034
+      },
+      {
+        "name": "insideSolid",
+        "path": "src/runtime/collision.js",
+        "line": 58,
+        "column": 21,
+        "ms": 105.154
+      },
+      {
+        "name": "(anonymous)",
+        "path": "src/simulation/map-navigation.js",
+        "line": 13,
+        "column": 64,
+        "ms": 105.068
+      },
+      {
+        "name": "pointOnTriangle",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 53,
+        "column": 32,
+        "ms": 100.579
+      },
+      {
+        "name": "update",
+        "path": "",
+        "line": 0,
+        "column": 0,
+        "ms": 93.969
+      },
+      {
+        "name": "key",
+        "path": "workbenches/furnished-house/scene.js",
+        "line": 34,
+        "column": 13,
+        "ms": 91.32
+      },
+      {
+        "name": "pieces",
+        "path": "src/simulation/map-navigation.js",
+        "line": 8,
+        "column": 16,
+        "ms": 81.243
+      },
+      {
+        "name": "(anonymous)",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 96,
+        "column": 20,
+        "ms": 79.561
+      },
+      {
+        "name": "state",
+        "path": "src/simulation/source-support.js",
+        "line": 104,
+        "column": 17,
+        "ms": 78.508
+      },
+      {
+        "name": "include",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 102,
+        "column": 19,
+        "ms": 73.412
+      }
+    ],
+    "inclusive": [
+      {
+        "name": "(root)",
+        "path": "",
+        "line": 0,
+        "column": 0,
+        "ms": 10285.057
+      },
+      {
+        "name": "evaluate",
+        "path": "",
+        "line": 0,
+        "column": 0,
+        "ms": 9470.638
+      },
+      {
+        "name": "run",
+        "path": "node:internal/modules/esm/module_job",
+        "line": 426,
+        "column": 12,
+        "ms": 9470.638
+      },
+      {
+        "name": "(anonymous)",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+        "line": 1,
+        "column": 1,
+        "ms": 9462.917
+      },
+      {
+        "name": "sim.advance",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/profile.mjs",
+        "line": 64,
+        "column": 134,
+        "ms": 7990.115
+      },
+      {
+        "name": "step",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+        "line": 29,
+        "column": 12,
+        "ms": 7990.115
+      },
+      {
+        "name": "advance",
+        "path": "src/simulation/index.js",
+        "line": 418,
+        "column": 12,
+        "ms": 7979.108
+      },
+      {
+        "name": "owner.<computed>",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/profile.mjs",
+        "line": 58,
+        "column": 132,
+        "ms": 7050.384
+      },
+      {
+        "name": "step",
+        "path": "src/simulation/index.js",
+        "line": 283,
+        "column": 16,
+        "ms": 6896.418
+      },
+      {
+        "name": "step",
+        "path": "src/simulation/scene-thermal.js",
+        "line": 180,
+        "column": 16,
+        "ms": 5452.27
+      },
+      {
+        "name": "nativeAdvance",
+        "path": "src/simulation/scene-thermal.js",
+        "line": 181,
+        "column": 25,
+        "ms": 5450.711
+      },
+      {
+        "name": "command",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+        "line": 30,
+        "column": 15,
+        "ms": 4158.453
+      },
+      {
+        "name": "state",
+        "path": "src/simulation/source-support.js",
+        "line": 104,
+        "column": 17,
+        "ms": 4142.216
+      },
+      {
+        "name": "rebuild",
+        "path": "src/simulation/source-support.js",
+        "line": 83,
+        "column": 19,
+        "ms": 3688.662
+      },
+      {
+        "name": "beforeStep",
+        "path": "src/simulation/source-activation.js",
+        "line": 26,
+        "column": 22,
+        "ms": 3346.362
+      },
+      {
+        "name": "useTool",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+        "line": 44,
+        "column": 17,
+        "ms": 3256.918
+      },
+      {
+        "name": "calculate",
+        "path": "src/simulation/source-support.js",
+        "line": 33,
+        "column": 21,
+        "ms": 3081.093
+      },
+      {
+        "name": "pendingSources",
+        "path": "src/simulation/source-support.js",
+        "line": 105,
+        "column": 26,
+        "ms": 2383.935
+      },
+      {
+        "name": "stepOnce",
+        "path": "workbenches/furnished-house/simulation.js",
+        "line": 284,
+        "column": 20,
+        "ms": 1976.621
+      },
+      {
+        "name": "step",
+        "path": "workbenches/furnished-house/simulation.js",
+        "line": 485,
+        "column": 114,
+        "ms": 1976.621
+      },
+      {
+        "name": "trial.step",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+        "line": 25,
+        "column": 50,
+        "ms": 1976.621
+      },
+      {
+        "name": "ensurePoint",
+        "path": "src/simulation/source-activation.js",
+        "line": 21,
+        "column": 23,
+        "ms": 1871.26
+      },
+      {
+        "name": "mechanicalFalls",
+        "path": "workbenches/furnished-house/simulation.js",
+        "line": 168,
+        "column": 27,
+        "ms": 1856.847
+      },
+      {
+        "name": "unsupported",
+        "path": "src/simulation/source-support.js",
+        "line": 106,
+        "column": 23,
+        "ms": 1855.271
+      },
+      {
+        "name": "ensure",
+        "path": "src/simulation/source-activation.js",
+        "line": 5,
+        "column": 18,
+        "ms": 1844.994
+      },
+      {
+        "name": "(anonymous)",
+        "path": "src/simulation/source-support.js",
+        "line": 87,
+        "column": 66,
+        "ms": 1801.617
+      },
+      {
+        "name": "snapshot",
+        "path": "src/simulation/index.js",
+        "line": 365,
+        "column": 20,
+        "ms": 1486.206
+      },
+      {
+        "name": "walk",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+        "line": 32,
+        "column": 14,
+        "ms": 1267.888
+      },
+      {
+        "name": "prepareSources",
+        "path": "workbenches/furnished-house/simulation.js",
+        "line": 458,
+        "column": 26,
+        "ms": 1165.182
+      },
+      {
+        "name": "trial.prepareSources",
+        "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+        "line": 24,
+        "column": 67,
+        "ms": 1165.182
+      },
+      {
+        "name": "prepareSources",
+        "path": "workbenches/furnished-house/scene.js",
+        "line": 129,
+        "column": 26,
+        "ms": 1163.69
+      },
+      {
+        "name": "connectContact",
+        "path": "src/simulation/source-support.js",
+        "line": 71,
+        "column": 26,
+        "ms": 1075.364
+      },
+      {
+        "name": "candidates",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 99,
+        "column": 22,
+        "ms": 1066.133
+      },
+      {
+        "name": "touching",
+        "path": "workbenches/furnished-house/support.js",
+        "line": 11,
+        "column": 18,
+        "ms": 964.572
+      },
+      {
+        "name": "heat",
+        "path": "src/simulation/scene-thermal.js",
+        "line": 75,
+        "column": 16,
+        "ms": 926.836
+      },
+      {
+        "name": "compileScene",
+        "path": "workbenches/furnished-house/scene.js",
+        "line": 29,
+        "column": 29,
+        "ms": 920.304
+      },
+      {
+        "name": "apply",
+        "path": "src/simulation/index.js",
+        "line": 146,
+        "column": 17,
+        "ms": 909.422
+      },
+      {
+        "name": "heatTool",
+        "path": "src/simulation/scene-thermal.js",
+        "line": 90,
+        "column": 20,
+        "ms": 905.821
+      },
+      {
+        "name": "heatAhead",
+        "path": "src/simulation/tools.js",
+        "line": 13,
+        "column": 19,
+        "ms": 905.821
+      },
+      {
+        "name": "discreteTool",
+        "path": "src/simulation/tools.js",
+        "line": 50,
+        "column": 29,
+        "ms": 905.821
+      },
+      {
+        "name": "inPrism",
+        "path": "workbenches/furnished-house/support.js",
+        "line": 6,
+        "column": 17,
+        "ms": 889.377
+      },
+      {
+        "name": "interaction",
+        "path": "src/runtime/place-navigation.js",
+        "line": 76,
+        "column": 23,
+        "ms": 818.101
+      },
+      {
+        "name": "crossings",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 113,
+        "column": 21,
+        "ms": 816.91
+      },
+      {
+        "name": "supportAt",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 154,
+        "column": 21,
+        "ms": 753.307
+      },
+      {
+        "name": "visit",
+        "path": "workbenches/furnished-house/geometry.js",
+        "line": 92,
+        "column": 17,
+        "ms": 692.077
+      }
+    ]
+  },
+  "firstUse": {
+    "host": {
+      "tick": 260,
+      "world": 4.333333333333323,
+      "startUs": 2950265241856,
+      "endUs": 2950268170274,
+      "elapsedMs": 2928.4211,
+      "cpuUsageUs": {
+        "user": 3360000,
+        "system": 1031000
+      },
+      "nativeTick": 130,
+      "nativeSteps": 1,
+      "nativeSimulationMs": 7.123099999999795,
+      "nativePhases": {
+        "commandsAndFallsMs": 0.04579999999987194,
+        "burnRegistryMs": 0.16260000000056607,
+        "transportMs": 0.009900000000016007,
+        "preheatMs": 0.01449999999931606,
+        "coolingMs": 0.0015000000003055902,
+        "boundaryAndSupportMs": 5.534800000000359,
+        "itemsMs": 0.009299999999711872
+      },
+      "workDelta": {
+        "hostSteps": 1,
+        "nativeSteps": 1,
+        "nativeSimulationMs": 7.123099999999795,
+        "backendAdvanceMs": 1865.4011,
+        "metricsQueriesMs": 1.2179999999998472,
+        "looseFuelQueriesMs": 0.013799999999719148,
+        "physicalPublicationMs": 18.36359999999968,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0.04100000000016735,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 1.8153999999999542
+      },
+      "activationDelta": {
+        "batches": 1,
+        "carriers": 547,
+        "batchMs": 907.6926000000003
+      },
+      "cells": 13084,
+      "activeCarriers": 551,
+      "topologyCache": {
+        "entries": 2575,
+        "entryLimit": 52929,
+        "variantsPerCalculation": 1,
+        "directedEdges": 241480,
+        "peakDirectedEdges": 241480,
+        "hits": 0,
+        "misses": 2583,
+        "invalidations": 8,
+        "watchedBoundaries": 30367,
+        "retainedColdMeshes": 0,
+        "disposed": false
+      }
+    },
+    "profile": {
+      "startUs": 2950265241856,
+      "endUs": 2950268170274,
+      "wallIntervalMs": 2928.418,
+      "sampledMs": 2928.418,
+      "self": [
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 99,
+          "column": 63,
+          "ms": 423.519
+        },
+        {
+          "name": "connectContact",
+          "path": "src/simulation/source-support.js",
+          "line": 71,
+          "column": 26,
+          "ms": 262.48
+        },
+        {
+          "name": "(garbage collector)",
+          "path": "",
+          "line": 0,
+          "column": 0,
+          "ms": 189.04
+        },
+        {
+          "name": "candidates",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 99,
+          "column": 22,
+          "ms": 127.478
+        },
+        {
+          "name": "visit",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 92,
+          "column": 17,
+          "ms": 121.584
+        },
+        {
+          "name": "directed",
+          "path": "src/simulation/source-support.js",
+          "line": 62,
+          "column": 20,
+          "ms": 103.4
+        },
+        {
+          "name": "compileScene",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 29,
+          "column": 29,
+          "ms": 98.024
+        },
+        {
+          "name": "dot",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 6,
+          "column": 20,
+          "ms": 97.625
+        },
+        {
+          "name": "sub",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 4,
+          "column": 20,
+          "ms": 91.961
+        },
+        {
+          "name": "commit",
+          "path": "workbenches/furnished-house/simulation.js",
+          "line": 460,
+          "column": 136,
+          "ms": 73.031
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 6,
+          "column": 38,
+          "ms": 69.303
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 99,
+          "column": 188,
+          "ms": 68.704
+        },
+        {
+          "name": "put",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 93,
+          "column": 15,
+          "ms": 62.627
+        },
+        {
+          "name": "strictArea",
+          "path": "workbenches/furnished-house/partition-error.js",
+          "line": 10,
+          "column": 22,
+          "ms": 57.289
+        },
+        {
+          "name": "inPrism",
+          "path": "workbenches/furnished-house/support.js",
+          "line": 6,
+          "column": 17,
+          "ms": 51.762
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 111,
+          "column": 29,
+          "ms": 49.985
+        },
+        {
+          "name": "owner.<computed>",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/profile.mjs",
+          "line": 58,
+          "column": 132,
+          "ms": 44.503
+        },
+        {
+          "name": "(anonymous)",
+          "path": "src/simulation/source-support.js",
+          "line": 87,
+          "column": 66,
+          "ms": 39.964
+        },
+        {
+          "name": "key",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 34,
+          "column": 13,
+          "ms": 37.393
+        },
+        {
+          "name": "touching",
+          "path": "workbenches/furnished-house/support.js",
+          "line": 11,
+          "column": 18,
+          "ms": 35.951
+        },
+        {
+          "name": "prepareSources",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 129,
+          "column": 26,
+          "ms": 33.815
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 4,
+          "column": 35,
+          "ms": 32.326
+        },
+        {
+          "name": "pointOnTriangle",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 53,
+          "column": 32,
+          "ms": 32.269
+        },
+        {
+          "name": "mul",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 5,
+          "column": 20,
+          "ms": 31.615
+        },
+        {
+          "name": "reachable",
+          "path": "src/simulation/source-support.js",
+          "line": 49,
+          "column": 21,
+          "ms": 31.184
+        },
+        {
+          "name": "add",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 3,
+          "column": 20,
+          "ms": 30.939
+        },
+        {
+          "name": "cell",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 37,
+          "column": 16,
+          "ms": 27.532
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 96,
+          "column": 20,
+          "ms": 26.84
+        },
+        {
+          "name": "rebuild",
+          "path": "src/simulation/source-support.js",
+          "line": 83,
+          "column": 19,
+          "ms": 23.504
+        },
+        {
+          "name": "calculate",
+          "path": "src/simulation/source-support.js",
+          "line": 33,
+          "column": 21,
+          "ms": 21.861
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 144,
+          "column": 49,
+          "ms": 21.777
+        },
+        {
+          "name": "clipPolygon",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 17,
+          "column": 28,
+          "ms": 21.436
+        },
+        {
+          "name": "(anonymous)",
+          "path": "src/simulation/source-support.js",
+          "line": 104,
+          "column": 181,
+          "ms": 21.119
+        },
+        {
+          "name": "segmentCandidates",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 100,
+          "column": 29,
+          "ms": 19.841
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 3,
+          "column": 35,
+          "ms": 18.781
+        }
+      ],
+      "inclusive": [
+        {
+          "name": "(root)",
+          "path": "",
+          "line": 0,
+          "column": 0,
+          "ms": 2928.418
+        },
+        {
+          "name": "advance",
+          "path": "src/simulation/index.js",
+          "line": 418,
+          "column": 12,
+          "ms": 2736.333
+        },
+        {
+          "name": "sim.advance",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/profile.mjs",
+          "line": 64,
+          "column": 134,
+          "ms": 2736.333
+        },
+        {
+          "name": "step",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+          "line": 29,
+          "column": 12,
+          "ms": 2736.333
+        },
+        {
+          "name": "command",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+          "line": 30,
+          "column": 15,
+          "ms": 2736.333
+        },
+        {
+          "name": "useTool",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+          "line": 44,
+          "column": 17,
+          "ms": 2736.333
+        },
+        {
+          "name": "(anonymous)",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+          "line": 1,
+          "column": 1,
+          "ms": 2736.333
+        },
+        {
+          "name": "evaluate",
+          "path": "",
+          "line": 0,
+          "column": 0,
+          "ms": 2736.333
+        },
+        {
+          "name": "run",
+          "path": "node:internal/modules/esm/module_job",
+          "line": 426,
+          "column": 12,
+          "ms": 2736.333
+        },
+        {
+          "name": "owner.<computed>",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/profile.mjs",
+          "line": 58,
+          "column": 132,
+          "ms": 2722.981
+        },
+        {
+          "name": "step",
+          "path": "src/simulation/index.js",
+          "line": 283,
+          "column": 16,
+          "ms": 2592.154
+        },
+        {
+          "name": "nativeAdvance",
+          "path": "src/simulation/scene-thermal.js",
+          "line": 181,
+          "column": 25,
+          "ms": 1784.934
+        },
+        {
+          "name": "step",
+          "path": "src/simulation/scene-thermal.js",
+          "line": 180,
+          "column": 16,
+          "ms": 1784.934
+        },
+        {
+          "name": "pendingSources",
+          "path": "src/simulation/source-support.js",
+          "line": 105,
+          "column": 26,
+          "ms": 1776.442
+        },
+        {
+          "name": "beforeStep",
+          "path": "src/simulation/source-activation.js",
+          "line": 26,
+          "column": 22,
+          "ms": 1776.442
+        },
+        {
+          "name": "state",
+          "path": "src/simulation/source-support.js",
+          "line": 104,
+          "column": 17,
+          "ms": 1768.527
+        },
+        {
+          "name": "rebuild",
+          "path": "src/simulation/source-support.js",
+          "line": 83,
+          "column": 19,
+          "ms": 1704.855
+        },
+        {
+          "name": "calculate",
+          "path": "src/simulation/source-support.js",
+          "line": 33,
+          "column": 21,
+          "ms": 1623.485
+        },
+        {
+          "name": "(anonymous)",
+          "path": "src/simulation/source-support.js",
+          "line": 87,
+          "column": 66,
+          "ms": 1068.062
+        },
+        {
+          "name": "heatTool",
+          "path": "src/simulation/scene-thermal.js",
+          "line": 90,
+          "column": 20,
+          "ms": 804.263
+        },
+        {
+          "name": "heatAhead",
+          "path": "src/simulation/tools.js",
+          "line": 13,
+          "column": 19,
+          "ms": 804.263
+        },
+        {
+          "name": "discreteTool",
+          "path": "src/simulation/tools.js",
+          "line": 50,
+          "column": 29,
+          "ms": 804.263
+        },
+        {
+          "name": "apply",
+          "path": "src/simulation/index.js",
+          "line": 146,
+          "column": 17,
+          "ms": 804.263
+        },
+        {
+          "name": "heat",
+          "path": "src/simulation/scene-thermal.js",
+          "line": 75,
+          "column": 16,
+          "ms": 804.002
+        },
+        {
+          "name": "ensurePoint",
+          "path": "src/simulation/source-activation.js",
+          "line": 21,
+          "column": 23,
+          "ms": 802.409
+        },
+        {
+          "name": "ensure",
+          "path": "src/simulation/source-activation.js",
+          "line": 5,
+          "column": 18,
+          "ms": 801.131
+        },
+        {
+          "name": "candidates",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 99,
+          "column": 22,
+          "ms": 735.099
+        },
+        {
+          "name": "visit",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 92,
+          "column": 17,
+          "ms": 575.076
+        },
+        {
+          "name": "prepareSources",
+          "path": "workbenches/furnished-house/simulation.js",
+          "line": 458,
+          "column": 26,
+          "ms": 528.461
+        },
+        {
+          "name": "trial.prepareSources",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+          "line": 24,
+          "column": 67,
+          "ms": 528.461
+        },
+        {
+          "name": "prepareSources",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 129,
+          "column": 26,
+          "ms": 526.969
+        },
+        {
+          "name": "connectContact",
+          "path": "src/simulation/source-support.js",
+          "line": 71,
+          "column": 26,
+          "ms": 518.232
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 99,
+          "column": 63,
+          "ms": 425.091
+        },
+        {
+          "name": "touching",
+          "path": "workbenches/furnished-house/support.js",
+          "line": 11,
+          "column": 18,
+          "ms": 404.838
+        },
+        {
+          "name": "compileScene",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 29,
+          "column": 29,
+          "ms": 384.974
+        },
+        {
+          "name": "inPrism",
+          "path": "workbenches/furnished-house/support.js",
+          "line": 6,
+          "column": 17,
+          "ms": 366.898
+        },
+        {
+          "name": "(anonymous)",
+          "path": "src/simulation/source-support.js",
+          "line": 88,
+          "column": 162,
+          "ms": 358.387
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/support.js",
+          "line": 9,
+          "column": 52,
+          "ms": 250.277
+        },
+        {
+          "name": "pointOnTriangle",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 53,
+          "column": 32,
+          "ms": 248.703
+        },
+        {
+          "name": "commit",
+          "path": "workbenches/furnished-house/simulation.js",
+          "line": 460,
+          "column": 136,
+          "ms": 230.041
+        },
+        {
+          "name": "(garbage collector)",
+          "path": "",
+          "line": 0,
+          "column": 0,
+          "ms": 189.04
+        },
+        {
+          "name": "(anonymous)",
+          "path": "src/simulation/source-support.js",
+          "line": 91,
+          "column": 62,
+          "ms": 175.175
+        },
+        {
+          "name": "dot",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 6,
+          "column": 20,
+          "ms": 160.631
+        },
+        {
+          "name": "snapshot",
+          "path": "src/simulation/index.js",
+          "line": 365,
+          "column": 20,
+          "ms": 144.179
+        },
+        {
+          "name": "raster",
+          "path": "src/simulation/scene-thermal.js",
+          "line": 163,
+          "column": 18,
+          "ms": 125.6
+        }
+      ]
+    }
+  },
+  "held": {
+    "firstTick": 335,
+    "lastTick": 366,
+    "profile": {
+      "startUs": 2950269386026,
+      "endUs": 2950273327498,
+      "wallIntervalMs": 3941.472,
+      "sampledMs": 3941.483,
+      "self": [
+        {
+          "name": "(garbage collector)",
+          "path": "",
+          "line": 0,
+          "column": 0,
+          "ms": 291.885
+        },
+        {
+          "name": "directed",
+          "path": "src/simulation/source-support.js",
+          "line": 62,
+          "column": 20,
+          "ms": 269.992
+        },
+        {
+          "name": "candidates",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 99,
+          "column": 22,
+          "ms": 198.278
+        },
+        {
+          "name": "reachable",
+          "path": "src/simulation/source-support.js",
+          "line": 49,
+          "column": 21,
+          "ms": 174.066
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 6,
+          "column": 38,
+          "ms": 149.695
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 111,
+          "column": 29,
+          "ms": 142.799
+        },
+        {
+          "name": "rebuild",
+          "path": "src/simulation/source-support.js",
+          "line": 83,
+          "column": 19,
+          "ms": 110.547
+        },
+        {
+          "name": "strictArea",
+          "path": "workbenches/furnished-house/partition-error.js",
+          "line": 10,
+          "column": 22,
+          "ms": 107.55
+        },
+        {
+          "name": "dot",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 6,
+          "column": 20,
+          "ms": 105.423
+        },
+        {
+          "name": "(anonymous)",
+          "path": "src/simulation/source-support.js",
+          "line": 104,
+          "column": 181,
+          "ms": 104.375
+        },
+        {
+          "name": "compileScene",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 29,
+          "column": 29,
+          "ms": 91.47
+        },
+        {
+          "name": "sub",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 4,
+          "column": 20,
+          "ms": 82.267
+        },
+        {
+          "name": "live",
+          "path": "src/simulation/source-support.js",
+          "line": 61,
+          "column": 16,
+          "ms": 80.989
+        },
+        {
+          "name": "commit",
+          "path": "workbenches/furnished-house/simulation.js",
+          "line": 460,
+          "column": 136,
+          "ms": 79.796
+        },
+        {
+          "name": "segmentCandidates",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 100,
+          "column": 29,
+          "ms": 79.078
+        },
+        {
+          "name": "connectContact",
+          "path": "src/simulation/source-support.js",
+          "line": 71,
+          "column": 26,
+          "ms": 78.008
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 4,
+          "column": 35,
+          "ms": 76.969
+        },
+        {
+          "name": "owner.<computed>",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/profile.mjs",
+          "line": 58,
+          "column": 132,
+          "ms": 74.725
+        },
+        {
+          "name": "calculate",
+          "path": "src/simulation/source-support.js",
+          "line": 33,
+          "column": 21,
+          "ms": 72.425
+        },
+        {
+          "name": "crossings",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 113,
+          "column": 21,
+          "ms": 69.128
+        },
+        {
+          "name": "pointOnTriangle",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 53,
+          "column": 32,
+          "ms": 58.9
+        },
+        {
+          "name": "put",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 93,
+          "column": 15,
+          "ms": 50.798
+        },
+        {
+          "name": "state",
+          "path": "src/simulation/source-support.js",
+          "line": 104,
+          "column": 17,
+          "ms": 50.334
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 99,
+          "column": 188,
+          "ms": 45.142
+        },
+        {
+          "name": "key",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 34,
+          "column": 13,
+          "ms": 44.487
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 3,
+          "column": 35,
+          "ms": 43.576
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 99,
+          "column": 63,
+          "ms": 38.956
+        },
+        {
+          "name": "include",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 102,
+          "column": 19,
+          "ms": 35.264
+        },
+        {
+          "name": "addFuel",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 39,
+          "column": 19,
+          "ms": 32.721
+        },
+        {
+          "name": "clipTriangle",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 26,
+          "column": 29,
+          "ms": 32.491
+        },
+        {
+          "name": "prepareSources",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 129,
+          "column": 26,
+          "ms": 25.601
+        },
+        {
+          "name": "cell",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 37,
+          "column": 16,
+          "ms": 25.315
+        },
+        {
+          "name": "add",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 3,
+          "column": 20,
+          "ms": 24.963
+        },
+        {
+          "name": "touching",
+          "path": "workbenches/furnished-house/support.js",
+          "line": 11,
+          "column": 18,
+          "ms": 24.911
+        },
+        {
+          "name": "(anonymous)",
+          "path": "src/simulation/source-support.js",
+          "line": 105,
+          "column": 125,
+          "ms": 24.735
+        }
+      ],
+      "inclusive": [
+        {
+          "name": "(root)",
+          "path": "",
+          "line": 0,
+          "column": 0,
+          "ms": 3941.483
+        },
+        {
+          "name": "sim.advance",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/profile.mjs",
+          "line": 64,
+          "column": 134,
+          "ms": 3648.082
+        },
+        {
+          "name": "step",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+          "line": 29,
+          "column": 12,
+          "ms": 3648.082
+        },
+        {
+          "name": "(anonymous)",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+          "line": 1,
+          "column": 1,
+          "ms": 3648.082
+        },
+        {
+          "name": "evaluate",
+          "path": "",
+          "line": 0,
+          "column": 0,
+          "ms": 3648.082
+        },
+        {
+          "name": "run",
+          "path": "node:internal/modules/esm/module_job",
+          "line": 426,
+          "column": 12,
+          "ms": 3648.082
+        },
+        {
+          "name": "advance",
+          "path": "src/simulation/index.js",
+          "line": 418,
+          "column": 12,
+          "ms": 3646.576
+        },
+        {
+          "name": "owner.<computed>",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/profile.mjs",
+          "line": 58,
+          "column": 132,
+          "ms": 3368.022
+        },
+        {
+          "name": "step",
+          "path": "src/simulation/index.js",
+          "line": 283,
+          "column": 16,
+          "ms": 3144.308
+        },
+        {
+          "name": "step",
+          "path": "src/simulation/scene-thermal.js",
+          "line": 180,
+          "column": 16,
+          "ms": 3081.721
+        },
+        {
+          "name": "nativeAdvance",
+          "path": "src/simulation/scene-thermal.js",
+          "line": 181,
+          "column": 25,
+          "ms": 3080.162
+        },
+        {
+          "name": "state",
+          "path": "src/simulation/source-support.js",
+          "line": 104,
+          "column": 17,
+          "ms": 1946.666
+        },
+        {
+          "name": "stepOnce",
+          "path": "workbenches/furnished-house/simulation.js",
+          "line": 284,
+          "column": 20,
+          "ms": 1894.78
+        },
+        {
+          "name": "step",
+          "path": "workbenches/furnished-house/simulation.js",
+          "line": 485,
+          "column": 114,
+          "ms": 1894.78
+        },
+        {
+          "name": "trial.step",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+          "line": 25,
+          "column": 50,
+          "ms": 1894.78
+        },
+        {
+          "name": "unsupported",
+          "path": "src/simulation/source-support.js",
+          "line": 106,
+          "column": 23,
+          "ms": 1808.165
+        },
+        {
+          "name": "mechanicalFalls",
+          "path": "workbenches/furnished-house/simulation.js",
+          "line": 168,
+          "column": 27,
+          "ms": 1808.165
+        },
+        {
+          "name": "rebuild",
+          "path": "src/simulation/source-support.js",
+          "line": 83,
+          "column": 19,
+          "ms": 1635.087
+        },
+        {
+          "name": "calculate",
+          "path": "src/simulation/source-support.js",
+          "line": 33,
+          "column": 21,
+          "ms": 1277.163
+        },
+        {
+          "name": "beforeStep",
+          "path": "src/simulation/source-activation.js",
+          "line": 26,
+          "column": 22,
+          "ms": 1147.509
+        },
+        {
+          "name": "ensurePoint",
+          "path": "src/simulation/source-activation.js",
+          "line": 21,
+          "column": 23,
+          "ms": 968.289
+        },
+        {
+          "name": "ensure",
+          "path": "src/simulation/source-activation.js",
+          "line": 5,
+          "column": 18,
+          "ms": 930.004
+        },
+        {
+          "name": "(anonymous)",
+          "path": "src/simulation/source-support.js",
+          "line": 87,
+          "column": 66,
+          "ms": 660.633
+        },
+        {
+          "name": "prepareSources",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 129,
+          "column": 26,
+          "ms": 572.408
+        },
+        {
+          "name": "prepareSources",
+          "path": "workbenches/furnished-house/simulation.js",
+          "line": 458,
+          "column": 26,
+          "ms": 572.408
+        },
+        {
+          "name": "trial.prepareSources",
+          "path": "artifacts/qa/shared-map-runtime/support-cache-attribution-v1/run/fixture.mjs",
+          "line": 24,
+          "column": 67,
+          "ms": 572.408
+        },
+        {
+          "name": "snapshot",
+          "path": "src/simulation/index.js",
+          "line": 365,
+          "column": 20,
+          "ms": 500.711
+        },
+        {
+          "name": "touching",
+          "path": "workbenches/furnished-house/support.js",
+          "line": 11,
+          "column": 18,
+          "ms": 499.217
+        },
+        {
+          "name": "inPrism",
+          "path": "workbenches/furnished-house/support.js",
+          "line": 6,
+          "column": 17,
+          "ms": 474.306
+        },
+        {
+          "name": "connectContact",
+          "path": "src/simulation/source-support.js",
+          "line": 71,
+          "column": 26,
+          "ms": 451.203
+        },
+        {
+          "name": "compileScene",
+          "path": "workbenches/furnished-house/scene.js",
+          "line": 29,
+          "column": 29,
+          "ms": 388.858
+        },
+        {
+          "name": "(anonymous)",
+          "path": "workbenches/furnished-house/support.js",
+          "line": 9,
+          "column": 52,
+          "ms": 366.675
+        },
+        {
+          "name": "pointOnTriangle",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 53,
+          "column": 32,
+          "ms": 364.067
+        },
+        {
+          "name": "crossings",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 113,
+          "column": 21,
+          "ms": 352.006
+        },
+        {
+          "name": "(garbage collector)",
+          "path": "",
+          "line": 0,
+          "column": 0,
+          "ms": 291.885
+        },
+        {
+          "name": "supportAt",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 154,
+          "column": 21,
+          "ms": 286.633
+        },
+        {
+          "name": "raster",
+          "path": "src/simulation/scene-thermal.js",
+          "line": 163,
+          "column": 18,
+          "ms": 285.315
+        },
+        {
+          "name": "candidates",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 99,
+          "column": 22,
+          "ms": 283.951
+        },
+        {
+          "name": "sparseRaster",
+          "path": "src/simulation/scene-thermal.js",
+          "line": 149,
+          "column": 24,
+          "ms": 280.641
+        },
+        {
+          "name": "directed",
+          "path": "src/simulation/source-support.js",
+          "line": 62,
+          "column": 20,
+          "ms": 269.992
+        },
+        {
+          "name": "segmentCandidates",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 100,
+          "column": 29,
+          "ms": 263.765
+        },
+        {
+          "name": "add",
+          "path": "src/simulation/source-support.js",
+          "line": 66,
+          "column": 15,
+          "ms": 254.766
+        },
+        {
+          "name": "commit",
+          "path": "workbenches/furnished-house/simulation.js",
+          "line": 460,
+          "column": 136,
+          "ms": 254.576
+        },
+        {
+          "name": "dot",
+          "path": "workbenches/furnished-house/geometry.js",
+          "line": 6,
+          "column": 20,
+          "ms": 251.748
+        },
+        {
+          "name": "(anonymous)",
+          "path": "src/simulation/source-support.js",
+          "line": 91,
+          "column": 62,
+          "ms": 247.789
+        }
+      ]
+    }
+  },
+  "slowHostSteps": [
+    {
+      "tick": 260,
+      "world": 4.333333333333323,
+      "startUs": 2950265241856,
+      "endUs": 2950268170274,
+      "elapsedMs": 2928.4211,
+      "cpuUsageUs": {
+        "user": 3360000,
+        "system": 1031000
+      },
+      "nativeTick": 130,
+      "nativeSteps": 1,
+      "nativeSimulationMs": 7.123099999999795,
+      "nativePhases": {
+        "commandsAndFallsMs": 0.04579999999987194,
+        "burnRegistryMs": 0.16260000000056607,
+        "transportMs": 0.009900000000016007,
+        "preheatMs": 0.01449999999931606,
+        "coolingMs": 0.0015000000003055902,
+        "boundaryAndSupportMs": 5.534800000000359,
+        "itemsMs": 0.009299999999711872
+      },
+      "workDelta": {
+        "hostSteps": 1,
+        "nativeSteps": 1,
+        "nativeSimulationMs": 7.123099999999795,
+        "backendAdvanceMs": 1865.4011,
+        "metricsQueriesMs": 1.2179999999998472,
+        "looseFuelQueriesMs": 0.013799999999719148,
+        "physicalPublicationMs": 18.36359999999968,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0.04100000000016735,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 1.8153999999999542
+      },
+      "activationDelta": {
+        "batches": 1,
+        "carriers": 547,
+        "batchMs": 907.6926000000003
+      },
+      "cells": 13084,
+      "activeCarriers": 551,
+      "topologyCache": {
+        "entries": 2575,
+        "entryLimit": 52929,
+        "variantsPerCalculation": 1,
+        "directedEdges": 241480,
+        "peakDirectedEdges": 241480,
+        "hits": 0,
+        "misses": 2583,
+        "invalidations": 8,
+        "watchedBoundaries": 30367,
+        "retainedColdMeshes": 0,
+        "disposed": false
+      }
+    },
+    {
+      "tick": 340,
+      "world": 5.666666666666652,
+      "startUs": 2950269695154,
+      "endUs": 2950271437588,
+      "elapsedMs": 1742.4362999999994,
+      "cpuUsageUs": {
+        "user": 2594000,
+        "system": 375000
+      },
+      "nativeTick": 170,
+      "nativeSteps": 1,
+      "nativeSimulationMs": 939.0298999999995,
+      "nativePhases": {
+        "commandsAndFallsMs": 1.876800000000003,
+        "burnRegistryMs": 0.015300000000024738,
+        "transportMs": 25.13670000000002,
+        "preheatMs": 0.5414000000000669,
+        "coolingMs": 0.033400000000256114,
+        "boundaryAndSupportMs": 910.1222000000007,
+        "itemsMs": 0.015799999999217107
+      },
+      "workDelta": {
+        "hostSteps": 1,
+        "nativeSteps": 1,
+        "nativeSimulationMs": 939.0298999999995,
+        "backendAdvanceMs": 1581.3624000000013,
+        "metricsQueriesMs": 2.296700000000783,
+        "looseFuelQueriesMs": 0.016999999999825377,
+        "physicalPublicationMs": 17.883100000000923,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0.04140000000006694,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 0.9080000000003565
+      },
+      "activationDelta": {
+        "batches": 22,
+        "carriers": 702,
+        "batchMs": 607.8518999999978
+      },
+      "cells": 22801,
+      "activeCarriers": 1424,
+      "topologyCache": {
+        "entries": 5986,
+        "entryLimit": 52929,
+        "variantsPerCalculation": 1,
+        "directedEdges": 377498,
+        "peakDirectedEdges": 377498,
+        "hits": 8566,
+        "misses": 6425,
+        "invalidations": 439,
+        "watchedBoundaries": 40854,
+        "retainedColdMeshes": 0,
+        "disposed": false
+      }
+    },
+    {
+      "tick": 344,
+      "world": 5.733333333333318,
+      "startUs": 2950271715421,
+      "endUs": 2950273078981,
+      "elapsedMs": 1363.5625999999993,
+      "cpuUsageUs": {
+        "user": 1688000,
+        "system": 281000
+      },
+      "nativeTick": 172,
+      "nativeSteps": 1,
+      "nativeSimulationMs": 787.1894000000011,
+      "nativePhases": {
+        "commandsAndFallsMs": 1.5304999999989377,
+        "burnRegistryMs": 0.005700000001525041,
+        "transportMs": 0.20879999999851862,
+        "preheatMs": 0.5364000000008673,
+        "coolingMs": 0.02410000000054424,
+        "boundaryAndSupportMs": 783.5909999999985,
+        "itemsMs": 0.018200000000433647
+      },
+      "workDelta": {
+        "hostSteps": 1,
+        "nativeSteps": 1,
+        "nativeSimulationMs": 787.1894000000013,
+        "backendAdvanceMs": 1224.9045999999998,
+        "metricsQueriesMs": 2.4179999999996653,
+        "looseFuelQueriesMs": 0.004000000000814907,
+        "physicalPublicationMs": 9.273199999999633,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0.03230000000075961,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 1.008800000001429
+      },
+      "activationDelta": {
+        "batches": 1,
+        "carriers": 152,
+        "batchMs": 426.3750999999995
+      },
+      "cells": 27952,
+      "activeCarriers": 1577,
+      "topologyCache": {
+        "entries": 7487,
+        "entryLimit": 52929,
+        "variantsPerCalculation": 1,
+        "directedEdges": 535031,
+        "peakDirectedEdges": 535031,
+        "hits": 20429,
+        "misses": 8041,
+        "invalidations": 554,
+        "watchedBoundaries": 47176,
+        "retainedColdMeshes": 0,
+        "disposed": false
+      }
+    },
+    {
+      "tick": 332,
+      "world": 5.533333333333319,
+      "startUs": 2950268641117,
+      "endUs": 2950269132705,
+      "elapsedMs": 491.59040000000005,
+      "cpuUsageUs": {
+        "user": 656000,
+        "system": 78000
+      },
+      "nativeTick": 166,
+      "nativeSteps": 1,
+      "nativeSimulationMs": 6.124499999999898,
+      "nativePhases": {
+        "commandsAndFallsMs": 0.6211999999995896,
+        "burnRegistryMs": 0.006699999999909778,
+        "transportMs": 0.0017000000007101335,
+        "preheatMs": 0.12379999999939173,
+        "coolingMs": 0.010600000000522414,
+        "boundaryAndSupportMs": 3.729699999999866,
+        "itemsMs": 0.010299999999915599
+      },
+      "workDelta": {
+        "hostSteps": 1,
+        "nativeSteps": 1,
+        "nativeSimulationMs": 6.124499999999898,
+        "backendAdvanceMs": 331.1375000000007,
+        "metricsQueriesMs": 0.3312999999998283,
+        "looseFuelQueriesMs": 0.005300000000715954,
+        "physicalPublicationMs": 4.51680000000033,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0.03240000000005239,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 0.9646999999995387
+      },
+      "activationDelta": {
+        "batches": 1,
+        "carriers": 169,
+        "batchMs": 107.71540000000005
+      },
+      "cells": 14694,
+      "activeCarriers": 720,
+      "topologyCache": {
+        "entries": 3208,
+        "entryLimit": 52929,
+        "variantsPerCalculation": 1,
+        "directedEdges": 269541,
+        "peakDirectedEdges": 269541,
+        "hits": 2448,
+        "misses": 3343,
+        "invalidations": 135,
+        "watchedBoundaries": 32097,
+        "retainedColdMeshes": 0,
+        "disposed": false
+      }
+    },
+    {
+      "tick": 342,
+      "world": 5.699999999999985,
+      "startUs": 2950271447529,
+      "endUs": 2950271694454,
+      "elapsedMs": 246.92669999999998,
+      "cpuUsageUs": {
+        "user": 203000,
+        "system": 47000
+      },
+      "nativeTick": 171,
+      "nativeSteps": 1,
+      "nativeSimulationMs": 218.85919999999896,
+      "nativePhases": {
+        "commandsAndFallsMs": 1.5938000000005559,
+        "burnRegistryMs": 0.004999999999199645,
+        "transportMs": 0.16200000000026193,
+        "preheatMs": 0.4742000000005646,
+        "coolingMs": 0.03319999999985157,
+        "boundaryAndSupportMs": 215.51239999999962,
+        "itemsMs": 0.012300000000323053
+      },
+      "workDelta": {
+        "hostSteps": 1,
+        "nativeSteps": 1,
+        "nativeSimulationMs": 218.85919999999896,
+        "backendAdvanceMs": 232.82769999999982,
+        "metricsQueriesMs": 1.129799999998795,
+        "looseFuelQueriesMs": 0.003400000001420267,
+        "physicalPublicationMs": 0.8382000000001426,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0.027900000000954606,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 0.986800000000585
+      },
+      "activationDelta": {
+        "batches": 1,
+        "carriers": 1,
+        "batchMs": 2.2729999999992287
+      },
+      "cells": 22805,
+      "activeCarriers": 1425,
+      "topologyCache": {
+        "entries": 5992,
+        "entryLimit": 52929,
+        "variantsPerCalculation": 1,
+        "directedEdges": 377552,
+        "peakDirectedEdges": 377552,
+        "hits": 14547,
+        "misses": 6436,
+        "invalidations": 444,
+        "watchedBoundaries": 40858,
+        "retainedColdMeshes": 0,
+        "disposed": false
+      }
+    },
+    {
+      "tick": 336,
+      "world": 5.599999999999985,
+      "startUs": 2950269403946,
+      "endUs": 2950269610309,
+      "elapsedMs": 206.36539999999968,
+      "cpuUsageUs": {
+        "user": 297000,
+        "system": 47000
+      },
+      "nativeTick": 168,
+      "nativeSteps": 1,
+      "nativeSimulationMs": 6.934500000000298,
+      "nativePhases": {
+        "commandsAndFallsMs": 1.6876000000002023,
+        "burnRegistryMs": 0.006400000000212458,
+        "transportMs": 0.0020999999997002305,
+        "preheatMs": 0.32960000000002765,
+        "coolingMs": 0.00800000000072032,
+        "boundaryAndSupportMs": 3.9384000000000015,
+        "itemsMs": 0.0091999999995096
+      },
+      "workDelta": {
+        "hostSteps": 1,
+        "nativeSteps": 1,
+        "nativeSimulationMs": 6.934500000000298,
+        "backendAdvanceMs": 193.7455,
+        "metricsQueriesMs": 1.1568999999999505,
+        "looseFuelQueriesMs": 0.01389999999992142,
+        "physicalPublicationMs": 1.1981999999998152,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0.0272000000004482,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 0.9638999999997395
+      },
+      "activationDelta": {
+        "batches": 0,
+        "carriers": 0,
+        "batchMs": 0
+      },
+      "cells": 14726,
+      "activeCarriers": 722,
+      "topologyCache": {
+        "entries": 3214,
+        "entryLimit": 52929,
+        "variantsPerCalculation": 1,
+        "directedEdges": 269597,
+        "peakDirectedEdges": 269597,
+        "hits": 5652,
+        "misses": 3353,
+        "invalidations": 139,
+        "watchedBoundaries": 32105,
+        "retainedColdMeshes": 0,
+        "disposed": false
+      }
+    },
+    {
+      "tick": 114,
+      "world": 1.8999999999999981,
+      "startUs": 2950264482092,
+      "endUs": 2950264629517,
+      "elapsedMs": 147.42780000000016,
+      "cpuUsageUs": {
+        "user": 187000,
+        "system": 94000
+      },
+      "nativeTick": 57,
+      "nativeSteps": 1,
+      "nativeSimulationMs": 46.15240000000017,
+      "nativePhases": {
+        "commandsAndFallsMs": 24.443599999999833,
+        "burnRegistryMs": 0.005000000000109139,
+        "transportMs": 0.002300000000104774,
+        "preheatMs": 0.0018999999999778083,
+        "coolingMs": 0.0005999999998493877,
+        "boundaryAndSupportMs": 21.005499999999984,
+        "itemsMs": 0.019300000000157524
+      },
+      "workDelta": {
+        "hostSteps": 1,
+        "nativeSteps": 1,
+        "nativeSimulationMs": 46.15240000000017,
+        "backendAdvanceMs": 142.9251999999999,
+        "metricsQueriesMs": 0.13390000000003965,
+        "looseFuelQueriesMs": 0.004500000000007276,
+        "physicalPublicationMs": 0.5174999999999272,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0.10890000000017608,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 0.21299999999996544
+      },
+      "activationDelta": {
+        "batches": 1,
+        "carriers": 4,
+        "batchMs": 13.736599999999953
+      },
+      "cells": 120,
+      "activeCarriers": 4,
+      "topologyCache": {
+        "entries": 0,
+        "entryLimit": 52929,
+        "variantsPerCalculation": 1,
+        "directedEdges": 0,
+        "peakDirectedEdges": 216,
+        "hits": 0,
+        "misses": 8,
+        "invalidations": 8,
+        "watchedBoundaries": 12894,
+        "retainedColdMeshes": 0,
+        "disposed": false
+      }
+    },
+    {
+      "tick": 338,
+      "world": 5.633333333333319,
+      "startUs": 2950269620132,
+      "endUs": 2950269685533,
+      "elapsedMs": 65.40349999999944,
+      "cpuUsageUs": {
+        "user": 63000,
+        "system": 0
+      },
+      "nativeTick": 169,
+      "nativeSteps": 1,
+      "nativeSimulationMs": 51.35869999999977,
+      "nativePhases": {
+        "commandsAndFallsMs": 1.4497999999994136,
+        "burnRegistryMs": 0.01710000000002765,
+        "transportMs": 47.9996000000001,
+        "preheatMs": 0.6396000000004278,
+        "coolingMs": 0.128299999999399,
+        "boundaryAndSupportMs": 0.08700000000044383,
+        "itemsMs": 0.007999999999810825
+      },
+      "workDelta": {
+        "hostSteps": 1,
+        "nativeSteps": 1,
+        "nativeSimulationMs": 51.35869999999977,
+        "backendAdvanceMs": 52.14510000000064,
+        "metricsQueriesMs": 0.6257000000005064,
+        "looseFuelQueriesMs": 0.004899999999906868,
+        "physicalPublicationMs": 1.1270999999997002,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0.0342000000000553,
+        "smokeSignalCalls": 0,
+        "smokeSignalsMs": 0,
+        "smokeSightMs": 0,
+        "navigationMs": 0.9266000000006898
+      },
+      "activationDelta": {
+        "batches": 0,
+        "carriers": 0,
+        "batchMs": 0
+      },
+      "cells": 14726,
+      "activeCarriers": 722,
+      "topologyCache": {
+        "entries": 3214,
+        "entryLimit": 52929,
+        "variantsPerCalculation": 1,
+        "directedEdges": 269597,
+        "peakDirectedEdges": 269597,
+        "hits": 5652,
+        "misses": 3353,
+        "invalidations": 139,
+        "watchedBoundaries": 32105,
+        "retainedColdMeshes": 0,
+        "disposed": false
+      }
+    }
+  ],
+  "topologyAfterDispose": {
+    "entries": 0,
+    "entryLimit": 52929,
+    "variantsPerCalculation": 1,
+    "directedEdges": 0,
+    "peakDirectedEdges": 535031,
+    "hits": 20429,
+    "misses": 8041,
+    "invalidations": 554,
+    "watchedBoundaries": 0,
+    "retainedColdMeshes": 0,
+    "disposed": true
+  },
+  "limitations": [
+    "One profiled run; no performance-improvement or production/phone/FPS acceptance",
+    "Timing wrappers, host interval records, input driver and diagnostic copies contribute overhead",
+    "CPU profiler samples main-thread stacks; process CPU includes other process threads",
+    "No allocation timeline; stage memory and bounded diagnostic counts only",
+    "Asynchronous GC observer delivered zero entries; this is not zero-GC proof"
+  ],
+  "runtimeChanged": false,
+  "newControl": false,
+  "performanceImprovementClaim": false
+}

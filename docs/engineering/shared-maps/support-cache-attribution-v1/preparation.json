@@ -1,0 +1,65 @@
+{
+  "scope": "One attribution-only profile of final source; no control, optimization, build, GL or improvement claim.",
+  "runtimeCommit": "0e1ab9ddc42a0f7e301858044c82a221f73d8805",
+  "authorityCommit": "7e6ba530b92d8cc26544d13059bea9528332ef1b",
+  "originalProducerLfSha256": "44b9c87c41d228b933f58cef2c1db6bd632e72857a4f5ede49a15b89a756323b",
+  "producerLfSha256": "0c1d6027e041a51dab97da6de619ef7255ce4e824831ab1708a9404eaeeecfb4",
+  "unchangedDerivedFixtureLfSha256": "43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253",
+  "finalProductionPins": {
+    "src/simulation/source-support.js": {
+      "referenceLfSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+      "successorLfSha256": "88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109"
+    },
+    "workbenches/furnished-house/geometry.js": {
+      "referenceLfSha256": "cf8b8be2a752be959e0beea7c35b68701706b2ff4e4cdb2d5e8d67304a2c5873",
+      "successorLfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+    },
+    "workbenches/furnished-house/simulation.js": {
+      "referenceLfSha256": "75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012",
+      "successorLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9"
+    }
+  },
+  "hostTimerUsesOnlyReturnedSnapshot": true,
+  "changes": [
+    {
+      "purpose": "No control or extra lane",
+      "before": "assert.equal(mode,'control','Correctness-only lanes do not authorize a CPU profile');const lane=process.env.TINDERBOX_CACHE_LANE;assert.ok(['reference','candidate'].includes(lane));assert.equal(process.env.TINDERBOX_CACHE_RUN_DIRECTORY,directory);assert.ok(directory&&path.resolve(directory).startsWith(path.resolve('artifacts')+path.sep)&&!fs.existsSync(directory));",
+      "after": "assert.equal(mode,'profile','Exactly one attribution-only profile is authorized');const lane='final-source-attribution';"
+    },
+    {
+      "purpose": "Freeze the final three-path source",
+      "before": "const frozen='cd443ccdd9cbbb38cf4c338ef697d902739726d6'",
+      "after": "const frozen='0e1ab9ddc42a0f7e301858044c82a221f73d8805'"
+    },
+    {
+      "purpose": "Exact final production freeze and three accepted file pins",
+      "before": "const experimentDelta={\"src/simulation/source-support.js\":{\"beforeLfSha256\":\"34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b\",\"afterLfSha256\":\"db60fb30155200292eb11e0d002c67f1c4beab39b096bc51636a9aad0709b476\"},\"workbenches/furnished-house/simulation.js\":{\"beforeLfSha256\":\"75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012\",\"afterLfSha256\":\"54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9\"}};assert.deepEqual(git('diff','--name-only',frozen,'--','src','assets','art','vendor','workbenches').split(/\\r?\\n/).filter(Boolean).sort(),Object.keys(experimentDelta).sort());for(const [path,pin]of Object.entries(experimentDelta))assert.equal(sha(fs.readFileSync(path,'utf8').replace(/\\r\\n/g,'\\n')),pin.afterLfSha256,path);",
+      "after": "const experimentDelta={\"src/simulation/source-support.js\":{\"referenceLfSha256\":\"34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b\",\"successorLfSha256\":\"88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109\"},\"workbenches/furnished-house/geometry.js\":{\"referenceLfSha256\":\"cf8b8be2a752be959e0beea7c35b68701706b2ff4e4cdb2d5e8d67304a2c5873\",\"successorLfSha256\":\"b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c\"},\"workbenches/furnished-house/simulation.js\":{\"referenceLfSha256\":\"75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012\",\"successorLfSha256\":\"54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9\"}};assert.equal(git('diff','--name-only',frozen,'--','src','assets','art','vendor','workbenches'),'');for(const [path,pin]of Object.entries(experimentDelta))assert.equal(sha(fs.readFileSync(path,'utf8').replace(/\\r\\n/g,'\\n')),pin.successorLfSha256,path);"
+    },
+    {
+      "purpose": "Record the actual grant",
+      "before": "purpose:'M29 architect-authorized raw-host correctness '+lane",
+      "after": "purpose:'M29 7e6ba530 one final-source attribution profile'"
+    },
+    {
+      "purpose": "Do not label this a correctness or performance-improvement experiment",
+      "before": "productionDiffEmpty:false,experimentDelta,lane,correctnessOnly:true,",
+      "after": "productionDiffEmpty:true,finalProductionPins:experimentDelta,lane,attributionOnly:true,authority:'7e6ba530b92d8cc26544d13059bea9528332ef1b',"
+    },
+    {
+      "purpose": "Record host-step intervals and existing counters without extra reads",
+      "before": "const observer=new PerformanceObserver",
+      "after": "\nP.hostTimings=[];let ownedSimulation,lastWork={},lastActivation={};\nObject.defineProperty(P,'sim',{get(){return ownedSimulation;},set(sim){ownedSimulation=sim;const raw=sim.advance;sim.advance=function(...args){const at=performance.now(),startUs=Number(process.hrtime.bigint()/1000n),cpu=process.cpuUsage();let returned;\n  try{returned=raw.apply(this,args);return returned;}finally{\n    const endUs=Number(process.hrtime.bigint()/1000n),elapsedMs=performance.now()-at,t=returned?.diagnostics?.thermal,work=t?.timing?.hostWork||{},activation=t?.activation||{};\n    const workDelta=Object.fromEntries(Object.entries(work).filter(([k,v])=>typeof v==='number').map(([k,v])=>[k,v-(lastWork[k]||0)]));\n    const activationDelta={batches:(activation.batches||0)-(lastActivation.batches||0),carriers:(activation.activatedCarriers||0)-(lastActivation.activatedCarriers||0),batchMs:(activation.totalBatchMs||0)-(lastActivation.totalBatchMs||0)};\n    P.hostTimings.push({tick:returned?.tick,world:returned?.clocks.world,startUs,endUs,elapsedMs,cpuUsageUs:process.cpuUsage(cpu),nativeTick:t?.nativeTick,nativeSteps:t?.timing?.nativeSteps,nativeSimulationMs:t?.timing?.nativeSimulationMs,nativePhases:t?.timing?.nativeSteps?{...t.timing.nativePhases}:null,workDelta,activationDelta,cells:t?.gridCells,activeCarriers:t?.carriers?.activeCarriers,topologyCache:t?.support?.topologyCache?{...t.support.topologyCache}:null});\n    lastWork={...work};lastActivation={...activation};P.record('host.advance',elapsedMs);\n  }\n};}});\n\nconst observer=new PerformanceObserver"
+    },
+    {
+      "purpose": "Retain bounded intervals and true final disposal evidence",
+      "before": "report.correctnessOnly=true;report.lane=lane;",
+      "after": "report.attributionOnly=true;report.sameDiagnosticReadSchedule=true;report.hostTimings=P.hostTimings;report.topologyAfterDispose=P.trial?.supportGraph.diagnostics().topologyCache;report.lane=lane;"
+    },
+    {
+      "purpose": "Verify unchanged derived fixture before starting the inspector",
+      "before": "const derivedPath=path.resolve(directory,'fixture.mjs');",
+      "after": "assert.equal(sha(code),'43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253','Keep the exact already-reviewed command and diagnostic-read fixture');const derivedPath=path.resolve(directory,'fixture.mjs');"
+    }
+  ]
+}
