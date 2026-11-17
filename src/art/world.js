@@ -12,7 +12,7 @@ export function createWorld(T,materials){
     function mesh(geo,mat,p,s,parent=root){const m=new T.Mesh(geo,mat);m.position.fromArray(p);m.scale.fromArray(s);m.castShadow=m.receiveShadow=true;parent.add(m);return m;}
     const box=(mat,p,s,parent=root)=>mesh(cube,mat,p,s,parent);
     const width=world.width||20,height=world.height||16;
-    box(materials.grass,[width/2,-.20,height/2],[width,.23,height]);
+    if(!world.sourceSections)box(materials.grass,[width/2,-.20,height/2],[width,.23,height]);
     const groups=new Map();
     for(const tile of world.tiles||[]){
       const type=String(tile.material||'grass').toLowerCase();

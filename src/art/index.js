@@ -31,7 +31,7 @@ export function cataloguePresentationView(snapshot,camera,sampleWind){
   return {mode:player.moduleOwner&&player.moduleOwner!=='terrain'?'cutaway':'exterior',interiorInstanceId:player.moduleOwner,level:player.elevation>2?1:0,camera,
     observer:{x:player.x,y:player.elevation||0,z:player.y,height:player.height},sampleWind,windMetadata:snapshot.diagnostics?.thermal?.wind,effects:{flames:true,smoke:true,lighting:false}};
 }
-export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT,bearAssetBaseUrl,characterId='bear',signal,world:initialWorld,pickups:initialPickups=[],medicineLoader=()=>import(medicineUrl.href),cottageWind,cottageFire,defaultLights,catalogueModules,onLoadPhase,onPresentationProfile}={}){
+export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_ASSET_ROOT,bearAssetBaseUrl,characterId='bear',signal,world:initialWorld,pickups:initialPickups=[],medicineLoader=()=>import(medicineUrl.href),cottageWind,cottageFire,defaultLights,catalogueModules,gameplayMap,createMapStructureArt,onLoadPhase,onPresentationProfile}={}){
   if(!T?.TextureLoader||!scene?.add)throw new TypeError('createArtScene requires the shared THREE module and a scene.');
   signal?.throwIfAborted();
   const base=new URL(assetBaseUrl,import.meta.url);if(!base.pathname.endsWith('/'))base.pathname+='/';
@@ -48,7 +48,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
   if(signal?.aborted){pool.dispose();throw new DOMException('Visit cancelled','AbortError');}
   const assets=Object.fromEntries(entries.map(([name],i)=>{const texture=loaded[i];texture.colorSpace=T.SRGBColorSpace;return [name,texture];}));
   onLoadPhase?.({phase:'art-textures-ready',textures:entries.length});
-  let root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,housing,housingKit,medicine,keyLight,cottages,shop,rubble,sidingPreheat,firelight,streetNight,moduleArt,disposed=false,updates=0,lastSnapshot,footprintRadius=.56;
+  let root,world,bear,bearKit,field,fire,toolProps,exterior,civilianKit,housing,housingKit,medicine,keyLight,cottages,shop,rubble,sidingPreheat,firelight,streetNight,moduleArt,mapArt,disposed=false,updates=0,lastSnapshot,footprintRadius=.56,lastGroundInput,groundCells;
   const cottageIds=new Set(cottageFire?.buildings.map(b=>b.id)??[]);
   const moduleWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=1.5,out[1]=0,out[2]=0,out);
   const calmWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=out[1]=out[2]=0,out);
@@ -66,25 +66,29 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
   let witnessReaction;
   try{
     if(renderer)civilianKit=await loadCivilianKit({THREE:T,renderer,assetBaseUrl:base.href,onLoadPhase,signal});
-    if(initialWorld?.buildings?.length&&!catalogueModules)housingKit=await loadNeighborhoodKit(T,{renderer});
+    if(initialWorld?.buildings?.length&&!catalogueModules&&!gameplayMap)housingKit=await loadNeighborhoodKit(T,{renderer});
     if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
     root=new T.Group();root.name='Tinderbox art module';
     const materials=createMaterials(T,pool,assets);
     onLoadPhase?.({phase:'native-player-source-begin',species:characterId});
     bearKit=await loadCharacterKit({characterId,THREE:T,renderer,assetBaseUrl:bearAssetBaseUrl,materials,signal});
     if(signal?.aborted)throw new DOMException('Visit cancelled','AbortError');
-    world=createWorld(T,materials);bear=bearKit.create();onLoadPhase?.({phase:'native-player-paint-ready',species:characterId});field=createGroundField(T,readCells);fire=createFire(T,assets,field.uniforms,readCells);sidingPreheat=createSidingPreheat(T);
+    world=createWorld(T,materials);bear=bearKit.create();onLoadPhase?.({phase:'native-player-paint-ready',species:characterId});field=createGroundField(T,readCells,gameplayMap?{windowSize:32,groundOnly:true}:{});fire=createFire(T,assets,field.uniforms,readCells);sidingPreheat=createSidingPreheat(T);
     exterior=createExteriorKit(T,materials,assets,renderer);
     // Native terrain illumination already comes from canonical fire samples.
     // Its empty terrain list must not reset the shared field/card publication
     // reader immediately before ground/body fire consumes the real cells.
-    toolProps=createToolProps(T,materials);firelight=createStreetFirelight(T,catalogueModules?createCellReader():readCells);
+    toolProps=createToolProps(T,materials);firelight=createStreetFirelight(T,catalogueModules||gameplayMap?createCellReader():readCells);
     root.add(world.root,field.root,fire.root,bear.root,toolProps.root,exterior.root,sidingPreheat.root,firelight.root);
     if(housingKit){
       housing=createNeighborhood(T,housingKit);rubble=createBurnedHouseRubble(T);
       root.add(housing.root,housing.fireRoot,rubble.root);
     }
-    if(catalogueModules){
+    if(gameplayMap){
+      if(typeof createMapStructureArt!=='function')throw Error('A shared map requires its source structure presentation factory');
+      mapArt=await createMapStructureArt({THREE:T,scene,renderer,signal,gameplayMap,world:initialWorld,nativeCharacterKit:bearKit,nativeCharacter:bear,characterRoot:bear.root,hostRoot:root,defaultLights,onLoadPhase});root.add(mapArt.root);
+      streetNight=createStreetNight(T,scene,renderer,defaultLights);if(streetNight)root.add(streetNight.root);
+    }else if(catalogueModules){
       const {createCatalogueModuleArt}=await import(new URL('../../workbenches/catalogue-modular/art.js',import.meta.url).href);
       onLoadPhase?.({phase:'native-structure-art-begin'});moduleArt=await createCatalogueModuleArt(T,{renderer,data:catalogueModules.data,instances:catalogueModules.instances,signal});root.add(moduleArt.root);onLoadPhase?.({phase:'native-structure-art-ready'});
       streetNight=createStreetNight(T,scene,renderer,defaultLights);if(streetNight)root.add(streetNight.root);
@@ -122,15 +126,17 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       if(disposed)return;
       if(snapshot?.version!==1||!snapshot.player||!snapshot.world)throw new TypeError('Art requires a v1 authoritative snapshot.');
       const {world:map,player}=snapshot;
-      if(![player.x,player.y,map.width,map.height,map.fireCellSize].every(Number.isFinite)||map.fireCellSize<=0||map.width<=0||map.height<=0||Math.ceil(map.width/map.fireCellSize)*Math.ceil(map.height/map.fireCellSize)>65536)throw new RangeError('Art grid must be finite, positive, and at most 65536 cells.');
+      if(![player.x,player.y,map.width,map.height,map.fireCellSize].every(Number.isFinite)||map.fireCellSize<=0||map.width<=0||map.height<=0||!map.sparse&&Math.ceil(map.width/map.fireCellSize)*Math.ceil(map.height/map.fireCellSize)>65536)throw new RangeError('Art grid must be finite, positive, and use a bounded presentation field.');
+      if(gameplayMap&&snapshot.cells!==lastGroundInput){lastGroundInput=snapshot.cells;groundCells=Object.freeze(snapshot.cells.filter(c=>Math.abs(c.h??0)<.05));}
+      const groundSnapshot=gameplayMap?{...snapshot,cells:groundCells}:snapshot;
       const playerTime=Number.isFinite(timing.playerTime)?timing.playerTime:snapshot.clocks?.player||0;
       const worldTime=Number.isFinite(timing.worldTime)?timing.worldTime:snapshot.clocks?.world||0;
       const profile=markPresentation?{last:performance.now(),stages:{}}:null;
       medicine?.update(snapshot.pickups||[],{worldTime,paused:snapshot.paused});
-      if(map.buildings?.length&&!housing&&!moduleArt)throw new Error('Catalogue housing was not loaded for this scene');
+      if(map.buildings?.length&&!housing&&!moduleArt&&!mapArt)throw new Error('Catalogue housing was not loaded for this scene');
       world.update({...map,obstacles:groundObstacles(map.obstacles)});exterior.update(map);
       if(profile)markPresentation(profile,'world');
-      field.update(snapshot);if(profile)markPresentation(profile,'ground');
+      field.update(groundSnapshot);if(profile)markPresentation(profile,'ground');
       bear.update(player,playerTime,{paused:snapshot.paused});bear.anchors.muzzle.getWorldPosition(muzzlePoint);
       shop?.update(map,{player,camera:timing.camera});
       if(profile)markPresentation(profile,'playerAndLegacyShop');
@@ -138,9 +144,10 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       const preheatSites=[],structureSites=groupStructureFire(snapshot.structureFire);
       const rubbleSites=rubble?.update(snapshot,worldTime);
       if(profile)markPresentation(profile,'structureSources');
-      firelight.update(moduleArt?{...snapshot,cells:NO_GROUND_CELLS}:snapshot,structureSites,worldTime,rubbleSites);
+      firelight.update(moduleArt||mapArt?{...snapshot,cells:NO_GROUND_CELLS}:snapshot,structureSites,worldTime,rubbleSites);
       if(profile)markPresentation(profile,'firelight');
       moduleArt?.update(snapshot.catalogueModules,cataloguePresentationView(snapshot,timing.camera,moduleWind));
+      mapArt?.update(snapshot,timing);
       if(profile)markPresentation(profile,'nativeStructures');
       const housingShadows=housing?.update(standardHousing,{camera:timing.camera,player,muzzle:muzzlePoint,viewport:timing.viewport,worldTime,sampleWind:cottageWind,preheatSites,structureSites,trail:nearbyTrail(snapshot.cells,player)});
       cottages?.update(snapshot.cottageFire,{camera:timing.camera,player,housingShadows,preheatSites,
@@ -164,16 +171,16 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
           record={key,model};actors.set(actor.id,record);root.add(model.root);
         }
         record.model.update(actor,worldTime,actor.id===witness?.actorId?witness.aim:undefined);
-        if(catalogueModules){record.model.root.position.y=actor.elevation||0;record.model.root.updateMatrixWorld(true);}
+        if(catalogueModules||gameplayMap){record.model.root.position.y=actor.elevation||0;record.model.root.updateMatrixWorld(true);}
         if(record.model.bodyBinding)characterBodies.push({id:actor.id,species:actor.species,worker:record.model.bodyBinding});
       }
       for(const [id,record]of actors)if(!active.has(id)){record.model.dispose();actors.delete(id);}
       if(profile)markPresentation(profile,'actors');
       // The shared effect reads native cloth after gait, patrol aim, elevation
       // and world matrices. No effect code owns a pose or a second transform.
-      fire.update(snapshot,worldTime,{muzzle:muzzlePoint,camera:timing.camera,rubble:rubbleSites,characterBodies,
-        sampleWind:catalogueModules?moduleWind:cottageWind||calmWind,
-        windMetadata:catalogueModules?snapshot.diagnostics?.thermal?.wind:{kind:cottageWind?'host-cottage-sampler':'calm-control'}});
+      fire.update(groundSnapshot,worldTime,{muzzle:muzzlePoint,camera:timing.camera,rubble:rubbleSites,characterBodies,
+        sampleWind:gameplayMap?gameplayMap.sampleWind||moduleWind:catalogueModules?moduleWind:cottageWind||calmWind,
+        windMetadata:catalogueModules||gameplayMap?snapshot.diagnostics?.thermal?.wind:{kind:cottageWind?'host-cottage-sampler':'calm-control'}});
       if(profile)markPresentation(profile,'groundAndBodyFire');
       const discharge=fire.dischargeState();bear.setHeldVisible(!discharge.active||discharge.muzzleInsideShape);toolProps.update(snapshot,playerTime,bear.anchors);
       if(witness&&(witness.reaction.kind!=='relaxed'||witness.shot)&&!witnessReaction){witnessReaction=createWitnessReaction(T);root.add(witnessReaction.root);}
@@ -184,15 +191,15 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
     function dispose(){
       if(disposed)return;disposed=true;
       for(const record of actors.values())record.model.dispose();actors.clear();
-      medicine?.dispose();shop?.dispose();moduleArt?.dispose();witnessReaction?.dispose();civilianKit?.dispose();exterior.dispose();cottages?.dispose();rubble?.dispose();housing?.dispose();housingKit?.dispose();
+      medicine?.dispose();shop?.dispose();moduleArt?.dispose();mapArt?.dispose();witnessReaction?.dispose();civilianKit?.dispose();exterior.dispose();cottages?.dispose();rubble?.dispose();housing?.dispose();housingKit?.dispose();
       sidingPreheat.dispose();fire.dispose();firelight.dispose();streetNight?.dispose();toolProps.dispose();field.dispose();bearKit.dispose();world.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();
     }
-    return {update,dispose,pickAimSurface:moduleArt?.pickAimSurface??cottages?.pickAimSurface,sampleBearBounds:()=>bear.sampleBodyBounds(),anchors:Object.freeze({...bear.anchors}),
+    return {update,dispose,pickAimSurface:moduleArt?.pickAimSurface??cottages?.pickAimSurface,isReadyAt:mapArt?.isReadyAt,settled:mapArt?.settled,streamingMetrics:mapArt?.streamingMetrics,sampleBearBounds:()=>bear.sampleBodyBounds(),anchors:Object.freeze({...bear.anchors}),
       diagnostics:()=>({disposed,updates,lastSnapshot,footprintRadius,provisionalBear:false,actors:actors.size,provisionalActors:[...actors.values()].filter(r=>r.key==='legacy-provisional').length,civilianKit:civilianKit?.diagnostics()||null,civilians:civilianKit?.diagnostics()||null,civilianActors:[...actors.entries()].filter(([,r])=>r.key.startsWith('civilian:')).map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),
         patrolActors:[...actors.entries()].filter(([,r])=>r.key==='patrol').map(([id,r])=>({id,...r.model.diagnostics(),bounds:r.model.bounds})),
-        witness:witnessReaction?.diagnostics()??null,
+        witness:witnessReaction?.diagnostics()??null,sharedMap:mapArt?.diagnostics()??null,
         exterior:exterior.diagnostics(),housing:housing?.diagnostics()||null,catalogueModules:moduleArt?.diagnostics()||null,rubble:rubble?.diagnostics()??[],bellAndAlder:shop?.diagnostics()||null,medicine:medicine?.diagnostics?.()||null,sharedResources:pool.counts(),world:world.counts(),bear:bear.counts(),bearProtagonist:bear.diagnostics(),bearKit:bearKit.diagnostics(),ground:field.counts(),tools:toolProps.diagnostics(),fire:fire.diagnostics(),firelight:firelight.diagnostics(),preheat:sidingPreheat.stats(),...(cottages?{cottages:cottages.diagnostics()}:{})})};
   }catch(error){
-    for(const record of actors.values())record.model.dispose();medicine?.dispose();shop?.dispose();moduleArt?.dispose();civilianKit?.dispose();exterior?.dispose();cottages?.dispose();rubble?.dispose();housing?.dispose();housingKit?.dispose();sidingPreheat?.dispose();fire?.dispose();firelight?.dispose();streetNight?.dispose();toolProps?.dispose();field?.dispose();bear?.dispose();bearKit?.dispose();world?.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();throw error;
+    for(const record of actors.values())record.model.dispose();medicine?.dispose();shop?.dispose();moduleArt?.dispose();mapArt?.dispose();civilianKit?.dispose();exterior?.dispose();cottages?.dispose();rubble?.dispose();housing?.dispose();housingKit?.dispose();sidingPreheat?.dispose();fire?.dispose();firelight?.dispose();streetNight?.dispose();toolProps?.dispose();field?.dispose();bear?.dispose();bearKit?.dispose();world?.dispose();keyLight?.shadow.dispose();removeTree(root);pool.dispose();throw error;
   }
 }

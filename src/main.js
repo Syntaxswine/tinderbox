@@ -72,6 +72,7 @@ export function startApplication({root=document.querySelector('#game'),ui=UI,sel
           config:cottageMode?{input:{cameraY:-12}}:undefined,seed:1893,mountUI:ui.mountUI,createArtScene,autoStart,onSnapshot,onLoadPhase,...visitOptions,
           uiOptions:{mode:'gameplay',placeTitle:place.title,onExitToMenu:visitOptions.onExitToMenu}});
       }
+      if(place.id==='new-york'){const {createSharedMapRuntime}=await import('./runtime/shared-map.js');return createSharedMapRuntime({place,root:viewport,uiRoot:hud,mountUI:ui.mountUI,autoStart,onSnapshot,onLoadPhase,...visitOptions});}
       const {createLandmarkRuntime}=await import('./runtime/landmark.js');return createLandmarkRuntime({place,root:viewport,uiRoot:hud,mountUI:ui.mountUI,autoStart,onSnapshot,...visitOptions});
     })});
   cancel.addEventListener('click',()=>app.returnToMenu(),{signal:controller.signal});

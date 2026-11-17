@@ -1,5 +1,6 @@
 import {bounds,centre,triangleArea,clipTriangle,unit,cross,sub,createBoundaryIndex,extrudePlane,EPS} from './geometry.js';
 import {prepareFurnishedData} from './prepare-data.js';
+import {sourcePartitionAllowance} from './partition-error.js';
 
 export const CELL=[.5,1.06,.5], STEP=1/30;
 export const DEFAULT_PROFILES=Object.freeze({
@@ -18,6 +19,13 @@ export const DEFAULT_PROFILES=Object.freeze({
 });
 const PASS={air:1,glass:.05,timber:.02,wood:.02,masonry:0,stone:0,brick:0,iron:0,metal:0};
 const combustible=m=>/wood|oak|timber|cloth|linen|wool|oil|coal|lacquer|shingle|clapboard/i.test(typeof m==='string'?m:JSON.stringify(m));
+export const materialTransmission=material=>PASS[material]??(combustible(material)?.02:0);
+export function doorGeometry(b,fraction){
+  const angle=(b.opening.maxOpenAngle||Math.PI/2)*fraction,cos=Math.cos(angle),sin=Math.sin(angle),pivot=b.opening.pivot;
+  const rotate=p=>{const x=p[0]-pivot[0],z=p[2]-pivot[2];return [pivot[0]+cos*x+sin*z,p[1],pivot[2]-sin*x+cos*z];},n=b.closedNormal,normal=[n[0]*cos+n[2]*sin,n[1],-n[0]*sin+n[2]*cos],plane=b.closedTriangles.map(t=>t.map(rotate));
+  const solidTriangles=b.sourceRigidPose?(b.closedSolidTriangles||b.closedTriangles).map(t=>t.map(rotate)):extrudePlane(plane,normal,-(b.thickness||.12)/2,(b.thickness||.12)/2);
+  return {solidTriangles,bounds:bounds(solidTriangles.flat()),position:centre(plane.flat()),normal};
+}
 export function compileScene(data,{profiles={},onLoadPhase,querySource}={}) {
   data=prepareFurnishedData(data);
   if(data.version!==1||!Array.isArray(data.surfaces))throw Error('Expected version-1 artist house data');
@@ -50,7 +58,7 @@ export function compileScene(data,{profiles={},onLoadPhase,querySource}={}) {
       const c=[x,y,z],clipBox={min:c.map((v,i)=>origin[i]+v*pitch[i]-EPS),max:c.map((v,i)=>origin[i]+(v+1)*pitch[i]+EPS)},clipped=triangles.flatMap(t=>clipTriangle(t,clipBox)),area=clipped.reduce((a,t)=>a+triangleArea(t),0);
       if(area<EPS)continue;
       const p=centre(clipped.flat()),single=[0,1,2].every(i=>lo[i]===hi[i]),id=single?s.id:`${s.id}@${key(c)}`,mat=typeof s.material==='string'?s.material:s.material?.physical||s.material?.id||'timber';
-      const b={...s,id,sourceSurfaceId:s.id,triangles:clipped,normal,area,position:p,bounds:bounds(clipped.flat()),intact:true,openFraction:0,transmission:PASS[mat]??(combustible(mat)?.02:0),supports:s.kind==='floor'||s.kind==='roof'||s.kind==='ground'||s.kind==='plinth'&&normal[1]>.2||s.supports===true};
+      const b={...s,id,sourceSurfaceId:s.id,triangles:clipped,normal,area,position:p,bounds:bounds(clipped.flat()),intact:true,openFraction:0,transmission:materialTransmission(mat),supports:s.kind==='floor'||s.kind==='roof'||s.kind==='ground'||s.kind==='plinth'&&normal[1]>.2||s.supports===true};
       if(s.kind==='floor') {
         const offset=[0,-(s.thickness||.12),0],edges=new Map();
         for(const triangle of clipped)for(let i=0;i<3;i++){const a=triangle[i],end=triangle[(i+1)%3],key=[a.join(','),end.join(',')].sort().join('|');if(edges.has(key))edges.delete(key);else edges.set(key,[a,end]);}
@@ -109,15 +117,35 @@ export function compileScene(data,{profiles={},onLoadPhase,querySource}={}) {
   // room and building labels never select a spread path.
   for(const c of [...cells.values()])for(let z=-1;z<=1;z++)for(let y=-1;y<=1;y++)for(let x=-1;x<=1;x++)cell(c.c.map((v,i)=>v+[x,y,z][i]));
   for(const opening of data.openings||[]) {
-    for(const b of index.surfaces.values())if(b.sourceSurfaceId===opening.surfaceId) {b.openingId=opening.id;b.openFraction=opening.openFraction??opening.initialOpenFraction??0;b.opening=opening;if(opening.kind==='door'){b.closedTriangles=b.triangles;b.closedNormal=b.normal;b.actualDoorPose=true;poseDoor(b,b.openFraction);}}
+    for(const b of index.surfaces.values())if(b.sourceSurfaceId===opening.surfaceId) {b.openingId=opening.id;b.openFraction=opening.openFraction??opening.initialOpenFraction??0;b.opening=opening;if(opening.kind==='door'){b.closedTriangles=b.triangles;b.closedNormal=b.normal;b.closedSolidTriangles=b.solidTriangles;b.actualDoorPose=true;poseDoor(b,b.openFraction);}}
   }
   function poseDoor(b,fraction) {
-    const angle=(b.opening.maxOpenAngle||Math.PI/2)*fraction,cos=Math.cos(angle),sin=Math.sin(angle),pivot=b.opening.pivot;
-    const rotate=p=>{const x=p[0]-pivot[0],z=p[2]-pivot[2];return [pivot[0]+cos*x+sin*z,p[1],pivot[2]-sin*x+cos*z];},n=b.closedNormal,normal=[n[0]*cos+n[2]*sin,n[1],-n[0]*sin+n[2]*cos],plane=b.closedTriangles.map(t=>t.map(rotate)),solidTriangles=extrudePlane(plane,normal,-(b.thickness||.12)/2,(b.thickness||.12)/2);
-    index.change(b.id,{openFraction:fraction,solidTriangles,bounds:bounds(solidTriangles.flat()),position:centre(plane.flat()),normal});
+    const posed=doorGeometry(b,fraction),normal=posed.normal;
+    index.change(b.id,{openFraction:fraction,...posed});
     const f=fuels.get(b.fuelId);if(f){for(const c of f.cells)c.fuels=c.fuels.filter(value=>value!==f);f.position=b.position;f.normal=normal;f.cells=[...new Set([-1,1].map(sign=>cellAt(b.position.map((v,i)=>v+normal[i]*sign*.08))))];if(f.lit)f.burningCell=f.cells.reduce((a,b)=>a.heat>=b.heat?a:b);for(const c of f.cells)c.fuels.push(f);}
   }
   onLoadPhase?.({phase:'physical-scene-ready',boundaries:index.surfaces.size,fuels:fuels.size,cells:cells.size,items:items.size,parts:parts.size});
-  return {data,origin,pitch,profile,cells,fuels,items,parts,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor};
+  const sourceDefinitions=new Map(data.surfaces.map(s=>[s.id,s]));
+  function prepareSources(sources){
+    if(!Array.isArray(sources?.surfaces)||!sources.surfaces.length)throw Error('Explicit native source surfaces required');
+    const ids=new Set();for(const s of sources.surfaces){if(!s.id||sourceDefinitions.has(s.id)||ids.has(s.id))throw Error('Duplicate native source '+s.id);ids.add(s.id);}
+    // Reuse the exact native clipper and profiles. Only the staged sources and
+    // their local air halo are expanded; the original source arrays stay owned
+    // by their compiler and are never extended on activation/reset.
+    const fragment=compileScene({...data,surfaces:sources.surfaces,openings:sources.openings||[],items:[],furnitureParts:[],stores:[],implicitGround:false,sourceBounds:houseBox,runtimeAdapterVersion:1},{profiles:profile});
+    const boundaries=[...fragment.index.surfaces.values()],fuelRecords=[...fragment.fuels.values()],quantities=new Map(sources.surfaces.map(s=>[s.sourceCarrierId||s.id,0])),definitions=new Map(sources.surfaces.map(s=>[s.id,s])),proofs=new Map();let committed=false;
+    for(const s of sources.surfaces)if(s.sourceCarrierId){const id=s.sourceCarrierId;let p=proofs.get(id);if(!p){p={sourceQuantity:0,sourceCount:0,partitionError:{epsilon:EPS,positive:0,negative:0,roundoffBound:0,surfaces:[]}};proofs.set(id,p);}p.sourceQuantity+=s.fuelAmount+(s.finish?.amount||0);p.sourceCount++;if(s.fuelAmount>0||s.finish?.amount>0){const bound=sourcePartitionAllowance(s,{origin,pitch});p.partitionError.positive+=bound.positive;p.partitionError.negative+=bound.negative;p.partitionError.roundoffBound+=bound.roundoffBound;p.partitionError.surfaces.push({id:s.id,...bound});}}
+    for(const f of fuelRecords){const source=definitions.get(f.sourceSurfaceId),id=source.sourceCarrierId||source.id;quantities.set(id,quantities.get(id)+f.amount);}
+    function validate(){if(committed)throw Error('Native source addition already committed');for(const s of sources.surfaces)if(sourceDefinitions.has(s.id))throw Error('Native source appeared during staging '+s.id);for(const b of boundaries)if(index.surfaces.has(b.id))throw Error('Native boundary appeared during staging '+b.id);for(const f of fuelRecords)if(fuels.has(f.id))throw Error('Native fuel appeared during staging '+f.id);}
+    return {quantity:fragment.initialFuel,quantities:[...quantities].map(([id,nativeQuantity])=>({id,nativeQuantity,...proofs.get(id)})),boundaries:boundaries.length,fuels:fuelRecords.length,validate,commit(){
+      validate();const newCellIds=[...fragment.cells.keys()].filter(id=>!cells.has(id)),remap=c=>cell(c.c);
+      for(const c of fragment.cells.values())remap(c);
+      for(const f of fuelRecords)addFuel({...f,cells:f.cells.map(remap)});
+      const added=index.addBatch(boundaries.map(b=>({...b,heatCells:b.heatCells?.map(remap)})));
+      for(const s of sources.surfaces)sourceDefinitions.set(s.id,s);committed=true;
+      return {quantity:fragment.initialFuel,boundaries:added,fuelIds:fuelRecords.map(f=>f.id),sourceIds:[...ids],newCellIds};
+    }};
+  }
+  return {data,origin,pitch,profile,cells,fuels,items,parts,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor,sourceDefinitions,prepareSources};
 }
 const dotPlane=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];

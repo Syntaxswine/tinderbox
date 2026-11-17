@@ -69,8 +69,8 @@ test('exact source-contact fixtures heat the occupied upper level and keep the f
     const floor=[...provider.trial.scene.fuels.values()].filter(f=>f.sourceSurfaceId?.includes('upper-floor'));
     assert.ok(floor.some(f=>f.cells.some(c=>c.heat>0)));
     assert.ok([...provider.trial.scene.cells.values()].filter(c=>c.position[1]<1).every(c=>c.heat===0),'Elevated contact does not heat a ground projection');
-    Object.assign(state.player,{x:54.5,y:25.2,elevation:2.12});
-    provider.heatTool('matches',state.player,{x:54.5,y:26,h:3.02},DEFAULT_CONFIG.tools.matches);provider.step(1/30,2/30);state.tick++;
+    Object.assign(state.player,{x:54.8,y:25.2,elevation:2.12});
+    provider.heatTool('matches',state.player,{x:54.8,y:26,h:3.02},DEFAULT_CONFIG.tools.matches);provider.step(1/30,2/30);state.tick++;
     const coatings=[...provider.trial.scene.fuels.values()].filter(f=>f.physicalFinish),wall=[...provider.trial.scene.index.surfaces.values()].filter(b=>b.sourceSurfaceId?.includes('cell-1-22/1'));
     const initiallyLit=coatings.filter(f=>f.lit);assert.ok(initiallyLit.length);assert.ok(Math.abs(coatings.reduce((n,f)=>n+f.initial,0)-.1)<1e-6);
     const finishSample=provider.physicalFrame().fireSamples.find(f=>f.fuelClass==='lacquer');assert.ok(finishSample);assert.ok(Math.abs(finishSample.z-25.92)<1e-5,'Coating flame lies on the actual exposed wall face');
@@ -78,4 +78,13 @@ test('exact source-contact fixtures heat the occupied upper level and keep the f
     assert.ok(initiallyLit.every(f=>f.amount<1e-7));assert.ok(wall.every(b=>b.intact),'Four-second finish consumption cannot retire a 180-second timber core');
     assert.ok(provider.diagnostics().carriers.coldReserve>15000);assert.ok(Math.abs(provider.diagnostics().carriers.world.error)<2e-6);
   }finally{provider.dispose();}
+});
+
+test('source-aware aiming returns the real upper floor and wall face, with an authoritative miss outside geometry',()=>{
+  const sim=make('goat');try{
+    const upper=sim.pickAimSurface({origin:[57.25,9,42.25],direction:[0,-1,0]});assert.ok(upper);assert.ok(Math.abs(upper.h-8.48)<1e-5);assert.ok(upper.sourceSurfaceId.includes('upper-floor'));
+    const wall=sim.pickAimSurface({origin:{x:54.8,y:3.02,z:25.2},direction:{x:0,y:0,z:1}});assert.ok(wall);assert.ok(Math.abs(wall.y-25.92)<1e-5);assert.ok(wall.sourceSurfaceId.includes('cell-1-22/1'));
+    const column=sim.pickAimSurface({origin:[54.5,3.02,25.2],direction:[0,0,1]});assert.ok(column.sourceSurfaceId.includes('entry/column--1'));assert.ok(column.y<25.92,'The source picker must stop at the real column in front of the wall');
+    assert.equal(sim.pickAimSurface({origin:[-10,10,-10],direction:[0,-1,0]}),false);assert.equal(sim.pickAimSurface({origin:[1,1,1],direction:[0,0,0]}),false);
+  }finally{sim.dispose();}
 });

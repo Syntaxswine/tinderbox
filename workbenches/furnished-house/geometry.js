@@ -7,6 +7,9 @@ export const dot = (a,b) => a.reduce((v,x,i)=>v+x*b[i],0);
 export const cross = (a,b) => [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
 export const length = a => Math.hypot(...a);
 export const unit = a => mul(a,1/(length(a)||1));
+// One world-time gravity integration for native debris and supported bodies.
+// The caller owns velocity; preserve the existing semi-implicit operation order.
+export function gravityStep(position,velocity,delta){velocity[1]-=9.81*delta;return add(position,mul(velocity,delta));}
 export const centre = points => mul(points.reduce(add,[0,0,0]),1/points.length);
 export const triangleArea = t => length(cross(sub(t[1],t[0]),sub(t[2],t[0])))/2;
 export function bounds(points){const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];for(const p of points)for(let i=0;i<3;i++){min[i]=Math.min(min[i],p[i]);max[i]=Math.max(max[i],p[i]);}return {min,max};}
@@ -136,9 +139,15 @@ export function createBoundaryIndex(records,binSize=1) {
   }
   function watch(ids,invalidate) {for(const id of ids){if(!listeners.has(id))listeners.set(id,new Set());listeners.get(id).add(invalidate);}}
   function watchPath(from,to,invalidate) {segmentCandidates(from,to,key=>{if(!pathListeners.has(key))pathListeners.set(key,new Set());pathListeners.get(key).add(invalidate);});}
+  function addBatch(records){
+    const ids=new Set();for(const record of records){if(!record.id||surfaces.has(record.id)||ids.has(record.id))throw Error('Duplicate new physical boundary '+record.id);ids.add(record.id);}
+    const added=records.map(put),affected=new Set();
+    if(added.length){revision++;for(const s of added)visit(s.bounds,key=>{for(const fn of pathListeners.get(key)||[])affected.add(fn);});for(const fn of affected)fn();}
+    return added;
+  }
   function supportAt(x,z,fromY,toY=-10) {
     const hits=crossings([x,fromY,z],[x,toY,z],{includeEndpoints:true});
-    return hits.find(h=>h.surface.intact&&h.surface.openFraction<1&&Math.abs(h.surface.normal?.[1]??0)>.2&&h.surface.supports);
+    return hits.find(h=>h.surface.intact&&(h.surface.openFraction<1||h.surface.supportFromMesh&&h.surface.actualDoorPose)&&Math.abs((h.surface.supportFromMesh?h.normal:h.surface.normal)?.[1]??0)>.2&&h.surface.supports);
   }
-  return {surfaces,bins,put,candidates,crossings,trace,change,watch,watchPath,supportAt,pass,get revision(){return revision;},get membershipRevision(){return membershipRevision;}};
+  return {surfaces,bins,put,addBatch,candidates,crossings,trace,change,watch,watchPath,supportAt,pass,get revision(){return revision;},get membershipRevision(){return membershipRevision;}};
 }

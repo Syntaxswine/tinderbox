@@ -31,7 +31,7 @@ export function spatialIndex(items,getBounds=item=>item.bounds){
   return (p,r=1)=>{const result=new Set();for(let x=Math.floor((p.x-r)/size);x<=Math.floor((p.x+r)/size);x++)for(let z=Math.floor((p.y-r)/size);z<=Math.floor((p.y+r)/size);z++)for(const item of bins.get(x+','+z)||[])result.add(item);return [...result];};
 }
 export const supportMetadata=s=>({elevation:s.height,level:s.level,locationLabel:s.label,surfaceId:s.id,interior:!!s.interior});
-export function createPlaceNavigation({definition,body:requestedBody,isSectionReady=()=>true,portalOpen=()=>false,collisionLimits={},supportPresent=()=>true,boundaryPresent=()=>true,liveShapes=()=>undefined,liveCeilings=false,liveClearance}={}){
+export function createPlaceNavigation({definition,body:requestedBody,isSectionReady=()=>true,portalOpen=()=>false,collisionLimits={},supportPresent=()=>true,boundaryPresent=()=>true,portalPresent=()=>true,liveShapes=()=>undefined,liveCeilings=false,liveClearance}={}){
   if(!definition?.surfaces?.length||!definition.spawn)throw Error('A visit needs verified support surfaces and spawn');
   const data=structuredClone(definition),body={...CHARACTER_PROFILES.goat,...data.body,...requestedBody},world={width:data.width,height:data.height};
   const surfaces=spatialIndex(data.surfaces,surfaceBounds),ceilings=spatialIndex(data.ceilings||[],surfaceBounds),blockers=spatialIndex(data.blockers||[],b=>b.openBounds?{min:b.bounds.min.map((v,i)=>Math.min(v,b.openBounds.min[i])),max:b.bounds.max.map((v,i)=>Math.max(v,b.openBounds.max[i]))}:b.bounds);
@@ -72,7 +72,7 @@ export function createPlaceNavigation({definition,body:requestedBody,isSectionRe
     }return true;
   }
   function transitionBlocked(actor,portal,open){return (portalLeaves.get(portal.id)||[]).filter(boundaryPresent).some(leaf=>{const b=open?leaf.openBounds:leaf.bounds;if(!b||b.max[1]<=actor.elevation+.025||b.min[1]>=actor.elevation+body.height-EPS)return false;const list=shapes(leaf,open);return list?list.some(s=>!sweptCylinderClear(actor,actor,body.radius,actor.elevation+.025,actor.elevation+body.height-EPS,s)):!sweptDiscClear(actor,actor,body.radius,world,[box({bounds:b})]);});}
-  function nearestPortal(actor){return (data.portals||[]).filter(p=>reachable(actor,p)).sort((a,b)=>Math.hypot(a.position[0]-actor.x,a.position[2]-actor.y)-Math.hypot(b.position[0]-actor.x,b.position[2]-actor.y))[0];}
+  function nearestPortal(actor){return (data.portals||[]).filter(p=>portalPresent(p)&&reachable(actor,p)).sort((a,b)=>Math.hypot(a.position[0]-actor.x,a.position[2]-actor.y)-Math.hypot(b.position[0]-actor.x,b.position[2]-actor.y))[0];}
   function interaction(actor,paused=false){const p=nearestPortal(actor);if(!p)return null;const open=!portalOpen(p.id),reason=paused?'Paused.':transitionBlocked(actor,p,open)?'Move clear of the door.':'';return {id:p.id,kind:'door',action:open?'open':'close',label:(open?'Open ':'Close ')+doorName(p),enabled:!reason,reason,anchor:[p.position[0],p.position[1]+2.15,p.position[2]]};}
   function move(actor,dx,dy){
     if(closed)throw Error('Place navigation disposed');if(![actor.x,actor.y,actor.elevation,dx,dy].every(Number.isFinite))throw Error('Finite native movement required');

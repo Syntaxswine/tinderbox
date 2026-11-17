@@ -14,7 +14,7 @@ export function createFire(T,assets,fieldUniforms,readCells=createCellReader()){
     const offsets=new Float32Array(capacity*3),shapes=new Float32Array(capacity*4),info=new Float32Array(capacity*2);
     for(const [name,array,itemSize]of [['iOffset',offsets,3],['iShape',shapes,4],['iInfo',info,2]])geometry.setAttribute(name,new T.InstancedBufferAttribute(array,itemSize).setUsage(T.DynamicDrawUsage));
     const material=pool.material(new T.ShaderMaterial({transparent:true,depthWrite:false,depthTest:true,side:T.DoubleSide,toneMapped:false,
-      uniforms:{map:{value:map},clock:worldClock,bear,kind:{value:kind},field:fieldUniforms.field,grid:fieldUniforms.grid,cellSize:fieldUniforms.cellSize},
+      uniforms:{map:{value:map},clock:worldClock,bear,kind:{value:kind},field:fieldUniforms.field,grid:fieldUniforms.grid,cellSize:fieldUniforms.cellSize,fieldOrigin:fieldUniforms.fieldOrigin||{value:new T.Vector2()}},
       vertexShader:`
         attribute vec3 iOffset;attribute vec4 iShape;attribute vec2 iInfo;
         uniform float clock,kind;varying vec2 uvPaint;varying vec4 shape;varying vec2 info;varying vec3 paintWorld;
@@ -27,7 +27,7 @@ export function createFire(T,assets,fieldUniforms,readCells=createCellReader()){
           gl_Position=projectionMatrix*viewMatrix*vec4(paintWorld,1.);
         }`,
       fragmentShader:`
-        uniform sampler2D map,field;uniform float clock,kind,cellSize;uniform vec2 grid;uniform vec3 bear;
+        uniform sampler2D map,field;uniform float clock,kind,cellSize;uniform vec2 grid,fieldOrigin;uniform vec3 bear;
         varying vec2 uvPaint;varying vec4 shape;varying vec2 info;varying vec3 paintWorld;
         vec4 frame(float n,vec2 p){n=mod(n,4.);vec2 cell=vec2(mod(n,2.),1.-floor(n/2.));return texture2D(map,(cell+clamp(p,.012,.988))*.5);}
         void main(){
@@ -45,7 +45,7 @@ export function createFire(T,assets,fieldUniforms,readCells=createCellReader()){
             c.rgb=mix(vec3(.045,.051,.045),vec3(.25,.26,.23),lum);
             c.a*=smoothstep(0.,.18,p.y);
           }else if(kind<.5&&info.y<.5){
-            vec2 cell=floor(paintWorld.xz/cellSize);
+            vec2 cell=floor((paintWorld.xz-fieldOrigin)/cellSize);
             if(any(lessThan(cell,vec2(0.)))||any(greaterThanEqual(cell,grid)))discard;
             float live=texture2D(field,(cell+.5)/grid).a;
             if(paintWorld.y<.25&&live<.5)c.a*=smoothstep(.02,.25,paintWorld.y);

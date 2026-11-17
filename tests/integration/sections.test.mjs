@@ -27,6 +27,17 @@ test('rapid exit releases stale async section completion and every created geome
   stream.update({x:.5,y:2.5,elevation:0});stream.dispose();gate.resolve();await stream.settled();assert.equal(root.children.length,0);for(const count of resources.values())assert.equal(count,1);
   assert.equal(stream.metrics().materials,0);assert.equal(stream.metrics().geometries,0);
 });
+
+test('owned source-mask sections keep one view through activation, retire on departure, and dispose late completion once',async()=>{
+  const f=fixture(3),root=new T.Group(),created=[],stream=createSectionStreamer({...f,THREE:T,root,baseUrl:'https://fixture.test/',limits:{loadRadius:5,retainRadius:8,maxSections:3},overview:'sections',loadJSON:async()=>{throw Error('A source-mask view must not fetch a second raw geometry');},createSectionView:async section=>{const record={id:section.id,root:new T.Group(),disposed:0,dispose(){this.disposed++;this.root.removeFromParent();}};created.push(record);return record;}});
+  try{
+    stream.update({x:1,y:2.5,elevation:0});await stream.settled();assert.deepEqual(stream.residentIds(),['0']);assert.equal(created.length,1);
+    stream.update({x:1,y:2.5,elevation:0},{portalStates:{entry:true}});await stream.settled();assert.equal(created.length,1,'Source state/door updates do not replace the view');
+    stream.update({x:33,y:2.5,elevation:0});await stream.settled();assert.equal(created[0].disposed,1);assert.deepEqual(stream.residentIds(),['2']);
+    stream.update({x:33,y:2.5,elevation:0},{viewMode:'overview'});await stream.settled();assert.equal(stream.metrics().activeSections,3);assert.equal(stream.metrics().externalViews,3);
+  }finally{stream.dispose();}assert.equal(root.children.length,0);assert.ok(created.every(r=>r.disposed===1));
+  let resolve;const gate=new Promise(r=>resolve=r),late={root:new T.Group(),disposed:0,dispose(){this.disposed++;}};const pending=createSectionStreamer({...fixture(1),THREE:T,root,baseUrl:'https://fixture.test/',createSectionView:async()=>{await gate;return late;}});pending.update({x:1,y:2.5,elevation:0});pending.dispose();resolve();await pending.settled();assert.equal(late.disposed,1);assert.equal(root.children.length,0);
+});
 test('section load failure is explicit and recoverable by a new visit without leaked material/geometry ownership',async()=>{
   const f=fixture(1),root=new T.Group(),errors=[];const stream=createSectionStreamer({...f,THREE:T,root,baseUrl:'https://fixture.test/',loadJSON:async()=>{throw Error('missing section');},onError:e=>errors.push(e)});
   stream.update({x:.5,y:2.5,elevation:0});await assert.rejects(stream.settled(),/missing section/);assert.equal(stream.isReadyAt({x:.5,y:2.5,elevation:0}),false);assert.equal(errors.length,1);stream.dispose();assert.equal(root.children.length,0);

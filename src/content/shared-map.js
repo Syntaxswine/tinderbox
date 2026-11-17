@@ -1,0 +1,26 @@
+import {decodeMapSources} from './map-source-data.js';
+import {createMapSourceGeometry} from './map-source-geometry.js';
+import {gameplayMapDefinition} from './shared-map-pilot.js';
+import {createSourceQueryRegistry} from '../runtime/source-query-registry.js';
+import {createSourceActivation} from '../simulation/source-activation.js';
+import {createSourceSupportGraph} from '../simulation/source-support.js';
+import {createSourceFollow} from '../simulation/source-follow.js';
+import {createMapNavigation} from '../simulation/map-navigation.js';
+
+export function compileSharedMap(index,library,navigation,{isSectionReady=()=>true,streamMetrics=()=>({}),sampleWind,windMetadata}={}){
+  const model=decodeMapSources(index,library);if(model.placeId!==navigation.placeId)throw Error('Shared map source/navigation identity differs');
+  const sources=createMapSourceGeometry(model),definition=gameplayMapDefinition(navigation),id=model.placeId;
+  const data={version:1,prefabId:id+'-shared-gameplay',runtimeAdapterVersion:1,thermalCell:[.5,1.06,.5],gridOrigin:[0,0,0],implicitGround:false,groundY:0,sourceBounds:navigation.sourceBounds,
+    levels:navigation.occupiedLevels.map(index=>({index,floorY:index*2.12})),surfaces:[],openings:[],items:[],furnitureParts:[],stores:[],sourceMeshes:[],sourceHashes:[],render:{geometry:[],materials:[]},stairFlights:[],
+    scene:{version:1,instances:[{id,bounds:navigation.sourceBounds}],doors:[]}};
+  let querySource,activation,follow,registered=[],registeredOpenings=[],generation=0;
+  return {data,definition,instances:[{id,data:{}}],representation:'native-map-sparse-sources',sparsePublication:true,sourceCarriers:model.carriers,activeCarrierIds:[],limitations:model.index.limitations,model,sources,sampleWind,windMetadata,
+    createQuerySource(){generation++;registered=[];registeredOpenings=[];querySource=createSourceQueryRegistry({navigation,parts:model.parts,shapeForPart:sources.shapeForPart});return querySource;},
+    supportGraphFactory:scene=>createSourceSupportGraph({scene,model,querySource}),
+    createActivation(options){activation=createSourceActivation({...options,sources,onActivated({carrierIds}){for(const id of carrierIds){const b=activation.sourceForCarrier(id);registered.push(...b.surfaces);registeredOpenings.push(...b.openings);}}});follow=createSourceFollow({model,trial:options.trial,querySource,activation});querySource.setFollowResolver(follow.resolve);return activation;},
+    createNavigation:options=>createMapNavigation({...options,definition:navigation,isSectionReady,streamMetrics}),
+    registration:()=>({generation,surfaces:registered,openings:registeredOpenings}),queryShape:id=>querySource.shape(id),
+    followPartition:id=>follow.partition(model.partById.get(id),sources.shapeForPart(id)),isActive:id=>activation.isActive(id),
+    presentationSourcesForCarrier:id=>activation.sourceForCarrier(id)||sources.presentationSourcesForCarrier(id,querySource.portalStates()),
+    metrics:()=>({geometry:sources.metrics(),query:querySource?.metrics(),activation:activation?.metrics()}),dispose(){sources.dispose();registered=[];registeredOpenings=[];querySource=null;activation=null;follow=null;}};
+}

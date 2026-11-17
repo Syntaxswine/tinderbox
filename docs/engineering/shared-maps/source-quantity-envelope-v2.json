@@ -1,0 +1,283 @@
+{
+  "scope": "Finite CPU source/contact fixture. No renderer, normal-input traversal or visual acceptance.",
+  "caseId": "wall",
+  "sourceIndexSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+  "partitionProducerSha256": "789d95810f23c1035064bdf3d80ddba78c63cd73a87969ed230048a6e6ce14e6",
+  "cold": {
+    "elapsedMs": 468.11980000000005,
+    "metrics": {
+      "geometry": {
+        "canonicalCarriers": 12446,
+        "sourceParts": 12858,
+        "decodedUniqueGeometries": 434,
+        "appearanceMaterials": 9,
+        "startupWorldShapesExpanded": 0,
+        "startupThermalCellsAllocated": 0,
+        "decodedAttributeGeometries": 0,
+        "transformedQueries": 0,
+        "renderExpansions": 0,
+        "nativeSourceExpansions": 0,
+        "nativePartTransforms": 0,
+        "presentationBlueprints": 0,
+        "presentationPartTransforms": 0,
+        "staticIndexBins": 148
+      },
+      "query": {
+        "querySurfaces": 12859,
+        "sourceParts": 12858,
+        "sourceCarriers": 12446,
+        "claimedCarriers": 0,
+        "cachedShapes": 0,
+        "cachedTriangles": 0,
+        "peakShapes": 0,
+        "peakTriangles": 0,
+        "shapeBuilds": 0,
+        "maxSingleQueryTriangles": 0,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "activation": {
+        "batches": 0,
+        "activatedCarriers": 0,
+        "probedCells": 0,
+        "lastBatchMs": 0,
+        "totalBatchMs": 0,
+        "peakBatchMs": 0,
+        "peakBatchCarriers": 0
+      }
+    },
+    "support": {
+      "nodes": 0,
+      "coldCarrierNodes": 12446,
+      "declaredPairs": 15285,
+      "adjacencyPairs": 25198,
+      "anchors": 231,
+      "initiallySupported": 0,
+      "unresolvedInitial": 1038,
+      "missingLocalLinks": 0,
+      "checks": 0,
+      "unresolvedExamples": [
+        "new-york::carrier/clerestory/0/window-0/jamb--1",
+        "new-york::carrier/clerestory/0/window-0/jamb-1",
+        "new-york::carrier/clerestory/0/window-0/sash-1",
+        "new-york::carrier/clerestory/0/window-0/sash-2",
+        "new-york::carrier/clerestory/0/window-0/sash-3",
+        "new-york::carrier/clerestory/0/window-1/jamb--1",
+        "new-york::carrier/clerestory/0/window-1/jamb-1",
+        "new-york::carrier/clerestory/0/window-1/sash-1"
+      ]
+    }
+  },
+  "quantityProbe": {
+    "carriers": 579,
+    "stagedBoundaries": 17563,
+    "stagedFuels": 7691,
+    "differences": [
+      {
+        "id": "new-york::carrier/ny-well-guard-east/top",
+        "nativeQuantity": 0.4083343109294491,
+        "sourceQuantity": 0.408333,
+        "sourceCount": 6,
+        "partitionError": {
+          "epsilon": 1e-7,
+          "positive": 0.000002658865607071315,
+          "negative": 0.00007045547890068663,
+          "roundoffBound": 8.14347630002942e-9,
+          "surfaces": [
+            {
+              "id": "new-york::carrier/ny-well-guard-east/top/part/10037/face/0",
+              "epsilon": 1e-7,
+              "sourceArea": 0.7000000029802322,
+              "lowerArea": 0.6999954429834141,
+              "upperArea": 0.7000045349832903,
+              "candidateTriangleCells": 80,
+              "areaDiscardBound": 0.000056,
+              "coordinateScale": 56.03500000014901,
+              "minCrossingDelta": 0.07000000029801967,
+              "positive": 6.605791489714723e-7,
+              "negative": 0.000016802823678224147,
+              "roundoffBound": 1.96771868908956e-9
+            },
+            {
+              "id": "new-york::carrier/ny-well-guard-east/top/part/10037/face/1",
+              "epsilon": 1e-7,
+              "sourceArea": 0.7000000029802322,
+              "lowerArea": 0.6999954429834143,
+              "upperArea": 0.7000045349832903,
+              "candidateTriangleCells": 80,
+              "areaDiscardBound": 0.000056,
+              "coordinateScale": 55.96499999985099,
+              "minCrossingDelta": 0.07000000029802322,
+              "positive": 6.605434772100753e-7,
+              "negative": 0.000016802788006428867,
+              "roundoffBound": 1.9320469276924882e-9
+            },
+            {
+              "id": "new-york::carrier/ny-well-guard-east/top/part/10037/face/2",
+              "epsilon": 1e-7,
+              "sourceArea": 0.004900000041723251,
+              "lowerArea": 0.004899944041882607,
+              "upperArea": 0.0049000560418838955,
+              "candidateTriangleCells": 8,
+              "areaDiscardBound": 0.0000056,
+              "coordinateScale": 56.03500000014901,
+              "minCrossingDelta": 0.034999800149009275,
+              "positive": 8.306819238474054e-9,
+              "negative": 0.0000016221244075238844,
+              "roundoffBound": 1.6861954506782573e-10
+            },
+            {
+              "id": "new-york::carrier/ny-well-guard-east/top/part/10037/face/3",
+              "epsilon": 1e-7,
+              "sourceArea": 0.004900000041723251,
+              "lowerArea": 0.0048999440418826075,
+              "upperArea": 0.0049000560418838955,
+              "candidateTriangleCells": 8,
+              "areaDiscardBound": 0.0000056,
+              "coordinateScale": 56.03500000014901,
+              "minCrossingDelta": 0.034999800149009275,
+              "positive": 8.306819277837952e-9,
+              "negative": 0.0000016221244075631694,
+              "roundoffBound": 1.686195844317244e-10
+            },
+            {
+              "id": "new-york::carrier/ny-well-guard-east/top/part/10037/face/4",
+              "epsilon": 1e-7,
+              "sourceArea": 0.7000000029802322,
+              "lowerArea": 0.6999954429833786,
+              "upperArea": 0.7000045349833256,
+              "candidateTriangleCells": 80,
+              "areaDiscardBound": 0.000056,
+              "coordinateScale": 56.03500000014901,
+              "minCrossingDelta": 0.07000000029802322,
+              "positive": 6.60564671186815e-7,
+              "negative": 0.00001680280920047337,
+              "roundoffBound": 1.9532357769612883e-9
+            },
+            {
+              "id": "new-york::carrier/ny-well-guard-east/top/part/10037/face/5",
+              "epsilon": 1e-7,
+              "sourceArea": 0.7000000029802322,
+              "lowerArea": 0.6999954429833786,
+              "upperArea": 0.7000045349833256,
+              "candidateTriangleCells": 80,
+              "areaDiscardBound": 0.000056,
+              "coordinateScale": 56.03500000014901,
+              "minCrossingDelta": 0.07000000029802322,
+              "positive": 6.605646711866401e-7,
+              "negative": 0.000016802809200473196,
+              "roundoffBound": 1.953235776786533e-9
+            }
+          ]
+        },
+        "canonical": 0.408333,
+        "difference": 0.0000013109294491053802,
+        "tolerance": 0.000001
+      },
+      {
+        "id": "new-york::carrier/ny-well-guard-west/top",
+        "nativeQuantity": 0.4083343109294491,
+        "sourceQuantity": 0.408333,
+        "sourceCount": 6,
+        "partitionError": {
+          "epsilon": 1e-7,
+          "positive": 0.000002657359163280968,
+          "negative": 0.00007045397245695276,
+          "roundoffBound": 6.637032577446668e-9,
+          "surfaces": [
+            {
+              "id": "new-york::carrier/ny-well-guard-west/top/part/10075/face/0",
+              "epsilon": 1e-7,
+              "sourceArea": 0.7000000029802322,
+              "lowerArea": 0.6999954429834141,
+              "upperArea": 0.7000045349832902,
+              "candidateTriangleCells": 80,
+              "areaDiscardBound": 0.000056,
+              "coordinateScale": 50.03500000014901,
+              "minCrossingDelta": 0.07000000029802322,
+              "positive": 6.602179099679296e-7,
+              "negative": 0.000016802462439243192,
+              "roundoffBound": 1.6064797081348121e-9
+            },
+            {
+              "id": "new-york::carrier/ny-well-guard-west/top/part/10075/face/1",
+              "epsilon": 1e-7,
+              "sourceArea": 0.7000000029802322,
+              "lowerArea": 0.6999954429834144,
+              "upperArea": 0.7000045349832903,
+              "candidateTriangleCells": 80,
+              "areaDiscardBound": 0.000056,
+              "coordinateScale": 49.96499999985099,
+              "minCrossingDelta": 0.07000000029801967,
+              "positive": 6.601860016477377e-7,
+              "negative": 0.00001680243053084394,
+              "roundoffBound": 1.5745713653549255e-9
+            },
+            {
+              "id": "new-york::carrier/ny-well-guard-west/top/part/10075/face/2",
+              "epsilon": 1e-7,
+              "sourceArea": 0.004900000041723251,
+              "lowerArea": 0.004899944041882607,
+              "upperArea": 0.0049000560418838955,
+              "candidateTriangleCells": 8,
+              "areaDiscardBound": 0.0000056,
+              "coordinateScale": 50.03500000014901,
+              "minCrossingDelta": 0.034999800149009275,
+              "positive": 8.272644534397521e-9,
+              "negative": 0.0000016220902328198079,
+              "roundoffBound": 1.3444484099129367e-10
+            },
+            {
+              "id": "new-york::carrier/ny-well-guard-west/top/part/10075/face/3",
+              "epsilon": 1e-7,
+              "sourceArea": 0.004900000041723251,
+              "lowerArea": 0.0048999440418826075,
+              "upperArea": 0.0049000560418838955,
+              "candidateTriangleCells": 8,
+              "areaDiscardBound": 0.0000056,
+              "coordinateScale": 50.03500000014901,
+              "minCrossingDelta": 0.034999800149009275,
+              "positive": 8.272644490527902e-9,
+              "negative": 0.0000016220902327758593,
+              "roundoffBound": 1.3444479712167307e-10
+            },
+            {
+              "id": "new-york::carrier/ny-well-guard-west/top/part/10075/face/4",
+              "epsilon": 1e-7,
+              "sourceArea": 0.7000000029802322,
+              "lowerArea": 0.6999954429833785,
+              "upperArea": 0.7000045349833255,
+              "candidateTriangleCells": 80,
+              "areaDiscardBound": 0.000056,
+              "coordinateScale": 50.03500000014901,
+              "minCrossingDelta": 0.07000000029802322,
+              "positive": 6.602049813200915e-7,
+              "negative": 0.00001680244951064053,
+              "roundoffBound": 1.593545932825987e-9
+            },
+            {
+              "id": "new-york::carrier/ny-well-guard-west/top/part/10075/face/5",
+              "epsilon": 1e-7,
+              "sourceArea": 0.7000000029802322,
+              "lowerArea": 0.6999954429833786,
+              "upperArea": 0.7000045349833255,
+              "candidateTriangleCells": 80,
+              "areaDiscardBound": 0.000056,
+              "coordinateScale": 50.03500000014901,
+              "minCrossingDelta": 0.07000000029802322,
+              "positive": 6.602049813202836e-7,
+              "negative": 0.000016802449510629426,
+              "roundoffBound": 1.5935459330179776e-9
+            }
+          ]
+        },
+        "canonical": 0.408333,
+        "difference": 0.0000013109294491053802,
+        "tolerance": 0.000001
+      }
+    ],
+    "maxAbsolute": 0.00005371327983283436
+  }
+}

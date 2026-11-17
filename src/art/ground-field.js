@@ -1,21 +1,21 @@
 
 import {Resources,clamp} from './resources.js';
 import {createCellReader} from './cell-publication.js';
-export function createGroundField(T,readCells=createCellReader()){
+export function createGroundField(T,readCells=createCellReader(),{windowSize=0,groundOnly=false}={}){
   const pool=new Resources(),root=new T.Group();root.name='Authoritative gas / heat / char mask';
   let cols=1,rows=1,size=.5,data=new Float32Array(4),texture,geometry,mesh;
   let previousCells,rowMajor=false,scratch;
-  const uniforms={field:{value:null},grid:{value:new T.Vector2(1,1)},cellSize:{value:.5}};
+  const uniforms={field:{value:null},grid:{value:new T.Vector2(1,1)},cellSize:{value:.5},fieldOrigin:{value:new T.Vector2(0,0)}};
   const material=pool.material(new T.ShaderMaterial({
     transparent:true,depthWrite:false,depthTest:true,side:T.DoubleSide,uniforms,
     vertexShader:`varying vec3 fieldWorld;void main(){vec4 w=modelMatrix*vec4(position,1.);fieldWorld=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`,
     fragmentShader:`
-      uniform sampler2D field;uniform vec2 grid;uniform float cellSize;varying vec3 fieldWorld;
+      uniform sampler2D field;uniform vec2 grid,fieldOrigin;uniform float cellSize;varying vec3 fieldWorld;
       float noise(vec2 p){return fract(sin(dot(floor(p),vec2(127.1,311.7)))*43758.5453);}
       vec4 sampleCell(vec2 p){if(any(lessThan(p,vec2(0.)))||any(greaterThanEqual(p,grid)))return vec4(0.);return texture2D(field,(p+.5)/grid);}
       float segment(vec2 p,vec2 b){float t=clamp(dot(p,b)/max(dot(b,b),.00001),0.,1.);return length(p-b*t);}
       void main(){
-        vec2 c=floor(fieldWorld.xz/cellSize),p=fract(fieldWorld.xz/cellSize)-.5;
+        vec2 c=floor((fieldWorld.xz-fieldOrigin)/cellSize),p=fract(fieldWorld.xz/cellSize)-.5;
         vec4 state=sampleCell(c);float d=length(p);
         if(sampleCell(c+vec2(1,0)).r>.001)d=min(d,segment(p,vec2(.5,0)));
         if(sampleCell(c+vec2(-1,0)).r>.001)d=min(d,segment(p,vec2(-.5,0)));
@@ -47,7 +47,8 @@ export function createGroundField(T,readCells=createCellReader()){
       }`
   }));
   function resize(world){
-    const nextSize=world.fireCellSize||.5,nextCols=Math.max(1,Math.ceil(world.width/nextSize)),nextRows=Math.max(1,Math.ceil(world.height/nextSize));
+    const nextSize=world.fireCellSize||.5,nextCols=Math.max(1,Math.ceil((windowSize||world.width)/nextSize)),nextRows=Math.max(1,Math.ceil((windowSize||world.height)/nextSize));
+    if(nextCols*nextRows>65536)throw Error('Ground presentation window exceeds 65536 texels');
     if(texture&&cols===nextCols&&rows===nextRows&&size===nextSize)return false;
     if(texture){texture.dispose();pool.textures.delete(texture);geometry.dispose();pool.geometries.delete(geometry);mesh.removeFromParent();}
     cols=nextCols;rows=nextRows;size=nextSize;data=new Float32Array(cols*rows*4);
@@ -61,7 +62,8 @@ export function createGroundField(T,readCells=createCellReader()){
   }
 
   function texel(cell){
-    const x=Math.floor(cell.x/size),y=Math.floor(cell.y/size);
+    if(groundOnly&&Math.abs(cell.h??0)>.05)return -1;
+    const x=Math.floor((cell.x-uniforms.fieldOrigin.value.x)/size),y=Math.floor((cell.y-uniforms.fieldOrigin.value.y)/size);
     return x>=0&&y>=0&&x<cols&&y<rows?y*cols+x:-1;
   }
 
@@ -78,6 +80,7 @@ export function createGroundField(T,readCells=createCellReader()){
 
   return {root,uniforms,update(snapshot){
     let dirty=resize(snapshot.world);
+    if(windowSize){const x=Math.floor((snapshot.player.x-windowSize/2)/8)*8,y=Math.floor((snapshot.player.y-windowSize/2)/8)*8;if(x!==uniforms.fieldOrigin.value.x||y!==uniforms.fieldOrigin.value.y){uniforms.fieldOrigin.value.set(x,y);mesh.position.set(x+cols*size/2,.018,y+rows*size/2);previousCells=undefined;rowMajor=false;dirty=true;}}
     const cells=snapshot.cells||[],view=readCells(cells);
     if(view&&previousCells===cells)return;
     const changes=view&&rowMajor&&view.previous===previousCells?view.changes:null;
@@ -100,5 +103,5 @@ export function createGroundField(T,readCells=createCellReader()){
     }
     previousCells=view?cells:undefined;
     if(dirty)texture.needsUpdate=true;
-  },dispose(){root.removeFromParent();root.clear();pool.dispose();},counts:()=>pool.counts()};
+  },dispose(){root.removeFromParent();root.clear();pool.dispose();},counts:()=>({...pool.counts(),texels:cols*rows,windowSize,fieldOrigin:uniforms.fieldOrigin.value.toArray()})};
 }
