@@ -24,6 +24,6 @@ const added=new Set([...changed.filter(p=>!baselinePaths.has(p)),...lines(git('l
 const frozenPath='docs/engineering/house-traversal/runtime-integration.json';
 const data={version:1,scope:'CPU/source checkpoint only; not a finished landmark gameplay map, renderer or Pages acceptance.',baselineCommit:baseline,sourceIntakes:{ui:'2c866a6bf173e1549c54d34c124a9d055febda3d',artist:'59b9373f47d51531c7e505613f67dd1e426b37f1'},frozenM28:{path:frozenPath,lfSha256:sha(lf(frozenPath))},runtimeFiles,addedFiles:[...added].sort().map(p=>({path:p,lfSha256:sha(lf(p))}))};
 const output='docs/engineering/shared-maps/runtime-integration.json',text=JSON.stringify(data,null,2)+'\n';
-if(process.argv.includes('--check')){if(fs.readFileSync(output,'utf8')!==text)throw Error('M29 runtime declaration is stale');}
+if(process.argv.includes('--check')){if(lf(output)!==text)throw Error('M29 runtime declaration is stale');}
 else{fs.mkdirSync('docs/engineering/shared-maps',{recursive:true});fs.writeFileSync(output,text);}
 console.log(JSON.stringify({runtimeFiles:runtimeFiles.length,addedFiles:added.size}));
