@@ -1,0 +1,21 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const out='artifacts/qa/shared-map-runtime/contact-live-v1/',hash=b=>createHash('sha256').update(b).digest('hex'),lf=p=>fs.readFileSync(p,'utf8').replace(/\r\n/g,'\n'),audit=JSON.parse(lf(out+'source-audit.json'));
+assert.equal(hash(lf(audit.currentSource.path)),audit.currentSource.afterLfSha256);
+assert.equal(JSON.parse(lf(out+'focused-check.json')).status,0);assert.equal(JSON.parse(lf(out+'native-check.json')).status,0);
+assert.equal(fs.existsSync(out+'run'),false,'The single measurement has not been started');
+let code=lf('docs/engineering/shared-maps/continuity-index-v1/measure.mjs');const originalProducer=hash(code),changes=[];
+assert.equal(originalProducer,'2ae944e62f04c358da1fd86563be0e3521e55055e96ab570bc86b386f2b7b020');
+function replace(before,after,purpose){assert.equal(code.split(before).length-1,1,purpose);code=code.replace(before,after);changes.push({purpose,before,after});}
+replace('// Architect-authorized matched CPU pair. Fixed runtime and ordinary command path.','// One architect-authorized unprofiled contact/live candidate. Same ordinary command path.','Label the actual bounded experiment');
+replace("assert.equal(mode,'control','Exactly one unprofiled continuity measurement is authorized');const lane='continuity-candidate';","assert.equal(mode,'control','Exactly one unprofiled contact/live measurement is authorized');const lane='contact-live-candidate';",'One unprofiled measurement, no additional control/profile');
+replace("const frozen='0e1ab9ddc42a0f7e301858044c82a221f73d8805'",`const frozen='${audit.wholeTreeBase}'`,'Use the explicitly authorized exact combined tree for every production/source path');
+const oldGate=code.split('\n').find(l=>l.startsWith('const experimentDelta='));
+const newGate=`const algorithmReference=${JSON.stringify({commit:audit.baseRuntime,supportLfSha256:audit.currentSource.beforeLfSha256})};const experimentDelta=${JSON.stringify(audit.currentSource)};assert.equal(sha(git('show',algorithmReference.commit+':'+experimentDelta.path).replace(/\\r\\n/g,'\\n')+'\\n'),algorithmReference.supportLfSha256);assert.equal(sha(git('show',frozen+':'+experimentDelta.path).replace(/\\r\\n/g,'\\n')+'\\n'),algorithmReference.supportLfSha256);assert.equal(git('diff','--name-only',frozen,'--','src','assets','art','vendor','workbenches'),experimentDelta.path);assert.equal(sha(fs.readFileSync(experimentDelta.path,'utf8').replace(/\\r\\n/g,'\\n')),experimentDelta.afterLfSha256);`;
+replace(oldGate,newGate,'Pin separate identical algorithm/combined references and the sole approved source delta; no ignored subtree');
+replace("purpose:'M29 architect-authorized one unprofiled carrier-local continuity measurement'","purpose:'M29 746c2ab0 one unprofiled active-contact and live-reach measurement'",'Exact measurement ownership');
+replace("parentAttributionCommit:'a5e171d9d924b6baf46151f416f23cd0d5746120'",`algorithmReference,authority:'${audit.authority}',parentContinuityCommit:'${audit.baseRuntime}',priorPhoneEvidence:'8628834adab044b4c02768aaa20ad33886cc1d8f'`,'Preserve both baseline roles and unresolved actual-input failure');
+fs.writeFileSync(out+'measure.mjs',code);
+fs.writeFileSync(out+'preparation.json',JSON.stringify({scope:'One unprofiled candidate measurement after strict source/declaration, 56 focused and 15/60/819 native gates. No profile/control/build/GL.',authority:audit.authority,algorithmReference:audit.baseRuntime,wholeTreeReference:audit.wholeTreeBase,supportReferenceLfSha256:audit.currentSource.beforeLfSha256,productionDelta:audit.currentSource,originalProducerLfSha256:originalProducer,producerLfSha256:hash(code),fixtureLfSha256:'43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253',hostReadSchedule:'Unchanged snapshots; host timer consumes only the existing advance return value.',changes},null,2)+'\n');
+console.log(JSON.stringify({source:audit.currentSource,producerSha256:hash(code),algorithmReference:audit.baseRuntime,wholeTreeReference:audit.wholeTreeBase}));

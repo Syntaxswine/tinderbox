@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "scope": "Source/CPU-checked New York engineering-pilot runtime/presentation candidate; no renderer, finished-map, other-landmark or Pages acceptance.",
+  "baselineCommit": "6d1061cd3ab7e6c9bff212381193376473413b30",
+  "sourceIntakes": {
+    "uiCapabilities": "2c866a6bf173e1549c54d34c124a9d055febda3d",
+    "uiPresentation": "47f87fb01fe922b1085c05e3082986c50b04a5c7",
+    "uiShortLandscapeLayout": "130fe10db3af8a7efcd04e71139a2fbed74b1e91",
+    "uiToolSelectionOrdering": "8f0cd5743d159c53f56eeeb4eabd137cd3d7621c",
+    "artistPilot": "59b9373f47d51531c7e505613f67dd1e426b37f1",
+    "artistComplete": "82b7fc604eb183d65e7569366c47f45e5f07c1b5",
+    "artistCheckerContext": "90c226f674d51a2d030fcdd4679e61a3bdd9ebfe",
+    "artistFirstSupportControls": "9a88959d2011d182377a9eeb95d5ed9d222e46b1"
+  },
+  "frozenM28": {
+    "path": "docs/engineering/house-traversal/runtime-integration.json",
+    "lfSha256": "15cbdd597b9366ccb503645658e3f45aaba3fcda0e5eb05c62ae156f67e47347"
+  },
+  "runtimePackages": [
+    {
+      "path": "assets/runtime/map-sources/new-york/index.json",
+      "bytes": 8021251,
+      "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+    },
+    {
+      "path": "assets/runtime/map-sources/new-york/library.json",
+      "bytes": 3150020,
+      "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+    }
+  ],
+  "runtimeFiles": [
+    {
+      "path": "src/art/fire.js",
+      "beforeLfSha256": "b4d65aa136a4b40c2e8773d637f8e9f14b0b51ec5d72ef8c8d7f409089f920b4",
+      "afterLfSha256": "99854c5f13d71035e1decfed172a4ff0fc2c7fc1670bb5bc2d96473a66300041",
+      "reason": "Share the bounded source-ground field and its world origin with the common fire presentation."
+    },
+    {
+      "path": "src/art/ground-field.js",
+      "beforeLfSha256": "fe96aa9f150361e5c286dee9ef367ffd1413f4ba4ac10cf5024f20f00e0815b9",
+      "afterLfSha256": "354f5b4be2c59ba119e49e3b3280f0460536423bd1504a8db1933818ede0905e",
+      "reason": "Limit source-map ground residue to a local 32 m field and actual ground-height cells."
+    },
+    {
+      "path": "src/art/index.js",
+      "beforeLfSha256": "d19bdea9e36bfe13f97d25946e12ad8804ecf246c510ae5e6b976ec9aae99975",
+      "afterLfSha256": "5228c7fe7721d8acc08f4161f54bc03e26f096a7175b4c61f4eb33830b7eaa22",
+      "reason": "Retain the sole native character, tools, night and six-light services while delegating source sections to the shared structural owner."
+    },
+    {
+      "path": "src/art/tool-props.js",
+      "beforeLfSha256": "1dedb9f2ebbdc61aa1b687953998add1d7ca3e793d236f47a0015ffa198e834e",
+      "afterLfSha256": "5a958e1f9a6108a4fbd9302ca53631e78721c42fd66e99a53028325e1e4d898a",
+      "reason": "End source-map pouring detail at the actual supported elevation and hide it while airborne."
+    },
+    {
+      "path": "src/art/world.js",
+      "beforeLfSha256": "0336c5cf68a17fee904b6ada1e53f4bb3897387e0513dba4230cfecaf087b4ee",
+      "afterLfSha256": "d5766c6905e5dffe150f9fc66ab5d84c84bcbdb1ba2dd3196979a60e3630f355",
+      "reason": "Apply native elevation to existing NPC presentation."
+    },
+    {
+      "path": "src/main.js",
+      "beforeLfSha256": "a336391864d9c3dcf5a6aa4cef65858fee9328ce04f97123cfadeda4862c451b",
+      "afterLfSha256": "4c6a25f71bb9ebe7e5d1da79e1b7db24f79dcddf377589fa440cd042aafdfeb9",
+      "reason": "Select the shared New York engineering-pilot host and accepted Catalogue module; preserve explicit legacy, cottage and witness compatibility routes."
+    },
+    {
+      "path": "src/runtime/application.js",
+      "beforeLfSha256": "be7c3cef58e26bda192c7e86c1e49f72f48cf8dd9fa444ac4e7ad46dd63e27d7",
+      "afterLfSha256": "8399230eebf3896ae05169aa2ab5a4424f0f9f0c1221ed4ffd5c6834f4e87e74",
+      "reason": "Publish authoritative factory capabilities in active visit state."
+    },
+    {
+      "path": "src/runtime/camera.js",
+      "beforeLfSha256": "fc820847a53fc7e06f03fbcbaa65908495185a9366aec78399d0bf1c1678353d",
+      "afterLfSha256": "13a943e14ce009f1ef11f109eeff6797ce360903d7ed7ef45d233e68abf3e8c5",
+      "reason": "Keep source-map overview at original world bounds independently of player elevation."
+    },
+    {
+      "path": "src/runtime/index.js",
+      "beforeLfSha256": "6b7e1823979c04de7b98bfab9e3e57f8200369f108b3020d8ebd5fb74c2d1a34",
+      "afterLfSha256": "695d16ea8bbc3de73f6873e2cfafc46b2b6cca487fce56bcc5a2f2a59e61fd2c",
+      "reason": "Forward frozen capabilities and the shared map/picker to one gameplay/presentation core; dispose the compiled owner and callbacks."
+    },
+    {
+      "path": "src/runtime/navigation.js",
+      "beforeLfSha256": "aeeaaa2f403d88dfbb9d407624636a7ab18280f58594101639682df4dfb3a263",
+      "afterLfSha256": "a1b454d2a4844fb086e9673f92afbd6a1f0eb8eed00ddf042e709b09eb39722d",
+      "reason": "Extract pure native movement/support/door queries; preserve diagnostic exploration clocks."
+    },
+    {
+      "path": "src/runtime/sections.js",
+      "beforeLfSha256": "ff4faf6219d1089cbaa6ce4154994af4f06e4f6bf73dd0c852274e52dbf0994b",
+      "afterLfSha256": "9794a42102117e95bd8b0ad9e9302d14fb07233b7373b81774bf28128f5869ac",
+      "reason": "Prepare owned source-section views before residency, preserve late-load cleanup and opt into bounded source overview."
+    },
+    {
+      "path": "src/simulation/catalogue-thermal.js",
+      "beforeLfSha256": "3421387654b93f5f0a889d9ca6b02ca199563efff91fc1b0a13e1db15203dbbe",
+      "afterLfSha256": "b2ec3eac4d611d7d8ab25845fa8562da226f7e20dc0f14f7d768ffc9992568c3",
+      "reason": "Compatibility entry delegates to the single scene-thermal provider; Catalogue remains the control."
+    },
+    {
+      "path": "src/simulation/config.js",
+      "beforeLfSha256": "b2aafc62bc8d96fd30b92578741398dcfabf633bbadbd5188c6d922a9c1c6756",
+      "afterLfSha256": "8cf9746bb4cb1abed075b338d4a44c081953f1040fca496bbe485063e9b9ac7c",
+      "reason": "Resolve validated visit defaults once so New York camera and input share its front-side orientation; preserve global defaults."
+    },
+    {
+      "path": "src/simulation/index.js",
+      "beforeLfSha256": "b35e6d6508da6e3b5bf5871954823cff7ce182373c311f654895c3ebdaba689e",
+      "afterLfSha256": "401a5e9ec04a3bbc71b34791ffd5d032b9a57f6e87b8d0c220f4996555aaea38",
+      "reason": "Rehost sparse map data in the existing five-tool gameplay loop with native elevations and standard stock/clocks."
+    },
+    {
+      "path": "src/ui/index.js",
+      "beforeLfSha256": "265dd45adeaa74e4cf0bc1c4710fdf8ae008a11feef19fb5f2e94c62214207a5",
+      "afterLfSha256": "5298f3b2bd252c5f357b7ca100cc1b85c437b51d5e45502df97cf4a775f7eb3d",
+      "reason": "Accepted UI capability intake 2c866a6b and queued tool-intent correction 8f0cd574; immediate use follows the ordered input request while presentation remains snapshot-owned."
+    },
+    {
+      "path": "src/ui/model.js",
+      "beforeLfSha256": "9870591efb0aecef294e3e4b4ec49a913cb3b954d8966719e4849254b8498142",
+      "afterLfSha256": "a319748dd25a7ccb08099f8e96d819f712d191d6ed06862ee5384e76b75b6b97",
+      "reason": "Exact accepted UI capability intake 2c866a6b; presentation follows authoritative host state."
+    },
+    {
+      "path": "src/ui/title-screen.js",
+      "beforeLfSha256": "8dd5fbd52b14d62cf13e6e5a11e9a132111a310504f4b9643658944bac80fc05",
+      "afterLfSha256": "8602af31dac60959dc735cc22a45c469e09be6edd4cbabdc470092359a4fa013",
+      "reason": "Exact accepted UI capability intake 2c866a6b; presentation follows authoritative host state."
+    },
+    {
+      "path": "tools/review/catalogue-browser.mjs",
+      "beforeLfSha256": "692397833fb33a9f89c58e2ceac775279b41b12e817bf464b7bfeb7154923207",
+      "afterLfSha256": "a2ef2a2831a0f98231236627d0af4b89c12f264bff7123389692b1d7dd6cd376",
+      "reason": "Record task identity/deadline/server port before launch and verify cleanup even when browser launch fails; QA tooling only."
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "beforeLfSha256": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
+      "afterLfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+      "reason": "Extract the unchanged native gravity step and prevalidate atomic physical-index batches; return reference-counted unsubscribe handles for owned boundary watches."
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "beforeLfSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
+      "afterLfSha256": "5f763d6e9a28174f64d908e4ffca8284beca24ecfaf8afff671870a448473f36",
+      "reason": "Stage sparse sources with the unchanged compiler/clipper/profiles, derive a separate local quantity envelope and preserve exact rigid door hardware."
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "beforeLfSha256": "1accf6d27f27d78dd019f24e10f15354fd79b81b6cb8c87ee63ab90fdd98f1b5",
+      "afterLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9",
+      "reason": "Commit native source batches without resetting heat/time; reuse native local support, inert falls, real rubble and pane retirement without fuel creation; dispose owned source-support memoization with the trial."
+    },
+    {
+      "path": "workbenches/furnished-house/support.js",
+      "beforeLfSha256": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b",
+      "afterLfSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372",
+      "reason": "Recognize shared-scene instance scope for the existing explicit native stair/support graph."
+    }
+  ],
+  "addedFiles": [
+    {
+      "path": "src/art/shared-map.js",
+      "lfSha256": "6098f9c8b13f4e29fc8531833aa18fc3d69646fe511854efc4fa09cbe96beeb5"
+    },
+    {
+      "path": "src/art/source-inert-debris.js",
+      "lfSha256": "8d0010da7e7c32a7b79adbf2520238e0af3a2280a80633c6dca09fd3ade79915"
+    },
+    {
+      "path": "src/art/source-terrain.js",
+      "lfSha256": "616a151bbc16a9be25b936ff2310fd60fc733dfd1640ebd556bbeecc6f5597d4"
+    },
+    {
+      "path": "src/content/map-source-data.js",
+      "lfSha256": "7222511cdfe215996ac2a9fd2ec1977dbfc5ae46c57e373936a0735a7acf5e07"
+    },
+    {
+      "path": "src/content/map-source-geometry.js",
+      "lfSha256": "83db4af6a2754b06c24e7afc1c28f617403ab44d609ec22a90fe2e8914445a01"
+    },
+    {
+      "path": "src/content/map-source-presentation.js",
+      "lfSha256": "acb1aa9cc3660b3bd747eecae70b5205057d63ba797694538e213b93cd6c96de"
+    },
+    {
+      "path": "src/content/map-source-shapes.js",
+      "lfSha256": "a2b8c075973e973650d9a4cc90673a85549cf19887cd212e4ffa810f27a24b9e"
+    },
+    {
+      "path": "src/content/map-source-support-data.js",
+      "lfSha256": "2dbd12836903500db136f262e72d8ea924e4cddb0393c87e19a0241d5ee7c54c"
+    },
+    {
+      "path": "src/content/map-source-support-overrides.js",
+      "lfSha256": "f213f9d62911697e8a73852c3ebd25d1cdafbf6e8b8bf2cfb1c65f0f7328a7aa"
+    },
+    {
+      "path": "src/content/shared-map-pilot.js",
+      "lfSha256": "eabd76cb9b30e8e26806d76fe3763bd73882724066e0279478dadb8ca822ec2e"
+    },
+    {
+      "path": "src/content/shared-map.js",
+      "lfSha256": "95c1e1d57b69b0318dfb9a8f62729545e6fd0dadf75779acaec6503885db34a2"
+    },
+    {
+      "path": "src/content/visit-capabilities.js",
+      "lfSha256": "28b54e84cbf8ece1aeef3774fc4fe510db37e6c2a83f03680442ddc5e0802986"
+    },
+    {
+      "path": "src/runtime/native-query-registry.js",
+      "lfSha256": "42dfe59ab9c07e8b37a5c59c02f28378ca84f8fdc437746b41570889487be858"
+    },
+    {
+      "path": "src/runtime/place-navigation.js",
+      "lfSha256": "83d6b08fd17800d6ba69c2a0ba27c37ff736c11c51d1e885822e2d606c3da144"
+    },
+    {
+      "path": "src/runtime/polygons.js",
+      "lfSha256": "15d8259b6a7939272465f3809d65de261a1dc10322475a6e98291487050000ec"
+    },
+    {
+      "path": "src/runtime/shared-map-presentation.js",
+      "lfSha256": "13f8daa737741da476a794f46026599101a42f003f17ed71baf2fb540530a231"
+    },
+    {
+      "path": "src/runtime/shared-map.js",
+      "lfSha256": "3426bda64c5ac35aad9a421f129fe5da1a5f2fdba78d86ade72938af6f1402c8"
+    },
+    {
+      "path": "src/runtime/source-query-registry.js",
+      "lfSha256": "0baff57a303fb5eb9779dbbb5d816088d222e8f4af49e80586a1e17e8db363e8"
+    },
+    {
+      "path": "src/simulation/actor-support.js",
+      "lfSha256": "f61f55d982e41504671c79f12e84041b6b919266df38dbf94c102e9015ebaa37"
+    },
+    {
+      "path": "src/simulation/map-navigation.js",
+      "lfSha256": "9453c05262b1dbf0f2274e0e82b2ed3a56441507fa7c627b2bfafaaf215eb8f3"
+    },
+    {
+      "path": "src/simulation/scene-thermal.js",
+      "lfSha256": "99e9a1ef618d8cc62bda54352d5042fcffb1578a6f15daabda3bf17362b7a478"
+    },
+    {
+      "path": "src/simulation/source-activation.js",
+      "lfSha256": "2b612431c691fec709087130217e98925bab42ed40d2de268e8b6fafb9cbf358"
+    },
+    {
+      "path": "src/simulation/source-carriers.js",
+      "lfSha256": "1cf234cc401a7ea7fac01c459a34dfaae7735e2db7937156041d859630189cb6"
+    },
+    {
+      "path": "src/simulation/source-follow.js",
+      "lfSha256": "aee6a5e72f2d4b64edc3e6faf44d4de1d7448e9000b765aa0f9c677be15d5d06"
+    },
+    {
+      "path": "src/simulation/source-support.js",
+      "lfSha256": "18545e679d8318cb0115e7a144af62995e41b2f8cda400b40f1c3ed3a9452021"
+    },
+    {
+      "path": "src/ui/menu-navigation.js",
+      "lfSha256": "2e4bb6e6cccb9a0574fcf2ad7d0e844fe2afbf2ff023854da8be5c138ef5e4d9"
+    },
+    {
+      "path": "tools/compile-map-sources.mjs",
+      "lfSha256": "d5db5c3498a9fc5a777a72b30756d4b3c1eeea4a395915a2ed01a68ab2c7f838"
+    },
+    {
+      "path": "tools/compile-shared-map-pilot.mjs",
+      "lfSha256": "0ed450e99c7647972041780fb537d35759b4b483416be6bc86fe24e37dae3dfa"
+    },
+    {
+      "path": "tools/record-shared-map-runtime.mjs",
+      "lfSha256": "c766c094d8eeb63644a724aa6933e870b18049b3a28f325d57c819a5644b67f2"
+    },
+    {
+      "path": "tools/review/check-shared-map-integrated.mjs",
+      "lfSha256": "6bb851cde9a6e16101a39c23947730f71769825b32a9629913d90d3ea0626691"
+    },
+    {
+      "path": "tools/review/shared-map-actions.mjs",
+      "lfSha256": "5bbb4b0e9803b864cf023eaf84720ea431220711bce6c142beef66e391a7ffb7"
+    },
+    {
+      "path": "tools/review/shared-map-camera-contact.mjs",
+      "lfSha256": "9ec43708683bf00cd5d567886b55f42a42ac8082d59ef80c311714ac5975d3b3"
+    },
+    {
+      "path": "tools/review/shared-map-host-diff.mjs",
+      "lfSha256": "8c997a74a2ab0a5909672e891f7ff4acc3da284591c8bc4a5a0e00bd35150045"
+    },
+    {
+      "path": "tools/review/shared-map-layout.mjs",
+      "lfSha256": "9b43df21f5d3b971cb075bb69eeba196f2940357102e0002b0d162897532d85a"
+    },
+    {
+      "path": "tools/review/shared-map-phone.mjs",
+      "lfSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37"
+    },
+    {
+      "path": "tools/review/shared-map-pilot-cost.mjs",
+      "lfSha256": "52bf484dbfa9fbcbbc3f358fcbb4d56b79072773ce617f9ffbd8731648861c72"
+    },
+    {
+      "path": "tools/review/shared-map-route-contact.mjs",
+      "lfSha256": "61dd3d834093d3a4abb5d3a5387aa3f8aed3d3421982ecb03384a36225190474"
+    },
+    {
+      "path": "tools/review/shared-map-source-cost.mjs",
+      "lfSha256": "23e5430d0994c2ff00b56703e694c766e78635ac99a3f29afa330eed73b03aaa"
+    },
+    {
+      "path": "tools/review/shared-map-support-components.mjs",
+      "lfSha256": "331992b91559d618b3b2d64fcc8b5ac4a6e6dc99be7563c0c3c005c9fc2513cd"
+    },
+    {
+      "path": "workbenches/furnished-house/partition-error.js",
+      "lfSha256": "789d95810f23c1035064bdf3d80ddba78c63cd73a87969ed230048a6e6ce14e6"
+    }
+  ]
+}

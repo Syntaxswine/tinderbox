@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "scope": "Explicit architect-authorized reference correction for the new ordered cold query diagnostic only",
+  "queryReference": {
+    "commit": "55cd9b597744244fbd0168939b13fbc66662d7b3",
+    "supportLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c"
+  },
+  "unchangedPhysicalReference": "cd443ccdd9cbbb38cf4c338ef697d902739726d6",
+  "strictWholeTreeReference": "76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+  "candidateAlgorithmUnchanged": true,
+  "sourceLfSha256": "18545e679d8318cb0115e7a144af62995e41b2f8cda400b40f1c3ed3a9452021",
+  "preservedFailedLog": "failed-focused-v1.log",
+  "preservedFailedTest": "failed-source-support-test-v1.mjs",
+  "exactQueryTapeComparison": true,
+  "ignoredCalls": 0,
+  "numericAllowance": 0,
+  "existingPhysicalAssertionsRetained": true,
+  "extraPhysicalPair": "Both query reference and candidate are still fully compared to cd443; only the new query tape uses 55cd"
+}

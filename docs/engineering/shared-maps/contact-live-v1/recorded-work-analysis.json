@@ -1,0 +1,208 @@
+{
+  "version": 1,
+  "scope": "Already-recorded data and static source inspection only; no new run/profile/control",
+  "candidateAccepted": false,
+  "runtimePushHeld": true,
+  "contact": {
+    "completedBuilds": 3863,
+    "heldCompletedBuilds": 1978,
+    "peakRecords": 2124,
+    "peakNativeBinMemberships": 9068,
+    "exactRecordSum": null,
+    "exactMembershipSum": null,
+    "missing": "Only completed-build counts and running peaks were recorded, not each build size, carrier identity, pair identity or rebuild identity.",
+    "upperBoundsOnly": {
+      "allBuildsTimesGlobalPeak": {
+        "records": 8205012,
+        "memberships": 35029684
+      },
+      "tighterPublishedIntervalBound": {
+        "records": 4554420,
+        "memberships": 34822264
+      },
+      "intervals": [
+        {
+          "tick": 260,
+          "completedBuilds": 1438,
+          "cumulativeBuilds": 1438,
+          "recordPeakSoFar": 1068,
+          "membershipPeakSoFar": 9008,
+          "recordSumUpperBound": 1535784,
+          "membershipSumUpperBound": 12953504
+        },
+        {
+          "tick": 332,
+          "completedBuilds": 447,
+          "cumulativeBuilds": 1885,
+          "recordPeakSoFar": 1068,
+          "membershipPeakSoFar": 9008,
+          "recordSumUpperBound": 477396,
+          "membershipSumUpperBound": 4026576
+        },
+        {
+          "tick": 336,
+          "completedBuilds": 4,
+          "cumulativeBuilds": 1889,
+          "recordPeakSoFar": 1068,
+          "membershipPeakSoFar": 9008,
+          "recordSumUpperBound": 4272,
+          "membershipSumUpperBound": 36032
+        },
+        {
+          "tick": 340,
+          "completedBuilds": 1564,
+          "cumulativeBuilds": 3453,
+          "recordPeakSoFar": 1068,
+          "membershipPeakSoFar": 9008,
+          "recordSumUpperBound": 1670352,
+          "membershipSumUpperBound": 14088512
+        },
+        {
+          "tick": 342,
+          "completedBuilds": 4,
+          "cumulativeBuilds": 3457,
+          "recordPeakSoFar": 1068,
+          "membershipPeakSoFar": 9008,
+          "recordSumUpperBound": 4272,
+          "membershipSumUpperBound": 36032
+        },
+        {
+          "tick": 344,
+          "completedBuilds": 406,
+          "cumulativeBuilds": 3863,
+          "recordPeakSoFar": 2124,
+          "membershipPeakSoFar": 9068,
+          "recordSumUpperBound": 862344,
+          "membershipSumUpperBound": 3681608
+        }
+      ]
+    },
+    "perCarrierReuseCounts": null
+  },
+  "sourceInspection": {
+    "freshIndexEachActiveContactCall": true,
+    "fullSecondCarrierList": true,
+    "firstCarrierOrderUnchanged": true,
+    "secondCarrierOrderRestored": true,
+    "rebuildScopeCarrierIndexReuse": false,
+    "explanation": "Every uncached active/active connectContact call invokes visitSourceContactCandidates; that helper constructs createBoundaryIndex(seconds) anew. Distinct pair calculations can index the same unchanged second carrier again within one rebuild. The retained cache stores pair edge-ID blocks; it does not share a native index by carrier. Actual repeated carrier IDs/counts are not recorded and are not reconstructed here."
+  },
+  "methods": {
+    "support.pendingSources": {
+      "whole": {
+        "count": 183,
+        "totalMs": 2018.3642000000068,
+        "maxMs": 1401.5217999999995
+      },
+      "held": {
+        "count": 16,
+        "totalMs": 162.4753000000046,
+        "maxMs": null,
+        "maxNotRecorded": "Only the all-run method peak and cumulative held-start counters exist; no per-call or per-stage method maxima were recorded."
+      }
+    },
+    "support.unsupported": {
+      "whole": {
+        "count": 183,
+        "totalMs": 2074.0705999999996,
+        "maxMs": 1061.0697999999993
+      },
+      "held": {
+        "count": 16,
+        "totalMs": 2050.222600000002,
+        "maxMs": null,
+        "maxNotRecorded": "Only the all-run method peak and cumulative held-start counters exist; no per-call or per-stage method maxima were recorded."
+      }
+    },
+    "support.sourcesAdded": {
+      "whole": {
+        "count": 28,
+        "totalMs": 63.659299999999575,
+        "maxMs": 21.78270000000066
+      },
+      "held": {
+        "count": 25,
+        "totalMs": 42.02629999999954,
+        "maxMs": null,
+        "maxNotRecorded": "Only the all-run method peak and cumulative held-start counters exist; no per-call or per-stage method maxima were recorded."
+      }
+    }
+  },
+  "native": {
+    "nativeStepTotal": 183,
+    "publishedPhaseSamples": 183,
+    "maxNativeStepsPerHost": 1,
+    "allNativeStepsCoveredByPublishedPhaseSamples": true,
+    "phases": {
+      "commandsAndFallsMs": {
+        "wholeSumMs": 34.515000000003056,
+        "heldSumMs": 9.59830000000511,
+        "recordedPublishedStepPeak": {
+          "hostTick": 114,
+          "nativeTick": 57,
+          "ms": 12.676300000000083
+        }
+      },
+      "burnRegistryMs": {
+        "wholeSumMs": 0.6294000000004871,
+        "heldSumMs": 0.10100000000147702,
+        "recordedPublishedStepPeak": {
+          "hostTick": 260,
+          "nativeTick": 130,
+          "ms": 0.04989999999997963
+        }
+      },
+      "transportMs": {
+        "wholeSumMs": 71.40820000000053,
+        "heldSumMs": 70.9597999999969,
+        "recordedPublishedStepPeak": {
+          "hostTick": 338,
+          "nativeTick": 169,
+          "ms": 45.02139999999963
+        }
+      },
+      "preheatMs": {
+        "wholeSumMs": 8.34079999999608,
+        "heldSumMs": 7.838499999998021,
+        "recordedPublishedStepPeak": {
+          "hostTick": 352,
+          "nativeTick": 176,
+          "ms": 0.7430999999996857
+        }
+      },
+      "coolingMs": {
+        "wholeSumMs": 0.5561000000029708,
+        "heldSumMs": 0.4313000000020111,
+        "recordedPublishedStepPeak": {
+          "hostTick": 338,
+          "nativeTick": 169,
+          "ms": 0.09590000000025611
+        }
+      },
+      "boundaryAndSupportMs": {
+        "wholeSumMs": 2075.0457999999994,
+        "heldSumMs": 2050.6430999999993,
+        "recordedPublishedStepPeak": {
+          "hostTick": 344,
+          "nativeTick": 172,
+          "ms": 1061.1154999999999
+        }
+      },
+      "itemsMs": {
+        "wholeSumMs": 0.6045999999962532,
+        "heldSumMs": 0.09689999999864085,
+        "recordedPublishedStepPeak": {
+          "hostTick": 18,
+          "nativeTick": 9,
+          "ms": 0.0262000000000171
+        }
+      }
+    }
+  },
+  "limits": [
+    "Upper bounds are not measured allocation sums and do not establish simultaneous live memory",
+    "Method/phase counters are inclusive and overlap; do not sum them as independent costs",
+    "No recorded per-call held method peak, carrier-level rebuild identity, allocation timeline or GC release proof",
+    "Timing observations do not justify intake over55cd or correct v5 actual input"
+  ]
+}

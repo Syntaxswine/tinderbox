@@ -30,6 +30,27 @@ export function visitSourceContinuityCandidates(index,nodes,list,visit){
   return {records:local.surfaces.size,memberships};
 }
 
+// Contact scans retain registration order, including retired original pieces.
+// Padding only admits extra candidates; the caller keeps the exact predicates.
+export function visitSourceContactCandidates(index,nodes,firsts,seconds,visit){
+  for(const list of [firsts,seconds]){const carrier=list[0]?.sourceCarrierId;for(const b of list)if(index.surfaces.get(b.id)!==b||nodes.get(b.id)!==b||b.queryOnly||b.sourceCarrierId!==carrier)throw Error('Contact needs authoritative registered native fragments');}
+  const local=createBoundaryIndex(seconds),order=new Map(seconds.map((b,i)=>[b.id,i])),padding=TOLERANCE*2+EPS;let memberships=0;
+  for(const b of local.surfaces.values())memberships+=b.bounds.min.reduce((n,v,i)=>n*(Math.floor(b.bounds.max[i]+EPS)-Math.floor(v-EPS)+1),1);
+  for(const first of firsts){
+    const box={min:first.bounds.min.map(v=>v-padding),max:first.bounds.max.map(v=>v+padding)},candidates=local.candidates(box).sort((a,b)=>order.get(a.id)-order.get(b.id));
+    for(let i=0;i<candidates.length;i++)candidates[i]=index.surfaces.get(candidates[i].id);
+    visit(first,candidates);
+  }
+  return {records:local.surfaces.size,memberships};
+}
+
+// The live predicate is pure for this synchronous traversal. Retain the original
+// breadth-first insertion order without copying the full graph or its edge Sets.
+export function reachableLiveSourceLinks(graph,roots,live){
+  const seen=new Set();for(const id of roots)if(live(id))seen.add(id);
+  const queue=[...seen];for(let i=0;i<queue.length;i++)for(const id of graph.get(queue[i])||[])if(!seen.has(id)&&live(id)){seen.add(id);queue.push(id);}return seen;
+}
+
 // The full metadata graph is cold; only activated sources have local native
 // patch nodes. Exact approved links replace cold identities as each source is
 // installed. Render section residency never enters this graph.
@@ -42,6 +63,7 @@ export function createSourceSupportGraph({scene,model,querySource}){
   const calculations=new Map(),dependencies=new Map(),knownCalculations=new Set(),watched=new Map();
   let capture=null,cachedEdges=0,peakCachedEdges=0,cacheHits=0,cacheMisses=0,invalidations=0,closed=false;
   let continuityBuilds=0,peakTemporaryRecords=0,peakTemporaryMemberships=0;
+  let contactBuilds=0,peakContactRecords=0,peakContactMemberships=0;
   function invalidate(id){for(const key of dependencies.get(id)||[]){const old=calculations.get(key);if(old){cachedEdges-=old.edges.length;calculations.delete(key);invalidations++;}}}
   function calculate(key,owners,build){
     const old=calculations.get(key);if(old){cacheHits++;for(const [a,b]of old.edges)add(a,b);return old.result;}
@@ -83,7 +105,11 @@ export function createSourceSupportGraph({scene,model,querySource}){
   function pieces(id,near){return active.get(id)||coldPieces(id,near);}
   function connectContact(a,b,directed){
     if(!active.has(a)&&!active.has(b)){add(cold(a),cold(b),!directed);return true;}
-    let count=0;for(const first of pieces(a,carriers.get(b).bounds))for(const second of pieces(b,first.bounds))if(overlaps(first.bounds,second.bounds,TOLERANCE)&&supportSurfacesTouch(first,second)){add(first.id,second.id,!directed);count++;}return count>0;
+    let count=0;
+    if(active.has(a)&&active.has(b)){
+      const temporary=visitSourceContactCandidates(index,nodes,active.get(a),active.get(b),(first,candidates)=>{for(const second of candidates)if(overlaps(first.bounds,second.bounds,TOLERANCE)&&supportSurfacesTouch(first,second)){add(first.id,second.id,!directed);count++;}});
+      contactBuilds++;peakContactRecords=Math.max(peakContactRecords,temporary.records);peakContactMemberships=Math.max(peakContactMemberships,temporary.memberships);
+    }else for(const first of pieces(a,carriers.get(b).bounds))for(const second of pieces(b,first.bounds))if(overlaps(first.bounds,second.bounds,TOLERANCE)&&supportSurfacesTouch(first,second)){add(first.id,second.id,!directed);count++;}return count>0;
   }
   function assemblyRegions(r){
     if(r.childRegion)return [r.childRegion,r.parentRegion];
@@ -117,10 +143,10 @@ export function createSourceSupportGraph({scene,model,querySource}){
     structureDirty=false;lastRevision=-1;
   }
   register(index.surfaces.values());rebuild();
-  function state(){if(closed)throw Error('Source support graph disposed');rebuild();if(reachCache&&reachVersion===graphVersion)return reachCache;const graph=new Map([...links].map(([id,set])=>[id,live(id)?new Set([...set].filter(live)):new Set()]));reachVersion=graphVersion;return reachCache=reachable(graph,[...anchors].filter(live));}
+  function state(){if(closed)throw Error('Source support graph disposed');rebuild();if(reachCache&&reachVersion===graphVersion)return reachCache;reachVersion=graphVersion;return reachCache=reachableLiveSourceLinks(links,anchors,live);}
   function pendingSources(){const seen=state();if(seen!==pendingReach){pendingReach=seen;pendingCache=model.carriers.filter(c=>!active.has(c.id)&&metadataSupported.has(c.id)&&!seen.has(cold(c.id))).map(c=>c.id);}return pendingCache;}
   function unsupported({force=false}={}){if(!force&&!structureDirty&&lastRevision===graphVersion)return [];const seen=state();lastRevision=graphVersion;checks++;return [...initiallySupported].filter(id=>nodes.get(id).intact&&!exceptions.has(id)&&!seen.has(id)).sort().map(id=>nodes.get(id));}
-  return {nodes,links,unsupported,pendingSources,sourcesAdded(result){if(closed)throw Error('Source support graph disposed');register(result.boundaries);structureDirty=true;},rootingEvidence:()=>({links:metadataLinks,supported:metadataSupported,relations,verifiedContacts:adjacency}),diagnostics:({includeIds=true}={})=>({nodes:nodes.size,coldCarrierNodes:model.carriers.length-active.size,declaredPairs:relations.length,adjacencyPairs:adjacency.length,anchors:anchors.size,initiallySupported:initiallySupported.size,unresolvedInitial:metadataUnrooted.length+exceptions.size,...(includeIds?{unresolvedIds:[...metadataUnrooted,...exceptions]}:{}),missingLocalLinks,checks,topologyCache:{entries:calculations.size,entryLimit:model.carriers.length+relations.length+adjacency.length,variantsPerCalculation:1,directedEdges:cachedEdges,peakDirectedEdges:peakCachedEdges,hits:cacheHits,misses:cacheMisses,invalidations,watchedBoundaries:watched.size,retainedColdMeshes:0,disposed:closed,continuityBuilds,peakTemporaryRecords,peakTemporaryMemberships,retainedTemporaryIndexes:0}}),
+  return {nodes,links,unsupported,pendingSources,sourcesAdded(result){if(closed)throw Error('Source support graph disposed');register(result.boundaries);structureDirty=true;},rootingEvidence:()=>({links:metadataLinks,supported:metadataSupported,relations,verifiedContacts:adjacency}),diagnostics:({includeIds=true}={})=>({nodes:nodes.size,coldCarrierNodes:model.carriers.length-active.size,declaredPairs:relations.length,adjacencyPairs:adjacency.length,anchors:anchors.size,initiallySupported:initiallySupported.size,unresolvedInitial:metadataUnrooted.length+exceptions.size,...(includeIds?{unresolvedIds:[...metadataUnrooted,...exceptions]}:{}),missingLocalLinks,checks,topologyCache:{entries:calculations.size,entryLimit:model.carriers.length+relations.length+adjacency.length,variantsPerCalculation:1,directedEdges:cachedEdges,peakDirectedEdges:peakCachedEdges,hits:cacheHits,misses:cacheMisses,invalidations,watchedBoundaries:watched.size,retainedColdMeshes:0,disposed:closed,continuityBuilds,peakTemporaryRecords,peakTemporaryMemberships,retainedTemporaryIndexes:0,contactBuilds,peakContactRecords,peakContactMemberships,retainedContactIndexes:0}}),
     dispose(){if(closed)return;closed=true;for(const unsubscribe of watched.values())unsubscribe();watched.clear();calculations.clear();dependencies.clear();knownCalculations.clear();cachedEdges=0;capture=null;reachCache=pendingReach=null;pendingCache=[];nodes.clear();links.clear();active.clear();anchors.clear();initiallySupported.clear();exceptions.clear();}
   };
 }

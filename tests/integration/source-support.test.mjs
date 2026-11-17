@@ -19,10 +19,18 @@ assert.equal(createHash('sha256').update(referenceText).digest('hex'),referenceP
 const referenceModule=referenceText.replace(/from (['"])(\.{1,2}\/[^'"]+)\1/g,(_,quote,relative)=>'from '+JSON.stringify(new URL(relative,new URL('../../src/simulation/source-support.js',import.meta.url)).href));
 const referenceFactory=(await import('data:text/javascript;base64,'+Buffer.from(referenceModule).toString('base64'))).createSourceSupportGraph;
 
-function fixture(factory=createSourceSupportGraph,{door=false}={}){
-  const box=(min,max)=>({min,max}),floor=box([0,0,0],[4,.12,1]),left=box([.1,1.12,.1],[.3,1.32,.3]),right=box([3.6,1.12,.1],[3.8,1.32,.3]);
+// The cold-query tape compares the accepted cached implementation. All full
+// physical/native/support/stock comparisons retain the original cd443 oracle.
+const queryReferenceCommit='55cd9b597744244fbd0168939b13fbc66662d7b3';
+const queryReferenceText=execFileSync('git',['show',queryReferenceCommit+':src/simulation/source-support.js'],{encoding:'utf8',windowsHide:true}).replace(/\r\n/g,'\n');
+assert.equal(createHash('sha256').update(queryReferenceText).digest('hex'),'1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c','Pin the exact accepted cache/local-continuity query oracle');
+const queryReferenceModule=queryReferenceText.replace(/from (['"])(\.{1,2}\/[^'"]+)\1/g,(_,quote,relative)=>'from '+JSON.stringify(new URL(relative,new URL('../../src/simulation/source-support.js',import.meta.url)).href));
+const queryReferenceFactory=(await import('data:text/javascript;base64,'+Buffer.from(queryReferenceModule).toString('base64'))).createSourceSupportGraph;
+
+function fixture(factory=createSourceSupportGraph,{door=false,contact=false}={}){
+  const box=(min,max)=>({min,max}),floor=box([0,0,0],[4,.12,1]),left=box([.1,contact ? .12 : 1.12,.1],[.3,contact ? .32 : 1.32,.3]),right=box([3.6,contact ? .12 : 1.12,.1],[3.8,contact ? .32 : 1.32,.3]);
   const carriers=[{id:'f::floor',fuelClass:'frame',fuelAmount:4,bounds:floor,anchors:[{kind:'native-ground-contact',elevation:0}],supports:[],supportEvidence:[],attachments:[],adjacency:[],parts:[0]},...[['left',left],['right',right]].map(([name,bounds],i)=>({id:'f::'+name,fuelClass:null,fuelAmount:0,bounds,anchors:[],supports:['f::floor'],supportEvidence:[],attachments:[{parent:'f::floor',kind:'fixed-assembly-mount',childRegion:{bounds},parentRegion:{bounds:box([bounds.min[0],.119,bounds.min[2]],[bounds.max[0],.121,bounds.max[2]])}}],adjacency:[],parts:[i+1]}))];
-  const parts=carriers.map(c=>({id:c.id+'/part',carrierId:c.id,bounds:c.bounds,physical:true,material:c.fuelClass?'timber':'metal'})),model={carriers,parts,carrierById:new Map(carriers.map(c=>[c.id,c]))};
+  const parts=carriers.map(c=>({id:c.id+'/part',carrierId:c.id,bounds:c.bounds,physical:true,material:c.fuelClass?'timber':'metal'})),model={carriers,parts,carrierById:new Map(carriers.map(c=>[c.id,c])),...(contact?{index:{contacts:[[0,1],[1,0],[0,2],[2,0]]}}:{})};
   const navigation={version:1,placeId:'f',surfaces:[{id:'terrain',terrain:true,height:0,polygons:[[[-1,-1],[5,-1],[5,2],[-1,2]]],holes:[]}],ceilings:[],blockers:[],portals:[],collisionShapes:{}};
   const querySource=createSourceQueryRegistry({navigation,parts,shapeForPart:id=>({triangles:boxTriangles(parts.find(p=>p.id===id).bounds),closed:true})}),ledger=createSourceCarrierLedger(carriers);
   const data={version:1,runtimeAdapterVersion:1,prefabId:'support-fixture',sourceBounds:box([-1,0,-1],[5,4,2]),implicitGround:false,gridOrigin:[0,0,0],thermalCell:[.5,1.06,.5],surfaces:[],openings:[],items:[],furnitureParts:[],stores:[],render:{geometry:[],materials:[]},scene:{version:1,instances:[{id:'f'}],doors:[]}};
@@ -64,6 +72,14 @@ function equivalent(pair){
 
 test('all four cold/active endpoint combinations preserve the exact accepted graph and native stock',()=>{
   for(const ids of [[],['f::floor'],['f::right'],['f::floor','f::right']]){const pair=paired();try{for(const f of pair){f.activation.ensure(ids);f.trial.step();}equivalent(pair);}finally{for(const f of pair)f.dispose();}}
+});
+
+test('contact pruning preserves the exact cold shape query sequence in all four endpoint combinations',()=>{
+  for(const ids of [[],['f::floor'],['f::right'],['f::floor','f::right']]){const reference=fixture(referenceFactory,{contact:true}),queryReference=fixture(queryReferenceFactory,{contact:true}),candidate=fixture(createSourceSupportGraph,{contact:true}),all=[reference,queryReference,candidate];try{
+    const calls=[queryReference,candidate].map(f=>{const rows=[],shape=f.querySource.shape;f.querySource.shape=(...args)=>{rows.push(args);return shape(...args);};return rows;});
+    for(const f of all){f.activation.ensure(ids);f.trial.step();f.trial.supportGraph.sourcesAdded({boundaries:[]});f.trial.supportGraph.pendingSources();}
+    assert.deepEqual(calls[1],calls[0],'Full ordered cold query tape, including the cached second rebuild, agrees exactly with 55cd');if(ids.length)assert.ok(calls[0].length,'The cold-piece control actually performs shape queries');equivalent([reference,candidate]);equivalent([reference,queryReference]);
+  }finally{for(const f of all)f.dispose();}}
 });
 
 test('later activation reuses unchanged contact blocks while rebinding either cold endpoint exactly',()=>{
