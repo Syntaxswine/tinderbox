@@ -26,6 +26,17 @@ The 25 cap repairs and four original-jamb restorations remain separately typed;
 their unchanged native aperture/clearance and prefix/attribute evidence stay with
 the artist's check. Original raw/access/exploration files remain controls.
 
+The architect-accepted retained-surface T-junction refinement also fits this
+provider. Consume the exact effective `after` attributes and optional index;
+there is no runtime assumption that retained triangle indices form an identical
+prefix. Use the measured `retainedSourceTriangles` fields and offline
+`sourceToEffectiveTriangleMap` evidence for those four cornices. Preserve the
+original attribute-buffer prefix and the area/normal/UV/grossUV interpolation
+proof. Current render ownership intervals must address the **effective** index
+buffer; if a repaired part has a `sourceRange`, emit its after interval explicitly
+and retain the original interval separately as provenance. Whole-part replacements
+need no triangle mapping at runtime. This authorizes no unrelated remesh.
+
 For the typed support records, please emit `attachmentRecords` on each **child
 carrier**. Each record identifies its exact `parentCarrierId`, `kind`,
 `groundAnchor:false` and evidence. Retain existing `supportCarrierIds` as the
