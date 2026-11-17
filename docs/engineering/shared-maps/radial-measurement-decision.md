@@ -41,3 +41,14 @@ The 65 derived closed-solid cuts, 126 wall-face cases, three weather-roof cases,
 glazing damage ownership, structural joins and living-plant stock/response remain
 separate. No factory regeneration, geometry/export repair, native rule change,
 renderer or complete map acceptance is authorized here.
+
+For the source-side candidate numeric representation, an interval spanning more
+than one binary64 result is expected and is retained. The accepted reference is
+its conservative lower endpoint, not a claim that every plausible measurement
+rounds identically. Apply the unchanged reference-depth recipe, then propose the
+largest finite nonnegative binary64 no greater than that exact rational lower
+quantity. Prove its exact dyadic value is below/equal and its next higher value
+exceeds the lower bound; record bits and JSON round-trip, with exact and
+between-floats controls. This selects a deterministic conservative representation
+without erasing the interval or assigning/exporting fuel. Other existing stock
+and all unaccepted-template/union decisions remain unchanged.

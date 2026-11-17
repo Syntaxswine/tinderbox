@@ -86,3 +86,22 @@ ignored queries, algorithm change or additional measurement is granted. A source
 metadata correction resolving these explicit accepted reference roles may be
 recorded and checked without another pause; meaningful assertion failures still
 stop the experiment.
+
+## Non-adoption and preserved baseline
+
+The one measured candidate is physically/graphically equivalent in the checked
+states, but records 9.554 s wall / 14.453 s process CPU and held 3.964 / 6.063 s,
+with a 2.404 s first-use host and 1.658 / 1.578 s held hosts. Diagnostic heap/RSS
+observations also rise. These are single-run observations, not a controlled causal
+allocation result. They do not justify accepting either optimization over the
+previous checked runtime. Preserve local experiment `ee26e809` and its complete
+candidate/test payloads as an unaccepted archive; restore task-owned production,
+declaration and active tests to `55cd9b59` before a final evidence-only push.
+
+The recorded 3,863 temporary contact builds reconstruct a full second-carrier
+index for each uncached pair, without same-carrier reuse in one rebuild. Exact
+insertion totals and per-carrier repetition were not recorded; retain null values
+and clearly labeled conservative bounds. No extra run is authorized to fill them.
+The separate [offline-bake proof](support-bake-prototype-contract.md) investigates
+moving unchanged calculations into preparation. No unmeasured direct-live-only
+runtime change or actual-input correction is inferred.
