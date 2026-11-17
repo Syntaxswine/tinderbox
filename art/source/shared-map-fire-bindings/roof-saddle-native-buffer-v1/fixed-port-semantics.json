@@ -1,0 +1,30 @@
+{
+  "anyParentSubstitutionAllowed": false,
+  "cycleCreatedSupportAllowed": false,
+  "fittingRequirement": {
+    "bothOriginalParentsMustBeIndependentlySupported": true,
+    "fixedPortIds": [
+      "carrier/roof-saddle-native/main-parapet-6/bay-01/port-cornice",
+      "carrier/roof-saddle-native/main-parapet-6/bay-01/port-roof-seat"
+    ],
+    "operator": "ALL_FIXED_PORTS",
+    "portRetirement": "Loss of either fixed original port invalidates this fitting requirement; never substitute another surviving parent.",
+    "supportCannotComeFromFittingUpperOrDescendants": true
+  },
+  "newAnchor": false,
+  "reverseBrace": false,
+  "roofRolePreserved": "roof-covering",
+  "selectedAuthorityCommit": "44c7aa333a6c74d5723120a404fc1dec33cce162",
+  "semanticsKind": "Architect-selected conservative assembly ownership under binary support; not stress capacity.",
+  "upperDependency": {
+    "childCarrierId": "carrier/main-parapet-6/base",
+    "direction": "parent-to-child",
+    "fixedPortId": "carrier/roof-saddle-native/main-parapet-6/bay-01/port-top",
+    "localOneMetreIntervalX": [
+      49,
+      50
+    ],
+    "parentCarrierId": "carrier/roof-saddle-native/main-parapet-6/bay-01"
+  },
+  "version": 1
+}
