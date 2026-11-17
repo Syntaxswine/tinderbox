@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "scope": "Checked New York map-specific camera/input and exact source-picker endpoint successor. Source/CPU only; no corrected build/browser or visual acceptance.",
+  "baselineRuntimeCommit": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "runtimeDeclaration": "docs/engineering/shared-maps/runtime-integration.json",
+  "sourcePackageUnchanged": {"indexSha256":"e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab","librarySha256":"1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"},
+  "checks": [
+    {"command":"node tools/check.mjs","passed":true,"tests":592,"passedTests":592,"failedTests":0,"ownScripts":393,"staticModules":410,"sharedThreeAndProvenance":true,"artSyntaxDependencyChecks":59,"localLog":"artifacts/qa/shared-map-runtime/source-gate-v3/check.log"},
+    {"command":"node tools/record-shared-map-runtime.mjs --check","passed":true,"changedBaselineRuntimeFiles":22,"addedRuntimeFiles":37},
+    {"command":"node tools/review/check-shared-map-integrated.mjs --output=artifacts/qa/shared-map-runtime/m29-native-source-v2","passed":true,"physicalAssertions":15,"routes":60,"registrationComparisons":819,"maxRelativeRegistrationError":1.2434497875801753e-14,"historicalCheckerReferenceAndReceiptUnchanged":true},
+    {"command":"node tools/review/shared-map-route-contact.mjs --output=artifacts/qa/shared-map-runtime/normal-contact-route-v5.json","passed":true,"deadlineMs":60000,"elapsedMs":6471.351000000001,"receipt":"docs/engineering/shared-maps/normal-contact-route-v5.json","actualCamera":true,"ordinaryMovementAndTools":true,"pawnPlacement":false,"directHeatCommands":false},
+    {"command":"node tools/review/shared-map-camera-contact.mjs --output=artifacts/qa/shared-map-runtime/camera-corrected-v1.json","passed":true,"cameraRaySamples":100,"coatedVisibleSamples":34,"coatedWithinMatchReachFromDeclaredStance":0,"thermalCells":0,"receipt":"docs/engineering/shared-maps/camera-contact-v1.json"},
+    {"command":"git diff --check","passed":true}
+  ],
+  "retainedFindings": ["Original2b camera selected far tower geometry", "Exact picked glass endpoint returned heated before includeEndpoints correction", "Direct sideways route meets original column", "Original projecting sill prevents .85m match reach to the pane", "Nearer timber jamb occludes the previous coating aim"],
+  "preview": {"torchGlassDistance":0.9301493304252206,"torchRange":1.1,"torchResult":"no-fuel","matchTimberDistance":0.5679789406912994,"matchRange":0.85,"matchResult":"heated","sustainedAttempt":{"tool":"flamethrower","maxWallMs":2000,"forceIgnition":false},"immediateIgnitionRequired":false,"normalZoom":true,"viewport":[844,390],"renewedBuildAndBrowserGrantRequired":true},
+  "helpers": "All finite CPU commands/fixtures ended, recorded source-gate shell exited, no ports used. The original failed browser attempt remains separately documented; no corrected build or renderer was launched."
+}

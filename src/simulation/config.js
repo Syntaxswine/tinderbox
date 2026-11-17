@@ -41,8 +41,8 @@ function merge(base, override) {
   }
   return result;
 }
-export function configuration(override) {
-  const value = merge(DEFAULT_CONFIG, override);
+export function configuration(override, visitDefaults) {
+  const value = merge(visitDefaults ? merge(DEFAULT_CONFIG, visitDefaults) : DEFAULT_CONFIG, override);
   function check(object, prefix = '') {
     for (const [key, entry] of Object.entries(object)) {
       const path=prefix+key,signedCameraAxis=path==='input.cameraX'||path==='input.cameraY';

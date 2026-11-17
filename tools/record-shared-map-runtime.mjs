@@ -19,11 +19,13 @@ const reasons={
   'src/runtime/navigation.js':'Extract pure native movement/support/door queries; preserve diagnostic exploration clocks.',
   'src/runtime/sections.js':'Prepare owned source-section views before residency, preserve late-load cleanup and opt into bounded source overview.',
   'src/simulation/index.js':'Rehost sparse map data in the existing five-tool gameplay loop with native elevations and standard stock/clocks.',
+  'src/simulation/config.js':'Resolve validated visit defaults once so New York camera and input share its front-side orientation; preserve global defaults.',
   'src/simulation/catalogue-thermal.js':'Compatibility entry delegates to the single scene-thermal provider; Catalogue remains the control.',
   'workbenches/furnished-house/geometry.js':'Extract the unchanged native gravity step and prevalidate atomic physical-index batches.',
   'workbenches/furnished-house/scene.js':'Stage sparse sources with the unchanged compiler/clipper/profiles, derive a separate local quantity envelope and preserve exact rigid door hardware.',
   'workbenches/furnished-house/simulation.js':'Commit native source batches without resetting heat/time; reuse native local support, inert falls, real rubble and pane retirement without fuel creation.',
-  'workbenches/furnished-house/support.js':'Recognize shared-scene instance scope for the existing explicit native stair/support graph.'
+  'workbenches/furnished-house/support.js':'Recognize shared-scene instance scope for the existing explicit native stair/support graph.',
+  'tools/review/catalogue-browser.mjs':'Record task identity/deadline/server port before launch and verify cleanup even when browser launch fails; QA tooling only.'
 };
 const baselinePaths=new Set(lines(git('ls-tree','-r','--name-only',baseline)));
 const changed=lines(git('diff','--name-only',baseline)).filter(p=>/^(src|tools|workbenches)\//.test(p)&&/\.(js|mjs)$/.test(p));

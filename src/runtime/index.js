@@ -49,8 +49,8 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
   function loseFocus(){if(disposed)return;dispatch({type:'cancel-input'});dispatch({type:'pause',paused:true});lastTime=null;try{if(art)advance(settings.step);else snapshot=sim.advance(settings.step);}catch(error){dispose();onError(error);}}
   const abort=()=>dispose();externalSignal?.addEventListener('abort',abort,{once:true});
   try{
-    onLoadPhase?.({phase:'host-simulation-begin'});checkLoad();settings=configuration(config);
-    if(!sim){const created=createSimulation({seed,scenario,config,characterId,cottageWind,catalogueModules,gameplayMap,onLoadPhase});if(disposed||externalSignal?.aborted){created.dispose();checkLoad();}sim=created;}
+    onLoadPhase?.({phase:'host-simulation-begin'});checkLoad();settings=configuration(config,gameplayMap?.configuration);
+    if(!sim){const created=createSimulation({seed,scenario,config:settings,characterId,cottageWind,catalogueModules,gameplayMap,onLoadPhase});if(disposed||externalSignal?.aborted){created.dispose();checkLoad();}sim=created;}
     onLoadPhase?.({phase:'host-simulation-ready'});checkLoad();snapshot=sim.snapshot();capabilities=visitCapabilities('capabilities' in sim?sim.capabilities:Object.hasOwn(snapshot,'capabilities')?snapshot.capabilities:(uiOptions.mode==='explore'?EXPLORATION_CAPABILITIES:GAMEPLAY_CAPABILITIES));if(Object.hasOwn(snapshot,'capabilities'))restrictedCapabilities(capabilities,snapshot.capabilities);onLoadPhase?.({phase:'initial-publication-ready'});checkLoad();
     const createdRenderer=rendererFactory();if(disposed||externalSignal?.aborted){createdRenderer.forceContextLoss?.();createdRenderer.dispose();createdRenderer.domElement.remove();checkLoad();}renderer=createdRenderer;
     renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio||1,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.setClearColor(0x35281e);root.append(renderer.domElement);onLoadPhase?.({phase:'renderer-ready'});checkLoad();
