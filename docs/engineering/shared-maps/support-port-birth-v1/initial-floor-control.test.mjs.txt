@@ -1,0 +1,27 @@
+import test,{after} from 'node:test';
+import assert from 'node:assert/strict';
+import {decodeAcceptedSaddleProfile,supportFragmentsFromFaces} from '../../src/content/original-support-adapters.js';
+import {createOriginalSupportPorts} from '../../src/simulation/original-support-ports.js';
+import {createRegionalSourcePilot} from '../../src/simulation/regional-source-pilot.js';
+import {createRegionalReceiptBridge} from '../../src/runtime/regional-receipt-bridge.js';
+import {bounds,triangleArea} from '../../workbenches/furnished-house/geometry.js';
+import {fixture,plane} from '../fixtures/regional-source-data.mjs';
+import {boxTriangles} from '../fixtures/regional-query-data.mjs';
+let tinyNativeCalls=0;
+after(()=>console.log(JSON.stringify({supportAdapters:{tinyNativeCompilerCalls:tinyNativeCalls,originalRoofCompilations:0,worldTrials:0,worldSteps:0}})));
+
+test('physical/render seam mapping preserves a single physical vertex and rejects divergent buffers',()=>{
+  const p=[0,0,0,1,0,0,0,1,0],index=[0,1,2],physical={attributes:{position:{array:p}},index:{array:index}},render=structuredClone(physical),mapping={physicalVertexCount:3,renderVertexCount:3,renderToPhysicalVertex:index,physicalTriangleCount:1,renderTriangleToPhysicalTriangle:[0]},profile={physicalGeometry:{path:'physical'},renderGeometry:{path:'render'},physicalRenderMapping:{path:'mapping'},binaryBuffers:{'physical/position':{path:'p'},'physical/index':{path:'i'},'render/position':{path:'r'}}};
+  const json={physical,render,mapping},binary={p:new Uint8Array(new Float32Array(p).buffer),i:new Uint8Array(new Uint16Array(index).buffer),r:new Uint8Array(new Float32Array(p).buffer)};assert.equal(decodeAcceptedSaddleProfile(profile,id=>json[id],id=>binary[id]).physical,physical);binary.r=new Uint8Array(new Float32Array([0,0,0,2,0,0,0,1,0]).buffer);assert.throws(()=>decodeAcceptedSaddleProfile(profile,id=>json[id],id=>binary[id]),/identity/);
+});
+
+test('guarded native floor closures and changed surface tessellation keep source/component identity without new caps',()=>{
+  const input=fixture([plane('floor',[.1,.48,.1],[1.4,.48,.3],1,{nativePartId:'fixture/part',kind:'floor',closedShape:true,thickness:.12})]),producer=createRegionalSourcePilot(input),ts=boxTriangles([.1,.36,.1],[1.4,.48,.3]),surface=input.data.surfaces[0].triangles,source={partRef:{id:'fixture/part',carrierId:'fixture::owner',geometry:'original-measured-slab',closed:true,bounds:bounds(ts.flat())},closed:true,surfaceTriangles:surface,solidTriangles:ts,rayRecord:{id:'cold-floor',sourceSurfaceId:'fixture::owner',sourceCarrierId:'fixture::owner',nativePartId:'fixture/part',triangles:surface,solidTriangles:ts,bounds:bounds(ts.flat()),intact:true,openFraction:0,transmission:.02}},bridge=createRegionalReceiptBridge({producer,grid:{origin:input.data.gridOrigin,pitch:input.data.thermalCell},sources:[source],sourceRevision:input.sourceRevision});let ports;
+  try{
+    const receipt=producer.compile(producer.region('fixture::owner',[0,0,0]));tinyNativeCalls++;const old=bridge.state();bridge.prepare({expectedGeneration:old.generation,expectedRevision:old.revision,receipts:[receipt]}).publish();const faces=bridge.faces(bridge.state(),{channel:'solid'}),part={id:'fixture/part',ownerId:'fixture::owner',triangles:ts,nativeSources:input.data.surfaces},fragments=supportFragmentsFromFaces([part],faces);
+    const faceArea=faces.reduce((n,f)=>n+f.polygon.slice(1,-1).reduce((a,_,i)=>a+triangleArea([f.polygon[0],f.polygon[i+1],f.polygon[i+2]]),0),0),fragmentArea=fragments.reduce((n,f)=>n+f.triangles.reduce((a,t)=>a+triangleArea(t),0),0);assert.ok(Math.abs(faceArea-fragmentArea)<1e-12);assert.ok(fragments.some(f=>f.nativeClosurePrimitives.length));assert.ok(fragments.every(f=>f.ownerId==='fixture::owner'&&f.component===0&&f.sourceSurfaceId==='floor'));assert.equal(new Set(fragments.map(f=>f.recordId)).size,receipt.scene.index.surfaces.size);
+    assert.throws(()=>supportFragmentsFromFaces([{...part,nativeSources:[]}],faces),/Unrepresentable/);
+    ports=createOriginalSupportPorts({parts:[part],bonds:[],anchors:[{partId:part.id,elevation:.36}]});const state=ports.evaluate({revision:1,fragments,bornRecordIds:[...receipt.scene.index.surfaces.keys()]});assert.deepEqual(state.unrootedIds,[]);assert.ok(state.births.length>=3&&state.births.every(b=>b.state==='supported'));
+    receipt.dispose();assert.ok(fragments.length);ports.reset();assert.throws(()=>ports.evaluate({expectedGeneration:0,revision:1,fragments}),/Stale/);
+  }finally{ports?.dispose();bridge.dispose();producer.dispose();}
+});

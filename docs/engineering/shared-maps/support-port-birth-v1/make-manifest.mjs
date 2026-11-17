@@ -1,0 +1,5 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const dir='docs/engineering/shared-maps/support-port-birth-v1/',owned=['src/simulation/original-support-ports.js','tests/integration/original-support-ports.test.mjs','docs/engineering/shared-maps/runtime-integration.json'],sha=b=>createHash('sha256').update(b).digest('hex'),files=[...owned,...fs.readdirSync(dir).filter(p=>p!=='manifest.json').map(p=>dir+p)].sort().map(path=>{const b=fs.readFileSync(path),mode=owned.includes(path)?'LF':'raw';return {path,mode,sha256:sha(mode==='LF'?b.toString('utf8').replace(/\r\n/g,'\n'):b)};});
+const result={version:1,base:'4eae509b41aba018da4dc42b63757338d6760324',scope:'Partial tested support core; untested adapters preserved only as text',files};if(process.argv.includes('--check'))assert.deepEqual(JSON.parse(fs.readFileSync(dir+'manifest.json')),result);else fs.writeFileSync(dir+'manifest.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({manifestEntries:files.length,sourcePaths:owned.length}));

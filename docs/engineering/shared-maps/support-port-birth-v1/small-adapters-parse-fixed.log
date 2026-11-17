@@ -1,0 +1,56 @@
+{"supportAdapters":{"tinyNativeCompilerCalls":1,"originalRoofCompilations":0,"worldTrials":0,"worldSteps":0}}
+✔ physical/render seam mapping preserves a single physical vertex and rejects divergent buffers (1.33ms)
+✖ guarded native floor closures and changed surface tessellation keep source/component identity without new caps (15.0437ms)
+✔ both fixed lower ports and directed top give equal cold and native support (8.7908ms)
+✔ loss of either original lower port leaves the fitting and its upper unrooted (5.0116ms)
+✔ upper and descendants cannot manufacture independently rooted roof support (2.2529ms)
+✔ same-cell sibling cannot replace a retired fixed native owner (1.47ms)
+✔ both lower ports cannot root a fitting after its own material path separates (2.2741ms)
+✔ actual surviving material connects cold and native fragments and cannot bridge a retired gap (1.6057ms)
+✔ disconnected original material, real gaps and mismatched strict witnesses reject false bonds (3.1457ms)
+✔ fixed jambs support headers, moving leaves do not brace them, and reset invalidates generations (0.9063ms)
+{"nativeCompilerCalls":0,"worldTrials":0,"worldSteps":0}
+✔ wholly cold and wholly native rays and bodies match ordinary controls (40.6979ms)
+✔ complete empty native coverage is explicit and full body overlap finds cold interior beyond its centre (18.6855ms)
+✔ retiring one native record leaves another original face in the same cell (9.4524ms)
+✔ a later coplanar cold interval is found after a nonauthoritative first hit (1.6818ms)
+✔ body face/corner and vertical tangent bands retain the separate cylinder tolerance (11.727ms)
+✔ raw versus live rays, transmission and inactive cold interiors preserve caller rules (4.7615ms)
+✔ existing sheet ties choose transmission and retirement removes only the named replica (1.482ms)
+✔ scoped face channels keep original primitives and create no cell-plane cap or area (7.2207ms)
+✔ an original upper-span exterior face survives as query halo under the last original cell (0.8309ms)
+✔ surface versus solid channels and native closedness remain distinct (8.3456ms)
+✔ staging is immutable, disjoint, failure-atomic and generation scoped; reset/disposal release references (5.6562ms)
+✔ unsupported closed shells, physical overreach and unsafe spans reject admission (8.9821ms)
+✔ admission rejects executable accessors and inconsistent physical metadata without freezing rejected inputs (11.762ms)
+✔ ordinary ray channel chooses solid underside for cold and native slabs, retaining separate face channels (11.1683ms)
+✔ cold and native closed interiors retain inside and near-outside original body tolerance (7.2886ms)
+✔ body-tolerance probes remain domain scoped after mixed activation and retirement (2.0782ms)
+✔ unsupported surface overreach rejects for native ownership and source catalogue without freezing input (2.0771ms)
+✔ outer cold and native ray provenance agrees with scoped ownership and retains raw hitCell (2.08ms)
+✔ off-centre upper-band capsule matches ordinary clearance in cold and native cubes (8.9981ms)
+✔ outer tolerance samples keep endpoint ownership while real mixed overlap keeps the full radius (1.8078ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 29
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 283.4026
+
+✖ failing tests:
+
+test at tests\integration\original-support-adapters.test.mjs:18:1
+✖ guarded native floor closures and changed surface tessellation keep source/component identity without new caps (15.0437ms)
+  Error: Closed interior requires an original checked watertight mesh
+      at checkedClosed (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:16:235)
+      at admit (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:91:138)
+      at Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:211:203)
+      at Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-receipt-bridge.js:27:26)
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/original-support-adapters.test.mjs:21:129)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
