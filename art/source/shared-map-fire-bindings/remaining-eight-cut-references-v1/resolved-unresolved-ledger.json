@@ -1,0 +1,626 @@
+{
+  "cases": [
+    {
+      "closedMeasurementReference": true,
+      "closedSourceSolids": false,
+      "geometryPath": "assets/art/place-scenes/administration/geometry/16352dd983b0a9abce08152c265e6f3828e1cb5b2ee7a184b8ea2d838b26ce84.json",
+      "geometrySha256": "1fc9ea7e9db529aadb7275ad47de345c3ff3b5b60a242dcc8518f5524a0778ab",
+      "originalMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        62,
+        0,
+        22,
+        1
+      ],
+      "physicalContainmentCollisionSupportShortcutAuthorized": false,
+      "placeId": "administration",
+      "proofCompleteForReview": true,
+      "recordedCutReasons": [
+        "admin-office-partition-6/opening",
+        "admin-office-partition-7/opening"
+      ],
+      "sourceDirectedLowerReference": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 1.8147519836589734e-17,
+          "denominator": "38942226439011205772826841710592",
+          "numerator": "706704826782925"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3fc2c49b7e094805",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.1466249814425852,
+          "denominator": "36028797018963968",
+          "numerator": "5282721694304261"
+        },
+        "exactRationalLower": {
+          "approximate": 0.14662498144258523,
+          "denominator": "34587645138205408",
+          "numerator": "5071412826532091"
+        },
+        "hexFloat": "0x1.2c49b7e094805p-3",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3fc2c49b7e094805",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.1466249814425852",
+        "nextUpBitsUint64Hex": "0x3fc2c49b7e094806",
+        "nextUpExactDyadicValue": {
+          "approximate": 0.14662498144258523,
+          "denominator": "18014398509481984",
+          "numerator": "2641360847152131"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 0.14662498144258523,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.1466249814425852
+      },
+      "sourceId": "replacement/office-door-7/jamb-1",
+      "sourceRange": {
+        "count": 45,
+        "start": 0
+      },
+      "sourceReferenceVolumeExact": {
+        "approximate": 0.017594997773110226,
+        "denominator": "288230376151711744",
+        "numerator": "5071412826532091"
+      },
+      "withheldReason": null
+    },
+    {
+      "closedMeasurementReference": true,
+      "closedSourceSolids": false,
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/9df464e3db372e0763e2a3ec3d9fac9c85c65cd90d015add439d8d5b94d3af85.json",
+      "geometrySha256": "f611c2a08560abfc792f08283d86480e3548c31158b78b335009cdc273fcc526",
+      "originalMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "physicalContainmentCollisionSupportShortcutAuthorized": false,
+      "placeId": "horticulture",
+      "proofCompleteForReview": true,
+      "recordedCutReasons": [
+        "hort-court--1-front/opening"
+      ],
+      "sourceDirectedLowerReference": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 1.676352264700353e-17,
+          "denominator": "1216944576219100180400838803456",
+          "numerator": "20400277963597"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3fee7ec9f8449428",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.9529771660787718,
+          "denominator": "1125899906842624",
+          "numerator": "1072956902511237"
+        },
+        "exactRationalLower": {
+          "approximate": 0.9529771660787718,
+          "denominator": "2161727821137838",
+          "numerator": "2060077252821575"
+        },
+        "hexFloat": "0x1.e7ec9f8449428p-1",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3fee7ec9f8449428",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.9529771660787718",
+        "nextUpBitsUint64Hex": "0x3fee7ec9f8449429",
+        "nextUpExactDyadicValue": {
+          "approximate": 0.9529771660787719,
+          "denominator": "9007199254740992",
+          "numerator": "8583655220089897"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 0.9529771660787719,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.9529771660787718
+      },
+      "sourceId": "replacement/court-0-0-arch-10/jamb-1",
+      "sourceRange": {
+        "count": 75,
+        "start": 0
+      },
+      "sourceReferenceVolumeExact": {
+        "approximate": 0.11435725992945261,
+        "denominator": "18014398509481984",
+        "numerator": "2060077252821575"
+      },
+      "withheldReason": null
+    },
+    {
+      "closedMeasurementReference": true,
+      "closedSourceSolids": false,
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/7eb643d246cd5251bc9a8985735aec805e15d4586034d21e0872e883ab929373.json",
+      "geometrySha256": "3ff50f486636bf217b6b4ea660e1f4f0dd1482c81cca5ed141d651fa7700edad",
+      "originalMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "physicalContainmentCollisionSupportShortcutAuthorized": false,
+      "placeId": "horticulture",
+      "proofCompleteForReview": true,
+      "recordedCutReasons": [
+        "hort-court--1-rear/opening"
+      ],
+      "sourceDirectedLowerReference": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 1.676352264700353e-17,
+          "denominator": "1216944576219100180400838803456",
+          "numerator": "20400277963597"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3fee7ec9f8449428",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.9529771660787718,
+          "denominator": "1125899906842624",
+          "numerator": "1072956902511237"
+        },
+        "exactRationalLower": {
+          "approximate": 0.9529771660787718,
+          "denominator": "2161727821137838",
+          "numerator": "2060077252821575"
+        },
+        "hexFloat": "0x1.e7ec9f8449428p-1",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3fee7ec9f8449428",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.9529771660787718",
+        "nextUpBitsUint64Hex": "0x3fee7ec9f8449429",
+        "nextUpExactDyadicValue": {
+          "approximate": 0.9529771660787719,
+          "denominator": "9007199254740992",
+          "numerator": "8583655220089897"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 0.9529771660787719,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.9529771660787718
+      },
+      "sourceId": "replacement/court-0-2-arch-10/jamb--1",
+      "sourceRange": {
+        "count": 75,
+        "start": 0
+      },
+      "sourceReferenceVolumeExact": {
+        "approximate": 0.11435725992945261,
+        "denominator": "18014398509481984",
+        "numerator": "2060077252821575"
+      },
+      "withheldReason": null
+    },
+    {
+      "closedMeasurementReference": true,
+      "closedSourceSolids": false,
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/f816344a356b4476e544edba2e8f9d4e17790eaab9899a5b8c03058f4e3cfc37.json",
+      "geometrySha256": "a7a4804b1f79070728011768126f72c6a098e5d52e5c8778ac0ecaa6f609aa49",
+      "originalMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "physicalContainmentCollisionSupportShortcutAuthorized": false,
+      "placeId": "horticulture",
+      "proofCompleteForReview": true,
+      "recordedCutReasons": [
+        "hort-court--1-rear/opening"
+      ],
+      "sourceDirectedLowerReference": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 1.676352264700353e-17,
+          "denominator": "1216944576219100180400838803456",
+          "numerator": "20400277963597"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3fee7ec9f8449428",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.9529771660787718,
+          "denominator": "1125899906842624",
+          "numerator": "1072956902511237"
+        },
+        "exactRationalLower": {
+          "approximate": 0.9529771660787718,
+          "denominator": "2161727821137838",
+          "numerator": "2060077252821575"
+        },
+        "hexFloat": "0x1.e7ec9f8449428p-1",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3fee7ec9f8449428",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.9529771660787718",
+        "nextUpBitsUint64Hex": "0x3fee7ec9f8449429",
+        "nextUpExactDyadicValue": {
+          "approximate": 0.9529771660787719,
+          "denominator": "9007199254740992",
+          "numerator": "8583655220089897"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 0.9529771660787719,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.9529771660787718
+      },
+      "sourceId": "replacement/court-0-2-arch-10/jamb-1",
+      "sourceRange": {
+        "count": 75,
+        "start": 0
+      },
+      "sourceReferenceVolumeExact": {
+        "approximate": 0.11435725992945261,
+        "denominator": "18014398509481984",
+        "numerator": "2060077252821575"
+      },
+      "withheldReason": null
+    },
+    {
+      "closedMeasurementReference": true,
+      "closedSourceSolids": false,
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/cd5ea3203e110772174f4010de9d2d67d3ba03e88a41c4e7737fdbaa673a05cb.json",
+      "geometrySha256": "c823f4115d70c755dd1106d4e8fe1ecfad07edca72d70f910a8b73990d99eacc",
+      "originalMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "physicalContainmentCollisionSupportShortcutAuthorized": false,
+      "placeId": "horticulture",
+      "proofCompleteForReview": true,
+      "recordedCutReasons": [
+        "hort-court-1-front/opening"
+      ],
+      "sourceDirectedLowerReference": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 1.676352264700353e-17,
+          "denominator": "1216944576219100180400838803456",
+          "numerator": "20400277963597"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3fee7ec9f8449428",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.9529771660787718,
+          "denominator": "1125899906842624",
+          "numerator": "1072956902511237"
+        },
+        "exactRationalLower": {
+          "approximate": 0.9529771660787718,
+          "denominator": "2161727821137838",
+          "numerator": "2060077252821575"
+        },
+        "hexFloat": "0x1.e7ec9f8449428p-1",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3fee7ec9f8449428",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.9529771660787718",
+        "nextUpBitsUint64Hex": "0x3fee7ec9f8449429",
+        "nextUpExactDyadicValue": {
+          "approximate": 0.9529771660787719,
+          "denominator": "9007199254740992",
+          "numerator": "8583655220089897"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 0.9529771660787719,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.9529771660787718
+      },
+      "sourceId": "replacement/court-1-0-arch-10/jamb--1",
+      "sourceRange": {
+        "count": 75,
+        "start": 0
+      },
+      "sourceReferenceVolumeExact": {
+        "approximate": 0.11435725992945261,
+        "denominator": "18014398509481984",
+        "numerator": "2060077252821575"
+      },
+      "withheldReason": null
+    },
+    {
+      "closedMeasurementReference": true,
+      "closedSourceSolids": false,
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/cc409adac2b32c3d0115c94aad1386329724329cc74cd860ce39e65f487f0786.json",
+      "geometrySha256": "c8637f242ef388a51329653de4dce90fb4cc6a9b2ab85f8645c6d3c31207ff3d",
+      "originalMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "physicalContainmentCollisionSupportShortcutAuthorized": false,
+      "placeId": "horticulture",
+      "proofCompleteForReview": true,
+      "recordedCutReasons": [
+        "hort-court-1-front/opening"
+      ],
+      "sourceDirectedLowerReference": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 1.676352264700353e-17,
+          "denominator": "1216944576219100180400838803456",
+          "numerator": "20400277963597"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3fee7ec9f8449428",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.9529771660787718,
+          "denominator": "1125899906842624",
+          "numerator": "1072956902511237"
+        },
+        "exactRationalLower": {
+          "approximate": 0.9529771660787718,
+          "denominator": "2161727821137838",
+          "numerator": "2060077252821575"
+        },
+        "hexFloat": "0x1.e7ec9f8449428p-1",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3fee7ec9f8449428",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.9529771660787718",
+        "nextUpBitsUint64Hex": "0x3fee7ec9f8449429",
+        "nextUpExactDyadicValue": {
+          "approximate": 0.9529771660787719,
+          "denominator": "9007199254740992",
+          "numerator": "8583655220089897"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 0.9529771660787719,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.9529771660787718
+      },
+      "sourceId": "replacement/court-1-0-arch-10/jamb-1",
+      "sourceRange": {
+        "count": 75,
+        "start": 0
+      },
+      "sourceReferenceVolumeExact": {
+        "approximate": 0.11435725992945261,
+        "denominator": "18014398509481984",
+        "numerator": "2060077252821575"
+      },
+      "withheldReason": null
+    },
+    {
+      "closedMeasurementReference": true,
+      "closedSourceSolids": false,
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/f76742b84cce2405a0a48701a335754a19109581ef039632d21c927d0b023cf4.json",
+      "geometrySha256": "aa528216a149add3bd35bcba25f7049e998ea5ab78ef61bd858cc05b1ed2ca86",
+      "originalMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "physicalContainmentCollisionSupportShortcutAuthorized": false,
+      "placeId": "horticulture",
+      "proofCompleteForReview": true,
+      "recordedCutReasons": [
+        "hort-court-1-rear/opening"
+      ],
+      "sourceDirectedLowerReference": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 1.676352264700353e-17,
+          "denominator": "1216944576219100180400838803456",
+          "numerator": "20400277963597"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3fee7ec9f8449428",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.9529771660787718,
+          "denominator": "1125899906842624",
+          "numerator": "1072956902511237"
+        },
+        "exactRationalLower": {
+          "approximate": 0.9529771660787718,
+          "denominator": "2161727821137838",
+          "numerator": "2060077252821575"
+        },
+        "hexFloat": "0x1.e7ec9f8449428p-1",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3fee7ec9f8449428",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.9529771660787718",
+        "nextUpBitsUint64Hex": "0x3fee7ec9f8449429",
+        "nextUpExactDyadicValue": {
+          "approximate": 0.9529771660787719,
+          "denominator": "9007199254740992",
+          "numerator": "8583655220089897"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 0.9529771660787719,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.9529771660787718
+      },
+      "sourceId": "replacement/court-1-2-arch-10/jamb--1",
+      "sourceRange": {
+        "count": 75,
+        "start": 0
+      },
+      "sourceReferenceVolumeExact": {
+        "approximate": 0.11435725992945261,
+        "denominator": "18014398509481984",
+        "numerator": "2060077252821575"
+      },
+      "withheldReason": null
+    },
+    {
+      "closedMeasurementReference": true,
+      "closedSourceSolids": false,
+      "geometryPath": "assets/art/place-scenes/horticulture/geometry/f6dccb4723dcacdaab72c52a5563d95f55d9b6cb788fb77ecf1a2ab770de79ed.json",
+      "geometrySha256": "1b3c6efe42484b6b14ca0c45d5babd5e8017ea7ae60802d026d876a3e01d83f8",
+      "originalMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        176,
+        0,
+        39,
+        1
+      ],
+      "physicalContainmentCollisionSupportShortcutAuthorized": false,
+      "placeId": "horticulture",
+      "proofCompleteForReview": true,
+      "recordedCutReasons": [
+        "hort-court-1-rear/opening"
+      ],
+      "sourceDirectedLowerReference": {
+        "additionalRepresentationUndermeasurement": {
+          "approximate": 1.676352264700353e-17,
+          "denominator": "1216944576219100180400838803456",
+          "numerator": "20400277963597"
+        },
+        "adjacentNonnegativeBinary64BitsProved": true,
+        "bitsUint64Hex": "0x3fee7ec9f8449428",
+        "dyadicLEExactLower": true,
+        "exactDyadicValue": {
+          "approximate": 0.9529771660787718,
+          "denominator": "1125899906842624",
+          "numerator": "1072956902511237"
+        },
+        "exactRationalLower": {
+          "approximate": 0.9529771660787718,
+          "denominator": "2161727821137838",
+          "numerator": "2060077252821575"
+        },
+        "hexFloat": "0x1.e7ec9f8449428p-1",
+        "jsonDecimalTokenInsideCorrectRoundingCell": true,
+        "jsonRoundTripBitsUint64Hex": "0x3fee7ec9f8449428",
+        "jsonRoundTripPreservesExactDyadic": true,
+        "jsonToken": "0.9529771660787718",
+        "nextUpBitsUint64Hex": "0x3fee7ec9f8449429",
+        "nextUpExactDyadicValue": {
+          "approximate": 0.9529771660787719,
+          "denominator": "9007199254740992",
+          "numerator": "8583655220089897"
+        },
+        "nextUpGTExactLower": true,
+        "nextUpValue": 0.9529771660787719,
+        "rule": "largest finite nonnegative binary64 <= exact rational conservative lower recipe quantity",
+        "runtimeExportOrFuelAssignment": false,
+        "value": 0.9529771660787718
+      },
+      "sourceId": "replacement/court-1-2-arch-10/jamb-1",
+      "sourceRange": {
+        "count": 75,
+        "start": 0
+      },
+      "sourceReferenceVolumeExact": {
+        "approximate": 0.11435725992945261,
+        "denominator": "18014398509481984",
+        "numerator": "2060077252821575"
+      },
+      "withheldReason": null
+    }
+  ],
+  "constructorWideAdoption": false,
+  "resolvedForReview": 8,
+  "scope": "final eight sources only; earlier references and UI roof decisions retain their own evidence",
+  "unresolvedWithheld": 0,
+  "version": 1
+}
