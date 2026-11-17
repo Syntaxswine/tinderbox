@@ -1,0 +1,737 @@
+{
+  "version": 1,
+  "passed": true,
+  "recordedAt": "2026-11-17T00:39:24.763Z",
+  "candidateCommit": "605ce43efdfc65de2a3f4909b9e6833697f0c6a2",
+  "artistSourceCommit": "6d145569c7b4ef5514698dcc713256de9ff7eb2b",
+  "runtimeCheckpoint": "8e50a4c0e39a48241001a02f7a29c4193fdd343d",
+  "packageManifestSha256": "be39c5910422c731fbe35fa3acfbc4a2c8e36683818dd8796dc61aad991de77d",
+  "publicationCanonicalManifestSha256": "9ef4ce5a7fa9efa4eb33f8381a91929d2348edac72da43bf9170002b0de25178",
+  "scope": "One architect-granted local actual-input review of exact checked distribution. Actual normal title/character/map menu/spawn, trusted mouse/keyboard/contextual controls, fixed1/60 advance without FPS claims. No production changes or public visit.",
+  "cases": [
+    {
+      "id": "bear-front-regression",
+      "animal": "bear",
+      "mode": "mouse",
+      "status": "passed",
+      "final": {
+        "position": [
+          18.999999908912837,
+          0,
+          16.799999995338453
+        ],
+        "radius": 0.56,
+        "height": 1.68,
+        "hp": 100,
+        "tick": 225,
+        "clocks": {
+          "active": 3.7499999999999916,
+          "player": 3.7499999999999916,
+          "world": 3.7499999999999916,
+          "playerScale": 1,
+          "worldScale": 1
+        }
+      },
+      "frames": 226,
+      "stationaryTreadFrames": 0,
+      "kitchenFrames": 0,
+      "inputEvents": 318,
+      "inputTypes": {
+        "blur": 17,
+        "pointermove": 214,
+        "pointerdown": 23,
+        "pointerup": 23,
+        "click": 23,
+        "lostpointercapture": 16,
+        "keydown": 1,
+        "keyup": 1
+      },
+      "allCapturedInputTrusted": true
+    },
+    {
+      "id": "goat20mm-exit-regression",
+      "animal": "goat",
+      "mode": "mouse",
+      "status": "passed",
+      "final": {
+        "position": [
+          19.01999993538891,
+          0,
+          16.799999995338453
+        ],
+        "radius": 0.5,
+        "height": 1.66,
+        "hp": 100,
+        "tick": 113,
+        "clocks": {
+          "active": 1.8833333333333315,
+          "player": 1.8833333333333315,
+          "world": 1.8833333333333315,
+          "playerScale": 1,
+          "worldScale": 1
+        }
+      },
+      "frames": 114,
+      "stationaryTreadFrames": 0,
+      "kitchenFrames": 0,
+      "inputEvents": 208,
+      "inputTypes": {
+        "pointermove": 103,
+        "pointerdown": 23,
+        "blur": 19,
+        "pointerup": 23,
+        "click": 23,
+        "lostpointercapture": 15,
+        "keydown": 1,
+        "keyup": 1
+      },
+      "allCapturedInputTrusted": true
+    },
+    {
+      "id": "goat-mouse-street-barrel-glance",
+      "animal": "goat",
+      "mode": "mouse",
+      "status": "passed",
+      "final": {
+        "position": [
+          12.24643886232903,
+          0,
+          15.788099263655836
+        ],
+        "radius": 0.5,
+        "height": 1.66,
+        "hp": 100,
+        "tick": 163,
+        "clocks": {
+          "active": 2.716666666666662,
+          "player": 2.716666666666662,
+          "world": 2.716666666666662,
+          "playerScale": 1,
+          "worldScale": 1
+        }
+      },
+      "frames": 164,
+      "stationaryTreadFrames": 0,
+      "kitchenFrames": 0,
+      "inputEvents": 199,
+      "inputTypes": {
+        "pointermove": 163,
+        "pointerdown": 8,
+        "blur": 8,
+        "pointerup": 8,
+        "click": 8,
+        "lostpointercapture": 4
+      },
+      "allCapturedInputTrusted": true
+    },
+    {
+      "id": "goat-keyboard",
+      "animal": "goat",
+      "mode": "keyboard",
+      "status": "passed",
+      "final": {
+        "position": [
+          18.94369574055364,
+          0,
+          16.732434888664223
+        ],
+        "radius": 0.5,
+        "height": 1.66,
+        "hp": 100,
+        "tick": 280,
+        "clocks": {
+          "active": 4.666666666666655,
+          "player": 4.666666666666655,
+          "world": 4.666666666666655,
+          "playerScale": 1,
+          "worldScale": 1
+        }
+      },
+      "frames": 281,
+      "stationaryTreadFrames": 30,
+      "kitchenFrames": 0,
+      "inputEvents": 263,
+      "inputTypes": {
+        "pointermove": 8,
+        "pointerdown": 8,
+        "blur": 15,
+        "pointerup": 8,
+        "click": 8,
+        "keydown": 108,
+        "keyup": 108
+      },
+      "allCapturedInputTrusted": true
+    },
+    {
+      "id": "goat-mouse",
+      "animal": "goat",
+      "mode": "mouse",
+      "status": "passed",
+      "final": {
+        "position": [
+          19.049999419305166,
+          0,
+          16.774999062092913
+        ],
+        "radius": 0.5,
+        "height": 1.66,
+        "hp": 100,
+        "tick": 581,
+        "clocks": {
+          "active": 9.683333333333394,
+          "player": 9.683333333333394,
+          "world": 9.683333333333394,
+          "playerScale": 1,
+          "worldScale": 1
+        }
+      },
+      "frames": 582,
+      "stationaryTreadFrames": 30,
+      "kitchenFrames": 0,
+      "inputEvents": 790,
+      "inputTypes": {
+        "pointermove": 541,
+        "pointerdown": 59,
+        "blur": 19,
+        "pointerup": 59,
+        "click": 59,
+        "lostpointercapture": 51,
+        "keydown": 1,
+        "keyup": 1
+      },
+      "allCapturedInputTrusted": true
+    },
+    {
+      "id": "horse-keyboard",
+      "animal": "horse",
+      "mode": "keyboard",
+      "status": "passed",
+      "final": {
+        "position": [
+          18.94369574055364,
+          0,
+          16.732434888664223
+        ],
+        "radius": 0.5,
+        "height": 1.66,
+        "hp": 100,
+        "tick": 280,
+        "clocks": {
+          "active": 4.666666666666655,
+          "player": 4.666666666666655,
+          "world": 4.666666666666655,
+          "playerScale": 1,
+          "worldScale": 1
+        }
+      },
+      "frames": 281,
+      "stationaryTreadFrames": 30,
+      "kitchenFrames": 0,
+      "inputEvents": 263,
+      "inputTypes": {
+        "pointermove": 8,
+        "pointerdown": 8,
+        "blur": 15,
+        "pointerup": 8,
+        "click": 8,
+        "keydown": 108,
+        "keyup": 108
+      },
+      "allCapturedInputTrusted": true
+    },
+    {
+      "id": "horse-mouse",
+      "animal": "horse",
+      "mode": "mouse",
+      "status": "passed",
+      "final": {
+        "position": [
+          19.049999419305166,
+          0,
+          16.774999062092913
+        ],
+        "radius": 0.5,
+        "height": 1.66,
+        "hp": 100,
+        "tick": 581,
+        "clocks": {
+          "active": 9.683333333333394,
+          "player": 9.683333333333394,
+          "world": 9.683333333333394,
+          "playerScale": 1,
+          "worldScale": 1
+        }
+      },
+      "frames": 582,
+      "stationaryTreadFrames": 30,
+      "kitchenFrames": 0,
+      "inputEvents": 790,
+      "inputTypes": {
+        "pointermove": 541,
+        "pointerdown": 59,
+        "blur": 19,
+        "pointerup": 59,
+        "click": 59,
+        "lostpointercapture": 51,
+        "keydown": 1,
+        "keyup": 1
+      },
+      "allCapturedInputTrusted": true
+    },
+    {
+      "id": "bear-keyboard",
+      "animal": "bear",
+      "mode": "keyboard",
+      "status": "passed",
+      "final": {
+        "position": [
+          18.94369574055364,
+          0,
+          16.732434888664223
+        ],
+        "radius": 0.56,
+        "height": 1.68,
+        "hp": 100,
+        "tick": 280,
+        "clocks": {
+          "active": 4.666666666666655,
+          "player": 4.666666666666655,
+          "world": 4.666666666666655,
+          "playerScale": 1,
+          "worldScale": 1
+        }
+      },
+      "frames": 281,
+      "stationaryTreadFrames": 30,
+      "kitchenFrames": 0,
+      "inputEvents": 263,
+      "inputTypes": {
+        "pointermove": 8,
+        "pointerdown": 8,
+        "blur": 15,
+        "pointerup": 8,
+        "click": 8,
+        "keydown": 108,
+        "keyup": 108
+      },
+      "allCapturedInputTrusted": true
+    },
+    {
+      "id": "bear-mouse",
+      "animal": "bear",
+      "mode": "mouse",
+      "status": "passed",
+      "final": {
+        "position": [
+          19.04999956191408,
+          0,
+          16.774999062092913
+        ],
+        "radius": 0.56,
+        "height": 1.68,
+        "hp": 100,
+        "tick": 882,
+        "clocks": {
+          "active": 14.70000000000031,
+          "player": 14.70000000000031,
+          "world": 14.70000000000031,
+          "playerScale": 1,
+          "worldScale": 1
+        }
+      },
+      "frames": 883,
+      "stationaryTreadFrames": 30,
+      "kitchenFrames": 301,
+      "inputEvents": 1162,
+      "inputTypes": {
+        "pointermove": 841,
+        "pointerdown": 77,
+        "blur": 19,
+        "pointerup": 77,
+        "click": 77,
+        "lostpointercapture": 69,
+        "keydown": 1,
+        "keyup": 1
+      },
+      "allCapturedInputTrusted": true
+    }
+  ],
+  "summary": {
+    "selected": 9,
+    "passed": 9,
+    "failed": 0,
+    "excluded": 0,
+    "fullRoundTrips": 6,
+    "arrivals": 366,
+    "doorNegatives": 9,
+    "barrelGlances": 1,
+    "stationaryTreadFrames": 180,
+    "pageConsoleHttpErrors": 0,
+    "unexpectedFailures": 0
+  },
+  "kitchen": {
+    "plan": {
+      "sourceCommit": "6d145569c7b4ef5514698dcc713256de9ff7eb2b",
+      "sourcePath": "workbenches/catalogue-modular/house-data.json",
+      "sourceField": "navigation.circulationRoutes.kitchen",
+      "sourceFrame": "Native house-local [x,height,z]",
+      "translation": [
+        24,
+        0,
+        13
+      ],
+      "quarterTurns": 2,
+      "setteeCentre": [
+        21.5,
+        0.48,
+        12.4
+      ],
+      "waypointsEachDirection": 9,
+      "evidence": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/preflight-plan.json"
+    },
+    "completedBothDirections": true,
+    "returnedToNormalInsideStance": true,
+    "finalExit": true,
+    "arrivalCount": 19,
+    "maximumHorizontalArrivalError": 0.0262466209235455,
+    "maximumElevationArrivalError": 7.971306392740019e-9,
+    "arrivalEvidence": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/acceptance.json"
+  },
+  "optionalBrowserProbes": {
+    "status": "Explicitly unrun, not passed",
+    "cases": [
+      {
+        "case": "goat-keyboard",
+        "kind": "wall",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "goat-keyboard",
+        "kind": "unsupported",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "goat-mouse",
+        "kind": "wall",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "goat-mouse",
+        "kind": "unsupported",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "horse-keyboard",
+        "kind": "wall",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "horse-keyboard",
+        "kind": "unsupported",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "horse-mouse",
+        "kind": "wall",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "horse-mouse",
+        "kind": "unsupported",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "bear-keyboard",
+        "kind": "wall",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "bear-keyboard",
+        "kind": "unsupported",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "bear-mouse",
+        "kind": "wall",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      },
+      {
+        "case": "bear-mouse",
+        "kind": "unsupported",
+        "reason": "No canonical clear approach to an exclusive probe found; no source geometry altered"
+      }
+    ],
+    "mandatory67SourceControls": "Passed separately on exact6d and corrected runtime, including actual native wall/closed-solid and controlled unsupported-edge rejection; see corrected-gate.json"
+  },
+  "negatives": [
+    {
+      "case": "bear-front-regression",
+      "kind": "closed",
+      "blocked": true
+    },
+    {
+      "case": "bear-front-regression",
+      "kind": "occupied-close",
+      "blocked": true
+    },
+    {
+      "case": "goat20mm-exit-regression",
+      "kind": "occupied-close",
+      "blocked": true
+    },
+    {
+      "case": "goat-keyboard",
+      "kind": "occupied-close",
+      "blocked": true
+    },
+    {
+      "case": "goat-mouse",
+      "kind": "occupied-close",
+      "blocked": true
+    },
+    {
+      "case": "horse-keyboard",
+      "kind": "occupied-close",
+      "blocked": true
+    },
+    {
+      "case": "horse-mouse",
+      "kind": "occupied-close",
+      "blocked": true
+    },
+    {
+      "case": "bear-keyboard",
+      "kind": "occupied-close",
+      "blocked": true
+    },
+    {
+      "case": "bear-mouse",
+      "kind": "occupied-close",
+      "blocked": true
+    }
+  ],
+  "barrel": {
+    "distance": 0.43674228434576695,
+    "ticks": 4,
+    "requestedWorld": {
+      "x": 1,
+      "y": 0
+    },
+    "before": [
+      11.8438050163711,
+      15.656195098651985
+    ],
+    "after": [
+      12.24643886232903,
+      15.788099263655836
+    ]
+  },
+  "helper": {
+    "driver": {
+      "pid": 38220,
+      "creationFiletime": "134393490675255606",
+      "executable": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    "browser": {
+      "pid": 23580,
+      "creationFiletime": "134393490950031855",
+      "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+    },
+    "ports": [
+      49509,
+      49510
+    ],
+    "startedAt": "2026-11-17T00:31:34.986Z",
+    "expiresAt": "2026-11-17T00:51:34.986Z",
+    "closedAt": "2026-11-17T00:36:50.391Z",
+    "lifetimeMs": 315405,
+    "absoluteExpiryMs": 1200000,
+    "routeDeadlineMs": 90000,
+    "contextLifecycle": {
+      "created": 1,
+      "closed": 1,
+      "remaining": 0,
+      "pending": 0,
+      "maxLive": 1,
+      "stopping": true
+    },
+    "browserExited": true,
+    "portsListening": [
+      false,
+      false
+    ],
+    "osFollowup": {
+      "checkedAt": "2026-11-17T00:37:26.3145433Z",
+      "helpers": [
+        {
+          "role": "driver",
+          "pid": 38220,
+          "expectedCreationFiletime": "134393490675255606",
+          "processPresent": false,
+          "sameLifetime": false
+        },
+        {
+          "role": "browser",
+          "pid": 23580,
+          "expectedCreationFiletime": "134393490950031855",
+          "processPresent": false,
+          "sameLifetime": false
+        }
+      ],
+      "ports": [
+        49509,
+        49510
+      ],
+      "listeners": [],
+      "allExactLifetimesExited": true,
+      "allPortsReleased": true,
+      "retainedHelpers": 0
+    },
+    "retainedHelpers": 0
+  },
+  "screenshots": [
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/bear-front-regression-entered.jpg",
+      "sha256": "3396b27242915ba4ef61a65300bf1d0c9679ee54844d9e0bcf470c52594d47da",
+      "bytes": 172390,
+      "visuallyInspected": true,
+      "normalZoom": true
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/goat-mouse-street-barrel-glance-barrel-glancing-moving.jpg",
+      "sha256": "b9af2aa9881b157982e36878af06b90c21c63d9cabd8998ac0ee6ffb30c79985",
+      "bytes": 163677,
+      "visuallyInspected": true,
+      "normalZoom": true
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/horse-keyboard-upper.jpg",
+      "sha256": "8e33d6ca6b2c47f42d5e7b7c30427b3399307c468a5fc55daa10c9ecb1ea7434",
+      "bytes": 159138,
+      "visuallyInspected": true,
+      "normalZoom": true
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/bear-mouse-kitchen-passage.jpg",
+      "sha256": "4d191978d57f9dcd7a06cda5b09d0009b0480fedd8138766bfcf3a0e98f30386",
+      "bytes": 171788,
+      "visuallyInspected": true,
+      "normalZoom": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/selection.json",
+      "sha256": "bc7324eb6ef1aec085f28202802e79738610bbb74b7967e5039bc42a8c8779d4",
+      "bytes": 1600
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/preflight-plan.json",
+      "sha256": "267b051a63c268d07efd020c82415d6990a9eddc938d3afe71b39295c20e4ad7",
+      "bytes": 157439
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/restart.json",
+      "sha256": "856b0fb41e5ce528707faac51e3c5220221052f9409b4b425f89d21a879b37f6",
+      "bytes": 4068
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/absolute-deadline.json",
+      "sha256": "f5f84d139e071653be18673a7474ce3aeb726cd239d3ff9bda4e276e2ecf65ac",
+      "bytes": 187
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/helper.json",
+      "sha256": "ecfae2d2c7339a4619f5dbc17e08f798d7a54cdc4e29b1706ca4aba6bb480f9a",
+      "bytes": 1742
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/acceptance.json",
+      "sha256": "8a4739ce0f7b23db71ee55680d1e039fbed09c188e00ebd8290e871a108f6870",
+      "bytes": 614439
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/matrix.json",
+      "sha256": "4570b079f7e2f86f6f170cd2b549546526bee031022ca82372f1007e7ed66eae",
+      "bytes": 13473
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/frames.jsonl",
+      "sha256": "7b473047fc45b2738132b7e2d965f974a783b3e7436cd16c8d9133795e5ed427",
+      "bytes": 20070810
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/barrel-glance.json",
+      "sha256": "e6d1220d9ed6de27543d6e6e77d09acb563c8e64aa5b465879253648fc5a30ae",
+      "bytes": 61636
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/cleanup-receipt.json",
+      "sha256": "833addd8b90687a132c0b12e3ce566d19ecb0b917031ec1146771d8d66e42029",
+      "bytes": 2086
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/cleanup-followup.json",
+      "sha256": "a53ad35634a746d80f868610f088aae4f1a503806d850c34a24344975db45ff4",
+      "bytes": 586
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/bear-front-regression-input-events.json",
+      "sha256": "3bff61efc4bd3aa08765bde3a65e21e66553431a9fc09172fb1faa16682ffa3d",
+      "bytes": 59994
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/goat20mm-exit-regression-input-events.json",
+      "sha256": "7dba26a5947d871079f19e3cbbb31ec6a897a0cfadf28af5c48013143c61ab03",
+      "bytes": 37605
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/goat-mouse-street-barrel-glance-input-events.json",
+      "sha256": "3e05bc9344376d6763fc0a54bbc85343615c46176f55595345c7e7931d906c9c",
+      "bytes": 38184
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/goat-keyboard-input-events.json",
+      "sha256": "7d91e2d3f4707743e0e00b685b2af5416761d670b9bfb87e2720cf6ecd22b28c",
+      "bytes": 34004
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/goat-mouse-input-events.json",
+      "sha256": "54e5e43a91cfa898f7e6a697c5827c452c79e77e147a011a38f19feb8bbbbaa4",
+      "bytes": 152107
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/horse-keyboard-input-events.json",
+      "sha256": "14f65fc62da73f471beb9702c86bb2d69c68e1a16acababe87c5af13a793da80",
+      "bytes": 34097
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/horse-mouse-input-events.json",
+      "sha256": "60b38370807a63325d2a56152985422bcc1f594fcbf3a0061b7a9a78fcad336f",
+      "bytes": 151832
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/bear-keyboard-input-events.json",
+      "sha256": "2955e213fe6cf31f1526c9d43a3dbec0d2f7afbe266b915a5251f46ba9116b10",
+      "bytes": 34052
+    },
+    {
+      "path": "artifacts/qa/house-traversal-gameplay/be39c591-corrected-actual-input/bear-mouse-input-events.json",
+      "sha256": "9774d40ec9d11961e9690c028e71ce9113ac1ef02c7a71d213677b02b7ad3618",
+      "bytes": 224740
+    }
+  ],
+  "limits": [
+    "Detailed Catalogue H15 and street prop only; Bell & Alder full species/input matrix is not repeated here",
+    "Only selected offset/magnitude combinations repeated in browser; complete67 provider matrix is separate",
+    "Twelve optional canonical wall/unsupported browser probes unavailable and explicitly unrun",
+    "Fixed-step actual input is not whole-game FPS, performance, phone Safari or public deployment acceptance"
+  ],
+  "productionFilesChanged": false,
+  "screenshotArchive": {
+    "owner": "Architect",
+    "destination": "docs/reviews/media/2026-11-16-house-traversal-corrected/",
+    "coderTrackedCopies": 0,
+    "scope": "Coder retains original artifact paths and hashes; architect separately archives five reviewed JPGs to avoid duplicate tracked images."
+  }
+}
