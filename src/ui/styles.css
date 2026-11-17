@@ -263,3 +263,12 @@
   .tb-lantern-landing .tb-landing-ring,.tb-lantern-landing path { stroke:CanvasText; }
   .tb-lantern-landing .tb-landing-outline { stroke:Canvas; }
 }
+
+/* Compact the existing gameplay card without changing controls or hit sizes. */
+@media(max-height:600px) and (min-width:651px) {
+  .tb-ui[data-mode="gameplay"] .tb-console {
+    width:320px;
+    max-width:calc(100% - max(24px,env(safe-area-inset-left) + env(safe-area-inset-right)));
+    padding:6px 8px;
+  }
+}
