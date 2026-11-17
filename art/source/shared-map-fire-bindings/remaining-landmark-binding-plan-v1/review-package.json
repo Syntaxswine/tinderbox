@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "status": "SOURCE_ONLY_REVIEW_CANDIDATE",
+  "artistParent": "5d40d23c8de31bbd100409c6a695486b60e8e490",
+  "authorityCommit": "84f9e9eb3a04dc3c5fcbd0c349c68f4ed59648bb",
+  "branch": "codex/shared-map-fire-bindings",
+  "scope": [
+    "art/source/shared-map-fire-bindings/remaining-landmark-binding-plan-v1/",
+    "docs/art/shared-map-fire-bindings/remaining-landmark-binding-plan-v1.md"
+  ],
+  "files": [
+    {
+      "path": "art/source/shared-map-fire-bindings/remaining-landmark-binding-plan-v1/.gitattributes",
+      "bytes": 35,
+      "sha256": "1da37832980926946b175f762aae6b7939ebd783cf99fe9da400276ad74438fa"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/remaining-landmark-binding-plan-v1/authority-84f9e9eb.md",
+      "bytes": 2637,
+      "sha256": "9fdab8578ce122eb51abdc98473e5cd46a4f5ed35086ce34c9835611bd6ab4a0"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/remaining-landmark-binding-plan-v1/check-results.json",
+      "bytes": 1398,
+      "sha256": "90b25e86993c8d8944d240e0df2e558c388aa1dbba4887e582c2a2a55a69d473"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/remaining-landmark-binding-plan-v1/count.py",
+      "bytes": 16972,
+      "sha256": "8695f4018c3ec1ce8bd8370f4452094fd3b0ff82ae4e9c8b9e00cd9cf4f6ed7f"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/remaining-landmark-binding-plan-v1/counts-and-sizes.json",
+      "bytes": 11234,
+      "sha256": "a05d0dc014ce75c2a73c71d845ea695624f4dd0f9bf4985d35e03107715a29ac"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/remaining-landmark-binding-plan-v1/format-and-examples.json",
+      "bytes": 9044,
+      "sha256": "0d2c87b04de674d35032142ef7359d44aa5b91478ae8f57218bc9a6f760be909"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/remaining-landmark-binding-plan-v1/input-pins.json",
+      "bytes": 14461,
+      "sha256": "e535ef53ae9bc00d709aa38f9ecd6019ca2a6b7ae43b4bd186b056e47d50e90b"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/remaining-landmark-binding-plan-v1/review.py",
+      "bytes": 8741,
+      "sha256": "663bf488af63a0855fa394176c4f5f71635b0d07ccda36e15706e49bc5fd7578"
+    },
+    {
+      "path": "docs/art/shared-map-fire-bindings/remaining-landmark-binding-plan-v1.md",
+      "bytes": 5485,
+      "sha256": "d56f32b3f8c061f939bb9c77f02d11d389ed752ccd1b17e50ea458a81b2c05ad"
+    }
+  ],
+  "remaining": [
+    "New York runtime/visual/performance gate",
+    "architect/coder wrapper and consumer decisions",
+    "all eight plant/glass schema/live-path gates and exact local exceptions",
+    "complete certificate precedence/intake and source-to-consumer mapping",
+    "full runtime payload/state/residency costs and ordinary-tool acceptance"
+  ],
+  "runtimeInstallation": false,
+  "helpersRetained": false,
+  "verification": "python -B art/source/shared-map-fire-bindings/remaining-landmark-binding-plan-v1/review.py"
+}
