@@ -1,5 +1,34 @@
 # Complete the nineteen remaining source fittings
 
+## Architect intake, 17 November
+
+Accept artist `5d40d23c8de31bbd100409c6a695486b60e8e490`, intaken as
+`d0c34f5a`, as the nineteen-piece **source/native-buffer asset batch**. Root
+independently passes deterministic export, actual typed-buffer/57 fixed-port
+contact checks, 1,759 geometry/quantity/source checks and default package review.
+All 41 added paths/forty payload pins match; the accepted first pilot and all
+3,770 protected earlier source/art/proof paths remain unchanged. Both recorded
+preview PIDs 22548/38692 are absent.
+
+The batch uses three exact buffer profiles. Fifteen rear poses reuse the
+pilot's buffers, with independent per-pose contacts and quantity certificates.
+Four hip conversions initially intersected their roofs; each bounded repair
+moves only new roof-seat cut vertices up by one Float32 step. Original failures
+and exact corrections remain recorded. Native tolerance and old sources do not
+change. Root reviews both new contact sheets; all nineteen new bays are shown
+in assembly and isolation, with the accepted first pilot and whole-building
+context explicitly omitted.
+
+The [handoff](../../../art/source/shared-map-fire-bindings/roof-saddle-native-batch-v1/README.md)
+and asset index `e1c2ff019f5dcf4e05f48739be843afdaa818f6c7f3c1ff8f11de1561a8e05fd`
+preserve per-piece physical/render identity and both fixed lower ports. All
+twenty planned saddle source assets now exist including the accepted pilot.
+Runtime mapping, port liveness, all-of support and old-edge compatibility remain
+unimplemented gates. Source acceptance registers no world fuel or support.
+No new art assignment follows; the existing artist stops at this checkpoint.
+
+## Original bounded assignment
+
 The one-piece native-buffer pilot `c1ed407a` passes architect source/buffer and
 JPG review, recorded in [the intake](saddle-native-buffer-pilot.md). Reuse the
 existing artist checkout and branch for the remaining nineteen classified
