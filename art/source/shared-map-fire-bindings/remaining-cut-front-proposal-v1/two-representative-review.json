@@ -1,0 +1,1466 @@
+{
+  "cases": [
+    {
+      "absoluteOriginDependence": {
+        "approximate": 0.011666655540466309,
+        "denominator": "8388608",
+        "numerator": "97867"
+      },
+      "actualCutVolume": {
+        "id": "admin-office-partition-0/opening",
+        "maxY": 4.92,
+        "minY": 1.9600000000000002,
+        "polygon": [
+          [
+            -29.4,
+            5
+          ],
+          [
+            -29.4,
+            7
+          ],
+          [
+            -30.6,
+            7
+          ],
+          [
+            -30.6,
+            5
+          ]
+        ],
+        "role": "portal"
+      },
+      "allFiveExistingFaceCoverages": [
+        {
+          "axis": 0,
+          "coverage": {
+            "actualTriangleArea": {
+              "approximate": 0.012600009345987928,
+              "denominator": "549755813888",
+              "numerator": "6926928393"
+            },
+            "actualTrianglesCoverFullRectangle": true,
+            "allFourCornersAreOriginalFacePositions": true,
+            "exactTriangleProjectionNonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "originalTriangleVertexOffsets": [
+              24,
+              27,
+              30
+            ],
+            "projectedCoordinateAxes": [
+              1,
+              2
+            ],
+            "projectedMax": [
+              {
+                "approximate": 3.8399999141693115,
+                "denominator": "4194304",
+                "numerator": "16106127"
+              },
+              {
+                "approximate": 7.090000152587891,
+                "denominator": "262144",
+                "numerator": "1858601"
+              }
+            ],
+            "projectedMin": [
+              {
+                "approximate": 3.700000047683716,
+                "denominator": "4194304",
+                "numerator": "15518925"
+              },
+              {
+                "approximate": 7.0,
+                "denominator": "1",
+                "numerator": "7"
+              }
+            ],
+            "rectangleAreaFromFaceCoordinates": {
+              "approximate": 0.012600009345987928,
+              "denominator": "549755813888",
+              "numerator": "6926928393"
+            },
+            "sourceTriangles": 3
+          },
+          "existingPlane": {
+            "approximate": -30.125,
+            "denominator": "8",
+            "numerator": "-241"
+          },
+          "outwardSign": -1
+        },
+        {
+          "axis": 0,
+          "coverage": {
+            "actualTriangleArea": {
+              "approximate": 0.012600009345987928,
+              "denominator": "549755813888",
+              "numerator": "6926928393"
+            },
+            "actualTrianglesCoverFullRectangle": true,
+            "allFourCornersAreOriginalFacePositions": true,
+            "exactTriangleProjectionNonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "originalTriangleVertexOffsets": [
+              33,
+              36,
+              39
+            ],
+            "projectedCoordinateAxes": [
+              1,
+              2
+            ],
+            "projectedMax": [
+              {
+                "approximate": 3.8399999141693115,
+                "denominator": "4194304",
+                "numerator": "16106127"
+              },
+              {
+                "approximate": 7.090000152587891,
+                "denominator": "262144",
+                "numerator": "1858601"
+              }
+            ],
+            "projectedMin": [
+              {
+                "approximate": 3.700000047683716,
+                "denominator": "4194304",
+                "numerator": "15518925"
+              },
+              {
+                "approximate": 7.0,
+                "denominator": "1",
+                "numerator": "7"
+              }
+            ],
+            "rectangleAreaFromFaceCoordinates": {
+              "approximate": 0.012600009345987928,
+              "denominator": "549755813888",
+              "numerator": "6926928393"
+            },
+            "sourceTriangles": 3
+          },
+          "existingPlane": {
+            "approximate": -29.875,
+            "denominator": "8",
+            "numerator": "-239"
+          },
+          "outwardSign": 1
+        },
+        {
+          "axis": 1,
+          "coverage": {
+            "actualTriangleArea": {
+              "approximate": 0.022500038146972656,
+              "denominator": "1048576",
+              "numerator": "23593"
+            },
+            "actualTrianglesCoverFullRectangle": true,
+            "allFourCornersAreOriginalFacePositions": true,
+            "exactTriangleProjectionNonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "originalTriangleVertexOffsets": [
+              15,
+              18,
+              21
+            ],
+            "projectedCoordinateAxes": [
+              0,
+              2
+            ],
+            "projectedMax": [
+              {
+                "approximate": -29.875,
+                "denominator": "8",
+                "numerator": "-239"
+              },
+              {
+                "approximate": 7.090000152587891,
+                "denominator": "262144",
+                "numerator": "1858601"
+              }
+            ],
+            "projectedMin": [
+              {
+                "approximate": -30.125,
+                "denominator": "8",
+                "numerator": "-241"
+              },
+              {
+                "approximate": 7.0,
+                "denominator": "1",
+                "numerator": "7"
+              }
+            ],
+            "rectangleAreaFromFaceCoordinates": {
+              "approximate": 0.022500038146972656,
+              "denominator": "1048576",
+              "numerator": "23593"
+            },
+            "sourceTriangles": 3
+          },
+          "existingPlane": {
+            "approximate": 3.700000047683716,
+            "denominator": "4194304",
+            "numerator": "15518925"
+          },
+          "outwardSign": -1
+        },
+        {
+          "axis": 1,
+          "coverage": {
+            "actualTriangleArea": {
+              "approximate": 0.022500038146972656,
+              "denominator": "1048576",
+              "numerator": "23593"
+            },
+            "actualTrianglesCoverFullRectangle": true,
+            "allFourCornersAreOriginalFacePositions": true,
+            "exactTriangleProjectionNonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "originalTriangleVertexOffsets": [
+              6,
+              9,
+              12
+            ],
+            "projectedCoordinateAxes": [
+              0,
+              2
+            ],
+            "projectedMax": [
+              {
+                "approximate": -29.875,
+                "denominator": "8",
+                "numerator": "-239"
+              },
+              {
+                "approximate": 7.090000152587891,
+                "denominator": "262144",
+                "numerator": "1858601"
+              }
+            ],
+            "projectedMin": [
+              {
+                "approximate": -30.125,
+                "denominator": "8",
+                "numerator": "-241"
+              },
+              {
+                "approximate": 7.0,
+                "denominator": "1",
+                "numerator": "7"
+              }
+            ],
+            "rectangleAreaFromFaceCoordinates": {
+              "approximate": 0.022500038146972656,
+              "denominator": "1048576",
+              "numerator": "23593"
+            },
+            "sourceTriangles": 3
+          },
+          "existingPlane": {
+            "approximate": 3.8399999141693115,
+            "denominator": "4194304",
+            "numerator": "16106127"
+          },
+          "outwardSign": 1
+        },
+        {
+          "axis": 2,
+          "coverage": {
+            "actualTriangleArea": {
+              "approximate": 0.034999966621398926,
+              "denominator": "8388608",
+              "numerator": "293601"
+            },
+            "actualTrianglesCoverFullRectangle": true,
+            "allFourCornersAreOriginalFacePositions": true,
+            "exactTriangleProjectionNonoverlap": {
+              "proved": true,
+              "trianglePairs": 1
+            },
+            "originalTriangleVertexOffsets": [
+              0,
+              3
+            ],
+            "projectedCoordinateAxes": [
+              0,
+              1
+            ],
+            "projectedMax": [
+              {
+                "approximate": -29.875,
+                "denominator": "8",
+                "numerator": "-239"
+              },
+              {
+                "approximate": 3.8399999141693115,
+                "denominator": "4194304",
+                "numerator": "16106127"
+              }
+            ],
+            "projectedMin": [
+              {
+                "approximate": -30.125,
+                "denominator": "8",
+                "numerator": "-241"
+              },
+              {
+                "approximate": 3.700000047683716,
+                "denominator": "4194304",
+                "numerator": "15518925"
+              }
+            ],
+            "rectangleAreaFromFaceCoordinates": {
+              "approximate": 0.034999966621398926,
+              "denominator": "8388608",
+              "numerator": "293601"
+            },
+            "sourceTriangles": 2
+          },
+          "existingPlane": {
+            "approximate": 7.090000152587891,
+            "denominator": "262144",
+            "numerator": "1858601"
+          },
+          "outwardSign": 1
+        }
+      ],
+      "anchorsOrRuntimeOrOpeningChanged": false,
+      "cause": "Finite cut-plane face omitted by the surface clipper; exact collinear edge subdivision does not close it. Tiny captured Float32 changes are not the cause of this missing face.",
+      "compiledBoundaryAudit": {
+        "boundaryComponents": 1,
+        "boundaryPlaneAxis": 2,
+        "boundaryPlaneValue": {
+          "approximate": 7.0,
+          "denominator": "1",
+          "numerator": "7"
+        },
+        "boundaryReferencesMeaning": "Original source position-array vertex indices only. No replacement vertex/index array, cap polygon or triangulation is authored.",
+        "closedAfterExactCollinearSubdivision": false,
+        "collinearBoundarySubdivisionVertices": 4,
+        "exactEdgeAtomisationCreatesNoCoordinates": true,
+        "exactExistingVertexEdgeSplits": 0,
+        "existingBoundaryVertexReferences": [
+          17,
+          24,
+          9,
+          6,
+          8,
+          35,
+          18,
+          15
+        ],
+        "finiteMissingCutFaceArea": {
+          "approximate": 0.034999966621398926,
+          "denominator": "8388608",
+          "numerator": "293601"
+        },
+        "originalBoundaryOrNonmanifoldEdges": 8,
+        "remainingAtomicBoundaryEdges": 8,
+        "sourceOriginSignedSurfaceIntegral": {
+          "approximate": 0.08481659111976114,
+          "denominator": "2199023255552",
+          "numerator": "186513656329"
+        }
+      },
+      "frozenHiddenSourceRecord": {
+        "id": "office-door-0/header",
+        "operation": "replace-with-fragment",
+        "reasons": [
+          "admin-office-partition-0/opening"
+        ],
+        "remainingTriangles": 14,
+        "replacementId": "replacement/office-door-0/header",
+        "source": "administration",
+        "sourceGeometrySha256": "1f458fef0397e9a5eb162310911e6e291990017584b7cb6ae782d91846e8d472"
+      },
+      "integralOriginShiftAxis": 2,
+      "measurementReferenceAccepted": false,
+      "newGeometryOrCapOrUVExport": false,
+      "originDependenceEqualsMissingFaceAreaOverThree": true,
+      "originalConstructorMetadata": {
+        "appearanceSlot": "trim",
+        "componentId": "office-door-0/header",
+        "dimensions": [
+          1.18,
+          0.14,
+          0.25
+        ],
+        "form": "box",
+        "id": "office-door-0/header",
+        "physicalMaterial": "unassigned"
+      },
+      "originalSourcePartId": "office-door-0/header",
+      "originalStrictFacts": {
+        "badVertexLinks": 0,
+        "boundaryCoordinateMeaning": "Indices refer to the unchanged original geometry position/index arrays and effective draw range; no mesh or coordinate array is exported.",
+        "boundaryEvidence": [
+          {
+            "directedBalance": -1,
+            "edgeUseCount": 1,
+            "effectiveTriangleOffsets": [
+              2
+            ],
+            "sourceGeometryVertexIndices": [
+              6,
+              8
+            ]
+          },
+          {
+            "directedBalance": -1,
+            "edgeUseCount": 1,
+            "effectiveTriangleOffsets": [
+              4
+            ],
+            "sourceGeometryVertexIndices": [
+              9,
+              6
+            ]
+          },
+          {
+            "directedBalance": 1,
+            "edgeUseCount": 1,
+            "effectiveTriangleOffsets": [
+              5
+            ],
+            "sourceGeometryVertexIndices": [
+              17,
+              15
+            ]
+          },
+          {
+            "directedBalance": 1,
+            "edgeUseCount": 1,
+            "effectiveTriangleOffsets": [
+              7
+            ],
+            "sourceGeometryVertexIndices": [
+              15,
+              18
+            ]
+          }
+        ],
+        "boundaryOrNonmanifoldEdges": 8,
+        "closedOrientedManifold": false,
+        "closedSolidMethod": "not-proved",
+        "closedSolidProof": false,
+        "coordinateScale": "4194304",
+        "exactManifoldEdges": false,
+        "exactVertexLinks": true,
+        "exactZeroAreaTriangles": 0,
+        "nondegenerateTriangles": 14,
+        "signedVolumeIntegral": {
+          "approximate": 0.003150002336496982,
+          "denominator": "2199023255552",
+          "numerator": "6926928393"
+        },
+        "sourceIndexCount": 42,
+        "sourceIndexStart": 0,
+        "sourcePrismProofs": [],
+        "sourceTriangles": 14,
+        "strictConvexBoundaryProof": false,
+        "surfaceComponents": 1,
+        "uniqueSourcePositions": 12
+      },
+      "originalSurfaceIntegralAfterOneMetreOriginShift": {
+        "approximate": 0.07314993557929483,
+        "denominator": "2199023255552",
+        "numerator": "160858409481"
+      },
+      "originalSurfaceIntegralAtZeroOrigin": {
+        "approximate": 0.08481659111976114,
+        "denominator": "2199023255552",
+        "numerator": "186513656329"
+      },
+      "preFloat32SourceBoundaryAudit": {
+        "boundaryComponents": 1,
+        "boundaryPlaneAxis": 2,
+        "boundaryPlaneValue": {
+          "approximate": 7.0,
+          "denominator": "1",
+          "numerator": "7"
+        },
+        "boundaryReferencesMeaning": "Original source position-array vertex indices only. No replacement vertex/index array, cap polygon or triangulation is authored.",
+        "closedAfterExactCollinearSubdivision": false,
+        "collinearBoundarySubdivisionVertices": 4,
+        "exactEdgeAtomisationCreatesNoCoordinates": true,
+        "exactExistingVertexEdgeSplits": 0,
+        "existingBoundaryVertexReferences": [
+          17,
+          24,
+          9,
+          6,
+          8,
+          35,
+          18,
+          15
+        ],
+        "finiteMissingCutFaceArea": {
+          "approximate": 0.03500000014901161,
+          "denominator": "268435456",
+          "numerator": "9395241"
+        },
+        "originalBoundaryOrNonmanifoldEdges": 8,
+        "remainingAtomicBoundaryEdges": 8,
+        "sourceOriginSignedSurfaceIntegral": {
+          "approximate": 0.08481666610985994,
+          "denominator": "4503599627370496",
+          "numerator": "381980305887173"
+        }
+      },
+      "precutHashReconstructedHere": false,
+      "proposal": {
+        "actualRetainedDimensionsFromProvedFacePlanes": [
+          {
+            "approximate": 0.25,
+            "denominator": "4",
+            "numerator": "1"
+          },
+          {
+            "approximate": 0.1399998664855957,
+            "denominator": "2097152",
+            "numerator": "293601"
+          },
+          {
+            "approximate": 0.09000015258789062,
+            "denominator": "262144",
+            "numerator": "23593"
+          }
+        ],
+        "allFiveFullFaceDomainsMatchTheSameReferenceHalfspaces": true,
+        "cutBoundaryMatchesRecordedPortalMaximumZExactly": true,
+        "measurementOrStockExport": null,
+        "missingCutBoundaryAreaExact": {
+          "approximate": 0.034999966621398926,
+          "denominator": "8388608",
+          "numerator": "293601"
+        },
+        "openingHeightUnchanged": 2.8,
+        "openingWidthUnchanged": 2,
+        "physicalSourceStillOpen": true,
+        "planeProofUsesActualFaceTrianglesNotBounds": true,
+        "proposedReferenceVolumeExact": {
+          "approximate": 0.003150002336496982,
+          "denominator": "2199023255552",
+          "numerator": "6926928393"
+        },
+        "radialRuleOrDistanceToleranceUsed": false,
+        "reference": "Closed remainder of the authored BoxGeometry under the recorded portal subtraction, using the verified existing five face planes and the recorded z=7 cut boundary. This is a mathematical measurement interpretation; no sixth face is generated.",
+        "scopeExactSourceId": "replacement/office-door-0/header",
+        "status": "UNACCEPTED_HEADER_MEASUREMENT_REFERENCE_PROPOSAL",
+        "strictPortalInteriorDisjointnessProof": "The retained reference occupies z>=7; the recorded portal interior occupies 5<z<7. Their interiors are disjoint. Do not restore the original 1.18 m header across the enlarged opening.",
+        "virtualBoundaryNotAnAuthoredCap": true
+      },
+      "quantityAssigned": false,
+      "rawToCompiledMaximumCoordinateChanges": [
+        {
+          "approximate": 2.7619158515790332e-08,
+          "denominator": "140737488355328",
+          "numerator": "3887051"
+        },
+        {
+          "approximate": 8.197136880383482e-08,
+          "denominator": "2251799813685248",
+          "numerator": "184583113"
+        },
+        {
+          "approximate": 1.7881393432617188e-07,
+          "denominator": "16777216",
+          "numerator": "3"
+        }
+      ],
+      "recordedPrecutSourceSurfaceHash": "1f458fef0397e9a5eb162310911e6e291990017584b7cb6ae782d91846e8d472",
+      "source": {
+        "baseCaseId": "cba39f41656ae46e13e43f35",
+        "boundaryOrNonmanifoldEdges": 8,
+        "closedSolidMethod": "not-proved",
+        "familyId": "A10",
+        "geometryGroupId": "f645b0504d4ec7a87866e961",
+        "geometryId": "010537bcd0f37a601ce09531a8f6f0c6d5f69ad6bc30bfd769bc371868a8ce69",
+        "geometryPath": "assets/art/place-scenes/administration/geometry/010537bcd0f37a601ce09531a8f6f0c6d5f69ad6bc30bfd769bc371868a8ce69.json",
+        "geometrySha256": "135c47a03878be5a30bf5e7abe98991c4e070799b2d803eb7c7bc8699d61f76e",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          62,
+          0,
+          22,
+          1
+        ],
+        "openMatrix": null,
+        "placeId": "administration",
+        "portalId": null,
+        "quantityAssigned": false,
+        "quantityRecipe": "closed-volume",
+        "readiness": "withheld-closed-solid-not-proved",
+        "reason": "withheld-closed-solid-not-proved",
+        "renderId": "replacement/office-door-0/header",
+        "sectionId": "2_1_1",
+        "sourceGeometryChanged": false,
+        "sourceId": "replacement/office-door-0/header",
+        "sourceRange": {
+          "count": 42,
+          "start": 0
+        }
+      },
+      "sourceTriangleCount": 14
+    },
+    {
+      "absoluteOriginDependence": {
+        "approximate": 0.053333282470703125,
+        "denominator": "262144",
+        "numerator": "13981"
+      },
+      "actualCutVolume": {
+        "id": "admin-office-partition-0/opening",
+        "maxY": 4.92,
+        "minY": 1.9600000000000002,
+        "polygon": [
+          [
+            -29.4,
+            5
+          ],
+          [
+            -29.4,
+            7
+          ],
+          [
+            -30.6,
+            7
+          ],
+          [
+            -30.6,
+            5
+          ]
+        ],
+        "role": "portal"
+      },
+      "allFiveExistingFaceCoverages": [
+        {
+          "axis": 0,
+          "coverage": {
+            "actualTriangleArea": {
+              "approximate": 1.3199996948242188,
+              "denominator": "131072",
+              "numerator": "173015"
+            },
+            "actualTrianglesCoverFullRectangle": true,
+            "allFourCornersAreOriginalFacePositions": true,
+            "exactTriangleProjectionNonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "originalTriangleVertexOffsets": [
+              24,
+              27,
+              30
+            ],
+            "projectedCoordinateAxes": [
+              1,
+              2
+            ],
+            "projectedMax": [
+              {
+                "approximate": 6.239999771118164,
+                "denominator": "524288",
+                "numerator": "3271557"
+              },
+              {
+                "approximate": 6.0,
+                "denominator": "1",
+                "numerator": "6"
+              }
+            ],
+            "projectedMin": [
+              {
+                "approximate": 4.920000076293945,
+                "denominator": "524288",
+                "numerator": "2579497"
+              },
+              {
+                "approximate": 5.0,
+                "denominator": "1",
+                "numerator": "5"
+              }
+            ],
+            "rectangleAreaFromFaceCoordinates": {
+              "approximate": 1.3199996948242188,
+              "denominator": "131072",
+              "numerator": "173015"
+            },
+            "sourceTriangles": 3
+          },
+          "existingPlane": {
+            "approximate": -30.079999923706055,
+            "denominator": "524288",
+            "numerator": "-15770583"
+          },
+          "outwardSign": -1
+        },
+        {
+          "axis": 0,
+          "coverage": {
+            "actualTriangleArea": {
+              "approximate": 1.3199996948242188,
+              "denominator": "131072",
+              "numerator": "173015"
+            },
+            "actualTrianglesCoverFullRectangle": true,
+            "allFourCornersAreOriginalFacePositions": true,
+            "exactTriangleProjectionNonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "originalTriangleVertexOffsets": [
+              33,
+              36,
+              39
+            ],
+            "projectedCoordinateAxes": [
+              1,
+              2
+            ],
+            "projectedMax": [
+              {
+                "approximate": 6.239999771118164,
+                "denominator": "524288",
+                "numerator": "3271557"
+              },
+              {
+                "approximate": 6.0,
+                "denominator": "1",
+                "numerator": "6"
+              }
+            ],
+            "projectedMin": [
+              {
+                "approximate": 4.920000076293945,
+                "denominator": "524288",
+                "numerator": "2579497"
+              },
+              {
+                "approximate": 5.0,
+                "denominator": "1",
+                "numerator": "5"
+              }
+            ],
+            "rectangleAreaFromFaceCoordinates": {
+              "approximate": 1.3199996948242188,
+              "denominator": "131072",
+              "numerator": "173015"
+            },
+            "sourceTriangles": 3
+          },
+          "existingPlane": {
+            "approximate": -29.920000076293945,
+            "denominator": "524288",
+            "numerator": "-15686697"
+          },
+          "outwardSign": 1
+        },
+        {
+          "axis": 1,
+          "coverage": {
+            "actualTriangleArea": {
+              "approximate": 0.15999984741210938,
+              "denominator": "262144",
+              "numerator": "41943"
+            },
+            "actualTrianglesCoverFullRectangle": true,
+            "allFourCornersAreOriginalFacePositions": true,
+            "exactTriangleProjectionNonoverlap": {
+              "proved": true,
+              "trianglePairs": 1
+            },
+            "originalTriangleVertexOffsets": [
+              18,
+              21
+            ],
+            "projectedCoordinateAxes": [
+              0,
+              2
+            ],
+            "projectedMax": [
+              {
+                "approximate": -29.920000076293945,
+                "denominator": "524288",
+                "numerator": "-15686697"
+              },
+              {
+                "approximate": 6.0,
+                "denominator": "1",
+                "numerator": "6"
+              }
+            ],
+            "projectedMin": [
+              {
+                "approximate": -30.079999923706055,
+                "denominator": "524288",
+                "numerator": "-15770583"
+              },
+              {
+                "approximate": 5.0,
+                "denominator": "1",
+                "numerator": "5"
+              }
+            ],
+            "rectangleAreaFromFaceCoordinates": {
+              "approximate": 0.15999984741210938,
+              "denominator": "262144",
+              "numerator": "41943"
+            },
+            "sourceTriangles": 2
+          },
+          "existingPlane": {
+            "approximate": 6.239999771118164,
+            "denominator": "524288",
+            "numerator": "3271557"
+          },
+          "outwardSign": 1
+        },
+        {
+          "axis": 2,
+          "coverage": {
+            "actualTriangleArea": {
+              "approximate": 0.21119974975590594,
+              "denominator": "34359738368",
+              "numerator": "7256768145"
+            },
+            "actualTrianglesCoverFullRectangle": true,
+            "allFourCornersAreOriginalFacePositions": true,
+            "exactTriangleProjectionNonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "originalTriangleVertexOffsets": [
+              9,
+              12,
+              15
+            ],
+            "projectedCoordinateAxes": [
+              0,
+              1
+            ],
+            "projectedMax": [
+              {
+                "approximate": -29.920000076293945,
+                "denominator": "524288",
+                "numerator": "-15686697"
+              },
+              {
+                "approximate": 6.239999771118164,
+                "denominator": "524288",
+                "numerator": "3271557"
+              }
+            ],
+            "projectedMin": [
+              {
+                "approximate": -30.079999923706055,
+                "denominator": "524288",
+                "numerator": "-15770583"
+              },
+              {
+                "approximate": 4.920000076293945,
+                "denominator": "524288",
+                "numerator": "2579497"
+              }
+            ],
+            "rectangleAreaFromFaceCoordinates": {
+              "approximate": 0.21119974975590594,
+              "denominator": "34359738368",
+              "numerator": "7256768145"
+            },
+            "sourceTriangles": 3
+          },
+          "existingPlane": {
+            "approximate": 5.0,
+            "denominator": "1",
+            "numerator": "5"
+          },
+          "outwardSign": -1
+        },
+        {
+          "axis": 2,
+          "coverage": {
+            "actualTriangleArea": {
+              "approximate": 0.21119974975590594,
+              "denominator": "34359738368",
+              "numerator": "7256768145"
+            },
+            "actualTrianglesCoverFullRectangle": true,
+            "allFourCornersAreOriginalFacePositions": true,
+            "exactTriangleProjectionNonoverlap": {
+              "proved": true,
+              "trianglePairs": 3
+            },
+            "originalTriangleVertexOffsets": [
+              0,
+              3,
+              6
+            ],
+            "projectedCoordinateAxes": [
+              0,
+              1
+            ],
+            "projectedMax": [
+              {
+                "approximate": -29.920000076293945,
+                "denominator": "524288",
+                "numerator": "-15686697"
+              },
+              {
+                "approximate": 6.239999771118164,
+                "denominator": "524288",
+                "numerator": "3271557"
+              }
+            ],
+            "projectedMin": [
+              {
+                "approximate": -30.079999923706055,
+                "denominator": "524288",
+                "numerator": "-15770583"
+              },
+              {
+                "approximate": 4.920000076293945,
+                "denominator": "524288",
+                "numerator": "2579497"
+              }
+            ],
+            "rectangleAreaFromFaceCoordinates": {
+              "approximate": 0.21119974975590594,
+              "denominator": "34359738368",
+              "numerator": "7256768145"
+            },
+            "sourceTriangles": 3
+          },
+          "existingPlane": {
+            "approximate": 6.0,
+            "denominator": "1",
+            "numerator": "6"
+          },
+          "outwardSign": 1
+        }
+      ],
+      "anchorsOrRuntimeOrOpeningChanged": false,
+      "cause": "Finite cut-plane face omitted by the surface clipper; exact collinear edge subdivision does not close it. Tiny captured Float32 changes are not the cause of this missing face.",
+      "compiledBoundaryAudit": {
+        "boundaryComponents": 1,
+        "boundaryPlaneAxis": 1,
+        "boundaryPlaneValue": {
+          "approximate": 4.920000076293945,
+          "denominator": "524288",
+          "numerator": "2579497"
+        },
+        "boundaryReferencesMeaning": "Original source position-array vertex indices only. No replacement vertex/index array, cap polygon or triangulation is authored.",
+        "closedAfterExactCollinearSubdivision": false,
+        "collinearBoundarySubdivisionVertices": 4,
+        "exactEdgeAtomisationCreatesNoCoordinates": true,
+        "exactExistingVertexEdgeSplits": 0,
+        "existingBoundaryVertexReferences": [
+          15,
+          26,
+          1,
+          2,
+          6,
+          35,
+          10,
+          11
+        ],
+        "finiteMissingCutFaceArea": {
+          "approximate": 0.15999984741210938,
+          "denominator": "262144",
+          "numerator": "41943"
+        },
+        "originalBoundaryOrNonmanifoldEdges": 8,
+        "remainingAtomicBoundaryEdges": 8,
+        "sourceOriginSignedSurfaceIntegral": {
+          "approximate": 0.47359950358077185,
+          "denominator": "137438953472",
+          "numerator": "65091020137"
+        }
+      },
+      "frozenHiddenSourceRecord": {
+        "id": "office-partition-0-tier-0:1:5/wall-1",
+        "operation": "replace-with-fragment",
+        "reasons": [
+          "admin-office-partition-0/opening"
+        ],
+        "remainingTriangles": 14,
+        "replacementId": "replacement/office-partition-0-tier-0:1:5/wall-1",
+        "source": "administration",
+        "sourceGeometrySha256": "aedddc70543ce0746867e5a28e23eaee3f2ec7d5b7b793aee463db88a3e8f9d5"
+      },
+      "integralOriginShiftAxis": 1,
+      "measurementReferenceAccepted": false,
+      "missingFrontTriangleNegative": {
+        "actualFullFaceCoverageAfterOmission": false,
+        "completeOriginalFaceArea": {
+          "approximate": 1.3199996948242188,
+          "denominator": "131072",
+          "numerator": "173015"
+        },
+        "originalTriangleVertexOffsetOmittedFromAnalysisView": 24,
+        "quantityReadinessResult": "REJECT_FRONT_AREA_PROOF",
+        "remainingActualTriangleArea": {
+          "approximate": 1.095599645996117,
+          "denominator": "68719476736",
+          "numerator": "75289034385"
+        },
+        "sameFaceCoordinateExtentsAsCompleteView": true,
+        "sourceGeometryOrIndexArrayChanged": false
+      },
+      "nativePrimaryFaceCorrespondence": {
+        "areaCountedOnce": true,
+        "backCoverage": {
+          "actualTriangleArea": {
+            "approximate": 1.3199996948242188,
+            "denominator": "131072",
+            "numerator": "173015"
+          },
+          "actualTrianglesCoverFullRectangle": true,
+          "allFourCornersAreOriginalFacePositions": true,
+          "exactTriangleProjectionNonoverlap": {
+            "proved": true,
+            "trianglePairs": 3
+          },
+          "originalTriangleVertexOffsets": [
+            33,
+            36,
+            39
+          ],
+          "projectedCoordinateAxes": [
+            1,
+            2
+          ],
+          "projectedMax": [
+            {
+              "approximate": 6.239999771118164,
+              "denominator": "524288",
+              "numerator": "3271557"
+            },
+            {
+              "approximate": 6.0,
+              "denominator": "1",
+              "numerator": "6"
+            }
+          ],
+          "projectedMin": [
+            {
+              "approximate": 4.920000076293945,
+              "denominator": "524288",
+              "numerator": "2579497"
+            },
+            {
+              "approximate": 5.0,
+              "denominator": "1",
+              "numerator": "5"
+            }
+          ],
+          "rectangleAreaFromFaceCoordinates": {
+            "approximate": 1.3199996948242188,
+            "denominator": "131072",
+            "numerator": "173015"
+          },
+          "sourceTriangles": 3
+        },
+        "backOriginalTriangleVertexOffsets": [
+          33,
+          36,
+          39
+        ],
+        "bothActualPrimaryProjectionsEqual": true,
+        "frontCoverage": {
+          "actualTriangleArea": {
+            "approximate": 1.3199996948242188,
+            "denominator": "131072",
+            "numerator": "173015"
+          },
+          "actualTrianglesCoverFullRectangle": true,
+          "allFourCornersAreOriginalFacePositions": true,
+          "exactTriangleProjectionNonoverlap": {
+            "proved": true,
+            "trianglePairs": 3
+          },
+          "originalTriangleVertexOffsets": [
+            24,
+            27,
+            30
+          ],
+          "projectedCoordinateAxes": [
+            1,
+            2
+          ],
+          "projectedMax": [
+            {
+              "approximate": 6.239999771118164,
+              "denominator": "524288",
+              "numerator": "3271557"
+            },
+            {
+              "approximate": 6.0,
+              "denominator": "1",
+              "numerator": "6"
+            }
+          ],
+          "projectedMin": [
+            {
+              "approximate": 4.920000076293945,
+              "denominator": "524288",
+              "numerator": "2579497"
+            },
+            {
+              "approximate": 5.0,
+              "denominator": "1",
+              "numerator": "5"
+            }
+          ],
+          "rectangleAreaFromFaceCoordinates": {
+            "approximate": 1.3199996948242188,
+            "denominator": "131072",
+            "numerator": "173015"
+          },
+          "sourceTriangles": 3
+        },
+        "frontOriginalTriangleVertexOffsets": [
+          24,
+          27,
+          30
+        ],
+        "nativePositiveZFrontUnnormalisedInSourceXYZ": [
+          {
+            "approximate": -12.0,
+            "denominator": "1",
+            "numerator": "-12"
+          },
+          {
+            "approximate": 0.0,
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "approximate": 0.0,
+            "denominator": "1",
+            "numerator": "0"
+          }
+        ],
+        "nativeThinAxis": "local Z",
+        "selectedNativeSide": "+Z member of the original primary face pair; counted once",
+        "selection": "Preserved original BoxGeometry face-normal class under the pinned run frame; actual geometry is then checked. No front is inferred from a bounding box.",
+        "sourceFrontNormalClass": [
+          {
+            "approximate": -1.0,
+            "denominator": "1",
+            "numerator": "-1"
+          },
+          {
+            "approximate": 0.0,
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "approximate": 2.220446049250313e-16,
+            "denominator": "4503599627370496",
+            "numerator": "1"
+          }
+        ],
+        "sourceRunTangentXZ": [
+          {
+            "approximate": 0.0,
+            "denominator": "1",
+            "numerator": "0"
+          },
+          {
+            "approximate": 12.0,
+            "denominator": "1",
+            "numerator": "12"
+          }
+        ]
+      },
+      "newGeometryOrCapOrUVExport": false,
+      "originDependenceEqualsMissingFaceAreaOverThree": true,
+      "originalConstructorMetadata": {
+        "appearanceSlot": "interior",
+        "componentId": "office-partition-0-tier-0:1:5/wall-1",
+        "dimensions": [
+          1,
+          2,
+          0.16
+        ],
+        "enginePin": "90054d07134116a5d9661f8318a76fe68f922aad",
+        "engineSource": "wallPanels",
+        "form": "native-wall",
+        "id": "office-partition-0-tier-0:1:5/wall-1",
+        "level": 2,
+        "panelId": "office-partition-0-tier-0:1:5",
+        "physicalMaterial": "unassigned",
+        "role": "structural-wall",
+        "runId": "office-partition-0"
+      },
+      "originalPlanRun": {
+        "a": [
+          -30,
+          0
+        ],
+        "b": [
+          -30,
+          12
+        ],
+        "endLevel": 3,
+        "id": "office-partition-0",
+        "length": 12,
+        "openings": [
+          {
+            "bottom": 2.12,
+            "height": 1.65,
+            "id": "office-door-0",
+            "kind": "open-door",
+            "width": 1,
+            "x": 0.5
+          }
+        ],
+        "role": "interior",
+        "startLevel": 1
+      },
+      "originalSourcePartId": "office-partition-0-tier-0:1:5/wall-1",
+      "originalStrictFacts": {
+        "badVertexLinks": 0,
+        "boundaryCoordinateMeaning": "Indices refer to the unchanged original geometry position/index arrays and effective draw range; no mesh or coordinate array is exported.",
+        "boundaryEvidence": [
+          {
+            "directedBalance": 1,
+            "edgeUseCount": 1,
+            "effectiveTriangleOffsets": [
+              0
+            ],
+            "sourceGeometryVertexIndices": [
+              1,
+              2
+            ]
+          },
+          {
+            "directedBalance": 1,
+            "edgeUseCount": 1,
+            "effectiveTriangleOffsets": [
+              2
+            ],
+            "sourceGeometryVertexIndices": [
+              2,
+              6
+            ]
+          },
+          {
+            "directedBalance": -1,
+            "edgeUseCount": 1,
+            "effectiveTriangleOffsets": [
+              3
+            ],
+            "sourceGeometryVertexIndices": [
+              11,
+              10
+            ]
+          },
+          {
+            "directedBalance": -1,
+            "edgeUseCount": 1,
+            "effectiveTriangleOffsets": [
+              5
+            ],
+            "sourceGeometryVertexIndices": [
+              15,
+              11
+            ]
+          }
+        ],
+        "boundaryOrNonmanifoldEdges": 8,
+        "closedOrientedManifold": false,
+        "closedSolidMethod": "not-proved",
+        "closedSolidProof": false,
+        "coordinateScale": "524288",
+        "exactManifoldEdges": false,
+        "exactVertexLinks": true,
+        "exactZeroAreaTriangles": 0,
+        "nondegenerateTriangles": 14,
+        "signedVolumeIntegral": {
+          "approximate": 0.21119974975590594,
+          "denominator": "34359738368",
+          "numerator": "7256768145"
+        },
+        "sourceIndexCount": 42,
+        "sourceIndexStart": 0,
+        "sourcePrismProofs": [],
+        "sourceTriangles": 14,
+        "strictConvexBoundaryProof": false,
+        "surfaceComponents": 1,
+        "uniqueSourcePositions": 12
+      },
+      "originalSurfaceIntegralAfterOneMetreOriginShift": {
+        "approximate": 0.4202662211100687,
+        "denominator": "137438953472",
+        "numerator": "57760949609"
+      },
+      "originalSurfaceIntegralAtZeroOrigin": {
+        "approximate": 0.47359950358077185,
+        "denominator": "137438953472",
+        "numerator": "65091020137"
+      },
+      "preFloat32SourceBoundaryAudit": {
+        "boundaryComponents": 1,
+        "boundaryPlaneAxis": 1,
+        "boundaryPlaneValue": {
+          "approximate": 4.92,
+          "denominator": "562949953421312",
+          "numerator": "2769713770832855"
+        },
+        "boundaryReferencesMeaning": "Original source position-array vertex indices only. No replacement vertex/index array, cap polygon or triangulation is authored.",
+        "closedAfterExactCollinearSubdivision": false,
+        "collinearBoundarySubdivisionVertices": 4,
+        "exactEdgeAtomisationCreatesNoCoordinates": true,
+        "exactExistingVertexEdgeSplits": 0,
+        "existingBoundaryVertexReferences": [
+          15,
+          26,
+          1,
+          2,
+          6,
+          35,
+          10,
+          11
+        ],
+        "finiteMissingCutFaceArea": {
+          "approximate": 0.1599999964237213,
+          "denominator": "33554432",
+          "numerator": "5368709"
+        },
+        "originalBoundaryOrNonmanifoldEdges": 8,
+        "remainingAtomicBoundaryEdges": 8,
+        "sourceOriginSignedSurfaceIntegral": {
+          "approximate": 0.47359995279312217,
+          "denominator": "28334198897217871282176",
+          "numerator": "13419075260153317917773"
+        }
+      },
+      "precutHashReconstructedHere": false,
+      "proposal": {
+        "actualStoredCutBoundaryY": {
+          "approximate": 4.920000076293945,
+          "denominator": "524288",
+          "numerator": "2579497"
+        },
+        "canonicalAreaOrStockExport": null,
+        "capturedFloat32CutPlaneDifference": {
+          "approximate": 7.629394538355427e-08,
+          "denominator": "562949953421312",
+          "numerator": "42949673"
+        },
+        "closedSolidOrMissingBottomCapProofRequiredForThisAreaRoute": false,
+        "missingBottomCutBoundaryAreaExact": {
+          "approximate": 0.15999984741210938,
+          "denominator": "262144",
+          "numerator": "41943"
+        },
+        "missingBottomCutFaceStillUnrepaired": true,
+        "nativeDimensionsAndUVsUnchanged": true,
+        "proposedPrimaryAreaExact": {
+          "approximate": 1.3199996948242188,
+          "denominator": "131072",
+          "numerator": "173015"
+        },
+        "radialRuleOrDistanceToleranceUsed": false,
+        "rawCutMaximumY": {
+          "approximate": 4.92,
+          "denominator": "562949953421312",
+          "numerator": "2769713770832855"
+        },
+        "reference": "Use the existing three native-primary-front source triangles after exact source-normal/run-frame correspondence and projection coverage proof. Count that side once; the back cross-check is not another area account.",
+        "scopeExactSourceId": "replacement/office-partition-0-tier-0:1:5/wall-1",
+        "status": "UNACCEPTED_PRIMARY_FACE_MEASUREMENT_PROPOSAL",
+        "strictPortalInteriorDisjointnessProof": "All retained front vertices have Y >= stored cut boundary, which exceeds the original portal maximum Y. No opening or passage face is filled."
+      },
+      "quantityAssigned": false,
+      "rawToCompiledMaximumCoordinateChanges": [
+        {
+          "approximate": 4.522323600042455e-07,
+          "denominator": "281474976710656",
+          "numerator": "127292093"
+        },
+        {
+          "approximate": 7.629394538355427e-08,
+          "denominator": "562949953421312",
+          "numerator": "42949673"
+        },
+        {
+          "approximate": 3.814697269177714e-08,
+          "denominator": "1125899906842624",
+          "numerator": "42949673"
+        }
+      ],
+      "recordedPrecutSourceSurfaceHash": "aedddc70543ce0746867e5a28e23eaee3f2ec7d5b7b793aee463db88a3e8f9d5",
+      "source": {
+        "baseCaseId": "94a926e54f1a2cc0df3f416f",
+        "boundaryOrNonmanifoldEdges": 8,
+        "closedSolidMethod": "not-proved",
+        "familyId": "A02",
+        "geometryGroupId": "e7ad4df93478da8c3387f4d6",
+        "geometryId": "5dcda93fc7732d0612dc31ca090388049633f29748ee1e5d696eaf5b21b16d02",
+        "geometryPath": "assets/art/place-scenes/administration/geometry/5dcda93fc7732d0612dc31ca090388049633f29748ee1e5d696eaf5b21b16d02.json",
+        "geometrySha256": "756e97add4861438a966266bb7d9601a90e7ee83a8bddf6313c8e5fdb1dac20f",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          62,
+          0,
+          22,
+          1
+        ],
+        "openMatrix": null,
+        "placeId": "administration",
+        "portalId": null,
+        "quantityAssigned": false,
+        "quantityRecipe": "wall-area",
+        "readiness": "withheld-primary-face-correspondence-not-proved",
+        "reason": "withheld-primary-face-correspondence-not-proved",
+        "renderId": "replacement/office-partition-0-tier-0:1:5/wall-1",
+        "sectionId": "2_1_2",
+        "sourceGeometryChanged": false,
+        "sourceId": "replacement/office-partition-0-tier-0:1:5/wall-1",
+        "sourceRange": {
+          "count": 42,
+          "start": 0
+        }
+      },
+      "sourceTriangleCount": 14
+    }
+  ],
+  "version": 1
+}
