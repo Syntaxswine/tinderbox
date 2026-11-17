@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "kind": "Structured static-preparation receipt, not raw stdout or a native measurement",
+  "checks": [
+    {
+      "name": "source adaptation and scope audit",
+      "exitCode": 0,
+      "toolChunk": "f61eb2"
+    },
+    {
+      "name": "Node proof syntax",
+      "exitCode": 0,
+      "toolChunk": "f84dd5"
+    },
+    {
+      "name": "PowerShell supervisor syntax, options and absent run markers",
+      "exitCode": 0,
+      "toolChunk": "57a953"
+    }
+  ],
+  "sourcePins": 30,
+  "rawAssetPins": 3,
+  "sourceReferenceFragments": 6,
+  "preparationFragments": 6,
+  "nativeCompilationsDuringPreparation": 0,
+  "proofStarted": false,
+  "hold": "Await artist finite calculation exit; root roof check has explicitly cleared."
+}
