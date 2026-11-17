@@ -1,0 +1,313 @@
+"""Finite source/certificate verification; never reruns the stopped rear union."""
+from common import *
+from contextlib import closing
+from collections import Counter
+import struct,importlib.util
+from finish_first import scalar_reference
+
+OLD=HERE.parent/"roof-exposure-prototype-v1"
+spec=importlib.util.spec_from_file_location("roof_certificate_polygons",OLD/"geometry.py")
+G=importlib.util.module_from_spec(spec);spec.loader.exec_module(G)
+SPECS={"end-0":"replacement/end-pavilion-roof-0","end-1":"replacement/end-pavilion-roof-1","rear":"rear-curtain-roof"}
+
+def decoded(v):
+    if isinstance(v,dict) and "n" in v and "d" in v:return unq(v)
+    if isinstance(v,dict):return {k:decoded(x) for k,x in v.items()}
+    if isinstance(v,list):return [decoded(x) for x in v]
+    return v
+
+def unique_ids(ids):
+    assert len(ids)==len(set(ids)),"Duplicate source ID"
+    return set(ids)
+
+def assert_extrema(lo,hi,row):
+    assert lo==row["min"] and hi==row["max"],"Palette scalar extrema mismatch"
+
+def assert_paths(paths,expected):
+    assert paths==expected,"Incomplete source section universe"
+
+def assert_ids(ids,expected):
+    assert unique_ids(ids)==expected,"Candidate source ID mismatch"
+
+def rejected(fn):
+    try:fn()
+    except (AssertionError,KeyError,ValueError):return True
+    return False
+
+def main():
+    deadline=time.monotonic()+55;G.deadline=deadline;G.clips=0
+    audit=read("metadata-audit.json");pal=read("palette-extrema.json")
+    selections={k:read(k+"/selection.json") for k in SPECS}
+    assert audit["source"]==pal["source"]==SOURCE and audit["authority"]==AUTHORITY
+    paths=tree(PREFIX+"sections")
+    assert_paths(paths,[s["path"] for s in audit["sections"]])
+    assert tree(PREFIX+"geometry")==audit["geometryPaths"]
+    extra_reads=[]
+    def pin(commit,path):
+        b=raw(commit,path);extra_reads.append({"commit":commit,"path":path,"sha256":sha(b),"bytes":len(b)})
+        return b
+    producer_texts={}
+    for row in audit["producerPins"]:
+        body=pin(SOURCE,row["path"]);assert sha(body)==row["sha256"]
+        producer_texts[row["path"]]=body.decode("utf-8")
+    wrapper_path="vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.module.js"
+    wrapper=pin(SOURCE,wrapper_path).decode("utf-8")
+    assert "three.module.js" in producer_texts["src/runtime/three.js"] and "./three.core.js" in wrapper
+    artist_meta={}
+    for name in ("roof-possible-cover-context.json","roof-area-exposure-review.json","case-ledger.json"):
+        artist_meta[name]=json.loads(pin(ARTIST,PACKAGE+name))
+    assert {r["path"]:r["sha256"] for r in artist_meta["roof-possible-cover-context.json"]["sectionPins"]}=={r["path"]:r["sha256"] for r in audit["sections"]}
+    proposal=pin(ARTIST,"art/source/shared-map-fire-bindings/remaining-material-proposal-v1/horticulture-proposal.json")
+    families=json.loads(proposal)["families"]
+    family_decision=pin("03de2860aa7f09e068922bb1b85aae3e24918849","docs/engineering/shared-maps/remaining-material-decision.md").decode("utf-8")
+    roof_decision=pin(AUTHORITY,"docs/engineering/shared-maps/roof-exposure-decision.md").decode("utf-8")
+    builder=pin(SOURCE,"assets/art/exposition-horticulture/index.js").decode("utf-8")
+    assert "H01\u2013H22" in family_decision
+    assert sha(proposal)=="c650fd0fad72a0ad926f4e6a2471d626c42da42966f6b01191753db9fac78911"
+    assert "end-upper-cornice--1-0-2" in roof_decision and "end-upper-cornice-1-0-2" not in roof_decision
+    assert "function cornice(poly,id,y,skip=[])" in builder and "[2,.18,.96,-.04]" in builder
+    h22=next(f for f in families if f["id"]=="H22")
+    assert h22["proposedPhysicalMaterial"]=="mineral-staff-proxy" and h22["quantityRule"]=="inert"
+    assert h22["ownershipProposal"]=="one-per-original-logical-solid"
+
+    # Source scalar extrema are re-audited, without assembling local/world vertices.
+    entries=pal["entries"];bytes_read=scalar_count=0
+    with closing(batch(audit["geometryPaths"],deadline)) as objects:
+        for path,b in objects:
+            gid=Path(path).stem;row=entries[gid];g=json.loads(b)
+            assert sha(b)==row["sha256"] and sha(b[:-1])==gid and len(b)==row["bytes"]
+            a=g["attributes"]["position"]
+            assert a["type"]=="Float32Array" and a["itemSize"]==3 and not a["normalized"]
+            lo=[math.inf]*3;hi=[-math.inf]*3
+            for i,x in enumerate(a["array"]):
+                assert math.isfinite(x) and struct.unpack("<f",struct.pack("<f",x))[0]==x
+                k=i%3;lo[k]=min(lo[k],x);hi[k]=max(hi[k],x)
+            assert_extrema(lo,hi,row)
+            assert len(a["array"])==row["positionValues"]
+            indices=g["index"]["array"] if g["index"] else range(len(a["array"])//3)
+            assert len(indices)==row["effectiveIndexCount"] and len(indices)%3==0
+            assert all(isinstance(x,int) and 0<=x<len(a["array"])//3 for x in indices)
+            scalar_count+=len(a["array"]);bytes_read+=len(b)
+    assert scalar_count==pal["positionScalarsAudited"] and bytes_read==pal["geometryBytes"]
+    # Independently enumerate every placement and reconstruct the selection digest.
+    encloser=Encloser(entries);seen=set();all_digest=hashlib.sha256();logical=0
+    roofs={k:encloser.box(s["roof"]["part"]) for k,s in selections.items()}
+    expected={k:{(r["section"],r["ordinal"]):r for r in s["candidates"]} for k,s in selections.items()}
+    old={k:unique_ids(s["roof"]["originalCandidateIds"]) for k,s in selections.items()}
+    found={k:set() for k in selections};totals={k:Counter() for k in selections}
+    for k,s in selections.items():
+        assert s["completeForAllCapturedPlacements"] and s["noPlacedWorldIndex"] and s["triangleExpansions"]==0
+        assert decoded(s["roofSourceLocalGuard"])==roofs[k]
+        assert_ids([r["part"]["id"] for r in s["candidates"]],old[k]|set(s["newBoundaryCandidates"]))
+        artist_case=next(r for r in artist_meta["case-ledger.json"]["cases"] if r["sourceId"]==SPECS[k])
+        artist_review=next(r for r in artist_meta["roof-area-exposure-review.json"]["cases"] if r["sourceId"]==SPECS[k])
+        assert s["roof"]["sourceRange"]==artist_case["sourceRange"] and s["roof"]["part"]["matrix"]==artist_case["originalMatrix"]
+        original_ids=[r["renderId"] for r in artist_meta["roof-possible-cover-context.json"]["roofCandidates"][SPECS[k]]]
+        assert old[k]==unique_ids(original_ids)
+        assert sha(("\n".join(sorted(old[k]))+"\n").encode())==artist_review["coarsePotentialCoveringSourceIdSetSha256"]
+        assert len(s["candidates"])+1==s["placementsIncludingRoof"]<=CAPS["placements"]
+        gids={s["roof"]["part"]["geometry"]}|{r["part"]["geometry"] for r in s["candidates"]}
+        triangles=s["roof"]["sourceRange"]["count"]//3+sum(entries[r["part"]["geometry"]]["triangles"] for r in s["candidates"])
+        assert len(gids)==s["expandedGeometryCountPlanned"]<=CAPS["expandedGeometries"]
+        assert triangles==s["triangleCountPlannedIncludingRoof"]<=CAPS["triangles"]
+    with closing(batch(paths,deadline)) as objects:
+        for path,b in objects:
+            record=next(s for s in audit["sections"] if s["path"]==path)
+            assert sha(b)==record["sha256"] and len(b)==record["bytes"]
+            parts=json.loads(b)["parts"];assert len(parts)==record["records"]
+            ids=[p["id"] for p in parts]
+            assert sha(("\n".join(ids)+"\n").encode())==record["idSetSha256"]
+            digests={k:hashlib.sha256() for k in selections};counts={k:Counter() for k in selections}
+            for ordinal,p in enumerate(parts):
+                assert p["id"] not in seen;seen.add(p["id"])
+                logical+=len(p["sourceRanges"]) if p.get("sourceRanges") else 1
+                all_digest.update((path+":"+str(ordinal)+":"+json.dumps(p,separators=(",",":"))+"\n").encode())
+                box=encloser.box(p)
+                for k,s in selections.items():
+                    if p["id"]==SPECS[k]:
+                        assert p==s["roof"]["part"] and path==s["roof"]["section"]
+                        counts[k]["target-self"]+=1;continue
+                    why,margin=relation(box,roofs[k]);was_old=p["id"] in old[k]
+                    digests[k].update((str(ordinal)+":"+p["id"]+":"+why+":"+str(margin)+"\n").encode())
+                    counts[k]["retained-original" if was_old and why!="candidate" else why]+=1
+                    if why=="candidate" or was_old:
+                        row=expected[k][path,ordinal];assert row["part"]==p
+                        assert decoded(row["sourceLocalGuard"])==box and row["exactGuardRelation"]==why and row["wasInOriginalSet"]==was_old
+                        found[k].add(p["id"])
+                    else:assert (path,ordinal) not in expected[k] and margin>=0
+            for k,s in selections.items():
+                sr=next(r for r in s["sections"] if r["path"]==path)
+                assert sr["selectionDigest"]==digests[k].hexdigest() and sr["classificationCounts"]==dict(counts[k])
+                totals[k].update(counts[k])
+    assert len(seen)==audit["records"]==61954 and logical==audit["logicalSources"]==63788
+    assert all_digest.hexdigest()==audit["metadataDigest"]
+    for k,s in selections.items():
+        assert found[k]=={r["part"]["id"] for r in s["candidates"]}
+        assert dict(totals[k])==s["exclusionCounts"]
+    # Proved roofs only. Reconstruct their six own faces and four substantial
+    # H22 prisms for an independent small mask/role certificate check.
+    from expose import family_for
+    for name in ("selection.json","result.json","exposure-cells.json","input-pins.json"):
+        accepted=pin("5dd2f8543aa149123ff7d7c24fa4cdad8aaac46a","docs/engineering/shared-maps/roof-exposure-prototype-v1/"+name)
+        assert accepted==(OLD/name).read_bytes().replace(b"\r\n",b"\n")
+    area_references={};verification_expansions={}
+    for slug in ("end-0","end-1"):
+        s=selections[slug];geometry={};triangle_count=0
+        def faces(part,source_range=None):
+            nonlocal triangle_count
+            gid=part["geometry"]
+            if gid not in geometry:
+                b=pin(SOURCE,entries[gid]["path"]);assert sha(b)==entries[gid]["sha256"]
+                geometry[gid]=json.loads(b)
+            g=geometry[gid];a=g["attributes"]["position"]["array"]
+            idx=g["index"]["array"] if g["index"] else range(len(a)//3)
+            start=source_range["start"] if source_range else 0;count=source_range["count"] if source_range else len(idx)
+            m=tuple(map(F,part["matrix"]))
+            def point(i):
+                v=tuple(map(F,a[3*i:3*i+3]))
+                return tuple(m[k+12]+sum(m[k+4*j]*v[j] for j in range(3)) for k in range(3))
+            out=[]
+            for offset in range(start,start+count,3):
+                t=tuple(point(idx[j]) for j in range(offset,offset+3));n=G.cross(G.sub(t[1],t[0]),G.sub(t[2],t[0]))
+                out.append({"offset":offset,"triangle":t,"normal":n,"projection":G.normalized([(v[0],v[2]) for v in t])})
+                triangle_count+=1
+            return out
+        roof=s["roof"];roof_family=family_for(roof["part"],families)
+        assert roof_family["id"]=="H21" and roof_family["quantityRule"]=="weather-area"
+        rfaces=faces(roof["part"],roof["sourceRange"])
+        upper=[f for f in rfaces if f["normal"][1]>0];assert len(upper)==6
+        assert [f["offset"] for f in upper]==roof["originalUpperOffsets"]==[0,3,6,9,12,15]
+        assert G.disjoint([f["projection"] for f in upper])
+        factors={1+sum(v*v for v in G.plane(f["triangle"])[:2]) for f in upper};assert len(factors)==1
+        factor=next(iter(factors))
+        if slug=="end-0":
+            old_selection=json.loads((OLD/"selection.json").read_text(encoding="utf-8"))
+            assert s["roof"]["part"]==old_selection["target"] and s["roof"]["sourceRange"]==old_selection["sourceRange"]
+            prior={r["id"]:r for r in old_selection["candidateRecords"]}
+            assert len(prior)==len(s["candidates"])==230
+            for row in s["candidates"]:
+                p=row["part"];assert p=={k:prior[p["id"]][k] for k in p}
+                assert Path(row["section"]).stem==prior[p["id"]]["sectionId"]
+            old_result=json.loads((OLD/"result.json").read_text(encoding="utf-8"))
+            result=read(slug+"/result.json")
+            partitions=json.loads((OLD/"exposure-cells.json").read_text(encoding="utf-8"))["roofPartitions"]
+            result_cover=unq(old_result["geometricCoveredProjectedArea"])
+            result_open=unq(result["geometricExposedProjectedArea"])
+            assert sha((OLD/"exposure-cells.json").read_bytes().replace(b"\r\n",b"\n"))==result["reuseAcceptedMask"]["originalLfSha256"]
+            assert factor==unq(old_result["commonSurfaceAreaFactorSquared"])
+            corner_prefix="end-upper-cornice--1-"
+        else:
+            result=read(slug+"/result.json");partitions=read(slug+"/partitions.json")["partitions"]
+            result_cover=unq(result["coveredProjectedArea"]);result_open=unq(result["exposedProjectedArea"])
+            assert factor==unq(result["squaredSlopeFactor"])
+            assert result["allCandidateEnvelopesProved"] and result["h22OnlyCoverEqualsAllUpperGeometry"]
+            assert result["trianglesIncludingRoof"]==s["triangleCountPlannedIncludingRoof"]
+            corner_prefix="end-upper-cornice-1-"
+        cornices=[row["part"] for row in s["candidates"] if row["part"]["id"].startswith(corner_prefix)]
+        assert len(cornices)==4
+        solids=[];h22_records={f["offset"]:[] for f in upper}
+        for p in cornices:
+            assert family_for(p,families)["id"]=="H22"
+            fs=faces(p);envelope=G.source_envelope([f["triangle"] for f in fs])
+            assert envelope["closedOriented"] and envelope["convexOutward"]
+            volume=sum((G.dot(f["triangle"][0],G.cross(f["triangle"][1],f["triangle"][2]))/6 for f in fs),F(0));assert volume>0
+            tops=[f for f in fs if f["normal"][1]>0];assert len(tops)==2
+            solids.append({"sourceId":p["id"],"geometry":p["geometry"],"matrix":p["matrix"],"capturedMaterial":p["material"],
+              "capturedRole":p.get("role"),"fromAccess":p["fromAccess"],"sourceSection":next(row["section"] for row in s["candidates"] if row["part"]["id"]==p["id"]),
+              "sourceUpperOffsets":[f["offset"] for f in tops],"closedOutwardConvex":True,"positiveVolume":True,
+              "acceptedFamily":"H22","acceptedMaterial":"mineral-staff-proxy","acceptedRecipe":"inert","acceptedOwnership":"one-per-original-logical-solid",
+              "weatherClassification":"accepted by 68dc1533 for end-0; proposed for architect review for end-1",
+              "builderReference":"assets/art/exposition-horticulture/index.js:15-18,76-83"})
+            for f in tops:
+                cp=G.plane(f["triangle"])
+                for r in upper:
+                    polygon=G.intersection(f["projection"],r["projection"])
+                    if not polygon:continue
+                    rp=G.plane(r["triangle"]);d=tuple(cp[i]-rp[i] for i in range(3))
+                    if max(d[0]*v[0]+d[1]*v[1]+d[2] for v in polygon)<=0:continue
+                    polygon=G.half(polygon,d)
+                    if polygon:h22_records[r["offset"]].append({"owner":p["id"],"sourceOffset":f["offset"],"polygon":polygon})
+        total=covered=opened=F(0)
+        for r in upper:
+            row=next(p for p in partitions if p["roofOffset"]==r["offset"])
+            if slug=="end-0":
+                c=[decoded(v["polygon"]) for v in row["coveredCells"]];e=[decoded(v) for v in row["exposedConvexCells"]]
+                ca=unq(row["coveredProjectedArea"]);ea=unq(row["exposedProjectedArea"]);domain=unq(row["projectedDomainArea"])
+            else:
+                c=[decoded(v["polygon"]) for v in row["coverCells"]];e=[decoded(v) for v in row["exposedCells"]]
+                ca=unq(row["coveredArea"]);ea=unq(row["exposedArea"]);domain=unq(row["domainArea"])
+            assert G.disjoint(c) and G.disjoint(e) and all(G.area(G.intersection(a,b))==0 for a in c for b in e)
+            assert all(G.area(G.intersection(p,r["projection"]))==G.area(p) for p in c+e)
+            assert sum(map(G.area,c),F(0))==ca and sum(map(G.area,e),F(0))==ea
+            assert ca+ea==domain==G.area(r["projection"])
+            h22=G.union_cells(h22_records[r["offset"]])
+            assert sum((G.area(p["polygon"]) for p in h22),F(0))==ca
+            assert all(sum((G.area(G.intersection(p["polygon"],q)) for q in c),F(0))==G.area(p["polygon"]) for p in h22)
+            covered+=ca;opened+=ea;total+=domain
+        assert total==2736 and covered==result_cover and opened==result_open and total==covered+opened
+        areas={}
+        for label,projection in (("total",total),("covered",covered),("exposed",opened)):
+            rad=projection*projection*factor;lo,hi=G.sqrt_interval(rad,128)
+            interval={"radicand":rad,"lower":lo,"upper":hi,"width":hi-lo,"bits":128}
+            assert lo*lo<=rad<=hi*hi and hi-lo<=F(1,1<<128)
+            areas[label]={"projected":projection,"sloped":interval}
+        recorded=result["actualExposedArea"];assert unq(recorded["radicand"])==areas["exposed"]["sloped"]["radicand"]
+        scalar=decoded(result["areaScalarDirectedLower"]);v=scalar["value"];n=math.nextafter(v,math.inf)
+        assert F(v)**2<=areas["exposed"]["sloped"]["radicand"]<F(n)**2
+        assert struct.pack(">d",v).hex()==scalar["bits"] and struct.pack(">d",n).hex()==scalar["nextBits"]
+        assert triangle_count==54 and len(geometry)==5
+        verification_expansions[slug]={"triangles":triangle_count,"geometries":len(geometry),"placements":5}
+        area_references[slug]={"source":SOURCE,"target":SPECS[slug],"quantityRule":"weather-area","classification":"accepted covers" if slug=="end-0" else "four H22 covers proposed",
+          "upperOffsets":[f["offset"] for f in upper],"upperPlanes":[{"offset":f["offset"],"planeYFromXZ":G.plane(f["triangle"])} for f in upper],
+          "squaredSlopeFactor":factor,"areas":areas,"directedLowerAreaScalar":result["areaScalarDirectedLower"],"covers":solids,
+          "stockBindingRuntimeAssigned":False}
+    # The third selection is complete; its original failed union stays stopped.
+    cap=read("rear/cap.json");failure=read("rear/exposure-failure.json")
+    assert cap["status"]=="exact-union-cap-stop" and cap["exposedArea"] is None and not cap["retryOrCapWidening"]
+    assert failure["exactClipOperations"]==200001 and failure["error"]=="Finite exact clipping operation bound"
+    assert sha((HERE/"history/expose-at-rear-cap.py.txt").read_bytes())==cap["executedSourceLfSha256"]
+    assert not (HERE/"rear/result.json").exists() and len(selections["rear"]["newBoundaryCandidates"])==12
+    area_references["rear"]={"sourceSelectionComplete":True,"exposureProved":False,"reason":"exact clipping cap 200000","area":None,
+      "newBoundaryCandidates":selections["rear"]["newBoundaryCandidates"],"stockBindingRuntimeAssigned":False}
+    # Boundary/identity negatives change no captured physical coordinate.
+    box={"min":[F(0)]*3,"max":[F(1)]*3};boundary_step=F(1,1<<80)
+    equal={"min":[F(1),F(0),F(0)],"max":[F(2),F(1),F(1)]}
+    tiny={"min":[F(1)-boundary_step,F(0),F(0)],"max":[F(2),F(1),F(1)]}
+    same_height={"min":[F(0),F(-1),F(0)],"max":[F(1),F(0),F(1)]}
+    tiny_higher={"min":[F(0),F(-1),F(0)],"max":[F(1),boundary_step,F(1)]}
+    ids=[r["part"]["id"] for r in selections["end-0"]["candidates"]]
+    witness=decoded(read("end-0/result.json")["newSourceBoundWitness"])
+    assert witness["exactOutsideDistance"]>0 and witness["guardContainsVertex"]
+    first=entries[next(iter(entries))]
+    trimmed=first["min"].copy();trimmed[0]=math.nextafter(trimmed[0],math.inf)
+    assert trimmed!=first["min"]
+    duplicate_probe=next(r for records in h22_records.values() for r in records)
+    duplicate_union=G.union_cells([duplicate_probe,{**duplicate_probe,"owner":"duplicate-probe"}])
+    duplicate_area=sum((G.area(r["polygon"]) for r in duplicate_union),F(0))
+    negatives=[
+      {"name":"duplicate candidate ID rejected","passed":rejected(lambda:unique_ids(ids+[ids[0]]))},
+      {"name":"missing candidate rejected by exact ID set","passed":rejected(lambda:assert_ids(ids[:-1],unique_ids(ids)))},
+      {"name":"missing section rejected by tree equality","passed":rejected(lambda:assert_paths(paths[:-1],paths))},
+      {"name":"trimmed palette extremum rejected by audited scalar equality","passed":rejected(lambda:assert_extrema(first["min"],first["max"],{**first,"min":trimmed}))},
+      {"name":"duplicate projected cover counted once","passed":duplicate_area==G.area(duplicate_probe["polygon"])},
+      {"name":"touch-only projection excluded","passed":relation(equal,box)[0]=="right"},
+      {"name":"positive 2^-80 projected overlap retained","passed":relation(tiny,box)[0]=="candidate"},
+      {"name":"equal height is not strictly above","passed":relation(same_height,box)[0]=="not-higher"},
+      {"name":"positive 2^-80 height retained","passed":relation(tiny_higher,box)[0]=="candidate"},
+      {"name":"real source vertex outside rounded bounds inside exact guard","passed":witness["exactOutsideDistance"]>0,"witness":"end-0/result.json#newSourceBoundWitness"},
+      {"name":"rear cap failure withholds area","passed":cap["exposedArea"] is None and not cap["exposureProved"]},
+      {"name":"new rear boundary IDs preserved","passed":len(selections["rear"]["newBoundaryCandidates"])==12},
+    ]
+    assert all(n["passed"] for n in negatives)
+    save("area-references.json",area_references);save("negative-controls.json",{"controls":negatives})
+    save("input-references.json",{"source":SOURCE,"artist":ARTIST,"authority":AUTHORITY,"metadataAndProducerPins":"metadata-audit.json",
+      "palettePins":"palette-extrema.json","additionalReads":extra_reads,"previousAcceptedMaskCommit":"5dd2f8543aa149123ff7d7c24fa4cdad8aaac46a",
+      "sourceScope":"445 descriptors plus 629 geometry JSONs audited only as scalar palettes; selected roof triangles only"})
+    save("checks.json",{"verificationPassed":True,"allThreeExposureSolutionsPassed":False,"roofOutcomes":{"end-0":"complete accepted-cover reference","end-1":"complete geometric reference; H22 adoption proposed","rear":"selection complete; union cap-stop; no area"},
+      "sourceSections":445,"capturedPlacements":len(seen),"logicalSources":logical,"paletteFiles":629,"paletteBytes":bytes_read,"positionScalars":scalar_count,
+      "selectionDigestsAndAllRawPinsVerified":True,"firstTwoExactDisjointMasksConservationAndH22SourceSolidsVerified":True,
+      "firstTwo128BitIntervalsAndDirectedBinary64ScalarsVerified":True,"verificationTriangleExpansions":verification_expansions,"rearVerificationTriangleExpansions":0,
+      "negativeControlsPassed":len(negatives),"verificationClipOperations":G.clips,"noFullWorldMeshIndexFactoryNativeRendererOrBenchmark":True,
+      "sourceHashes":{p.name:sha(p.read_bytes()) for p in HERE.glob("*.py")}})
+    print(json.dumps({"verificationPassed":True,"sections":445,"placements":len(seen),"palette":629,"provedRoofs":2,"rear":"cap-stop; no area","negatives":len(negatives),"clips":G.clips}))
+if __name__=="__main__":main()
