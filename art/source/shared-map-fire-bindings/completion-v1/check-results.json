@@ -3,6 +3,7 @@
   "additionalUnsupportedCarrierIds": [],
   "carrierCount": 12446,
   "checks": {
+    "context": 1,
     "coverage": 3,
     "exceptions": 1,
     "follow": 353,
@@ -14,7 +15,7 @@
     "ownership": 10551,
     "policy": 6,
     "prefix": 100,
-    "preserved": 12345,
+    "preserved": 12346,
     "repair": 118,
     "restored": 16,
     "retained": 2595,
@@ -22,6 +23,10 @@
     "support": 17074
   },
   "completedBindingsSha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba",
+  "context": {
+    "mode": "art-only",
+    "preservedRef": "c791c7b94da99b032ae3293395a6eb23cacf0038"
+  },
   "effectiveIndexSha256": "f1252c7364adfeb025f573fc4650020e71915a3e17e71bcf2e725e56c3f1c941",
   "finiteLedger": {
     "awningCount": 58,
