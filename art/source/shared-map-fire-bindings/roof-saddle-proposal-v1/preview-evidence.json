@@ -1,0 +1,93 @@
+{
+  "cameraSeed": "No random sampling",
+  "cleanupReceipt": "art/source/shared-map-fire-bindings/roof-saddle-proposal-v1/preview-session/cleanup-receipt.json",
+  "encoderSourceSha256": "4d1c17c5666f61c90b77d185f28ebb0d88261f02390d5e0568f93068aa47541d",
+  "jpgCount": 2,
+  "manifestPath": "art/source/shared-map-fire-bindings/roof-saddle-proposal-v1/source-proposal.json",
+  "manifestSha256": "cb7f54e07464e7834086d71d4d073322edab1fd4198d24aef890f8585010c8f6",
+  "outputs": [
+    {
+      "camera": {
+        "halfWidth": 0.64,
+        "origin": [
+          50.6,
+          17.85,
+          61.6
+        ],
+        "target": [
+          49.5,
+          17.23,
+          60
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ]
+      },
+      "height": 1100,
+      "imagePixelsPerMetre": 1250,
+      "newCarrierIds": [
+        "proposal-only/roof-saddle/main-parapet-6/bay-01"
+      ],
+      "omitted": "Whole-building context, other nineteen prototypes, runtime and support acceptance omitted. The assembled view shows three original parents; the second view isolates the same unapproved fitting.",
+      "path": "art/source/shared-map-fire-bindings/roof-saddle-proposal-v1/previews/assembled-proposal.jpg",
+      "physicalWidthMetres": 1.28,
+      "sha256": "e6adab4c92691716051cc18c17bdd0136cf4969209f791723b9460f3397d95dc",
+      "sourceCarrierIds": [
+        "carrier/edge-6/cornice-7",
+        "carrier/roof/rear-tail",
+        "carrier/main-parapet-6/base"
+      ],
+      "triangles": 48,
+      "width": 1600
+    },
+    {
+      "camera": {
+        "halfWidth": 0.32,
+        "origin": [
+          50.5,
+          16.8,
+          60.7
+        ],
+        "target": [
+          49.5,
+          17.16,
+          60
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ]
+      },
+      "height": 1100,
+      "imagePixelsPerMetre": 2500,
+      "newCarrierIds": [
+        "proposal-only/roof-saddle/main-parapet-6/bay-01"
+      ],
+      "omitted": "Whole-building context, other nineteen prototypes, runtime and support acceptance omitted. The assembled view shows three original parents; the second view isolates the same unapproved fitting.",
+      "path": "art/source/shared-map-fire-bindings/roof-saddle-proposal-v1/previews/isolated-profile.jpg",
+      "physicalWidthMetres": 0.64,
+      "sha256": "a89296bf966ca8cbb0f51dd153ddbf54933b56747e4fb1bf199a07ce565fc821",
+      "sourceCarrierIds": [],
+      "triangles": 16,
+      "width": 1600
+    }
+  ],
+  "renderer": "Deterministic pure JavaScript orthographic triangle rasterizer, linear diffuse source colours, one directional shadow, 2x sampling; Windows System.Drawing JPEG/labels.",
+  "rendererReuse": "Existing accepted pure software rasterizer and OS image encoder; no blocked binary or execution-policy work attempted for this proposal.",
+  "rendererSourceSha256": "7188a27813fe962637528b4a9f9947fb9d39742215bfeb0818a8c00e78f2f0ea",
+  "runtimeBehaviorAcceptance": false,
+  "samplesPerPixel": 4,
+  "scope": "Offline source-triangle close-ups; not running-game or full support acceptance.",
+  "sessionCount": 1,
+  "sessionRecord": "art/source/shared-map-fire-bindings/roof-saddle-proposal-v1/preview-session/render-run.json",
+  "version": 1,
+  "visualInspection": {
+    "assembled": "Original roof, cornice, parapet and one fitting visible at stated scale; new roof bearing labeled unapproved. Whole-building context omitted.",
+    "isolated": "Same ten-vertex, sixteen-triangle profile shown alone; original parents explicitly omitted. Dimensions and scale ruler readable.",
+    "note": "Microscopic representation gaps cannot be assessed from these JPGs; exact source calculations are authoritative.",
+    "result": "PASS"
+  }
+}

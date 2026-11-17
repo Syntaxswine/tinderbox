@@ -1,0 +1,117 @@
+{
+  "actualEmittedClosedSolidVolumeExactMetresCubed": {
+    "denominator": "1393796574908163946345982392040522594123776",
+    "numerator": "6710236654508801643051790797306714502691"
+  },
+  "actualEmittedClosedSolidVolumeMetresCubed": 0.004814358691440273,
+  "emittedMinusReferenceVolumeExact": {
+    "denominator": "1530043552677306445569343157096346000045227537650941952",
+    "numerator": "-23120935628338492163039462569667315129"
+  },
+  "minimumRemainingThicknessMetres": 0.1483333208825819,
+  "newCutVertexRounding": {
+    "creaseZ": {
+      "emittedWorldExact": {
+        "denominator": "17592186044416",
+        "numerator": "1056126590999655"
+      },
+      "outwardLocalNextafterSteps": 0,
+      "targetWorldExact": {
+        "denominator": "18295872815104",
+        "numerator": "1098371614351609"
+      },
+      "worldExcessExact": {
+        "denominator": "19184613132970491904",
+        "numerator": "12161"
+      }
+    },
+    "nativeToleranceMetres": 1e-05,
+    "nearRoofY": {
+      "emittedWorldExact": {
+        "denominator": "281474976710656",
+        "numerator": "4816505980488399"
+      },
+      "outwardLocalNextafterSteps": 0,
+      "targetWorldExact": {
+        "denominator": "70835500057794445312",
+        "numerator": "1212113466164244544435"
+      },
+      "worldExcessExact": {
+        "denominator": "283342000231177781248",
+        "numerator": "372827"
+      }
+    },
+    "oldGeometrySnappedOrMoved": false,
+    "onlyNewVerticesRounded": true
+  },
+  "originalUpperBearing": {
+    "actualFaceAreaMetresSquared": 0.025599999999940337,
+    "actualSurfaceWitness": [
+      [
+        49.473333333333336,
+        17.26000000178814,
+        60.026666666666664
+      ],
+      [
+        49.473333333333336,
+        17.260000001788136,
+        60.026666666666664
+      ]
+    ],
+    "axis": 1,
+    "childFace": "min",
+    "geometricHorizontalBearing": true,
+    "groundAnchor": false,
+    "kind": "actual-coplanar-source-face-area",
+    "nativePrecisionToleranceMetres": 1e-05,
+    "parentFace": "max",
+    "witnessSeparationMetres": 3.552713678800501e-15
+  },
+  "proposedFrameQuantity": {
+    "assignedRuntimeStock": 0,
+    "recipe": "Actual closed emitted volume / binary64 .12, using the existing frame fitting convention.",
+    "sixDecimalPrototypeProposal": 0.04012,
+    "status": "SEPARATE_UNAPPROVED_QUANTITY_NOT_CANONICAL_STOCK",
+    "unit": "prototype-fuel-unit",
+    "unroundedApproximate": 0.04011965576200227,
+    "unroundedExact": {
+      "denominator": "167255588988979667371817690617961336799232",
+      "numerator": "6710236654508801643051790797306714502691"
+    }
+  },
+  "prototypeClosure": "Actual ten-vertex shared indexed physical solid; checked independently from any tolerance-based measurement closure.",
+  "referenceCreaseZExact": {
+    "denominator": "18295872815104",
+    "numerator": "1098371614351609"
+  },
+  "referenceCut": "Intersection of frozen rectangular envelope with y >= actual rear-roof plane. Piecewise underside retains the original outer horizontal cornice foot.",
+  "referenceExactCutVolumeMetresCubed": {
+    "denominator": "765021776338653222784671578548173000022613768825470976",
+    "numerator": "3683089238057082758375716596521652869383816975462643"
+  },
+  "referenceNearRoofYExact": {
+    "denominator": "70835500057794445312",
+    "numerator": "1212113466164244544435"
+  },
+  "roofHeightPlaneXZ": {
+    "constant": {
+      "denominator": "141671000115588890624",
+      "numerator": "7022395008038856719283"
+    },
+    "xCoefficient": {
+      "denominator": "1",
+      "numerator": "0"
+    },
+    "zCoefficient": {
+      "denominator": "2013266",
+      "numerator": "-1090519"
+    }
+  },
+  "selectedSourceProposalId": "proposal-only/blocking/main-parapet-6/bay-01",
+  "sourceRoofCoordinateClosure": "Six exact-coordinate vertices and eight triangles; opposed coordinate edges close without tolerance welding. Original nonindexed source layout is unchanged.",
+  "sourceRoofTriangles": [
+    2,
+    3
+  ],
+  "version": 1
+}

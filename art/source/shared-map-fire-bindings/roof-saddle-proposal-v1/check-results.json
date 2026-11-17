@@ -1,0 +1,493 @@
+{
+  "actualClosedVolumeMetresCubed": 0.004814358691440273,
+  "checks": {
+    "convexity": 16,
+    "cornice-bearing": 1,
+    "determinism": 5,
+    "material-path": 10,
+    "native": 2,
+    "negative": 5,
+    "orientation": 16,
+    "other-source-exclusion": 183,
+    "physical": 1,
+    "placement": 1,
+    "preserved": 1,
+    "quantity": 2,
+    "reference": 2,
+    "roof-bearing": 2,
+    "scope": 3,
+    "separation": 2,
+    "upper-bearing": 2,
+    "uv": 49
+  },
+  "continuousMaterialPath": {
+    "fittingLowerEndpointMetres": [
+      49.5,
+      17.080833342240915,
+      59.97692309111533
+    ],
+    "lengthMetres": 0.179166659547219,
+    "proof": "One connected exact-indexed convex solid; this vertical line is strictly internal between its two boundary endpoints. No filled reference envelope substitutes for the actual body.",
+    "upperEndpointMetres": [
+      49.5,
+      17.260000001788136,
+      59.97692309111533
+    ]
+  },
+  "geometrySha256": "68fcb9a576b246bd517b59bc47cf27860cbb19db88133d081011a680677ebe8c",
+  "nativeActivationWorldGraphBuildOrGameRun": false,
+  "negativeControls": [
+    {
+      "actualOriginalRoofInteriorWitness": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 9.999999999976694e-05
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            49.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            49.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.028733319299007576
+        },
+        "sourceFace": {
+          "actualSurfacePoint": [
+            49.473333333333336,
+            17.05000000357628,
+            59.973333333333336
+          ],
+          "sourceCarrierId": "proposal-only/blocking/main-parapet-6/bay-01",
+          "sourceTriangle": 6
+        },
+        "witnessConstruction": "actual-clipped-source-face-stepped-inward",
+        "worldWitness": [
+          49.473333333333336,
+          17.05010000357628,
+          59.973333333333336
+        ]
+      },
+      "actualWorldVertices": [
+        [
+          49.58,
+          17.05000000357628,
+          59.92
+        ],
+        [
+          49.58,
+          17.260000001788136,
+          59.92
+        ],
+        [
+          49.58,
+          17.260000001788136,
+          60.08
+        ],
+        [
+          49.58,
+          17.05000000357628,
+          60.08
+        ],
+        [
+          49.42,
+          17.05000000357628,
+          60.08
+        ],
+        [
+          49.42,
+          17.260000001788136,
+          60.08
+        ],
+        [
+          49.42,
+          17.260000001788136,
+          59.92
+        ],
+        [
+          49.42,
+          17.05000000357628,
+          59.92
+        ]
+      ],
+      "index": [
+        0,
+        1,
+        2,
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        4,
+        6,
+        7,
+        6,
+        5,
+        2,
+        6,
+        2,
+        1,
+        4,
+        7,
+        0,
+        4,
+        0,
+        3,
+        4,
+        3,
+        2,
+        4,
+        2,
+        5,
+        0,
+        7,
+        6,
+        0,
+        6,
+        1
+      ],
+      "name": "untrimmed envelope intersecting original roof",
+      "reason": "intersecting candidate: vertex below actual global roof support plane",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "actualWorldVertices": [
+        [
+          49.47,
+          17.05000000357628,
+          60.05
+        ],
+        [
+          49.47,
+          17.05000000357628,
+          60.075
+        ],
+        [
+          49.47,
+          17.11,
+          60.05
+        ],
+        [
+          49.47,
+          17.11,
+          60.075
+        ],
+        [
+          49.53,
+          17.05000000357628,
+          60.05
+        ],
+        [
+          49.53,
+          17.05000000357628,
+          60.075
+        ],
+        [
+          49.53,
+          17.11,
+          60.05
+        ],
+        [
+          49.53,
+          17.11,
+          60.075
+        ],
+        [
+          49.47,
+          17.2,
+          60.05
+        ],
+        [
+          49.47,
+          17.2,
+          60.075
+        ],
+        [
+          49.47,
+          17.260000001788136,
+          60.05
+        ],
+        [
+          49.47,
+          17.260000001788136,
+          60.075
+        ],
+        [
+          49.53,
+          17.2,
+          60.05
+        ],
+        [
+          49.53,
+          17.2,
+          60.075
+        ],
+        [
+          49.53,
+          17.260000001788136,
+          60.05
+        ],
+        [
+          49.53,
+          17.260000001788136,
+          60.075
+        ]
+      ],
+      "index": [
+        0,
+        1,
+        3,
+        0,
+        3,
+        2,
+        4,
+        6,
+        7,
+        4,
+        7,
+        5,
+        0,
+        4,
+        5,
+        0,
+        5,
+        1,
+        2,
+        3,
+        7,
+        2,
+        7,
+        6,
+        0,
+        2,
+        6,
+        0,
+        6,
+        4,
+        1,
+        5,
+        7,
+        1,
+        7,
+        3,
+        8,
+        9,
+        11,
+        8,
+        11,
+        10,
+        12,
+        14,
+        15,
+        12,
+        15,
+        13,
+        8,
+        12,
+        13,
+        8,
+        13,
+        9,
+        10,
+        11,
+        15,
+        10,
+        15,
+        14,
+        8,
+        10,
+        14,
+        8,
+        14,
+        12,
+        9,
+        13,
+        15,
+        9,
+        15,
+        11
+      ],
+      "name": "two individually closed pieces separated by an air gap",
+      "reason": "disconnected candidate: no continuous material body",
+      "result": "EXPECTED_REJECTION"
+    }
+  ],
+  "otherSourceExclusion": "Exact subset substitution into frozen complete obstruction proof, with all 182 original geometry byte pins reverified. Roof separation is freshly proved against its actual unchanged supporting plane.",
+  "physicalIndexedTopology": {
+    "components": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    ],
+    "edges": 24,
+    "euler": 2,
+    "triangles": 16,
+    "vertices": 10
+  },
+  "producerSha256": "479aab8f298133b3a6350e0adce7fb1b8945e71a45440da180575fba0a5c547f",
+  "proposalSha256": "cb7f54e07464e7834086d71d4d073322edab1fd4198d24aef890f8585010c8f6",
+  "proposedRoofBearing": {
+    "actualFittingFaceVertices": [
+      5,
+      6,
+      1,
+      0
+    ],
+    "actualRoofPatchAreaMetresSquared": 0.020715973231156933,
+    "fittingFacePolygonMetres": [
+      [
+        49.58,
+        17.111666680905554,
+        59.92
+      ],
+      [
+        49.58,
+        17.05000000357628,
+        60.03384618223066
+      ],
+      [
+        49.42,
+        17.05000000357628,
+        60.03384618223066
+      ],
+      [
+        49.42,
+        17.111666680905554,
+        59.92
+      ]
+    ],
+    "gapExact": [
+      {
+        "denominator": "283342000231177781248",
+        "numerator": "372827"
+      },
+      {
+        "denominator": "35417750028897222656",
+        "numerator": "12161"
+      },
+      {
+        "denominator": "35417750028897222656",
+        "numerator": "12161"
+      },
+      {
+        "denominator": "283342000231177781248",
+        "numerator": "372827"
+      }
+    ],
+    "mathematicallyIdenticalPlanes": false,
+    "maximumVerticalGapMetres": 1.3158197503222668e-15,
+    "meaning": "Actual source roof patch and new fitting face matched under unchanged captured native precision. Nonzero representation gaps are explicit; this is not an already accepted physical joint or anchor.",
+    "minimumVerticalGapMetres": 3.4335890874146105e-16,
+    "nativeToleranceMetres": 1e-05,
+    "originalRoofSurfacePolygonMetres": [
+      [
+        49.58,
+        17.111666680905554,
+        59.92
+      ],
+      [
+        49.58,
+        17.05000000357628,
+        60.03384618223066
+      ],
+      [
+        49.42,
+        17.05000000357628,
+        60.03384618223066
+      ],
+      [
+        49.42,
+        17.111666680905554,
+        59.92
+      ]
+    ],
+    "sourceCarrierId": "carrier/roof/rear-tail",
+    "sourceTriangles": [
+      2,
+      3
+    ],
+    "status": "NEW_UNAPPROVED_SOURCE_BEARING"
+  },
+  "remainingNineteen": "Classified actual roof facets/clearances only; no remaining fitting meshes, per-instance contact/UV/stock or runtime acceptance.",
+  "rendererStartedByChecker": false,
+  "result": "PASS_ONE_UNAPPROVED_SOURCE_PROTOTYPE",
+  "retainedCorniceBearing": {
+    "actualFaceAreaMetresSquared": 0.007384610843018891,
+    "actualSurfaceWitness": [
+      [
+        49.526666666666664,
+        17.05000000357628,
+        60.06461539407689
+      ],
+      [
+        49.526666666666664,
+        17.05000000357628,
+        60.06461539407689
+      ]
+    ],
+    "axis": 1,
+    "childFace": "min",
+    "geometricHorizontalBearing": true,
+    "groundAnchor": false,
+    "kind": "actual-coplanar-source-face-area",
+    "nativePrecisionToleranceMetres": 1e-05,
+    "parentFace": "max",
+    "witnessSeparationMetres": 0.0
+  },
+  "runtimeStockAssigned": 0,
+  "selectedSourceProposalId": "proposal-only/blocking/main-parapet-6/bay-01",
+  "sourceContextPolicy": {
+    "allowedCommits": [
+      "7698e083b36635694e73dc07aa38748355e670a8",
+      "df3dbcea7d6823e4c44479ded6c58d8bb176a94a"
+    ],
+    "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/dependency-contexts.json",
+    "producerArtistCommit": "11f0a153e02ed0ad68673e5b3403497941308d6d",
+    "sha256": "6ee5fcdf2846fc2f719149152b7b3012a3db27b5cc9c99bc618c8e17c824c953"
+  },
+  "unchangedOldTrackedPaths": 3706,
+  "unchangedUpperBearing": {
+    "actualFaceAreaMetresSquared": 0.025599999999940337,
+    "actualSurfaceWitness": [
+      [
+        49.526666666666664,
+        17.26000000178814,
+        59.973333333333336
+      ],
+      [
+        49.526666666666664,
+        17.260000001788136,
+        59.973333333333336
+      ]
+    ],
+    "axis": 1,
+    "childFace": "min",
+    "geometricHorizontalBearing": true,
+    "groundAnchor": false,
+    "kind": "actual-coplanar-source-face-area",
+    "nativePrecisionToleranceMetres": 1e-05,
+    "parentFace": "max",
+    "witnessSeparationMetres": 3.552713678800501e-15
+  },
+  "version": 1
+}

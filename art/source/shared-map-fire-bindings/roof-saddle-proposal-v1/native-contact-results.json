@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "result": "PASS_PROPOSED_SOURCE_CONTACTS",
+  "proposalPath": "art/source/shared-map-fire-bindings/roof-saddle-proposal-v1/source-proposal.json",
+  "proposalSha256": "cb7f54e07464e7834086d71d4d073322edab1fd4198d24aef890f8585010c8f6",
+  "geometrySha256": "68fcb9a576b246bd517b59bc47cf27860cbb19db88133d081011a680677ebe8c",
+  "prototypeCount": 1,
+  "originalParentCount": 3,
+  "sourceShapesRead": 4,
+  "geometryBuffersRead": 4,
+  "nativeTriangleContacts": 3,
+  "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+  "producerSha256": "6beffdcc867373ad5b626849a649f27fdc964aa53ebd9b4fad0165823ffc6031",
+  "controls": [
+    {
+      "child": "proposal-only/roof-saddle/main-parapet-6/bay-01",
+      "parent": "carrier/edge-6/cornice-7",
+      "nativeTriangleContact": true,
+      "accepted": false,
+      "groundAnchor": false
+    },
+    {
+      "child": "proposal-only/roof-saddle/main-parapet-6/bay-01",
+      "parent": "carrier/roof/rear-tail",
+      "nativeTriangleContact": true,
+      "accepted": false,
+      "groundAnchor": false
+    },
+    {
+      "child": "carrier/main-parapet-6/base",
+      "parent": "proposal-only/roof-saddle/main-parapet-6/bay-01",
+      "nativeTriangleContact": true,
+      "accepted": false,
+      "groundAnchor": false
+    }
+  ],
+  "nativeActivationStarted": false,
+  "runtimeOrJointAcceptance": false,
+  "rendererStarted": false
+}
