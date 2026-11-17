@@ -1,0 +1,2849 @@
+{
+  "actualCarrierCount": "not assigned",
+  "families": [
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination.",
+      "examples": [
+        "approach-0-0-tier-0:0:0/seam-1",
+        "approach-0-0-tier-0:0:0/wall-1",
+        "approach-0-0-tier-0:0:1/seam-1"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "approach-0-0-tier-0:0:0/seam-1",
+      "id": "A01",
+      "lastSourceId": "approach-3-3-tier-0:0:9/wall-1",
+      "logicalIdSetSha256": "03f1c1b22269d798a2fdbb470a0a2e419cfbafde1b3a11822d6001407fc95883",
+      "logicalSourceCount": 288,
+      "name": "Native approach walls/closures",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "masonry-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 288,
+      "scope": {
+        "all": [
+          {
+            "roleIn": [
+              "structural-wall",
+              "perimeter-closure"
+            ]
+          },
+          {
+            "idRegex": "^approach-"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Source room labels/plan are not proof of hidden framing.",
+      "examples": [
+        "office-partition-0-tier-0:0:0/seam-1",
+        "office-partition-0-tier-0:0:0/wall-1",
+        "office-partition-0-tier-0:0:1/seam-1"
+      ],
+      "existingSharedProfile": "partition",
+      "firstSourceId": "office-partition-0-tier-0:0:0/seam-1",
+      "id": "A02",
+      "lastSourceId": "replacement/office-partition-9-tier-0:1:7/wall-1",
+      "logicalIdSetSha256": "b7f48b641c3a6462cc37b772fd7bfd1f227defd016224c046334a6f0951d1eb3",
+      "logicalSourceCount": 628,
+      "name": "Authored office partition core",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "wall-area",
+      "renderRecordCount": 628,
+      "scope": {
+        "all": [
+          {
+            "roleIn": [
+              "structural-wall",
+              "perimeter-closure"
+            ]
+          },
+          {
+            "idRegex": "^office-partition-"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Painted/staff appearance and validator wood token are not evidence for this choice.",
+      "examples": [
+        "body-0-tier-0:0:0/seam-1",
+        "body-0-tier-0:0:0/wall-1",
+        "body-0-tier-0:0:1/seam-1"
+      ],
+      "existingSharedProfile": "clapboard",
+      "firstSourceId": "body-0-tier-0:0:0/seam-1",
+      "id": "A03",
+      "lastSourceId": "rotunda-7-tier-4:2:9/wall-1",
+      "logicalIdSetSha256": "3a2fe76a19a8e86ac4d457ecd2cfe02155e6a6476595b46527eaebb36d33bae8",
+      "logicalSourceCount": 10720,
+      "name": "Other native wall/closure core",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "wall-area",
+      "renderRecordCount": 10720,
+      "scope": {
+        "roleIn": [
+          "structural-wall",
+          "perimeter-closure"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Includes named roof/gallery/spring-ring decks; occupied destinations remain separate.",
+      "examples": [
+        "admin-front-east/landing-3/cell-0",
+        "admin-front-east/landing-3/cell-1",
+        "admin-front-east/landing-3/cell-10"
+      ],
+      "existingSharedProfile": "frame",
+      "firstSourceId": "admin-front-east/landing-3/cell-0",
+      "id": "A04",
+      "lastSourceId": "upper-colonnade-terrace/cell-9-66-0",
+      "logicalIdSetSha256": "cadef0b43817e55e6c77661036dd3fdd2d4a25f7164436169e0c7feeedf04f35",
+      "logicalSourceCount": 21204,
+      "name": "Native and derived floor/deck cells",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "top-area",
+      "renderRecordCount": 19483,
+      "scope": {
+        "roleIn": [
+          "floor"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination.",
+      "examples": [
+        "steps-east/tread-0",
+        "steps-east/tread-1",
+        "steps-east/tread-10"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "steps-east/tread-0",
+      "id": "A05",
+      "lastSourceId": "steps-west/tread-9",
+      "logicalIdSetSha256": "eda5bc05b24606f05210c8e8b177011f002a02cae154c6c5af07ea799cc05f28",
+      "logicalSourceCount": 48,
+      "name": "Exterior approach treads",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "masonry-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 48,
+      "scope": {
+        "all": [
+          {
+            "roleIn": [
+              "stair-tread"
+            ]
+          },
+          {
+            "idRegex": "^steps-"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. The added access stairs are game adaptations.",
+      "examples": [
+        "admin-front-east/tread-0",
+        "admin-front-east/tread-1",
+        "admin-front-east/tread-10"
+      ],
+      "existingSharedProfile": "frame",
+      "firstSourceId": "admin-front-east/tread-0",
+      "id": "A06",
+      "lastSourceId": "admin-upper-west/tread-99",
+      "logicalIdSetSha256": "a46969a0c9fa60bf791d3948fc25c7173965594299a010cfc4ba62829da94b1c",
+      "logicalSourceCount": 708,
+      "name": "Added interior stair treads",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "top-area",
+      "renderRecordCount": 708,
+      "scope": {
+        "roleIn": [
+          "stair-tread"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination.",
+      "examples": [
+        "admin-east/leaf-extension--1",
+        "admin-east/leaf-extension-1",
+        "admin-east/native-leaf--1"
+      ],
+      "existingSharedProfile": "door",
+      "firstSourceId": "admin-east/leaf-extension--1",
+      "id": "A07",
+      "lastSourceId": "admin-west/native-leaf-1",
+      "logicalIdSetSha256": "6bbe5ecdf1c5082c7214b4e679c2543026694dc0f96f8970e3b69bf21b6125a5",
+      "logicalSourceCount": 16,
+      "name": "Stateful native leaf bodies/extensions",
+      "ownershipProposal": "pair-body-and-extension-by-original-portal-and-sign",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "leaf-area",
+      "renderRecordCount": 16,
+      "scope": {
+        "roleIn": [
+          "door-leaf",
+          "door-extension"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Hardware follows its moving leaf; it does not brace a fixed header.",
+      "examples": [
+        "admin-east/handle--1",
+        "admin-east/handle-1",
+        "admin-front/handle--1"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "admin-east/handle--1",
+      "id": "A08",
+      "lastSourceId": "admin-west/handle-1",
+      "logicalIdSetSha256": "dbccf8c2b4488a2836d20fca1959ce9ad58bcdd8be2fbdd73ffa2b27ecda6fa6",
+      "logicalSourceCount": 8,
+      "name": "Leaf hardware",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "metal-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 8,
+      "scope": {
+        "roleIn": [
+          "door-hardware"
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Source function explicitly creates glazing; support and breakage still require actual source evidence.",
+      "examples": [
+        "body-0-sash-0/glass",
+        "body-0-sash-1/glass",
+        "body-1-basement-sash/glass"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "body-0-sash-0/glass",
+      "id": "A09",
+      "lastSourceId": "rotunda-7-upper-window-2/glass",
+      "logicalIdSetSha256": "beb4ab072f4f4d2db8f3f0776bb8052fb5700522cdc6326d95696cb9d3125c4c",
+      "logicalSourceCount": 52,
+      "name": "Actual glazing parts",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "glass",
+      "quantityRule": "inert",
+      "renderRecordCount": 52,
+      "scope": {
+        "idRegex": "/glass$"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Volumes withheld until actual local geometry is checked.",
+      "examples": [
+        "admin-east/header",
+        "admin-east/jamb--1",
+        "admin-east/jamb-1"
+      ],
+      "existingSharedProfile": "frame",
+      "firstSourceId": "admin-east/header",
+      "id": "A10",
+      "lastSourceId": "rotunda-7-upper-window-2/sash-3",
+      "logicalIdSetSha256": "04e4ea3cc3ef3b8ae1f10c2d2da8dbb7b35cbc9f3791394d1244b41c038dbe1f",
+      "logicalSourceCount": 631,
+      "name": "Fixed portal and window carpentry",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "closed-volume",
+      "renderRecordCount": 631,
+      "scope": {
+        "any": [
+          {
+            "roleIn": [
+              "portal-frame"
+            ]
+          },
+          {
+            "all": [
+              {
+                "not": {
+                  "roleIn": [
+                    "stair-rail",
+                    "guard-rail",
+                    "access-support"
+                  ]
+                }
+              },
+              {
+                "not": {
+                  "idRegex": "^admin-"
+                }
+              },
+              {
+                "idRegex": "/(?:jamb-|mullion|transom-|sash-|rail-|fan-|entry-header|header$)"
+              }
+            ]
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. No inferred ground anchor or decorative brace.",
+      "examples": [
+        "admin-front-east/centre-column",
+        "admin-front-east/post-1.42-0",
+        "admin-front-east/post-1.42-1"
+      ],
+      "existingSharedProfile": "frame",
+      "firstSourceId": "admin-front-east/centre-column",
+      "id": "A11",
+      "lastSourceId": "admin-upper-west/support-3.7-3.7",
+      "logicalIdSetSha256": "27e0ab788c687f586505b9b871ef7968dca680b5f1f315140c1a57a89541bbc7",
+      "logicalSourceCount": 3154,
+      "name": "Added stair rails/guards/supports",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "closed-volume",
+      "renderRecordCount": 3154,
+      "scope": {
+        "any": [
+          {
+            "roleIn": [
+              "stair-rail",
+              "guard-rail",
+              "access-support"
+            ]
+          },
+          {
+            "idRegex": "^admin-[^/]+/(?:centre-column|base/rail-|rail-|handrail-|post-|landing-[^/]+/bridge-guard-[^/]+/top$)"
+          }
+        ]
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Staff-clad column anatomy does not prove a solid historical wooden column.",
+      "examples": [
+        "ionic-east/column-0/base",
+        "ionic-east/column-0/pedestal",
+        "ionic-east/column-0/shaft"
+      ],
+      "existingSharedProfile": "frame",
+      "firstSourceId": "ionic-east/column-0/base",
+      "id": "A12",
+      "lastSourceId": "ionic-west/column-7/shaft",
+      "logicalIdSetSha256": "bfcb890d178a8ef33904bb8616c2709990126ab9641717cdf9a470b9a18bbe75",
+      "logicalSourceCount": 96,
+      "name": "Substantial column core pieces",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "closed-volume",
+      "renderRecordCount": 96,
+      "scope": {
+        "idRegex": "/column-[^/]+/(?:pedestal|base|shaft)$"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Plan office use is factual; these desk assemblies are authored.",
+      "examples": [
+        "east-ambulance/desk",
+        "east-ambulance/desk-leg--1",
+        "east-ambulance/desk-leg-1"
+      ],
+      "existingSharedProfile": "furniture",
+      "firstSourceId": "east-ambulance/desk",
+      "id": "A13",
+      "lastSourceId": "west-vault/desk-leg-1",
+      "logicalIdSetSha256": "686314224c150065fc8e002a06885e1c9b55f96371d6b04078ad140d3a6cba68",
+      "logicalSourceCount": 33,
+      "name": "Authored office desks",
+      "ownershipProposal": "one-connected-desk-assembly-per-room",
+      "proposedPhysicalMaterial": "timber-proxy",
+      "quantityRule": "closed-volume",
+      "renderRecordCount": 33,
+      "scope": {
+        "idRegex": "^[^/]+/desk(?:-leg-[^/]+)?$"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. Gilding is documented; substrate, concealed framing and shell load capacity remain unverified.",
+      "examples": [
+        "corner-cupola--22-18/cap",
+        "corner-cupola--22-62/cap",
+        "corner-cupola-22-18/cap"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "corner-cupola--22-18/cap",
+      "id": "A14",
+      "lastSourceId": "great-dome/shell",
+      "logicalIdSetSha256": "7f8256b45c0fbfdfdc984086eeafcd4b0b4946d25afadcc480448d633ab0cb51",
+      "logicalSourceCount": 31,
+      "name": "Dome shell/ribs/caps/terminal",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "metal-roof-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 31,
+      "scope": {
+        "idRegex": "^(?:great-dome/(?:shell|rib-|crown-cap|finial)|corner-cupola-[^/]+/cap$)"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "Explicit game proxy: this source-family assignment is not a historical material determination. No extra combustible finish; actual attachment/parent evidence remains required.",
+      "examples": [
+        "body-0-sash-0/arch-moulding",
+        "body-0-sash-0/pier-edge--1",
+        "body-0-sash-0/pier-edge-1"
+      ],
+      "existingSharedProfile": null,
+      "firstSourceId": "body-0-sash-0/arch-moulding",
+      "id": "A15",
+      "lastSourceId": "rotunda-7-lower-arch/pier-edge-1",
+      "logicalIdSetSha256": "3d1329138b09b3e339f2ef55c343a2bdaf49bab7efceb54f7333def590beab75",
+      "logicalSourceCount": 3905,
+      "name": "Staff-like trim/sculpture/balustrades",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "mineral-staff-proxy",
+      "quantityRule": "inert",
+      "renderRecordCount": 3905,
+      "scope": {
+        "idRegex": "(?:cornice|rustication|dentil|parapet|upper-rail|pilaster|capital|volute|pier-edge|arch-moulding|spandrel|/sill$|basement-panel|basement-pier|medallion|/field-|pavilion-figure|winged-figure|^great-dome/|^corner-cupola-)"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported."
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "basis": "No material/quantity fallback. Exact residual IDs require a separate decision.",
+      "examples": [],
+      "existingSharedProfile": null,
+      "firstSourceId": null,
+      "id": "A99",
+      "lastSourceId": null,
+      "logicalIdSetSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "logicalSourceCount": 0,
+      "name": "Unresolved source exceptions",
+      "ownershipProposal": "one-per-original-logical-solid",
+      "proposedPhysicalMaterial": "unassigned",
+      "quantityRule": "withheld",
+      "renderRecordCount": 0,
+      "scope": {
+        "idRegex": ".*"
+      },
+      "scopeMeaning": "First matching ordered rule over exact pinned original logical IDs after sourceRanges expansion; replacement/ is stripped only for semantic matching. Canonical physical owners/quantities are not exported.",
+      "unresolvedIds": []
+    }
+  ],
+  "familyOverridesExported": false,
+  "finiteFuel": "not assigned",
+  "geometryArraysRead": false,
+  "logicalIdSetSha256": "4e79138d92bb0eb62361b14e72eb5c0f1a61669b6d8a0701c69ef6f9bc39a2ba",
+  "logicalSourceParts": 41522,
+  "manifestWaterRectangle": null,
+  "mergedRenderRows": 115,
+  "nativeAccessExceptions": {
+    "accessPlanSummary": {
+      "floorOpenings": [
+        {
+          "filledBy": [
+            "admin-front-west/landing-3"
+          ],
+          "id": "admin-front-west/well-3",
+          "level": 3,
+          "maxY": 6.36,
+          "minY": 6.24,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -11.4,
+              25
+            ],
+            [
+              -11.522667025359354,
+              25.931748562369073
+            ],
+            [
+              -11.88230854637602,
+              26.8
+            ],
+            [
+              -12.454415587728429,
+              27.54558441227157
+            ],
+            [
+              -13.2,
+              28.11769145362398
+            ],
+            [
+              -14.068251437630925,
+              28.477332974640646
+            ],
+            [
+              -15,
+              28.6
+            ],
+            [
+              -15.931748562369075,
+              28.477332974640646
+            ],
+            [
+              -16.8,
+              28.11769145362398
+            ],
+            [
+              -17.54558441227157,
+              27.545584412271573
+            ],
+            [
+              -18.11769145362398,
+              26.8
+            ],
+            [
+              -18.477332974640646,
+              25.931748562369076
+            ],
+            [
+              -18.6,
+              25
+            ],
+            [
+              -18.477332974640646,
+              24.068251437630924
+            ],
+            [
+              -18.11769145362398,
+              23.200000000000003
+            ],
+            [
+              -17.545584412271573,
+              22.45441558772843
+            ],
+            [
+              -16.8,
+              21.88230854637602
+            ],
+            [
+              -15.931748562369075,
+              21.522667025359354
+            ],
+            [
+              -15,
+              21.4
+            ],
+            [
+              -14.068251437630927,
+              21.522667025359354
+            ],
+            [
+              -13.2,
+              21.88230854637602
+            ],
+            [
+              -12.45441558772843,
+              22.454415587728427
+            ],
+            [
+              -11.882308546376022,
+              23.2
+            ],
+            [
+              -11.522667025359354,
+              24.068251437630924
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-3"
+        },
+        {
+          "filledBy": [
+            "admin-front-west/landing-5"
+          ],
+          "id": "admin-front-west/well-5",
+          "level": 5,
+          "maxY": 10.6,
+          "minY": 10.48,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -11.4,
+              25
+            ],
+            [
+              -11.522667025359354,
+              25.931748562369073
+            ],
+            [
+              -11.88230854637602,
+              26.8
+            ],
+            [
+              -12.454415587728429,
+              27.54558441227157
+            ],
+            [
+              -13.2,
+              28.11769145362398
+            ],
+            [
+              -14.068251437630925,
+              28.477332974640646
+            ],
+            [
+              -15,
+              28.6
+            ],
+            [
+              -15.931748562369075,
+              28.477332974640646
+            ],
+            [
+              -16.8,
+              28.11769145362398
+            ],
+            [
+              -17.54558441227157,
+              27.545584412271573
+            ],
+            [
+              -18.11769145362398,
+              26.8
+            ],
+            [
+              -18.477332974640646,
+              25.931748562369076
+            ],
+            [
+              -18.6,
+              25
+            ],
+            [
+              -18.477332974640646,
+              24.068251437630924
+            ],
+            [
+              -18.11769145362398,
+              23.200000000000003
+            ],
+            [
+              -17.545584412271573,
+              22.45441558772843
+            ],
+            [
+              -16.8,
+              21.88230854637602
+            ],
+            [
+              -15.931748562369075,
+              21.522667025359354
+            ],
+            [
+              -15,
+              21.4
+            ],
+            [
+              -14.068251437630927,
+              21.522667025359354
+            ],
+            [
+              -13.2,
+              21.88230854637602
+            ],
+            [
+              -12.45441558772843,
+              22.454415587728427
+            ],
+            [
+              -11.882308546376022,
+              23.2
+            ],
+            [
+              -11.522667025359354,
+              24.068251437630924
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-5"
+        },
+        {
+          "filledBy": [
+            "admin-front-west/landing-7"
+          ],
+          "id": "admin-front-west/well-7",
+          "level": 7,
+          "maxY": 14.84,
+          "minY": 14.72,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -11.4,
+              25
+            ],
+            [
+              -11.522667025359354,
+              25.931748562369073
+            ],
+            [
+              -11.88230854637602,
+              26.8
+            ],
+            [
+              -12.454415587728429,
+              27.54558441227157
+            ],
+            [
+              -13.2,
+              28.11769145362398
+            ],
+            [
+              -14.068251437630925,
+              28.477332974640646
+            ],
+            [
+              -15,
+              28.6
+            ],
+            [
+              -15.931748562369075,
+              28.477332974640646
+            ],
+            [
+              -16.8,
+              28.11769145362398
+            ],
+            [
+              -17.54558441227157,
+              27.545584412271573
+            ],
+            [
+              -18.11769145362398,
+              26.8
+            ],
+            [
+              -18.477332974640646,
+              25.931748562369076
+            ],
+            [
+              -18.6,
+              25
+            ],
+            [
+              -18.477332974640646,
+              24.068251437630924
+            ],
+            [
+              -18.11769145362398,
+              23.200000000000003
+            ],
+            [
+              -17.545584412271573,
+              22.45441558772843
+            ],
+            [
+              -16.8,
+              21.88230854637602
+            ],
+            [
+              -15.931748562369075,
+              21.522667025359354
+            ],
+            [
+              -15,
+              21.4
+            ],
+            [
+              -14.068251437630927,
+              21.522667025359354
+            ],
+            [
+              -13.2,
+              21.88230854637602
+            ],
+            [
+              -12.45441558772843,
+              22.454415587728427
+            ],
+            [
+              -11.882308546376022,
+              23.2
+            ],
+            [
+              -11.522667025359354,
+              24.068251437630924
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-7"
+        },
+        {
+          "filledBy": [
+            "admin-front-west/landing-9"
+          ],
+          "id": "admin-front-west/well-9",
+          "level": 9,
+          "maxY": 19.08,
+          "minY": 18.959999999999997,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -11.4,
+              25
+            ],
+            [
+              -11.522667025359354,
+              25.931748562369073
+            ],
+            [
+              -11.88230854637602,
+              26.8
+            ],
+            [
+              -12.454415587728429,
+              27.54558441227157
+            ],
+            [
+              -13.2,
+              28.11769145362398
+            ],
+            [
+              -14.068251437630925,
+              28.477332974640646
+            ],
+            [
+              -15,
+              28.6
+            ],
+            [
+              -15.931748562369075,
+              28.477332974640646
+            ],
+            [
+              -16.8,
+              28.11769145362398
+            ],
+            [
+              -17.54558441227157,
+              27.545584412271573
+            ],
+            [
+              -18.11769145362398,
+              26.8
+            ],
+            [
+              -18.477332974640646,
+              25.931748562369076
+            ],
+            [
+              -18.6,
+              25
+            ],
+            [
+              -18.477332974640646,
+              24.068251437630924
+            ],
+            [
+              -18.11769145362398,
+              23.200000000000003
+            ],
+            [
+              -17.545584412271573,
+              22.45441558772843
+            ],
+            [
+              -16.8,
+              21.88230854637602
+            ],
+            [
+              -15.931748562369075,
+              21.522667025359354
+            ],
+            [
+              -15,
+              21.4
+            ],
+            [
+              -14.068251437630927,
+              21.522667025359354
+            ],
+            [
+              -13.2,
+              21.88230854637602
+            ],
+            [
+              -12.45441558772843,
+              22.454415587728427
+            ],
+            [
+              -11.882308546376022,
+              23.2
+            ],
+            [
+              -11.522667025359354,
+              24.068251437630924
+            ]
+          ],
+          "sourceFloorId": "pavilion-roof-and-gallery"
+        },
+        {
+          "filledBy": [
+            "admin-front-east/landing-3"
+          ],
+          "id": "admin-front-east/well-3",
+          "level": 3,
+          "maxY": 6.36,
+          "minY": 6.24,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              18.6,
+              25
+            ],
+            [
+              18.477332974640646,
+              25.931748562369073
+            ],
+            [
+              18.11769145362398,
+              26.8
+            ],
+            [
+              17.545584412271573,
+              27.54558441227157
+            ],
+            [
+              16.8,
+              28.11769145362398
+            ],
+            [
+              15.931748562369075,
+              28.477332974640646
+            ],
+            [
+              15,
+              28.6
+            ],
+            [
+              14.068251437630925,
+              28.477332974640646
+            ],
+            [
+              13.200000000000001,
+              28.11769145362398
+            ],
+            [
+              12.454415587728429,
+              27.545584412271573
+            ],
+            [
+              11.88230854637602,
+              26.8
+            ],
+            [
+              11.522667025359354,
+              25.931748562369076
+            ],
+            [
+              11.4,
+              25
+            ],
+            [
+              11.522667025359354,
+              24.068251437630924
+            ],
+            [
+              11.88230854637602,
+              23.200000000000003
+            ],
+            [
+              12.454415587728427,
+              22.45441558772843
+            ],
+            [
+              13.2,
+              21.88230854637602
+            ],
+            [
+              14.068251437630925,
+              21.522667025359354
+            ],
+            [
+              15,
+              21.4
+            ],
+            [
+              15.931748562369073,
+              21.522667025359354
+            ],
+            [
+              16.8,
+              21.88230854637602
+            ],
+            [
+              17.54558441227157,
+              22.454415587728427
+            ],
+            [
+              18.117691453623976,
+              23.2
+            ],
+            [
+              18.477332974640646,
+              24.068251437630924
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-3"
+        },
+        {
+          "filledBy": [
+            "admin-front-east/landing-5"
+          ],
+          "id": "admin-front-east/well-5",
+          "level": 5,
+          "maxY": 10.6,
+          "minY": 10.48,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              18.6,
+              25
+            ],
+            [
+              18.477332974640646,
+              25.931748562369073
+            ],
+            [
+              18.11769145362398,
+              26.8
+            ],
+            [
+              17.545584412271573,
+              27.54558441227157
+            ],
+            [
+              16.8,
+              28.11769145362398
+            ],
+            [
+              15.931748562369075,
+              28.477332974640646
+            ],
+            [
+              15,
+              28.6
+            ],
+            [
+              14.068251437630925,
+              28.477332974640646
+            ],
+            [
+              13.200000000000001,
+              28.11769145362398
+            ],
+            [
+              12.454415587728429,
+              27.545584412271573
+            ],
+            [
+              11.88230854637602,
+              26.8
+            ],
+            [
+              11.522667025359354,
+              25.931748562369076
+            ],
+            [
+              11.4,
+              25
+            ],
+            [
+              11.522667025359354,
+              24.068251437630924
+            ],
+            [
+              11.88230854637602,
+              23.200000000000003
+            ],
+            [
+              12.454415587728427,
+              22.45441558772843
+            ],
+            [
+              13.2,
+              21.88230854637602
+            ],
+            [
+              14.068251437630925,
+              21.522667025359354
+            ],
+            [
+              15,
+              21.4
+            ],
+            [
+              15.931748562369073,
+              21.522667025359354
+            ],
+            [
+              16.8,
+              21.88230854637602
+            ],
+            [
+              17.54558441227157,
+              22.454415587728427
+            ],
+            [
+              18.117691453623976,
+              23.2
+            ],
+            [
+              18.477332974640646,
+              24.068251437630924
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-5"
+        },
+        {
+          "filledBy": [
+            "admin-front-east/landing-7"
+          ],
+          "id": "admin-front-east/well-7",
+          "level": 7,
+          "maxY": 14.84,
+          "minY": 14.72,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              18.6,
+              25
+            ],
+            [
+              18.477332974640646,
+              25.931748562369073
+            ],
+            [
+              18.11769145362398,
+              26.8
+            ],
+            [
+              17.545584412271573,
+              27.54558441227157
+            ],
+            [
+              16.8,
+              28.11769145362398
+            ],
+            [
+              15.931748562369075,
+              28.477332974640646
+            ],
+            [
+              15,
+              28.6
+            ],
+            [
+              14.068251437630925,
+              28.477332974640646
+            ],
+            [
+              13.200000000000001,
+              28.11769145362398
+            ],
+            [
+              12.454415587728429,
+              27.545584412271573
+            ],
+            [
+              11.88230854637602,
+              26.8
+            ],
+            [
+              11.522667025359354,
+              25.931748562369076
+            ],
+            [
+              11.4,
+              25
+            ],
+            [
+              11.522667025359354,
+              24.068251437630924
+            ],
+            [
+              11.88230854637602,
+              23.200000000000003
+            ],
+            [
+              12.454415587728427,
+              22.45441558772843
+            ],
+            [
+              13.2,
+              21.88230854637602
+            ],
+            [
+              14.068251437630925,
+              21.522667025359354
+            ],
+            [
+              15,
+              21.4
+            ],
+            [
+              15.931748562369073,
+              21.522667025359354
+            ],
+            [
+              16.8,
+              21.88230854637602
+            ],
+            [
+              17.54558441227157,
+              22.454415587728427
+            ],
+            [
+              18.117691453623976,
+              23.2
+            ],
+            [
+              18.477332974640646,
+              24.068251437630924
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-7"
+        },
+        {
+          "filledBy": [
+            "admin-front-east/landing-9"
+          ],
+          "id": "admin-front-east/well-9",
+          "level": 9,
+          "maxY": 19.08,
+          "minY": 18.959999999999997,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              18.6,
+              25
+            ],
+            [
+              18.477332974640646,
+              25.931748562369073
+            ],
+            [
+              18.11769145362398,
+              26.8
+            ],
+            [
+              17.545584412271573,
+              27.54558441227157
+            ],
+            [
+              16.8,
+              28.11769145362398
+            ],
+            [
+              15.931748562369075,
+              28.477332974640646
+            ],
+            [
+              15,
+              28.6
+            ],
+            [
+              14.068251437630925,
+              28.477332974640646
+            ],
+            [
+              13.200000000000001,
+              28.11769145362398
+            ],
+            [
+              12.454415587728429,
+              27.545584412271573
+            ],
+            [
+              11.88230854637602,
+              26.8
+            ],
+            [
+              11.522667025359354,
+              25.931748562369076
+            ],
+            [
+              11.4,
+              25
+            ],
+            [
+              11.522667025359354,
+              24.068251437630924
+            ],
+            [
+              11.88230854637602,
+              23.200000000000003
+            ],
+            [
+              12.454415587728427,
+              22.45441558772843
+            ],
+            [
+              13.2,
+              21.88230854637602
+            ],
+            [
+              14.068251437630925,
+              21.522667025359354
+            ],
+            [
+              15,
+              21.4
+            ],
+            [
+              15.931748562369073,
+              21.522667025359354
+            ],
+            [
+              16.8,
+              21.88230854637602
+            ],
+            [
+              17.54558441227157,
+              22.454415587728427
+            ],
+            [
+              18.117691453623976,
+              23.2
+            ],
+            [
+              18.477332974640646,
+              24.068251437630924
+            ]
+          ],
+          "sourceFloorId": "pavilion-roof-and-gallery"
+        },
+        {
+          "filledBy": [
+            "admin-rear-west/landing-3"
+          ],
+          "id": "admin-rear-west/well-3",
+          "level": 3,
+          "maxY": 6.36,
+          "minY": 6.24,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -11.4,
+              55
+            ],
+            [
+              -11.522667025359354,
+              55.93174856236907
+            ],
+            [
+              -11.88230854637602,
+              56.8
+            ],
+            [
+              -12.454415587728429,
+              57.54558441227157
+            ],
+            [
+              -13.2,
+              58.117691453623976
+            ],
+            [
+              -14.068251437630925,
+              58.477332974640646
+            ],
+            [
+              -15,
+              58.6
+            ],
+            [
+              -15.931748562369075,
+              58.477332974640646
+            ],
+            [
+              -16.8,
+              58.117691453623976
+            ],
+            [
+              -17.54558441227157,
+              57.54558441227157
+            ],
+            [
+              -18.11769145362398,
+              56.8
+            ],
+            [
+              -18.477332974640646,
+              55.93174856236907
+            ],
+            [
+              -18.6,
+              55
+            ],
+            [
+              -18.477332974640646,
+              54.06825143763093
+            ],
+            [
+              -18.11769145362398,
+              53.2
+            ],
+            [
+              -17.545584412271573,
+              52.454415587728434
+            ],
+            [
+              -16.8,
+              51.882308546376024
+            ],
+            [
+              -15.931748562369075,
+              51.522667025359354
+            ],
+            [
+              -15,
+              51.4
+            ],
+            [
+              -14.068251437630927,
+              51.522667025359354
+            ],
+            [
+              -13.2,
+              51.882308546376024
+            ],
+            [
+              -12.45441558772843,
+              52.45441558772843
+            ],
+            [
+              -11.882308546376022,
+              53.199999999999996
+            ],
+            [
+              -11.522667025359354,
+              54.06825143763092
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-3"
+        },
+        {
+          "filledBy": [
+            "admin-rear-west/landing-5"
+          ],
+          "id": "admin-rear-west/well-5",
+          "level": 5,
+          "maxY": 10.6,
+          "minY": 10.48,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -11.4,
+              55
+            ],
+            [
+              -11.522667025359354,
+              55.93174856236907
+            ],
+            [
+              -11.88230854637602,
+              56.8
+            ],
+            [
+              -12.454415587728429,
+              57.54558441227157
+            ],
+            [
+              -13.2,
+              58.117691453623976
+            ],
+            [
+              -14.068251437630925,
+              58.477332974640646
+            ],
+            [
+              -15,
+              58.6
+            ],
+            [
+              -15.931748562369075,
+              58.477332974640646
+            ],
+            [
+              -16.8,
+              58.117691453623976
+            ],
+            [
+              -17.54558441227157,
+              57.54558441227157
+            ],
+            [
+              -18.11769145362398,
+              56.8
+            ],
+            [
+              -18.477332974640646,
+              55.93174856236907
+            ],
+            [
+              -18.6,
+              55
+            ],
+            [
+              -18.477332974640646,
+              54.06825143763093
+            ],
+            [
+              -18.11769145362398,
+              53.2
+            ],
+            [
+              -17.545584412271573,
+              52.454415587728434
+            ],
+            [
+              -16.8,
+              51.882308546376024
+            ],
+            [
+              -15.931748562369075,
+              51.522667025359354
+            ],
+            [
+              -15,
+              51.4
+            ],
+            [
+              -14.068251437630927,
+              51.522667025359354
+            ],
+            [
+              -13.2,
+              51.882308546376024
+            ],
+            [
+              -12.45441558772843,
+              52.45441558772843
+            ],
+            [
+              -11.882308546376022,
+              53.199999999999996
+            ],
+            [
+              -11.522667025359354,
+              54.06825143763092
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-5"
+        },
+        {
+          "filledBy": [
+            "admin-rear-west/landing-7"
+          ],
+          "id": "admin-rear-west/well-7",
+          "level": 7,
+          "maxY": 14.84,
+          "minY": 14.72,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -11.4,
+              55
+            ],
+            [
+              -11.522667025359354,
+              55.93174856236907
+            ],
+            [
+              -11.88230854637602,
+              56.8
+            ],
+            [
+              -12.454415587728429,
+              57.54558441227157
+            ],
+            [
+              -13.2,
+              58.117691453623976
+            ],
+            [
+              -14.068251437630925,
+              58.477332974640646
+            ],
+            [
+              -15,
+              58.6
+            ],
+            [
+              -15.931748562369075,
+              58.477332974640646
+            ],
+            [
+              -16.8,
+              58.117691453623976
+            ],
+            [
+              -17.54558441227157,
+              57.54558441227157
+            ],
+            [
+              -18.11769145362398,
+              56.8
+            ],
+            [
+              -18.477332974640646,
+              55.93174856236907
+            ],
+            [
+              -18.6,
+              55
+            ],
+            [
+              -18.477332974640646,
+              54.06825143763093
+            ],
+            [
+              -18.11769145362398,
+              53.2
+            ],
+            [
+              -17.545584412271573,
+              52.454415587728434
+            ],
+            [
+              -16.8,
+              51.882308546376024
+            ],
+            [
+              -15.931748562369075,
+              51.522667025359354
+            ],
+            [
+              -15,
+              51.4
+            ],
+            [
+              -14.068251437630927,
+              51.522667025359354
+            ],
+            [
+              -13.2,
+              51.882308546376024
+            ],
+            [
+              -12.45441558772843,
+              52.45441558772843
+            ],
+            [
+              -11.882308546376022,
+              53.199999999999996
+            ],
+            [
+              -11.522667025359354,
+              54.06825143763092
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-7"
+        },
+        {
+          "filledBy": [
+            "admin-rear-west/landing-9"
+          ],
+          "id": "admin-rear-west/well-9",
+          "level": 9,
+          "maxY": 19.08,
+          "minY": 18.959999999999997,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -11.4,
+              55
+            ],
+            [
+              -11.522667025359354,
+              55.93174856236907
+            ],
+            [
+              -11.88230854637602,
+              56.8
+            ],
+            [
+              -12.454415587728429,
+              57.54558441227157
+            ],
+            [
+              -13.2,
+              58.117691453623976
+            ],
+            [
+              -14.068251437630925,
+              58.477332974640646
+            ],
+            [
+              -15,
+              58.6
+            ],
+            [
+              -15.931748562369075,
+              58.477332974640646
+            ],
+            [
+              -16.8,
+              58.117691453623976
+            ],
+            [
+              -17.54558441227157,
+              57.54558441227157
+            ],
+            [
+              -18.11769145362398,
+              56.8
+            ],
+            [
+              -18.477332974640646,
+              55.93174856236907
+            ],
+            [
+              -18.6,
+              55
+            ],
+            [
+              -18.477332974640646,
+              54.06825143763093
+            ],
+            [
+              -18.11769145362398,
+              53.2
+            ],
+            [
+              -17.545584412271573,
+              52.454415587728434
+            ],
+            [
+              -16.8,
+              51.882308546376024
+            ],
+            [
+              -15.931748562369075,
+              51.522667025359354
+            ],
+            [
+              -15,
+              51.4
+            ],
+            [
+              -14.068251437630927,
+              51.522667025359354
+            ],
+            [
+              -13.2,
+              51.882308546376024
+            ],
+            [
+              -12.45441558772843,
+              52.45441558772843
+            ],
+            [
+              -11.882308546376022,
+              53.199999999999996
+            ],
+            [
+              -11.522667025359354,
+              54.06825143763092
+            ]
+          ],
+          "sourceFloorId": "pavilion-roof-and-gallery"
+        },
+        {
+          "filledBy": [
+            "admin-rear-east/landing-3"
+          ],
+          "id": "admin-rear-east/well-3",
+          "level": 3,
+          "maxY": 6.36,
+          "minY": 6.24,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              18.6,
+              55
+            ],
+            [
+              18.477332974640646,
+              55.93174856236907
+            ],
+            [
+              18.11769145362398,
+              56.8
+            ],
+            [
+              17.545584412271573,
+              57.54558441227157
+            ],
+            [
+              16.8,
+              58.117691453623976
+            ],
+            [
+              15.931748562369075,
+              58.477332974640646
+            ],
+            [
+              15,
+              58.6
+            ],
+            [
+              14.068251437630925,
+              58.477332974640646
+            ],
+            [
+              13.200000000000001,
+              58.117691453623976
+            ],
+            [
+              12.454415587728429,
+              57.54558441227157
+            ],
+            [
+              11.88230854637602,
+              56.8
+            ],
+            [
+              11.522667025359354,
+              55.93174856236907
+            ],
+            [
+              11.4,
+              55
+            ],
+            [
+              11.522667025359354,
+              54.06825143763093
+            ],
+            [
+              11.88230854637602,
+              53.2
+            ],
+            [
+              12.454415587728427,
+              52.454415587728434
+            ],
+            [
+              13.2,
+              51.882308546376024
+            ],
+            [
+              14.068251437630925,
+              51.522667025359354
+            ],
+            [
+              15,
+              51.4
+            ],
+            [
+              15.931748562369073,
+              51.522667025359354
+            ],
+            [
+              16.8,
+              51.882308546376024
+            ],
+            [
+              17.54558441227157,
+              52.45441558772843
+            ],
+            [
+              18.117691453623976,
+              53.199999999999996
+            ],
+            [
+              18.477332974640646,
+              54.06825143763092
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-3"
+        },
+        {
+          "filledBy": [
+            "admin-rear-east/landing-5"
+          ],
+          "id": "admin-rear-east/well-5",
+          "level": 5,
+          "maxY": 10.6,
+          "minY": 10.48,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              18.6,
+              55
+            ],
+            [
+              18.477332974640646,
+              55.93174856236907
+            ],
+            [
+              18.11769145362398,
+              56.8
+            ],
+            [
+              17.545584412271573,
+              57.54558441227157
+            ],
+            [
+              16.8,
+              58.117691453623976
+            ],
+            [
+              15.931748562369075,
+              58.477332974640646
+            ],
+            [
+              15,
+              58.6
+            ],
+            [
+              14.068251437630925,
+              58.477332974640646
+            ],
+            [
+              13.200000000000001,
+              58.117691453623976
+            ],
+            [
+              12.454415587728429,
+              57.54558441227157
+            ],
+            [
+              11.88230854637602,
+              56.8
+            ],
+            [
+              11.522667025359354,
+              55.93174856236907
+            ],
+            [
+              11.4,
+              55
+            ],
+            [
+              11.522667025359354,
+              54.06825143763093
+            ],
+            [
+              11.88230854637602,
+              53.2
+            ],
+            [
+              12.454415587728427,
+              52.454415587728434
+            ],
+            [
+              13.2,
+              51.882308546376024
+            ],
+            [
+              14.068251437630925,
+              51.522667025359354
+            ],
+            [
+              15,
+              51.4
+            ],
+            [
+              15.931748562369073,
+              51.522667025359354
+            ],
+            [
+              16.8,
+              51.882308546376024
+            ],
+            [
+              17.54558441227157,
+              52.45441558772843
+            ],
+            [
+              18.117691453623976,
+              53.199999999999996
+            ],
+            [
+              18.477332974640646,
+              54.06825143763092
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-5"
+        },
+        {
+          "filledBy": [
+            "admin-rear-east/landing-7"
+          ],
+          "id": "admin-rear-east/well-7",
+          "level": 7,
+          "maxY": 14.84,
+          "minY": 14.72,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              18.6,
+              55
+            ],
+            [
+              18.477332974640646,
+              55.93174856236907
+            ],
+            [
+              18.11769145362398,
+              56.8
+            ],
+            [
+              17.545584412271573,
+              57.54558441227157
+            ],
+            [
+              16.8,
+              58.117691453623976
+            ],
+            [
+              15.931748562369075,
+              58.477332974640646
+            ],
+            [
+              15,
+              58.6
+            ],
+            [
+              14.068251437630925,
+              58.477332974640646
+            ],
+            [
+              13.200000000000001,
+              58.117691453623976
+            ],
+            [
+              12.454415587728429,
+              57.54558441227157
+            ],
+            [
+              11.88230854637602,
+              56.8
+            ],
+            [
+              11.522667025359354,
+              55.93174856236907
+            ],
+            [
+              11.4,
+              55
+            ],
+            [
+              11.522667025359354,
+              54.06825143763093
+            ],
+            [
+              11.88230854637602,
+              53.2
+            ],
+            [
+              12.454415587728427,
+              52.454415587728434
+            ],
+            [
+              13.2,
+              51.882308546376024
+            ],
+            [
+              14.068251437630925,
+              51.522667025359354
+            ],
+            [
+              15,
+              51.4
+            ],
+            [
+              15.931748562369073,
+              51.522667025359354
+            ],
+            [
+              16.8,
+              51.882308546376024
+            ],
+            [
+              17.54558441227157,
+              52.45441558772843
+            ],
+            [
+              18.117691453623976,
+              53.199999999999996
+            ],
+            [
+              18.477332974640646,
+              54.06825143763092
+            ]
+          ],
+          "sourceFloorId": "pavilion-floor-7"
+        },
+        {
+          "filledBy": [
+            "admin-rear-east/landing-9"
+          ],
+          "id": "admin-rear-east/well-9",
+          "level": 9,
+          "maxY": 19.08,
+          "minY": 18.959999999999997,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              18.6,
+              55
+            ],
+            [
+              18.477332974640646,
+              55.93174856236907
+            ],
+            [
+              18.11769145362398,
+              56.8
+            ],
+            [
+              17.545584412271573,
+              57.54558441227157
+            ],
+            [
+              16.8,
+              58.117691453623976
+            ],
+            [
+              15.931748562369075,
+              58.477332974640646
+            ],
+            [
+              15,
+              58.6
+            ],
+            [
+              14.068251437630925,
+              58.477332974640646
+            ],
+            [
+              13.200000000000001,
+              58.117691453623976
+            ],
+            [
+              12.454415587728429,
+              57.54558441227157
+            ],
+            [
+              11.88230854637602,
+              56.8
+            ],
+            [
+              11.522667025359354,
+              55.93174856236907
+            ],
+            [
+              11.4,
+              55
+            ],
+            [
+              11.522667025359354,
+              54.06825143763093
+            ],
+            [
+              11.88230854637602,
+              53.2
+            ],
+            [
+              12.454415587728427,
+              52.454415587728434
+            ],
+            [
+              13.2,
+              51.882308546376024
+            ],
+            [
+              14.068251437630925,
+              51.522667025359354
+            ],
+            [
+              15,
+              51.4
+            ],
+            [
+              15.931748562369073,
+              51.522667025359354
+            ],
+            [
+              16.8,
+              51.882308546376024
+            ],
+            [
+              17.54558441227157,
+              52.45441558772843
+            ],
+            [
+              18.117691453623976,
+              53.199999999999996
+            ],
+            [
+              18.477332974640646,
+              54.06825143763092
+            ]
+          ],
+          "sourceFloorId": "pavilion-roof-and-gallery"
+        },
+        {
+          "filledBy": [
+            "admin-upper-west/landing-19"
+          ],
+          "id": "admin-upper-west/upper-bridge-cut",
+          "level": 19,
+          "maxY": 40.28,
+          "minY": 40.160000000000004,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -30.2,
+              38.75
+            ],
+            [
+              -25,
+              38.75
+            ],
+            [
+              -25,
+              41.25
+            ],
+            [
+              -30.2,
+              41.25
+            ]
+          ],
+          "sourceFloorId": "upper-colonnade-terrace"
+        },
+        {
+          "filledBy": [
+            "admin-upper-west/base"
+          ],
+          "id": "admin-upper-west/base-cut",
+          "level": 9,
+          "maxY": 19.08,
+          "minY": 18.959999999999997,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              -29,
+              40
+            ],
+            [
+              -29.136296694843725,
+              41.03527618041008
+            ],
+            [
+              -29.535898384862247,
+              42
+            ],
+            [
+              -30.17157287525381,
+              42.82842712474619
+            ],
+            [
+              -31,
+              43.46410161513776
+            ],
+            [
+              -31.964723819589917,
+              43.86370330515627
+            ],
+            [
+              -33,
+              44
+            ],
+            [
+              -34.03527618041008,
+              43.86370330515627
+            ],
+            [
+              -35,
+              43.46410161513776
+            ],
+            [
+              -35.82842712474619,
+              42.82842712474619
+            ],
+            [
+              -36.46410161513776,
+              42
+            ],
+            [
+              -36.86370330515627,
+              41.03527618041009
+            ],
+            [
+              -37,
+              40
+            ],
+            [
+              -36.86370330515627,
+              38.96472381958991
+            ],
+            [
+              -36.46410161513776,
+              38
+            ],
+            [
+              -35.82842712474619,
+              37.17157287525381
+            ],
+            [
+              -35,
+              36.53589838486224
+            ],
+            [
+              -34.03527618041008,
+              36.13629669484373
+            ],
+            [
+              -33,
+              36
+            ],
+            [
+              -31.96472381958992,
+              36.13629669484373
+            ],
+            [
+              -31,
+              36.53589838486224
+            ],
+            [
+              -30.171572875253812,
+              37.17157287525381
+            ],
+            [
+              -29.535898384862247,
+              38
+            ],
+            [
+              -29.13629669484373,
+              38.96472381958991
+            ]
+          ],
+          "sourceFloorId": "pavilion-roof-and-gallery"
+        },
+        {
+          "filledBy": [
+            "admin-upper-east/landing-19"
+          ],
+          "id": "admin-upper-east/upper-bridge-cut",
+          "level": 19,
+          "maxY": 40.28,
+          "minY": 40.160000000000004,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              30.2,
+              41.25
+            ],
+            [
+              25,
+              41.25
+            ],
+            [
+              25,
+              38.75
+            ],
+            [
+              30.2,
+              38.75
+            ]
+          ],
+          "sourceFloorId": "upper-colonnade-terrace"
+        },
+        {
+          "filledBy": [
+            "admin-upper-east/base"
+          ],
+          "id": "admin-upper-east/base-cut",
+          "level": 9,
+          "maxY": 19.08,
+          "minY": 18.959999999999997,
+          "note": "Clip only this source floor ID; keep all other native levels and the raw source unchanged.",
+          "operation": "subtract-exact-polygon",
+          "polygon": [
+            [
+              37,
+              40
+            ],
+            [
+              36.86370330515627,
+              41.03527618041008
+            ],
+            [
+              36.46410161513776,
+              42
+            ],
+            [
+              35.82842712474619,
+              42.82842712474619
+            ],
+            [
+              35,
+              43.46410161513776
+            ],
+            [
+              34.03527618041008,
+              43.86370330515627
+            ],
+            [
+              33,
+              44
+            ],
+            [
+              31.964723819589917,
+              43.86370330515627
+            ],
+            [
+              31,
+              43.46410161513776
+            ],
+            [
+              30.17157287525381,
+              42.82842712474619
+            ],
+            [
+              29.535898384862247,
+              42
+            ],
+            [
+              29.13629669484373,
+              41.03527618041009
+            ],
+            [
+              29,
+              40
+            ],
+            [
+              29.136296694843725,
+              38.96472381958991
+            ],
+            [
+              29.535898384862243,
+              38
+            ],
+            [
+              30.17157287525381,
+              37.17157287525381
+            ],
+            [
+              31,
+              36.53589838486224
+            ],
+            [
+              31.964723819589917,
+              36.13629669484373
+            ],
+            [
+              33,
+              36
+            ],
+            [
+              34.03527618041008,
+              36.13629669484373
+            ],
+            [
+              35,
+              36.53589838486224
+            ],
+            [
+              35.82842712474619,
+              37.17157287525381
+            ],
+            [
+              36.46410161513775,
+              38
+            ],
+            [
+              36.86370330515627,
+              38.96472381958991
+            ]
+          ],
+          "sourceFloorId": "pavilion-roof-and-gallery"
+        }
+      ],
+      "hiddenParts": 1249,
+      "portals": [
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 1.88,
+          "id": "admin-front",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 1.88,
+          "id": "admin-east",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 1.88,
+          "id": "admin-rear",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 1.88,
+          "id": "admin-west",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-0",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-1",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-2",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-3",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-4",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-5",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-6",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-7",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-8",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-9",
+          "openingWidth": 2
+        },
+        {
+          "clearHeight": 2.8,
+          "clearWidth": 2,
+          "id": "admin-office-partition-10",
+          "openingWidth": 2
+        }
+      ],
+      "stairs": [
+        {
+          "build": false,
+          "fromLevel": 0,
+          "id": "admin-approach-front",
+          "kind": "straight",
+          "toLevel": 1
+        },
+        {
+          "build": false,
+          "fromLevel": 0,
+          "id": "admin-approach-east",
+          "kind": "straight",
+          "toLevel": 1
+        },
+        {
+          "build": false,
+          "fromLevel": 0,
+          "id": "admin-approach-rear",
+          "kind": "straight",
+          "toLevel": 1
+        },
+        {
+          "build": false,
+          "fromLevel": 0,
+          "id": "admin-approach-west",
+          "kind": "straight",
+          "toLevel": 1
+        },
+        {
+          "build": true,
+          "fromLevel": 1,
+          "id": "admin-front-west",
+          "kind": "spiral",
+          "toLevel": 9
+        },
+        {
+          "build": true,
+          "fromLevel": 1,
+          "id": "admin-front-east",
+          "kind": "spiral",
+          "toLevel": 9
+        },
+        {
+          "build": true,
+          "fromLevel": 1,
+          "id": "admin-rear-west",
+          "kind": "spiral",
+          "toLevel": 9
+        },
+        {
+          "build": true,
+          "fromLevel": 1,
+          "id": "admin-rear-east",
+          "kind": "spiral",
+          "toLevel": 9
+        },
+        {
+          "build": true,
+          "fromLevel": 9,
+          "id": "admin-upper-west",
+          "kind": "spiral",
+          "toLevel": 19
+        },
+        {
+          "build": true,
+          "fromLevel": 9,
+          "id": "admin-upper-east",
+          "kind": "spiral",
+          "toLevel": 19
+        }
+      ]
+    },
+    "collisionShapeOpenMetadataCount": 243,
+    "height": 124,
+    "occupiedLevels": [
+      1,
+      3,
+      5,
+      7,
+      9,
+      19
+    ],
+    "portals": [
+      {
+        "id": "admin-front",
+        "initiallyOpen": false,
+        "stateful": true
+      },
+      {
+        "id": "admin-east",
+        "initiallyOpen": false,
+        "stateful": true
+      },
+      {
+        "id": "admin-rear",
+        "initiallyOpen": false,
+        "stateful": true
+      },
+      {
+        "id": "admin-west",
+        "initiallyOpen": false,
+        "stateful": true
+      },
+      {
+        "id": "admin-office-partition-0",
+        "initiallyOpen": true,
+        "stateful": false
+      },
+      {
+        "id": "admin-office-partition-1",
+        "initiallyOpen": true,
+        "stateful": false
+      },
+      {
+        "id": "admin-office-partition-2",
+        "initiallyOpen": true,
+        "stateful": false
+      },
+      {
+        "id": "admin-office-partition-3",
+        "initiallyOpen": true,
+        "stateful": false
+      },
+      {
+        "id": "admin-office-partition-4",
+        "initiallyOpen": true,
+        "stateful": false
+      },
+      {
+        "id": "admin-office-partition-5",
+        "initiallyOpen": true,
+        "stateful": false
+      },
+      {
+        "id": "admin-office-partition-6",
+        "initiallyOpen": true,
+        "stateful": false
+      },
+      {
+        "id": "admin-office-partition-7",
+        "initiallyOpen": true,
+        "stateful": false
+      },
+      {
+        "id": "admin-office-partition-8",
+        "initiallyOpen": true,
+        "stateful": false
+      },
+      {
+        "id": "admin-office-partition-9",
+        "initiallyOpen": true,
+        "stateful": false
+      },
+      {
+        "id": "admin-office-partition-10",
+        "initiallyOpen": true,
+        "stateful": false
+      }
+    ],
+    "sourceOffset": [
+      62,
+      0,
+      22
+    ],
+    "width": 124
+  },
+  "navigationSha256": "06ac8d1a329550345855cb0894e8de49e2cc78e6c476b656a345943b6bb9fb54",
+  "newCombustionProfiles": false,
+  "placeId": "administration",
+  "quantityRules": {
+    "closed-volume": {
+      "measuredNow": false,
+      "proposal": "actual verified closed physical union volume divided by .12; withhold on unverified/open/cut geometry or unresolved overlap; never double-count compound intersections or cosmetic layers"
+    },
+    "inert": {
+      "measuredNow": false,
+      "proposal": "zero fuel; keep screening, breakage, mass/support intent and retirement explicit"
+    },
+    "leaf-area": {
+      "measuredNow": false,
+      "proposal": "one native body plus its existing upper extension: total nonduplicate physical panel area times .45, once per portal/sign; hardware separate/inert"
+    },
+    "top-area": {
+      "measuredNow": false,
+      "proposal": "actual upward projected physical area times 1; retain each real slab/tread, apertures and .12 m slab geometry; never add absent cells"
+    },
+    "wall-area": {
+      "measuredNow": false,
+      "proposal": "one primary remaining physical wall/closure area at .16 m native depth times 1; never two faces; partition versus clapboard uses the selected existing profile"
+    },
+    "weather-area": {
+      "measuredNow": false,
+      "proposal": "actual exposed upward weather-face area times 1; remove buried/duplicate coverage by actual triangles, never bounding-box area"
+    },
+    "withheld": {
+      "measuredNow": false,
+      "proposal": "No finite assignment, including no automatic zero or timber default"
+    }
+  },
+  "renderRecords": 39801,
+  "roleCounts": {
+    "None": 6142,
+    "access-support": 8,
+    "custom-dome-shell": 1,
+    "custom-ornament": 24,
+    "door-extension": 8,
+    "door-hardware": 8,
+    "door-leaf": 8,
+    "floor": 21204,
+    "guard-rail": 100,
+    "perimeter-closure": 5786,
+    "portal-frame": 45,
+    "source-ornament": 94,
+    "stair-rail": 1488,
+    "stair-tread": 756,
+    "structural-wall": 5850
+  },
+  "runtimeConsumable": false,
+  "sourceGeometryChanged": false,
+  "sourceIndexSha256": "4de71aac210f28b1becbf3bafd4d9bbcd9ad6ed36a8fb978c685ee3ee5802497",
+  "status": "UNACCEPTED_UNAPPLIED_MATERIAL_FAMILY_PROPOSAL",
+  "supportOrAnchorAssignments": false,
+  "version": 1
+}
