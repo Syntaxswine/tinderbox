@@ -1,0 +1,24 @@
+{
+  "baseline": "4e0ee5fc9d31296099a0bbd9796a95bb04d47fe3",
+  "harness": {
+    "path": "tools/review/shared-map-phone.mjs",
+    "beforeLfSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37",
+    "afterLfSha256": "cb8d2a0dd2cd2905128d04554bc60d5245e38693979401be06f94632278b5bb6",
+    "exactlyOneImportAndFailureCapture": true
+  },
+  "helper": {
+    "path": "tools/review/shared-map-failure-art.mjs",
+    "lfSha256": "dc26971656d7d553f68d74202bad25ecb2bc3ee673badb682694ec77025a9f2a"
+  },
+  "activeSupportLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+  "allGameplaySourceExact": true,
+  "heldTimerAndDeadlineExact": true,
+  "originalFirstFindingBeforeDiagnostics": true,
+  "originalErrorRethrown": true,
+  "originalFinallyExact": true,
+  "readOnlyPublicGetter": "src/runtime/index.js:artDiagnostics",
+  "declarationCounts": {
+    "runtimeFiles": 22,
+    "addedFiles": 41
+  }
+}
