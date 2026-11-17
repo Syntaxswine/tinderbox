@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "base": "68b6e3995bc4bad5f270275578a630fb2646c501",
+  "authority": "54504bae",
+  "passed": true,
+  "scope": "Scoped closed-body containment witnesses only",
+  "focused": {
+    "before": {
+      "passed": 18,
+      "failed": 2
+    },
+    "final": {
+      "passed": 20,
+      "failed": 0
+    }
+  },
+  "exactAdditionalCases": 2,
+  "savedArrayRuns": 1,
+  "savedChecks": 239,
+  "savedRecordsExactlyMatchPrior": true,
+  "nativeCompilerCalls": 0,
+  "worldTrials": 0,
+  "worldSteps": 0,
+  "graphRebuilds": 0,
+  "archives": [
+    {
+      "folder": "bounded-source-compiler-v1",
+      "rawFilesIncludingManifest": 33,
+      "originalSourcePins": 8,
+      "preserved": true
+    },
+    {
+      "folder": "bounded-source-compiler-guards-v1",
+      "rawFilesIncludingManifest": 13,
+      "originalSourcePins": 5,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-kernel-v1",
+      "rawFilesIncludingManifest": 46,
+      "originalSourcePins": 4,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-boundaries-v1",
+      "rawFilesIncludingManifest": 21,
+      "originalSourcePins": 3,
+      "preserved": true
+    }
+  ],
+  "unchangedExistingFiles": [
+    "workbenches/furnished-house/geometry.js",
+    "src/runtime/collision.js",
+    "workbenches/furnished-house/scene.js",
+    "src/runtime/source-query-registry.js",
+    "src/runtime/native-query-registry.js",
+    "src/simulation/regional-source-pilot.js",
+    "tests/integration/regional-effective-query.test.mjs",
+    "tests/integration/regional-query-boundaries.test.mjs",
+    "tests/fixtures/regional-query-data.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/runtime/regional-effective-query.js",
+      "lfSha256": "48b1b6c7bdedd6f12214ce70d56c1366e841445c57a3a86b31eaabb148eca8fc"
+    },
+    {
+      "path": "tests/integration/regional-query-witness.test.mjs",
+      "lfSha256": "16638503a5a28344c6db71eace78671b189efb439e6cbaf53378c417a34d05e1"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "lfSha256": "d8f7042ca29fbd65a861f554daa3fac58178918a59e23441e916100cc24dbe92"
+    }
+  ],
+  "reviewSnapshotPins": [
+    {
+      "path": "docs/engineering/shared-maps/regional-query-witness-v1/review-additional.mjs.txt",
+      "rawSha256": "e2725d4ede399985532123170108a7db42efe4706732b0d98608fc4569c341d3"
+    },
+    {
+      "path": "docs/engineering/shared-maps/regional-query-witness-v1/review-additional-results.json",
+      "rawSha256": "1f02c3eba92426fe0aa077c4d78bc78fd6151a57be6c062bd1a3aa2a694c7f20"
+    }
+  ],
+  "declaration": {
+    "modified": 22,
+    "added": 48
+  },
+  "wipPreserved": true,
+  "helpers": [],
+  "ports": [],
+  "productionEnabled": false
+}

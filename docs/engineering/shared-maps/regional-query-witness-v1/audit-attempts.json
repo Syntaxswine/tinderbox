@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "attempts": [
+    {
+      "name": "first",
+      "passed": false,
+      "category": "Receipt timestamp formatting",
+      "message": "Timestamp string comparison rejected 2026-11-17T21:19:40.130Z versus 2026-11-17T21:19:40.13Z. PowerShell JSON date conversion removed a trailing zero; the timestamps denote the same instant.",
+      "correction": "Compare parsed timestamp values while retaining both original receipts. No runtime or test result changed."
+    }
+  ],
+  "runtimeRerun": false,
+  "savedArrayRerun": false,
+  "nativeCompilerCalls": 0
+}
