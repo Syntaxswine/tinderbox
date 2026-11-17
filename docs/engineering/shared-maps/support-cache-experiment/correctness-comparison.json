@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "scope": "Correctness-only pair; no new profile, benchmark, performance claim, build or renderer.",
+  "sourceVersion": "Measured two-path cache version before additive unsubscribe successor.",
+  "sourcePins": {
+    "src/simulation/source-support.js": {
+      "beforeLfSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+      "afterLfSha256": "db60fb30155200292eb11e0d002c67f1c4beab39b096bc51636a9aad0709b476"
+    },
+    "workbenches/furnished-house/simulation.js": {
+      "beforeLfSha256": "75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012",
+      "afterLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9"
+    }
+  },
+  "exactCommandTape": true,
+  "identicalSnapshotReadSchedule": true,
+  "identicalDerivedFixture": true,
+  "rawHostStrictEqual": false,
+  "hostDifferencesOnlyExactProvenCounters": true,
+  "allNativePhysicalDamageFuelHeatGraphReplayDigestsEqual": true,
+  "states": {
+    "cold": {
+      "strictEqual": true,
+      "semanticEqual": true,
+      "differences": []
+    },
+    "before": {
+      "strictEqual": false,
+      "semanticEqual": true,
+      "differences": [
+        {
+          "path": "/navigation/collision/cachedTriangles",
+          "referencePresent": true,
+          "candidatePresent": true,
+          "reference": 2336,
+          "candidate": 2528,
+          "classification": "observational-counter"
+        },
+        {
+          "path": "/navigation/collision/peakTriangles",
+          "referencePresent": true,
+          "candidatePresent": true,
+          "reference": 2528,
+          "candidate": 2560,
+          "classification": "observational-counter"
+        },
+        {
+          "path": "/navigation/collision/shapeBuilds",
+          "referencePresent": true,
+          "candidatePresent": true,
+          "reference": 496,
+          "candidate": 432,
+          "classification": "observational-counter"
+        }
+      ]
+    },
+    "after": {
+      "strictEqual": false,
+      "semanticEqual": true,
+      "differences": [
+        {
+          "path": "/navigation/collision/peakTriangles",
+          "referencePresent": true,
+          "candidatePresent": true,
+          "reference": 15432,
+          "candidate": 15244,
+          "classification": "observational-counter"
+        },
+        {
+          "path": "/navigation/collision/shapeBuilds",
+          "referencePresent": true,
+          "candidatePresent": true,
+          "reference": 1775,
+          "candidate": 1482,
+          "classification": "observational-counter"
+        }
+      ]
+    }
+  },
+  "boundsVerified": true,
+  "referenceRawHostFiles": [
+    {
+      "path": "correctness-reference-v1/cold-host.json",
+      "sha256": "9a9d84d2383e5588cf329a808d26f52993644f2c043ff19c54870b1bdc7b4f21"
+    },
+    {
+      "path": "correctness-reference-v1/before-host.json",
+      "sha256": "77e133052cfcb45e5e2ffecd2bfa9bdea7cd9d539fad63e65d970f4819790a92"
+    },
+    {
+      "path": "correctness-reference-v1/after-host.json",
+      "sha256": "8de1e4793a33ad80af2ce4a475eae17dd849a4079031947ae87dfce2dfbb89a3"
+    }
+  ],
+  "candidateRawHostFiles": [
+    {
+      "path": "correctness-candidate-v1/cold-host.json",
+      "sha256": "9a9d84d2383e5588cf329a808d26f52993644f2c043ff19c54870b1bdc7b4f21"
+    },
+    {
+      "path": "correctness-candidate-v1/before-host.json",
+      "sha256": "7211e897cd9d2c78d8720ee6fa96a654819325a278d2435dca2afadfaab5d8db"
+    },
+    {
+      "path": "correctness-candidate-v1/after-host.json",
+      "sha256": "79bebfcbda95f00143e2c41a3cb3233543e275e0dbdfaf6dd6006a1380b7f2b7"
+    }
+  ],
+  "originalFailedDigestPreserved": "comparison.json",
+  "negativeControls": {
+    "command": "node --test tests/integration/shared-map-host-diff.test.mjs",
+    "passed": 11,
+    "failed": 0
+  }
+}

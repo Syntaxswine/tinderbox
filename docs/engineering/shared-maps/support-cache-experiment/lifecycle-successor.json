@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "scope": "Separately pinned owned-watch lifecycle successor, after both frozen correctness lanes finished. No new performance measurement.",
+  "measuredSourcePins": {
+    "src/simulation/source-support.js": {
+      "beforeLfSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+      "afterLfSha256": "db60fb30155200292eb11e0d002c67f1c4beab39b096bc51636a9aad0709b476"
+    },
+    "workbenches/furnished-house/simulation.js": {
+      "beforeLfSha256": "75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012",
+      "afterLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9"
+    }
+  },
+  "currentProductionPins": {
+    "src/simulation/source-support.js": {
+      "referenceLfSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+      "successorLfSha256": "88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109"
+    },
+    "workbenches/furnished-house/geometry.js": {
+      "referenceLfSha256": "cf8b8be2a752be959e0beea7c35b68701706b2ff4e4cdb2d5e8d67304a2c5873",
+      "successorLfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+    },
+    "workbenches/furnished-house/simulation.js": {
+      "referenceLfSha256": "75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012",
+      "successorLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9"
+    }
+  },
+  "geometryOutsideWatchApiUnchanged": true,
+  "graphOutsideWatchOwnershipUnchangedFromMeasuredVersion": true,
+  "trialUnchangedFromMeasuredVersion": true,
+  "preserved": [
+    {
+      "path": "workbenches/furnished-house/support.js",
+      "lfSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "lfSha256": "5f763d6e9a28174f64d908e4ffca8284beca24ecfaf8afff671870a448473f36"
+    },
+    {
+      "path": "src/simulation/source-activation.js",
+      "lfSha256": "2b612431c691fec709087130217e98925bab42ed40d2de268e8b6fafb9cbf358"
+    },
+    {
+      "path": "src/simulation/source-carriers.js",
+      "lfSha256": "1cf234cc401a7ea7fac01c459a34dfaae7735e2db7937156041d859630189cb6"
+    },
+    {
+      "path": "src/content/map-source-support-data.js",
+      "lfSha256": "2dbd12836903500db136f262e72d8ea924e4cddb0393c87e19a0241d5ee7c54c"
+    },
+    {
+      "path": "src/content/map-source-data.js",
+      "lfSha256": "7222511cdfe215996ac2a9fd2ec1977dbfc5ae46c57e373936a0735a7acf5e07"
+    }
+  ],
+  "declarationDeltaOnlyApprovedRows": true,
+  "declarationCounts": {
+    "runtimeFiles": 22,
+    "addedFiles": 40
+  },
+  "callbackProof": {
+    "method": "Instrument actual index callback delivery, dispose graph twice, notify the same boundary again; own delivery count stays unchanged while independent subscriber increments.",
+    "duplicateOwnershipAndLegacyNotificationControl": true
+  },
+  "performanceReadiness": "FAIL: original measured worst host step 2798.794ms; lifecycle successor is not remeasured.",
+  "resources": "All measurement/correctness processes exited; no renderer, build, server, watcher or retained helper."
+}

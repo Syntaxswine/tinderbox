@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "scope": "Final unsubscribe successor, source/focused correctness only; no new 32-step measurement or GL.",
+  "checks": [
+    {
+      "command": "node --test tests/integration/source-support.test.mjs tests/integration/source-activation.test.mjs tests/integration/source-carriers.test.mjs tests/integration/source-partition-error.test.mjs tests/integration/shared-map-support-controls.test.mjs tests/integration/shared-map.test.mjs tests/integration/actor-support.test.mjs tests/integration/shared-map-host-diff.test.mjs",
+      "passed": 41,
+      "failed": 0,
+      "log": "focused-lifecycle-checks.log"
+    },
+    {
+      "command": "node tools/review/check-shared-map-integrated.mjs --output=artifacts/qa/shared-map-runtime/support-cache-native-lifecycle-v1",
+      "passed": true,
+      "physicalAssertions": 15,
+      "routes": 60,
+      "registrationComparisons": 819,
+      "result": "native-lifecycle-result.json"
+    },
+    {
+      "command": "node tools/record-shared-map-runtime.mjs --check",
+      "passed": true,
+      "runtimeFiles": 22,
+      "addedFiles": 40
+    },
+    {
+      "command": "node artifacts/qa/shared-map-runtime/support-cache-experiment/audit-successor.mjs",
+      "passed": true,
+      "report": "lifecycle-successor.json"
+    },
+    {
+      "command": "Source/module syntax, Git diff whitespace and archive path/hash review",
+      "passed": true
+    }
+  ],
+  "initialTestFinding": {
+    "scope": "Three added warm-cache assertions in the earlier goat/horse/bear reset checks expected nonempty entries after pose changes.",
+    "result": "Failed test assumption; poses had correctly invalidated entries. Assertions now prove previous cache use and actual watch ownership, then require disposal and a fresh cold owner. The final41-case run above passes.",
+    "initialLocalLogAvailable": false,
+    "originalToolOutputPreservedInConversation": true
+  },
+  "notRun": [
+    "Whole repository suite",
+    "Any build, browser, renderer, new profile or additional optimized measurement"
+  ],
+  "performanceReadiness": "FAIL: preserved 2798.794ms host step; the separately pinned unsubscribe successor was not remeasured."
+}

@@ -1,0 +1,47 @@
+{
+  "scope": "One bounded ordered support-cache experiment; identical derived fixture and physical digest comparison to cd443 control.",
+  "originalProducerLfSha256": "091fdb58315c83de84c70f4fbbf14b0872432bc78c44753231cf12519c2ed89b",
+  "experimentProducerLfSha256": "99c1a87220da2f256e5705c0c368ff2cb9e880ebe9ec183ca79496eb9bc06931",
+  "experimentDelta": {
+    "src/simulation/source-support.js": {
+      "beforeLfSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+      "afterLfSha256": "db60fb30155200292eb11e0d002c67f1c4beab39b096bc51636a9aad0709b476"
+    },
+    "workbenches/furnished-house/simulation.js": {
+      "beforeLfSha256": "75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012",
+      "afterLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9"
+    }
+  },
+  "changes": [
+    {
+      "purpose": "Do not create an extra profile",
+      "before": "assert.ok(['control','profile'].includes(mode));",
+      "after": "assert.equal(mode,'control','Exactly one unprofiled optimized measurement is authorized');"
+    },
+    {
+      "purpose": "Pin exactly the two authorized production changes",
+      "before": "assert.equal(git('diff','--name-only',frozen,'--','src','assets','art','vendor','workbenches'),'');",
+      "after": "const experimentDelta={\"src/simulation/source-support.js\":{\"beforeLfSha256\":\"34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b\",\"afterLfSha256\":\"db60fb30155200292eb11e0d002c67f1c4beab39b096bc51636a9aad0709b476\"},\"workbenches/furnished-house/simulation.js\":{\"beforeLfSha256\":\"75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012\",\"afterLfSha256\":\"54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9\"}};assert.deepEqual(git('diff','--name-only',frozen,'--','src','assets','art','vendor','workbenches').split(/\\r?\\n/).filter(Boolean).sort(),Object.keys(experimentDelta).sort());for(const [path,pin]of Object.entries(experimentDelta))assert.equal(sha(fs.readFileSync(path,'utf8').replace(/\\r\\n/g,'\\n')),pin.afterLfSha256,path);"
+    },
+    {
+      "purpose": "Record the scoped physical-source delta",
+      "before": "productionDiffEmpty:true,",
+      "after": "productionDiffEmpty:false,experimentDelta,"
+    },
+    {
+      "purpose": "Measure actual host-step stalls without changing the derived command fixture",
+      "before": "const observer=new PerformanceObserver",
+      "after": "\nP.slowHostSteps=[];let ownedSimulation;\nObject.defineProperty(P,'sim',{get(){return ownedSimulation;},set(sim){ownedSimulation=sim;const raw=sim.advance;sim.advance=function(...args){const at=performance.now(),cpu=process.cpuUsage();try{return raw.apply(this,args);}finally{const elapsed=performance.now()-at;P.record('host.advance',elapsed);if(elapsed>25){const snapshot=sim.snapshot();P.slowHostSteps.push({tick:snapshot.tick,world:snapshot.clocks.world,elapsedMs:elapsed,cpuUsageUs:process.cpuUsage(cpu),topologyCache:snapshot.diagnostics.thermal.support.topologyCache});}}};}});\nconst observer=new PerformanceObserver"
+    },
+    {
+      "purpose": "Keep worst host-step and disposal evidence",
+      "before": "report.totalProcessElapsedMs=",
+      "after": "report.slowHostSteps=P.slowHostSteps;report.topologyAfterDispose=P.trial?.supportGraph.diagnostics().topologyCache;report.totalProcessElapsedMs="
+    }
+  ],
+  "productionChanges": [
+    "src/simulation/source-support.js",
+    "workbenches/furnished-house/simulation.js"
+  ],
+  "declarationDeltaVerified": true
+}
