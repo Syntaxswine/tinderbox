@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "views": [
+    {
+      "name": "repeat-closeup",
+      "title": "Clear parapet blocks | one-metre repeat",
+      "caption": "Three new blocks between the original cornice and parapet base. Original dimensions and finish.",
+      "newCarrierIds": [
+        "carrier/clear-parapet-blocking/main-parapet-1/bay-05",
+        "carrier/clear-parapet-blocking/main-parapet-1/bay-06",
+        "carrier/clear-parapet-blocking/main-parapet-1/bay-07"
+      ],
+      "sourceCarrierIds": [
+        "carrier/edge-1/cornice-7",
+        "carrier/main-parapet-1/base"
+      ],
+      "camera": {
+        "target": [
+          80,
+          17.2,
+          32.5
+        ],
+        "origin": [
+          83.6,
+          18.15,
+          30.5
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "halfWidth": 1.55
+      },
+      "rulerMetres": 0.5,
+      "notes": [
+        "Block: 0.16 x 0.20999999821185966 x 0.16 m; 1 m centre spacing.",
+        "Only three of the 96 approved placements shown. Existing front 48 and 20 obstructed positions excluded."
+      ],
+      "bmpPath": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\artifacts\\shared-map-fire-bindings\\parapet-clear-blocking-v1\\repeat-closeup.bmp",
+      "jpgPath": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\docs\\art\\shared-map-fire-bindings\\parapet-clear-blocking-v1\\previews\\repeat-closeup.jpg",
+      "triangles": 60,
+      "blockMarkers": [
+        {
+          "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-05",
+          "screen": [
+            1251.1779489659548,
+            508.9728877183864
+          ]
+        },
+        {
+          "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-06",
+          "screen": [
+            800,
+            452.63146040240565
+          ]
+        },
+        {
+          "id": "carrier/clear-parapet-blocking/main-parapet-1/bay-07",
+          "screen": [
+            348.8220510340452,
+            396.29003308642484
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bearing-closeup",
+      "title": "Native bearing detail | fixed original parents",
+      "caption": "One new block shown at its actual size. Original cornice below; original parapet base above.",
+      "newCarrierIds": [
+        "carrier/clear-parapet-blocking/main-parapet-3/bay-01"
+      ],
+      "sourceCarrierIds": [
+        "carrier/edge-3/cornice-7",
+        "carrier/main-parapet-3/base"
+      ],
+      "camera": {
+        "target": [
+          70,
+          17.2,
+          55.5
+        ],
+        "origin": [
+          72.8,
+          17.91,
+          54.5
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "halfWidth": 0.48
+      },
+      "rulerMetres": 0.1,
+      "notes": [
+        "Lower separation: 0 m. Upper separation: 1.5258789431982223e-7 m (retained; below pixel scale).",
+        "Native contact tolerance remains 1e-5 m. This close-up is visual evidence, not full support acceptance."
+      ],
+      "bmpPath": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\artifacts\\shared-map-fire-bindings\\parapet-clear-blocking-v1\\bearing-closeup.bmp",
+      "jpgPath": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\docs\\art\\shared-map-fire-bindings\\parapet-clear-blocking-v1\\previews\\bearing-closeup.jpg",
+      "triangles": 36,
+      "blockMarkers": [
+        {
+          "id": "carrier/clear-parapet-blocking/main-parapet-3/bay-01",
+          "screen": [
+            800,
+            502.9488804628835
+          ]
+        }
+      ]
+    }
+  ],
+  "renderPixels": [
+    3200,
+    1720
+  ],
+  "outputRenderPixels": [
+    1600,
+    860
+  ],
+  "canvasPixels": [
+    1600,
+    1100
+  ],
+  "footer": "OFFLINE ASSET CLOSE-UP | Whole building and other fittings omitted. No game, fire, UI or runtime support acceptance."
+}

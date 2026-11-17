@@ -1,0 +1,21 @@
+{
+  "dependencyProbeFailures": [
+    {
+      "attempts": 2,
+      "error": "Windows Application Control blocked _drjit_ext",
+      "sceneStarted": false,
+      "tool": "Mitsuba / drjit dependency import"
+    }
+  ],
+  "encodingFailure": {
+    "error": "Running script files is disabled by system execution policy",
+    "jpgsProduced": 0,
+    "method": "Windows PowerShell -File"
+  },
+  "nativeActivationStarted": false,
+  "newRenderForEncodingRecovery": false,
+  "recovery": "OS JPG encoding through the authorized normal command runner, reusing the exact existing BMPs. No policy changed. Labels received opaque backing after visual inspection; geometry and cameras were not rerendered.",
+  "renderedViews": 2,
+  "sceneRasterizations": 1,
+  "version": 1
+}

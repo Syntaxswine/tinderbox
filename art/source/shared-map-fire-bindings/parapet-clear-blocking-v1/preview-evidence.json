@@ -1,0 +1,128 @@
+{
+  "activeRenderAndConversionSeconds": 28.367069,
+  "bypassFlagsUsed": false,
+  "cleanupReceipt": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/preview-session/cleanup-receipt.json",
+  "currentRasterizer": {
+    "change": "Encoder command invocation only; no geometry rerender.",
+    "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/render-preview.mjs",
+    "sameWorkerAsExecuted": true,
+    "sha256": "251f60b08b3f2da3630d930678a065b53c4db4227f6a695d6a6deef84625039d"
+  },
+  "deliveredJpgs": 2,
+  "executedRasterizer": {
+    "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/preview-attempt-01/render-preview.mjs",
+    "sha256": "399cf18abe3fe407c1dd53a735a8a6a8ed0dccedca0ef3f865e8fbc2fdf02be4"
+  },
+  "finalEncoder": {
+    "execution": "Ordinary authorized command runner, using the exact saved BMPs; header/ruler backing added after visual QA.",
+    "path": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/encode-preview.ps1",
+    "sha256": "bac77c4e8bce6d1ff80f8b096b07b3f7b9e7d69f4f05def5dc6e829c72180797"
+  },
+  "finalEncodingRecord": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/preview-session/final-encoding-run.json",
+  "initialFailureArchive": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/preview-attempt-01/failures.json",
+  "newRenderForEncodingRecovery": false,
+  "outputs": [
+    {
+      "camera": {
+        "halfWidth": 1.55,
+        "origin": [
+          83.6,
+          18.15,
+          30.5
+        ],
+        "target": [
+          80,
+          17.2,
+          32.5
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ]
+      },
+      "height": 1100,
+      "imagePixelsPerMetre": 516.1290322580645,
+      "imageWidthMetres": 3.1,
+      "newCarrierIds": [
+        "carrier/clear-parapet-blocking/main-parapet-1/bay-05",
+        "carrier/clear-parapet-blocking/main-parapet-1/bay-06",
+        "carrier/clear-parapet-blocking/main-parapet-1/bay-07"
+      ],
+      "originalParentCarrierIds": [
+        "carrier/edge-1/cornice-7",
+        "carrier/main-parapet-1/base"
+      ],
+      "path": "docs/art/shared-map-fire-bindings/parapet-clear-blocking-v1/previews/repeat-closeup.jpg",
+      "rulerMetres": 0.5,
+      "sha256": "f3b57155bae5897d59d997a07a946a1b98ff443ad17eb6332a0e5fff4791dcba",
+      "triangles": 60,
+      "visualInspection": "PASS: actual blocks and original parents readable at declared scale; labels/ruler readable with opaque backing. Tiny retained separation is below pixel scale.",
+      "width": 1600
+    },
+    {
+      "camera": {
+        "halfWidth": 0.48,
+        "origin": [
+          72.8,
+          17.91,
+          54.5
+        ],
+        "target": [
+          70,
+          17.2,
+          55.5
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ]
+      },
+      "height": 1100,
+      "imagePixelsPerMetre": 1666.6666666666667,
+      "imageWidthMetres": 0.96,
+      "newCarrierIds": [
+        "carrier/clear-parapet-blocking/main-parapet-3/bay-01"
+      ],
+      "originalParentCarrierIds": [
+        "carrier/edge-3/cornice-7",
+        "carrier/main-parapet-3/base"
+      ],
+      "path": "docs/art/shared-map-fire-bindings/parapet-clear-blocking-v1/previews/bearing-closeup.jpg",
+      "rulerMetres": 0.1,
+      "sha256": "4e3e9d4368375ff0b9f98bfc0f71143f745418316521f4d476b001b06de2173c",
+      "triangles": 36,
+      "visualInspection": "PASS: actual blocks and original parents readable at declared scale; labels/ruler readable with opaque backing. Tiny retained separation is below pixel scale.",
+      "width": 1600
+    }
+  ],
+  "policySettingsChanged": false,
+  "rasterOutputHashes": {
+    "files": [
+      {
+        "bytes": 16512054,
+        "path": "artifacts/shared-map-fire-bindings/parapet-clear-blocking-v1/repeat-closeup.bmp",
+        "requiredForPackageVerification": false,
+        "sha256": "b98608dda36653e236d102b92b086ff00a4b487e3aae7e05dcfd92a8a13f6ff5"
+      },
+      {
+        "bytes": 16512054,
+        "path": "artifacts/shared-map-fire-bindings/parapet-clear-blocking-v1/bearing-closeup.bmp",
+        "requiredForPackageVerification": false,
+        "sha256": "7283d004be3d27a7a772edfaf3478baf4c3d06e5e5c417509f6863aec7655ea4"
+      }
+    ],
+    "note": "Preserved transient raster identities; source/cameras regenerate them. Final JPGs are self-contained and no raster rerun is part of package checking.",
+    "version": 1
+  },
+  "rasterSessions": 1,
+  "rasterViews": 2,
+  "renderStageOriginalRecordPreserved": "art/source/shared-map-fire-bindings/parapet-clear-blocking-v1/preview-session/render-run.json",
+  "renderedWorkerSha256": "d35166518b4a5f983853e03b5a45b1c30a19c43ff14decf34fbe03e8e336f9a2",
+  "renderer": "Pure JavaScript orthographic triangle rasterizer with original linear source material colours, diffuse directional light/shadow, 2x sampling; OS JPEG encoding.",
+  "result": "PASS",
+  "runtimeBehaviorAcceptance": false,
+  "scope": "Offline actual-source triangle close-ups only. No game, UI, fire, whole-building context, native activation or full support acceptance.",
+  "version": 1
+}
