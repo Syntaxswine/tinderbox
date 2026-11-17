@@ -1,0 +1,392 @@
+{
+  "acceptedMaterialCandidate": "5da6393cc5be1041d1042f7b6214d2d7ff9ae764",
+  "authorityCommit": "4c2019abcc006b4b55c8293781a9741b9b9e3448",
+  "closedSolidProvedCases": 4618,
+  "effectiveRangeCases": 5100,
+  "exactArithmetic": "Source binary coordinates are integers on an exact common power-of-two lattice. Topology uses equality, not welding tolerances. Degenerate triangles are recorded and excluded only from integrals. Affine matrices are retained as exact rationals. No source arrays are rewritten.",
+  "factoryExecution": false,
+  "familyReadiness": [
+    {
+      "familyId": "A01",
+      "logicalSourceIds": 288,
+      "placeId": "administration",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "A02",
+      "logicalSourceIds": 588,
+      "placeId": "administration",
+      "status": "proved-primary-wall-area"
+    },
+    {
+      "familyId": "A02",
+      "logicalSourceIds": 40,
+      "placeId": "administration",
+      "status": "withheld-primary-face-correspondence-not-proved"
+    },
+    {
+      "familyId": "A03",
+      "logicalSourceIds": 10644,
+      "placeId": "administration",
+      "status": "proved-primary-wall-area"
+    },
+    {
+      "familyId": "A03",
+      "logicalSourceIds": 76,
+      "placeId": "administration",
+      "status": "withheld-primary-face-correspondence-not-proved"
+    },
+    {
+      "familyId": "A04",
+      "logicalSourceIds": 21204,
+      "placeId": "administration",
+      "status": "proved-upward-projected-area"
+    },
+    {
+      "familyId": "A05",
+      "logicalSourceIds": 48,
+      "placeId": "administration",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "A06",
+      "logicalSourceIds": 708,
+      "placeId": "administration",
+      "status": "proved-upward-projected-area"
+    },
+    {
+      "familyId": "A07",
+      "logicalSourceIds": 16,
+      "placeId": "administration",
+      "status": "proved-leaf-component-area"
+    },
+    {
+      "familyId": "A08",
+      "logicalSourceIds": 8,
+      "placeId": "administration",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "A09",
+      "logicalSourceIds": 52,
+      "placeId": "administration",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "A10",
+      "logicalSourceIds": 589,
+      "placeId": "administration",
+      "status": "proved-closed-solid-volume"
+    },
+    {
+      "familyId": "A10",
+      "logicalSourceIds": 42,
+      "placeId": "administration",
+      "status": "withheld-closed-solid-not-proved"
+    },
+    {
+      "familyId": "A11",
+      "logicalSourceIds": 3148,
+      "placeId": "administration",
+      "status": "proved-closed-solid-volume"
+    },
+    {
+      "familyId": "A11",
+      "logicalSourceIds": 6,
+      "placeId": "administration",
+      "status": "withheld-closed-solid-not-proved"
+    },
+    {
+      "familyId": "A12",
+      "logicalSourceIds": 32,
+      "placeId": "administration",
+      "status": "proved-closed-solid-volume"
+    },
+    {
+      "familyId": "A12",
+      "logicalSourceIds": 64,
+      "placeId": "administration",
+      "status": "withheld-closed-solid-not-proved"
+    },
+    {
+      "familyId": "A13",
+      "logicalSourceIds": 33,
+      "placeId": "administration",
+      "status": "proved-closed-solid-volume"
+    },
+    {
+      "familyId": "A14",
+      "logicalSourceIds": 31,
+      "placeId": "administration",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "A15",
+      "logicalSourceIds": 3905,
+      "placeId": "administration",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H01",
+      "logicalSourceIds": 10404,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H02",
+      "logicalSourceIds": 346,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H03",
+      "logicalSourceIds": 1038,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H04",
+      "logicalSourceIds": 3445,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H05",
+      "logicalSourceIds": 11188,
+      "placeId": "horticulture",
+      "status": "proved-primary-wall-area"
+    },
+    {
+      "familyId": "H05",
+      "logicalSourceIds": 10,
+      "placeId": "horticulture",
+      "status": "withheld-primary-face-correspondence-not-proved"
+    },
+    {
+      "familyId": "H06",
+      "logicalSourceIds": 27996,
+      "placeId": "horticulture",
+      "status": "proved-upward-projected-area"
+    },
+    {
+      "familyId": "H07",
+      "logicalSourceIds": 1961,
+      "placeId": "horticulture",
+      "status": "proved-upward-projected-area"
+    },
+    {
+      "familyId": "H08",
+      "logicalSourceIds": 24,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H09",
+      "logicalSourceIds": 72,
+      "placeId": "horticulture",
+      "status": "proved-upward-projected-area"
+    },
+    {
+      "familyId": "H10",
+      "logicalSourceIds": 20,
+      "placeId": "horticulture",
+      "status": "proved-leaf-component-area"
+    },
+    {
+      "familyId": "H11",
+      "logicalSourceIds": 10,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H12",
+      "logicalSourceIds": 381,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H13",
+      "logicalSourceIds": 453,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H14",
+      "logicalSourceIds": 2,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H15",
+      "logicalSourceIds": 412,
+      "placeId": "horticulture",
+      "status": "withheld-living-material-stock-and-response"
+    },
+    {
+      "familyId": "H16",
+      "logicalSourceIds": 18,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H16b",
+      "logicalSourceIds": 8,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H17",
+      "logicalSourceIds": 2,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "familyId": "H18",
+      "logicalSourceIds": 48,
+      "placeId": "horticulture",
+      "status": "proved-closed-solid-volume"
+    },
+    {
+      "familyId": "H18",
+      "logicalSourceIds": 16,
+      "placeId": "horticulture",
+      "status": "withheld-closed-solid-not-proved"
+    },
+    {
+      "familyId": "H19",
+      "logicalSourceIds": 2197,
+      "placeId": "horticulture",
+      "status": "proved-closed-solid-volume"
+    },
+    {
+      "familyId": "H19",
+      "logicalSourceIds": 16,
+      "placeId": "horticulture",
+      "status": "withheld-closed-solid-not-proved"
+    },
+    {
+      "familyId": "H20",
+      "logicalSourceIds": 348,
+      "placeId": "horticulture",
+      "status": "proved-closed-solid-volume"
+    },
+    {
+      "familyId": "H20",
+      "logicalSourceIds": 451,
+      "placeId": "horticulture",
+      "status": "withheld-closed-solid-not-proved"
+    },
+    {
+      "familyId": "H21",
+      "logicalSourceIds": 3,
+      "placeId": "horticulture",
+      "status": "withheld-weather-exposure-and-duplicate-coverage-review"
+    },
+    {
+      "familyId": "H22",
+      "logicalSourceIds": 2919,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    }
+  ],
+  "helpersStarted": false,
+  "limits": "Closed manifold topology alone does not prove a non-self-intersecting solid. Only strict supporting-plane convexity or congruent nonoverlapping prismatic cap proof certifies volume here. Other cases remain withheld.",
+  "linearGeometryGroups": 7446,
+  "logicalSourceCounts": {
+    "administration": 41522,
+    "horticulture": 63788
+  },
+  "newYorkInputsChanged": false,
+  "notRuntimeOrStockAcceptance": true,
+  "quantitiesApplied": 0,
+  "quantityExceptions": 724,
+  "rawClosedCases": 4618,
+  "rawGeometryFiles": 1572,
+  "readinessCounts": [
+    {
+      "logicalSourceIds": 4332,
+      "placeId": "administration",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "logicalSourceIds": 3802,
+      "placeId": "administration",
+      "status": "proved-closed-solid-volume"
+    },
+    {
+      "logicalSourceIds": 16,
+      "placeId": "administration",
+      "status": "proved-leaf-component-area"
+    },
+    {
+      "logicalSourceIds": 11232,
+      "placeId": "administration",
+      "status": "proved-primary-wall-area"
+    },
+    {
+      "logicalSourceIds": 21912,
+      "placeId": "administration",
+      "status": "proved-upward-projected-area"
+    },
+    {
+      "logicalSourceIds": 112,
+      "placeId": "administration",
+      "status": "withheld-closed-solid-not-proved"
+    },
+    {
+      "logicalSourceIds": 116,
+      "placeId": "administration",
+      "status": "withheld-primary-face-correspondence-not-proved"
+    },
+    {
+      "logicalSourceIds": 19050,
+      "placeId": "horticulture",
+      "status": "nonfuel-geometry-only-no-structural-or-damage-acceptance"
+    },
+    {
+      "logicalSourceIds": 2593,
+      "placeId": "horticulture",
+      "status": "proved-closed-solid-volume"
+    },
+    {
+      "logicalSourceIds": 20,
+      "placeId": "horticulture",
+      "status": "proved-leaf-component-area"
+    },
+    {
+      "logicalSourceIds": 11188,
+      "placeId": "horticulture",
+      "status": "proved-primary-wall-area"
+    },
+    {
+      "logicalSourceIds": 30029,
+      "placeId": "horticulture",
+      "status": "proved-upward-projected-area"
+    },
+    {
+      "logicalSourceIds": 483,
+      "placeId": "horticulture",
+      "status": "withheld-closed-solid-not-proved"
+    },
+    {
+      "logicalSourceIds": 412,
+      "placeId": "horticulture",
+      "status": "withheld-living-material-stock-and-response"
+    },
+    {
+      "logicalSourceIds": 10,
+      "placeId": "horticulture",
+      "status": "withheld-primary-face-correspondence-not-proved"
+    },
+    {
+      "logicalSourceIds": 3,
+      "placeId": "horticulture",
+      "status": "withheld-weather-exposure-and-duplicate-coverage-review"
+    }
+  ],
+  "rendererStarted": false,
+  "sourceContext": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "sourceGeometryChanged": false,
+  "status": "SOURCE_GEOMETRY_READINESS_ONLY",
+  "version": 1
+}

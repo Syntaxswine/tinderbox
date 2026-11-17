@@ -1,0 +1,104 @@
+{
+  "applied": false,
+  "candidateMeaning": "Unselected numerical game-control hypotheses for later review, not empirical plant moisture values, new profiles or source assignments. A base profile and finite stock must first be explicitly approved; no candidate is installed or tested here.",
+  "currentInterface": {
+    "carrierFields": [
+      "fuelClass",
+      "fuelAmount",
+      "area",
+      "thickness",
+      "quantityRule",
+      "physicalMaterial",
+      "optional separately accounted finish"
+    ],
+    "limitations": [
+      "No per-carrier wetness or ignition threshold/delay override exists.",
+      "Current profile overrides affect the whole trial by profile ID.",
+      "Reducing fuelAmount reduces combustible stock/energy, not a wet ignition barrier.",
+      "A finish adds an accounted combustible layer and is not moisture."
+    ],
+    "profileFields": [
+      "threshold",
+      "delay",
+      "seconds",
+      "energy"
+    ],
+    "source": "Coder Tinderbox source-only reply, 17 November 2026; existing shared carrier/profile interfaces"
+  },
+  "currentPlantSourcePartsWithheld": 412,
+  "decisionsRequired": [
+    "Approve or reject the proposed shared per-carrier data extension before code.",
+    "Select an existing base profile explicitly for each botanical family; no default is proposed.",
+    "Approve an actual finite dry-stock recipe/loading and local-share mapping independently of response.",
+    "Select or replace candidate static multipliers and dry-versus-sustained controls.",
+    "Keep all 412 current source parts withheld until those decisions and ordinary-tool evidence exist."
+  ],
+  "existingBaseProfileId": null,
+  "futureContractRequired": {
+    "invariants": [
+      "Default absence preserves existing nonplant behavior exactly.",
+      "No plant gets an implicit base profile, stock, zero or finish.",
+      "The existing profile's seconds and energy remain unchanged; no water energy is invented.",
+      "Finite dry combustible stock is measured/accounted separately from response.",
+      "Persist the explicitly chosen static response with the canonical owner through residency changes; never refill fuel.",
+      "No dynamic drying, latent-heat reservoir, evaporation, moisture transfer or weather integration is proposed."
+    ],
+    "proposedData": {
+      "delayScale": null,
+      "reviewedPresetRef": null,
+      "thresholdScale": null
+    },
+    "proposedSharedCarrierField": "localIgnitionResponse",
+    "purpose": "An explicit static per-carrier material response applied to an approved existing base profile, rather than a new profile ID or global profile mutation.",
+    "scope": "Future shared adapter/kernel contract only; it is absent from current tuples and fuels."
+  },
+  "moistureSolverProposed": false,
+  "newProfileIds": [],
+  "plannedControlsNotRun": [
+    {
+      "hypothesis": "Compare unchanged and chosen static response under the same finite ordinary-tool heat dose and native geometry, followed by cooling. Report char/ignition times and heat; do not assume a pass.",
+      "id": "short-cooled-exposure"
+    },
+    {
+      "hypothesis": "Choose a finite exposure reaching above both reviewed thresholds. Verify whether sustained exposure can ignite without hidden fuel or a drying solver; report failure honestly.",
+      "id": "sustained-exposure"
+    },
+    {
+      "hypothesis": "Same explicitly approved dry combustible stock in every response arm; stock/energy bookkeeping must stay finite and no visual reload refills it.",
+      "id": "finite-stock"
+    },
+    {
+      "hypothesis": "Nearby carriers using the same base profile retain their original parameters; a carrier modifier must not become a global profile override.",
+      "id": "nonplant-isolation"
+    },
+    {
+      "hypothesis": "A damaged frond or canopy patch retires only its approved contribution and shares; visual followers and current stock agree.",
+      "id": "local-patch-retirement"
+    },
+    {
+      "hypothesis": "Ordinary tools use the common inert-receiver path. No hidden ignition fuel appears on lagoon/basin water or other inert materials.",
+      "id": "inert-water-receiver"
+    }
+  ],
+  "prototypeControlCandidates": [
+    {
+      "delayScale": 1,
+      "label": "Explicit unchanged control",
+      "thresholdScale": 1
+    },
+    {
+      "delayScale": 2,
+      "label": "Moderate static barrier hypothesis",
+      "thresholdScale": 1.25
+    },
+    {
+      "delayScale": 4,
+      "label": "Stronger static barrier hypothesis",
+      "thresholdScale": 1.5
+    }
+  ],
+  "runtimeConsumable": false,
+  "selectedPreset": null,
+  "status": "UNACCEPTED_FUTURE_DATA_INTERFACE_PROPOSAL",
+  "version": 1
+}
