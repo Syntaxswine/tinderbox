@@ -91,3 +91,11 @@ There is no live region claim until query, stock and support updates can commit
 atomically. Do not retire a whole cold proxy, add a ghost source or weld two cold
 components to make this compiler stage appear playable. Production maps keep
 their existing path; the last 2,599.9 ms browser failure remains unresolved.
+
+## Isolated stage accepted
+
+The [architect review](../../reviews/2026-11-17-shared-map-compiler-stage.md)
+accepts `c66e6594` plus guard successor `882aed0c`: one preserved actual comparison,
+12/12 independent focused controls, exact source/quantity/default checks and
+clean process closure. The tagged-query kernel is the next separate prototype.
+No live world installation or new interaction-speed pass follows.

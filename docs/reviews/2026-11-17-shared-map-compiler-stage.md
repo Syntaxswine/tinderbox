@@ -41,12 +41,30 @@ The candidate is not yet accepted as the completed compiler stage:
    Root does not execute the hang. Reject unsafe indices/exclusive ends and an
    explicitly bounded static-pilot catalogue before enumeration/native work.
 
-Coder is assigned focused small rejecting/default cases and a scoped successor;
-the large comparison, world/trial, graph, build and renderer remain closed.
-Partial-owner arithmetic clipping must be explained as bounded parent accounting,
-with physical fuel untouched and no hidden refill. Later mixed queries, original
-support ports/birth classification, followers/debris and atomic world activation
-remain separate gates.
+Coder successor `882aed0c` corrects both boundaries and is accepted as the
+completed **isolated compiler stage**, intaken as `8e505e5a`. Root's 12/12 focused
+checks pass (27 tiny native calls, zero retained receipts), as do declaration
+22/47, all 17 successor manifest pins, 18-path scope, original archive/source
+integrity and unchanged native/default math checks. Both test PIDs 16000/52860
+are absent. Root reads the worker's WIP at its actual path; no source archive or
+WIP is rewritten or intaken.
+
+Physical receipts now preserve local immutable geometry and validate original
+table/record/field references at preparation and commit. Disposal clears only
+captured owned maps. Safe spans, aligned exclusive ends and a total 320-descriptor
+static-pilot ceiling are checked before enumeration. Partial-owner roundoff
+overshoot is now an explicitly finite, separately bounded parent accounting
+carry: the `Q=1-Number.EPSILON` fixture keeps native fuel exactly 1, with a
+negative-EPS carry and zero cold reserve; full closure remains separately marked.
+This is accepted bookkeeping, not physical fuel normalization or a refill.
+
+The large comparison is spent and remains preserved; no roof replay is used for
+these guards. The world/trial, graph, build and renderer remain closed. Later
+mixed queries, original support ports/birth classification, followers/debris
+and atomic world activation remain separate gates. The
+[next isolated query stage](../engineering/shared-maps/regional-query-kernel-pilot.md)
+uses the accepted shared-interface source proposal; it does not enable regional
+gameplay or solve the prior 2,599.9 ms interaction finding.
 
 ## Vegetation and pane source checkpoint
 
