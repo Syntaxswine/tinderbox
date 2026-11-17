@@ -1,0 +1,6 @@
+import fs from 'node:fs';
+import {spawnSync} from 'node:child_process';
+const out='docs/engineering/shared-maps/regional-receipt-bridge-v1/';if(fs.existsSync(out+'repros-launch.json'))throw Error('Preserve the exact repro run');
+const startedAt=new Date().toISOString(),runs=[];let failed=false;
+for(const name of ['eight','two']){const args=[out+'recheck-'+name+'.mjs'],start=new Date().toISOString(),child=spawnSync(process.execPath,args,{windowsHide:true,encoding:'utf8',timeout:20000,maxBuffer:1024*1024}),log=(child.stdout||'')+(child.stderr||'');fs.writeFileSync(out+'repros-'+name+'.log',log);runs.push({args,pid:child.pid,executable:process.execPath,startedAt:start,endedAt:new Date().toISOString(),exitCode:child.status,error:child.error?.message,signal:child.signal});if(child.status!==0){failed=true;break;}}
+fs.writeFileSync(out+'repros-launch.json',JSON.stringify({owner:'Coder Tinderbox',purpose:'Exact ten public query regressions only',startedAt,endedAt:new Date().toISOString(),runs,failed,timeoutPerChildMs:20000,nativeCompilerCalls:0,ports:[],retainedHelpers:[]},null,2)+'\n');console.log(JSON.stringify({runs:runs.length,failed,nativeCompilerCalls:0}));process.exitCode=failed?1:0;

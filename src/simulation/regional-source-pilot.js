@@ -4,7 +4,7 @@ import {bounds,EPS} from '../../workbenches/furnished-house/geometry.js';
 import {sourcePartitionAllowance} from '../../workbenches/furnished-house/partition-error.js';
 import {createRegionalCompileDomain} from '../../workbenches/furnished-house/regional-domain.js';
 
-const descriptors=new WeakMap(),receipts=new WeakMap(),pilots=new WeakMap();
+const descriptors=new WeakMap(),receipts=new WeakMap(),pilots=new WeakMap(),querySlices=new WeakMap();
 const freeze=value=>{if(value&&typeof value==='object'){for(const v of Object.values(value))freeze(v);Object.freeze(value);}return value;};
 const sum=list=>list.reduce((a,b)=>a+b,0);
 const finiteVector=value=>Array.isArray(value)&&value.length===3&&value.every(Number.isFinite);
@@ -35,6 +35,18 @@ function guardPhysicalReceipt(scene){
 function checkCertificate(c,native){
   if(![c.canonicalQuantity,c.canonicalRoundoff,c.positive,c.negative,c.roundoffBound,native].every(v=>Number.isFinite(v)&&v>=0)||c.epsilon!==EPS)throw Error('Invalid regional quantity certificate');
   const delta=native-c.canonicalQuantity;if(delta>c.positive||delta< -c.negative)throw Error('Regional native quantity exceeds its source-local certificate');
+}
+function stockRow(owner,list){
+  const q=sum(list.map(c=>c.q)),native=sum(list.map(c=>c.native)),full=list.length===owner.mins.length,proved=owner.inputRoundoff+sum(list.map(c=>c.canonicalRoundoff))+roundoff(owner.q,list.length);
+  if(![q,native,proved].every(v=>Number.isFinite(v)&&v>=0))throw Error('Invalid finite regional parent quantity/proof');
+  const remainder=full?owner.q-q:0;if(full&&Math.abs(remainder)>proved)throw Error('Unproved canonical parent remainder');
+  if(q>owner.q+proved)throw Error('Regional claims exceed original canonical stock');
+  const canonical=full?owner.q:Math.min(owner.q,q),carry=canonical-q;
+  if(!Number.isFinite(carry)||Math.abs(carry)>proved)throw Error('Unproved canonical parent arithmetic carry');
+  const positive=sum(list.map(c=>c.positive))+Math.max(0,-carry)+roundoff(native,list.length),negative=sum(list.map(c=>c.negative))+Math.max(0,carry)+roundoff(native,list.length),delta=native-canonical;
+  if(![positive,negative].every(Number.isFinite))throw Error('Invalid finite regional parent clipping proof');
+  if(delta>positive||delta< -negative)throw Error('Regional parent native roll-up exceeds its local proof');
+  return {id:owner.id,quantity:owner.q,state:full?'full':list.length?'partial':'cold',claimedRegions:list.length,totalRegions:owner.mins.length,canonicalMeasured:q,canonicalTransferred:canonical,coldReserve:owner.q-canonical,parentArithmeticCarry:carry,canonicalRemainder:remainder,remainderClosed:full,provedRemainderBound:proved,nativeBorn:native,clippingDelta:delta,partitionError:{epsilon:EPS,positive,negative}};
 }
 export function createRegionalSourcePilot({data,owners,sourceRevision}){
   if(!/^[a-f0-9]{64}$/.test(sourceRevision)||data?.version!==1||data.runtimeAdapterVersion!==1||data.implicitGround!==false||!finiteVector(data.gridOrigin)||!finiteVector(data.thermalCell)||data.thermalCell.some((v,i)=>v!==[.5,1.06,.5][i]))throw Error('Static regional pilot needs a pinned native grid/source');
@@ -80,7 +92,7 @@ export function createRegionalSourcePilot({data,owners,sourceRevision}){
       const boundaryIds=[...scene.index.surfaces.keys()],fuelIds=[...scene.fuels.keys()],expected=new Map([...scene.fuels].map(([id,f])=>[id,{amount:f.amount,initial:f.initial,cls:f.cls,sourceSurfaceId:f.sourceSurfaceId}]));
       let disposed=false;
       const receipt=Object.freeze({kind:'isolated-regional-compiler-receipt-v1',partialCompilation:true,descriptor,certificate:cert,nativeQuantity:scene.initialFuel,trace:freeze(trace),scene,
-        dispose(){if(disposed)return;disposed=true;physical.dispose();expected.clear();activeReceipts.delete(receipt);}});
+        dispose(){if(disposed)return;disposed=true;const r=receipts.get(receipt);if(r?.slice)querySlices.delete(r.slice);if(r)r.slice=null;physical.dispose();expected.clear();activeReceipts.delete(receipt);}});
       receipts.set(receipt,{pilot,epoch,key:d.key,owner:d.owner,boundaryIds,fuelIds,expected,physical,isDisposed:()=>disposed});activeReceipts.add(receipt);return receipt;
     }catch(error){if(physical)physical.dispose();else if(scene)clearScene(scene);throw error;}
   }
@@ -92,10 +104,36 @@ export function createRegionalSourcePilot({data,owners,sourceRevision}){
     let native=0;for(const [id,value]of r.expected){const f=scene.fuels.get(id);if(!f||f.amount!==value.amount||f.initial!==value.initial||f.cls!==value.cls||f.sourceSurfaceId!==value.sourceSurfaceId)throw Error('Regional receipt quantity/profile changed');native+=f.amount;}
     if(native!==receipt.nativeQuantity)throw Error('Regional receipt sum changed');checkCertificate(receipt.certificate,native);return r;
   }
-  const pilot=Object.freeze({region,regions(id){live();const owner=ownerMap.get(id);if(!owner)throw Error('Unknown original region owner');return owner.mins.map(min=>region(id,min));},compile,
+  function querySlice(receipt){
+    const r=validateReceipt(receipt);if(r.slice)return r.slice;
+    // The producer attests its completed original source/cell loops, including
+    // cells that emitted nothing. Neither zero fuel nor a caller flag is proof.
+    const descriptor=receipt.descriptor,trace=receipt.trace,entries=[],byPart=new Map(),seen=new Set();let visits=0;
+    if(trace.sources.length!==r.owner.surfaces.length)throw Error('Incomplete restricted source loops');
+    for(const [i,s]of r.owner.surfaces.entries()){
+      if(typeof s.nativePartId!=='string'||!s.nativePartId)throw Error('Original source part metadata required for query slice');
+      const full=span(s,input.gridOrigin,input.thermalCell),min=full.min.map((v,j)=>Math.max(v,descriptor.cellMin[j])),max=full.max.map((v,j)=>Math.min(v,descriptor.cellMaxExclusive[j]-1)),t=trace.sources[i],count=min.reduce((n,v,j)=>n*Math.max(0,max[j]-v+1),1);
+      if(t.sourceId!==s.id||JSON.stringify(t.full)!==JSON.stringify(full)||JSON.stringify(t.restricted)!==JSON.stringify({min,max})||t.cells!==count)throw Error('Incomplete restricted part-cell loops');visits+=count;
+      let part=byPart.get(s.nativePartId);if(!part){part={partId:s.nativePartId,min:[...full.min],max:[...full.max],cells:[],sourceIds:[]};byPart.set(s.nativePartId,part);}else for(let j=0;j<3;j++){part.min[j]=Math.min(part.min[j],full.min[j]);part.max[j]=Math.max(part.max[j],full.max[j]);}part.sourceIds.push(s.id);
+      const single=full.min.every((v,j)=>v===full.max[j]);
+      for(let z=min[2];z<=max[2];z++)for(let y=min[1];y<=max[1];y++)for(let x=min[0];x<=max[0];x++){
+        const cell=[x,y,z],id=single?s.id:`${s.id}@${cell.join(',')}`,b=receipt.scene.index.surfaces.get(id);if(!b)continue;
+        if(seen.has(id)||b.sourceSurfaceId!==s.id||b.sourceCarrierId!==r.owner.id||b.nativePartId!==s.nativePartId)throw Error('Original query slice identity mismatch');seen.add(id);
+        const {heatCells,...record}=b;entries.push({cell,record});
+      }
+    }
+    if(visits!==trace.visitedCells||seen.size!==r.boundaryIds.length)throw Error('Incomplete restricted compiler coverage');
+    for(const part of byPart.values()){
+      const min=part.min.map((v,i)=>Math.max(v,descriptor.cellMin[i])),max=part.max.map((v,i)=>Math.min(v,descriptor.cellMaxExclusive[i]-1));
+      for(let z=min[2];z<=max[2];z++)for(let y=min[1];y<=max[1];y++)for(let x=min[0];x<=max[0];x++)part.cells.push([x,y,z]);
+    }
+    const token=Object.freeze({kind:'authenticated-regional-query-slice-v1',epoch,sourceRevision,ownerId:r.owner.id}),payload=freeze({epoch,sourceRevision,origin:descriptor.origin,pitch:descriptor.pitch,ownerId:r.owner.id,descriptor,parts:[...byPart.values()],entries});
+    querySlices.set(token,{pilot,receipt,payload});r.slice=token;return token;
+  }
+  const pilot=Object.freeze({region,regions(id){live();const owner=ownerMap.get(id);if(!owner)throw Error('Unknown original region owner');return owner.mins.map(min=>region(id,min));},compile,querySlice,
     diagnostics:()=>({productionEnabled:false,closed,epoch,nativeCalls,visitedCells,certificateBuilds,retainedReceipts:activeReceipts.size,owners:[...ownerMap.values()].map(o=>({id:o.id,quantity:o.q,regions:o.mins.length,cachedCertificates:o.certificates.size}))}),
     dispose(){if(closed)return;for(const receipt of activeReceipts)receipt.dispose();closed=true;epoch++;ownerMap.clear();}});
-  pilots.set(pilot,{live,ownerMap,validateReceipt,ledger:null,get closed(){return closed;},get epoch(){return epoch;},advance(){live();for(const receipt of activeReceipts)receipt.dispose();epoch++;}});return pilot;
+  pilots.set(pilot,{live,ownerMap,validateReceipt,sourceRevision,grid:{origin:input.gridOrigin,pitch:input.thermalCell},ledger:null,get closed(){return closed;},get epoch(){return epoch;},advance(){live();for(const receipt of activeReceipts)receipt.dispose();epoch++;}});return pilot;
 }
 
 // Pure receipt staging. It owns no trial/index installation, query proxy or clock.
@@ -105,19 +143,10 @@ export function createRegionalClaimLedger(pilot){
   function live(){p.live();if(closed||generation!==p.epoch)throw Error('Regional staging ledger is stale/disposed');}
   function row(owner,extra=null){
     const list=[...(claims.get(owner.id)?.values()||[])];if(extra)list.push(extra);
-    const q=sum(list.map(c=>c.q)),native=sum(list.map(c=>c.native)),full=list.length===owner.mins.length,proved=owner.inputRoundoff+sum(list.map(c=>c.canonicalRoundoff))+roundoff(owner.q,list.length);
-    if(![q,native,proved].every(v=>Number.isFinite(v)&&v>=0))throw Error('Invalid finite regional parent quantity/proof');
-    const remainder=full?owner.q-q:0;if(full&&Math.abs(remainder)>proved)throw Error('Unproved canonical parent remainder');
-    if(q>owner.q+proved)throw Error('Regional claims exceed original canonical stock');
     // A partial sum below Q is untouched. Only a proved roundoff overshoot
     // is capped in parent bookkeeping (negative carry, zero cold reserve).
     // Measured shares/native fuel stay unchanged; full closure is booked once.
-    const canonical=full?owner.q:Math.min(owner.q,q),carry=canonical-q;
-    if(!Number.isFinite(carry)||Math.abs(carry)>proved)throw Error('Unproved canonical parent arithmetic carry');
-    const positive=sum(list.map(c=>c.positive))+Math.max(0,-carry)+roundoff(native,list.length),negative=sum(list.map(c=>c.negative))+Math.max(0,carry)+roundoff(native,list.length),delta=native-canonical;
-    if(![positive,negative].every(Number.isFinite))throw Error('Invalid finite regional parent clipping proof');
-    if(delta>positive||delta< -negative)throw Error('Regional parent native roll-up exceeds its local proof');
-    return {id:owner.id,quantity:owner.q,state:full?'full':list.length?'partial':'cold',claimedRegions:list.length,totalRegions:owner.mins.length,canonicalMeasured:q,canonicalTransferred:canonical,coldReserve:owner.q-canonical,parentArithmeticCarry:carry,canonicalRemainder:remainder,remainderClosed:full,provedRemainderBound:proved,nativeBorn:native,clippingDelta:delta,partitionError:{epsilon:EPS,positive,negative}};
+    return stockRow(owner,list);
   }
   function prepare(receipt){
     live();const r=p.validateReceipt(receipt),claim={key:r.key,q:receipt.certificate.canonicalQuantity,native:receipt.nativeQuantity,canonicalRoundoff:receipt.certificate.canonicalRoundoff,positive:receipt.certificate.positive,negative:receipt.certificate.negative};let committed=false;
@@ -128,4 +157,31 @@ export function createRegionalClaimLedger(pilot){
     reset(){live();p.advance();generation=p.epoch;claims.clear();ids.clear();},
     dispose(){if(closed)return;if(!p.closed&&generation===p.epoch)p.advance();closed=true;claims.clear();ids.clear();if(p.ledger===ledger)p.ledger=null;}});
   p.ledger=ledger;return ledger;
+}
+
+// Private participant for the disabled bridge. Snapshots are detached numeric
+// states; preparing one never advances another snapshot's stock or native IDs.
+export function createRegionalStockParticipant(pilot){
+  const p=pilots.get(pilot);if(!p)throw Error('Unknown isolated regional compiler');p.live();if(p.ledger)throw Error('Regional compiler already has a staging ledger');
+  let closed=false,generation=p.epoch;const states=new Map();
+  function live(){p.live();if(closed||generation!==p.epoch)throw Error('Regional stock participant stale/disposed');}
+  function make(claims=new Map(),ids=new Set()){
+    const snapshot=freeze({generation,owners:[...p.ownerMap.values()].map(o=>stockRow(o,[...(claims.get(o.id)?.values()||[])])),claimedNativeIds:ids.size});states.set(snapshot,{claims,ids});return snapshot;
+  }
+  function release(snapshot){const state=states.get(snapshot);if(state){for(const claims of state.claims.values())claims.clear();state.claims.clear();state.ids.clear();states.delete(snapshot);}}
+  const participant=Object.freeze({context(){live();return freeze({generation,sourceRevision:p.sourceRevision,grid:{...p.grid},owners:[...p.ownerMap.keys()],parts:[...p.ownerMap.values()].flatMap(o=>[...new Set(o.surfaces.map(s=>s.nativePartId))].map(id=>({id,ownerId:o.id})))});},initial(){live();return make();},slice:receipt=>pilot.querySlice(receipt),inspect(slice){
+    live();const s=querySlices.get(slice);if(!s||s.pilot!==pilot||s.payload.epoch!==generation)throw Error('Unknown/foreign/stale query slice');p.validateReceipt(s.receipt);return s.payload;
+  },prepare(snapshot,list){
+    live();const state=states.get(snapshot);if(!state||!Array.isArray(list)||list.length>REGIONAL_SOURCE_PILOT_LIMITS.descriptors)throw Error('Unknown stock snapshot or bounded receipt batch required');
+    const captured=[...list],claims=new Map([...state.claims].map(([id,rows])=>[id,new Map(rows)])),ids=new Set(state.ids);
+    for(const receipt of captured){const r=p.validateReceipt(receipt);let rows=claims.get(r.owner.id);if(!rows){rows=new Map();claims.set(r.owner.id,rows);}if(rows.has(r.key))throw Error('Duplicate/overlapping regional claim');
+      for(const id of [...r.boundaryIds,...r.fuelIds]){if(ids.has(id))throw Error('Duplicate regional native ID');ids.add(id);}
+      rows.set(r.key,{key:r.key,q:receipt.certificate.canonicalQuantity,native:receipt.nativeQuantity,canonicalRoundoff:receipt.certificate.canonicalRoundoff,positive:receipt.certificate.positive,negative:receipt.certificate.negative});
+    }
+    const next=make(claims,ids);let discarded=false;
+    return Object.freeze({snapshot:next,validate(){live();if(discarded||!states.has(snapshot)||!states.has(next))throw Error('Stale/discarded stock stage');for(const receipt of captured)p.validateReceipt(receipt);},dispose(){if(discarded)return;discarded=true;captured.length=0;release(next);}});
+  },release,reset(){live();p.advance();generation=p.epoch;for(const snapshot of states.keys())release(snapshot);return make();},
+    dispose({advance=true}={}){if(closed)return;if(advance&&!p.closed&&generation===p.epoch)p.advance();closed=true;for(const snapshot of states.keys())release(snapshot);if(p.ledger===participant)p.ledger=null;},
+    diagnostics:()=>({generation,closed,retainedStockStates:states.size})});
+  p.ledger=participant;return participant;
 }

@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "base": "e84ed22c43d99177848c6226ad25e8eaea9678e4",
+  "authority": "3713e72b",
+  "activation": "f79a79a90298d5cfaff0f079e7272369bc7ca7d1",
+  "passed": true,
+  "scope": "Disabled authenticated lazy receipt bridge only",
+  "syntheticFinal": 43,
+  "exactQueryRepros": 10,
+  "actualRoof": {
+    "processes": 1,
+    "compilations": 3,
+    "checks": 13,
+    "wholeRoof": 0,
+    "deck": 0,
+    "postRunChanges": [
+      "Explicit baseline record-map disposal",
+      "Post-participant validation generation/revision/liveness recheck"
+    ],
+    "compilerAdmissionGeometryQuantityUnchangedAfterRun": true
+  },
+  "archives": [
+    {
+      "folder": "bounded-source-compiler-v1",
+      "rawFilesIncludingManifest": 33,
+      "originalSourcePins": 8,
+      "preserved": true
+    },
+    {
+      "folder": "bounded-source-compiler-guards-v1",
+      "rawFilesIncludingManifest": 13,
+      "originalSourcePins": 5,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-kernel-v1",
+      "rawFilesIncludingManifest": 46,
+      "originalSourcePins": 4,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-boundaries-v1",
+      "rawFilesIncludingManifest": 21,
+      "originalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-witness-v1",
+      "rawFilesIncludingManifest": 27,
+      "originalSourcePins": 3,
+      "preserved": true
+    }
+  ],
+  "unchangedFiles": [
+    "workbenches/furnished-house/geometry.js",
+    "workbenches/furnished-house/scene.js",
+    "workbenches/furnished-house/regional-domain.js",
+    "workbenches/furnished-house/partition-error.js",
+    "src/runtime/collision.js",
+    "src/runtime/source-query-registry.js",
+    "src/runtime/native-query-registry.js",
+    "src/content/shared-map.js",
+    "src/content/map-source-data.js",
+    "src/content/map-source-geometry.js",
+    "tests/integration/regional-source-compiler.test.mjs",
+    "tests/integration/regional-source-guards.test.mjs",
+    "tests/integration/regional-effective-query.test.mjs",
+    "tests/integration/regional-query-boundaries.test.mjs",
+    "tests/integration/regional-query-witness.test.mjs",
+    "tests/fixtures/regional-query-data.mjs",
+    "tests/fixtures/regional-source-data.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/simulation/regional-source-pilot.js",
+      "lfSha256": "1e133e4f919fdf577e0cc448befea9d8255d3718a277108d45ceb3a59fe118ff"
+    },
+    {
+      "path": "src/runtime/regional-effective-query.js",
+      "lfSha256": "94b83c8a166b4ad589a43ab33c9e556aee25c9f8dba9eea708c7fc6c51dbce0a"
+    },
+    {
+      "path": "src/runtime/regional-receipt-bridge.js",
+      "lfSha256": "6c3049cd6152fd5bcc6d997fd263e32bfb939deb867f440e30e565c20263b4c7"
+    },
+    {
+      "path": "tests/integration/regional-receipt-bridge.test.mjs",
+      "lfSha256": "5213e7e8d484eaca572696652743d11f91210caff54cd7d47c031220f9a12709"
+    },
+    {
+      "path": "tests/fixtures/regional-bridge-data.mjs",
+      "lfSha256": "99bcc38c9b53cfdb4cfe6cae3c06bf3c1eb31369ed68e20167683a8c4fa0a94b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "lfSha256": "18c4792041d6b32b5f0fd5530dbea8df18f8de3a69f156785049863763144e17"
+    }
+  ],
+  "declaration": {
+    "modified": 22,
+    "added": 49
+  },
+  "wipPreserved": true,
+  "closedChildProcesses": 10,
+  "retainedHelpers": [],
+  "ports": [],
+  "worldTrials": 0,
+  "worldSteps": 0,
+  "graphRebuilds": 0,
+  "productionEnabled": false
+}

@@ -55,11 +55,18 @@ function bodyCellWitness(from,to,radius,minY,maxY,box){
   return [w[0],(low+high)/2,w[1]];
 }
 
-export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourceRevision}){
+export function createRegionalQueryKernel(input){return createKernel(input);}
+// Trusted bridge participant: its reader authenticates private producer slices.
+// Detached views have no publication authority; only the coordinator owns that.
+export function createRegionalQueryParticipant(input,{authenticate,generation=0}){
+  if(typeof authenticate!=='function'||!Number.isSafeInteger(generation)||generation<0||input.nativeInventory?.length)throw Error('Cold authenticated query participant required');
+  return createKernel(input,{authenticate,generation});
+}
+function createKernel({grid,sources,nativeInventory=[],sourceRevision},participant=null){
   if(!Array.isArray(sources)||!sources.length||sources.length>REGIONAL_QUERY_LIMITS.parts||!Array.isArray(nativeInventory)||nativeInventory.length>REGIONAL_QUERY_LIMITS.records)throw Error('Isolated static query pilot limit exceeded');
   let borrowed={grid,sources,nativeInventory};staticData(borrowed);
   if(!grid||!vector(grid.origin)||!vector(grid.pitch)||grid.pitch.some(v=>v<=0)||!text(sourceRevision))throw Error('Pinned original grid/revision required');
-  const parts=new Map(),native=new Map(),coverageReceipts=new Set(),heldViews=new Set();let generation=0,revision=0,closed=false,totalTriangles=0;
+  const parts=new Map(),native=new Map(),coverageReceipts=new Set(),heldViews=new Set();let generation=participant?.generation??0,revision=0,closed=false,totalTriangles=0;
   const coords=p=>p.map((v,i)=>Math.floor((v-grid.origin[i])/grid.pitch[i]+EPS));
   const edges=[new Map(),new Map(),new Map()];
   function edge(axis,c){if(edges[axis].has(c))return edges[axis].get(c);let value=grid.origin[axis]+(c-EPS)*grid.pitch[axis],steps=0;const classify=v=>Math.floor((v-grid.origin[axis])/grid.pitch[axis]+EPS);while(classify(value)<c&&steps++<8)value=nextFloat(value,true);while(classify(nextFloat(value,false))>=c&&steps++<8)value=nextFloat(value,false);if(steps>=8||classify(value)!==c||classify(nextFloat(value,false))!==c-1)throw Error('Unrepresentable original floating cell boundary');edges[axis].set(c,value);return value;}
@@ -78,18 +85,23 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
     for(let i=0;i<3;i++)for(let c=min[i];c<=max[i]+1;c++)edge(i,c);
     parts.set(spec.partRef.id,{spec,surface,solid,ray:spec.rayRecord.solidTriangles||surface,rayChannel:spec.rayRecord.solidTriangles?'solid':'surface',box,min,max,count,records:new Map(),cells:new Map()});
   }
-  for(const entry of nativeInventory){
+  function admit(entry,inventory){
     const r=entry.record,p=parts.get(r?.nativePartId);if(!p||r.sourceCarrierId!==p.spec.partRef.carrierId||!text(r.sourceSurfaceId)||!text(r.id)||native.has(r.id)||typeof r.intact!=='boolean'||![r.transmission,r.openFraction].every(Number.isFinite))throw Error('Static original native physical ownership required');
-    validCell(p,entry.cell);totalTriangles+=(r.triangles?.length||0)+((r.solidTriangles||r.triangles)?.length||0);if(totalTriangles>REGIONAL_QUERY_LIMITS.triangles)throw Error('Original query triangle ceiling exceeded');const surface=triangles(r.triangles),solid=triangles(r.solidTriangles||r.triangles);if(r.closedShape!==false)checkedClosed(solid);
+    if(inventory.has(r.id))throw Error('Duplicate original native query ID');
+    validCell(p,entry.cell);const surface=triangles(r.triangles),solid=triangles(r.solidTriangles||r.triangles);if(r.closedShape!==false)checkedClosed(solid);
     physicalBounds(r.bounds,[...surface,...solid]);
     const canonical={min:entry.cell.map((v,i)=>grid.origin[i]+v*grid.pitch[i]-HALO),max:entry.cell.map((v,i)=>grid.origin[i]+(v+1)*grid.pitch[i]+HALO)};
     if([...surface,...solid].some(t=>t.some(v=>v.some((n,i)=>n<canonical.min[i]||n>canonical.max[i]))))throw Error('Native surface/solid geometry extends beyond representable original cell halo');
-    const value={entry,p,surface,solid,box:bounds(solid.flat())};native.set(r.id,value);p.records.set(r.id,value);const id=key(entry.cell);if(!p.cells.has(id))p.cells.set(id,[]);p.cells.get(id).push(r.id);
+    return {entry,p,surface,solid,box:bounds(solid.flat())};
+  }
+  for(const entry of nativeInventory){
+    const value=admit(entry,native),{p,surface,solid}=value;totalTriangles+=surface.length+solid.length;if(totalTriangles>REGIONAL_QUERY_LIMITS.triangles)throw Error('Original query triangle ceiling exceeded');native.set(entry.record.id,value);p.records.set(entry.record.id,value);const id=key(entry.cell);if(!p.cells.has(id))p.cells.set(id,[]);p.cells.get(id).push(entry.record.id);
   }
   if(totalTriangles>REGIONAL_QUERY_LIMITS.triangles)throw Error('Original query triangle ceiling exceeded');
   freeze(borrowed);borrowed=null;
   function live(){if(closed)throw Error('Regional query kernel disposed');}
-  function makeView(domains=new Map(),retired=new Set()){if(heldViews.size>=REGIONAL_QUERY_LIMITS.views)throw Error('Release old isolated query views before publishing more');const token=Object.freeze({kind:'isolated-regional-effective-view',sourceRevision,generation,revision});const state={domains,retired,generation,released:false};views.set(token,{kernel,state});heldViews.add(state);return token;}
+  const baseRecords=new Map([...parts].map(([id,p])=>[id,p.records]));
+  function makeView(domains=new Map(),retired=new Set(),inventory=native,byPart=baseRecords,triangleCount=totalTriangles,viewRevision=revision){if(heldViews.size>=REGIONAL_QUERY_LIMITS.views)throw Error('Release old isolated query views before publishing more');const token=Object.freeze({kind:'isolated-regional-effective-view',sourceRevision,generation,revision:viewRevision});const state={domains,retired,inventory,byPart,triangleCount,generation,released:false};views.set(token,{kernel,state});heldViews.add(state);return token;}
   function read(view){live();const value=views.get(view);if(!value||value.kernel!==kernel||value.state.generation!==generation||value.state.released)throw Error('Unknown/stale regional query view');return value.state;}
   let current;
   const domainKey=(partId,c)=>partId+'@'+key(c),status=(state,p,c)=>state.domains.get(domainKey(p.spec.partRef.id,c))||'cold';
@@ -121,7 +133,7 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
         }
       };
       offer(p.spec.rayRecord,channel==='surface'?p.surface:p.solid,'cold');
-      for(const [id,n]of p.records)if(status(state,p,n.entry.cell)==='native'&&!state.retired.has(id))offer(n.entry.record,channel==='surface'?n.surface:n.solid,'native',n.entry.cell);
+      for(const [id,n]of state.byPart.get(p.spec.partRef.id))if(status(state,p,n.entry.cell)==='native'&&!state.retired.has(id))offer(n.entry.record,channel==='surface'?n.surface:n.solid,'native',n.entry.cell);
     }return out;
   }
   function segment(view,from,to,{includeEndpoints=false,ignore=[],includeInactive=true}={}){
@@ -138,7 +150,7 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
       }
       if(first){const owner=pointOwnership(p,first.point);hits.push({surface:record,t:first.t,normal:normal(ts[first.primitive]),provenance:{partRef:p.spec.partRef,ownerId:p.spec.partRef.carrierId,sourceSurfaceId:record.sourceSurfaceId,recordId:record.id,cell:sourceCell||owner.cell,hitCell:owner.hitCell,primitive:first.primitive,channel,halo:owner.outerHalo||!!sourceCell&&!same(owner.hitCell,sourceCell),outerHalo:owner.outerHalo}});}
     };
-    for(const p of parts.values()){offer(p,p.spec.rayRecord,p.ray,'cold',null,p.rayChannel);for(const [id,n]of p.records)if(status(state,p,n.entry.cell)==='native'&&!state.retired.has(id))offer(p,n.entry.record,n.solid,'native',n.entry.cell,n.entry.record.solidTriangles?'solid':'surface');}
+    for(const p of parts.values()){offer(p,p.spec.rayRecord,p.ray,'cold',null,p.rayChannel);for(const [id,n]of state.byPart.get(p.spec.partRef.id))if(status(state,p,n.entry.cell)==='native'&&!state.retired.has(id))offer(p,n.entry.record,n.solid,'native',n.entry.cell,n.entry.record.solidTriangles?'solid':'surface');}
     hits.sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id));const unique=[];
     for(const hit of hits){const sheet=hit.surface.sheetKey||hit.surface.sourceSurfaceId||hit.surface.id,old=unique.findIndex(other=>(other.surface.sheetKey||other.surface.sourceSurfaceId||other.surface.id)===sheet&&Math.abs(other.t-hit.t)<EPS*10);if(old<0)unique.push(hit);else if(pass(hit.surface)<pass(unique[old].surface))unique[old]=hit;}
     return unique.sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id));
@@ -164,7 +176,7 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
     }
     for(const p of parts.values()){
       if(p.spec.closed&&p.spec.rayRecord.intact!==false)for(const c of cellsIn(p,box))if(status(state,p,c)==='cold'&&closedBodyIntersects(p,c,p.box,p.solid))return false;
-      for(const [id,n]of p.records)if(n.entry.record.closedShape!==false&&n.entry.record.intact!==false&&status(state,p,n.entry.cell)==='native'&&!state.retired.has(id)&&overlap(bodyProbeBounds(n.box),box))for(const c of cellsIn(p,bodyProbeBounds(n.box)))if(status(state,p,c)==='native'&&closedBodyIntersects(p,c,n.box,n.solid))return false;
+      for(const [id,n]of state.byPart.get(p.spec.partRef.id))if(n.entry.record.closedShape!==false&&n.entry.record.intact!==false&&status(state,p,n.entry.cell)==='native'&&!state.retired.has(id)&&overlap(bodyProbeBounds(n.box),box))for(const c of cellsIn(p,bodyProbeBounds(n.box)))if(status(state,p,c)==='native'&&closedBodyIntersects(p,c,n.box,n.solid))return false;
     }return true;
   }
   function coverage({partId,cells,records:ids,complete}){
@@ -181,10 +193,27 @@ export function createRegionalQueryKernel({grid,sources,nativeInventory=[],sourc
     }
     validate();return Object.freeze({validate,commit(){validate();const domains=new Map(state.domains),retired=new Set(state.retired);for(const token of claims){const r=receipts.get(token).value;for(const c of r.cells)domains.set(domainKey(r.p.spec.partRef.id,c),'native');}for(const id of retireRecords)retired.add(id);for(const r of retireCells)domains.set(domainKey(r.partId,r.cell),'retired');revision++;current=makeView(domains,retired);committed=true;return current;}});
   }
-  function clearViews(){for(const state of heldViews){state.released=true;state.domains.clear();state.retired.clear();}heldViews.clear();for(const r of coverageReceipts){r.cells.length=0;r.ids.length=0;r.p=null;r.generation=-1;}coverageReceipts.clear();}
+  function discard(state){state.released=true;state.domains.clear();state.retired.clear();if(state.inventory!==native)state.inventory.clear();if(state.byPart!==baseRecords){for(const records of state.byPart.values())records.clear();state.byPart.clear();}heldViews.delete(state);}
+  function clearViews(){for(const state of heldViews)discard(state);for(const r of coverageReceipts){r.cells.length=0;r.ids.length=0;r.p=null;r.generation=-1;}coverageReceipts.clear();}
   const kernel=Object.freeze({view:()=>{live();return current;},coverage,prepare,segment,trace(view,a,b,options){const hits=segment(view,a,b,options);return {hits,transmission:hits.reduce((v,h)=>v*pass(h.surface),1)};},sweptCylinderClear:swept,faces(view,options){return facePieces(read(view),options);},
-    release(view){const state=read(view);if(view===current)throw Error('Cannot release current query view');state.released=true;state.domains.clear();state.retired.clear();heldViews.delete(state);},
-    reset(){live();clearViews();generation++;revision=0;current=makeView();return current;},dispose(){if(closed)return;clearViews();parts.clear();native.clear();for(const map of edges)map.clear();grid=null;closed=true;generation++;current=null;},diagnostics:()=>({productionEnabled:false,generation,revision,parts:parts.size,nativeRecords:native.size,retainedViews:heldViews.size,retainedCoverageReceipts:coverageReceipts.size,closed})});
+    release(view){const state=read(view);if(view===current)throw Error('Cannot release current query view');discard(state);},
+    reset(){live();clearViews();generation++;revision=0;current=makeView();return current;},dispose(){if(closed)return;clearViews();for(const records of baseRecords.values())records.clear();baseRecords.clear();parts.clear();native.clear();for(const map of edges)map.clear();grid=null;closed=true;generation++;current=null;},diagnostics:()=>({productionEnabled:false,generation,revision,parts:parts.size,nativeRecords:native.size,retainedViews:heldViews.size,retainedCoverageReceipts:coverageReceipts.size,closed})});
   sources=null;nativeInventory=null;
-  current=makeView();return kernel;
+  current=makeView();if(!participant)return kernel;
+  return Object.freeze({query:kernel,prepare(view,slices,retireRecords=[]){
+    const state=read(view);if(!Array.isArray(slices)||slices.length>REGIONAL_QUERY_LIMITS.receipts||!Array.isArray(retireRecords)||retireRecords.length>state.inventory.size)throw Error('Bounded authenticated query batch required');
+    const captured=[...slices],inventory=new Map(state.inventory),byPart=new Map([...state.byPart].map(([id,records])=>[id,new Map(records)])),domains=new Map(state.domains),retired=new Set(state.retired);let count=state.triangleCount;
+    for(const slice of captured){
+      const data=participant.authenticate(slice);if(data.sourceRevision!==sourceRevision||data.epoch!==generation||!same(data.origin,grid.origin)||!same(data.pitch,grid.pitch))throw Error('Foreign query slice revision/grid/epoch');
+      const claims=new Set();for(const claim of data.parts){const p=parts.get(claim.partId);if(!p||p.spec.partRef.carrierId!==data.ownerId)throw Error('Foreign query slice original part/owner');
+        for(const c of claim.cells){validCell(p,c);const id=domainKey(claim.partId,c);if(claims.has(id)||domains.has(id))throw Error('Duplicate/overlapping query slice domain');claims.add(id);domains.set(id,'native');}
+      }
+      for(const entry of data.entries){staticData(entry);if(!claims.has(domainKey(entry.record.nativePartId,entry.cell)))throw Error('Query record outside authenticated part-cell coverage');const value=admit(entry,inventory);count+=value.surface.length+value.solid.length;
+        if(inventory.size>=REGIONAL_QUERY_LIMITS.records||count>REGIONAL_QUERY_LIMITS.triangles)throw Error('Original query inventory/triangle ceiling exceeded');inventory.set(entry.record.id,value);byPart.get(entry.record.nativePartId).set(entry.record.id,value);
+      }
+    }
+    for(const id of retireRecords){const n=state.inventory.get(id);if(!n||status(state,n.p,n.entry.cell)!=='native'||retired.has(id))throw Error('Unknown/duplicate native retirement');retired.add(id);}
+    const next=makeView(domains,retired,inventory,byPart,count,view.revision+1);let discarded=false;
+    return Object.freeze({view:next,validate(){read(view);read(next);if(discarded)throw Error('Discarded query stage');for(const slice of captured)participant.authenticate(slice);},dispose(){if(discarded)return;discarded=true;captured.length=0;const value=views.get(next);if(value&&!value.state.released)discard(value.state);}});
+  },release(view){discard(read(view));},count(view){const state=read(view);return {nativeRecords:state.inventory.size,claimedCells:state.domains.size};}});
 }

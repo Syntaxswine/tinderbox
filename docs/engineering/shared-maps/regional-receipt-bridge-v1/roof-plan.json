@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "authority": "3713e72b",
+  "activation": "f79a79a90298d5cfaff0f079e7272369bc7ca7d1",
+  "base": "e84ed22c43d99177848c6226ad25e8eaea9678e4",
+  "purpose": "At most three original roof regions for the disabled receipt bridge only",
+  "inputs": [
+    {
+      "path": "assets/runtime/map-sources/new-york/index.json",
+      "bytes": 8021251,
+      "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+    },
+    {
+      "path": "assets/runtime/map-sources/new-york/library.json",
+      "bytes": 3150020,
+      "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/navigation.json",
+      "bytes": 1495072,
+      "sha256": "16d12b94261cb90531d8982bd51dc002ce5bab3754b4cd04486c092380be7f73"
+    }
+  ],
+  "sourceRevision": "dcc3a17e39cdc07578b4fba5308d6c21817a6ccdd9ca98a908fb1e5a292eccea",
+  "groupingPin": {
+    "path": "docs/engineering/shared-maps/bounded-source-regions-v1/grouping.json",
+    "sha256": "f64924b5e6998e652f42bc866032ffabfe616f72c9effa1012ec20cc152de6aa"
+  },
+  "catalogue": 320,
+  "savedNonempty": 232,
+  "emptyCandidatesExamined": 88,
+  "emptyAvailable": true,
+  "choices": [
+    {
+      "kind": "nonempty",
+      "min": [
+        80,
+        20,
+        64
+      ],
+      "expectedFragments": 3,
+      "orderedIdsSha256": "c3f288a835bc8dfe4a83456ebb5d35e781769d4c6dcd73c3a0dfbf8018c1c54b"
+    },
+    {
+      "kind": "nonempty",
+      "min": [
+        132,
+        21,
+        92
+      ],
+      "expectedFragments": 2,
+      "orderedIdsSha256": "d9d25f935a529aff15c84b0de19524cf454b99803efe6ab155ecd99d3542cea1"
+    },
+    {
+      "kind": "empty",
+      "min": [
+        80,
+        21,
+        64
+      ],
+      "expectedFragments": 0
+    }
+  ],
+  "limits": {
+    "regionalRoofCompilations": 3,
+    "wholeRoofCompilations": 0,
+    "deckCompilations": 0,
+    "timeoutMs": 20000,
+    "oldSpaceMiB": 512
+  },
+  "nativeCompilerCalls": 0,
+  "worldTrials": 0,
+  "worldSteps": 0
+}
