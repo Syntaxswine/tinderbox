@@ -1,5 +1,38 @@
 # Prepare compact bindings for the remaining landmarks
 
+## Source review, 17 November
+
+Accept artist `cd10ebafc006a1105775db3822cdf2be7dcaa976`, intaken as
+`aa93fd60`, as measured planning evidence and the direction of shared
+dictionaries plus bounded section pages. The proposed wrapper ABI and live
+consumer decisions remain unaccepted. Root reproduces 688 words/four examples,
+45 input pins, nineteen example references, all 1,098 original section hashes,
+105,310 source IDs, deterministic count/size outputs and ten-path scope.
+Those source IDs are not claimed runtime carrier counts.
+
+The default review's Git scope assertion assumes the artist's older parent;
+it rejects the already-reviewed combined code tree. Root preserves that failure
+and changes only the in-memory scope comparison to exact pre-intake combined
+commit `18995f50`, independently checking the exact candidate path set. Input
+pins, source bytes, examples, counts and package checks are unchanged. The
+standalone count verifier also passes. No archive is rewritten, runtime test,
+geometry calculation, export or helper is introduced.
+
+The [proposal](../../art/shared-map-fire-bindings/remaining-landmark-binding-plan-v1.md)
+estimates a largest association page of 26,973 bytes and 2,068,327 shared
+dictionary bytes. Initial metadata estimates are still 8,175,746/9,135,564 bytes,
+including existing navigation. These are uncompressed accounting models,
+not measured startup, residency, GPU, texture or frame costs.
+
+Treat existing authoring pin catalogues in that model as a conservative source
+budget, **not an approved runtime fetch set**. A later consumer should compile
+minimal runtime indices and keep full authoring/proof catalogues out of startup.
+The eight live/schema gates and 76/2/66/four plant/glass exceptions stay open.
+New York's actual runtime/visual/performance gate still precedes conversion.
+No further artist work is assigned at this checkpoint.
+
+## Original source-only assignment
+
 The twenty roof-fitting assets are source accepted. Reuse the existing artist
 checkout for one **source-only format/packaging proposal** for Administration
 and Horticulture. Actual conversion/export and runtime installation still wait
