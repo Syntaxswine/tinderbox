@@ -1,0 +1,28 @@
+{
+  "adopted": false,
+  "proposals": [
+    {
+      "accepted": false,
+      "applied": false,
+      "category": "nonplanar-boundary",
+      "currentFailure": "one or more literal captured boundary loops are not exactly planar; no plane fit or hull",
+      "meshCapUVOrOpeningExport": false,
+      "minimalProposal": "Partition the one existing nonplanar cut boundary by its recorded source cut-plane ownership, then prove each planar patch, shared-edge orientation, full embedded reference and volume. Preserve every captured source triangle/coordinate; no single fitted disk, enclosing hull or restored whole solid.",
+      "placeId": "administration",
+      "quantity": null,
+      "scopeExactSourceId": "replacement/office-door-7/header"
+    },
+    {
+      "accepted": false,
+      "applied": false,
+      "category": "edge-ownership-or-source-correspondence",
+      "currentFailure": "proved prototype requires original edge ownership; an exact existing-node atomisation extension needs separate review",
+      "meshCapUVOrOpeningExport": false,
+      "minimalProposal": "Trace the exact remaining boundary edge ownership and original pre-Float32 source-plane mapping for this source only. If existing-node atomisation or a typed producer-coordinate reference is needed, prove it explicitly and repeat embedding/volume checks before adoption; no distance weld or coordinate snap.",
+      "placeId": "horticulture",
+      "quantity": null,
+      "scopeExactSourceId": "replacement/court-0-0-arch-10/jamb--1"
+    }
+  ],
+  "version": 1
+}
