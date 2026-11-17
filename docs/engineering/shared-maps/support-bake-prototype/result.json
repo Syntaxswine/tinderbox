@@ -1,0 +1,415 @@
+{
+  "scope": "One existing NY floor-continuity control and one exact ordered contact pair; CPU mechanism illustration only.",
+  "frozenCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+  "supportLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+  "deadlineMs": 60000,
+  "cases": [
+    {
+      "label": "prepare []",
+      "graphSha256": "b1a1e1d97a70dc5ef125e4627fa5710f5ea116e8358179a131dd2cc0e3d9e538",
+      "physicalSha256": "e4658d98b81cbcf6a2ec36ecd1c1b03e27a06d75ad162d467442cb09a0c783d9",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 0,
+      "phase": "preparation",
+      "ownership": [],
+      "stats": {
+        "hits": 0,
+        "misses": 0,
+        "rejected": 0,
+        "builds": 0,
+        "identityMs": 0,
+        "lookupMs": 0
+      }
+    },
+    {
+      "label": "prepare [\"new-york::carrier/main-floor/tile--2-0\"]",
+      "graphSha256": "4a30068cc0149e6ace73abd8cd329afb7c1c76a2357c3c5a581b58a4161b703c",
+      "physicalSha256": "3124d3840f029b957cdbc8184f326cc1c7b6f02e83f97c7a63bb0bdee497cfe3",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 4,
+      "phase": "preparation",
+      "ownership": [
+        "new-york::carrier/main-floor/tile--2-0"
+      ],
+      "stats": {
+        "hits": 0,
+        "misses": 0,
+        "rejected": 0,
+        "builds": 2,
+        "identityMs": 0.6248999999997977,
+        "lookupMs": 0
+      }
+    },
+    {
+      "label": "prepare [\"new-york::carrier/main-floor/tile--2-1\"]",
+      "graphSha256": "f54878199d04ab6bdd863ccc8dc5d18fa0b5f85cd19276db68709e328196b7ee",
+      "physicalSha256": "c49991a25219af99feb02b1334008616ae5e673b8f653a1b6efefee4464d327c",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 4,
+      "phase": "preparation",
+      "ownership": [
+        "new-york::carrier/main-floor/tile--2-1"
+      ],
+      "stats": {
+        "hits": 0,
+        "misses": 0,
+        "rejected": 0,
+        "builds": 1,
+        "identityMs": 0.2824000000000524,
+        "lookupMs": 0
+      }
+    },
+    {
+      "label": "prepare [\"new-york::carrier/main-floor/tile--2-0\",\"new-york::carrier/main-floor/tile--2-1\"]",
+      "graphSha256": "48c42430e7cd18116accb32ba2170b936e090f23bf6712e271113d834d7cb201",
+      "physicalSha256": "657847c67db9f5e7e01c3e32b1531671679bd8afab8b3c86a474a4050380f12a",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 8,
+      "phase": "preparation",
+      "ownership": [
+        "new-york::carrier/main-floor/tile--2-0",
+        "new-york::carrier/main-floor/tile--2-1"
+      ],
+      "stats": {
+        "hits": 0,
+        "misses": 0,
+        "rejected": 0,
+        "builds": 2,
+        "identityMs": 0.6314000000002125,
+        "lookupMs": 0
+      }
+    },
+    {
+      "label": "replay-[]",
+      "graphSha256": "b1a1e1d97a70dc5ef125e4627fa5710f5ea116e8358179a131dd2cc0e3d9e538",
+      "physicalSha256": "e4658d98b81cbcf6a2ec36ecd1c1b03e27a06d75ad162d467442cb09a0c783d9",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 0,
+      "phase": "replay",
+      "ownership": [],
+      "stats": {
+        "hits": 0,
+        "misses": 0,
+        "rejected": 0,
+        "builds": 0,
+        "identityMs": 0,
+        "lookupMs": 0
+      }
+    },
+    {
+      "label": "replay-[\"new-york::carrier/main-floor/tile--2-0\"]",
+      "graphSha256": "4a30068cc0149e6ace73abd8cd329afb7c1c76a2357c3c5a581b58a4161b703c",
+      "physicalSha256": "3124d3840f029b957cdbc8184f326cc1c7b6f02e83f97c7a63bb0bdee497cfe3",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 4,
+      "phase": "replay",
+      "ownership": [
+        "new-york::carrier/main-floor/tile--2-0"
+      ],
+      "stats": {
+        "hits": 2,
+        "misses": 0,
+        "rejected": 0,
+        "builds": 0,
+        "identityMs": 0.5263999999997395,
+        "lookupMs": 0.5370999999995547
+      }
+    },
+    {
+      "label": "replay-[\"new-york::carrier/main-floor/tile--2-1\"]",
+      "graphSha256": "f54878199d04ab6bdd863ccc8dc5d18fa0b5f85cd19276db68709e328196b7ee",
+      "physicalSha256": "c49991a25219af99feb02b1334008616ae5e673b8f653a1b6efefee4464d327c",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 4,
+      "phase": "replay",
+      "ownership": [
+        "new-york::carrier/main-floor/tile--2-1"
+      ],
+      "stats": {
+        "hits": 1,
+        "misses": 0,
+        "rejected": 0,
+        "builds": 0,
+        "identityMs": 0.282999999999447,
+        "lookupMs": 0.05720000000019354
+      }
+    },
+    {
+      "label": "replay-[\"new-york::carrier/main-floor/tile--2-0\",\"new-york::carrier/main-floor/tile--2-1\"]",
+      "graphSha256": "48c42430e7cd18116accb32ba2170b936e090f23bf6712e271113d834d7cb201",
+      "physicalSha256": "657847c67db9f5e7e01c3e32b1531671679bd8afab8b3c86a474a4050380f12a",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 8,
+      "phase": "replay",
+      "ownership": [
+        "new-york::carrier/main-floor/tile--2-0",
+        "new-york::carrier/main-floor/tile--2-1"
+      ],
+      "stats": {
+        "hits": 2,
+        "misses": 0,
+        "rejected": 0,
+        "builds": 0,
+        "identityMs": 0.7222999999994499,
+        "lookupMs": 0.1471000000001368
+      }
+    }
+  ],
+  "negatives": [
+    {
+      "label": "original fragment retired",
+      "graphSha256": "4a30068cc0149e6ace73abd8cd329afb7c1c76a2357c3c5a581b58a4161b703c",
+      "physicalSha256": "7d1b5a94ad8e4a8107376a18765bb312fbc8f5cc0c697d23eb836988d4c3069f",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 4,
+      "kind": "local-loss/no-ID-remap/late-ownership",
+      "retiredOriginalId": "new-york::carrier/main-floor/tile--2-0/part/3199/plane@108,2,52",
+      "stats": {
+        "hits": 2,
+        "misses": 3,
+        "rejected": 0,
+        "builds": 3,
+        "identityMs": 1.372400000000198,
+        "lookupMs": 0.10460000000057335
+      }
+    },
+    {
+      "label": "unbaked original-ID fragment pose",
+      "graphSha256": "3695e9976641fead98745f796c05c6bf41f3690dec286fbb48e9307b7f2d7da2",
+      "physicalSha256": "bd61b7bea64900df23617caf6d30a8f4199474037a10e13ab99ef005fd3b6a81",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 8,
+      "kind": "unbaked-geometry-pose/native-fallback",
+      "originalId": "new-york::carrier/main-floor/tile--2-0/part/3199/plane@108,2,52",
+      "diagnosticTranslationMetres": 0.125,
+      "stats": {
+        "hits": 2,
+        "misses": 2,
+        "rejected": 0,
+        "builds": 2,
+        "identityMs": 1.1769999999996799,
+        "lookupMs": 0.09789999999975407
+      }
+    },
+    {
+      "kind": "stale-key/algorithm",
+      "rejected": true
+    },
+    {
+      "kind": "stale-key/source/layout",
+      "rejected": true
+    },
+    {
+      "kind": "stale-key/grid",
+      "rejected": true
+    },
+    {
+      "kind": "stale-key/cold-active ownership",
+      "rejected": true
+    },
+    {
+      "kind": "stale-key/original-ID order",
+      "rejected": true
+    },
+    {
+      "kind": "stale-key/pose",
+      "rejected": true
+    },
+    {
+      "kind": "invalid-data/stale edge",
+      "rejected": true
+    },
+    {
+      "kind": "invalid-data/result",
+      "rejected": true
+    },
+    {
+      "kind": "invalid-data/checksum",
+      "rejected": true
+    },
+    {
+      "label": "missing-shard-original-fallback",
+      "graphSha256": "48c42430e7cd18116accb32ba2170b936e090f23bf6712e271113d834d7cb201",
+      "physicalSha256": "657847c67db9f5e7e01c3e32b1531671679bd8afab8b3c86a474a4050380f12a",
+      "pending": 0,
+      "unsupported": 0,
+      "tick": 0,
+      "sourceNodes": 8,
+      "kind": "missing-shard/native-fallback",
+      "stats": {
+        "hits": 0,
+        "misses": 2,
+        "rejected": 0,
+        "builds": 2,
+        "identityMs": 0.6198999999978696,
+        "lookupMs": 0.0018000000000029104
+      }
+    }
+  ],
+  "comparisons": 25,
+  "worldsDisposed": 22,
+  "maximumExpandedCarriers": 2,
+  "maximumThermalCells": 96,
+  "initialColdThermalCells": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "preparationMs": 2963.5557000000003,
+  "loadMs": 0.33930000000009386,
+  "passed": true,
+  "serializedBytes": 10839,
+  "payloadSha256": "ef1990de493c8f901c1cf631b71aaf750bf7e30bb7b9b8976e3f5f12401244fa",
+  "blockCount": 4,
+  "directedEdgeRecords": 28,
+  "blockSummaries": [
+    {
+      "key": "continuity:new-york::carrier/main-floor/tile--2-0",
+      "signature": "c00f638b181b8ffb61a351f2b428e2ffdd34a1db1dee908324f25249b7bfc750",
+      "owners": [
+        {
+          "id": "new-york::carrier/main-floor/tile--2-0",
+          "state": "active",
+          "originalIds": [
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@108,2,52",
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@109,2,52",
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@108,2,53",
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@109,2,53"
+          ]
+        }
+      ],
+      "result": {
+        "type": "undefined"
+      },
+      "directedEdges": 12
+    },
+    {
+      "key": "adjacency:7397",
+      "signature": "c11529384aa35d64328f79304b3a54867d2d27c021b5efd6b4f7ebe97fc11a01",
+      "owners": [
+        {
+          "id": "new-york::carrier/main-floor/tile--2-0",
+          "state": "active",
+          "originalIds": [
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@108,2,52",
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@109,2,52",
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@108,2,53",
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@109,2,53"
+          ]
+        },
+        {
+          "id": "new-york::carrier/main-floor/tile--2-1",
+          "state": "cold",
+          "originalIds": [
+            "cold:new-york::carrier/main-floor/tile--2-1"
+          ]
+        }
+      ],
+      "result": {
+        "type": "boolean",
+        "value": true
+      },
+      "directedEdges": 4
+    },
+    {
+      "key": "adjacency:7397",
+      "signature": "3adc1ac1c08d7a284aaa109e50ddc2d7f5ca5d41fdace71c3e434ad262b1ea6b",
+      "owners": [
+        {
+          "id": "new-york::carrier/main-floor/tile--2-0",
+          "state": "cold",
+          "originalIds": [
+            "cold:new-york::carrier/main-floor/tile--2-0"
+          ]
+        },
+        {
+          "id": "new-york::carrier/main-floor/tile--2-1",
+          "state": "active",
+          "originalIds": [
+            "new-york::carrier/main-floor/tile--2-1/part/3200/plane@108,2,54",
+            "new-york::carrier/main-floor/tile--2-1/part/3200/plane@109,2,54",
+            "new-york::carrier/main-floor/tile--2-1/part/3200/plane@108,2,55",
+            "new-york::carrier/main-floor/tile--2-1/part/3200/plane@109,2,55"
+          ]
+        }
+      ],
+      "result": {
+        "type": "boolean",
+        "value": true
+      },
+      "directedEdges": 4
+    },
+    {
+      "key": "adjacency:7397",
+      "signature": "3635429052d8496644e98ed6026b7eb5d43a8e87c099a0630d271763a912db7b",
+      "owners": [
+        {
+          "id": "new-york::carrier/main-floor/tile--2-0",
+          "state": "active",
+          "originalIds": [
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@108,2,52",
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@109,2,52",
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@108,2,53",
+            "new-york::carrier/main-floor/tile--2-0/part/3199/plane@109,2,53"
+          ]
+        },
+        {
+          "id": "new-york::carrier/main-floor/tile--2-1",
+          "state": "active",
+          "originalIds": [
+            "new-york::carrier/main-floor/tile--2-1/part/3200/plane@108,2,54",
+            "new-york::carrier/main-floor/tile--2-1/part/3200/plane@109,2,54",
+            "new-york::carrier/main-floor/tile--2-1/part/3200/plane@108,2,55",
+            "new-york::carrier/main-floor/tile--2-1/part/3200/plane@109,2,55"
+          ]
+        }
+      ],
+      "result": {
+        "type": "boolean",
+        "value": true
+      },
+      "directedEdges": 8
+    }
+  ],
+  "remainingWorlds": 0,
+  "elapsedMs": 8871.6166
+}

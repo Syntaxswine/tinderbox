@@ -1,0 +1,33 @@
+{
+  "owner": "Tinderbox UI / support-bake feasibility",
+  "project": "C:\\Users\\baals\\.codex\\worktrees\\fire-ui-reconcile\\tinderbox",
+  "purpose": "One CPU fixture: one NY continuity carrier and ordered contact 7397",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "arguments": [
+    "--no-warnings",
+    "C:\\Users\\baals\\.codex\\worktrees\\fire-ui-reconcile\\tinderbox\\docs\\engineering\\shared-maps\\support-bake-prototype\\proof.mjs"
+  ],
+  "workingDirectory": "C:\\Users\\baals\\.codex\\worktrees\\fire-ui-reconcile\\tinderbox",
+  "sourceManifest": "source-manifest.json",
+  "outputFiles": [
+    "blocks.json",
+    "result.json",
+    "stdout.log",
+    "stderr.log"
+  ],
+  "port": null,
+  "automaticRestart": false,
+  "stopMethod": "Parent wait enforces 55s; finally checks exact PID/creation/executable before terminating a still-running owned fixture",
+  "status": "completed",
+  "pid": 28720,
+  "creationTimeUtc": "2026-11-17T13:01:00.0917351Z",
+  "startedUtc": "2026-11-17T13:01:00.1139031Z",
+  "deadlineUtc": "2026-11-17T13:01:55.0917351Z",
+  "intendedExpiry": "55 seconds from exact process creation; no retained helper",
+  "exitCode": 0,
+  "exited": true,
+  "finishedUtc": "2026-11-17T13:01:09.2747119Z",
+  "lifetimeMs": 9183.8149,
+  "sameIdentityStillRunning": false,
+  "portsOpenedByFixture": "none: CPU/file-only ES module; no server or network listener created"
+}
