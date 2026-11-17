@@ -1,0 +1,1000 @@
+{
+  "scope": "CPU normal-command route/contact only; no browser, renderer or visual acceptance.",
+  "baselineRuntimeCommit": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "codeHashLineEndings": "LF",
+  "inputConfiguration": {
+    "cameraRelative": true,
+    "cameraX": 10,
+    "cameraY": -12
+  },
+  "deadlineMs": 60000,
+  "sourceHashes": {
+    "assets/runtime/map-sources/new-york/index.json": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+    "assets/runtime/map-sources/new-york/library.json": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296",
+    "src/content/shared-map.js": "95c1e1d57b69b0318dfb9a8f62729545e6fd0dadf75779acaec6503885db34a2",
+    "src/runtime/index.js": "695d16ea8bbc3de73f6873e2cfafc46b2b6cca487fce56bcc5a2f2a59e61fd2c",
+    "src/runtime/camera.js": "13a943e14ce009f1ef11f109eeff6797ce360903d7ed7ef45d233e68abf3e8c5",
+    "src/simulation/config.js": "8cf9746bb4cb1abed075b338d4a44c081953f1040fca496bbe485063e9b9ac7c",
+    "src/simulation/index.js": "401a5e9ec04a3bbc71b34791ffd5d032b9a57f6e87b8d0c220f4996555aaea38",
+    "src/simulation/scene-thermal.js": "99e9a1ef618d8cc62bda54352d5042fcffb1578a6f15daabda3bf17362b7a478",
+    "src/simulation/tools.js": "05f1c2e0485883491a6a1a26dccc0ea54cf35b59fe57875926bbdf609f4813d6",
+    "tools/review/shared-map-route-contact.mjs": "61dd3d834093d3a4abb5d3a5387aa3f8aed3d3421982ecb03384a36225190474"
+  },
+  "checkpoints": [
+    {
+      "label": "spawn",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 56,
+        "y": 14,
+        "radius": 0.5,
+        "heading": 0,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "matches",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 5,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 0,
+        "lanternAim": null,
+        "torch": {
+          "phase": "unlit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.66666666666667
+        },
+        "elevation": 0,
+        "interior": false,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": null
+      },
+      "world": 0,
+      "portal": false,
+      "cells": 0,
+      "navigation": {}
+    },
+    {
+      "label": "front-stair",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 56,
+        "y": 24.799999999999997,
+        "radius": 0.5,
+        "heading": 1.5707963267948966,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "matches",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 5,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 10.799999999999997,
+        "lanternAim": null,
+        "torch": {
+          "phase": "unlit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.66666666666667
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": {
+          "id": "ny-front",
+          "kind": "door",
+          "action": "open",
+          "label": "Open front doors",
+          "enabled": true,
+          "reason": "",
+          "anchor": [
+            56,
+            4.27,
+            26
+          ]
+        }
+      },
+      "world": 1.866666666666665,
+      "portal": false,
+      "cells": 0,
+      "navigation": {}
+    },
+    {
+      "label": "open-door",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 56,
+        "y": 24.799999999999997,
+        "radius": 0.5,
+        "heading": 1.5707963267948966,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "matches",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 5,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 10.799999999999997,
+        "lanternAim": null,
+        "torch": {
+          "phase": "unlit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.66666666666667
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": {
+          "id": "ny-front",
+          "kind": "door",
+          "action": "close",
+          "label": "Close front doors",
+          "enabled": true,
+          "reason": "",
+          "anchor": [
+            56,
+            4.27,
+            26
+          ]
+        }
+      },
+      "world": 1.8999999999999981,
+      "portal": true,
+      "cells": 120,
+      "navigation": {}
+    },
+    {
+      "label": "interior-entry",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 56,
+        "y": 27.999999999999996,
+        "radius": 0.5,
+        "heading": 1.5707963267948966,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "matches",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 5,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 13.999999999999996,
+        "lanternAim": null,
+        "torch": {
+          "phase": "unlit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.66666666666667
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "main-floor",
+        "interior": true,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": {
+          "id": "ny-front",
+          "kind": "door",
+          "action": "close",
+          "label": "Close front doors",
+          "enabled": true,
+          "reason": "",
+          "anchor": [
+            56,
+            4.27,
+            26
+          ]
+        }
+      },
+      "world": 2.466666666666663,
+      "portal": true,
+      "cells": 120,
+      "navigation": {}
+    },
+    {
+      "label": "front-return",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 56,
+        "y": 24.799999999999997,
+        "radius": 0.5,
+        "heading": -1.5707963267948966,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "matches",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 5,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 17.199999999999996,
+        "lanternAim": null,
+        "torch": {
+          "phase": "unlit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.66666666666667
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": {
+          "id": "ny-front",
+          "kind": "door",
+          "action": "close",
+          "label": "Close front doors",
+          "enabled": true,
+          "reason": "",
+          "anchor": [
+            56,
+            4.27,
+            26
+          ]
+        }
+      },
+      "world": 3.0333333333333274,
+      "portal": true,
+      "cells": 120,
+      "navigation": {}
+    },
+    {
+      "label": "close-door",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 56,
+        "y": 24.799999999999997,
+        "radius": 0.5,
+        "heading": -1.5707963267948966,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "matches",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 5,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 17.199999999999996,
+        "lanternAim": null,
+        "torch": {
+          "phase": "unlit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.66666666666667
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": {
+          "id": "ny-front",
+          "kind": "door",
+          "action": "open",
+          "label": "Open front doors",
+          "enabled": true,
+          "reason": "",
+          "anchor": [
+            56,
+            4.27,
+            26
+          ]
+        }
+      },
+      "world": 3.0666666666666607,
+      "portal": false,
+      "cells": 120,
+      "navigation": {}
+    },
+    {
+      "label": "clear-column-row",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 56,
+        "y": 24.507500000000007,
+        "radius": 0.5,
+        "heading": -1.5707963267948966,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "matches",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 5,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 17.492499999999986,
+        "lanternAim": null,
+        "torch": {
+          "phase": "unlit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.66666666666667
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": {
+          "id": "ny-front",
+          "kind": "door",
+          "action": "open",
+          "label": "Open front doors",
+          "enabled": true,
+          "reason": "",
+          "anchor": [
+            56,
+            4.27,
+            26
+          ]
+        }
+      },
+      "world": 3.133333333333327,
+      "portal": false,
+      "cells": 120,
+      "navigation": {}
+    },
+    {
+      "label": "glass-approach",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 50.5,
+        "y": 24.5,
+        "radius": 0.5,
+        "heading": -3.140229018071282,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "matches",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 5,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 22.992505113634035,
+        "lanternAim": null,
+        "torch": {
+          "phase": "unlit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.66666666666667
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": null
+      },
+      "world": 4.099999999999991,
+      "portal": false,
+      "cells": 120,
+      "navigation": {}
+    },
+    {
+      "label": "glass-stance",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 50.5,
+        "y": 25.049999999999997,
+        "radius": 0.5,
+        "heading": 1.5707963267948966,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "matches",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 5,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 23.542505113634032,
+        "lanternAim": null,
+        "torch": {
+          "phase": "unlit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.66666666666667
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": null
+      },
+      "world": 4.216666666666657,
+      "portal": false,
+      "cells": 120,
+      "navigation": {}
+    },
+    {
+      "label": "glass-torch",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 50.5,
+        "y": 25.049999999999997,
+        "radius": 0.5,
+        "heading": 1.5528770975921142,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "torch",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 4.988000000000001,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 23.542505113634032,
+        "lanternAim": null,
+        "torch": {
+          "phase": "lit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.56666666666668
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": null
+      },
+      "world": 4.3666666666666565,
+      "portal": false,
+      "cells": 13084,
+      "navigation": {}
+    },
+    {
+      "label": "glass-backoff",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 50.5,
+        "y": 24.5,
+        "radius": 0.5,
+        "heading": -1.5707963267948966,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "torch",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 4.974000000000003,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 24.09250511363403,
+        "lanternAim": null,
+        "torch": {
+          "phase": "lit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 41.450000000000024
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": null
+      },
+      "world": 4.483333333333323,
+      "portal": false,
+      "cells": 13084,
+      "navigation": {}
+    },
+    {
+      "label": "timber-approach",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 55.25000000000001,
+        "y": 24.5,
+        "radius": 0.5,
+        "heading": 0,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "torch",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 4.874000000000014,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 28.842505113634036,
+        "lanternAim": null,
+        "torch": {
+          "phase": "lit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 40.61666666666678
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": {
+          "id": "ny-front",
+          "kind": "door",
+          "action": "open",
+          "label": "Open front doors",
+          "enabled": true,
+          "reason": "",
+          "anchor": [
+            56,
+            4.27,
+            26
+          ]
+        }
+      },
+      "world": 5.316666666666653,
+      "portal": false,
+      "cells": 13084,
+      "navigation": {}
+    },
+    {
+      "label": "timber-stance",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 55.25000000000001,
+        "y": 25.25,
+        "radius": 0.5,
+        "heading": 1.570796326795002,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "torch",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 12,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 4.856000000000016,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 29.592505113634036,
+        "lanternAim": null,
+        "torch": {
+          "phase": "lit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 40.466666666666804
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": {
+          "id": "ny-front",
+          "kind": "door",
+          "action": "open",
+          "label": "Open front doors",
+          "enabled": true,
+          "reason": "",
+          "anchor": [
+            56,
+            4.27,
+            26
+          ]
+        }
+      },
+      "world": 5.466666666666653,
+      "portal": false,
+      "cells": 13084,
+      "navigation": {}
+    },
+    {
+      "label": "timber-matches",
+      "player": {
+        "id": "hero",
+        "characterId": "goat",
+        "species": "goat",
+        "height": 1.66,
+        "x": 55.25000000000001,
+        "y": 25.25,
+        "radius": 0.5,
+        "heading": 2.0265701118718344,
+        "moving": false,
+        "hp": 100,
+        "maxHp": 100,
+        "tool": "matches",
+        "pouring": false,
+        "usingTool": false,
+        "inventory": {
+          "matches": 11,
+          "gas": 4,
+          "molotovs": 4,
+          "torchFuel": 4.844000000000017,
+          "flamethrowerFuel": 6,
+          "powder": 4,
+          "healing": 3,
+          "inversion": 3
+        },
+        "travelled": 29.592505113634036,
+        "lanternAim": null,
+        "torch": {
+          "phase": "lit",
+          "durationSeconds": 41.66666666666667,
+          "remainingSeconds": 40.36666666666681
+        },
+        "elevation": 2.12,
+        "level": 1,
+        "surfaceId": "front-landing",
+        "interior": false,
+        "moduleOwner": "new-york",
+        "locationLabel": "Main hall",
+        "verticalVelocity": 0,
+        "characterFire": {
+          "version": 1,
+          "active": false,
+          "mode": "none",
+          "intensity": 0,
+          "age": 0
+        },
+        "interaction": {
+          "id": "ny-front",
+          "kind": "door",
+          "action": "open",
+          "label": "Open front doors",
+          "enabled": true,
+          "reason": "",
+          "anchor": [
+            56,
+            4.27,
+            26
+          ]
+        }
+      },
+      "world": 5.566666666666652,
+      "portal": false,
+      "cells": 14694,
+      "navigation": {}
+    }
+  ],
+  "contacts": [
+    {
+      "kind": "glass",
+      "tool": "torch",
+      "stance": {
+        "x": 50.5,
+        "y": 25.049999999999997,
+        "h": 2.12
+      },
+      "distance": 0.9301493304252206,
+      "picked": {
+        "x": 50.516666667070226,
+        "y": 25.979999999515726,
+        "h": 3.0433333338983175,
+        "distance": 211.0151039416094,
+        "sourceSurfaceId": "new-york::carrier/main/0/lower-3/glass",
+        "ownerInstanceId": "new-york"
+      },
+      "hit": {
+        "id": "new-york::cold/main/0/lower-3/glass",
+        "sourceSurfaceId": "new-york::carrier/main/0/lower-3/glass",
+        "sourceCarrierId": "new-york::carrier/main/0/lower-3/glass",
+        "material": "glass",
+        "position": [
+          50.516666667070226,
+          3.0433333338983175,
+          25.979999999515726
+        ]
+      },
+      "event": {
+        "id": 38,
+        "tick": 260,
+        "type": "tool-rejected",
+        "x": 50.516666667070226,
+        "y": 25.979999999515712,
+        "tool": "torch",
+        "result": "no-fuel",
+        "reason": "no-fuel",
+        "heatedCells": 0,
+        "cellIds": []
+      },
+      "heatInputDelta": 0
+    },
+    {
+      "kind": "timber",
+      "tool": "matches",
+      "stance": {
+        "x": 55.25000000000001,
+        "y": 25.25,
+        "h": 2.12
+      },
+      "distance": 0.5679789406912994,
+      "picked": {
+        "x": 54.999999955296516,
+        "y": 25.760000053644177,
+        "h": 3.299999937415123,
+        "distance": 210.73065436376845,
+        "sourceSurfaceId": "new-york::carrier/main/0/entry/jamb--1/part/6562/face/0",
+        "ownerInstanceId": "new-york"
+      },
+      "hit": {
+        "id": "new-york::carrier/main/0/entry/jamb--1/part/6562/face/0@110,3,51",
+        "sourceSurfaceId": "new-york::carrier/main/0/entry/jamb--1/part/6562/face/0",
+        "sourceCarrierId": "new-york::carrier/main/0/entry/jamb--1",
+        "material": "timber",
+        "position": [
+          54.999999955296516,
+          3.299999937415123,
+          25.760000053644177
+        ]
+      },
+      "event": {
+        "id": 40,
+        "tick": 332,
+        "type": "tool-use",
+        "x": 54.999999955296516,
+        "y": 25.760000053644177,
+        "tool": "matches",
+        "result": "heated",
+        "tile": {
+          "x": 54,
+          "y": 25,
+          "width": 1,
+          "depth": 1
+        },
+        "heatedCells": 1,
+        "cellIds": [
+          "110,3,51"
+        ]
+      },
+      "heatInputDelta": 1.05,
+      "heatedSourceIds": [
+        "new-york::carrier/ny-front/leaf--1/part/9842/plane",
+        "new-york::carrier/ny-front/leaf--1/part/9843/plane",
+        "new-york::carrier/main/0/entry/jamb--1/part/6562/face/0",
+        "new-york::carrier/ny-front/jamb--1/part/9840/face/0",
+        "new-york::carrier/replacement/main/0/entry/header-3.77/part/12814/face/7"
+      ]
+    }
+  ],
+  "passed": true,
+  "elapsedMs": 6471.351000000001
+}

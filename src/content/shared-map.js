@@ -7,6 +7,10 @@ import {createSourceSupportGraph} from '../simulation/source-support.js';
 import {createSourceFollow} from '../simulation/source-follow.js';
 import {createMapNavigation} from '../simulation/map-navigation.js';
 
+// The existing front approach is south of this source building. Camera and
+// screen-stick movement consume this one map-authored orientation together.
+export const NEW_YORK_GAMEPLAY_CONFIGURATION=Object.freeze({input:Object.freeze({cameraRelative:true,cameraX:10,cameraY:-12})});
+
 export function compileSharedMap(index,library,navigation,{isSectionReady=()=>true,streamMetrics=()=>({}),sampleWind,windMetadata}={}){
   const model=decodeMapSources(index,library);if(model.placeId!==navigation.placeId)throw Error('Shared map source/navigation identity differs');
   const sources=createMapSourceGeometry(model),definition=gameplayMapDefinition(navigation),id=model.placeId;
@@ -14,7 +18,7 @@ export function compileSharedMap(index,library,navigation,{isSectionReady=()=>tr
     levels:navigation.occupiedLevels.map(index=>({index,floorY:index*2.12})),surfaces:[],openings:[],items:[],furnitureParts:[],stores:[],sourceMeshes:[],sourceHashes:[],render:{geometry:[],materials:[]},stairFlights:[],
     scene:{version:1,instances:[{id,bounds:navigation.sourceBounds}],doors:[]}};
   let querySource,activation,follow,registered=[],registeredOpenings=[],generation=0;
-  return {data,definition,instances:[{id,data:{}}],representation:'native-map-sparse-sources',sparsePublication:true,sourceCarriers:model.carriers,activeCarrierIds:[],limitations:model.index.limitations,model,sources,sampleWind,windMetadata,
+  return {data,definition,configuration:id==='new-york'?NEW_YORK_GAMEPLAY_CONFIGURATION:undefined,instances:[{id,data:{}}],representation:'native-map-sparse-sources',sparsePublication:true,sourceCarriers:model.carriers,activeCarrierIds:[],limitations:model.index.limitations,model,sources,sampleWind,windMetadata,
     createQuerySource(){generation++;registered=[];registeredOpenings=[];querySource=createSourceQueryRegistry({navigation,parts:model.parts,shapeForPart:sources.shapeForPart});return querySource;},
     supportGraphFactory:scene=>createSourceSupportGraph({scene,model,querySource}),
     createActivation(options){activation=createSourceActivation({...options,sources,onActivated({carrierIds}){for(const id of carrierIds){const b=activation.sourceForCarrier(id);registered.push(...b.surfaces);registeredOpenings.push(...b.openings);}}});follow=createSourceFollow({model,trial:options.trial,querySource,activation});querySource.setFollowResolver(follow.resolve);return activation;},

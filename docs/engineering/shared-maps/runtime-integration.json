@@ -78,7 +78,7 @@
     {
       "path": "src/runtime/index.js",
       "beforeLfSha256": "6b7e1823979c04de7b98bfab9e3e57f8200369f108b3020d8ebd5fb74c2d1a34",
-      "afterLfSha256": "7d2a9a31f37265398011deda0eef2bbba957fb3ec5104913de1e858a4d082a52",
+      "afterLfSha256": "695d16ea8bbc3de73f6873e2cfafc46b2b6cca487fce56bcc5a2f2a59e61fd2c",
       "reason": "Forward frozen capabilities and the shared map/picker to one gameplay/presentation core; dispose the compiled owner and callbacks."
     },
     {
@@ -100,9 +100,15 @@
       "reason": "Compatibility entry delegates to the single scene-thermal provider; Catalogue remains the control."
     },
     {
+      "path": "src/simulation/config.js",
+      "beforeLfSha256": "b2aafc62bc8d96fd30b92578741398dcfabf633bbadbd5188c6d922a9c1c6756",
+      "afterLfSha256": "8cf9746bb4cb1abed075b338d4a44c081953f1040fca496bbe485063e9b9ac7c",
+      "reason": "Resolve validated visit defaults once so New York camera and input share its front-side orientation; preserve global defaults."
+    },
+    {
       "path": "src/simulation/index.js",
       "beforeLfSha256": "b35e6d6508da6e3b5bf5871954823cff7ce182373c311f654895c3ebdaba689e",
-      "afterLfSha256": "8b508e16cfd8585b9a2565c5e7fd145c6a9e5354415499ddad4025193def762d",
+      "afterLfSha256": "401a5e9ec04a3bbc71b34791ffd5d032b9a57f6e87b8d0c220f4996555aaea38",
       "reason": "Rehost sparse map data in the existing five-tool gameplay loop with native elevations and standard stock/clocks."
     },
     {
@@ -122,6 +128,12 @@
       "beforeLfSha256": "8dd5fbd52b14d62cf13e6e5a11e9a132111a310504f4b9643658944bac80fc05",
       "afterLfSha256": "8602af31dac60959dc735cc22a45c469e09be6edd4cbabdc470092359a4fa013",
       "reason": "Exact accepted UI capability intake 2c866a6b; presentation follows authoritative host state."
+    },
+    {
+      "path": "tools/review/catalogue-browser.mjs",
+      "beforeLfSha256": "692397833fb33a9f89c58e2ceac775279b41b12e817bf464b7bfeb7154923207",
+      "afterLfSha256": "a2ef2a2831a0f98231236627d0af4b89c12f264bff7123389692b1d7dd6cd376",
+      "reason": "Record task identity/deadline/server port before launch and verify cleanup even when browser launch fails; QA tooling only."
     },
     {
       "path": "workbenches/furnished-house/geometry.js",
@@ -191,7 +203,7 @@
     },
     {
       "path": "src/content/shared-map.js",
-      "lfSha256": "b517217ccd5adeaa2264b02249794c7fbd5ce5fbaa09394af30c5f2717654b84"
+      "lfSha256": "95c1e1d57b69b0318dfb9a8f62729545e6fd0dadf75779acaec6503885db34a2"
     },
     {
       "path": "src/content/visit-capabilities.js",
@@ -231,7 +243,7 @@
     },
     {
       "path": "src/simulation/scene-thermal.js",
-      "lfSha256": "1e4d7785ebcefebe565ea7f055f91150b4718d42a3ace05333abbfebd3d43067"
+      "lfSha256": "99e9a1ef618d8cc62bda54352d5042fcffb1578a6f15daabda3bf17362b7a478"
     },
     {
       "path": "src/simulation/source-activation.js",
@@ -263,15 +275,27 @@
     },
     {
       "path": "tools/record-shared-map-runtime.mjs",
-      "lfSha256": "68fef03a6a70e6af4ea034b249e68bd1a23cc8e57ba7b36610714a2178fa3502"
+      "lfSha256": "0c06b2f0637b1bfb95994a7e73fc634683d779ba139ae7571e25bd9717f306da"
     },
     {
       "path": "tools/review/check-shared-map-integrated.mjs",
       "lfSha256": "6bb851cde9a6e16101a39c23947730f71769825b32a9629913d90d3ea0626691"
     },
     {
+      "path": "tools/review/shared-map-camera-contact.mjs",
+      "lfSha256": "9ec43708683bf00cd5d567886b55f42a42ac8082d59ef80c311714ac5975d3b3"
+    },
+    {
+      "path": "tools/review/shared-map-phone.mjs",
+      "lfSha256": "f129d7b5f72dfbb0a039d9b98efdcd6a368ecb60ce4ed4a0a6face6083ea3c52"
+    },
+    {
       "path": "tools/review/shared-map-pilot-cost.mjs",
       "lfSha256": "52bf484dbfa9fbcbbc3f358fcbb4d56b79072773ce617f9ffbd8731648861c72"
+    },
+    {
+      "path": "tools/review/shared-map-route-contact.mjs",
+      "lfSha256": "61dd3d834093d3a4abb5d3a5387aa3f8aed3d3421982ecb03384a36225190474"
     },
     {
       "path": "tools/review/shared-map-source-cost.mjs",

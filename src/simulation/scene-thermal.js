@@ -21,6 +21,7 @@ export function createSceneThermal({compiled,state,definition,config,event,onLoa
   const sceneRecord=compiled.data.scene??compiled.data.catalogueModules,backend=compiled.data.scene?'native-map-trial':'catalogue-trial';
   if(!Array.isArray(compiled.instances)||!Array.isArray(sceneRecord?.doors)||compiled.data.scene&&!Array.isArray(sceneRecord.instances))throw Error('A native scene needs explicit instance and door registration');
   const querySource=compiled.createQuerySource?.();let trial,carrierLedger,mapNavigation,activation;
+  const toolTraceOptions=compiled.sourceCarriers?{includeEndpoints:true}:undefined;
   try{
     carrierLedger=compiled.sourceCarriers?createSourceCarrierLedger(compiled.sourceCarriers):null;
     trial=createTrial(compiled.data,{executionCache:compiled.executionCache!==false,profiles:{grass:CATALOGUE_GRASS_PROFILE},wind:compiled.sampleWind??ambientWind,windMetadata:compiled.windMetadata??{kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false},onLoadPhase,querySource,supportGraphFactory:compiled.supportGraphFactory});
@@ -57,7 +58,7 @@ export function createSceneThermal({compiled,state,definition,config,event,onLoa
   const query=p=>trial.scene.cells.get(trial.scene.key(trial.scene.coords(p)));
   function proxy(c,p){const fuels=c?.fuels||[],lit=fuels.some(f=>f.lit&&f.amount>EPS),remaining=fuels.reduce((v,f)=>v+f.amount,0);return {id:c?.id||trial.scene.key(trial.scene.coords(p)),publicId:c?.id,x:p[0],y:p[2],h:p[1],size,material:fuels.some(f=>f.cls==='grass')?'grass':remaining?'wood':'paving',surfaceFuel:remaining,depositedFuel:0,heat:c?.heat||0,get phase(){return fuels.some(f=>f.lit&&f.amount>EPS)?'burning':c?.heat>0?'heating':'cold';},intensity:lit?1:0};}
   function at(p){const position=xyz(p,p.h??(p.elevation??0)+.01);return proxy(query(position),position);}
-  function trace(from,to){const a=Array.isArray(from)?from:xyz(from),b=Array.isArray(to)?to:xyz(to);let hit=trial.scene.index.crossings(a,b).find(h=>h.t>1e-7&&trial.scene.index.pass(h.surface)<.99);
+  function trace(from,to,options){const a=Array.isArray(from)?from:xyz(from),b=Array.isArray(to)?to:xyz(to);let hit=trial.scene.index.crossings(a,b,options).find(h=>h.t>1e-7&&trial.scene.index.pass(h.surface)<.99);
     for(const part of trial.scene.parts.values()){const item=trial.scene.items.get(part.itemId);if(!part.intact||!part.solid||!item?.intact||item.falling||!part.bounds)continue;const offset=item.position.map((v,i)=>v-item.initialPosition[i]);let entry=0,exit=1;for(let i=0;i<3;i++){const lo=part.bounds.min[i]+offset[i],hi=part.bounds.max[i]+offset[i],d=b[i]-a[i];if(Math.abs(d)<1e-12){if(a[i]<lo||a[i]>hi){exit=-1;break;}}else{const u=(lo-a[i])/d,v=(hi-a[i])/d;entry=Math.max(entry,Math.min(u,v));exit=Math.min(exit,Math.max(u,v));}}if(exit<entry||exit<=1e-7||entry<1e-7||entry>(hit?.t??1))continue;const precise=tracePart(part,a,b);if(precise===null)continue;if(precise!==undefined)entry=precise;if(entry>(hit?.t??1))continue;hit={t:entry,surface:{id:part.id,sourceSurfaceId:part.id,material:part.material,kind:'furniture-part'}};}
     return hit?{...hit,position:a.map((v,i)=>v+(b[i]-v)*hit.t),ownerInstanceId:named(hit.surface.sourceSurfaceId)||'terrain'}:null;}
   function pickAimSurface(ray){
@@ -73,7 +74,7 @@ export function createSceneThermal({compiled,state,definition,config,event,onLoa
   }
   function heat(position,energy,tool,from,onHeat){
     if(!(energy>0))return [];
-    let contact=from?trace(from,position):null;if(activation?.ensurePoint(contact?.position||position,'tool-'+tool))contact=from?trace(from,position):null;
+    let contact=from?trace(from,position,toolTraceOptions):null;if(activation?.ensurePoint(contact?.position||position,'tool-'+tool))contact=from?trace(from,position,toolTraceOptions):null;
     const actual=contact?from.map((v,i)=>v+(position[i]-v)*Math.max(0,contact.t-1e-5)):position,c=trial.scene.cellAt(actual),site=proxy(c,actual);
     const support=!contact&&trial.scene.index.supportAt(actual[0],actual[2],actual[1]+.03,actual[1]-.035),receiver=contact?.surface||support?.surface;
     const receiverId=receiver?.fuelId||trial.scene.parts.get(receiver?.id)?.fuelId,point=contact?.position||actual;
@@ -90,7 +91,7 @@ export function createSceneThermal({compiled,state,definition,config,event,onLoa
     const from=xyz(player,(player.elevation||0)+.9),requested=xyz(target,target.h??(player.elevation||0)+.015),delta=requested.map((v,i)=>v-from[i]),distance=Math.hypot(...delta);
     // Existing range is horizontal ground reach. Bound its full slant from
     // the same hand/ground heights, so a picked roof cannot extend that reach.
-    const reach=Math.hypot(spec.range,.9-.015),limited=distance>reach+EPS,to=limited?from.map((v,i)=>v+delta[i]*reach/distance):requested,hit=trace(from,to),actual=hit?hit.position:to;
+    const reach=Math.hypot(spec.range,.9-.015),limited=distance>reach+EPS,to=limited?from.map((v,i)=>v+delta[i]*reach/distance):requested,hit=trace(from,to,toolTraceOptions),actual=hit?hit.position:to;
     if(limited&&!hit)return {point:{x:to[0],y:to[2],h:to[1]},cells:[],result:'range',nativeTick:trial.tick+1};
     const energy=tool==='matches'?trial.rules.matchEnergy:spec.heat,cells=heat(to,energy,tool,from,onHeat);
     return {point:{x:actual[0],y:actual[2],h:actual[1]},dischargePoint:{x:actual[0],y:actual[2],h:actual[1]},cells,result:cells.length?'heated':'no-fuel',nativeTick:trial.tick+1};

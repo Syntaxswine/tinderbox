@@ -31,7 +31,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   if(gameplayMap&&(scenario!==undefined||catalogueModules||cottageWind))throw Error('A shared gameplay map must own its geometry/scenario');
   let nativeScene=catalogueModules??gameplayMap;
   const capabilities=gameplayMap?SHARED_MAP_CAPABILITIES:GAMEPLAY_CAPABILITIES;
-  const config = configuration(characterId==='bear'?override:{...override,player:{...override?.player,radius:profile.radius}}), definition = gameplayMap?structuredClone(gameplayMap.definition):scenarioDefinition(scenario);
+  const config = configuration(characterId==='bear'?override:{...override,player:{...override?.player,radius:profile.radius}},gameplayMap?.configuration), definition = gameplayMap?structuredClone(gameplayMap.definition):scenarioDefinition(scenario);
   if(gameplayMap&&(!gameplayMap.data.scene||!definition||definition.id!==gameplayMap.data.scene.instances[0]?.id||![definition.width,definition.height].every(n=>Number.isFinite(n)&&n>0&&n<=4096)||![definition.player?.x,definition.player?.y,definition.player?.elevation].every(Number.isFinite)))throw Error('Invalid shared gameplay map');
   if (!Number.isSafeInteger(seed)) throw Error('Seed must be a safe integer');
   const playableCottages=definition.id==='cottage-pair';
