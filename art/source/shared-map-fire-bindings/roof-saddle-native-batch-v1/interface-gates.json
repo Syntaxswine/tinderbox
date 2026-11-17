@@ -1,0 +1,173 @@
+{
+  "directOldEdgesWithinEachNamedTriplet": [
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-5/bay-00"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-5/bay-01"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-00"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-02"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-03"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-04"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-05"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-06"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-07"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-08"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-09"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-10"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-11"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-12"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-13"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-14"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-15"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-7/bay-00"
+    },
+    {
+      "edges": [],
+      "id": "carrier/roof-saddle-native/main-parapet-7/bay-01"
+    }
+  ],
+  "frozenRelationshipsPath": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/relationships.json",
+  "frozenRelationshipsSha256": "34b25f91d457fb65e611b89f182c0e05bb946d7506a0581b53e945a2d9731e06",
+  "incidentFamilyRelationships": [
+    {
+      "child": "carrier/edge-5/cornice-7",
+      "direction": "parent-to-child",
+      "id": "37546030e62873a2e03eba6d",
+      "parent": "carrier/edge-5/cornice-6",
+      "regions": 6
+    },
+    {
+      "child": "carrier/edge-6/cornice-7",
+      "direction": "parent-to-child",
+      "id": "38bd992fc06c649aa5a21f58",
+      "parent": "carrier/edge-6/cornice-6",
+      "regions": 34
+    },
+    {
+      "child": "carrier/edge-7/cornice-7",
+      "direction": "parent-to-child",
+      "id": "f717fabc1881c8b60824ccf8",
+      "parent": "carrier/edge-7/cornice-6",
+      "regions": 6
+    },
+    {
+      "child": "carrier/main-parapet-5/pier-1",
+      "direction": "parent-to-child",
+      "id": "b2fffa37bba6765f7f609723",
+      "parent": "carrier/main-parapet-5/base",
+      "regions": 1
+    },
+    {
+      "child": "carrier/main-parapet-6/pier-1",
+      "direction": "parent-to-child",
+      "id": "9617ef3d0e2177c0753d0560",
+      "parent": "carrier/main-parapet-6/base",
+      "regions": 1
+    },
+    {
+      "child": "carrier/main-parapet-6/pier-2",
+      "direction": "parent-to-child",
+      "id": "4d8d22495b5864605d1fb246",
+      "parent": "carrier/main-parapet-6/base",
+      "regions": 1
+    },
+    {
+      "child": "carrier/main-parapet-6/pier-3",
+      "direction": "parent-to-child",
+      "id": "15c0577bf994d29fb9bbe3cd",
+      "parent": "carrier/main-parapet-6/base",
+      "regions": 1
+    },
+    {
+      "child": "carrier/main-parapet-6/pier-4",
+      "direction": "parent-to-child",
+      "id": "5b3b4fbe4e3bdd1ba658d0d1",
+      "parent": "carrier/main-parapet-6/base",
+      "regions": 1
+    },
+    {
+      "child": "carrier/main-parapet-6/pier-5",
+      "direction": "parent-to-child",
+      "id": "617089ea81b87fe89ddfd514",
+      "parent": "carrier/main-parapet-6/base",
+      "regions": 1
+    },
+    {
+      "child": "carrier/main-parapet-7/pier-1",
+      "direction": "parent-to-child",
+      "id": "25dfbb59543f2ed880227929",
+      "parent": "carrier/main-parapet-7/base",
+      "regions": 1
+    }
+  ],
+  "newAnchors": 0,
+  "oldEdgesChanged": false,
+  "originalParentCounts": {
+    "carrier/edge-5/cornice-7": 7,
+    "carrier/edge-6/cornice-7": 34,
+    "carrier/edge-7/cornice-7": 7,
+    "carrier/main-parapet-5/base": 0,
+    "carrier/main-parapet-6/base": 0,
+    "carrier/main-parapet-7/base": 0,
+    "carrier/roof/rear-tail": 72
+  },
+  "priorPilotInterfaceGate": {
+    "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/interface-gates.json",
+    "sha256": "0d35aaa52326deeeecc326e77c192440092bdc697d5834bac8d10084734b2563"
+  },
+  "rolePromotion": false,
+  "runtimeGate": "Physical/render mapping plus BOTH independently supported fixed lower ports remain a consumer gate. Flat OR joins are not substituted.",
+  "transitiveGraphOrCycleSearchRun": false,
+  "version": 1
+}

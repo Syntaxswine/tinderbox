@@ -1,0 +1,1343 @@
+{
+  "bufferProducerSha256": "40b1edf3fb9c7f2c1dd00da7187f58f6cabcc08a065e41b741d3631afe6d18ba",
+  "checks": {
+    "actual": 20,
+    "bearing": 38,
+    "closure": 19,
+    "determinism": 22,
+    "mapping": 19,
+    "material-path": 190,
+    "native": 19,
+    "orientation": 304,
+    "placement": 19,
+    "ports": 19,
+    "preserved": 2,
+    "quantity": 38,
+    "raw-conversion": 19,
+    "roof-seat": 19,
+    "rounding": 4,
+    "scope": 1,
+    "semantics": 38,
+    "separation": 19,
+    "source-plane": 19,
+    "upper": 19,
+    "uv": 912
+  },
+  "compilerActivationWorldGraphBuildOrRendererStarted": false,
+  "distinctGeometryBuffersCreated": 12,
+  "manifestSha256": "e1c2ff019f5dcf4e05f48739be843afdaa818f6c7f3c1ff8f11de1561a8e05fd",
+  "nativeContacts": 57,
+  "physicalShapesChecked": 26,
+  "pieceCount": 19,
+  "pieces": [
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384643554814829,
+      "id": "carrier/roof-saddle-native/main-parapet-5/bay-00",
+      "materialPathMetres": 0.17916670765904819,
+      "maximumUVEdgeErrorMetres": 8.259939718313625e-09,
+      "minimumNativeThicknessMetres": 0.14833341710624026,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          63,
+          8,
+          58
+        ],
+        [
+          64,
+          8,
+          58
+        ]
+      ],
+      "pivotWorldMetres": [
+        64.0,
+        17.155000002682208,
+        58.5
+      ],
+      "profileId": "744103689138232fa9186305807ea5e11fc55ea838b72fa4a6cc180871ff337a",
+      "quantityReference": 0.04011967147018361,
+      "roofGapRangeMetres": [
+        5.196285354517135e-10,
+        2.7862888227117342e-09
+      ],
+      "roofProjectedArea": 0.018215356445311567,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-5/bay-00",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384643554814829,
+      "id": "carrier/roof-saddle-native/main-parapet-5/bay-01",
+      "materialPathMetres": 0.17916670765904819,
+      "maximumUVEdgeErrorMetres": 8.259939718313625e-09,
+      "minimumNativeThicknessMetres": 0.14833341710624026,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          63,
+          8,
+          59
+        ],
+        [
+          64,
+          8,
+          59
+        ]
+      ],
+      "pivotWorldMetres": [
+        64.0,
+        17.155000002682208,
+        59.5
+      ],
+      "profileId": "744103689138232fa9186305807ea5e11fc55ea838b72fa4a6cc180871ff337a",
+      "quantityReference": 0.04011967147018361,
+      "roofGapRangeMetres": [
+        5.196285354517135e-10,
+        2.7862888227117342e-09
+      ],
+      "roofProjectedArea": 0.018215356445311567,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-5/bay-01",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610747976694,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-00",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          48,
+          8,
+          59
+        ],
+        [
+          48,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        48.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-00",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610748431442,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-02",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          50,
+          8,
+          59
+        ],
+        [
+          50,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        50.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-02",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610747976694,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-03",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          51,
+          8,
+          59
+        ],
+        [
+          51,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        51.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-03",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610748431442,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-04",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          52,
+          8,
+          59
+        ],
+        [
+          52,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        52.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-04",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610748431442,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-05",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          53,
+          8,
+          59
+        ],
+        [
+          53,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        53.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-05",
+      "units": "metres",
+      "upperArea": 0.025600000000395084
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610747976694,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-06",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          54,
+          8,
+          59
+        ],
+        [
+          54,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        54.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-06",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610748431442,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-07",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          55,
+          8,
+          59
+        ],
+        [
+          55,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        55.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-07",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610748431442,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-08",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          56,
+          8,
+          59
+        ],
+        [
+          56,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        56.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-08",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610747976694,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-09",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          57,
+          8,
+          59
+        ],
+        [
+          57,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        57.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-09",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610748431442,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-10",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          58,
+          8,
+          59
+        ],
+        [
+          58,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        58.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-10",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610748431442,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-11",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          59,
+          8,
+          59
+        ],
+        [
+          59,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        59.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-11",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610747976694,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-12",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          60,
+          8,
+          59
+        ],
+        [
+          60,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        60.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-12",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610748431442,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-13",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          61,
+          8,
+          59
+        ],
+        [
+          61,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        61.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-13",
+      "units": "metres",
+      "upperArea": 0.025600000000395084
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610748431442,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-14",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          62,
+          8,
+          59
+        ],
+        [
+          62,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        62.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-14",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384610748431442,
+      "id": "carrier/roof-saddle-native/main-parapet-6/bay-15",
+      "materialPathMetres": 0.17916665915576857,
+      "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+      "minimumNativeThicknessMetres": 0.14833332009968103,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          63,
+          8,
+          59
+        ],
+        [
+          63,
+          8,
+          60
+        ]
+      ],
+      "pivotWorldMetres": [
+        63.5,
+        17.155000002682208,
+        60.0
+      ],
+      "profileId": "ecc54800b1d0ccd084b147a21d4173f5d8bde63765f402df86772531537b0bfa",
+      "quantityReference": 0.04011965567822286,
+      "roofGapRangeMetres": [
+        3.209495119812933e-10,
+        7.829021710759803e-10
+      ],
+      "roofProjectedArea": 0.018215389251708597,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-6/bay-15",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384643554360082,
+      "id": "carrier/roof-saddle-native/main-parapet-7/bay-00",
+      "materialPathMetres": 0.17916670765904819,
+      "maximumUVEdgeErrorMetres": 8.259939718313625e-09,
+      "minimumNativeThicknessMetres": 0.14833341710624026,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          47,
+          8,
+          58
+        ],
+        [
+          48,
+          8,
+          58
+        ]
+      ],
+      "pivotWorldMetres": [
+        48.0,
+        17.155000002682208,
+        58.5
+      ],
+      "profileId": "0672b0c06b0f1c54b6160563e990b1ddfb2715b642817a965335c21895fc4081",
+      "quantityReference": 0.04011967147018361,
+      "roofGapRangeMetres": [
+        5.196285354517135e-10,
+        2.7862888227117342e-09
+      ],
+      "roofProjectedArea": 0.018215356445311567,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-7/bay-00",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    },
+    {
+      "cellIndexOrder": "X, Y/level, Z; zero-based; stock size 1 x 2.12 x 1 m",
+      "closure": {
+        "components": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "edges": 24,
+        "euler": 2,
+        "triangles": 16,
+        "vertices": 10
+      },
+      "corniceArea": 0.007384643554814829,
+      "id": "carrier/roof-saddle-native/main-parapet-7/bay-01",
+      "materialPathMetres": 0.17916670765904819,
+      "maximumUVEdgeErrorMetres": 8.259939718313625e-09,
+      "minimumNativeThicknessMetres": 0.14833341710624026,
+      "nativePortContacts": 3,
+      "occupiedStockCells": [
+        [
+          47,
+          8,
+          59
+        ],
+        [
+          48,
+          8,
+          59
+        ]
+      ],
+      "pivotWorldMetres": [
+        48.0,
+        17.155000002682208,
+        59.5
+      ],
+      "profileId": "0672b0c06b0f1c54b6160563e990b1ddfb2715b642817a965335c21895fc4081",
+      "quantityReference": 0.04011967147018361,
+      "roofGapRangeMetres": [
+        5.196285354517135e-10,
+        2.7862888227117342e-09
+      ],
+      "roofProjectedArea": 0.018215356445311567,
+      "sourceProposalId": "proposal-only/blocking/main-parapet-7/bay-01",
+      "units": "metres",
+      "upperArea": 0.025599999999940337
+    }
+  ],
+  "preservedFailedInitialConversions": [
+    {
+      "id": "carrier/roof-saddle-native/main-parapet-5/bay-00",
+      "initialWorldVertices": [
+        [
+          63.92,
+          17.11166658155265,
+          58.42
+        ],
+        [
+          64.0338459777832,
+          17.05000000357628,
+          58.42
+        ],
+        [
+          64.08,
+          17.05000000357628,
+          58.42
+        ],
+        [
+          64.08,
+          17.260000001788136,
+          58.42
+        ],
+        [
+          63.92,
+          17.260000001788136,
+          58.42
+        ],
+        [
+          63.92,
+          17.11166658155265,
+          58.58
+        ],
+        [
+          64.0338459777832,
+          17.05000000357628,
+          58.58
+        ],
+        [
+          64.08,
+          17.05000000357628,
+          58.58
+        ],
+        [
+          64.08,
+          17.260000001788136,
+          58.58
+        ],
+        [
+          63.92,
+          17.260000001788136,
+          58.58
+        ]
+      ],
+      "name": "initial native roof penetration",
+      "reason": "intersecting candidate: vertex below actual global roof support plane",
+      "result": "EXPECTED_REJECTION_PRESERVED",
+      "sourceAuditPath": "art/source/shared-map-fire-bindings/roof-saddle-native-batch-v1/conversion-audit.json"
+    },
+    {
+      "id": "carrier/roof-saddle-native/main-parapet-5/bay-01",
+      "initialWorldVertices": [
+        [
+          63.92,
+          17.11166658155265,
+          59.42
+        ],
+        [
+          64.0338459777832,
+          17.05000000357628,
+          59.42
+        ],
+        [
+          64.08,
+          17.05000000357628,
+          59.42
+        ],
+        [
+          64.08,
+          17.260000001788136,
+          59.42
+        ],
+        [
+          63.92,
+          17.260000001788136,
+          59.42
+        ],
+        [
+          63.92,
+          17.11166658155265,
+          59.58
+        ],
+        [
+          64.0338459777832,
+          17.05000000357628,
+          59.58
+        ],
+        [
+          64.08,
+          17.05000000357628,
+          59.58
+        ],
+        [
+          64.08,
+          17.260000001788136,
+          59.58
+        ],
+        [
+          63.92,
+          17.260000001788136,
+          59.58
+        ]
+      ],
+      "name": "initial native roof penetration",
+      "reason": "intersecting candidate: vertex below actual global roof support plane",
+      "result": "EXPECTED_REJECTION_PRESERVED",
+      "sourceAuditPath": "art/source/shared-map-fire-bindings/roof-saddle-native-batch-v1/conversion-audit.json"
+    },
+    {
+      "id": "carrier/roof-saddle-native/main-parapet-7/bay-00",
+      "initialWorldVertices": [
+        [
+          48.08,
+          17.11166658155265,
+          58.42
+        ],
+        [
+          47.9661540222168,
+          17.05000000357628,
+          58.42
+        ],
+        [
+          47.92,
+          17.05000000357628,
+          58.42
+        ],
+        [
+          47.92,
+          17.260000001788136,
+          58.42
+        ],
+        [
+          48.08,
+          17.260000001788136,
+          58.42
+        ],
+        [
+          48.08,
+          17.11166658155265,
+          58.58
+        ],
+        [
+          47.9661540222168,
+          17.05000000357628,
+          58.58
+        ],
+        [
+          47.92,
+          17.05000000357628,
+          58.58
+        ],
+        [
+          47.92,
+          17.260000001788136,
+          58.58
+        ],
+        [
+          48.08,
+          17.260000001788136,
+          58.58
+        ]
+      ],
+      "name": "initial native roof penetration",
+      "reason": "intersecting candidate: vertex below actual global roof support plane",
+      "result": "EXPECTED_REJECTION_PRESERVED",
+      "sourceAuditPath": "art/source/shared-map-fire-bindings/roof-saddle-native-batch-v1/conversion-audit.json"
+    },
+    {
+      "id": "carrier/roof-saddle-native/main-parapet-7/bay-01",
+      "initialWorldVertices": [
+        [
+          48.08,
+          17.11166658155265,
+          59.42
+        ],
+        [
+          47.9661540222168,
+          17.05000000357628,
+          59.42
+        ],
+        [
+          47.92,
+          17.05000000357628,
+          59.42
+        ],
+        [
+          47.92,
+          17.260000001788136,
+          59.42
+        ],
+        [
+          48.08,
+          17.260000001788136,
+          59.42
+        ],
+        [
+          48.08,
+          17.11166658155265,
+          59.58
+        ],
+        [
+          47.9661540222168,
+          17.05000000357628,
+          59.58
+        ],
+        [
+          47.92,
+          17.05000000357628,
+          59.58
+        ],
+        [
+          47.92,
+          17.260000001788136,
+          59.58
+        ],
+        [
+          48.08,
+          17.260000001788136,
+          59.58
+        ]
+      ],
+      "name": "initial native roof penetration",
+      "reason": "intersecting candidate: vertex below actual global roof support plane",
+      "result": "EXPECTED_REJECTION_PRESERVED",
+      "sourceAuditPath": "art/source/shared-map-fire-bindings/roof-saddle-native-batch-v1/conversion-audit.json"
+    }
+  ],
+  "preservedOldTrackedPaths": 3770,
+  "producerSha256": "66f9bd4b40e0cf84b25b3c5cce10924c630e0f6461fb2636f2490e9e7d0b91c6",
+  "result": "PASS_NINETEEN_NATIVE_FITTINGS",
+  "runtimeBothFixedPortsAndMappingConsumerGate": "OPEN",
+  "runtimeStockAssigned": 0,
+  "version": 1,
+  "worldLedgerComputed": false
+}
