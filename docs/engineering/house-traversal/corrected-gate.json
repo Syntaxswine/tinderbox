@@ -138,7 +138,10 @@
         "integratedLfSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
         "reason": "Retain only the actual world-clipped explicit collision triangles per native fragment, bound their actual geometry and mark cut meshes open; no whole-mesh ghosts or new collision geometry"
       }
-    ]
+    ],
+    "publicationCanonicalManifestSha256": "9ef4ce5a7fa9efa4eb33f8381a91929d2348edac72da43bf9170002b0de25178",
+    "publicationCanonicalDefinition": "Sort only files ascending by path using ordinal < / >; recursively sort all object keys using ordinal < / >; preserve all other array orders; compact UTF-8 JSON.stringify without newline",
+    "priorLocalCanonicalRelationship": "68a45e... sorts only files and preserves original object-key order; raw package bytes are identical. Publication uses the explicit recursive-key canonical identity."
   },
   "nested": {
     "pass": true,
