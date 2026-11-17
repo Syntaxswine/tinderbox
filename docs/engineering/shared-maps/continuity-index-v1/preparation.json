@@ -1,0 +1,40 @@
+{
+  "scope": "One unprofiled candidate measurement after ordered/current-geometry equivalence passes. No new control, profile, build or GL.",
+  "referenceRuntime": "0e1ab9ddc42a0f7e301858044c82a221f73d8805",
+  "parentAttributionCommit": "a5e171d9d924b6baf46151f416f23cd0d5746120",
+  "productionDelta": {
+    "path": "src/simulation/source-support.js",
+    "beforeLfSha256": "88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109",
+    "afterLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c"
+  },
+  "originalProducerLfSha256": "0c1d6027e041a51dab97da6de619ef7255ce4e824831ab1708a9404eaeeecfb4",
+  "producerLfSha256": "2ae944e62f04c358da1fd86563be0e3521e55055e96ab570bc86b386f2b7b020",
+  "hostReadSchedule": "Same approved snapshots; timer uses only the advance return value.",
+  "changes": [
+    {
+      "purpose": "No profile or additional control",
+      "before": "assert.equal(mode,'profile','Exactly one attribution-only profile is authorized');const lane='final-source-attribution';",
+      "after": "assert.equal(mode,'control','Exactly one unprofiled continuity measurement is authorized');const lane='continuity-candidate';"
+    },
+    {
+      "purpose": "Freeze the sole approved production delta",
+      "before": "const experimentDelta={\"src/simulation/source-support.js\":{\"referenceLfSha256\":\"34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b\",\"successorLfSha256\":\"88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109\"},\"workbenches/furnished-house/geometry.js\":{\"referenceLfSha256\":\"cf8b8be2a752be959e0beea7c35b68701706b2ff4e4cdb2d5e8d67304a2c5873\",\"successorLfSha256\":\"b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c\"},\"workbenches/furnished-house/simulation.js\":{\"referenceLfSha256\":\"75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012\",\"successorLfSha256\":\"54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9\"}};assert.equal(git('diff','--name-only',frozen,'--','src','assets','art','vendor','workbenches'),'');for(const [path,pin]of Object.entries(experimentDelta))assert.equal(sha(fs.readFileSync(path,'utf8').replace(/\\r\\n/g,'\\n')),pin.successorLfSha256,path);",
+      "after": "const experimentDelta={\"path\":\"src/simulation/source-support.js\",\"beforeLfSha256\":\"88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109\",\"afterLfSha256\":\"1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c\"};assert.equal(git('diff','--name-only',frozen,'--','src','assets','art','vendor','workbenches'),experimentDelta.path);assert.equal(sha(fs.readFileSync(experimentDelta.path,'utf8').replace(/\\r\\n/g,'\\n')),experimentDelta.afterLfSha256);"
+    },
+    {
+      "purpose": "Record the actual next grant",
+      "before": "purpose:'M29 7e6ba530 one final-source attribution profile'",
+      "after": "purpose:'M29 architect-authorized one unprofiled carrier-local continuity measurement'"
+    },
+    {
+      "purpose": "Distinguish the one-path candidate from frozen attribution",
+      "before": "productionDiffEmpty:true,finalProductionPins:experimentDelta,lane,attributionOnly:true,authority:'7e6ba530b92d8cc26544d13059bea9528332ef1b',",
+      "after": "productionDiffEmpty:false,candidateProductionDelta:experimentDelta,lane,candidateMeasurement:true,parentAttributionCommit:'a5e171d9d924b6baf46151f416f23cd0d5746120',"
+    },
+    {
+      "purpose": "Label the measured successor",
+      "before": "report.attributionOnly=true;",
+      "after": "report.candidateMeasurement=true;"
+    }
+  ]
+}

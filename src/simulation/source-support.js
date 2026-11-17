@@ -1,5 +1,5 @@
 import * as T from '../runtime/three.js';
-import {bounds,overlaps,clipTriangle,centre} from '../../workbenches/furnished-house/geometry.js';
+import {bounds,overlaps,clipTriangle,centre,createBoundaryIndex,EPS} from '../../workbenches/furnished-house/geometry.js';
 import {supportSurfacesTouch} from '../../workbenches/furnished-house/support.js';
 import {sourceSupportClass} from '../content/map-source-support-data.js';
 
@@ -18,6 +18,18 @@ function selectRegion(pieces,region){
   return distances.filter(v=>v[1]<=minimum+TOLERANCE).map(v=>v[0]);
 }
 
+// A temporary native broadphase for one registered carrier. Candidate records
+// passed onward are the authoritative world objects, not the index's copies.
+// This helper retains no geometry, index or subscription after the visit.
+export function visitSourceContinuityCandidates(index,nodes,list,visit){
+  const carrier=list[0]?.sourceCarrierId;
+  for(const b of list)if(index.surfaces.get(b.id)!==b||nodes.get(b.id)!==b||b.queryOnly||b.sourceCarrierId!==carrier)throw Error('Continuity needs authoritative registered native fragments');
+  const local=createBoundaryIndex(list);let memberships=0;
+  for(const b of local.surfaces.values())memberships+=b.bounds.min.reduce((n,v,i)=>n*(Math.floor(b.bounds.max[i]+EPS)-Math.floor(v-EPS)+1),1);
+  for(const a of list){const candidates=local.candidates(a.bounds);for(let i=0;i<candidates.length;i++)candidates[i]=index.surfaces.get(candidates[i].id);visit(a,candidates);}
+  return {records:local.surfaces.size,memberships};
+}
+
 // The full metadata graph is cold; only activated sources have local native
 // patch nodes. Exact approved links replace cold identities as each source is
 // installed. Render section residency never enters this graph.
@@ -29,6 +41,7 @@ export function createSourceSupportGraph({scene,model,querySource}){
   // original graph schedule, anchors, live filtering and exception semantics.
   const calculations=new Map(),dependencies=new Map(),knownCalculations=new Set(),watched=new Map();
   let capture=null,cachedEdges=0,peakCachedEdges=0,cacheHits=0,cacheMisses=0,invalidations=0,closed=false;
+  let continuityBuilds=0,peakTemporaryRecords=0,peakTemporaryMemberships=0;
   function invalidate(id){for(const key of dependencies.get(id)||[]){const old=calculations.get(key);if(old){cachedEdges-=old.edges.length;calculations.delete(key);invalidations++;}}}
   function calculate(key,owners,build){
     const old=calculations.get(key);if(old){cacheHits++;for(const [a,b]of old.edges)add(a,b);return old.result;}
@@ -84,7 +97,10 @@ export function createSourceSupportGraph({scene,model,querySource}){
     if(!structureDirty)return;links.clear();anchors.clear();missingLocalLinks=0;
     for(const c of model.carriers){if(!active.has(c.id)){links.set(cold(c.id),new Set());if(c.anchors.length)anchors.add(cold(c.id));}else for(const b of active.get(c.id)){links.set(b.id,new Set());if(c.anchors.some(a=>b.bounds.min[1]<=a.elevation+TOLERANCE&&b.bounds.max[1]>=a.elevation-TOLERANCE))anchors.add(b.id);}}
     // Native patches of one solid connect at their real common exterior/edge.
-    for(const [id,list]of active)calculate('continuity:'+id,[id],()=>{for(const a of list)for(const b of index.candidates(a.bounds))if(a.id<b.id&&b.sourceCarrierId===a.sourceCarrierId&&nodes.has(b.id)&&supportSurfacesTouch(a,b))add(a.id,b.id,true);});
+    for(const [id,list]of active)calculate('continuity:'+id,[id],()=>{
+      const temporary=visitSourceContinuityCandidates(index,nodes,list,(a,candidates)=>{for(const b of candidates)if(a.id<b.id&&b.sourceCarrierId===a.sourceCarrierId&&nodes.has(b.id)&&supportSurfacesTouch(a,b))add(a.id,b.id,true);});
+      continuityBuilds++;peakTemporaryRecords=Math.max(peakTemporaryRecords,temporary.records);peakTemporaryMemberships=Math.max(peakTemporaryMemberships,temporary.memberships);
+    });
     for(let i=0;i<adjacency.length;i++){const [a,b]=adjacency[i];if(!active.has(a)&&!active.has(b))connectContact(a,b,false);else calculate('adjacency:'+i,[a,b],()=>connectContact(a,b,false));}
     for(let i=0;i<relations.length;i++){const r=relations[i];
       if(!active.has(r.child)&&!active.has(r.parent)){add(cold(r.parent),cold(r.child),r.symmetric);continue;}
@@ -104,7 +120,7 @@ export function createSourceSupportGraph({scene,model,querySource}){
   function state(){if(closed)throw Error('Source support graph disposed');rebuild();if(reachCache&&reachVersion===graphVersion)return reachCache;const graph=new Map([...links].map(([id,set])=>[id,live(id)?new Set([...set].filter(live)):new Set()]));reachVersion=graphVersion;return reachCache=reachable(graph,[...anchors].filter(live));}
   function pendingSources(){const seen=state();if(seen!==pendingReach){pendingReach=seen;pendingCache=model.carriers.filter(c=>!active.has(c.id)&&metadataSupported.has(c.id)&&!seen.has(cold(c.id))).map(c=>c.id);}return pendingCache;}
   function unsupported({force=false}={}){if(!force&&!structureDirty&&lastRevision===graphVersion)return [];const seen=state();lastRevision=graphVersion;checks++;return [...initiallySupported].filter(id=>nodes.get(id).intact&&!exceptions.has(id)&&!seen.has(id)).sort().map(id=>nodes.get(id));}
-  return {nodes,links,unsupported,pendingSources,sourcesAdded(result){if(closed)throw Error('Source support graph disposed');register(result.boundaries);structureDirty=true;},rootingEvidence:()=>({links:metadataLinks,supported:metadataSupported,relations,verifiedContacts:adjacency}),diagnostics:({includeIds=true}={})=>({nodes:nodes.size,coldCarrierNodes:model.carriers.length-active.size,declaredPairs:relations.length,adjacencyPairs:adjacency.length,anchors:anchors.size,initiallySupported:initiallySupported.size,unresolvedInitial:metadataUnrooted.length+exceptions.size,...(includeIds?{unresolvedIds:[...metadataUnrooted,...exceptions]}:{}),missingLocalLinks,checks,topologyCache:{entries:calculations.size,entryLimit:model.carriers.length+relations.length+adjacency.length,variantsPerCalculation:1,directedEdges:cachedEdges,peakDirectedEdges:peakCachedEdges,hits:cacheHits,misses:cacheMisses,invalidations,watchedBoundaries:watched.size,retainedColdMeshes:0,disposed:closed}}),
+  return {nodes,links,unsupported,pendingSources,sourcesAdded(result){if(closed)throw Error('Source support graph disposed');register(result.boundaries);structureDirty=true;},rootingEvidence:()=>({links:metadataLinks,supported:metadataSupported,relations,verifiedContacts:adjacency}),diagnostics:({includeIds=true}={})=>({nodes:nodes.size,coldCarrierNodes:model.carriers.length-active.size,declaredPairs:relations.length,adjacencyPairs:adjacency.length,anchors:anchors.size,initiallySupported:initiallySupported.size,unresolvedInitial:metadataUnrooted.length+exceptions.size,...(includeIds?{unresolvedIds:[...metadataUnrooted,...exceptions]}:{}),missingLocalLinks,checks,topologyCache:{entries:calculations.size,entryLimit:model.carriers.length+relations.length+adjacency.length,variantsPerCalculation:1,directedEdges:cachedEdges,peakDirectedEdges:peakCachedEdges,hits:cacheHits,misses:cacheMisses,invalidations,watchedBoundaries:watched.size,retainedColdMeshes:0,disposed:closed,continuityBuilds,peakTemporaryRecords,peakTemporaryMemberships,retainedTemporaryIndexes:0}}),
     dispose(){if(closed)return;closed=true;for(const unsubscribe of watched.values())unsubscribe();watched.clear();calculations.clear();dependencies.clear();knownCalculations.clear();cachedEdges=0;capture=null;reachCache=pendingReach=null;pendingCache=[];nodes.clear();links.clear();active.clear();anchors.clear();initiallySupported.clear();exceptions.clear();}
   };
 }

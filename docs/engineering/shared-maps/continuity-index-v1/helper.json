@@ -1,0 +1,68 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "M29 architect-authorized one unprofiled carrier-local continuity measurement",
+  "identity": {
+    "pid": 51712,
+    "creationFiletime": "134393886842818297",
+    "executable": "C:\\Program Files\\nodejs\\node.exe"
+  },
+  "ports": [],
+  "mode": "control",
+  "startedAt": "2026-11-17T11:31:24.996Z",
+  "expiresAt": "2026-11-17T11:32:24.996Z",
+  "bounds": {
+    "wallMs": 60000,
+    "totalHostSteps": 1000,
+    "heldWindowHostSteps": 32,
+    "heldWorldSeconds": 0.5333333333333333
+  },
+  "stopMethod": "Finite step guards, profiler disconnect and ordinary process exit",
+  "restart": {
+    "cwd": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "args": [
+      "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\artifacts\\qa\\shared-map-runtime\\continuity-index-v1\\measure.mjs",
+      "--mode=control",
+      "--run-dir=artifacts/qa/shared-map-runtime/continuity-index-v1/run"
+    ]
+  },
+  "source": {
+    "frozenRuntime": "0e1ab9ddc42a0f7e301858044c82a221f73d8805",
+    "workspaceCommit": "a5e171d9d924b6baf46151f416f23cd0d5746120",
+    "productionDiffEmpty": false,
+    "candidateProductionDelta": {
+      "path": "src/simulation/source-support.js",
+      "beforeLfSha256": "88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109",
+      "afterLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c"
+    },
+    "lane": "continuity-candidate",
+    "candidateMeasurement": true,
+    "parentAttributionCommit": "a5e171d9d924b6baf46151f416f23cd0d5746120",
+    "originalLfSha256": "61dd3d834093d3a4abb5d3a5387aa3f8aed3d3421982ecb03384a36225190474",
+    "derivedLfSha256": "43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253",
+    "producerSha256": "2ae944e62f04c358da1fd86563be0e3521e55055e96ab570bc86b386f2b7b020",
+    "sourceIntakes": {
+      "uiCapabilities": "2c866a6bf173e1549c54d34c124a9d055febda3d",
+      "uiPresentation": "47f87fb01fe922b1085c05e3082986c50b04a5c7",
+      "uiShortLandscapeLayout": "130fe10db3af8a7efcd04e71139a2fbed74b1e91",
+      "uiToolSelectionOrdering": "8f0cd5743d159c53f56eeeb4eabd137cd3d7621c",
+      "artistPilot": "59b9373f47d51531c7e505613f67dd1e426b37f1",
+      "artistComplete": "82b7fc604eb183d65e7569366c47f45e5f07c1b5",
+      "artistCheckerContext": "90c226f674d51a2d030fcdd4679e61a3bdd9ebfe",
+      "artistFirstSupportControls": "9a88959d2011d182377a9eeb95d5ed9d222e46b1"
+    },
+    "runtimePackages": [
+      {
+        "path": "assets/runtime/map-sources/new-york/index.json",
+        "bytes": 8021251,
+        "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+      },
+      {
+        "path": "assets/runtime/map-sources/new-york/library.json",
+        "bytes": 3150020,
+        "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+      }
+    ]
+  },
+  "configChanges": false
+}

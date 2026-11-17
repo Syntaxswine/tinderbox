@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "scope": "Candidate continuity broadphase and one unprofiled fixed32-step run. Readiness FAIL; possible external contention; no isolated/matched improvement claim.",
+  "sourceAuditPassed": true,
+  "exactOrderedCandidatesAndCurrentGeometryPassed": true,
+  "focused": {
+    "passed": 46,
+    "failed": 0,
+    "log": "focused.log"
+  },
+  "native": {
+    "assertions": 15,
+    "routes": 60,
+    "registrations": 819,
+    "result": "native-result.json"
+  },
+  "declaration": {
+    "runtimeFiles": 22,
+    "addedFiles": 40,
+    "singleHashDelta": true
+  },
+  "allNativePhysicalDamageFuelHeatSupportReplayAndInputDigestsMatch": true,
+  "allRawHostPreimagesStrictlyMatchAcceptedCandidate": true,
+  "oneMeasurementWithinBounds": true,
+  "temporaryCounts": {
+    "peakRecords": 2124,
+    "peakBinMemberships": 9068,
+    "retainedIndexes": 0
+  },
+  "independentCleanupPassed": true,
+  "sourceAndArchivedSyntaxPassed": true,
+  "reviewCommit": "da3e6a51c4a4181dbeac0b270107ab45225e3f40",
+  "source": {
+    "version": 1,
+    "scope": "Only uncached same-carrier continuity broadphase; no contact/region/compilation/activation/rule/data change.",
+    "baseRuntime": "0e1ab9ddc42a0f7e301858044c82a221f73d8805",
+    "currentSource": {
+      "path": "src/simulation/source-support.js",
+      "beforeLfSha256": "88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109",
+      "afterLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c"
+    },
+    "sourceOutsideApprovedSiteUnchanged": true,
+    "declarationSingleHashDelta": true,
+    "counts": {
+      "runtimeFiles": 22,
+      "addedFiles": 40
+    },
+    "nativePolicy": "Existing createBoundaryIndex default1m bins, EPS, overlap and localeCompare ordering.",
+    "ownership": "Every input is exactly the global index/native node object. Candidate IDs are rebound to authoritative global objects before the original ordered predicate. Temporary index owns no watch; cache still retains only edge IDs.",
+    "memory": "One temporary carrier index per synchronous miss; completed build record/membership maxima recorded. No new persistent index variants or cold meshes."
+  },
+  "notRun": [
+    "New control or profile",
+    "Build/renderer/phone visit",
+    "Broader repository matrix"
+  ],
+  "performanceReadiness": "FAIL:2.139s worst host;1.496/1.258s held stalls remain."
+}
