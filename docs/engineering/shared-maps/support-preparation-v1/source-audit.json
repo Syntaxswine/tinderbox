@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "authority": "0e4136029ecc832210e91dd609583e528e5bdfef",
+  "algorithmBaseline": "55cd9b597744244fbd0168939b13fbc66662d7b3",
+  "baselineSupportLfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+  "currentSourceLfSha256": "2c557d8b03a55f8bba3d95d31bd0b3528557a3a020599062f818fb2ad733d589",
+  "calculationModuleLfSha256": "d4c6832ae5550bade0fb4eb946bfe87e91d14840e7d88fb128694f6976f1a136",
+  "mathExtractionExact": true,
+  "remainingDefaultGraphReconstructsExactly": true,
+  "productionFactoryUnchanged": true,
+  "providerDefaultDisabled": true,
+  "noColdProviderReplay": true,
+  "noHotPathFileHashing": true,
+  "noRejectedContactOrLiveAlgorithms": true,
+  "changedTrackedProductionPaths": [
+    "src/simulation/source-support.js"
+  ],
+  "newSourcePaths": [
+    "src/simulation/prepared-source-support.js",
+    "src/simulation/source-support-calculations.js",
+    "tools/prepare-source-support.mjs",
+    "tools/support-preparation-identity.mjs"
+  ],
+  "retirementShortcutEnabled": false,
+  "wipPreserved": true
+}

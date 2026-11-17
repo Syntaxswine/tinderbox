@@ -1,0 +1,24 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Normal focused support seam/provider/producer equivalence tests; no optimization measurement",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "tests/integration/prepared-source-support.test.mjs",
+    "tests/integration/source-continuity.test.mjs",
+    "tests/integration/source-support.test.mjs",
+    "tests/integration/source-activation.test.mjs",
+    "tests/integration/source-carriers.test.mjs",
+    "tests/integration/source-partition-error.test.mjs",
+    "tests/integration/shared-map-support-controls.test.mjs",
+    "tests/integration/shared-map.test.mjs",
+    "tests/integration/actor-support.test.mjs",
+    "tests/integration/shared-map-host-diff.test.mjs"
+  ],
+  "pid": 52844,
+  "startedAt": "2026-11-17T15:41:53.523Z",
+  "endedAt": "2026-11-17T15:42:01.423Z",
+  "status": 0,
+  "signal": null,
+  "noBuildBrowserProfileOrMeasurement": true
+}

@@ -1,0 +1,6 @@
+import fs from 'node:fs';
+import {spawnSync} from 'node:child_process';
+const output='artifacts/qa/shared-map-runtime/support-preparation-v1/',files=['prepared-source-support','source-continuity','source-support','source-activation','source-carriers','source-partition-error','shared-map-support-controls','shared-map','actor-support','shared-map-host-diff'].map(n=>'tests/integration/'+n+'.test.mjs'),startedAt=new Date().toISOString();
+fs.mkdirSync(output,{recursive:true});
+const args=['--test',...files],result=spawnSync(process.execPath,args,{windowsHide:true,encoding:'utf8',timeout:60000,maxBuffer:3*1024*1024}),log=(result.stdout||'')+(result.stderr||'');fs.writeFileSync(output+'focused.log',log);
+const receipt={owner:'Coder Tinderbox',purpose:'Normal focused support seam/provider/producer equivalence tests; no optimization measurement',executable:process.execPath,args,pid:result.pid,startedAt,endedAt:new Date().toISOString(),status:result.status,signal:result.signal,error:result.error?.message,noBuildBrowserProfileOrMeasurement:true};fs.writeFileSync(output+'checks.json',JSON.stringify(receipt,null,2)+'\n');console.log(log.slice(-3500));console.log(JSON.stringify(receipt));process.exitCode=result.status??1;

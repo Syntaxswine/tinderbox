@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "authority": "0e4136029ecc832210e91dd609583e528e5bdfef",
+  "evidenceHashPolicy": "Raw archive bytes; manifest excludes itself",
+  "sourceHashPolicy": "LF-normalized UTF-8",
+  "files": [
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/.gitattributes",
+      "bytes": 136,
+      "rawSha256": "96859a7cbbffc4ae41d76e6ff479a1f62b5a39f7de2a34073ada841b536be8d8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/README.md",
+      "bytes": 2554,
+      "rawSha256": "33c5737094d272a196bc8a038f60e7ea35355853f2071cc33c979555b93e7b09"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/audit.mjs",
+      "bytes": 5856,
+      "rawSha256": "7c917062e22a35977e6cd0d73ed50fa017ae0bc04acd96a0708460c365b021d2"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/checks.json",
+      "bytes": 934,
+      "rawSha256": "93857d95d87a78d1c59a6651cd0a45bbdd23009056e5cd1b38e1b920d9523652"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/checks.mjs",
+      "bytes": 1228,
+      "rawSha256": "bae6d3de27edf0f4e7fe2f18a4d7ab81688450516e8a7090d70258ee447c3954"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/compiler-dependencies.json",
+      "bytes": 9351,
+      "rawSha256": "d8a7f09db4e789ab7e99ae0cc83a3e2147f14ab0cd8b5472be1036110a9a181c"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/extract.mjs",
+      "bytes": 5664,
+      "rawSha256": "78470140a224b8d10bdc6bcc6b4d2d46199bb427658639b39d7d35dab977c280"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/extraction.json",
+      "bytes": 5519,
+      "rawSha256": "7beb2175f7bf20b160658e43f0d4d1b877bd0e9b89c9e159cdfca3bdecc14519"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/fixture-correction.json",
+      "bytes": 220,
+      "rawSha256": "911b7c5cc7ddbae38faa6953187b10067787183957107da413497a6f3e1352af"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/fixture-correction.log",
+      "bytes": 331,
+      "rawSha256": "146c22900d98336efc8d0a3e0ed180735b5429a3c1ac5ed430ad9065335d6168"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/focused.log",
+      "bytes": 7183,
+      "rawSha256": "e5fb169e5657532da05ec82cb95ce07e6305d499d2e1c638268e646ef6269257"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/handoff.json",
+      "bytes": 998,
+      "rawSha256": "7923d6e23724c695cf8fe37bd6794c05fbd2460927d8ddb394d44f204b86932d"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/initial-focused-failure.json",
+      "bytes": 903,
+      "rawSha256": "1e69a40cf3c3746851b465f7b48da8cc80c644deaf6f1d49d0bc38466469d03a"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/initial-prepared-tests.mjs",
+      "bytes": 18186,
+      "rawSha256": "07a3f038c03b592c915e008e83899d155d8d65eeaaf1128a2d0596290ae47e1a"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/initial-source-support-world.mjs",
+      "bytes": 4835,
+      "rawSha256": "b979db33da5b8f410a74ec456b57140432a764b53150ac30293095325578b3de"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/large-proof-metadata.json",
+      "bytes": 2110,
+      "rawSha256": "6f7366f6992d316851ce79a5ff336134f4aa468f0a1c3ad72acabfdf0ea91c25"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/source-audit.json",
+      "bytes": 1058,
+      "rawSha256": "c8453f835478d55734744fde365babd93ec2f3c3cb85f330a34eaa87c4634b3f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1/source-pins.json",
+      "bytes": 783,
+      "rawSha256": "8a925522cde8d4dbe48cad3c0d5f19379f333f706e40017defbb9df49ea5f4e9"
+    }
+  ],
+  "sources": [
+    {
+      "path": "src/simulation/source-support.js",
+      "lfSha256": "2c557d8b03a55f8bba3d95d31bd0b3528557a3a020599062f818fb2ad733d589"
+    },
+    {
+      "path": "src/simulation/source-support-calculations.js",
+      "lfSha256": "d4c6832ae5550bade0fb4eb946bfe87e91d14840e7d88fb128694f6976f1a136"
+    },
+    {
+      "path": "src/simulation/prepared-source-support.js",
+      "lfSha256": "d6fba04596aca131f90db7f41fdbd2d4688e809a1f41773b4420bea5bce3980e"
+    },
+    {
+      "path": "tools/prepare-source-support.mjs",
+      "lfSha256": "26a85be05f05446379c2207b7f93b05b665b6a986b4df09590bcac94973bf059"
+    },
+    {
+      "path": "tools/support-preparation-identity.mjs",
+      "lfSha256": "9477de889bda02b43de71291e34afee83c0f8858a55e5952ccc8feef7bcbb830"
+    },
+    {
+      "path": "tests/integration/prepared-source-support.test.mjs",
+      "lfSha256": "019b36bdd69263573de895ecfa0d88f3a3e151c00b13d73fed251a24e80051aa"
+    },
+    {
+      "path": "tests/fixtures/source-support-world.mjs",
+      "lfSha256": "b979db33da5b8f410a74ec456b57140432a764b53150ac30293095325578b3de"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "lfSha256": "93243a6b59840db0d8dacc9842a307e0c273dea2340ed6ab59c06fa657a9db8e"
+    },
+    {
+      "path": "docs/engineering/shared-maps/support-preparation-v1.md",
+      "lfSha256": "2ad2158a5fe4c38318596c7137963857c9b00291aa55d8c8475c3b2c234ae6d8"
+    }
+  ]
+}
