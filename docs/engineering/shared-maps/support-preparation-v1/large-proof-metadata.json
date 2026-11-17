@@ -1,0 +1,106 @@
+{
+  "metadataOnly": true,
+  "ranked": [
+    {
+      "id": "new-york::carrier/roof/clerestory",
+      "n": 10027,
+      "parts": 1,
+      "spans": [
+        58,
+        2,
+        34
+      ],
+      "bounds": {
+        "min": [
+          41.69999980926514,
+          21.2,
+          33.69999980926514
+        ],
+        "max": [
+          70.30000019073486,
+          23.31999988555908,
+          50.30000019073486
+        ]
+      },
+      "boxFaceCellEstimate": 4312
+    },
+    {
+      "id": "new-york::carrier/roof/east-wing",
+      "n": 10028,
+      "parts": 1,
+      "spans": [
+        22,
+        2,
+        58
+      ],
+      "bounds": {
+        "min": [
+          69.80000019073486,
+          16.959999084472656,
+          25.800000190734863
+        ],
+        "max": [
+          80.19999980926514,
+          17.6099990606308,
+          54.19999980926514
+        ]
+      },
+      "boxFaceCellEstimate": 2872
+    },
+    {
+      "id": "new-york::carrier/roof/west-wing",
+      "n": 10032,
+      "parts": 1,
+      "spans": [
+        22,
+        2,
+        58
+      ],
+      "bounds": {
+        "min": [
+          31.800000190734863,
+          16.959999084472656,
+          25.800000190734863
+        ],
+        "max": [
+          42.19999980926514,
+          17.6099990606308,
+          54.19999980926514
+        ]
+      },
+      "boxFaceCellEstimate": 2872
+    },
+    {
+      "id": "new-york::carrier/roof/front-centre",
+      "n": 10029,
+      "parts": 1,
+      "spans": [
+        58,
+        1,
+        18
+      ],
+      "bounds": {
+        "min": [
+          41.80000019073486,
+          16.96,
+          25.800000190734863
+        ],
+        "max": [
+          70.19999980926514,
+          17.609999976158143,
+          34.19999980926514
+        ]
+      },
+      "boxFaceCellEstimate": 2240
+    }
+  ],
+  "orderedContact": {
+    "index": 3555,
+    "owners": [
+      "new-york::carrier/clerestory-roof-deck/tile--1-10",
+      "new-york::carrier/roof/clerestory"
+    ]
+  },
+  "nativeSourceExpansions": 0,
+  "rankingMeasure": "Six bounding-box faces in the native grid, not a proved native-fragment bound"
+}

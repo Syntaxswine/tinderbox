@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "tests": 14,
+  "passed": 12,
+  "failed": 2,
+  "toolChunk": "1a29ac",
+  "exitCode": 1,
+  "errors": [
+    {
+      "test": "local original-parent loss",
+      "assertion": "assert.ok(worlds[1].trial.snapshot().rubble.some(r=>r.inert))",
+      "diagnosis": "Both graphs matched; the test had consumed lastRevision with unsupported(force:true) before continuing native steps. Restore a normal rebuild notification in both worlds before those steps."
+    },
+    {
+      "test": "native asymmetric argument order and cached typed false",
+      "error": "Native query registry needs a pinned place definition",
+      "diagnosis": "The custom native fixture navigation lacks the required pinned navigation data."
+    }
+  ],
+  "snapshotSha256": "07a3f038c03b592c915e008e83899d155d8d65eeaaf1128a2d0596290ae47e1a",
+  "runtimeMathChangedForCorrection": false,
+  "noMeasurementOrRenderer": true
+}
