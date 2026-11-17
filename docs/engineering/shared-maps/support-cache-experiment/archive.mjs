@@ -1,7 +1,7 @@
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';
 const from='artifacts/qa/shared-map-runtime/support-cache-experiment/',to='docs/engineering/shared-maps/support-cache-experiment/',sha=s=>createHash('sha256').update(s).digest('hex');
 const copies={
- 'archive.mjs':'archive.mjs','prepare.mjs':'prepare-measurement.mjs','optimized-cpu.mjs':'optimized-producer.mjs','preparation.json':'measurement-preparation.json',
+ 'archive.mjs':'archive.mjs','archive-whitespace-finding.json':'archive-whitespace-finding.json','prepare.mjs':'prepare-measurement.mjs','optimized-cpu.mjs':'optimized-producer.mjs','preparation.json':'measurement-preparation.json',
  'optimized-v1/receipt.json':'measurement-receipt.json','optimized-v1/helper.json':'measurement-helper.json','optimized-v1/adaptation-audit.json':'measurement-adaptation.json','optimized-v1/result.json':'measurement-route.json',
  'comparison.json':'strict-comparison-v1.json','telemetry-finding.json':'initial-telemetry-finding.json','independent-cleanup.json':'measurement-cleanup.json',
  'prepare-correctness.mjs':'prepare-correctness.mjs','correctness-cpu.mjs':'correctness-producer.mjs','reference-loader.mjs':'reference-loader.mjs','correctness-preparation.json':'correctness-preparation.json',

@@ -1,0 +1,14 @@
+{
+  "scope": "Archive packaging correction only; no runtime/source or evidence mutation.",
+  "initialFailure": "The staged Git whitespace check treated CRLF in byte-preserved Windows JSON/log evidence as trailing whitespace. The previous orchestration failed to gate commit/push on that nonzero result.",
+  "correction": "Per-path blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol whitespace rules for byte-preserved JSON/logs retain the normal whitespace checks while recognizing CRLF.",
+  "negativeControl": {
+    "actualArchiveAttributesUsed": true,
+    "plainCrLfAccepted": true,
+    "realTrailingSpaceBeforeCrLfRejected": true,
+    "plainCrLfStatus": 1,
+    "trailingSpaceStatus": 3
+  },
+  "originalEvidenceHashesUnchanged": true,
+  "runtimeChanged": false
+}
