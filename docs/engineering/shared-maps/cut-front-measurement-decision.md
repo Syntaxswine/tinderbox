@@ -124,3 +124,47 @@ matters, report explicit bounds and offending IDs rather than inventing opacity
 or weather behavior. No second roof or whole-map expansion before review. The
 codec and separate train work remain preserved. Return a committed source-only
 proof/proposal and stop; coder retains all runtime ownership.
+
+## Direct scalars and retained-reference acceptance
+
+Root independently passes artist `0625c637bb649a55838a5d143e52b066434450c1`
+read-only reproduction, all 12 package payload hashes, 1,859 exhaustive selection
+negatives and seven reference-predicate controls. Ninety-five earlier files and
+all 1,572 geometry inputs remain unchanged. Accept all 67 directed-lower scalar
+references under the existing area recipe; their older paired failures remain
+historical failures.
+
+Accept the two complete retained-cut mathematical measurement references:
+
+- `replacement/rotunda-gallery-guard-12/cap-0`:
+  `10632264967700739/144115188075855872 m3`.
+- `replacement/rotunda-gallery-guard-12/baluster-2`:
+  `173574687855147865/9223372036854775808 m3`.
+
+Root reviews the continuous-disk, source-pair/interior-crossing, vertex-link,
+orientation, Euler and shifted-origin checks. The references close only their
+own existing simple planar boundaries; the baluster retains three separate
+patches. They do not infer an enclosing hull or restore the original full lathe.
+The captured plane is about 47.7 nm inside the recorded decimal guard plane.
+Its exact Float32-cell explanation, nonzero signed clearance and the rail's
+positive original-cut intersection remain explicit accepted source facts. This
+accepts captured retained-material interpretation, not a physical clearance
+change, a new tolerance or a claim of zero intrusion.
+
+Quantity-reference closure must never set `closedSourceSolids:true` for these
+unchanged open physical meshes or grant a collision/support containment shortcut.
+Future bindings must distinguish a closed measurement reference from physical
+closedness and retain the evidence/authority. No stock, mesh, opening, source
+query, support or runtime record is installed by this acceptance.
+
+Reuse the artist worktree to apply this proved reference construction per case
+to the other 29 withheld boxes and the other clipped baluster. No automatic
+constructor-wide adoption: prove every boundary's source correspondence,
+planarity, orientation, closed embedded reference and volume. For disconnected
+pieces prove disjoint reference interiors before adding component measures; a
+union may not double-count material. Preserve all actual source triangles and
+raw failed facts. Nonplanar, unmatched, crossing or otherwise unproved cases
+remain withheld; return at most two new minimal proposals if needed. No source
+coordinate/weld, mesh/cap/UV, opening, support, stock, profile, renderer, factory
+or runtime change. Roof work stays with UI. Commit/push the bounded source
+evidence and stop for review.
