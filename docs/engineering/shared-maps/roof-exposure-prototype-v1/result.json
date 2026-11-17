@@ -1,0 +1,2954 @@
+{
+  "scope": "ONE selected roof and exactly its 230 artist-listed possible covers; +Y upper-envelope geometry only",
+  "authorityCommit": "03de2860aa7f09e068922bb1b85aae3e24918849",
+  "artistCommit": "e347fe4a3eec5d57c83447144982d3a7c70713cd",
+  "originalSourceCommit": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "target": "replacement/end-pavilion-roof-0",
+  "geometricProofCompleteWithinCandidateSet": true,
+  "weatherExposureAccepted": false,
+  "quantityReference": null,
+  "roofMetadataRole": "source-ornament",
+  "roofMaterialId": "7041a62de0f10a4e8348a2e040236fcbaf4ed37c9c9733e925d317483391b754",
+  "matrixMeaning": "Original emitted-world matrices already include [176,0,39]; no second offset, snapping or normalisation",
+  "coordinateModel": "Exact real affine evaluation of captured Float32 vertex values and binary64 matrix coefficients, not an assertion about GPU rounding",
+  "roofUpperOffsets": [
+    0,
+    3,
+    6,
+    9,
+    12,
+    15
+  ],
+  "roofProjectedArea": {
+    "n": "2736",
+    "d": "1",
+    "approx": 2736.0
+  },
+  "commonSurfaceAreaFactorSquared": {
+    "n": "1565299146385",
+    "d": "1391569403904",
+    "approx": 1.1248444684063958
+  },
+  "actualUpperRoofArea": {
+    "radicand": {
+      "n": "565072991844985",
+      "d": "67108864",
+      "approx": 8420243.737771884
+    },
+    "lower": {
+      "n": "987419674851597645992923072410656200918173",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 2901.7656241970826
+    },
+    "upper": {
+      "n": "493709837425798822996461536205328100459087",
+      "d": "170141183460469231731687303715884105728",
+      "approx": 2901.7656241970826
+    },
+    "sqrtEnclosureBits": 128,
+    "width": {
+      "n": "1",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 2.938735877055719e-39
+    }
+  },
+  "artistUpperAreaIntervalVerifiedByExactSquaring": true,
+  "geometricCoveredProjectedArea": {
+    "n": "6333043222778495784580634197455",
+    "d": "200296756096154580289853587456",
+    "approx": 31.618301495298564
+  },
+  "geometricCoveredActualRoofArea": {
+    "radicand": {
+      "n": "775063408111145613253559535950214925068065433021341583939572492661534625",
+      "d": "689235572655698674372548623210072553079946184596197009158747637940224",
+      "approx": 1124.5261255520272
+    },
+    "lower": {
+      "n": "1426376689594640442998040093575696061761",
+      "d": "42535295865117307932921825928971026432",
+      "approx": 33.53395481526191
+    },
+    "upper": {
+      "n": "11411013516757123543984320748605568494089",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 33.53395481526191
+    },
+    "sqrtEnclosureBits": 128,
+    "width": {
+      "n": "1",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 2.938735877055719e-39
+    }
+  },
+  "geometricExposedProjectedArea": {
+    "n": "541678881456300435888458781082161",
+    "d": "200296756096154580289853587456",
+    "approx": 2704.3816985047015
+  },
+  "geometricExposedActualRoofArea": {
+    "radicand": {
+      "n": "5670170752500292147341784610686502811405074364693059393669218054813155962785",
+      "d": "689235572655698674372548623210072553079946184596197009158747637940224",
+      "approx": 8226752.909244825
+    },
+    "lower": {
+      "n": "976008661334840522448938751662050632424085",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 2868.2316693818207
+    },
+    "upper": {
+      "n": "488004330667420261224469375831025316212043",
+      "d": "170141183460469231731687303715884105728",
+      "approx": 2868.2316693818207
+    },
+    "sqrtEnclosureBits": 128,
+    "width": {
+      "n": "1",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 2.938735877055719e-39
+    }
+  },
+  "cornicesAloneCoveredProjectedArea": {
+    "n": "6333043222778495784580634197455",
+    "d": "200296756096154580289853587456",
+    "approx": 31.618301495298564
+  },
+  "allOtherCoversAddNoAreaBeyondCornices": true,
+  "conditionalWeatherExposedActualAreaBounds": {
+    "lower": {
+      "n": "976008661334840522448938751662050632424085",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 2868.2316693818207
+    },
+    "upper": {
+      "n": "493709837425798822996461536205328100459087",
+      "d": "170141183460469231731687303715884105728",
+      "approx": 2901.7656241970826
+    },
+    "condition": "Target upper faces use the weather-area recipe, +Y coverage defines exposure, and the listed candidates are complete. With no approved per-source weather opacity, any subset may count."
+  },
+  "classificationAmbiguity": [
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:0/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "38879320904605467",
+        "d": "23877233993548700844032",
+        "approx": 1.6283008708257465e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:2/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:4/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:6/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:8/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:0/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:2/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:4/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:6/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:8/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:10/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:1/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:3/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:5/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:7/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:63/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:1/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:3/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:5/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:7/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:9/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-1-tier-0:3:11/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "232743694992874299022124909957563668468925171909475907531245812220119",
+        "d": "142936541497362514451962013190089790122153004643682223782850508034536374272",
+        "approx": 1.628300870825036e-06
+      },
+      "disjointUnionContribution": {
+        "n": "1656369",
+        "d": "183375524837661494738944",
+        "approx": 9.032661264180968e-18
+      }
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:48/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:50/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:52/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:54/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:56/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:58/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:60/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:62/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:47/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:49/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:51/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:53/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:55/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:57/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:59/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:61/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-cornice--1-1-2",
+      "role": null,
+      "materialId": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+      "group": "cornice",
+      "strictAboveProjectedArea": {
+        "n": "2164386096381506911905411700477362405",
+        "d": "201623521808535508229693577619308544",
+        "approx": 10.734789656322132
+      },
+      "disjointUnionContribution": {
+        "n": "2164386096381506911905411700477362405",
+        "d": "201623521808535508229693577619308544",
+        "approx": 10.734789656322132
+      }
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:32/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:34/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:36/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:38/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:40/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:42/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:44/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:46/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:31/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:33/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:35/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:37/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:39/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:41/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:43/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:45/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:16/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:18/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:20/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:22/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:24/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:26/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:28/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:30/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:15/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:17/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:19/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:21/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:23/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:25/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:27/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:29/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:0/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "788566311699024993280294396709419507700138057499",
+        "d": "484287840059390297246432443796320748787571376638656512",
+        "approx": 1.6283008708257463e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:2/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:4/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:6/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:8/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:10/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:12/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:14/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:28/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:30/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:32/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:34/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:1/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:3/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:5/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:7/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:9/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:11/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-11-piece-0-tier-0:3:13/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:27/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:29/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:31/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:33/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:35/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "55490421055072742561651015482329834356849590446837935305319403",
+        "d": "34078727125492695439329627320787856607950450097008281655991198547968",
+        "approx": 1.6283008708257465e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-cornice--1-0-2",
+      "role": null,
+      "materialId": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+      "group": "cornice",
+      "strictAboveProjectedArea": {
+        "n": "14304107984801430611141622014234570002305",
+        "d": "2818898458405134940559345908695552753664",
+        "approx": 5.074360852605649
+      },
+      "disjointUnionContribution": {
+        "n": "172338650419294344405776712064326043227",
+        "d": "33962632028977529404329468779464491008",
+        "approx": 5.074360852605649
+      }
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:10/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:12/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:14/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:16/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:18/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:20/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:22/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:24/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:9/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:11/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:13/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:15/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:17/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:19/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:21/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:23/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-cornice--1-2-2",
+      "role": null,
+      "materialId": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+      "group": "cornice",
+      "strictAboveProjectedArea": {
+        "n": "511555269058792191936974281189533165",
+        "d": "100811760904267754114846788809654272",
+        "approx": 5.074361011753105
+      },
+      "disjointUnionContribution": {
+        "n": "511555269058792191936974281189533165",
+        "d": "100811760904267754114846788809654272",
+        "approx": 5.074361011753105
+      }
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:12/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:14/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:16/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:18/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:20/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:22/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:24/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:26/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:11/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:13/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:15/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:17/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:19/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:21/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:23/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:25/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:26/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:28/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:30/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:32/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:34/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:0/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "232743694992874299022124909957563668468925171909475907531245812220119",
+        "d": "142936541497362514451962013190089790122153004643682223782850508034536374272",
+        "approx": 1.628300870825036e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:2/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:4/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:6/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:8/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:10/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:0/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:25/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:27/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:29/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:31/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:33/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1287",
+        "d": "853624832",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-0-piece-0-tier-0:3:35/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "38879320904605467",
+        "d": "23877233993548700844032",
+        "approx": 1.6283008708257465e-06
+      },
+      "disjointUnionContribution": {
+        "n": "16731",
+        "d": "1852292749377465745408",
+        "approx": 9.032589478970371e-18
+      }
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:1/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:3/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:5/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:7/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:9/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "outer-1-piece-0-tier-0:3:11/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "front-glass-gallery-0/rafter--1--42",
+      "role": null,
+      "materialId": "1d84fb87ae8d14fc75a1ae90c7b3b480a2a73fca86e7582c0d7aa7f7d85b368e",
+      "group": "rafter",
+      "strictAboveProjectedArea": {
+        "n": "2269128259004033416809453002425",
+        "d": "11876182904819029029418740744192",
+        "approx": 0.19106545235871059
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "front-glass-gallery-0/rafter-1--42",
+      "role": null,
+      "materialId": "1d84fb87ae8d14fc75a1ae90c7b3b480a2a73fca86e7582c0d7aa7f7d85b368e",
+      "group": "rafter",
+      "strictAboveProjectedArea": {
+        "n": "2269128259004033416809453002425",
+        "d": "11876182904819029029418740744192",
+        "approx": 0.19106545235871059
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:2/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:4/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:6/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:8/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:10/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:12/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:14/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:16/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:1/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:3/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:5/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:7/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:9/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:11/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:13/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:15/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-cornice--1-3-2",
+      "role": null,
+      "materialId": "e783ac891d10a54c3ea9dbcd129a913aac18fc1987820f8909e6fa14eb8f36ce",
+      "group": "cornice",
+      "strictAboveProjectedArea": {
+        "n": "240489262411805513252236341498121935",
+        "d": "22402791575842697496259544049778688",
+        "approx": 10.734789974617676
+      },
+      "disjointUnionContribution": {
+        "n": "240489262411805513049881122010599119",
+        "d": "22402791575842697496259544049778688",
+        "approx": 10.734789974617676
+      }
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:18/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:20/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:22/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:24/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:26/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:28/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:30/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:32/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:17/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:19/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:21/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:23/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:25/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:27/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:29/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:31/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:34/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:36/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:38/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:40/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:42/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:44/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:46/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:48/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:33/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:35/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:37/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:39/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:41/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:43/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:45/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:47/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:50/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:52/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:54/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:56/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:58/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:60/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:62/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:0/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "137387628041725037556528296265966963494571518494315671222624845812673893601354194821567759",
+        "d": "84374841593056363603328375740884789091305005125640353289789999174614974478952062657007309553664",
+        "approx": 1.6283008708253547e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:2/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:4/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:6/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:8/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:10/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:49/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:51/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:53/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:55/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:57/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:59/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:61/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "26103461159899699835620112405103879",
+        "d": "17313568490472343752161341155887191949312",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-inner--1-piece-0-tier-0:0:63/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "788566311699024993280294396709419507700138057499",
+        "d": "484287840059390297246432443796320748787571376638656512",
+        "approx": 1.6283008708257463e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:1/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:3/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:5/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:7/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    },
+    {
+      "sourceId": "end-upper-back--1-piece-0-tier-0:0:9/seam-1",
+      "role": "perimeter-closure",
+      "materialId": "2ca6b5c1338fad0f19881b3395177dd71148619410ec91f59df3924d1564d93c",
+      "group": "perimeter-closure",
+      "strictAboveProjectedArea": {
+        "n": "1836867780512570366922014042681527789131231888663",
+        "d": "1218334071908512628867119342879282418279539174610567168",
+        "approx": 1.5076880987454686e-06
+      },
+      "disjointUnionContribution": 0
+    }
+  ],
+  "provedWeatherOccluderCount": 0,
+  "unproved": [
+    "Weather/opacity classification and source-ornament semantics",
+    "Unlisted-source completeness beyond the accepted 230-record metadata set",
+    "Other directions of exposure/weather",
+    "Runtime/collision/stock/fuel interpretation"
+  ],
+  "readScope": {
+    "originalMetadataSections": 14,
+    "metadataRecordsParsed": 944,
+    "selectedInstanceRecords": 231,
+    "uniqueOriginalGeometryFiles": 8,
+    "originalGeometryFileBytes": 34137,
+    "candidateTriangles": 2760,
+    "roofTriangles": 6,
+    "expandedOtherRoofs": 0,
+    "sceneFactoryIndexOrRuntimeReads": 0
+  },
+  "orientationAndPairCounts": {
+    "vertical": 1832,
+    "upper": 464,
+    "downward": 464,
+    "upperRoofPairs": 2784,
+    "exactProjectionBoxRejections": 1681
+  },
+  "exactClippingOperations": 8821,
+  "changes": {
+    "sourceArrays": 0,
+    "matrices": 0,
+    "UVs": 0,
+    "caps": 0,
+    "artOutputs": 0,
+    "stockOrBindings": 0,
+    "runtime": 0,
+    "helpers": 0
+  },
+  "negativeControls": 6
+}
