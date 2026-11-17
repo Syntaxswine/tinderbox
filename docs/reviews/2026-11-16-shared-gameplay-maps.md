@@ -210,3 +210,15 @@ equivalence. The next query kernel remains isolated. Plant/pane source reference
 are accepted without runtime installation, and the 96 clear parapet additions
 are assigned separately. Cross-map gameplay, live query/support integration,
 interaction performance and publication remain incomplete.
+
+The [17 November query re-review](2026-11-17-regional-query-kernel.md) resolves
+five reproduced defects and accepts the isolated query prototype. The
+[receipt bridge review](2026-11-17-regional-receipt-bridge.md) accepts authenticated
+incremental inventory and one complete stock/query publication after independent
+43-test/source review. Its three original roof-region compilations are spent;
+the recorded post-run cleanup/revision deltas are explicit. All twenty native
+roof-saddle source assets are now accepted, with runtime port/support installation
+still separate. The next [support-port/birth stage](../engineering/shared-maps/support-port-birth-pilot.md)
+precedes live hybrid rollout. Administration/Horticulture compact binding work
+is source planning only. The 2,599.9 ms browser result and four-map release gates
+above remain unchanged.
