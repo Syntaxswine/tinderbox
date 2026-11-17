@@ -5,6 +5,8 @@
   "sourceIntakes": {
     "uiCapabilities": "2c866a6bf173e1549c54d34c124a9d055febda3d",
     "uiPresentation": "47f87fb01fe922b1085c05e3082986c50b04a5c7",
+    "uiShortLandscapeLayout": "130fe10db3af8a7efcd04e71139a2fbed74b1e91",
+    "uiToolSelectionOrdering": "8f0cd5743d159c53f56eeeb4eabd137cd3d7621c",
     "artistPilot": "59b9373f47d51531c7e505613f67dd1e426b37f1",
     "artistComplete": "82b7fc604eb183d65e7569366c47f45e5f07c1b5",
     "artistCheckerContext": "90c226f674d51a2d030fcdd4679e61a3bdd9ebfe",
@@ -114,8 +116,8 @@
     {
       "path": "src/ui/index.js",
       "beforeLfSha256": "265dd45adeaa74e4cf0bc1c4710fdf8ae008a11feef19fb5f2e94c62214207a5",
-      "afterLfSha256": "4147f8bb91c7d2fc5ca1015f7e0fa7defcbb054d707b1e12cdffccd222f1679d",
-      "reason": "Exact accepted UI capability intake 2c866a6b; presentation follows authoritative host state."
+      "afterLfSha256": "5298f3b2bd252c5f357b7ca100cc1b85c437b51d5e45502df97cf4a775f7eb3d",
+      "reason": "Accepted UI capability intake 2c866a6b and queued tool-intent correction 8f0cd574; immediate use follows the ordered input request while presentation remains snapshot-owned."
     },
     {
       "path": "src/ui/model.js",
@@ -275,7 +277,7 @@
     },
     {
       "path": "tools/record-shared-map-runtime.mjs",
-      "lfSha256": "0c06b2f0637b1bfb95994a7e73fc634683d779ba139ae7571e25bd9717f306da"
+      "lfSha256": "fadf48deddf4ccdbb69fbe1c8c31a7758688c7c50660227143382d32e9e1f395"
     },
     {
       "path": "tools/review/check-shared-map-integrated.mjs",

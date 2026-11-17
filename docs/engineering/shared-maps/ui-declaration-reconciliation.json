@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "scope": "Declaration/provenance reconciliation only; no production source, build or renderer change.",
+  "acceptedCombinedSource": "6b2caa850c04c01946bbef713d2d2574fc3d6fdf",
+  "sourceIntakesAdded": {
+    "uiShortLandscapeLayout": "130fe10db3af8a7efcd04e71139a2fbed74b1e91",
+    "uiToolSelectionOrdering": "8f0cd5743d159c53f56eeeb4eabd137cd3d7621c"
+  },
+  "changedRuntimeRow": {
+    "path": "src/ui/index.js",
+    "previousLfSha256": "4147f8bb91c7d2fc5ca1015f7e0fa7defcbb054d707b1e12cdffccd222f1679d",
+    "acceptedLfSha256": "5298f3b2bd252c5f357b7ca100cc1b85c437b51d5e45502df97cf4a775f7eb3d",
+    "exactAcceptedUiBytes": true
+  },
+  "declarationProducerSelfHash": "fadf48deddf4ccdbb69fbe1c8c31a7758688c7c50660227143382d32e9e1f395",
+  "preservation": {
+    "allOtherRuntimeRowsUnchanged": 21,
+    "allOtherAddedRowsUnchanged": 38,
+    "allOtherMetadataUnchanged": true,
+    "frozenM28Unchanged": true,
+    "compactPackagesUnchanged": true,
+    "productionTreeUnchangedFromAcceptedSource": true,
+    "shortLandscapeCssMatches130fe10d": true
+  },
+  "checks": [
+    {
+      "command": "node --test tests/ui/*.test.mjs",
+      "passed": 63,
+      "failed": 0
+    },
+    {
+      "command": "node --test tests/integration/shared-map-actions.test.mjs",
+      "passed": 7,
+      "failed": 0
+    },
+    {
+      "command": "node tools/record-shared-map-runtime.mjs --check",
+      "passed": true
+    },
+    {
+      "command": "node tools/review/shared-map-phone.mjs --plan-only --runtime-commit=6b2caa850c04c01946bbef713d2d2574fc3d6fdf --output=artifacts/qa/shared-map-runtime/phone-review-v4-source-plan",
+      "passed": true,
+      "buildLaunched": false,
+      "browserLaunched": false
+    },
+    {
+      "command": "Exact bounded JSON delta and Git-object byte comparisons in finite Node source check",
+      "passed": true
+    }
+  ],
+  "remaining": "Await architect intake and explicit renewed build/session grant. No all-source sweep, support-port prototype or 48-block consumer is included.",
+  "helpers": "No background helper started or retained."
+}
