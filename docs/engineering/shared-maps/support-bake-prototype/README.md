@@ -6,9 +6,9 @@ The mechanism is feasible for these static blocks: preparation records the origi
 
 ## Exact scope and source
 
-- Existing fixture: `tests/integration/source-continuity.test.mjs:63â€“74`, using its compact New York sources and original activation/clipper. Narrowed to the existing floor control `new-york::carrier/main-floor/tile--2-0` (carrier index 3199).
+- Existing fixture: `tests/integration/source-continuity.test.mjs:63–74`, using its compact New York sources and original activation/clipper. Narrowed to the existing floor control `new-york::carrier/main-floor/tile--2-0` (carrier index 3199).
 - One original ordered pair: `assets/runtime/map-sources/new-york/index.json`, `contacts[7397] = [3199,3200]`: `tile--2-0` **first**, `tile--2-1` second. No reverse-pair scan, sorting, re-ID, new triangulation or whole-map bake.
-- Native source code: `src/simulation/source-support.js:46â€“50` captures/caches a calculation; `75â€“86` emits ordered edges and contacts; `96â€“117` owns rebuilding; `120â€“124` owns live filtering, support decisions and disposal. Its continuity predicate remains `visitSourceContinuityCandidates` at `24â€“30`; `workbenches/furnished-house/support.js:8â€“20` remains the contact predicate.
+- Native source code: `src/simulation/source-support.js:46–50` captures/caches a calculation; `75–86` emits ordered edges and contacts; `96–117` owns rebuilding; `120–124` owns live filtering, support decisions and disposal. Its continuity predicate remains `visitSourceContinuityCandidates` at `24–30`; `workbenches/furnished-house/support.js:8–20` remains the contact predicate.
 - [Source manifest](source-manifest.json) records 29 exact LF dependency hashes, three raw asset hashes, original/copied hashes, fixture pin, and import relocations. [Original module](source/original-source-support.txt), [reference copy](source/reference-support.mjs) and [prototype copy](source/prototype-support.mjs) remain separate. The exact [relocation delta](source/import-relocation.patch) and [hook delta](source/prototype-hook.patch) are auditable.
 
 Only import paths differ in the reference copy. The prototype adds an optional `bakeHooks` argument and read/record instrumentation inside `calculate` on an original in-memory cache miss. It replays through the original `add`/capture routine and stores the same original cache entry. Existing registration, watches, rebuild schedule, anchors, declared relations, exceptions, live filtering and disposal remain unchanged. Skipping a build changes build-only `topologyCache` counters; semantic diagnostics and physical state must agree. No production source imports these copies.
@@ -30,8 +30,8 @@ The key uses existing compact source metadata/hashes for cold owners; it does no
 | Endpoint ownership | Original/replay treatment | Recorded block |
 | --- | --- | --- |
 | cold / cold | Original metadata link at `connectContact:85`; bypasses `calculate` already | None needed |
-| active / cold | Original first-owner fragments â†’ exact cold second-owner ID | 4 directed edges, `true` |
-| cold / active | Exact cold first-owner ID â†’ original second-owner fragments | 4 directed edges, `true` |
+| active / cold | Original first-owner fragments → exact cold second-owner ID | 4 directed edges, `true` |
+| cold / active | Exact cold first-owner ID → original second-owner fragments | 4 directed edges, `true` |
 | active / active | Exact original first/second iteration order | 8 directed edges, `true` |
 | First carrier continuity | Four original floor fragments, original ID-directed predicate calls | 12 directed edges, `undefined` |
 
