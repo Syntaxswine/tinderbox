@@ -1,0 +1,405 @@
+{
+  "version": 1,
+  "equivalent": false,
+  "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    after: {\n      counts: {\n        boundaries: 47177,\n        cells: 27952,\n...\n      },\n+     hostSha256: '3c6125c9455ce918d0e59a407030ce80ff08f1d28163b1514ff12e92247c0cc3',\n-     hostSha256: 'd440dc8b18cb6195861cb27549a889cdf827f3289a8d69250a9304da43d2cced',\n      nativeSha256: '51f62e860eec43d560dbc765a92bbb63e8fe34b75a7588b942bcc834847b6ff0',\n      replaySha256: 'f1a9a559f7d2562c70a63e67325e5968bd62c047a04644b3bc12a366328ca7fe',\n      supportLinksSha256: '4e48260e7503a28c04db306061fc7a486b592a384278ef7766a91e5c819874c9'\n    },\n    before: {\n...\n      },\n+     hostSha256: 'e923bc6d78900a97155dc303c0eec06145b18ee7c41b8ca565c9f03adbf235f0',\n-     hostSha256: 'd4746043f6312d51d41e4396c41a46921701e80b9aad56aac605972dacf84798',\n      nativeSha256: 'c7a4280165a8844d630812784ee59bfcff03e3882df3aa4cfb9d79d07cf5f16c',\n      replaySha256: '956661bd81281b297e36a92735ad125ac8b5ba26c741b7f7d9b5e678d827b637',\n      supportLinksSha256: '6705563d082cea6ad75751cface9a1e7ffc1b87ad8104e638962ada4da5d3aea'\n    },\n    cold: {\n",
+  "reference": {
+    "wallMs": 20135.2337,
+    "cpuMs": 24313,
+    "held": {
+      "wallMs": 12002.035100000003,
+      "cpuMs": 13672,
+      "rssBefore": 583270400,
+      "rssAfter": 759033856,
+      "heapUsedBefore": 415868624,
+      "heapUsedAfter": 478784296
+    },
+    "nativePhases": {
+      "commandsAndFallsMs": 9.24109999999746,
+      "burnRegistryMs": 0.12430000000313157,
+      "transportMs": 68.06099999999424,
+      "preheatMs": 7.4517999999989115,
+      "coolingMs": 0.42510000000402215,
+      "boundaryAndSupportMs": 8315.277599999998,
+      "itemsMs": 0.09810000000106811
+    },
+    "worstNativeMs": 3073.5400999999983
+  },
+  "candidate": {
+    "wallMs": 9867.1677,
+    "cpuMs": 13953,
+    "held": {
+      "wallMs": 3779.0244000000002,
+      "cpuMs": 5531,
+      "rssBefore": 595550208,
+      "rssAfter": 747257856,
+      "heapUsedBefore": 431810472,
+      "heapUsedAfter": 546969064
+    },
+    "nativePhases": {
+      "commandsAndFallsMs": 8.713800000004085,
+      "burnRegistryMs": 0.10119999999733409,
+      "transportMs": 74.8664000000017,
+      "preheatMs": 7.186999999998989,
+      "coolingMs": 0.3624999999983629,
+      "boundaryAndSupportMs": 1779.8472000000038,
+      "itemsMs": 0.10349999999834836
+    },
+    "worstNativeMs": 840.9594999999999,
+    "worstHostMs": 2798.794,
+    "slowHostSteps": [
+      {
+        "tick": 2,
+        "world": 0.03333333333333333,
+        "elapsedMs": 27.330799999999954,
+        "cpuUsageUs": {
+          "user": 31000,
+          "system": 0
+        },
+        "topologyCache": {
+          "entries": 0,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 0,
+          "peakDirectedEdges": 0,
+          "hits": 0,
+          "misses": 0,
+          "invalidations": 0,
+          "watchedBoundaries": 12858,
+          "retainedColdMeshes": 0,
+          "disposed": false
+        }
+      },
+      {
+        "tick": 114,
+        "world": 1.8999999999999981,
+        "elapsedMs": 128.06479999999988,
+        "cpuUsageUs": {
+          "user": 171000,
+          "system": 0
+        },
+        "topologyCache": {
+          "entries": 0,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 0,
+          "peakDirectedEdges": 216,
+          "hits": 0,
+          "misses": 8,
+          "invalidations": 8,
+          "watchedBoundaries": 12894,
+          "retainedColdMeshes": 0,
+          "disposed": false
+        }
+      },
+      {
+        "tick": 184,
+        "world": 3.0666666666666607,
+        "elapsedMs": 40.14980000000014,
+        "cpuUsageUs": {
+          "user": 47000,
+          "system": 0
+        },
+        "topologyCache": {
+          "entries": 0,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 0,
+          "peakDirectedEdges": 216,
+          "hits": 0,
+          "misses": 8,
+          "invalidations": 8,
+          "watchedBoundaries": 12894,
+          "retainedColdMeshes": 0,
+          "disposed": false
+        }
+      },
+      {
+        "tick": 260,
+        "world": 4.333333333333323,
+        "elapsedMs": 2798.794,
+        "cpuUsageUs": {
+          "user": 3813000,
+          "system": 187000
+        },
+        "topologyCache": {
+          "entries": 2575,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 241480,
+          "peakDirectedEdges": 241480,
+          "hits": 0,
+          "misses": 2583,
+          "invalidations": 8,
+          "watchedBoundaries": 30367,
+          "retainedColdMeshes": 0,
+          "disposed": false
+        }
+      },
+      {
+        "tick": 332,
+        "world": 5.533333333333319,
+        "elapsedMs": 471.1111000000001,
+        "cpuUsageUs": {
+          "user": 578000,
+          "system": 0
+        },
+        "topologyCache": {
+          "entries": 3208,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 269541,
+          "peakDirectedEdges": 269541,
+          "hits": 2448,
+          "misses": 3343,
+          "invalidations": 135,
+          "watchedBoundaries": 32097,
+          "retainedColdMeshes": 0,
+          "disposed": false
+        }
+      },
+      {
+        "tick": 336,
+        "world": 5.599999999999985,
+        "elapsedMs": 201.72479999999996,
+        "cpuUsageUs": {
+          "user": 281000,
+          "system": 0
+        },
+        "topologyCache": {
+          "entries": 3214,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 269597,
+          "peakDirectedEdges": 269597,
+          "hits": 5652,
+          "misses": 3353,
+          "invalidations": 139,
+          "watchedBoundaries": 32105,
+          "retainedColdMeshes": 0,
+          "disposed": false
+        }
+      },
+      {
+        "tick": 338,
+        "world": 5.633333333333319,
+        "elapsedMs": 62.72540000000026,
+        "cpuUsageUs": {
+          "user": 94000,
+          "system": 0
+        },
+        "topologyCache": {
+          "entries": 3214,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 269597,
+          "peakDirectedEdges": 269597,
+          "hits": 5652,
+          "misses": 3353,
+          "invalidations": 139,
+          "watchedBoundaries": 32105,
+          "retainedColdMeshes": 0,
+          "disposed": false
+        }
+      },
+      {
+        "tick": 340,
+        "world": 5.666666666666652,
+        "elapsedMs": 1624.3217999999997,
+        "cpuUsageUs": {
+          "user": 2766000,
+          "system": 31000
+        },
+        "topologyCache": {
+          "entries": 5986,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 377498,
+          "peakDirectedEdges": 377498,
+          "hits": 8566,
+          "misses": 6425,
+          "invalidations": 439,
+          "watchedBoundaries": 40854,
+          "retainedColdMeshes": 0,
+          "disposed": false
+        }
+      },
+      {
+        "tick": 342,
+        "world": 5.699999999999985,
+        "elapsedMs": 247.1193999999996,
+        "cpuUsageUs": {
+          "user": 266000,
+          "system": 15000
+        },
+        "topologyCache": {
+          "entries": 5992,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 377552,
+          "peakDirectedEdges": 377552,
+          "hits": 14547,
+          "misses": 6436,
+          "invalidations": 444,
+          "watchedBoundaries": 40858,
+          "retainedColdMeshes": 0,
+          "disposed": false
+        }
+      },
+      {
+        "tick": 344,
+        "world": 5.733333333333318,
+        "elapsedMs": 1301.8581000000013,
+        "cpuUsageUs": {
+          "user": 1609000,
+          "system": 16000
+        },
+        "topologyCache": {
+          "entries": 7487,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 535031,
+          "peakDirectedEdges": 535031,
+          "hits": 20429,
+          "misses": 8041,
+          "invalidations": 554,
+          "watchedBoundaries": 47176,
+          "retainedColdMeshes": 0,
+          "disposed": false
+        }
+      }
+    ],
+    "topology": {
+      "entries": 7487,
+      "entryLimit": 52929,
+      "variantsPerCalculation": 1,
+      "directedEdges": 535031,
+      "peakDirectedEdges": 535031,
+      "hits": 20429,
+      "misses": 8041,
+      "invalidations": 554,
+      "watchedBoundaries": 47176,
+      "retainedColdMeshes": 0,
+      "disposed": false
+    },
+    "topologyAfterDispose": {
+      "entries": 0,
+      "entryLimit": 52929,
+      "variantsPerCalculation": 1,
+      "directedEdges": 0,
+      "peakDirectedEdges": 535031,
+      "hits": 20429,
+      "misses": 8041,
+      "invalidations": 554,
+      "watchedBoundaries": 0,
+      "retainedColdMeshes": 0,
+      "disposed": true
+    }
+  },
+  "states": {
+    "cold": {
+      "nativeSha256": "e4658d98b81cbcf6a2ec36ecd1c1b03e27a06d75ad162d467442cb09a0c783d9",
+      "hostSha256": "73caa8ead89504c31b94e179aa62a7806d903d04e00b009c8f92af01aa1a9f5f",
+      "supportLinksSha256": "9cf37b5466d3d643df25a8f5d059d5691963fa49175538e7420087275a2b0298",
+      "replaySha256": "d636bc7e874b16d88b12e6a21c9378548d136debf6e9d7ffeb2be78fc9fa0afb",
+      "counts": {
+        "boundaries": 12859,
+        "fuels": 0,
+        "cells": 0,
+        "supportNodes": 12446,
+        "supportEdges": 58270
+      },
+      "fuel": {
+        "initial": 0,
+        "added": 0,
+        "burned": 0,
+        "escaped": 0,
+        "remaining": 0,
+        "airborne": 0,
+        "error": 0
+      },
+      "heat": {
+        "generated": 0,
+        "input": 0,
+        "ambient": 0,
+        "blocked": 0,
+        "cap": 0,
+        "escaped": 0,
+        "stored": 0,
+        "radiationInTransit": 0,
+        "error": 0,
+        "relativeError": 0
+      }
+    },
+    "before": {
+      "nativeSha256": "c7a4280165a8844d630812784ee59bfcff03e3882df3aa4cfb9d79d07cf5f16c",
+      "hostSha256": "e923bc6d78900a97155dc303c0eec06145b18ee7c41b8ca565c9f03adbf235f0",
+      "supportLinksSha256": "6705563d082cea6ad75751cface9a1e7ffc1b87ad8104e638962ada4da5d3aea",
+      "replaySha256": "956661bd81281b297e36a92735ad125ac8b5ba26c741b7f7d9b5e678d827b637",
+      "counts": {
+        "boundaries": 32098,
+        "fuels": 8973,
+        "cells": 14694,
+        "supportNodes": 30965,
+        "supportEdges": 297889
+      },
+      "fuel": {
+        "initial": 0,
+        "added": 704.891997660365,
+        "burned": 0,
+        "escaped": 0,
+        "remaining": 704.8919976603568,
+        "airborne": 0,
+        "error": 8.185452315956354e-12
+      },
+      "heat": {
+        "generated": 0,
+        "input": 1.05,
+        "ambient": 0.012524701494972909,
+        "blocked": 0,
+        "cap": 0,
+        "escaped": 0,
+        "stored": 1.037475298505027,
+        "radiationInTransit": 0,
+        "error": 0,
+        "relativeError": 0
+      }
+    },
+    "after": {
+      "nativeSha256": "51f62e860eec43d560dbc765a92bbb63e8fe34b75a7588b942bcc834847b6ff0",
+      "hostSha256": "3c6125c9455ce918d0e59a407030ce80ff08f1d28163b1514ff12e92247c0cc3",
+      "supportLinksSha256": "4e48260e7503a28c04db306061fc7a486b592a384278ef7766a91e5c819874c9",
+      "replaySha256": "f1a9a559f7d2562c70a63e67325e5968bd62c047a04644b3bc12a366328ca7fe",
+      "counts": {
+        "boundaries": 47177,
+        "fuels": 21530,
+        "cells": 27952,
+        "supportNodes": 45187,
+        "supportEdges": 536363
+      },
+      "fuel": {
+        "initial": 0,
+        "added": 1834.6261287150205,
+        "burned": 0.003312501332628011,
+        "escaped": 0,
+        "remaining": 1834.6228162137343,
+        "airborne": 0,
+        "error": -4.638422979041934e-11
+      },
+      "heat": {
+        "generated": 0.39750015991536125,
+        "input": 3.2499999999999925,
+        "ambient": 0.29139033757911825,
+        "blocked": 0.12288663885204286,
+        "cap": 0,
+        "escaped": 0.05964652516432357,
+        "stored": 3.1735766583198783,
+        "radiationInTransit": 0,
+        "error": -8.881784197001252e-15,
+        "relativeError": -2.435033257738738e-15
+      }
+    }
+  },
+  "commandsSha256": "1c0be0380e13be5c22a7fcc679c29e7203d35f3ed59aa2bd68b319c233a4af1e",
+  "derivedFixtureSha256": "43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253",
+  "inclusiveCountersOverlap": true
+}

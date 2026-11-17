@@ -29,13 +29,18 @@ test('the actual cold glass contact cannot heat co-located timber through its sh
 });
 
 for(const characterId of ['goat','horse','bear'])test('the full-source '+characterId+' uses native movement up the real front stair, opens the real door and enters through normal commands',()=>{
-  const compiled=compileSharedMap(index,library,navigation),sim=createSimulation({gameplayMap:compiled,characterId});try{
+  const compiled=compileSharedMap(index,library,navigation),graphs=[],createNavigation=compiled.createNavigation;
+  compiled.createNavigation=args=>{graphs.push(args.trial.supportGraph);return createNavigation(args);};
+  const sim=createSimulation({gameplayMap:compiled,characterId});try{
     let s=sim.snapshot();assert.equal(s.world.tiles.length,0);assert.equal(s.diagnostics.thermal.gridCells,0);assert.equal(s.diagnostics.thermal.carriers.activeCarriers,0);assert.equal(s.player.radius,CHARACTER_PROFILES[characterId].radius);assert.equal(s.player.height,CHARACTER_PROFILES[characterId].height);
     command(sim,{type:'move',...worldToStick({x:0,y:1},compiled.configuration.input)});for(let i=1;i<72;i++)s=tick(sim);s=command(sim,{type:'move',x:0,y:0});
     assert.ok(Math.abs(s.player.elevation-2.12)<1e-5);assert.ok(s.player.y>24.5&&s.player.y<25.2);assert.equal(s.diagnostics.thermal.gridCells,0,'Walking/render ownership cannot seed thermal cells');
     assert.equal(s.player.interaction?.id,'ny-front');assert.equal(s.player.interaction.action,'open');assert.equal(s.player.interaction.enabled,true);command(sim,{type:'interact',portalId:'ny-front',action:'open'});s=sim.advance(1/30);assert.equal(s.navigation.portalStates['ny-front'],true);assert.ok(s.diagnostics.thermal.carriers.activeCarriers>0);
     command(sim,{type:'move',...worldToStick({x:0,y:1},compiled.configuration.input)});for(let i=1;i<18;i++)s=tick(sim);s=command(sim,{type:'move',x:0,y:0});assert.ok(s.player.y>27);assert.equal(s.player.interior,true);assert.ok(Math.abs(s.player.elevation-2.12)<1e-5);assert.equal(s.player.hp,100);
     const before=sim.snapshot();command(sim,{type:'pause',paused:true});s=sim.advance(.2);assert.equal(s.clocks.world,before.clocks.world);assert.equal(s.player.y,before.player.y);
+    const previousGraph=graphs.at(-1);assert.ok(previousGraph.diagnostics().topologyCache.misses>0);assert.ok(previousGraph.diagnostics().topologyCache.watchedBoundaries>0);
     s=command(sim,{type:'reset'});assert.equal(s.diagnostics.thermal.carriers.activeCarriers,0);assert.equal(s.diagnostics.thermal.gridCells,0);assert.equal(s.navigation.portalStates['ny-front'],false);assert.equal(s.player.elevation,0);assert.deepEqual(s.player.inventory,DEFAULT_CONFIG.inventory);
+    assert.equal(previousGraph.diagnostics().topologyCache.entries,0);assert.equal(previousGraph.diagnostics().topologyCache.directedEdges,0);assert.equal(previousGraph.diagnostics().topologyCache.watchedBoundaries,0);assert.equal(previousGraph.diagnostics().topologyCache.disposed,true);
+    assert.notEqual(graphs.at(-1),previousGraph);assert.equal(graphs.at(-1).diagnostics().topologyCache.entries,0);
   }finally{sim.dispose();compiled.dispose();}
 });

@@ -135,9 +135,15 @@ export function createBoundaryIndex(records,binSize=1) {
     Object.assign(s,patch);revision++;
     if(moved)visit(s.bounds,key=>{if(!bins.has(key))bins.set(key,new Set());bins.get(key).add(s);for(const fn of pathListeners.get(key)||[])affected.add(fn);});
     for(const fn of affected)fn();
-    for(const invalidate of listeners.get(id)||[])invalidate();return s;
+    for(const invalidate of listeners.get(id)?.keys()||[])invalidate();return s;
   }
-  function watch(ids,invalidate) {for(const id of ids){if(!listeners.has(id))listeners.set(id,new Set());listeners.get(id).add(invalidate);}}
+  function watch(ids,invalidate) {
+    const owned=[...new Set(ids)];let subscribed=true;
+    for(const id of owned){if(!listeners.has(id))listeners.set(id,new Map());const callbacks=listeners.get(id);callbacks.set(invalidate,(callbacks.get(invalidate)||0)+1);}
+    // Existing consumers may ignore this handle. Duplicate registrations keep
+    // one notification until their final independent owner unsubscribes.
+    return ()=>{if(!subscribed)return;subscribed=false;for(const id of owned){const callbacks=listeners.get(id),count=callbacks?.get(invalidate)||0;if(count>1)callbacks.set(invalidate,count-1);else callbacks?.delete(invalidate);if(callbacks?.size===0)listeners.delete(id);}};
+  }
   function watchPath(from,to,invalidate) {segmentCandidates(from,to,key=>{if(!pathListeners.has(key))pathListeners.set(key,new Set());pathListeners.get(key).add(invalidate);});}
   function addBatch(records){
     const ids=new Set();for(const record of records){if(!record.id||surfaces.has(record.id)||ids.has(record.id))throw Error('Duplicate new physical boundary '+record.id);ids.add(record.id);}

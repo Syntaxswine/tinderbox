@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "checks": 15,
+  "paths": 60,
+  "registration": {
+    "meshes": 819,
+    "compared": 819,
+    "maxRelativeError": 1.2434497875801753e-14,
+    "bad": [],
+    "resources": {
+      "geometries": 0,
+      "materials": 0,
+      "textures": 0
+    }
+  },
+  "originalCheckerUnchanged": true,
+  "originalReferenceUnchanged": true,
+  "historicalReceiptUnchanged": true,
+  "runtimeExceptions": [
+    {
+      "path": "workbenches/furnished-house/navigation.js",
+      "originalLfSha256": "28e8d423189813b9605c249029138ae50b75917151e1c74d08a507c4753f9295",
+      "integratedLfSha256": "8ba3f2ded00f59617c8f36baa84e521f4318e6a9de55f541a68c4fac7fb3a1a9",
+      "reason": "Explicit opt-in native disc slide, support-edge partition and per-segment native validation; default stop and old axis control remain"
+    },
+    {
+      "path": "src/runtime/collision.js",
+      "originalLfSha256": "5c0b2500c44c9599964d77e12416cd917746fe1ecc5be8da0cd309e67ca64fe5",
+      "integratedLfSha256": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "reason": "Individual height-clipped triangle projections, exact support-edge stations and analytic distance to existing furniture envelopes; original swept closed-solid oracle retained"
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "originalLfSha256": "1accf6d27f27d78dd019f24e10f15354fd79b81b6cb8c87ee63ab90fdd98f1b5",
+      "integratedLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9",
+      "reason": "Commit native source batches without resetting heat/time; reuse native local support, inert falls, real rubble and pane retirement without fuel creation; dispose owned source-support memoization with the trial."
+    }
+  ]
+}

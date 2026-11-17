@@ -1,0 +1,47 @@
+{
+  "scope": "One reference and one candidate correctness lane, identical snapshot-read schedule, no extra slow-host snapshots or performance claim.",
+  "experimentDelta": {
+    "src/simulation/source-support.js": {
+      "beforeLfSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b",
+      "afterLfSha256": "db60fb30155200292eb11e0d002c67f1c4beab39b096bc51636a9aad0709b476"
+    },
+    "workbenches/furnished-house/simulation.js": {
+      "beforeLfSha256": "75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012",
+      "afterLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9"
+    }
+  },
+  "producerSha256": "44b9c87c41d228b933f58cef2c1db6bd632e72857a4f5ede49a15b89a756323b",
+  "loaderSha256": "ceb923319c0ed33393a9a150241a24c14db098ae833fd8f0cd49e7f1ec229771",
+  "substitutions": [
+    {
+      "purpose": "Explicit correctness lanes, no profile",
+      "before": "assert.ok(['control','profile'].includes(mode));",
+      "after": "assert.equal(mode,'control','Correctness-only lanes do not authorize a CPU profile');const lane=process.env.TINDERBOX_CACHE_LANE;assert.ok(['reference','candidate'].includes(lane));assert.equal(process.env.TINDERBOX_CACHE_RUN_DIRECTORY,directory);"
+    },
+    {
+      "purpose": "Pin the same two candidate deltas",
+      "before": "assert.equal(git('diff','--name-only',frozen,'--','src','assets','art','vendor','workbenches'),'');",
+      "after": "const experimentDelta={\"src/simulation/source-support.js\":{\"beforeLfSha256\":\"34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b\",\"afterLfSha256\":\"db60fb30155200292eb11e0d002c67f1c4beab39b096bc51636a9aad0709b476\"},\"workbenches/furnished-house/simulation.js\":{\"beforeLfSha256\":\"75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012\",\"afterLfSha256\":\"54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9\"}};assert.deepEqual(git('diff','--name-only',frozen,'--','src','assets','art','vendor','workbenches').split(/\\r?\\n/).filter(Boolean).sort(),Object.keys(experimentDelta).sort());for(const [path,pin]of Object.entries(experimentDelta))assert.equal(sha(fs.readFileSync(path,'utf8').replace(/\\r\\n/g,'\\n')),pin.afterLfSha256,path);"
+    },
+    {
+      "purpose": "Label the different bounded grant",
+      "before": "purpose:'M29 architect-authorized matched CPU '+mode",
+      "after": "purpose:'M29 architect-authorized raw-host correctness '+lane"
+    },
+    {
+      "purpose": "Do not claim a reference file tree on disk",
+      "before": "productionDiffEmpty:true,",
+      "after": "productionDiffEmpty:false,experimentDelta,lane,correctnessOnly:true,"
+    },
+    {
+      "purpose": "Retain exact raw host preimages at existing digest reads",
+      "before": "const hashes={nativeSha256:",
+      "after": "const label=['cold','before','after'][digestCosts.length];assert.ok(label,'Exactly three planned host captures');save(label+'-host',host);const hashes={nativeSha256:"
+    },
+    {
+      "purpose": "Raw input tape and explicit non-benchmark scope",
+      "before": "report.totalProcessElapsedMs=",
+      "after": "report.correctnessOnly=true;report.lane=lane;report.rawHostPreimages=['cold-host.json','before-host.json','after-host.json'];save('commands',P.commands);report.totalProcessElapsedMs="
+    }
+  ]
+}

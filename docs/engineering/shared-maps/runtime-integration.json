@@ -140,8 +140,8 @@
     {
       "path": "workbenches/furnished-house/geometry.js",
       "beforeLfSha256": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
-      "afterLfSha256": "cf8b8be2a752be959e0beea7c35b68701706b2ff4e4cdb2d5e8d67304a2c5873",
-      "reason": "Extract the unchanged native gravity step and prevalidate atomic physical-index batches."
+      "afterLfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+      "reason": "Extract the unchanged native gravity step and prevalidate atomic physical-index batches; return reference-counted unsubscribe handles for owned boundary watches."
     },
     {
       "path": "workbenches/furnished-house/scene.js",
@@ -152,8 +152,8 @@
     {
       "path": "workbenches/furnished-house/simulation.js",
       "beforeLfSha256": "1accf6d27f27d78dd019f24e10f15354fd79b81b6cb8c87ee63ab90fdd98f1b5",
-      "afterLfSha256": "75a6d2c1eaa1f7c956e5345fdabc3761cc374e0daf5a25e2d62efbd9f2c78012",
-      "reason": "Commit native source batches without resetting heat/time; reuse native local support, inert falls, real rubble and pane retirement without fuel creation."
+      "afterLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9",
+      "reason": "Commit native source batches without resetting heat/time; reuse native local support, inert falls, real rubble and pane retirement without fuel creation; dispose owned source-support memoization with the trial."
     },
     {
       "path": "workbenches/furnished-house/support.js",
@@ -261,7 +261,7 @@
     },
     {
       "path": "src/simulation/source-support.js",
-      "lfSha256": "34371c2a50e753b67e944ca9a4da645887013023cec327611a91215e3720351b"
+      "lfSha256": "88f4a0b2c8e9937058b70dc5971c2393bfbbdafda583134332867066f67a1109"
     },
     {
       "path": "src/ui/menu-navigation.js",
@@ -277,7 +277,7 @@
     },
     {
       "path": "tools/record-shared-map-runtime.mjs",
-      "lfSha256": "fadf48deddf4ccdbb69fbe1c8c31a7758688c7c50660227143382d32e9e1f395"
+      "lfSha256": "c766c094d8eeb63644a724aa6933e870b18049b3a28f325d57c819a5644b67f2"
     },
     {
       "path": "tools/review/check-shared-map-integrated.mjs",
@@ -290,6 +290,10 @@
     {
       "path": "tools/review/shared-map-camera-contact.mjs",
       "lfSha256": "9ec43708683bf00cd5d567886b55f42a42ac8082d59ef80c311714ac5975d3b3"
+    },
+    {
+      "path": "tools/review/shared-map-host-diff.mjs",
+      "lfSha256": "8c997a74a2ab0a5909672e891f7ff4acc3da284591c8bc4a5a0e00bd35150045"
     },
     {
       "path": "tools/review/shared-map-layout.mjs",

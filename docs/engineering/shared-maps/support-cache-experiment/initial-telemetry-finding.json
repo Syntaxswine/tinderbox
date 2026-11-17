@@ -1,0 +1,33 @@
+{
+  "scope": "Source-only saved-receipt comparison; no new simulation run and no raw-host hash waiver.",
+  "allRouteCheckpointPlayersAndContactsIdentical": true,
+  "allNativePhysicalGraphReplayFuelHeatDigestsIdentical": true,
+  "queryTelemetryChanges": {
+    "before": {
+      "cachedTriangles": {
+        "reference": 2336,
+        "candidate": 2528
+      },
+      "peakTriangles": {
+        "reference": 2528,
+        "candidate": 2560
+      },
+      "shapeBuilds": {
+        "reference": 496,
+        "candidate": 432
+      }
+    },
+    "after": {
+      "peakTriangles": {
+        "reference": 15432,
+        "candidate": 15244
+      },
+      "shapeBuilds": {
+        "reference": 1775,
+        "candidate": 1482
+      }
+    }
+  },
+  "strictHostDigestStillDifferent": true,
+  "hostPreimagesAvailable": false
+}
