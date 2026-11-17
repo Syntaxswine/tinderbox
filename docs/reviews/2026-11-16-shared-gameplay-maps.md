@@ -177,18 +177,24 @@ No new native run, format enablement or larger guard is implied.
 The artist's source measurement references now cover all 530 radial cases,
 all 126 direct wall fronts, both clipped balusters and the reviewed cut-box
 batches. [Cut/reference decisions](../engineering/shared-maps/cut-front-measurement-decision.md)
-accept the two final prototype constructions at `5607a80b`; eight exact cases
-still await their per-instance completion. Reference closure never declares the
+accept the two final prototype constructions at `5607a80b` and all eight final
+per-instance references at `e3b30186`, independently verified by root. Reference closure never declares the
 unchanged physical mesh closed. No Administration/Horticulture binding or stock
-export is installed. Living-plant decisions, pane damage ownership, full support
+export is installed. The [vegetation/pane proposal contract](../engineering/shared-maps/vegetation-and-pane-proposal.md)
+selects existing frame/cloth profiles and finite dry-control plant budgets for
+source design only. Pane damage ownership, full support
 integration and the remaining rollout still need work.
 
-Root accepts two distinct Horticulture exposed-roof area references after
-complete source selection and cover classification. The rear set gains 12
-previously omitted candidates and its exact union hits a 200,000-clip cap;
-its quantity stays withheld. [Roof decision](../engineering/shared-maps/roof-exposure-decision.md)
-assigns a bounded exact-union successor without increasing limits. Root's
-certificate verification rewrites no archive and reruns no stopped solve.
+Root accepts all three distinct Horticulture exposed-roof area references after
+complete source selection and cover classification. The rear's original
+200,000-clip failure is preserved; UI `2c1ad63f` retains all 569 candidates and
+completes its one optimized solve in 28,350 clips under the same cap. Root's
+41-hash/42-path saved-certificate verification passes all 1,464 primary masks,
+1,293 reductions, six partitions and scalar enclosure, rewriting no archive or
+rerunning a solve. The [roof decision](../engineering/shared-maps/roof-exposure-decision.md)
+records the explicit physical-source cover classification, including the
+authored .29 m staff arch. All 724 source quantity exceptions now have accepted
+measurement references; no runtime bindings or stock are installed by this.
 
 The New York pilot remains the only converted landmark. Its last actual held
 release is still 2,599.9 ms; firelight/menu acceptance is pending. Administration,
