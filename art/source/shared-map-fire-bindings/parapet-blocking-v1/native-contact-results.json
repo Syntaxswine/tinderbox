@@ -1,0 +1,785 @@
+{
+  "version": 1,
+  "result": "PASS",
+  "scope": "Actual source triangle contact only; runtime cold/active accounting, local parent loss and rendered acceptance remain separate.",
+  "manifestPath": "assets/art/shared-map-support-additions/new-york-parapet-blocking-v1/index.json",
+  "manifestSha256": "a5a34f18a4d18b5a316096edf58b941e727a7546e544636a5a29469bc5c5b1c2",
+  "geometrySha256": "c7356e7897372390040edb82ec1a92e33920230ca68de7e92ca52a7ff8d4d1ec",
+  "sharedGeometryCount": 1,
+  "uniqueMembers": 48,
+  "nativeTriangleContacts": 96,
+  "nativeTouchingFunctionSha256": "4a1c082c518c22d31bfbf6c6d01ff49d4b6589a246eb8182b662b48d16f58441",
+  "producerSha256": "92e5683a7cfb9fc01bcef16e1c0e55751f45746738a2d975e7030877c030abe1",
+  "controls": [
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-00",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-00",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-00",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-00",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-01",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-01",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-01",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-01",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-02",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-02",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-02",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-02",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-03",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-03",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-03",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-03",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-04",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-04",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-04",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-04",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-05",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-05",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-05",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-05",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-06",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-06",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-06",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-06",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-07",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-07",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-07",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-07",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-08",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-08",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-08",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-08",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-09",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-09",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-09",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-09",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-10",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-10",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-10",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-10",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-11",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-11",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-11",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-11",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-12",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-12",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-12",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-12",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-13",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-13",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-13",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-13",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-14",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-14",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-14",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-14",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-15",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-15",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-15",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-15",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-16",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-16",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-16",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-16",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-17",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-17",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-17",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-17",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-18",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-18",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-18",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-18",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-19",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-19",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-19",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-19",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-20",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-20",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-20",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-20",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-21",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-21",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-21",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-21",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-22",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-22",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-22",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-22",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-23",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-23",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-23",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-23",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-24",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-24",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-24",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-24",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-25",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-25",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-25",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-25",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-26",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-26",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-26",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-26",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-27",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-27",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-27",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-27",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-28",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-28",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-28",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-28",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-29",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-29",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-29",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-29",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-30",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-30",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-30",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-30",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-31",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-31",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-31",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-31",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-32",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-32",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-32",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-32",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-33",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-33",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-33",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-33",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-34",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-34",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-34",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-34",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-35",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-35",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-35",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-35",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-36",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-36",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-36",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-36",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-37",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-37",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-37",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-37",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-38",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-38",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-38",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-38",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-39",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-39",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-39",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-39",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-40",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-40",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-40",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-40",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-41",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-41",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-41",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-41",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-42",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-42",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-42",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-42",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-43",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-43",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-43",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-43",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-44",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-44",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-44",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-44",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-45",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-45",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-45",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-45",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-46",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-46",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-46",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-46",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-47",
+      "blockFace": "bottom",
+      "childCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-47",
+      "parentCarrierId": "carrier/edge-0/cornice-7",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    },
+    {
+      "blockCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-47",
+      "blockFace": "top",
+      "childCarrierId": "carrier/main-parapet-0/base",
+      "parentCarrierId": "carrier/proposed-blocking/main-parapet-0/bay-47",
+      "nativeTriangleContact": true,
+      "groundAnchor": false
+    }
+  ],
+  "runtimeBehaviorAcceptance": false,
+  "rendererStarted": false
+}

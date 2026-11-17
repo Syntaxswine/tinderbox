@@ -1,0 +1,134 @@
+{
+  "addedStaticFrameFuel": 2.1504,
+  "checks": {
+    "appearance": 2,
+    "authority": 2,
+    "bearing": 480,
+    "frame": 1,
+    "fuel": 53,
+    "geometry": 7,
+    "history": 1,
+    "identity": 48,
+    "normal": 576,
+    "pin": 4,
+    "placement": 49,
+    "region": 384,
+    "retirement": 1,
+    "schema": 2,
+    "scope": 98,
+    "solid": 144,
+    "uv": 24
+  },
+  "combinedCanonicalOwners": 12494,
+  "combinedStaticTotal": 15770.094353,
+  "geometryBytes": 1938,
+  "geometryCount": 1,
+  "geometryId": "a91bddde99e47a78d59ef47a12b88a7833b9ce17e686f48699325dc9e8f6e6ad",
+  "geometrySha256": "c7356e7897372390040edb82ec1a92e33920230ca68de7e92ca52a7ff8d4d1ec",
+  "localBearings": 96,
+  "manifestBytes": 280813,
+  "manifestPath": "assets/art/shared-map-support-additions/new-york-parapet-blocking-v1/index.json",
+  "manifestSha256": "a5a34f18a4d18b5a316096edf58b941e727a7546e544636a5a29469bc5c5b1c2",
+  "memberCount": 48,
+  "nativeContacts": 96,
+  "negativeControlCount": 18,
+  "negativeControls": [
+    {
+      "name": "extra 49th member",
+      "reason": "scope:exact 48 new canonical identities only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "unapproved or original member identity",
+      "reason": "scope:exact 48 new canonical identities only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "static fuel inflation",
+      "reason": "fuel:one exact closed-volume account per member",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "activation stock birth",
+      "reason": "fuel:static stock before activation only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "activation stock refill",
+      "reason": "fuel:static stock before activation only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "source offset applied twice",
+      "reason": "placement:exact original approved matrix bounds and metre bay",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "superseded new role or global promotion",
+      "reason": "scope:approved new member physical role only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "invented earth anchor",
+      "reason": "scope:no extra coating or ground anchors",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "extra coating",
+      "reason": "scope:no extra coating or ground anchors",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "parent redirected to separated roof",
+      "reason": "scope:exact 48 bottom and 48 top pairs only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "missing local bearing",
+      "reason": "scope:exact 48 bottom and 48 top pairs only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "reversed or symmetric direction",
+      "reason": "bearing:direct local dependency only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "whole 48 metre loss selector",
+      "reason": "bearing:exact local direct-bearing loss selector",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "whole carrier retirement",
+      "reason": "bearing:direct local dependency only",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "forced bay break rule",
+      "reason": "retirement:local bearing with shared remaining neighbor stability",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "changed immutable ten-control descriptor",
+      "reason": "pin:immutable ten-control descriptor",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "new primitive paint stretched",
+      "reason": "geometry:exact approved grossUV array",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "changed shared solid index",
+      "reason": "geometry:exact approved 12 triangle index",
+      "result": "EXPECTED_REJECTION"
+    }
+  ],
+  "originalCanonicalOwners": 12446,
+  "originalInputsUnchanged": true,
+  "rendererStarted": false,
+  "result": "PASS",
+  "runtimeColdActiveParityOrLocalLossAcceptance": false,
+  "triangleCount": 576,
+  "version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "addedStaticFrameFuel": 2.1504,
+  "addedTriangles": 576,
+  "approvedProposal": {
+    "commit": "9a88959d2011d182377a9eeb95d5ed9d222e46b1",
+    "path": "art/source/shared-map-fire-bindings/support-overrides-v1/parapet-blocking-proposal.json",
+    "sha256": "ba25706bd1cf0895e36b16465dd2c6a5acebbcafe30d30b8e51b9d56ec9d13b4"
+  },
+  "authoringSources": [
+    {
+      "path": "art/source/shared-map-fire-bindings/parapet-blocking-v1/model.py",
+      "sha256": "f22056dd555ac25385f61914e8d47b3774682e3b59ad42146ca297f450083097"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/parapet-blocking-v1/export.py",
+      "sha256": "119f1cdd5bb4dd2a240c1327a73b40d59610f469ec4c5562dd688ec20d000bc6"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/parapet-blocking-v1/check.py",
+      "sha256": "6c342d2e27a009a0392063d67b280b2299fe996aebf511e45d2777a8659a82bb"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/parapet-blocking-v1/check-native-contacts.mjs",
+      "sha256": "92e5683a7cfb9fc01bcef16e1c0e55751f45746738a2d975e7030877c030abe1"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/parapet-blocking-v1/.gitattributes",
+      "sha256": "f8fb292ccd82274b7807a25cadc5fd5d07d0f7fcdb67704c0ec615bec21647e5"
+    }
+  ],
+  "authority": {
+    "commit": "ca5fc5ba7d0b87a8c16f16ff80bcf13185c308a5",
+    "path": "docs/milestones/29-shared-gameplay-maps.md",
+    "sha256": "3afe8e25ef86e4763c7a35c665bbffa041580c5e2fab29a27a48dcd3ccb1dbc4",
+    "snapshotPath": "art/source/shared-map-fire-bindings/parapet-blocking-v1/authority-ca5fc5ba.md"
+  },
+  "beforePath": "art/source/shared-map-fire-bindings/parapet-blocking-v1/before-and-authority.json",
+  "beforeSha256": "cdda66c39b0b708f042b7a2025b972cdf11c53fe6f7640bdc0fd175304a1a421",
+  "combinedCanonicalOwners": 12494,
+  "combinedStaticTotal": 15770.094353,
+  "contract": {
+    "commit": "4e8dacc0720234e7f630606b91e067f90cf4bb7c",
+    "path": "docs/engineering/shared-maps/support-additions-contract.md",
+    "sha256": "bd39be8d9b5504213e01f663c3bf86c9af5c97441fb34d881077a4c8c7974ad2",
+    "snapshotPath": "art/source/shared-map-fire-bindings/parapet-blocking-v1/contract-4e8dacc0.md"
+  },
+  "directedLocalBearings": 96,
+  "existingCanonicalOwners": 12446,
+  "existingSourceAssetsChanged": false,
+  "geometry": {
+    "id": "a91bddde99e47a78d59ef47a12b88a7833b9ce17e686f48699325dc9e8f6e6ad",
+    "path": "assets/art/shared-map-support-additions/new-york-parapet-blocking-v1/geometry/a91bddde99e47a78d59ef47a12b88a7833b9ce17e686f48699325dc9e8f6e6ad.json",
+    "sha256": "c7356e7897372390040edb82ec1a92e33920230ca68de7e92ca52a7ff8d4d1ec",
+    "triangleCount": 12
+  },
+  "immutableSourceInputs": [
+    {
+      "path": "assets/art/shared-map-fire-bindings/new-york-complete-v1.json",
+      "sha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/index.json",
+      "sha256": "f1252c7364adfeb025f573fc4650020e71915a3e17e71bcf2e725e56c3f1c941"
+    },
+    {
+      "path": "assets/art/shared-map-support-overrides/new-york-controls-v1.json",
+      "sha256": "f3f28fda72742c6bc04d32f70331ab96e036662f953153952297fae9ce3bc915"
+    }
+  ],
+  "newCanonicalMembers": 48,
+  "originalGroundPath": [
+    "carrier/edge-0/cornice-7",
+    "carrier/main/0/seam-7-22/1",
+    "carrier/main/0/cell-7-22/1",
+    "carrier/attic-floor/tile--2-0",
+    "carrier/main/0/cell-6-22/1",
+    "carrier/main/0/seam-5-22/1",
+    "carrier/main/0/cell-5-22/1",
+    "carrier/main/0/seam-4-22/1",
+    "carrier/main/0/cell-4-22/1",
+    "carrier/main/0/seam-3-22/1",
+    "carrier/main/0/cell-3-22/1",
+    "carrier/main/0/seam-2-22/1",
+    "carrier/main/0/entry/jamb--1",
+    "carrier/front-landing/tile--2--1",
+    "carrier/main/0/cell-0-22/1"
+  ],
+  "otherUnrootedComponentsAccepted": false,
+  "output": {
+    "path": "assets/art/shared-map-support-additions/new-york-parapet-blocking-v1/index.json",
+    "sha256": "a5a34f18a4d18b5a316096edf58b941e727a7546e544636a5a29469bc5c5b1c2"
+  },
+  "physicalMathSources": [
+    {
+      "path": "art/source/shared-map-fire-bindings/export.py",
+      "sha256": "ae42ec633ab21e8d065ee0b3e3779292591c20cceb9d0f1dd3cd76b1600327aa"
+    }
+  ],
+  "placeId": "new-york",
+  "rendererStarted": false,
+  "runtimeActivationOrLocalLossAcceptance": false,
+  "sharedGeometries": 1,
+  "sourceGeometryAndQuantityStudy": {
+    "path": "art/source/shared-map-fire-bindings/support-overrides-v1/parapet-blocking-checks.json",
+    "sha256": "f7427cf426b881cefad7d95a32feae3e0906360fa6a5c2e356d4ac733a714290"
+  },
+  "trianglesPerMember": 12,
+  "version": 1
+}
