@@ -1,0 +1,32 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+
+const source='artifacts/qa/shared-map-runtime/phone-review-v5',prep=source+'-preparation',target='docs/engineering/shared-maps/phone-review-v5';
+const runtimeCommit='76290ae0ef5d08b2abdfcea5234f997f973b65e2',authority='822038cc7c3f3814f8aaa8e48c7973304b384fc2';
+const hash=b=>createHash('sha256').update(b).digest('hex'),git=(...args)=>execFileSync('git',args,{encoding:'utf8',windowsHide:true}).trim();
+assert.equal(git('diff','--name-only',runtimeCommit,'--','src','assets','art','vendor','workbenches'),'');
+const preserved=JSON.parse(fs.readFileSync(prep+'/preservation.json'));
+assert.equal(hash(fs.readFileSync(preserved.path)),preserved.sha256);
+const plan=JSON.parse(fs.readFileSync(source+'/plan.json')),build=JSON.parse(fs.readFileSync(source+'/build-receipt.json'));
+assert.equal(plan.authority,authority);assert.equal(plan.runtimeCommit,runtimeCommit);assert.equal(build.passed,true);
+const declaration=JSON.parse(fs.readFileSync('docs/engineering/shared-maps/runtime-integration.json'));
+const runtimeSources=['tools/review/shared-map-phone.mjs','tools/review/catalogue-browser.mjs','tools/review/browser-lanes.mjs','tools/review/shared-map-actions.mjs','tools/review/shared-map-layout.mjs','tools/build.mjs','tools/check-release.mjs'];
+const audit={version:1,runtimeCommit,authority,productionDiff:[],runtimeFiles:declaration.runtimeFiles.length,addedFiles:declaration.addedFiles.length,sourcePins:['assets/runtime/map-sources/new-york/index.json','assets/runtime/map-sources/new-york/library.json','src/simulation/source-support.js'].map(p=>({path:p,bytes:fs.statSync(p).size,rawSha256:hash(fs.readFileSync(p)),lfSha256:hash(fs.readFileSync(p,'utf8').replace(/\r\n/g,'\n'))})),reviewSources:runtimeSources.map(p=>({path:p,gitCommit:authority,rawSha256:hash(fs.readFileSync(p)),lfSha256:hash(fs.readFileSync(p,'utf8').replace(/\r\n/g,'\n'))})),wipPreserved:{path:preserved.path,sha256:preserved.sha256},noOtherMapOrSupportProposalInstalled:true};
+for(const p of audit.reviewSources)assert.equal(hash(execFileSync('git',['show',authority+':'+p.path])),p.lfSha256);
+assert.equal(audit.reviewSources[0].rawSha256,plan.harnessSha256);
+assert.equal(audit.sourcePins[2].lfSha256,'1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c');
+fs.writeFileSync(source+'/source-audit.json',JSON.stringify(audit,null,2)+'\n');
+const helper=JSON.parse(fs.readFileSync(source+'/helper.json'));
+const restart={version:1,owner:'Coder Tinderbox',purpose:'Preserve the consumed v5 browser investigation; do not automatically replay',authority,runtimeCommit,grantConsumed:true,helpersRunning:false,sourceCode:{gitCommit:authority,files:audit.reviewSources},localBuildProducer:'build-producer.mjs',cwd:helper.restart.cwd,runtime:{node:process.version,edgeChannel:'msedge',playwrightModuleResolution:'tools/review/catalogue-browser.mjs: installed playwright or USERPROFILE/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules',browserLaunchFlags:['--enable-gpu','--use-angle=d3d11']},build:{manifestSha256:build.manifestSha256,args:['tools/build.mjs'],checks:['tools/check-release.mjs'],files:build.files,bytes:build.bytes},browser:helper,inputs:'Trusted mouse joystick, contextual E and real canvas/keyboard actions in the pinned harness; no manual world-time stepping or state placement',outputs:'All raw receipts and both reached JPGs in this directory',pending:'Actual <=2000 ms held-key proof and successful menu route, final art/fire-light diagnostics, whole-map source/support/accounting/other-map gates',restartPolicy:'A new deliberate architect grant and fresh output directory are required; this record grants no second session, build, profile or publication.'};
+fs.writeFileSync(source+'/restart-record.json',JSON.stringify(restart,null,2)+'\n');
+fs.mkdirSync(target,{recursive:true});
+for(const name of fs.readdirSync(source)){assert.ok(fs.statSync(path.join(source,name)).isFile(),name);fs.copyFileSync(path.join(source,name),path.join(target,name));}
+for(const [from,to]of [['build.mjs','build-producer.mjs'],['summarize.mjs','summarize.mjs'],['archive.mjs','archive.mjs'],['prior-helper-check.json','prior-helper-check.json'],['preservation.json','wip-preservation.json']])fs.copyFileSync(path.join(prep,from),path.join(target,to));
+fs.writeFileSync(target+'/.gitattributes','*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol\n*.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol\n*.mjs text eol=lf\n.gitattributes text eol=lf\n');
+const files=fs.readdirSync(target).filter(n=>n!=='archive-manifest.json').sort().map(p=>{const b=fs.readFileSync(path.join(target,p));return {path:p,bytes:b.length,sha256:hash(b)};});
+fs.writeFileSync(target+'/archive-manifest.json',JSON.stringify({version:1,scope:'Exact raw fifth phone review, first failure preserved; documentation-only archive',files},null,2)+'\n');
+for(const f of files)assert.equal(hash(fs.readFileSync(path.join(target,f.path))),f.sha256);
+console.log(JSON.stringify({archive:target,files:files.length,bytes:files.reduce((n,f)=>n+f.bytes,0),sourceScopePassed:true,wipPreserved:true}));

@@ -1,0 +1,746 @@
+{
+  "stage": "sustained-ignition-attempt",
+  "error": "AssertionError [ERR_ASSERTION]: Actual held input exceeded its two-second limit\n    at requireHeldFlameAttempt (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tools/review/shared-map-actions.mjs:12:43)\n    at withCatalogueBrowser.output.output (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tools/review/shared-map-phone.mjs:109:447)\n    at async withCatalogueBrowser (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tools/review/catalogue-browser.mjs:71:16)\n    at async file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tools/review/shared-map-phone.mjs:34:1",
+  "state": {
+    "app": {
+      "phase": "visit",
+      "loadingId": null,
+      "error": null,
+      "placeId": "new-york",
+      "selectedCharacterId": "goat",
+      "capabilities": {
+        "version": 1,
+        "mode": "gameplay",
+        "tools": true,
+        "health": true,
+        "interact": true,
+        "overview": true
+      }
+    },
+    "player": {
+      "id": "hero",
+      "characterId": "goat",
+      "species": "goat",
+      "height": 1.66,
+      "x": 55.25697858222531,
+      "y": 25.30080257173046,
+      "radius": 0.5,
+      "heading": 2.080999812197051,
+      "moving": false,
+      "hp": 100,
+      "maxHp": 100,
+      "tool": "flamethrower",
+      "pouring": false,
+      "usingTool": false,
+      "inventory": {
+        "matches": 11,
+        "gas": 4,
+        "molotovs": 4,
+        "torchFuel": 4.586000000000046,
+        "flamethrowerFuel": 5.940000000000001,
+        "powder": 4,
+        "healing": 3,
+        "inversion": 3
+      },
+      "travelled": 32.52147652681438,
+      "lanternAim": null,
+      "torch": {
+        "phase": "lit",
+        "durationSeconds": 41.66666666666667,
+        "remainingSeconds": 38.216666666667045
+      },
+      "elevation": 2.12,
+      "level": 1,
+      "surfaceId": "front-landing",
+      "interior": false,
+      "moduleOwner": "new-york",
+      "verticalVelocity": 0,
+      "locationLabel": "Main hall",
+      "characterFire": {
+        "version": 1,
+        "active": false,
+        "mode": "none",
+        "intensity": 0,
+        "age": 0
+      },
+      "interaction": {
+        "id": "ny-front",
+        "kind": "door",
+        "action": "open",
+        "label": "Open front doors",
+        "enabled": true,
+        "reason": "",
+        "anchor": [
+          56,
+          4.27,
+          26
+        ]
+      }
+    },
+    "clocks": {
+      "active": 9.666666666666726,
+      "player": 9.666666666666726,
+      "world": 9.666666666666726,
+      "playerScale": 1,
+      "worldScale": 1
+    },
+    "tick": 580,
+    "paused": false,
+    "navigation": {
+      "activeSections": 45,
+      "pendingSections": 0,
+      "geometries": 0,
+      "materials": 0,
+      "externalViews": 45,
+      "peakSections": 45,
+      "peakGeometries": 0,
+      "sectionLoads": 45,
+      "sectionReleases": 0,
+      "maxSections": 192,
+      "view": "follow",
+      "cutaway": false,
+      "failed": false,
+      "placeId": "new-york",
+      "waitingForSection": false,
+      "portalStates": {
+        "ny-front": false,
+        "ny-east": false,
+        "ny-west": false,
+        "ny-east-upper": false,
+        "ny-west-upper": false
+      },
+      "collision": {
+        "querySurfaces": 12859,
+        "sourceParts": 12858,
+        "sourceCarriers": 12446,
+        "claimedCarriers": 1577,
+        "cachedShapes": 169,
+        "cachedTriangles": 2680,
+        "peakShapes": 169,
+        "peakTriangles": 15244,
+        "shapeBuilds": 1610,
+        "maxSingleQueryTriangles": 220,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0,
+        "bodies": [
+          {
+            "detailedColliders": 1207,
+            "cachedShapes": 0,
+            "cachedTriangles": 0,
+            "peakCachedShapes": 0,
+            "peakCachedTriangles": 0,
+            "maxCachedShapes": 192,
+            "maxCachedTriangles": 65536
+          }
+        ]
+      },
+      "navigation": {}
+    },
+    "discharge": {
+      "version": 1,
+      "tick": 580,
+      "active": false,
+      "tool": null,
+      "origin": null,
+      "shapeOrigin": null,
+      "heading": 0,
+      "range": 0,
+      "radius": 0,
+      "halfAngle": 0,
+      "connectRays": false,
+      "rays": [],
+      "lead": null
+    },
+    "thermal": {
+      "backend": "native-map-trial",
+      "representation": "native-map-sparse-sources",
+      "nativeTick": 290,
+      "nativeWorldTime": 9.666666666666666,
+      "residual": 0,
+      "pendingDepositedFuel": 0,
+      "metrics": {
+        "tick": 290,
+        "worldTime": 9.666666666666666,
+        "fuel": {
+          "initial": 0,
+          "added": 1834.6261287150205,
+          "burned": 0.0035333347548032116,
+          "escaped": 0,
+          "remaining": 1834.622595380312,
+          "airborne": 0,
+          "error": -4.638422979041934e-11
+        },
+        "heat": {
+          "generated": 0.42400017057638534,
+          "input": 3.4499999999999917,
+          "ambient": 0.3894378962608729,
+          "blocked": 0.13107927652085077,
+          "cap": 0,
+          "escaped": 0.06362613433062302,
+          "stored": 3.289856863464038,
+          "radiationInTransit": 0,
+          "error": -7.549516567451064e-15,
+          "relativeError": -1.9487651613417045e-15
+        },
+        "burningCount": 4,
+        "burningArea": 0.9798004578196682,
+        "combustibleArea": 3014.5431974488965,
+        "burningAreaFraction": 0.00032502452067989583,
+        "burnedFraction": 0.0000019259154219491974,
+        "activeCells": 48,
+        "fallingCount": 0,
+        "queuedRadiationSources": 0,
+        "queuedRays": 0,
+        "oldestRadiationQueryDelay": 0,
+        "oldestRadiationEnergyAge": 0,
+        "stats": {
+          "ticks": 290,
+          "cellVisits": 1122,
+          "burnVisits": 946049,
+          "linkBuilds": 2,
+          "rayBuilds": 96,
+          "rayTests": 434,
+          "invalidations": 0,
+          "ignitions": 4,
+          "failures": 0,
+          "landings": 0,
+          "peakActive": 48,
+          "maxBurnsPerFuelPerTick": 1
+        }
+      },
+      "gridCells": 27952,
+      "activation": {
+        "batches": 28,
+        "activatedCarriers": 1577,
+        "probedCells": 49,
+        "lastBatchMs": 320.69999980926514,
+        "totalBatchMs": 1730.1999998092651,
+        "peakBatchMs": 819.5,
+        "peakBatchCarriers": 547
+      },
+      "query": {
+        "querySurfaces": 12859,
+        "sourceParts": 12858,
+        "sourceCarriers": 12446,
+        "claimedCarriers": 1577,
+        "cachedShapes": 169,
+        "cachedTriangles": 2680,
+        "peakShapes": 169,
+        "peakTriangles": 15244,
+        "shapeBuilds": 1610,
+        "maxSingleQueryTriangles": 220,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "carriers": {
+        "staticInitial": 15767.943953000535,
+        "activeInitial": 1834.625174999997,
+        "coldReserve": 13933.318778000263,
+        "canonicalCarriers": 12446,
+        "activeCarriers": 1577,
+        "reservedCarriers": 10869,
+        "nativeStaticBirths": 1834.6261287150205,
+        "nativeClippingDelta": 0.000953715023570112,
+        "nativePartitionError": {
+          "signedDelta": 0.000953715023570112,
+          "positive": 0.002059858937931026,
+          "negative": 0.024180248645889538,
+          "roundoffBound": 0.000004247383921170295
+        },
+        "world": {
+          "initial": 15767.943953000535,
+          "added": 0,
+          "remaining": 15767.941373380574,
+          "airborne": 0,
+          "burned": 0.0035333347548032116,
+          "escaped": 0,
+          "error": -0.0009537147941329686
+        }
+      },
+      "limitations": {
+        "declaredSupportUnresolved": [],
+        "unassignedParts": 0
+      },
+      "support": {
+        "nodes": 34318,
+        "coldCarrierNodes": 10869,
+        "declaredPairs": 15285,
+        "adjacencyPairs": 25198,
+        "anchors": 5178,
+        "initiallySupported": 31738,
+        "unresolvedInitial": 1038,
+        "missingLocalLinks": 0,
+        "checks": 9,
+        "topologyCache": {
+          "entries": 7487,
+          "entryLimit": 52929,
+          "variantsPerCalculation": 1,
+          "directedEdges": 535031,
+          "peakDirectedEdges": 535031,
+          "hits": 20429,
+          "misses": 8041,
+          "invalidations": 554,
+          "watchedBoundaries": 47176,
+          "retainedColdMeshes": 0,
+          "disposed": false,
+          "continuityBuilds": 1581,
+          "peakTemporaryRecords": 2124,
+          "peakTemporaryMemberships": 9068,
+          "retainedTemporaryIndexes": 0
+        }
+      },
+      "navigation": {},
+      "resident": {
+        "state": "routine",
+        "routeIndex": 0,
+        "holdUntil": null,
+        "smokeSince": null,
+        "lookSince": null,
+        "exitIndex": 0,
+        "blocked": null
+      },
+      "instances": [
+        "new-york"
+      ],
+      "wind": {
+        "kind": "ambient-control",
+        "speed": 1.5,
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "obstacleResolved": false
+      },
+      "profiles": {
+        "grass": {
+          "threshold": 0.85,
+          "delay": 0.18,
+          "seconds": 1,
+          "energy": 36.666666666666664
+        },
+        "oil": {
+          "threshold": 0.6,
+          "delay": 0,
+          "seconds": 14,
+          "energy": 800
+        },
+        "clapboard": {
+          "threshold": 1.1,
+          "delay": 5,
+          "seconds": 180,
+          "energy": 3420
+        },
+        "partition": {
+          "threshold": 1.1,
+          "delay": 5,
+          "seconds": 180,
+          "energy": 2200
+        },
+        "door": {
+          "threshold": 1.1,
+          "delay": 5,
+          "seconds": 60,
+          "energy": 1000
+        },
+        "roof": {
+          "threshold": 1.1,
+          "delay": 3,
+          "seconds": 180,
+          "energy": 1980
+        },
+        "frame": {
+          "threshold": 1.3,
+          "delay": 3,
+          "seconds": 180,
+          "energy": 2250
+        },
+        "furniture": {
+          "threshold": 1.1,
+          "delay": 3,
+          "seconds": 60,
+          "energy": 1200
+        },
+        "cloth": {
+          "threshold": 0.8,
+          "delay": 0.5,
+          "seconds": 20,
+          "energy": 600
+        },
+        "lacquer": {
+          "threshold": 0.5,
+          "delay": 0,
+          "seconds": 4,
+          "energy": 120
+        },
+        "coal": {
+          "threshold": 1.6,
+          "delay": 15,
+          "seconds": 300,
+          "energy": 1800
+        },
+        "embers": {
+          "threshold": 0.7,
+          "delay": 0,
+          "seconds": 8,
+          "energy": 500
+        }
+      },
+      "inputProfiles": {
+        "matches": 1.05,
+        "torch": 1.8,
+        "flamethrowerEnergyPerSecond": 12,
+        "lanternPayload": 0.5,
+        "gasPerMetre": 0.08
+      },
+      "timing": {
+        "nativeSteps": 1,
+        "nativeSimulationMs": 1.5999999046325684,
+        "physicalPublicationMs": 0.5999999046325684,
+        "rasterPublicationMs": 0,
+        "diagnosticsMs": 0,
+        "nativePhases": {
+          "commandsAndFallsMs": 0,
+          "burnRegistryMs": 0.09999990463256836,
+          "transportMs": 0.09999990463256836,
+          "preheatMs": 0.5999999046325684,
+          "coolingMs": 0,
+          "boundaryAndSupportMs": 0,
+          "itemsMs": 0
+        },
+        "hostWork": {
+          "hostSteps": 580,
+          "nativeSteps": 290,
+          "nativeSimulationMs": 1283.099995136261,
+          "backendAdvanceMs": 3399.8999938964844,
+          "metricsQueriesMs": 40.30000019073486,
+          "looseFuelQueriesMs": 2.59999942779541,
+          "physicalPublicationMs": 44.39999961853027,
+          "rasterPublicationMs": 0,
+          "diagnosticsMs": 9.800001621246338,
+          "smokeSignalCalls": 0,
+          "smokeSignalsMs": 0,
+          "smokeSightMs": 0,
+          "navigationMs": 712.1000094413757
+        }
+      }
+    },
+    "events": [
+      {
+        "id": 368,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.921763881947484,
+        "y": 25.749995508263297,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 358,
+        "cellId": "109,2,51",
+        "position": [
+          54.921763881947484,
+          3.17,
+          25.749995508263297
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 359,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 369,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.89829620960853,
+        "y": 25.749995508443273,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 359,
+        "cellId": "109,2,51",
+        "position": [
+          54.89829620960853,
+          3.17,
+          25.749995508443273
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 360,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 370,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.87356869998866,
+        "y": 25.749995508630786,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 360,
+        "cellId": "109,2,51",
+        "position": [
+          54.87356869998866,
+          3.17,
+          25.749995508630786
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 361,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 371,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.847419573769585,
+        "y": 25.749995508825627,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 361,
+        "cellId": "109,2,51",
+        "position": [
+          54.847419573769585,
+          3.17,
+          25.749995508825627
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 362,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 372,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.65415753877202,
+        "y": 25.919993803365205,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 362,
+        "cellId": "109,2,51",
+        "position": [
+          54.65415753877202,
+          3.17,
+          25.919993803365205
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 363,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 373,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.61337494820209,
+        "y": 25.919993803574073,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 363,
+        "cellId": "109,2,51",
+        "position": [
+          54.61337494820209,
+          3.17,
+          25.919993803574073
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 364,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 374,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.607734733041326,
+        "y": 25.9199938036024,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 364,
+        "cellId": "109,2,51",
+        "position": [
+          54.607734733041326,
+          3.17,
+          25.9199938036024
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 365,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 375,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.60773460304669,
+        "y": 25.919993803602402,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 365,
+        "cellId": "109,2,51",
+        "position": [
+          54.60773460304669,
+          3.17,
+          25.919993803602402
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 366,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 376,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.60773447305201,
+        "y": 25.919993803602402,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 366,
+        "cellId": "109,2,51",
+        "position": [
+          54.60773447305201,
+          3.17,
+          25.919993803602402
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 367,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 377,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.569719147745076,
+        "y": 25.919993803789623,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 367,
+        "cellId": "109,2,51",
+        "position": [
+          54.569719147745076,
+          3.17,
+          25.919993803789623
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 368,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 378,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.52277122727379,
+        "y": 25.91999380401162,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 368,
+        "cellId": "109,2,51",
+        "position": [
+          54.52277122727379,
+          3.17,
+          25.91999380401162
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 369,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      },
+      {
+        "id": 379,
+        "tick": 558,
+        "type": "thermal-heat-input",
+        "x": 54.472031308368244,
+        "y": 25.919993804239837,
+        "time": 9.3,
+        "tool": "flame",
+        "commandSequence": 369,
+        "cellId": "108,2,51",
+        "position": [
+          54.472031308368244,
+          3.17,
+          25.919993804239837
+        ],
+        "energy": 0.0071428571428571435,
+        "backend": "native-map-trial",
+        "nativeEventId": 370,
+        "nativeTick": 279,
+        "nativeWorldTime": 9.3,
+        "hostWorldTime": 9.300000000000042
+      }
+    ],
+    "metrics": {
+      "frames": 429,
+      "simulationMs": 14.700000286102295,
+      "artCpuMs": 3.6999998092651367,
+      "uiCpuMs": 0.5999999046325684,
+      "renderSubmitCpuMs": 1.3000001907348633,
+      "rendererDescription": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0",
+      "streaming": {
+        "activeSections": 45,
+        "pendingSections": 0,
+        "geometries": 0,
+        "materials": 0,
+        "externalViews": 45,
+        "peakSections": 45,
+        "peakGeometries": 0,
+        "sectionLoads": 45,
+        "sectionReleases": 0,
+        "maxSections": 192,
+        "view": "follow",
+        "cutaway": false,
+        "failed": false
+      },
+      "simulationCpuP95Ms": 10.5,
+      "observedHz": 21.176532872155505,
+      "renderCpuP95Ms": 6.400000095367432,
+      "drawCalls": 124,
+      "geometries": 200,
+      "textures": 60,
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "threeRevision": "180",
+      "camera": {
+        "target": [
+          55.25697858222531,
+          2.12,
+          25.30080257173046
+        ],
+        "span": 13.65,
+        "zoom": 1,
+        "mode": "follow",
+        "followPlayer": true
+      }
+    },
+    "inputCount": 60
+  }
+}

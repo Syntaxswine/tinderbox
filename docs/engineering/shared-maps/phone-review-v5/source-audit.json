@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "runtimeCommit": "76290ae0ef5d08b2abdfcea5234f997f973b65e2",
+  "authority": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+  "productionDiff": [],
+  "runtimeFiles": 22,
+  "addedFiles": 40,
+  "sourcePins": [
+    {
+      "path": "assets/runtime/map-sources/new-york/index.json",
+      "bytes": 8021251,
+      "rawSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+      "lfSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+    },
+    {
+      "path": "assets/runtime/map-sources/new-york/library.json",
+      "bytes": 3150020,
+      "rawSha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296",
+      "lfSha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+    },
+    {
+      "path": "src/simulation/source-support.js",
+      "bytes": 13327,
+      "rawSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c",
+      "lfSha256": "1e6bd6ec6921119af942cce3e3fc69bf2449b0b3ead543697f88e435039bd98c"
+    }
+  ],
+  "reviewSources": [
+    {
+      "path": "tools/review/shared-map-phone.mjs",
+      "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+      "rawSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37",
+      "lfSha256": "d561d73fc6351b4770471b30ff8849f0d7e7414be72dcab293537f170218ac37"
+    },
+    {
+      "path": "tools/review/catalogue-browser.mjs",
+      "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+      "rawSha256": "a2ef2a2831a0f98231236627d0af4b89c12f264bff7123389692b1d7dd6cd376",
+      "lfSha256": "a2ef2a2831a0f98231236627d0af4b89c12f264bff7123389692b1d7dd6cd376"
+    },
+    {
+      "path": "tools/review/browser-lanes.mjs",
+      "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+      "rawSha256": "b4b29d47414fda1e7f72919cd965136773dc26081400c2599712d076832d90bc",
+      "lfSha256": "b4b29d47414fda1e7f72919cd965136773dc26081400c2599712d076832d90bc"
+    },
+    {
+      "path": "tools/review/shared-map-actions.mjs",
+      "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+      "rawSha256": "5bbb4b0e9803b864cf023eaf84720ea431220711bce6c142beef66e391a7ffb7",
+      "lfSha256": "5bbb4b0e9803b864cf023eaf84720ea431220711bce6c142beef66e391a7ffb7"
+    },
+    {
+      "path": "tools/review/shared-map-layout.mjs",
+      "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+      "rawSha256": "9b43df21f5d3b971cb075bb69eeba196f2940357102e0002b0d162897532d85a",
+      "lfSha256": "9b43df21f5d3b971cb075bb69eeba196f2940357102e0002b0d162897532d85a"
+    },
+    {
+      "path": "tools/build.mjs",
+      "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+      "rawSha256": "e900dfd55f680d3137afdaf3e7d490fbd38b8ccbc52546a8ed10f855fe4435bc",
+      "lfSha256": "220a7806e05a46cad69d45b249c71334a09fa5b6b61aab81dc72b35212dbe929"
+    },
+    {
+      "path": "tools/check-release.mjs",
+      "gitCommit": "822038cc7c3f3814f8aaa8e48c7973304b384fc2",
+      "rawSha256": "0b3a286048222f9ebe5d8f39e7ba9f4e257f4d6731ee7d6d1d7166f6dbb36146",
+      "lfSha256": "19cc17082c006922e1803f00c1ac9f13756cea0a2bf2c8eb92103357c44f7e11"
+    }
+  ],
+  "wipPreserved": {
+    "path": "docs/engineering/shared-maps/support-regions-proposal.md",
+    "sha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f"
+  },
+  "noOtherMapOrSupportProposalInstalled": true
+}
