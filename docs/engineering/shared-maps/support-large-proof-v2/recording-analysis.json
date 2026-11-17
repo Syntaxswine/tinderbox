@@ -1,0 +1,468 @@
+{
+  "version": 1,
+  "kind": "Derived inspection of the one saved recording; no new observation/admission/calculation",
+  "authority": "89d4073103f436187236ee0272c1ceac6067fe02",
+  "complete": false,
+  "observedFirstFailure": {
+    "stage": "admission",
+    "name": "AssertionError",
+    "message": "First provider rejection/cap stops the proof\n\n3 !== 4\n",
+    "stack": "AssertionError [ERR_ASSERTION]: First provider rejection/cap stops the proof\n\n3 !== 4\n\n    at file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:106:292\n    at phase (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:28:71)\n    at file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:106:5\n    at Module.withNativePair (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/native-preparation.mjs:31:12)\n    at file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/docs/engineering/shared-maps/support-large-proof-v2/proof.mjs:85:10"
+  },
+  "derivedRejection": {
+    "block": "large-continuity",
+    "guard": "PREPARED_SUPPORT_LIMITS.identityValues applies to the entire admission clone, not just block.identity",
+    "wholeBlockValues": 512131,
+    "limit": 500000,
+    "excess": 12131,
+    "identityValues": 411451,
+    "evidence": "The one overflowing block is continuity; the other three full clone counts and edge counts sum exactly to observed admitted diagnostics. No provider was reinvoked."
+  },
+  "comparisons": [
+    {
+      "name": "large-continuity",
+      "edges": 33558,
+      "result": {
+        "type": "undefined"
+      },
+      "digest": "54e42c95ac3f74a373f8e3671d41e8d0e48a4040523711d3e1da3d0d0cb920d8",
+      "exactRecordedOriginalAndSharedEquality": true,
+      "bypass": false
+    },
+    {
+      "name": "both-cold-bypass",
+      "edges": 2,
+      "result": {
+        "type": "boolean",
+        "value": true
+      },
+      "digest": "189d9a7e526c9ee2a17ba032722a3fbdcb245636fc1a78abdf38a474de3632ce",
+      "exactRecordedOriginalAndSharedEquality": true,
+      "bypass": true
+    },
+    {
+      "name": "deck-active-contact",
+      "edges": 8,
+      "result": {
+        "type": "boolean",
+        "value": true
+      },
+      "digest": "9e795038b5b50f4dd44065553395d67a0a5d1387b9994dda40fc38ae6ac99686",
+      "exactRecordedOriginalAndSharedEquality": true,
+      "bypass": false
+    },
+    {
+      "name": "roof-active-contact",
+      "edges": 32,
+      "result": {
+        "type": "boolean",
+        "value": true
+      },
+      "digest": "51ad5749e3a8fd05f5029812b1343674f088487ca374156049bd6ca7255c1cc8",
+      "exactRecordedOriginalAndSharedEquality": true,
+      "bypass": false
+    },
+    {
+      "name": "both-active-contact",
+      "edges": 72,
+      "result": {
+        "type": "boolean",
+        "value": true
+      },
+      "digest": "dc66dd7b56403326b3b1eac25574f56dc59b45d21eae8e058af0d054f60f30b2",
+      "exactRecordedOriginalAndSharedEquality": true,
+      "bypass": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "large-continuity",
+      "key": "continuity:new-york::carrier/roof/clerestory",
+      "edges": 33558,
+      "result": {
+        "type": "undefined"
+      },
+      "identity": {
+        "values": 411451,
+        "maxDepth": 8,
+        "maxStringLength": 64
+      },
+      "wholeBlockClone": {
+        "values": 512131,
+        "maxDepth": 9,
+        "maxStringLength": 64
+      },
+      "digest": "8335f7a346245874b25f02d9e1bd2f0c9c342a86433235e728e84f97c859c66e",
+      "perBlockCloneValueCap": 500000,
+      "exceedsWholeBlockCloneValueCap": true
+    },
+    {
+      "name": "deck-active-contact",
+      "key": "adjacency:3555",
+      "edges": 8,
+      "result": {
+        "type": "boolean",
+        "value": true
+      },
+      "identity": {
+        "values": 4366,
+        "maxDepth": 8,
+        "maxStringLength": 75
+      },
+      "wholeBlockClone": {
+        "values": 4397,
+        "maxDepth": 9,
+        "maxStringLength": 75
+      },
+      "digest": "582ceee6a15a176d975688dbc89225a3f4f1d509df2d8bd7c5f0dff657606b33",
+      "perBlockCloneValueCap": 500000,
+      "exceedsWholeBlockCloneValueCap": false
+    },
+    {
+      "name": "roof-active-contact",
+      "key": "adjacency:3555",
+      "edges": 32,
+      "result": {
+        "type": "boolean",
+        "value": true
+      },
+      "identity": {
+        "values": 411529,
+        "maxDepth": 8,
+        "maxStringLength": 64
+      },
+      "wholeBlockClone": {
+        "values": 411632,
+        "maxDepth": 9,
+        "maxStringLength": 64
+      },
+      "digest": "f011b053887d4a72c2a8e81dfb0c06ffb8fb371215f777682884abb2e2e678c9",
+      "perBlockCloneValueCap": 500000,
+      "exceedsWholeBlockCloneValueCap": false
+    },
+    {
+      "name": "both-active-contact",
+      "key": "adjacency:3555",
+      "edges": 72,
+      "result": {
+        "type": "boolean",
+        "value": true
+      },
+      "identity": {
+        "values": 412501,
+        "maxDepth": 8,
+        "maxStringLength": 75
+      },
+      "wholeBlockClone": {
+        "values": 412724,
+        "maxDepth": 9,
+        "maxStringLength": 75
+      },
+      "digest": "0cf3f2d921489259f341c19a32e066459284ff084ab7f687b8444dadd410eb25",
+      "perBlockCloneValueCap": 500000,
+      "exceedsWholeBlockCloneValueCap": false
+    }
+  ],
+  "providerAdmission": {
+    "admitted": 3,
+    "keys": 1,
+    "hits": 0,
+    "misses": 0,
+    "rejected": 1,
+    "identityValues": 828753,
+    "edges": 112,
+    "owned": true,
+    "disposed": false
+  },
+  "resources": {
+    "selectedOwners": [
+      "new-york::carrier/clerestory-roof-deck/tile--1-10",
+      "new-york::carrier/roof/clerestory"
+    ],
+    "compiledNativeScenes": 1,
+    "trials": 0,
+    "worldSteps": 0,
+    "sourceParts": 2,
+    "sourceSurfaces": 6,
+    "nativeFragments": 4136,
+    "localCells": 9520,
+    "localFuels": 4136,
+    "coldGeometryRetained": false
+  },
+  "nativeCounts": {
+    "byOwner": [
+      {
+        "id": "new-york::carrier/clerestory-roof-deck/tile--1-10",
+        "parts": 1,
+        "fragments": 4,
+        "nativeTriangles": 9
+      },
+      {
+        "id": "new-york::carrier/roof/clerestory",
+        "parts": 1,
+        "fragments": 4132,
+        "nativeTriangles": 8546
+      }
+    ],
+    "resources": {
+      "selectedOwners": [
+        "new-york::carrier/clerestory-roof-deck/tile--1-10",
+        "new-york::carrier/roof/clerestory"
+      ],
+      "compiledNativeScenes": 1,
+      "trials": 0,
+      "worldSteps": 0,
+      "sourceParts": 2,
+      "sourceSurfaces": 6,
+      "nativeFragments": 4136,
+      "localCells": 9520,
+      "localFuels": 4136,
+      "coldGeometryRetained": false
+    },
+    "sourceExpansion": {
+      "canonicalCarriers": 12446,
+      "sourceParts": 12858,
+      "decodedUniqueGeometries": 434,
+      "appearanceMaterials": 9,
+      "startupWorldShapesExpanded": 0,
+      "startupThermalCellsAllocated": 0,
+      "decodedAttributeGeometries": 0,
+      "transformedQueries": 0,
+      "renderExpansions": 0,
+      "nativeSourceExpansions": 2,
+      "nativePartTransforms": 2,
+      "presentationBlueprints": 0,
+      "presentationPartTransforms": 0,
+      "staticIndexBins": 148
+    }
+  },
+  "referenceJSON": {
+    "serializedBytesExcludingFinalNewline": 24151806,
+    "fileBytes": 24151807,
+    "sha256": "bfab707ff646e9dfedfaae3b80d510ac750e4f561335d895c24c4e4cc4d49418",
+    "blocks": 4
+  },
+  "timing": {
+    "source": "Original final.json stage records only",
+    "unit": "ms",
+    "spans": [
+      {
+        "name": "pinned-inputs",
+        "status": "passed",
+        "ms": 37.495000000000005
+      },
+      {
+        "name": "imports",
+        "status": "passed",
+        "ms": 68.1197
+      },
+      {
+        "name": "parse-source-json",
+        "status": "passed",
+        "ms": 55.38729999999998
+      },
+      {
+        "name": "map-metadata",
+        "status": "passed",
+        "ms": 56.85649999999998
+      },
+      {
+        "name": "select-exact-pair",
+        "status": "passed",
+        "ms": 0.22739999999998872
+      },
+      {
+        "name": "source-part-preflight",
+        "status": "passed",
+        "ms": 0.11969999999996617
+      },
+      {
+        "name": "native-blueprint",
+        "status": "passed",
+        "ms": 1.350500000000011
+      },
+      {
+        "name": "native-clipping",
+        "status": "passed",
+        "ms": 214.0842
+      },
+      {
+        "name": "native-postflight",
+        "status": "passed",
+        "ms": 0.07389999999998054
+      },
+      {
+        "name": "large-continuity:original",
+        "status": "passed",
+        "ms": 102.39919999999995
+      },
+      {
+        "name": "large-continuity:shared",
+        "status": "passed",
+        "ms": 82.44650000000001
+      },
+      {
+        "name": "large-continuity:equivalence",
+        "status": "passed",
+        "ms": 7.91820000000007
+      },
+      {
+        "name": "large-continuity:identity",
+        "status": "passed",
+        "ms": 192.50300000000004
+      },
+      {
+        "name": "large-continuity:block",
+        "status": "passed",
+        "ms": 42.041099999999915
+      },
+      {
+        "name": "both-cold-bypass:original",
+        "status": "passed",
+        "ms": 0.1850000000001728
+      },
+      {
+        "name": "both-cold-bypass:shared",
+        "status": "passed",
+        "ms": 0.13440000000014152
+      },
+      {
+        "name": "both-cold-bypass:equivalence",
+        "status": "passed",
+        "ms": 0.13810000000012224
+      },
+      {
+        "name": "deck-active-contact:original",
+        "status": "passed",
+        "ms": 0.3894000000000233
+      },
+      {
+        "name": "deck-active-contact:shared",
+        "status": "passed",
+        "ms": 0.2799999999999727
+      },
+      {
+        "name": "deck-active-contact:equivalence",
+        "status": "passed",
+        "ms": 0.028500000000121872
+      },
+      {
+        "name": "deck-active-contact:identity",
+        "status": "passed",
+        "ms": 2.214000000000169
+      },
+      {
+        "name": "deck-active-contact:block",
+        "status": "passed",
+        "ms": 0.47129999999992833
+      },
+      {
+        "name": "roof-active-contact:original",
+        "status": "passed",
+        "ms": 1.6030000000000655
+      },
+      {
+        "name": "roof-active-contact:shared",
+        "status": "passed",
+        "ms": 1.153400000000147
+      },
+      {
+        "name": "roof-active-contact:equivalence",
+        "status": "passed",
+        "ms": 0.053800000000137516
+      },
+      {
+        "name": "roof-active-contact:identity",
+        "status": "passed",
+        "ms": 181.78840000000014
+      },
+      {
+        "name": "roof-active-contact:block",
+        "status": "passed",
+        "ms": 30.09199999999987
+      },
+      {
+        "name": "both-active-contact:original",
+        "status": "passed",
+        "ms": 2.9838999999999487
+      },
+      {
+        "name": "both-active-contact:shared",
+        "status": "passed",
+        "ms": 2.764399999999796
+      },
+      {
+        "name": "both-active-contact:equivalence",
+        "status": "passed",
+        "ms": 0.07079999999996289
+      },
+      {
+        "name": "both-active-contact:identity",
+        "status": "passed",
+        "ms": 179.0422000000001
+      },
+      {
+        "name": "both-active-contact:block",
+        "status": "passed",
+        "ms": 31.514900000000125
+      },
+      {
+        "name": "reference-json-encode",
+        "status": "passed",
+        "ms": 85.50679999999988
+      },
+      {
+        "name": "reference-json-write",
+        "status": "passed",
+        "ms": 23.523500000000013
+      },
+      {
+        "name": "reference-json-decode",
+        "status": "passed",
+        "ms": 71.92920000000004
+      },
+      {
+        "name": "admission",
+        "status": "failed",
+        "ms": 800.9016999999999
+      }
+    ],
+    "admissionDomain": "Provider construction, ownership claim, diagnostics, one internal observe/checkpoint and failing assertion; not a pure clone/hash span.",
+    "processElapsedMs": 3010.4495,
+    "parentElapsedMs": 3124.8639
+  },
+  "observedMemory": {
+    "bytes": {
+      "rss": 459964416,
+      "heapTotal": 393543680,
+      "heapUsed": 295084296,
+      "external": 24706637,
+      "arrayBuffers": 16436189
+    },
+    "MiB": {
+      "rss": 438.65625,
+      "heapTotal": 375.3125,
+      "heapUsed": 281.41431427001953,
+      "external": 23.562085151672363,
+      "arrayBuffers": 15.674771308898926
+    },
+    "limitation": "Stage-boundary maxima only, not true allocation peaks; no new sampling."
+  },
+  "unrun": [
+    "large-continuity:current-identity-equality",
+    "both-active-contact:current-identity-equality",
+    "large-continuity:active-replay",
+    "both-active-contact:active-replay",
+    "deck-active-contact:original-fallback",
+    "roof-active-contact:original-fallback"
+  ],
+  "cleanup": {
+    "native": true,
+    "query": true,
+    "compiledMetadata": true,
+    "provider": true,
+    "contexts": true
+  },
+  "retry": false,
+  "productionEnabled": false
+}
