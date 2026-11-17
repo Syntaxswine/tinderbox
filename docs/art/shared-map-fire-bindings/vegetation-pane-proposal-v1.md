@@ -103,3 +103,41 @@ manufacture cleaner results. No helper or service is retained.
 [All changed payload paths and hashes](../../../art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/review-package.json)
 accompany this source-only checkpoint. Full authoring export and runtime wiring
 remain separate tasks.
+
+## Verifier portability correction
+
+The original c50f590c default check rejected the combined M29 compiler at
+calculate.py:33 because the entire scene.js differed from the original artist
+parent. The [preserved failure](../../../art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/profile-context-original-failure.json)
+records the architect's intake finding and a read-only, in-memory reproduction
+using the exact approved source bytes. No working scene file was swapped.
+
+The current default verifier admits exactly three complete scene.js verification contexts
+after CRLF-to-LF normalization:
+
+| Context | Whole-source LF SHA-256 |
+| --- | --- |
+| e3b301860fad13855c7d2a8926f81bb1c4aed6be, original calculation | 5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859 |
+| 1a88cf4748bf62c1456285ff43412c929d311199, explicitly approved combined compiler | 5f763d6e9a28174f64d908e4ffca8284beca24ecfaf8afff671870a448473f36 |
+| c66e659451284309e48dc420791369dd5af37e1e, candidate verification only | 8acefb0429d03033ecb81d8fa76fc3d56d6bba3ef910dbe104aa75ed5411d21b |
+
+[Exact context policy](../../../art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/compiler-contexts.json)
+and [admission controls](../../../art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/profile-context-verification.json)
+verify the complete LF bytes and each committed Git blob, plus byte-identical
+frame/cloth blocks and explicit equality of all four required profile values.
+Six positive LF/CRLF controls pass; three rejecting controls retain protection
+against arbitrary compiler and profile changes. An unapproved full source is
+rejected even if it copies the required profile blocks unchanged.
+
+The current working context is reported in stdout, separately from the
+unchanged calculation reports. All three verification contexts retain response scales
+1/1. This source-check correction does not claim new compiler execution or
+rebase source measurements onto the combined compiler.
+
+The original calculate.py, all compressed/original calculation evidence, all
+geometry inputs and the 34 unaffected c50f590c payload files remain unchanged.
+The optional full calculator keeps its original e3b30186 source requirement;
+the portable default review.py applies the separately approved compiler-context
+admission. The c66e6594 source pin grants verification only; it does not accept
+the runtime candidate, its receipt/catalogue guards, or the regional pilot.
+No full calculation, native/world or renderer run was added.

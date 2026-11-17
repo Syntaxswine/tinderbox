@@ -7,6 +7,8 @@ HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[3]
 def module(name,path):
  s=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
 A=module('preserved_source_calculator',HERE/'calculate.py');S=A.S
+Q=module('exact_profile_context',HERE/'profile-context.py')
+OBSERVED_COMPILER_CONTEXT=None
 REPRESENTATIVES=('great-crystal-dome/glass-skin','front-glass-gallery-0/surface--1','replacement/body-12-entrance/glass','court-0-0-arch-0/arched-glass')
 def load_archive(name):
  with gzip.open(HERE/'calculation-archive'/(name+'.gz'),'rt',encoding='utf-8') as h:return json.load(h)
@@ -30,7 +32,9 @@ def verify_inputs():
  for pin in manifest['sourceModules']:assert S.sha((HERE/pin['path']).read_bytes())==pin['sha256']
  inputs=load_archive('input-pins.json')
  for pin in inputs['sourceInputs']:assert S.sha((ROOT/pin['path']).read_bytes())==pin['sha256']
- A.source_profiles()
+ global OBSERVED_COMPILER_CONTEXT
+ OBSERVED_COMPILER_CONTEXT=Q.verify_working_scene()
+ assert Q.audit()==S.load(HERE/'profile-context-verification.json'),'Compiler-context control report differs'
  return prior,manifest,inputs
 def triangle_graph(row):
  g=S.load(ROOT/row['geometryPath']);assert S.sha((ROOT/row['geometryPath']).read_bytes())==row['geometrySha256']
@@ -172,4 +176,4 @@ if __name__=='__main__':
  if not args.save_checkpoint and (HERE/'review-package.json').exists():
   for pin in S.load(HERE/'review-package.json')['files']:
    raw=(ROOT/pin['path']).read_bytes();assert len(raw)==pin['bytes'] and S.sha(raw)==pin['sha256']
- print(json.dumps(outputs['check-results.json'],sort_keys=True))
+ print(json.dumps({**outputs['check-results.json'],'compilerSourceContext':OBSERVED_COMPILER_CONTEXT,'compilerContextAdmissionControls':{'admitted':6,'rejected':3}},sort_keys=True))
