@@ -1,0 +1,520 @@
+{
+  "authorityCommit": "63ec0566fe7fd0a8b57dc4b79d4335d6eb3e00b5",
+  "authorityPath": "docs/engineering/shared-maps/radial-measurement-decision.md",
+  "authoritySha256": "ebf6b362a130b92a42e463c414f67734d99ec99f51d22dc3207119ca93c7e4a4",
+  "originalContext": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "sourceProducers": [
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "92835289c9757862e14503e20e3ac2046cd0ce3a3cf28b7623e44bc50f7b81bc",
+      "onlyWorkingLineEndingDifference": false,
+      "path": "assets/art/exploration-access/fragments.js",
+      "workingSha256": "92835289c9757862e14503e20e3ac2046cd0ce3a3cf28b7623e44bc50f7b81bc"
+    },
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "ccbd6892679a71fd34e0a3cadcf83aa3168227eb4581989b647873d74baf0933",
+      "onlyWorkingLineEndingDifference": false,
+      "path": "assets/art/exploration-access/plans.js",
+      "workingSha256": "ccbd6892679a71fd34e0a3cadcf83aa3168227eb4581989b647873d74baf0933"
+    },
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "cf8eca00afc7e0ddb0494fd8865817ea1154bc1335197cf3bd54e5b08dc5a031",
+      "onlyWorkingLineEndingDifference": false,
+      "path": "assets/art/exploration-access/index.js",
+      "workingSha256": "cf8eca00afc7e0ddb0494fd8865817ea1154bc1335197cf3bd54e5b08dc5a031"
+    },
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "1b61d7e449e911c9ad7c2d8cadaaf07d9e6dd410ce70010579ec513634002711",
+      "onlyWorkingLineEndingDifference": false,
+      "path": "art/source/exploration-access/source-geometry.mjs",
+      "workingSha256": "1b61d7e449e911c9ad7c2d8cadaaf07d9e6dd410ce70010579ec513634002711"
+    },
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "30f0e31a266cc92f530150e32c924f0e29c5d91e8e8cddfd6a08394b44811164",
+      "onlyWorkingLineEndingDifference": false,
+      "path": "art/source/exploration-access/build-access.mjs",
+      "workingSha256": "30f0e31a266cc92f530150e32c924f0e29c5d91e8e8cddfd6a08394b44811164"
+    },
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "01da1b727f9444f4421639a9fa756086c9741e18b3ef8fdefde0efd72b523e2a",
+      "onlyWorkingLineEndingDifference": false,
+      "path": "assets/art/exposition-administration/index.js",
+      "workingSha256": "01da1b727f9444f4421639a9fa756086c9741e18b3ef8fdefde0efd72b523e2a"
+    },
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "8b90bc1725f3a949b2174871770e54ea0c660afc355d7592c55732cd63644cd7",
+      "onlyWorkingLineEndingDifference": false,
+      "path": "assets/art/exposition-administration/metadata.json",
+      "workingSha256": "8b90bc1725f3a949b2174871770e54ea0c660afc355d7592c55732cd63644cd7"
+    },
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "363b1fb4396cb549df1d4ce9b09325bd3c405db05b09df239e4794476ec04cac",
+      "onlyWorkingLineEndingDifference": false,
+      "path": "assets/art/exposition-administration/plan.js",
+      "workingSha256": "363b1fb4396cb549df1d4ce9b09325bd3c405db05b09df239e4794476ec04cac"
+    },
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084",
+      "onlyWorkingLineEndingDifference": false,
+      "path": "assets/art/exposition-new-york/forms.js",
+      "workingSha256": "c7f17c1e5e281de549975422911d30f9f5792ef0cb86de3495b0173ca4f15084"
+    },
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "88fd0a63e9d80a3b179b8329b6f06fd794e433caa445937b067ffdbd89f747c4",
+      "onlyWorkingLineEndingDifference": true,
+      "path": "src/runtime/three.js",
+      "workingSha256": "c076d75ea8915226a5b9505981310a808ecc78f3ae4360ad035e67eef4acee82"
+    },
+    {
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "gitObjectSha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+      "onlyWorkingLineEndingDifference": false,
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+      "workingSha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093"
+    }
+  ],
+  "targetedOriginalSections": [
+    {
+      "bytes": 14900,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/1_3_1.json",
+      "sha256": "91c89708857fd28958772029902b3c581ead2bfd03cfddfb868550df51284110"
+    },
+    {
+      "bytes": 14065,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/1_3_2.json",
+      "sha256": "f7ea2a9b6a24b1fde1cf6e150b14e2c2aa1737cb64987ed02c68e17ab88edc84"
+    },
+    {
+      "bytes": 30959,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_1_1.json",
+      "sha256": "66ed1335795d0b38e42e578eb0b0870896602dbfabedb6b4b925610e707366eb"
+    },
+    {
+      "bytes": 84159,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_1_2.json",
+      "sha256": "7178259eba5da95e9de0dfc5e8348a4b30bf2ac5d9a94a9ca69befe728a1afa8"
+    },
+    {
+      "bytes": 57082,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_2_1.json",
+      "sha256": "d4d7f78b0b37a18e5db655b390dc1b3ea670edcd083e9725340eccaf16107871"
+    },
+    {
+      "bytes": 153947,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_2_2.json",
+      "sha256": "0a5996f2b7d69a270255dc16008630400285aa64f5955dfb3febc7cbb0bb8c98"
+    },
+    {
+      "bytes": 119568,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_3_0.json",
+      "sha256": "5313a9c93655ee05f05fd8572ad68637b693708a2ccfe9f888a2e79526c9cdb2"
+    },
+    {
+      "bytes": 21536,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_3_10.json",
+      "sha256": "abe17f5475b9856fb424e8c995c0251bd1b232ba554153289f0ee4ccaed7db2c"
+    },
+    {
+      "bytes": 100038,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_3_18.json",
+      "sha256": "5f6bbb5a3bd4a767717a1eccd7955d70733f593369ac831ded8b2b9e4bd336b3"
+    },
+    {
+      "bytes": 116812,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_3_8.json",
+      "sha256": "904fe8fbf1b60c484080c8890b550121015c26468911e1072b61fbce1b4410bf"
+    },
+    {
+      "bytes": 36114,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_3_9.json",
+      "sha256": "edd4fec1a4f03d36115e39c00fa8bc574f000aa26fd740747b35c4a391bfa77a"
+    },
+    {
+      "bytes": 16355,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_4_10.json",
+      "sha256": "564c4f8f098f59f6378a9d502836703bdc835f5dc3a38cf783edc88e2b3c7308"
+    },
+    {
+      "bytes": 120750,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_4_8.json",
+      "sha256": "8b4d07207a46de120d27876786af4538a44dac39eb3d6a5719e96c26942bd839"
+    },
+    {
+      "bytes": 33546,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/2_4_9.json",
+      "sha256": "4d2e77059ab0129fb512ffbc5a6bb79615925802130654c36869665fd80e1614"
+    },
+    {
+      "bytes": 14328,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_1_1.json",
+      "sha256": "10df028bfd3883f5cea0e6bf12459b5da049c7ff380edad4c9014e5dc3d308c4"
+    },
+    {
+      "bytes": 13734,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_1_2.json",
+      "sha256": "45400e10d19a1828baee93c1f4861e08f283f55f8654605fa38d3f76e1d87984"
+    },
+    {
+      "bytes": 117955,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_2_0.json",
+      "sha256": "401ef8587c6232aee61bf1bb4d4cd529585b2e75d5cc69dc57543aa9f61014d4"
+    },
+    {
+      "bytes": 20469,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_2_10.json",
+      "sha256": "cf8efbdf0238e3a2b9c37b3d21a706232d34231c3964145e8380ebc6d6c9be80"
+    },
+    {
+      "bytes": 114292,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_2_8.json",
+      "sha256": "f326109fb9d9939864d9f5389ca0817b0c0aae915ef5ce969762c8ad33ee7dc9"
+    },
+    {
+      "bytes": 29109,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_2_9.json",
+      "sha256": "2b9be4b653a0585d988b88ca98f60f7b8b321e7c0aed13e36968d69e2b87a09f"
+    },
+    {
+      "bytes": 874,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_3_10.json",
+      "sha256": "e3d5bd5306f6c9cae5a48c5bbbb2e03fcb6eee4d8c74f0a365cb7ac60c1392df"
+    },
+    {
+      "bytes": 8033,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_4_10.json",
+      "sha256": "7c866f97eef114cfcf22bd53be05e8c389cf97dd9784f913dc94e5a0615fc0d7"
+    },
+    {
+      "bytes": 24818,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_4_8.json",
+      "sha256": "71861843e949a37afcf7a78fe1a2486be3596007ad60d2c6af5b8f3c28a85eb0"
+    },
+    {
+      "bytes": 10577,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_4_9.json",
+      "sha256": "3524333fdafcb92ff51cede5e0be553e7d400e113f3e06c417ebd4d5b532a7e7"
+    },
+    {
+      "bytes": 118353,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_5_0.json",
+      "sha256": "e0b6f3c2f3348da1922df52fc4b26808b8cb67cb18d04525436fb42f3e185acf"
+    },
+    {
+      "bytes": 18430,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_5_1.json",
+      "sha256": "a7c0c5d01eae5ab69bbfa44ed67257656b026f5a8d7faf4c660108807d2dc3c0"
+    },
+    {
+      "bytes": 16636,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/3_5_2.json",
+      "sha256": "6005c266c573ec71e13c19afc1a97c8633e04ffb4d8910ed989c587597abf7a4"
+    },
+    {
+      "bytes": 15704,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/4_2_10.json",
+      "sha256": "92867155af85c33cee97e10aa8d050792e89143d7b0388909d83c70f85debee2"
+    },
+    {
+      "bytes": 119426,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/4_2_8.json",
+      "sha256": "09e2036f3afc44479df7186ef41d2693475d7c90a3ef6fcb00222981ae87e236"
+    },
+    {
+      "bytes": 39007,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/4_2_9.json",
+      "sha256": "64e6f934190fa3f61a1ea2b512421ca400fcd1bbb2ecdf85c25487069434def2"
+    },
+    {
+      "bytes": 8007,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/4_3_10.json",
+      "sha256": "7600f5a84d179615bf6134dad4f04aefa33b3d45cf2d2bca24c93689805b9ad4"
+    },
+    {
+      "bytes": 24345,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/4_3_8.json",
+      "sha256": "6fc83566b71aa1502f5b8c937fae217f19cbb5814caea561a972f17231acce25"
+    },
+    {
+      "bytes": 4099,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/4_3_9.json",
+      "sha256": "6930acf6c6dcbea275e5cd67f6d48914f9a51654c832d95bb1c2bd1cbc80e1ae"
+    },
+    {
+      "bytes": 15153,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/4_4_10.json",
+      "sha256": "4fe1fce23f10faa83e7e93314981d7f52f10346d685bcc89384afa776659b985"
+    },
+    {
+      "bytes": 49417,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/4_4_8.json",
+      "sha256": "6fffecd5f683c7f744e06f298964410a388d2e14ec12bc52122f5039368c4e87"
+    },
+    {
+      "bytes": 23724,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/4_4_9.json",
+      "sha256": "41f75c0b2cfb2fb235560da547cd25cc4794a6ef5737bb47c9b84db1fce51794"
+    },
+    {
+      "bytes": 40461,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/5_1_1.json",
+      "sha256": "548e223ceac5b12552f64e76e9b9e8f5e6de4701d6f6fe824a6c7f43eec411ad"
+    },
+    {
+      "bytes": 89831,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/5_1_2.json",
+      "sha256": "0dc6317580b788b4d49fd350ffc050c8d92ec282dde23de824480548ca3453a7"
+    },
+    {
+      "bytes": 45729,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/5_2_1.json",
+      "sha256": "860410399fb450868e7d4b080cb7c1b9b98271d3ac8fae67cf2d7ffcfdc6dad9"
+    },
+    {
+      "bytes": 149773,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/5_2_2.json",
+      "sha256": "a58ac3f231286de3219dcc148dbe91473b1b21fe1a5f118c2c25e29d573bb774"
+    },
+    {
+      "bytes": 117814,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/5_3_0.json",
+      "sha256": "3391875fe886175a09292b6b8fd00c68873ef74bbebb8be29255ef7227e6f077"
+    },
+    {
+      "bytes": 19237,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/5_3_1.json",
+      "sha256": "0e6204afacc3341c2df1ab9c9b5e079562993a850b4f5db380cd19e4279e5ac0"
+    },
+    {
+      "bytes": 100353,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/5_3_18.json",
+      "sha256": "c75086817f489700c9d0831eb0edd9bc1fc3ee072175abdc4c3df9ee18d5798b"
+    },
+    {
+      "bytes": 16546,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/5_3_2.json",
+      "sha256": "d149b38b668c69ad13dbe2a49cfa1f607ca9f45eb7b9f6b8fa9010cb6768bcb7"
+    },
+    {
+      "bytes": 123408,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/5_3_8.json",
+      "sha256": "b17a345ae7b195092b5ea41f59842dff9784477a9bca701bb1fcbb701b00b2ee"
+    },
+    {
+      "bytes": 115365,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/5_4_8.json",
+      "sha256": "5e81350c82467d815edfa00d63a7a7e5a2b80d4626c9c29824327c9a83c9939e"
+    },
+    {
+      "bytes": 41794,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/6_2_1.json",
+      "sha256": "86748770ce638886bee6e3c7eccff4c09e2ba0fa3d25d57d8bfeeb8240be301e"
+    },
+    {
+      "bytes": 67818,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/administration/sections/6_2_2.json",
+      "sha256": "91c45afe8366ab2386b9b1b88f5ab400616e4e5d3eb7b4d964e277e3e9c94b87"
+    },
+    {
+      "bytes": 146028,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/10_2_0.json",
+      "sha256": "f938e5e652399659b5254e447dcb94ecbc83d4db15d8499b1cb998c705feb670"
+    },
+    {
+      "bytes": 70097,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/10_2_2.json",
+      "sha256": "4717c720b9bdc251ec08f6946cd542dbd5939d9a81a3e86fe6f5eb6595dc998c"
+    },
+    {
+      "bytes": 3555,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/10_5_1.json",
+      "sha256": "0c9465586f6ebf566fd532a90ad00b0b705dcc1d5e80a0976a9f28ec177d106d"
+    },
+    {
+      "bytes": 28970,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/10_6_3.json",
+      "sha256": "68c3a6a276f789c39dd0b554e7f4d60d598db9a1a70a63ddb95e8459a3481ce2"
+    },
+    {
+      "bytes": 146294,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/11_2_0.json",
+      "sha256": "fe7fc6ed7123d88cbd0cea7c3ea8a6e59d615a57d88d9d785a23d072de30ed0e"
+    },
+    {
+      "bytes": 61753,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/11_2_1.json",
+      "sha256": "48774e32d540efee3ca202a8d16904e0d77ca15c53ff73f224551ac1e5bed5f3"
+    },
+    {
+      "bytes": 70877,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/11_2_2.json",
+      "sha256": "dc2a1bd2a0c825329b9d403d9c5cd58b017b3ba241c991959743d5106b8cfa29"
+    },
+    {
+      "bytes": 10168,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/11_5_1.json",
+      "sha256": "94b833b619b5021adcbf01c9ecc5ba2fc776418a5fad2e20d1bde54f418226a9"
+    },
+    {
+      "bytes": 29396,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/11_6_3.json",
+      "sha256": "10e2f15e6ebd74ec38e94ad7a5bf2cecd3c183eaecf41c0e7c1f3739b1452e72"
+    },
+    {
+      "bytes": 341,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/11_7_3.json",
+      "sha256": "75e661f39a285625ad083b285957bc5fd09ffbafa1678ba618aafcb7afece291"
+    },
+    {
+      "bytes": 115897,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/15_5_0.json",
+      "sha256": "2e34bab64389aa97f30f9402587b39eb9d23ed8594edf75f1cb941ec66776570"
+    },
+    {
+      "bytes": 23805,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/15_5_1.json",
+      "sha256": "ec735698bd5426e2fe0ebf22155ab7a8ed32e8e4a6968efbc7fea7c92fae70fb"
+    },
+    {
+      "bytes": 30907,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/15_5_2.json",
+      "sha256": "f4806383012d07df53f397acb04162ffa260ccc8caf6850ae4f68520e3802913"
+    },
+    {
+      "bytes": 117931,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/15_6_0.json",
+      "sha256": "cf25f0896ae18b9351e6b667835001dc2d4fc3a08f68026b3247a05bbbc48fc5"
+    },
+    {
+      "bytes": 26834,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/15_6_1.json",
+      "sha256": "64992aad0dd03b16c14280226f78a4b6b7e30c5f180c7738082e57e8e90b9aaf"
+    },
+    {
+      "bytes": 33720,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/15_6_2.json",
+      "sha256": "4b623b43ae5b373910f606e6f4bbeedd5ee2ab21531bea5fc55d557380cf2291"
+    },
+    {
+      "bytes": 376,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/19_5_4.json",
+      "sha256": "c93f411465d9984c035a1591eacf7f63225e338f629a11f345901227af27ba98"
+    },
+    {
+      "bytes": 374,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/2_5_4.json",
+      "sha256": "8ea42211d6973d696e042e4251f84bc80fb27c5850baea8df8b776486812ca04"
+    },
+    {
+      "bytes": 115930,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/6_5_0.json",
+      "sha256": "700c92109d212b58bde22635eb01da8bd4ad3ecbdcbe8627e9d358bc2d08c475"
+    },
+    {
+      "bytes": 23795,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/6_5_1.json",
+      "sha256": "4ad48eb23ceae5d71f0f882ed133fc72b2da49a5c94cfe62912796cf09e68c27"
+    },
+    {
+      "bytes": 30870,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/6_5_2.json",
+      "sha256": "ac2e818ca3473e1c5908c2064af609973786a7d79ce73cfebb5dbeb2b30b54df"
+    },
+    {
+      "bytes": 117964,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/6_6_0.json",
+      "sha256": "66bf83b65e5433d04b290cba521448baf93bbd951b178dcc5b745537a6f85513"
+    },
+    {
+      "bytes": 26811,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/6_6_1.json",
+      "sha256": "e24ff7b2f7cd62e447675204672231272a0410d5de54bdeaffc0daa81d46633c"
+    },
+    {
+      "bytes": 33670,
+      "context": "2b350309d9116812a1d3988af090614bdaefbc25",
+      "path": "assets/art/place-scenes/horticulture/sections/6_6_2.json",
+      "sha256": "3835401e4ad9e167a759db13017427eab9c70c250bb18e7ec02c8dc05af16f78"
+    }
+  ],
+  "version": 1
+}
