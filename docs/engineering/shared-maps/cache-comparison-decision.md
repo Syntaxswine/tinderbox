@@ -56,3 +56,30 @@ notification/subscription release checks, not a cleared diagnostic counter.
 It adds `workbenches/furnished-house/geometry.js` as a third physical source path.
 The measured version and correctness lanes remain frozen; no new measurement,
 renderer or build is granted by this lifecycle correction.
+
+## Final successor intake and next attribution
+
+Intake coder `0e1ab9ddc42a0f7e301858044c82a221f73d8805`, including source
+`2c93e727`. Root independently passes all 41 focused cases and declaration
+22/40, verifies all 44 cache-archive file hashes, the three final production pins
+and six preserved input pins. The measured cache logic and final owned-watch
+successor remain distinguished. Current pauses still block browser readiness.
+
+Root's broader historical diff also flags raw CRLF in the older CPU archive's
+Windows cleanup receipt. Give that archive's JSON files the same explicit
+CR-at-EOL whitespace handling while retaining normal trailing-space checks, and
+update only its attribute-manifest row. All 14 archived file hashes pass again;
+the raw profile, measurements and cleanup receipt bytes remain unchanged.
+
+Authorize one further **attribution-only** Node profile of the final three-path
+successor on the unchanged fixed route/contact/32-step fixture. Freeze exact
+production pins from `0e1ab9dd`; preserve any unrelated documentation WIP. Limit
+the one process to 60 wall seconds and 1,000 host steps, with inspector disconnect,
+normal disposal and verified PID/creation-time cleanup. Use identical diagnostic
+reads, record actual host-step maxima without extra slow-step snapshots, and
+retain raw profile/source/input/state receipts. Compare physical/support/replay
+results and classify only the already reviewed observational host counters.
+No second control, optimization, build, renderer or performance-improvement claim
+is included. Attribute the remaining first-use and held stalls to actual source
+work before proposing the next bounded algorithm. Label inclusive timings and
+diagnostic memory limits. Existing native rules and source data remain frozen.

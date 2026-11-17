@@ -1,4 +1,4 @@
-*.json -text
+*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 *.cpuprofile -text
 *.mjs text eol=lf
 *.md text eol=lf
