@@ -1,0 +1,112 @@
+{
+  "acceptedContext": {
+    "acceptedRuntimeCommit": "6f54554ceaefe0d63ad617836bd30e63466d66d4",
+    "addedFiles": 13,
+    "declarationLfSha256": "01595b92038600e2583d0c99d58c665977d710f90102a1a4008df814b9be8fd3",
+    "declarationPath": "docs/engineering/shared-maps/runtime-integration.json",
+    "declaredSrcChanges": 18,
+    "mode": "combined",
+    "preservedRef": "c791c7b94da99b032ae3293395a6eb23cacf0038",
+    "producerCheck": "PASS",
+    "readOnlyExternalContext": true,
+    "runtimeFiles": 12
+  },
+  "checkerSha256": "1b101050e074202bcfec042c7cd67ab96b2c0c2ce9a162616067aefdda180a7f",
+  "completedArtIdentity": {
+    "completedArtCommit": "82b7fc604eb183d65e7569366c47f45e5f07c1b5",
+    "completedBindingsSha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba",
+    "effectiveIndexSha256": "f1252c7364adfeb025f573fc4650020e71915a3e17e71bcf2e725e56c3f1c941",
+    "geometryCarriersMaterialsFuelSupportUnchanged": true,
+    "physicalAssertionBlockSha256": "a0d8aa4432323e091cc1228217a169cf86694f2721998e29d368279985dbcaf5",
+    "physicalMathAndAssertionsUnchanged": true
+  },
+  "controlCount": 14,
+  "controlSourceSha256": "663f87ac8ab813d4eab540961df5ef1fc4e5c3b0aa577be810224e05229f7da1",
+  "controls": [
+    {
+      "control": "exact accepted combined runtime",
+      "input": "actual files, Git objects and read-only producer",
+      "result": "PASS"
+    },
+    {
+      "control": "default remains art-only",
+      "input": "actual combined checkout; no file changes",
+      "reason": "preserved:raw sources runtime and historical checkers",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "external checkout requires explicit mode",
+      "input": "actual combined checkout; no file changes",
+      "reason": "context:external checkout requires explicit combined mode",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "mutable declaration cannot approve code",
+      "input": "corrupted read bytes in memory; disk unchanged",
+      "reason": "context:exact accepted runtime declaration",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "producer must remain reviewed",
+      "input": "corrupted read bytes in memory; disk unchanged",
+      "reason": "context:exact accepted declaration producer",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "existing runtime hash corruption",
+      "input": "corrupted read bytes in memory; disk unchanged",
+      "reason": "context:declared after LF hash src/main.js",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "added runtime hash corruption",
+      "input": "corrupted read bytes in memory; disk unchanged",
+      "reason": "context:declared added LF hash src/runtime/native-query-registry.js",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "declared workbench remains exact",
+      "input": "corrupted read bytes in memory; disk unchanged",
+      "reason": "context:declared after LF hash workbenches/furnished-house/scene.js",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "frozen previous runtime declaration",
+      "input": "corrupted read bytes in memory; disk unchanged",
+      "reason": "context:frozen prior runtime declaration",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "undeclared tracked src change",
+      "input": "injected nonzero Git src-diff result; disk unchanged",
+      "reason": "context:entire src tree equals reviewed runtime",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "undeclared untracked src",
+      "input": "injected Git untracked-src listing; disk unchanged",
+      "reason": "context:no undeclared untracked src",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "raw vendor historical gate retained",
+      "input": "injected nonzero original protected-path diff; disk unchanged",
+      "reason": "preserved:raw sources and historical checkers",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "control": "complete art bytes and physical assertions unchanged",
+      "input": "exact Git 82b7fc60 payload/source diff and original physical checker sections",
+      "result": "PASS"
+    },
+    {
+      "control": "declared LF text domain accepts CRLF",
+      "input": "line-ending conversion in memory; disk unchanged",
+      "result": "PASS"
+    }
+  ],
+  "otherCheckoutModified": false,
+  "rendererStarted": false,
+  "result": "PASS",
+  "version": 1
+}

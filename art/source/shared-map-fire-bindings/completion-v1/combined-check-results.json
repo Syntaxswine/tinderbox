@@ -1,0 +1,472 @@
+{
+  "actualInputAcceptance": false,
+  "additionalUnsupportedCarrierIds": [],
+  "carrierCount": 12446,
+  "checks": {
+    "context": 49,
+    "coverage": 3,
+    "exceptions": 1,
+    "follow": 353,
+    "fuel": 24999,
+    "hash": 59,
+    "history": 2,
+    "materials": 76,
+    "native": 61,
+    "ownership": 10551,
+    "policy": 6,
+    "prefix": 100,
+    "preserved": 12348,
+    "repair": 118,
+    "restored": 16,
+    "retained": 2595,
+    "retirement": 12446,
+    "support": 17074
+  },
+  "completedBindingsSha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba",
+  "context": {
+    "acceptedRuntimeCommit": "6f54554ceaefe0d63ad617836bd30e63466d66d4",
+    "addedFiles": 13,
+    "declarationLfSha256": "01595b92038600e2583d0c99d58c665977d710f90102a1a4008df814b9be8fd3",
+    "declarationPath": "docs/engineering/shared-maps/runtime-integration.json",
+    "declaredSrcChanges": 18,
+    "mode": "combined",
+    "preservedRef": "c791c7b94da99b032ae3293395a6eb23cacf0038",
+    "producerCheck": "PASS",
+    "readOnlyExternalContext": true,
+    "runtimeFiles": 12
+  },
+  "effectiveIndexSha256": "f1252c7364adfeb025f573fc4650020e71915a3e17e71bcf2e725e56c3f1c941",
+  "finiteLedger": {
+    "awningCount": 58,
+    "coreByClass": {
+      "clapboard": 2843.006532,
+      "cloth": 17.4,
+      "door": 12.6,
+      "frame": 11179.439092,
+      "roof": 1715.398329
+    },
+    "coreTotal": 15767.843953,
+    "doorLeafCount": 10,
+    "finishCarrierIds": [
+      "carrier/main/0/cell-1-22/1"
+    ],
+    "finishTotal": 0.1,
+    "oneOwnerPerLogicalSourcePart": true,
+    "total": 15767.943953,
+    "unassignedExcluded": false,
+    "unit": "prototype-fuel-unit",
+    "unverifiedClosedVolumeExcluded": false
+  },
+  "geometryTriangles": 252730,
+  "nativeSweeps": [
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-front",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-front",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-front",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-front",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-front",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-front",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-front",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-front",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-front",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-east",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-east",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-east",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-west",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-west",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-west",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east-upper",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-east-upper",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east-upper",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east-upper",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-east-upper",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east-upper",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east-upper",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-east-upper",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-east-upper",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west-upper",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-west-upper",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west-upper",
+      "radius": 0.62,
+      "species": "goat"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west-upper",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-west-upper",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west-upper",
+      "radius": 0.62,
+      "species": "horse"
+    },
+    {
+      "height": 2.3,
+      "lateral": -0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west-upper",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0,
+      "minimumHorizontalSurfaceDistance": 1.0,
+      "passed": true,
+      "portalId": "ny-west-upper",
+      "radius": 0.62,
+      "species": "bear"
+    },
+    {
+      "height": 2.3,
+      "lateral": 0.27999999999999997,
+      "minimumHorizontalSurfaceDistance": 0.7199999999999989,
+      "passed": true,
+      "portalId": "ny-west-upper",
+      "radius": 0.62,
+      "species": "bear"
+    }
+  ],
+  "rendererStarted": false,
+  "replacementCount": 29,
+  "result": "PASS",
+  "version": 1
+}
