@@ -1,0 +1,151 @@
+{
+  "baseBindingsSha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba",
+  "canonicalPairs": 3276,
+  "certificateKindsByRegion": {
+    "bearing-face": 268,
+    "carpentry-butt-joint": 144,
+    "fixed-embed": 5590,
+    "structural-seam": 16
+  },
+  "controls": [
+    {
+      "child": "carrier/ny-front/jamb--1",
+      "control": "existing-accepted-native-pattern",
+      "kind": "fixed-embed",
+      "parent": "carrier/main-floor/tile--2-0",
+      "pass": true
+    },
+    {
+      "child": "carrier/ny-front/jamb-1",
+      "control": "existing-accepted-native-pattern",
+      "kind": "fixed-embed",
+      "parent": "carrier/main-floor/tile-1-0",
+      "pass": true
+    },
+    {
+      "child": "carrier/ny-front/header",
+      "control": "existing-accepted-native-pattern",
+      "kind": "fixed-embed",
+      "parent": "carrier/ny-front/jamb--1",
+      "pass": true
+    },
+    {
+      "child": "carrier/ny-front/header",
+      "control": "existing-accepted-native-pattern",
+      "kind": "fixed-embed",
+      "parent": "carrier/ny-front/jamb-1",
+      "pass": true
+    },
+    {
+      "child": "carrier/main/0/frieze-1/jamb--1",
+      "control": "existing-accepted-native-pattern",
+      "kind": "fixed-embed",
+      "parent": "carrier/main/0/cell-7-7/1",
+      "pass": true
+    },
+    {
+      "child": "carrier/edge-0/cornice-1",
+      "control": "existing-accepted-native-pattern",
+      "kind": "fixed-embed",
+      "parent": "carrier/main/0/cell-3-0/1",
+      "pass": true
+    },
+    {
+      "child": "carrier/clerestory/front-rail/base",
+      "control": "existing-accepted-native-pattern",
+      "kind": "fixed-embed",
+      "parent": "carrier/clerestory/cornice",
+      "pass": true
+    },
+    {
+      "child": "carrier/ny-main-flight-2/handrail--1",
+      "control": "existing-accepted-native-pattern",
+      "kind": "fixed-embed",
+      "parent": "carrier/ny-main-flight-2/post--1-10",
+      "pass": true
+    },
+    {
+      "child": "carrier/visit-cap/ny-side-approach--1/7",
+      "control": "existing-accepted-native-pattern",
+      "kind": "structural-seam",
+      "parent": "carrier/porch-west-1",
+      "pass": true
+    },
+    {
+      "child": "carrier/upper-terrace/rail-front/cap-2",
+      "control": "existing-accepted-native-pattern",
+      "kind": "carpentry-butt-joint",
+      "parent": "carrier/upper-terrace/rail-front/pier-2",
+      "pass": true
+    },
+    {
+      "child": "carrier/main-parapet-0/base",
+      "control": "real-gap-is-not-a-mount-or-embed",
+      "parent": "carrier/roof/front-centre",
+      "pass": true
+    },
+    {
+      "child": "carrier/ny-main-flight-2/handrail--1",
+      "control": "real-gap-is-not-a-mount-or-embed",
+      "parent": "carrier/ny-main-flight-2/post--1-0",
+      "pass": true
+    },
+    {
+      "control": "endpoint-contact-cannot-cover-distant-local-region",
+      "pass": true,
+      "selector": {
+        "max": [
+          59.28999996185303,
+          24.42000015079975,
+          39.144999995827675
+        ],
+        "min": [
+          57.75,
+          24.26000015437603,
+          38.855000004172325
+        ]
+      }
+    }
+  ],
+  "corniceCells": 3844,
+  "cornicePieces": 109,
+  "corniceStatuses": {
+    "actual-local-hosts": 3302,
+    "occupied-source-native-continuity-only": 222,
+    "source-native-empty-column": 320
+  },
+  "independentActualSolidWindingMemberships": 14566,
+  "localRegions": 6018,
+  "nativeFacetContacts": 2646,
+  "newAnchors": 0,
+  "newFuel": 0,
+  "originalDiagnosticDispositions": {
+    "awaiting-separate-parapet-gap-design": 235,
+    "hypothetically-reachable-only-with-separate-approved-front-48": 111,
+    "hypothetically-reachable-with-family-records": 692
+  },
+  "producerSha256": "9c2eb82cce531d4dd8fe45e7fb06e1f486ceac4d3fd524e9646487fa0e313a76",
+  "proposedDependentBracingRetirements": 216,
+  "proposedMovingLeafRetirements": 8,
+  "relationshipsSha256": "34b25f91d457fb65e611b89f182c0e05bb946d7506a0581b53e945a2d9731e06",
+  "remainingOriginalIds": 235,
+  "rendererStarted": false,
+  "result": "PASS",
+  "runtimeCommit": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "scope": "Unapplied source proposal validation; no runtime graph, stress, cold/active accounting, fire or rendered acceptance.",
+  "separateGapDesign": {
+    "clearRectangularRepeatCandidates": 96,
+    "newAnchors": 0,
+    "newFuelApplied": 0,
+    "newGeometryApplied": 0,
+    "remainingParapetBases": 11,
+    "rendererStarted": false,
+    "separateRoofSaddleProfilesRequired": 20,
+    "sourceSolidCollisionCandidates": 20,
+    "tentativeDirectedJoins": 232,
+    "tentativeMembers": 116
+  },
+  "strictSolidOverlapsWithoutFacetCrossing": 630,
+  "unapprovedRecordsApplied": 0,
+  "version": 1
+}
