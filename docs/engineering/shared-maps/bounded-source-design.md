@@ -67,3 +67,12 @@ scoped proposal and saved-data grouping evidence, then stop for architect review
 Artist continues the last cut references and UI the roof exposure work. This
 changes no district/layout or title destination; the objective remains the four
 existing maps sharing standard tools and fire rules with bounded nearby work.
+
+## Saved-data checkpoint and next implementation
+
+Coder `5478eb5c` is independently reviewed as saved-data evidence. Choose the
+2 m / native-Y compiler-region pilot and proceed only with the isolated
+[compiler and stock stage](bounded-source-compiler-pilot.md). Its explicit
+native comparison allowance does not enable production regions or grant a new
+world/benchmark/browser run. Mixed closed queries, support and actual performance
+remain open; the full-snapshot shipping format stays rejected.

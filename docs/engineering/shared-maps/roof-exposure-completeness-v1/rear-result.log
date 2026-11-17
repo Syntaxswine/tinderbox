@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\roof-exposure-completeness-v1\expose.py", line 128, in <module>
+    try:main(sys.argv[1])
+        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\roof-exposure-completeness-v1\expose.py", line 100, in main
+    records=cover[r["offset"]];cells=G.union_cells(records);open_cells=G.complement(r["projection"],cells)
+                                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\roof-exposure-prototype-v1\geometry.py", line 85, in union_cells
+    pending=[piece for p in pending for piece in difference(p,old["polygon"])]
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\roof-exposure-prototype-v1\geometry.py", line 67, in difference
+    rejected=half(inside,tuple(-v for v in line))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\roof-exposure-prototype-v1\geometry.py", line 39, in half
+    clips+=1;assert clips<=MAX_CLIPS,"Finite exact clipping operation bound"
+                    ^^^^^^^^^^^^^^^^
+AssertionError: Finite exact clipping operation bound

@@ -1,0 +1,166 @@
+{
+  "status": "complete",
+  "completenessProved": true,
+  "target": "replacement/end-pavilion-roof-0",
+  "authority": "68dc15337cb29c79d7fb9e84f8be3d09bdd688fe",
+  "source": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "capturedPlacementsProved": 61954,
+  "selectionCounts": {
+    "original": 230,
+    "certified": 230,
+    "newBoundary": 0
+  },
+  "caps": {
+    "placements": 1200,
+    "expandedGeometries": 128,
+    "triangles": 20000
+  },
+  "placementsIncludingRoof": 231,
+  "expandedGeometryBudgetUsed": 8,
+  "triangleBudgetUsedIncludingRoof": 2766,
+  "reuseAcceptedMask": {
+    "originalCommit": "5dd2f8543aa149123ff7d7c24fa4cdad8aaac46a",
+    "originalPath": "docs/engineering/shared-maps/roof-exposure-prototype-v1/exposure-cells.json",
+    "originalLfSha256": "647db3d2c54fccaf34baaee835023b3737b3feb8849cd49ea2050782827d3d26",
+    "230OriginalSourcesAndAllEightGeometryPinsIdentical": true
+  },
+  "acceptedWeatherCovers": [
+    "end-upper-cornice--1-0-2",
+    "end-upper-cornice--1-1-2",
+    "end-upper-cornice--1-2-2",
+    "end-upper-cornice--1-3-2"
+  ],
+  "coverClassificationAuthority": "68dc15337cb29c79d7fb9e84f8be3d09bdd688fe",
+  "geometricExposedProjectedArea": {
+    "n": "541678881456300435888458781082161",
+    "d": "200296756096154580289853587456",
+    "approx": 2704.3816985047015
+  },
+  "actualExposedArea": {
+    "radicand": {
+      "n": "5670170752500292147341784610686502811405074364693059393669218054813155962785",
+      "d": "689235572655698674372548623210072553079946184596197009158747637940224",
+      "approx": 8226752.909244825
+    },
+    "lower": {
+      "n": "976008661334840522448938751662050632424085",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 2868.2316693818207
+    },
+    "upper": {
+      "n": "488004330667420261224469375831025316212043",
+      "d": "170141183460469231731687303715884105728",
+      "approx": 2868.2316693818207
+    },
+    "sqrtEnclosureBits": 128,
+    "width": {
+      "n": "1",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 2.938735877055719e-39
+    }
+  },
+  "areaScalarDirectedLower": {
+    "value": 2868.23166938182,
+    "hex": "0x1.668769d5e84cep+11",
+    "bits": "40a668769d5e84ce",
+    "representedExact": {
+      "n": "3153654071640679",
+      "d": "1099511627776",
+      "approx": 2868.23166938182
+    },
+    "nextValue": 2868.2316693818207,
+    "nextBits": "40a668769d5e84cf",
+    "greatestBinary64NotAboveExactAreaProvedBySquaring": true,
+    "measurementAreaOnly": true,
+    "stockAssigned": false
+  },
+  "quantityAuthoringReferenceReadyForReview": true,
+  "stockBindingsRuntimeAssigned": false,
+  "newSourceBoundWitness": {
+    "sourceId": "outer-11-piece-1-tier-0:3:0/seam-1",
+    "geometryId": "576f8a9fd04a988fd383879adfb3a92b0d0961294b39ad0dde903a5962f20ff0",
+    "positionVertexIndex": 0,
+    "axis": 0,
+    "capturedAffineVertex": [
+      {
+        "n": "207886158783315969",
+        "d": "9007199254740992",
+        "approx": 23.07999999821186
+      },
+      {
+        "n": "2276332687",
+        "d": "268435456",
+        "approx": 8.48000007495284
+      },
+      {
+        "n": "18738350204026752213314437",
+        "d": "302231454903657293676544",
+        "approx": 62.0
+      }
+    ],
+    "recordedMin": {
+      "n": "1538135163",
+      "d": "67108864",
+      "approx": 22.92000000178814
+    },
+    "recordedMax": {
+      "n": "1548872581",
+      "d": "67108864",
+      "approx": 23.07999999821186
+    },
+    "exactOutsideDistance": {
+      "n": "1",
+      "d": "9007199254740992",
+      "approx": 1.1102230246251565e-16
+    },
+    "strictSeparatingProbe": {
+      "n": "415772317566631937",
+      "d": "18014398509481984",
+      "approx": 23.07999999821186
+    },
+    "newGuard": {
+      "min": [
+        {
+          "n": "206445006934769663",
+          "d": "9007199254740992",
+          "approx": 22.92000000178814
+        },
+        {
+          "n": "2244120433",
+          "d": "268435456",
+          "approx": 8.36000007763505
+        },
+        {
+          "n": "18738350204026752202577019",
+          "d": "302231454903657293676544",
+          "approx": 62.0
+        }
+      ],
+      "max": [
+        {
+          "n": "207886158783315969",
+          "d": "9007199254740992",
+          "approx": 23.07999999821186
+        },
+        {
+          "n": "2276332687",
+          "d": "268435456",
+          "approx": 8.48000007495284
+        },
+        {
+          "n": "19040581658930409506990981",
+          "d": "302231454903657293676544",
+          "approx": 63.0
+        }
+      ]
+    },
+    "guardContainsVertex": true,
+    "notAnActualRoofOmissionClaim": true
+  },
+  "negativeControls": {
+    "oldRoundedBoundsFailConservativeVertexContainment": true,
+    "exactGuardContainsWitness": true,
+    "allOriginal230InputsRetained": true,
+    "noPhysicalCoordinatesOrEPSChanged": true
+  }
+}

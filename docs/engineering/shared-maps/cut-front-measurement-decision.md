@@ -198,3 +198,35 @@ physical cap/index/UV/coordinate/opening/native-scale change, whole factory,
 stock/profile/support/binding/runtime install, renderer or retained helper.
 Coordinate finite source calculations with coder's one cost observation.
 Commit/push the bounded two-prototype evidence and stop for review.
+
+## Cut-plane partition and existing-node adoption
+
+Root independently passes artist `5607a80b482543554cbead3ba0333b654b94cb01`
+reproduction, all 11 payload hashes, 12 rejecting controls, 456 face-pair checks,
+121 earlier files and 1,572 geometry inputs. Accept the exact two measurement
+references and directed-lower scalars. The header uses both recorded cuts in
+their original order and two separately proved planar patches; its whole source
+loop remains nonplanar. The court jamb uses two exact collinear existing-node
+edge subdivisions, preserving every original triangle's domain, area vector and
+integral, plus two owned patches. No geometric coordinate changes or physical
+caps follow. Physical closedness remains false.
+
+Authorize the artist to apply these same proved constructions per case to the
+remaining eight withheld sources: the other office-door piece and seven court
+jambs in the exact earlier ledger. Preserve operation order/source provenance,
+exhaustive original triangles, exact edge coverage, patch ownership, topology,
+embedding, signed clearances, scalar proof and all raw failed records. Reject
+any different/unproved construction rather than extending by constructor name.
+No stock/binding/support/profile/runtime or physical mesh/UV/opening/scale change.
+Return a final resolved/unresolved ledger and scoped evidence commit/push, then
+stop. Roof calculations and bounded-source design remain separate worker tasks.
+
+## Final eight references accepted
+
+Root independently passes artist `e3b301860fad13855c7d2a8926f81bb1c4aed6be`
+read-only reproduction, all ten payload hashes, 54 negative controls, 2,593
+face-pair checks, 133 preserved earlier files and 1,572 geometry inputs. Accept
+all eight per-case measurement/scalar references. No cut-box or clipped-baluster
+case remains withheld in this quantity audit. The physical meshes remain open;
+source facts, original units/UVs, stock, supports and runtime remain unchanged.
+Roof quantities and vegetation/glazing decisions retain their separate status.

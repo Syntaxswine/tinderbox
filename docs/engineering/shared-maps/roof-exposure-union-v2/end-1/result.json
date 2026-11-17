@@ -1,0 +1,421 @@
+{
+  "status": "geometric-proof-complete",
+  "completenessProved": true,
+  "target": "replacement/end-pavilion-roof-1",
+  "source": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "authority": "8dd07c0ca014bc889e808cd27420902a0c28025a",
+  "sourceSelectionComplete": true,
+  "capturedPoseOnly": true,
+  "caps": {
+    "placements": 1200,
+    "expandedGeometries": 128,
+    "triangles": 20000
+  },
+  "placementsIncludingRoof": 231,
+  "expandedGeometries": 8,
+  "trianglesIncludingRoof": 2766,
+  "verticesTransformed": 5586,
+  "originalCandidates": 230,
+  "newBoundaryCandidates": [],
+  "roofUpperOffsets": [
+    0,
+    3,
+    6,
+    9,
+    12,
+    15
+  ],
+  "ownExcludedRoofFaces": [],
+  "roofProjectedArea": {
+    "n": "2736",
+    "d": "1",
+    "approx": 2736.0
+  },
+  "squaredSlopeFactor": {
+    "n": "1565299146385",
+    "d": "1391569403904",
+    "approx": 1.1248444684063958
+  },
+  "roofUpperPlanes": [
+    {
+      "offset": 0,
+      "planeYFromXZ": [
+        {
+          "n": "416809",
+          "d": "1179648",
+          "approx": 0.35333336724175346
+        },
+        {
+          "n": "0",
+          "d": "1",
+          "approx": 0.0
+        },
+        {
+          "n": "-224243245",
+          "d": "2359296",
+          "approx": -95.04667705959744
+        }
+      ],
+      "projectedArea": {
+        "n": "360",
+        "d": "1",
+        "approx": 360.0
+      }
+    },
+    {
+      "offset": 3,
+      "planeYFromXZ": [
+        {
+          "n": "416809",
+          "d": "1179648",
+          "approx": 0.35333336724175346
+        },
+        {
+          "n": "0",
+          "d": "1",
+          "approx": 0.0
+        },
+        {
+          "n": "-224243245",
+          "d": "2359296",
+          "approx": -95.04667705959744
+        }
+      ],
+      "projectedArea": {
+        "n": "684",
+        "d": "1",
+        "approx": 684.0
+      }
+    },
+    {
+      "offset": 6,
+      "planeYFromXZ": [
+        {
+          "n": "-416809",
+          "d": "1179648",
+          "approx": -0.35333336724175346
+        },
+        {
+          "n": "0",
+          "d": "1",
+          "approx": 0.0
+        },
+        {
+          "n": "294267151",
+          "d": "2359296",
+          "approx": 124.72667736477322
+        }
+      ],
+      "projectedArea": {
+        "n": "684",
+        "d": "1",
+        "approx": 684.0
+      }
+    },
+    {
+      "offset": 9,
+      "planeYFromXZ": [
+        {
+          "n": "-416809",
+          "d": "1179648",
+          "approx": -0.35333336724175346
+        },
+        {
+          "n": "0",
+          "d": "1",
+          "approx": 0.0
+        },
+        {
+          "n": "294267151",
+          "d": "2359296",
+          "approx": 124.72667736477322
+        }
+      ],
+      "projectedArea": {
+        "n": "360",
+        "d": "1",
+        "approx": 360.0
+      }
+    },
+    {
+      "offset": 12,
+      "planeYFromXZ": [
+        {
+          "n": "0",
+          "d": "1",
+          "approx": 0.0
+        },
+        {
+          "n": "-416809",
+          "d": "1179648",
+          "approx": -0.35333336724175346
+        },
+        {
+          "n": "125876315",
+          "d": "2359296",
+          "approx": 53.35333718193902
+        }
+      ],
+      "projectedArea": {
+        "n": "324",
+        "d": "1",
+        "approx": 324.0
+      }
+    },
+    {
+      "offset": 15,
+      "planeYFromXZ": [
+        {
+          "n": "0",
+          "d": "1",
+          "approx": 0.0
+        },
+        {
+          "n": "416809",
+          "d": "1179648",
+          "approx": 0.35333336724175346
+        },
+        {
+          "n": "-7502563",
+          "d": "786432",
+          "approx": -9.5400021870931
+        }
+      ],
+      "projectedArea": {
+        "n": "324",
+        "d": "1",
+        "approx": 324.0
+      }
+    }
+  ],
+  "coveredProjectedArea": {
+    "n": "44564204147080838876243750399108333179959",
+    "d": "1409449229202567470279672954347776376832",
+    "approx": 31.61816915696509
+  },
+  "exposedProjectedArea": {
+    "n": "3811688886951143759808941452696407833832393",
+    "d": "1409449229202567470279672954347776376832",
+    "approx": 2704.381830843035
+  },
+  "actualExposedArea": {
+    "radicand": {
+      "n": "280767749839159399676450742860517414315278118007164421874479176613454172538446962644983790043665",
+      "d": "34128619816091725986355975515531210293052825200440095643613632224005283146346396664201216",
+      "approx": 8226753.714393593
+    },
+    "lower": {
+      "n": "976008709095613259077578548544588344986095",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 2868.231809738117
+    },
+    "upper": {
+      "n": "61000544318475828692348659284036771561631",
+      "d": "21267647932558653966460912964485513216",
+      "approx": 2868.231809738117
+    },
+    "width": {
+      "n": "1",
+      "d": "340282366920938463463374607431768211456",
+      "approx": 2.938735877055719e-39
+    },
+    "bits": 128
+  },
+  "areaScalarDirectedLower": {
+    "value": 2868.2318097381167,
+    "hex": "0x1.66876afc41836p+11",
+    "bits": "40a66876afc41836",
+    "representedExact": {
+      "n": "3153654225964059",
+      "d": "1099511627776",
+      "approx": 2868.2318097381167
+    },
+    "nextValue": 2868.231809738117,
+    "nextBits": "40a66876afc41837",
+    "greatestBinary64NotAboveExactAreaProvedBySquaring": true,
+    "measurementAreaOnly": true,
+    "stockAssigned": false
+  },
+  "h22OnlyCoverEqualsAllUpperGeometry": true,
+  "allCandidateEnvelopesProved": true,
+  "unprovedCandidateEnvelopes": [],
+  "sourceRoleSupportedH22CoverCaseProved": true,
+  "newWeatherCoverAdoption": "proposed for listed substantial H22 solids; no runtime opacity field",
+  "stockBindingsRuntimeAssigned": false,
+  "exactClipOperations": 3571,
+  "orientationCounts": {
+    "vertical": 1832,
+    "up": 464,
+    "down": 464
+  },
+  "sourceBoundWitnesses": [
+    {
+      "sourceId": "outer-7-piece-0-tier-0:3:0/seam-1",
+      "vertexIndex": 0,
+      "axis": 0,
+      "actual": {
+        "n": "2639829957563383809",
+        "d": "9007199254740992",
+        "approx": 293.07999999821186
+      },
+      "recordedMin": {
+        "n": "19657528443",
+        "d": "67108864",
+        "approx": 292.92000000178814
+      },
+      "recordedMax": {
+        "n": "19668265861",
+        "d": "67108864",
+        "approx": 293.07999999821186
+      },
+      "guardContains": true
+    },
+    {
+      "sourceId": "outer-7-piece-0-tier-0:3:0/seam-1",
+      "vertexIndex": 2,
+      "axis": 0,
+      "actual": {
+        "n": "2639829957563383809",
+        "d": "9007199254740992",
+        "approx": 293.07999999821186
+      },
+      "recordedMin": {
+        "n": "19657528443",
+        "d": "67108864",
+        "approx": 292.92000000178814
+      },
+      "recordedMax": {
+        "n": "19668265861",
+        "d": "67108864",
+        "approx": 293.07999999821186
+      },
+      "guardContains": true
+    },
+    {
+      "sourceId": "outer-7-piece-0-tier-0:3:0/seam-1",
+      "vertexIndex": 1,
+      "axis": 2,
+      "actual": {
+        "n": "18738350204026752202577019",
+        "d": "302231454903657293676544",
+        "approx": 62.0
+      },
+      "recordedMin": {
+        "n": "62",
+        "d": "1",
+        "approx": 62.0
+      },
+      "recordedMax": {
+        "n": "63",
+        "d": "1",
+        "approx": 63.0
+      },
+      "guardContains": true
+    },
+    {
+      "sourceId": "outer-7-piece-0-tier-0:3:0/seam-1",
+      "vertexIndex": 3,
+      "axis": 2,
+      "actual": {
+        "n": "18738350204026752202577019",
+        "d": "302231454903657293676544",
+        "approx": 62.0
+      },
+      "recordedMin": {
+        "n": "62",
+        "d": "1",
+        "approx": 62.0
+      },
+      "recordedMax": {
+        "n": "63",
+        "d": "1",
+        "approx": 63.0
+      },
+      "guardContains": true
+    },
+    {
+      "sourceId": "outer-7-piece-0-tier-0:3:0/seam-1",
+      "vertexIndex": 4,
+      "axis": 0,
+      "actual": {
+        "n": "2638388805714837503",
+        "d": "9007199254740992",
+        "approx": 292.92000000178814
+      },
+      "recordedMin": {
+        "n": "19657528443",
+        "d": "67108864",
+        "approx": 292.92000000178814
+      },
+      "recordedMax": {
+        "n": "19668265861",
+        "d": "67108864",
+        "approx": 293.07999999821186
+      },
+      "guardContains": true
+    },
+    {
+      "sourceId": "outer-7-piece-0-tier-0:3:0/seam-1",
+      "vertexIndex": 6,
+      "axis": 0,
+      "actual": {
+        "n": "2638388805714837503",
+        "d": "9007199254740992",
+        "approx": 292.92000000178814
+      },
+      "recordedMin": {
+        "n": "19657528443",
+        "d": "67108864",
+        "approx": 292.92000000178814
+      },
+      "recordedMax": {
+        "n": "19668265861",
+        "d": "67108864",
+        "approx": 293.07999999821186
+      },
+      "guardContains": true
+    },
+    {
+      "sourceId": "outer-7-piece-0-tier-0:3:0/seam-1",
+      "vertexIndex": 5,
+      "axis": 2,
+      "actual": {
+        "n": "19040581658930409506990981",
+        "d": "302231454903657293676544",
+        "approx": 63.0
+      },
+      "recordedMin": {
+        "n": "62",
+        "d": "1",
+        "approx": 62.0
+      },
+      "recordedMax": {
+        "n": "63",
+        "d": "1",
+        "approx": 63.0
+      },
+      "guardContains": true
+    },
+    {
+      "sourceId": "outer-7-piece-0-tier-0:3:0/seam-1",
+      "vertexIndex": 7,
+      "axis": 2,
+      "actual": {
+        "n": "19040581658930409506990981",
+        "d": "302231454903657293676544",
+        "approx": 63.0
+      },
+      "recordedMin": {
+        "n": "62",
+        "d": "1",
+        "approx": 62.0
+      },
+      "recordedMax": {
+        "n": "63",
+        "d": "1",
+        "approx": 63.0
+      },
+      "guardContains": true
+    }
+  ]
+}

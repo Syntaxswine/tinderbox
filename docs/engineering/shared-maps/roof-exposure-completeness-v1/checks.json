@@ -1,0 +1,43 @@
+{
+  "verificationPassed": true,
+  "allThreeExposureSolutionsPassed": false,
+  "roofOutcomes": {
+    "end-0": "complete accepted-cover reference",
+    "end-1": "complete geometric reference; H22 adoption proposed",
+    "rear": "selection complete; union cap-stop; no area"
+  },
+  "sourceSections": 445,
+  "capturedPlacements": 61954,
+  "logicalSources": 63788,
+  "paletteFiles": 629,
+  "paletteBytes": 17368159,
+  "positionScalars": 392061,
+  "selectionDigestsAndAllRawPinsVerified": true,
+  "firstTwoExactDisjointMasksConservationAndH22SourceSolidsVerified": true,
+  "firstTwo128BitIntervalsAndDirectedBinary64ScalarsVerified": true,
+  "verificationTriangleExpansions": {
+    "end-0": {
+      "triangles": 54,
+      "geometries": 5,
+      "placements": 5
+    },
+    "end-1": {
+      "triangles": 54,
+      "geometries": 5,
+      "placements": 5
+    }
+  },
+  "rearVerificationTriangleExpansions": 0,
+  "negativeControlsPassed": 12,
+  "verificationClipOperations": 1267,
+  "noFullWorldMeshIndexFactoryNativeRendererOrBenchmark": true,
+  "sourceHashes": {
+    "common.py": "a869b166c2eaf4c634c8dc85f220ab8119818e5c50485cc91f1de71fbf1116f4",
+    "expose.py": "d5605cbe110444e2ca6c89ebb7032e3e821c2f6ef01106fbc108b79f97d89152",
+    "finish_first.py": "a8d4ca587e721d6c0c20b05229e4380b718e7d34281203c47cb5a35e9f2db2d6",
+    "prepare.py": "ead14b2e05409ebed694c1ae8b69eddc450861c62c748020392a098241ffb44c",
+    "report.py": "1110005ea74b6ae3661c586db8b356aec3e69f38368bd890068f135c18778f32",
+    "select.py": "4811f736f7484b39edbcc5c29b41c47119bdad6a1b4a5819bcefe38c165f6afa",
+    "verify.py": "2c3bb3d3ef39149078b63a735ed268815abc5649e59aefbfcba20e71de00c8ec"
+  }
+}

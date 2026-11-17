@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\roof-exposure-completeness-v1\verify.py", line 304, in <module>
+    if __name__=="__main__":main()
+                            ^^^^^^
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\roof-exposure-completeness-v1\verify.py", line 59, in main
+    assert "H22" in family_decision and "H21" in family_decision
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

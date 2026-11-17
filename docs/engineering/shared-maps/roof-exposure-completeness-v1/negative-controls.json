@@ -1,0 +1,53 @@
+{
+  "controls": [
+    {
+      "name": "duplicate candidate ID rejected",
+      "passed": true
+    },
+    {
+      "name": "missing candidate rejected by exact ID set",
+      "passed": true
+    },
+    {
+      "name": "missing section rejected by tree equality",
+      "passed": true
+    },
+    {
+      "name": "trimmed palette extremum rejected by audited scalar equality",
+      "passed": true
+    },
+    {
+      "name": "duplicate projected cover counted once",
+      "passed": true
+    },
+    {
+      "name": "touch-only projection excluded",
+      "passed": true
+    },
+    {
+      "name": "positive 2^-80 projected overlap retained",
+      "passed": true
+    },
+    {
+      "name": "equal height is not strictly above",
+      "passed": true
+    },
+    {
+      "name": "positive 2^-80 height retained",
+      "passed": true
+    },
+    {
+      "name": "real source vertex outside rounded bounds inside exact guard",
+      "passed": true,
+      "witness": "end-0/result.json#newSourceBoundWitness"
+    },
+    {
+      "name": "rear cap failure withholds area",
+      "passed": true
+    },
+    {
+      "name": "new rear boundary IDs preserved",
+      "passed": true
+    }
+  ]
+}
