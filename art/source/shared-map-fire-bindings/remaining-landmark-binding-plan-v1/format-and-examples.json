@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "status": "UNACCEPTED_SOURCE_FORMAT_PROPOSAL",
+  "runtimeConsumable": false,
+  "units": {
+    "stockTileMetres": [
+      1,
+      1,
+      2.12
+    ],
+    "wallMetres": [
+      1,
+      2,
+      0.16
+    ],
+    "doorMetres": [
+      1,
+      1.65,
+      0.12
+    ],
+    "coordinateRule": "Emitted matrices/navigation already offset; accessPlan/sourceBounds local."
+  },
+  "wrapper": {
+    "manifestFields": [
+      "version",
+      "placeId",
+      "instanceId",
+      "sourceRevision",
+      "inputPins",
+      "dictionaryPages",
+      "originalSectionDirectory",
+      "unacceptedGates"
+    ],
+    "dictionaryLayers": [
+      "material/profile recipes",
+      "geometry/range certificates",
+      "exact affine transforms",
+      "quantity groups and later routes",
+      "sparse compound/plant definitions",
+      "local damage and fixed-parent references"
+    ],
+    "sectionPayload": "8-reference JSON tuples; immutable original descriptors/geometry separate",
+    "canonicalIdentity": [
+      "common map/instance namespace",
+      "exact original source ID or reviewed compound key"
+    ],
+    "ownerRule": "one canonical account; cross-section aliases; no batch ownership or activation refill",
+    "quantityRule": "exact recipe/certificate reference; runtimeStock null",
+    "preserve": [
+      "original ranges",
+      "exact arrays and UVs",
+      "native dimensions",
+      "hinges/open matrices",
+      "fixed local parents and frame ports",
+      "source offset once"
+    ],
+    "coldEvidence": "immutable same-repository certificates and original provenance; no absolute donor paths",
+    "unaccepted": "wrapper ABI, certificate precedence, canonical mapping, physical admission and live state"
+  },
+  "sizeModel": {
+    "encoding": "proposed reference tuples; no installed codec",
+    "associationTupleUpperBytes": 59,
+    "associationTupleUpperDerivation": "8 x 6 digits + 2 brackets + 7 commas + comma/newline; null shorter",
+    "sectionHeaderBudgetBytes": 128,
+    "maxAssociationsPerSectionPage": 512,
+    "dictionaryPageCapBytes": 65536,
+    "dictionaryPageHeaderBudgetBytes": 128,
+    "directoryRowBudgetBytes": 128,
+    "dictionarySizing": "count projections of existing records; 128-byte headers; greedy byte-bounded pages; export none",
+    "loadScenario": "existing chunk AABBs: X/Z +/-24 m; elevation -2.12/+4.24 m; saved spawn/interior study",
+    "notIncluded": "cold proofs, images, native/GPU expansion, unresolved masks/connectivity and dependency-closure loads"
+  },
+  "consumerDecisionFields": [
+    "bounded-wrapper-version-and-admission",
+    "canonical-owner-namespace-and-cross-section-aliases",
+    "exact-certificate-intake-and-scalar-precedence",
+    "fixed-whole-or-eligible-regional-mode-and-failure-atomicity",
+    "original-attachment-hinge-port-and-support-liveness",
+    "eight-plant-glass-gates-and-all-local-exceptions",
+    "plan-overview-and-bounded-residency-without-raising-192-cap",
+    "one-common-query-thermal-tool-render-consumer"
+  ],
+  "examples": [
+    {
+      "kind": "wall",
+      "source": {
+        "placeId": "administration",
+        "originalSourceId": "rotunda-3-tier-1:2:13/wall-1",
+        "descriptor": {
+          "path": "assets/art/place-scenes/administration/sections/4_4_7.json",
+          "pointer": "/parts/0"
+        },
+        "sourceRangeOrdinal": null
+      },
+      "familyRef": {
+        "path": "art/source/shared-map-fire-bindings/remaining-material-proposal-v1/administration-proposal.json",
+        "pointer": "/families/2"
+      },
+      "quantity": {
+        "recipe": "wall-area: one actual native primary face times exact 1",
+        "groupRef": {
+          "path": "art/source/shared-map-fire-bindings/remaining-geometry-readiness-v1/geometry-groups.json",
+          "pointer": "/groups/45"
+        },
+        "geometryCertificateRef": {
+          "path": "art/source/shared-map-fire-bindings/remaining-geometry-readiness-v1/geometry-cases.json",
+          "pointer": "/cases/2306"
+        },
+        "exactLinearRef": {
+          "path": "art/source/shared-map-fire-bindings/remaining-geometry-readiness-v1/linear-transforms.json",
+          "pointer": "/transforms/186"
+        },
+        "runtimeStock": null
+      },
+      "support": "unaccepted; area proof is not attachment"
+    },
+    {
+      "kind": "furniture-owner",
+      "placeId": "administration",
+      "sourceOwnerKey": "east-ambulance/desk-assembly",
+      "members": [
+        {
+          "placeId": "administration",
+          "originalSourceId": "east-ambulance/desk",
+          "descriptor": {
+            "path": "assets/art/place-scenes/administration/sections/6_1_1.json",
+            "pointer": "/parts/48"
+          },
+          "sourceRangeOrdinal": null
+        },
+        {
+          "placeId": "administration",
+          "originalSourceId": "east-ambulance/desk-leg--1",
+          "descriptor": {
+            "path": "assets/art/place-scenes/administration/sections/5_1_1.json",
+            "pointer": "/parts/91"
+          },
+          "sourceRangeOrdinal": null
+        },
+        {
+          "placeId": "administration",
+          "originalSourceId": "east-ambulance/desk-leg-1",
+          "descriptor": {
+            "path": "assets/art/place-scenes/administration/sections/6_1_1.json",
+            "pointer": "/parts/49"
+          },
+          "sourceRangeOrdinal": null
+        }
+      ],
+      "quantity": {
+        "recipe": "actual nonduplicate physical union volume / exact existing binary64 .12",
+        "certificateRef": {
+          "path": "art/source/shared-map-fire-bindings/remaining-geometry-readiness-v1/compound-review.json",
+          "pointer": "/groups/8"
+        },
+        "unionMeasureRef": {
+          "path": "art/source/shared-map-fire-bindings/remaining-geometry-readiness-v1/compound-review.json",
+          "pointer": "/groups/8/unionVolume"
+        },
+        "runtimeStock": null
+      },
+      "countOnce": "one union account across sections",
+      "attachmentGate": "contact/overlap does not approve joint/support"
+    },
+    {
+      "kind": "pane-and-frame",
+      "source": {
+        "placeId": "horticulture",
+        "originalSourceId": "great-crystal-dome/glass-skin",
+        "descriptor": {
+          "path": "assets/art/place-scenes/horticulture/sections/11_4_5.json",
+          "pointer": "/parts/0"
+        },
+        "sourceRangeOrdinal": null
+      },
+      "catalogueRef": {
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/glazing-source-catalogue.json",
+        "pointer": "/sources/190"
+      },
+      "quantity": {
+        "recipe": "inert: zero combustible fuel, physical screening retained",
+        "runtimeStock": null
+      },
+      "fixedFrameSource": {
+        "placeId": "horticulture",
+        "originalSourceId": "great-crystal-dome/rib-51",
+        "descriptor": {
+          "path": "assets/art/place-scenes/horticulture/sections/10_4_4.json",
+          "pointer": "/parts/6"
+        },
+        "sourceRangeOrdinal": null
+      },
+      "pristinePathRef": {
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/glazing-component-path-proposal.json",
+        "pointer": "/representatives/0"
+      },
+      "localDamageRecipe": [
+        "original component",
+        "geometry/range/matrix",
+        "template cell",
+        "original hit triangle"
+      ],
+      "supportGate": "representative pristine path only; no bridge/remap/brace",
+      "runtimeGate": [
+        "portion retirement",
+        "live port/path",
+        "canonical grid"
+      ]
+    },
+    {
+      "kind": "plant-owner",
+      "placeId": "horticulture",
+      "sourceOwnerKey": "fern-0/foliage",
+      "ownerRef": {
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/vegetation-owners-proposal.json",
+        "pointer": "/owners/22"
+      },
+      "finiteBudgetRef": {
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/vegetation-owners-proposal.json",
+        "pointer": "/owners/22/finiteOwnerBudget"
+      },
+      "profileRef": {
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/vegetation-owners-proposal.json",
+        "pointer": "/owners/22/proposedExistingProfileId"
+      },
+      "oneOriginalPatch": {
+        "placeId": "horticulture",
+        "originalSourceId": "fern-0/frond-0",
+        "descriptor": {
+          "path": "assets/art/place-scenes/horticulture/sections/9_4_2.json",
+          "pointer": "/parts/138"
+        },
+        "sourceRangeOrdinal": null
+      },
+      "normalizedShareRef": {
+        "path": "art/source/shared-map-fire-bindings/vegetation-pane-proposal-v1/vegetation-owners-proposal.json",
+        "pointer": "/localPatches/22/proposedStockShare"
+      },
+      "otherPatchMembership": "all 12 original fronds in ownerRef",
+      "quantity": "normalized one-sided areas debit sole exact binary64 .30 owner",
+      "runtimeStock": null,
+      "supportGate": "full unchanged exception ledger; no earth anchor"
+    }
+  ]
+}

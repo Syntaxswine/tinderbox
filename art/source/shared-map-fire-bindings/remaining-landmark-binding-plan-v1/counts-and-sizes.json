@@ -1,0 +1,315 @@
+{
+  "version": 1,
+  "status": "SOURCE_PLANNING_ESTIMATES_NOT_EXPORT",
+  "inputPinManifestSha256": "e535ef53ae9bc00d709aa38f9ecd6019ca2a6b7ae43b4bd186b056e47d50e90b",
+  "formatProposalSha256": "0d2c87b04de674d35032142ef7359d44aa5b91478ae8f57218bc9a6f760be909",
+  "sizeModel": {
+    "encoding": "proposed reference tuples; no installed codec",
+    "associationTupleUpperBytes": 59,
+    "associationTupleUpperDerivation": "8 x 6 digits + 2 brackets + 7 commas + comma/newline; null shorter",
+    "sectionHeaderBudgetBytes": 128,
+    "maxAssociationsPerSectionPage": 512,
+    "dictionaryPageCapBytes": 65536,
+    "dictionaryPageHeaderBudgetBytes": 128,
+    "directoryRowBudgetBytes": 128,
+    "dictionarySizing": "count projections of existing records; 128-byte headers; greedy byte-bounded pages; export none",
+    "loadScenario": "existing chunk AABBs: X/Z +/-24 m; elevation -2.12/+4.24 m; saved spawn/interior study",
+    "notIncluded": "cold proofs, images, native/GPU expansion, unresolved masks/connectivity and dependency-closure loads"
+  },
+  "maps": {
+    "administration": {
+      "logicalSourceIds": 41522,
+      "renderRecords": 39801,
+      "sections": 653,
+      "nonemptyMaterialFamilies": 15,
+      "sourceIdUtf8BytesAlreadyInDescriptors": 1240520,
+      "mergedRenderRows": 115,
+      "maxOriginalRangesInOneRenderRow": 51,
+      "originalSceneIndexBytes": 271640,
+      "originalSectionPinCatalogueBytes": 234987,
+      "originalNavigationBytes": 7010545,
+      "originalSectionDescriptorBytes": 17758264,
+      "existingUniqueGeometryFiles": 943,
+      "existingGeometryFileBytes": 15467248,
+      "existingAppearanceMaterials": 13,
+      "estimatedBindingPages": 653,
+      "estimatedBindingBytes": 2533382,
+      "largestEstimatedBindingPage": {
+        "id": "2_2_2",
+        "logicalSourceIds": 411,
+        "renderRecords": 361,
+        "originalDescriptorBytes": 153947,
+        "estimatedBindingBytes": 24377
+      },
+      "loadScenarios": [
+        {
+          "name": "saved-spawn",
+          "centerXZAndElevation": [
+            62,
+            12,
+            0
+          ],
+          "queryBounds": {
+            "min": [
+              38,
+              -2.12,
+              -12
+            ],
+            "max": [
+              86,
+              4.24,
+              36
+            ]
+          },
+          "sectionCount": 24,
+          "sectionIdSetSha256": "c027b4f22f52498e72532687e070c8610c39aaa022db9091f3c17623119b3ba0",
+          "logicalSourceAssociations": 3943,
+          "estimatedBindingBytes": 235709,
+          "existingDescriptorBytes": 1602667,
+          "uniqueExistingGeometryFiles": 213,
+          "existingGeometryFileBytes": 1444157,
+          "estimatedMetadataAndBindingsBytes": 8411455,
+          "existingPayloadAndBindingBudgetBytes": 11458279,
+          "upperBudgetWithEverySharedDictionaryPageBytes": 13526606
+        },
+        {
+          "name": "interior-study",
+          "centerXZAndElevation": [
+            62,
+            62,
+            2.12
+          ],
+          "queryBounds": {
+            "min": [
+              38,
+              0.0,
+              38
+            ],
+            "max": [
+              86,
+              6.36,
+              86
+            ]
+          },
+          "sectionCount": 45,
+          "sectionIdSetSha256": "9c6645650e0671d86cb6917b3c35e263360229275b1cd9991ca162b23b058b85",
+          "logicalSourceAssociations": 7191,
+          "estimatedBindingBytes": 430029,
+          "existingDescriptorBytes": 2936549,
+          "uniqueExistingGeometryFiles": 313,
+          "existingGeometryFileBytes": 2759539,
+          "estimatedMetadataAndBindingsBytes": 8605775,
+          "existingPayloadAndBindingBudgetBytes": 14301863,
+          "upperBudgetWithEverySharedDictionaryPageBytes": 16370190
+        }
+      ],
+      "estimatedManifestOnlyBootstrapBytes": 1165201,
+      "estimatedInitialMetadataBytes": 8175746
+    },
+    "horticulture": {
+      "logicalSourceIds": 63788,
+      "renderRecords": 61954,
+      "sections": 445,
+      "nonemptyMaterialFamilies": 23,
+      "sourceIdUtf8BytesAlreadyInDescriptors": 1711784,
+      "mergedRenderRows": 38,
+      "maxOriginalRangesInOneRenderRow": 115,
+      "originalSceneIndexBytes": 181129,
+      "originalSectionPinCatalogueBytes": 164554,
+      "originalNavigationBytes": 8131307,
+      "originalSectionDescriptorBytes": 26014816,
+      "existingUniqueGeometryFiles": 629,
+      "existingGeometryFileBytes": 17368159,
+      "existingAppearanceMaterials": 17,
+      "estimatedBindingPages": 445,
+      "estimatedBindingBytes": 3820452,
+      "largestEstimatedBindingPage": {
+        "id": "12_3_4",
+        "logicalSourceIds": 455,
+        "renderRecords": 337,
+        "originalDescriptorBytes": 157789,
+        "estimatedBindingBytes": 26973
+      },
+      "loadScenarios": [
+        {
+          "name": "saved-spawn",
+          "centerXZAndElevation": [
+            181,
+            31,
+            2.12
+          ],
+          "queryBounds": {
+            "min": [
+              157,
+              0.0,
+              7
+            ],
+            "max": [
+              205,
+              6.36,
+              55
+            ]
+          },
+          "sectionCount": 32,
+          "sectionIdSetSha256": "94977a650317f8b17e71b5e03223a05a06388ea7d238c4f01e8440fe31074dc7",
+          "logicalSourceAssociations": 6282,
+          "estimatedBindingBytes": 374734,
+          "existingDescriptorBytes": 2560883,
+          "uniqueExistingGeometryFiles": 107,
+          "existingGeometryFileBytes": 2414530,
+          "estimatedMetadataAndBindingsBytes": 9510298,
+          "existingPayloadAndBindingBudgetBytes": 14485711,
+          "upperBudgetWithEverySharedDictionaryPageBytes": 16554038
+        },
+        {
+          "name": "interior-study",
+          "centerXZAndElevation": [
+            176,
+            75,
+            2.12
+          ],
+          "queryBounds": {
+            "min": [
+              152,
+              0.0,
+              51
+            ],
+            "max": [
+              200,
+              6.36,
+              99
+            ]
+          },
+          "sectionCount": 45,
+          "sectionIdSetSha256": "392b288b548f2d981cb2493d2e72f7ca9bd9a695714a7e46c54a3446274e69e6",
+          "logicalSourceAssociations": 8124,
+          "estimatedBindingBytes": 485076,
+          "existingDescriptorBytes": 3198592,
+          "uniqueExistingGeometryFiles": 88,
+          "existingGeometryFileBytes": 3800167,
+          "estimatedMetadataAndBindingsBytes": 9620640,
+          "existingPayloadAndBindingBudgetBytes": 16619399,
+          "upperBudgetWithEverySharedDictionaryPageBytes": 18687726
+        }
+      ],
+      "estimatedManifestOnlyBootstrapBytes": 1004257,
+      "estimatedInitialMetadataBytes": 9135564
+    }
+  },
+  "sharedDictionaryEstimate": {
+    "layers": {
+      "geometryCases": {
+        "records": 5100,
+        "estimatedPages": 14,
+        "estimatedBytes": 887303,
+        "largestEstimatedPageBytes": 65444
+      },
+      "rawQuantityExceptionLookup": {
+        "records": 724,
+        "estimatedPages": 1,
+        "estimatedBytes": 43561,
+        "largestEstimatedPageBytes": 43561
+      },
+      "quantityGroups": {
+        "records": 7446,
+        "estimatedPages": 12,
+        "estimatedBytes": 725461,
+        "largestEstimatedPageBytes": 65536
+      },
+      "exactLinearTransforms": {
+        "records": 476,
+        "estimatedPages": 3,
+        "estimatedBytes": 142704,
+        "largestEstimatedPageBytes": 65388
+      },
+      "compoundIntentions": {
+        "records": 53,
+        "estimatedPages": 1,
+        "estimatedBytes": 6738,
+        "largestEstimatedPageBytes": 6738
+      },
+      "plantOwners": {
+        "records": 98,
+        "estimatedPages": 1,
+        "estimatedBytes": 19529,
+        "largestEstimatedPageBytes": 19529
+      },
+      "plantPatches": {
+        "records": 208,
+        "estimatedPages": 1,
+        "estimatedBytes": 12601,
+        "largestEstimatedPageBytes": 12601
+      },
+      "plantFollowers": {
+        "records": 204,
+        "estimatedPages": 1,
+        "estimatedBytes": 25590,
+        "largestEstimatedPageBytes": 25590
+      },
+      "glassComponents": {
+        "records": 433,
+        "estimatedPages": 4,
+        "estimatedBytes": 197274,
+        "largestEstimatedPageBytes": 65470
+      },
+      "materialFamilies": {
+        "records": 38,
+        "estimatedPages": 1,
+        "estimatedBytes": 7566,
+        "largestEstimatedPageBytes": 7566
+      }
+    },
+    "estimatedBytes": 2068327,
+    "estimatedPages": 39,
+    "largestEstimatedPageBytes": 65536,
+    "pinTableCompactBytes": 7016,
+    "bootstrapDirectoryAndPinsBudgetBytes": 658574,
+    "existingGeometryPinCatalogueBytes": 646438,
+    "pinnedWorkingEvidenceFiles": 32,
+    "pinnedColdAuditBytesExcludingOriginalIndexNavigation": 36833264,
+    "pinnedUIRoofReferenceGitObjectBytes": 27083
+  },
+  "actualEvidenceCounts": {
+    "logicalSourceIds": 105310,
+    "sections": 1098,
+    "effectiveGeometryRangeCases": 5100,
+    "linearGeometryQuantityGroups": 7446,
+    "exactLinearTransforms": 476,
+    "geometryFiles": 1572,
+    "preservedRawQuantityExceptionRows": 724,
+    "compoundGroupingIntentions": 53,
+    "plantOwners": 98,
+    "plantPatches": 208,
+    "zeroExtraFuelFollowers": 204,
+    "glassSourceComponents": 433,
+    "authoredVentMemberships": 12,
+    "maskTemplates": 28,
+    "schemaGates": [
+      "one-owner-local-patch-stock",
+      "nonfuel-follower-local-parents",
+      "original-triangle-portion-retirement",
+      "canonical-native-grid-admission",
+      "physical-only-zero-fuel-screen",
+      "fixed-local-frame-ports",
+      "envelope-local-damage",
+      "live-original-sheet-component-path"
+    ],
+    "plantExceptionCounts": {
+      "botanical-parent-contact-unproved": 2,
+      "finer-local-envelope-retirement-needs-schema": 66,
+      "grounding-or-bed-attachment-not-proved": 76
+    },
+    "obliqueGlassFrameCases": 4
+  },
+  "limits": [
+    "No new binding/carrier rows, geometry, masks, canonical cells or stock were generated.",
+    "Byte estimates are uncompressed serialized-reference budgets, not measured runtime memory or performance.",
+    "Counts of source IDs are not final carrier counts. Compound/plant/support/damage admissions remain gated.",
+    "Shared dictionary projections retain exact references; full proof bodies stay pinned cold audit evidence.",
+    "Load scenarios use existing chunk AABB intersections; they are not a chosen stream policy or traversability proof.",
+    "Scenario geometry bytes deduplicate existing files, without evaluating geometry arrays or compiling shapes.",
+    "Initial metadata includes existing scene index, section/geometry pin catalogues and full navigation. Scenario totals additionally count existing descriptors and unique geometry. Cold proof bodies, images, unaccepted fine masks/connectivity/state, native/GPU expansion and dependency-closure loads remain excluded.",
+    "No complete contributor mapping exists yet; nearby dictionary demand is between bootstrap and the separately reported all-dictionary upper budget.",
+    "The 192-section overview cap is not raised; selected-level plan overview and bounded nearby residency need consumer review."
+  ]
+}
