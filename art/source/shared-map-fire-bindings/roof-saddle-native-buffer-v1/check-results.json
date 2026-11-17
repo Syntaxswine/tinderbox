@@ -1,0 +1,172 @@
+{
+  "actualBufferProducerSha256": "77f93720f85e61ae4c8da2450aff65f729479db07b73904cc56ae84f5f6fa0f4",
+  "actualVolumeMetresCubed": 0.004814358681386743,
+  "checks": {
+    "actual-buffer": 2,
+    "closure": 1,
+    "conversion": 1,
+    "cornice": 1,
+    "determinism": 15,
+    "mapping": 49,
+    "material-path": 10,
+    "nondegenerate": 16,
+    "normal": 1,
+    "orientation": 16,
+    "placement": 1,
+    "preserved": 1,
+    "quantity": 3,
+    "roof-seat": 1,
+    "scope": 1,
+    "separation": 1,
+    "transform": 1,
+    "upper": 1,
+    "uv": 48
+  },
+  "compilerActivationWorldGraphBuildRendererRunByChecker": false,
+  "createdGeometryBufferCount": 5,
+  "manifestSha256": "0d1469e541657fa6f3ed537ff2f4ba7fe01f3952c273e0eba2720c224a436bcd",
+  "materialPathEndpoints": [
+    [
+      49.5,
+      17.080833342632367,
+      59.97692309141159
+    ],
+    [
+      49.5,
+      17.260000001788136,
+      59.97692309141159
+    ]
+  ],
+  "maximumUVEdgeErrorMetres": 5.960287763340233e-09,
+  "minimumBodyThicknessMetres": 0.14833332009968103,
+  "nativePhysicalShapeCount": 4,
+  "nativeTriangleContacts": 3,
+  "negativeControls": [
+    {
+      "name": "one Float32 step toward roof rejected with no tolerance relaxation",
+      "reason": "intersecting candidate: vertex below actual global roof support plane",
+      "rejectedPhysicalLocalPositions": [
+        -0.5,
+        -0.20634916424751282,
+        -0.5,
+        -0.5,
+        -0.5,
+        0.2115386426448822,
+        -0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        0.5,
+        0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        0.5,
+        -0.20634916424751282,
+        -0.5,
+        0.5,
+        -0.5,
+        0.2115386426448822,
+        0.5,
+        -0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        -0.5
+      ],
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "six-decimal quantity would exceed certified lower result",
+      "reason": "quantity: .04012 exceeds actual lower result",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "any-parent fallback rejected",
+      "reason": "both fixed original ports are mandatory",
+      "result": "EXPECTED_REJECTION"
+    },
+    {
+      "name": "physical/render mapping change rejected",
+      "reason": "mapping: physical vertex identity changed",
+      "result": "EXPECTED_REJECTION"
+    }
+  ],
+  "physicalTopology": {
+    "components": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    ],
+    "edges": 24,
+    "euler": 2,
+    "triangles": 16,
+    "vertices": 10
+  },
+  "preservedOldTrackedPaths": 3733,
+  "producerSha256": "c2d7e3be31b909c372ef9263e4c9b9df5eb37f8bc587a2f8fde0a2c2aed7a7d8",
+  "registeredRuntimeStock": 0,
+  "result": "PASS_ONE_ACTUAL_NATIVE_BUFFER_PILOT",
+  "retainedCorniceContact": {
+    "actualFaceAreaMetresSquared": 0.007384610748431442,
+    "actualSurfaceWitness": [
+      [
+        49.526666666666664,
+        17.05000000357628,
+        60.06461539427439
+      ],
+      [
+        49.526666666666664,
+        17.05000000357628,
+        60.06461539427439
+      ]
+    ],
+    "axis": 1,
+    "childFace": "min",
+    "geometricHorizontalBearing": true,
+    "groundAnchor": false,
+    "kind": "actual-coplanar-source-face-area",
+    "nativePrecisionToleranceMetres": 1e-05,
+    "parentFace": "max",
+    "witnessSeparationMetres": 0.0
+  },
+  "roofSeatMaximumVerticalGapMetres": 7.829021710759803e-10,
+  "runtimePortMappingAndBothPortConsumerGate": "OPEN",
+  "selectedQuantityReference": 0.04011965567822286,
+  "unchangedUpperContact": {
+    "actualFaceAreaMetresSquared": 0.025599999999940337,
+    "actualSurfaceWitness": [
+      [
+        49.526666666666664,
+        17.26000000178814,
+        59.973333333333336
+      ],
+      [
+        49.526666666666664,
+        17.260000001788136,
+        59.973333333333336
+      ]
+    ],
+    "axis": 1,
+    "childFace": "min",
+    "geometricHorizontalBearing": true,
+    "groundAnchor": false,
+    "kind": "actual-coplanar-source-face-area",
+    "nativePrecisionToleranceMetres": 1e-05,
+    "parentFace": "max",
+    "witnessSeparationMetres": 3.552713678800501e-15
+  },
+  "version": 1
+}

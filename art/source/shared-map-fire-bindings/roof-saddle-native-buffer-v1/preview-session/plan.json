@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "views": [
+    {
+      "name": "assembled-proposal",
+      "title": "NATIVE Float32 saddle pilot | one measured bay",
+      "caption": "Actual converted buffers between unchanged original parents. Both fixed lower ports are required.",
+      "newCarrierIds": [
+        "carrier/roof-saddle-native/main-parapet-6/bay-01"
+      ],
+      "sourceCarrierIds": [
+        "carrier/edge-6/cornice-7",
+        "carrier/roof/rear-tail",
+        "carrier/main-parapet-6/base"
+      ],
+      "camera": {
+        "target": [
+          49.5,
+          17.23,
+          60
+        ],
+        "origin": [
+          50.6,
+          17.85,
+          61.6
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "halfWidth": 0.64
+      },
+      "rulerMetres": 0.1,
+      "notes": [
+        "Original envelope: 0.16 x 0.20999999821185966 x 0.16 m. Physical/render identity and both fixed ports must survive runtime intake.",
+        "One native pilot only. Physical/render mapping retained; both-port runtime consumer remains an interface gate."
+      ],
+      "bmpPath": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\artifacts\\shared-map-fire-bindings\\roof-saddle-native-buffer-v1\\assembled-proposal.bmp",
+      "jpgPath": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\art\\source\\shared-map-fire-bindings\\roof-saddle-native-buffer-v1\\previews\\assembled-proposal.jpg",
+      "triangles": 48,
+      "blockMarkers": [
+        {
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-01",
+          "screen": [
+            800,
+            519.3074689322304
+          ]
+        }
+      ]
+    },
+    {
+      "name": "isolated-profile",
+      "title": "NATIVE Float32 profile | shared physical identity",
+      "caption": "Original parents omitted in this view to show the sloped underside and retained horizontal cornice foot.",
+      "newCarrierIds": [
+        "carrier/roof-saddle-native/main-parapet-6/bay-01"
+      ],
+      "sourceCarrierIds": [],
+      "camera": {
+        "target": [
+          49.5,
+          17.16,
+          60
+        ],
+        "origin": [
+          50.5,
+          16.8,
+          60.7
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "halfWidth": 0.32
+      },
+      "rulerMetres": 0.1,
+      "notes": [
+        "10 shared physical vertices; 16 triangles. Native minimum thickness: 0.14833332009968103 m.",
+        "Native closed volume: 0.004814358681386743 m^3. Safe quantity reference: 0.04011965567822286."
+      ],
+      "bmpPath": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\artifacts\\shared-map-fire-bindings\\roof-saddle-native-buffer-v1\\isolated-profile.bmp",
+      "jpgPath": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\art\\source\\shared-map-fire-bindings\\roof-saddle-native-buffer-v1\\previews\\isolated-profile.jpg",
+      "triangles": 16,
+      "blockMarkers": [
+        {
+          "id": "carrier/roof-saddle-native/main-parapet-6/bay-01",
+          "screen": [
+            800,
+            441.9894436315621
+          ]
+        }
+      ]
+    }
+  ],
+  "renderPixels": [
+    3200,
+    1720
+  ],
+  "outputRenderPixels": [
+    1600,
+    860
+  ],
+  "canvasPixels": [
+    1600,
+    1100
+  ],
+  "footer": "OFFLINE NATIVE-BUFFER PILOT | Whole building omitted. No runtime installation, graph or full support acceptance."
+}

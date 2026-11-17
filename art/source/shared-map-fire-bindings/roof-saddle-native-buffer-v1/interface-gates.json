@@ -1,0 +1,78 @@
+{
+  "compilerOrGraphRun": false,
+  "directOldEdgesAmongThreeNamedParents": [],
+  "exactGates": [
+    "Legacy addition records expose one geometry and a flat joins list; this pilot explicitly carries physical/render buffers plus mapping. No current consumer import is claimed.",
+    "The inspected binary support relation/reachability interface admits independent incoming paths; a flat pair list cannot encode this selected both-port requirement. Do not install two OR edges as a substitute.",
+    "Bind both fixed original source ports and the upper local port to actual native fragments later. No native fragment/retirement mapping or old-edge normalization is installed.",
+    "No direct old edge among these three parents is present in the frozen base. Transitive/current runtime conflicts remain an intake gate; no graph or cycle search is run. Old edges are not removed or changed."
+  ],
+  "frozenFamilyIncidentRelations": [
+    {
+      "child": "carrier/edge-6/cornice-7",
+      "direction": "parent-to-child",
+      "id": "38bd992fc06c649aa5a21f58",
+      "parent": "carrier/edge-6/cornice-6",
+      "regions": 34
+    },
+    {
+      "child": "carrier/main-parapet-6/pier-1",
+      "direction": "parent-to-child",
+      "id": "9617ef3d0e2177c0753d0560",
+      "parent": "carrier/main-parapet-6/base",
+      "regions": 1
+    },
+    {
+      "child": "carrier/main-parapet-6/pier-2",
+      "direction": "parent-to-child",
+      "id": "4d8d22495b5864605d1fb246",
+      "parent": "carrier/main-parapet-6/base",
+      "regions": 1
+    },
+    {
+      "child": "carrier/main-parapet-6/pier-3",
+      "direction": "parent-to-child",
+      "id": "15c0577bf994d29fb9bbe3cd",
+      "parent": "carrier/main-parapet-6/base",
+      "regions": 1
+    },
+    {
+      "child": "carrier/main-parapet-6/pier-4",
+      "direction": "parent-to-child",
+      "id": "5b3b4fbe4e3bdd1ba658d0d1",
+      "parent": "carrier/main-parapet-6/base",
+      "regions": 1
+    },
+    {
+      "child": "carrier/main-parapet-6/pier-5",
+      "direction": "parent-to-child",
+      "id": "617089ea81b87fe89ddfd514",
+      "parent": "carrier/main-parapet-6/base",
+      "regions": 1
+    }
+  ],
+  "frozenRelationshipsPath": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/relationships.json",
+  "frozenRelationshipsSha256": "34b25f91d457fb65e611b89f182c0e05bb946d7506a0581b53e945a2d9731e06",
+  "interfaceSources": [
+    {
+      "commit": "44c7aa333a6c74d5723120a404fc1dec33cce162",
+      "path": "src/simulation/source-support.js",
+      "sha256": "2c557d8b03a55f8bba3d95d31bd0b3528557a3a020599062f818fb2ad733d589"
+    },
+    {
+      "commit": "44c7aa333a6c74d5723120a404fc1dec33cce162",
+      "path": "src/content/map-source-support-data.js",
+      "sha256": "2dbd12836903500db136f262e72d8ea924e4cddb0393c87e19a0241d5ee7c54c"
+    }
+  ],
+  "newAnchors": 0,
+  "oldEdgesChanged": false,
+  "oldParentCounts": {
+    "carrier/edge-6/cornice-7": 34,
+    "carrier/main-parapet-6/base": 0,
+    "carrier/roof/rear-tail": 72
+  },
+  "rolePromotion": false,
+  "status": "GEOMETRY_BUFFERS_VALID; DATA_MAPPING_AND_ALL_FIXED_PORT_CONSUMER_GATE_OPEN",
+  "version": 1
+}

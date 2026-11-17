@@ -1,0 +1,98 @@
+{
+  "actualBufferEvidence": {
+    "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/actual-buffer-results.json",
+    "proof": "Every preview render vertex has the same Float32 position bits and world coordinates as its mapped accepted physical vertex.",
+    "sha256": "53a34c526ef7111008d71be9365b996a8ef763b9886281658d8de95d803affe4"
+  },
+  "cameraSeed": "No random sampling",
+  "cleanupReceipt": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/preview-session/cleanup-receipt.json",
+  "encoderSourceSha256": "7725b1fc39450016f38cbd36aeed08eef407c49ca002b47b4143874c535a2492",
+  "jpgCount": 2,
+  "manifestPath": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/index.json",
+  "manifestSha256": "0d1469e541657fa6f3ed537ff2f4ba7fe01f3952c273e0eba2720c224a436bcd",
+  "outputs": [
+    {
+      "camera": {
+        "halfWidth": 0.64,
+        "origin": [
+          50.6,
+          17.85,
+          61.6
+        ],
+        "target": [
+          49.5,
+          17.23,
+          60
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ]
+      },
+      "height": 1100,
+      "imagePixelsPerMetre": 1250,
+      "newCarrierIds": [
+        "carrier/roof-saddle-native/main-parapet-6/bay-01"
+      ],
+      "omitted": "Whole-building context, other nineteen prototypes, runtime and support acceptance omitted. The assembled view shows three original parents; the second view isolates the same unapproved fitting.",
+      "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/previews/assembled-proposal.jpg",
+      "physicalWidthMetres": 1.28,
+      "sha256": "086992217bf0cbf6d7722ee79f022d25d253f4438679d928d6a326fbc33180c7",
+      "sourceCarrierIds": [
+        "carrier/edge-6/cornice-7",
+        "carrier/roof/rear-tail",
+        "carrier/main-parapet-6/base"
+      ],
+      "triangles": 48,
+      "width": 1600
+    },
+    {
+      "camera": {
+        "halfWidth": 0.32,
+        "origin": [
+          50.5,
+          16.8,
+          60.7
+        ],
+        "target": [
+          49.5,
+          17.16,
+          60
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ]
+      },
+      "height": 1100,
+      "imagePixelsPerMetre": 2500,
+      "newCarrierIds": [
+        "carrier/roof-saddle-native/main-parapet-6/bay-01"
+      ],
+      "omitted": "Whole-building context, other nineteen prototypes, runtime and support acceptance omitted. The assembled view shows three original parents; the second view isolates the same unapproved fitting.",
+      "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/previews/isolated-profile.jpg",
+      "physicalWidthMetres": 0.64,
+      "sha256": "daf4d2d59c8f9c73621ebafd8ae5e6536a4fb43536aaebcb76748574f3ae3618",
+      "sourceCarrierIds": [],
+      "triangles": 16,
+      "width": 1600
+    }
+  ],
+  "renderer": "Deterministic pure JavaScript orthographic triangle rasterizer, linear diffuse source colours, one directional shadow, 2x sampling; Windows System.Drawing JPEG/labels.",
+  "rendererReuse": "Existing accepted pure software rasterizer and OS image encoder; no blocked binary or execution-policy work attempted for this proposal.",
+  "rendererSourceSha256": "a981e4e8e182244f886da255ceaf733ece9b893cb2b66e522464596f65e346dd",
+  "runtimeBehaviorAcceptance": false,
+  "samplesPerPixel": 4,
+  "scope": "Offline actual native-buffer close-ups; not running-game or both-port runtime acceptance.",
+  "sessionCount": 1,
+  "sessionRecord": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/preview-session/render-run.json",
+  "version": 1,
+  "visualInspection": {
+    "assembled": "Actual converted render-buffer triangles shown between the three unchanged source parents, with native-buffer label and stated scale.",
+    "isolated": "Same converted pilot shown alone; source parents explicitly omitted. Physical/render identity, metric UV and quantity references labeled.",
+    "result": "PASS",
+    "scope": "Two newly rendered native-buffer JPGs, distinct from preserved double-precision proposal JPGs; not running-game or both-port runtime acceptance."
+  }
+}
