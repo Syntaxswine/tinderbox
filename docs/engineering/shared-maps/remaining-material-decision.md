@@ -72,3 +72,31 @@ quantity recipe and dry-versus-sustained-exposure controls need architect/coder
 review before implementation. No plant becomes dry grass, timber, cloth or zero
 fuel by default. No new combustion profile or moisture solver is approved here.
 Keep this source planning independent of the frozen CPU cache experiment.
+
+## Grouped readiness intake
+
+Artist `9dfee80fcba650447d07488f67e76b1461c1d4d1` is accepted as source
+readiness/exception evidence. Root independently reproduces all three read-only
+checks and verifies all 23 package file hashes: 1,572 geometry inputs, 5,100
+effective ranges, 7,446 linear groups and the original 105,310 logical IDs.
+Forty-five of 53 compound unions and all eighteen leaf area unions are proved.
+No quantity is assigned by this review. The 724 exact quantity exceptions, eight
+cafe tables, 433 unapproved glazing damage mappings, joints/support and all
+412 plant parts remain separate runtime blockers. Sixty-seven cut-frame records
+include 58 quantity exceptions. Original and New York evidence remain unchanged.
+
+Accept the plant partition's 98 proposed owners / 208 local damage patches /
+204 followers as a design intention only. It does not approve a base profile,
+dry stock, local shares, response preset, ground anchor or whole-crown break.
+The optional static per-carrier ignition-response proposal remains unimplemented
+and unselected; there is no new moisture solver or global profile change.
+
+Authorize a bounded source-only numerical-closure proposal for the 530 uncut
+closed-solid exceptions. Separate literal procedural roundoff seams from other
+unproved solids using pinned constructor and geometry evidence. At most two
+representative radial cases plus a genuine open-gap negative should establish
+the proposed policy: exact scope IDs, producer/Float32-derived bound and explicit
+area/volume error bound. Do not infer that every radial primitive qualifies.
+No arbitrary weld, copied tolerance, source/mesh repair, export, binding, stock,
+runtime, regenerated factory or renderer is authorized. Derived cuts, wall-face
+correspondence and the three opaque roofs remain their own proof questions.

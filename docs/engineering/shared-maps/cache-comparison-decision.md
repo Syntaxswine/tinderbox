@@ -115,3 +115,9 @@ publication host timing. Retain raw host comparisons, exact pins, temporary
 index counts/bounds, CPU/wall/worst-step evidence and verified disposal/cleanup.
 No new profile, build, renderer, readiness or promotion is included. A failed
 equivalence check stops the experiment; the comparator is not relaxed.
+
+Root intakes attribution-only `a5e171d9d924b6baf46151f416f23cd0d5746120`,
+independently verifies all 23 archived file hashes, all 2,218 profile node/sample
+references and 7,102 sample intervals, and strictly matches all three raw host
+preimages to the accepted candidate. It changes no production byte. Local-index
+measurement and final source intake remain separately reviewed follow-ups.
