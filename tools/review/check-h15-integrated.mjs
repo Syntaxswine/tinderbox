@@ -21,6 +21,11 @@ export async function checkH15Integrated(output){
   }
   for(const row of declared.additionalRuntime)assert.equal(sha(lf(row.path)),row.integratedLfSha256,row.path);
   for(const row of declared.sourceExports)assert.equal(sha(fs.readFileSync(row.path)),row.sha256,row.path);
+  const successor=declared.sourceSuccessor;
+  assert.equal(declared.artistSourceCommit,'6d145569c7b4ef5514698dcc713256de9ff7eb2b','Only the reviewed exact kitchen successor is accepted');
+  assert.equal(successor.acceptedArtistSourceCommit,declared.artistSourceCommit);assert.equal(successor.originalArtistSourceCommit,'4cecd10d09eff85543996d4362c63b2297001436');
+  assert.equal(sha(lf(successor.referencePath)),successor.referenceLfSha256,'Preserve the separate kitchen source reference');
+  for(const row of successor.originalExports)assert.equal(sha(fs.readFileSync(row.path)),row.sha256,'Preserve the original 4ce export: '+row.path);
   const provenance=read(declared.vendorManifest.path);assert.equal(sha(lf(declared.vendorManifest.path)),declared.vendorManifest.lfSha256);assert.equal(provenance.commit,declared.kernelCommit);assert.deepEqual(provenance.runtimeDependencyClosure,[]);
   for(const row of provenance.files){const bytes=fs.readFileSync(row.installedPath);assert.equal(bytes.length,row.bytes,row.installedPath);assert.equal(sha(bytes),row.sha256,row.installedPath);}
   const integratedReference=structuredClone(reference);for(const row of integratedReference.unchangedFiles)if(exceptions.has(row.path))row.lfSha256=exceptions.get(row.path).integratedLfSha256;
@@ -33,7 +38,7 @@ export async function checkH15Integrated(output){
   substitute("fs.mkdirSync('docs/art/h15-circulation'","fs.mkdirSync("+JSON.stringify(portable),'Separate output directory');
   substitute("fs.writeFileSync('docs/art/h15-circulation/checks.json'","fs.writeFileSync("+JSON.stringify(portable+'/checks.json'),'Preserve the historical artist receipt');
   const imports=[];derived=derived.replace(/from (['"])(\.{1,2}\/[^'"]+)\1/g,(_,quote,relative)=>{const resolved=new URL(relative,pathToFileURL(path.resolve(checker.path))).href;imports.push({relative,resolved});return 'from '+JSON.stringify(resolved);});assert.equal(imports.length,7,'Only the original relative imports are resolved for in-memory execution');
-  const record={version:1,scope:'Explicit combined-source validation. Original checker/reference stay byte-identical; original geometric, physical stop-only and registration assertions execute with exactly two declared runtime hash exceptions. Sliding/provider acceptance is separately measured by the focused and pinned67 controls.',declared,originalLfSha256:sha(original),derivedLfSha256:sha(derived),substitutions,imports:imports.map(({relative})=>relative),historicalReceiptBefore:sha(fs.readFileSync('docs/art/h15-circulation/checks.json'))};
+  const record={version:1,scope:'Explicit combined-source validation of the exact architect-reviewed 6d145569 kitchen successor. Original 4ce exports/checker/reference stay byte-identical; original geometric, physical stop-only and registration assertions execute with exactly two declared runtime hash exceptions. Sliding/provider and kitchen-world acceptance are measured separately.',declared,originalLfSha256:sha(original),derivedLfSha256:sha(derived),substitutions,imports:imports.map(({relative})=>relative),historicalReceiptBefore:sha(fs.readFileSync('docs/art/h15-circulation/checks.json'))};
   fs.writeFileSync(path.join(destination,'audit.json'),JSON.stringify(record,null,2)+'\n');
   try{
     await import('data:text/javascript;base64,'+Buffer.from(derived).toString('base64'));

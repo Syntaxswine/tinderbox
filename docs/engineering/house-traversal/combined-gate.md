@@ -1,5 +1,7 @@
 # Native Catalogue combined gate
 
+This is historical `e7e2bad3` evidence. The later [explicit-solid correction and exact kitchen successor](explicit-solids.md) pass their own [corrected source/package gate](corrected-gate.md); actual-input acceptance is separate. This older result is not acceptance of that corrected product.
+
 The architect accepted source checkpoint `e7e2bad3eb89d80e8465575a69ea15cfb9c5ec5f`, including the exact Nautilus import and independent continuous-furniture validation. One fresh combined gate on that unchanged checkpoint passes. [Machine results and evidence hashes](combined-gate.json) record each stage, tested source and process identity. This report adds no runtime change or publication.
 
 | Check | Result |

@@ -1,5 +1,7 @@
 # Detailed Catalogue native edge sliding
 
+This source checkpoint predates the [explicit-solid placement correction and exact kitchen successor](explicit-solids.md). Earlier passing package/browser records remain historical; corrected-product acceptance is recorded separately.
+
 Candidate for the [M28 amendment](../../milestones/28-tree-and-traversal-corrections.md) at `bdacb3b1319451e27457f09342ece5485ef6f89c`. This is the early coder checkpoint; the combined package/input gate and architect promotion remain separate.
 
 The subsequent [combined gate](combined-gate.md) passes on this exact `e7e2bad3` source checkpoint. Actual input/browser acceptance and promotion remain pending.

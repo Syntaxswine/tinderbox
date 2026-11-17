@@ -19,8 +19,9 @@ const fixture=(triangles,solidTriangles=triangles)=>({version:1,runtimeAdapterVe
 const spec=q=>({id:'placed',kind:'furnished',source:'fixture',translation:[10,2,20],quarterTurns:q});
 const sourceId='circulation150/stair/rail/upper-front',worldId='hopkins-fifteen::'+sourceId;
 function realHouse(){
-  const root=new URL('../../workbenches/catalogue-modular/',import.meta.url),bytes=fs.readFileSync(new URL('house-data.json',root));assert.equal(createHash('sha256').update(bytes).digest('hex'),'c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c');
-  const raw=JSON.parse(bytes),manifest=JSON.parse(fs.readFileSync(new URL('scene-data.json',root))),placement=manifest.instances.find(s=>s.id==='hopkins-fifteen');return {raw,placement,placed:preparePhysicalInstance(raw,placement)};
+  const root=new URL('../../workbenches/catalogue-modular/',import.meta.url),bytes=fs.readFileSync(new URL('house-data.json',root));assert.equal(createHash('sha256').update(bytes).digest('hex'),'c89b46f600965bca778bba69a9c6a7f7845972d84e2f0745d26c69f54e9085a7','Exact architect-reviewed 6d145569 export');
+  const controlBytes=fs.readFileSync(new URL('../../art/source/catalogue-modular/controls/h15-kitchen-route/circulation-v1-house.json',import.meta.url));assert.equal(createHash('sha256').update(controlBytes).digest('hex'),'c45fc8a1a2aaa1beeacfcb430d259130d34c410ad7ffa34bb5ba703223b9b77c','Immutable 4ce control');
+  const raw=JSON.parse(bytes),control=JSON.parse(controlBytes),manifest=JSON.parse(fs.readFileSync(new URL('scene-data.json',root))),placement=manifest.instances.find(s=>s.id==='hopkins-fifteen');assert.deepEqual(raw.surfaces,control.surfaces,'Kitchen furniture successor preserves every structural/rail surface');return {raw,placement,placed:preparePhysicalInstance(raw,placement)};
 }
 const asShape=s=>({id:s.id,triangles:s.solidTriangles||s.triangles,closed:s.closedShape!==false});
 

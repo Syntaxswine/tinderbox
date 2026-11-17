@@ -7,36 +7,90 @@ import {pinnedTraversalSource} from './house-traversal-physical.mjs';
 import {physicalDriver} from './house-traversal-controls.mjs';
 import {createNavigation} from '../../workbenches/furnished-house/navigation.js';
 import {DEFAULT_CONFIG} from '../../src/simulation/config.js';
-import {worldToStick} from '../../src/simulation/index.js';
+import {worldToStick,movementVector} from '../../src/simulation/index.js';
 import {loadCatalogueModules} from '../../src/runtime/catalogue-modules.js';
 import {sweptCylinderClear} from '../../src/runtime/collision.js';
+import {NATIVE_DISC_SLIDE} from '../../src/reuse/native-disc-slide.js';
 
-const option=name=>process.argv.slice(2).find(a=>a.startsWith('--'+name+'='))?.slice(name.length+3);
+const allowedOptions=new Set(['art-commit','manifest-sha256','output','url','cases','plan-only']);
+for(const arg of process.argv.slice(2))assert.ok(/^--[^=]+=/.test(arg)&&allowedOptions.has(arg.slice(2,arg.indexOf('='))),'Unknown review option: '+arg);
+const option=name=>{const matches=process.argv.slice(2).filter(a=>a.startsWith('--'+name+'='));assert.ok(matches.length<=1,'Duplicate review option: '+name);return matches[0]?.slice(name.length+3);};
 const commit=option('art-commit'),expectedManifest=option('manifest-sha256');assert.match(expectedManifest||'',/^[a-f0-9]{64}$/,'The checked package manifest hash is required');
+assert.match(commit||'',/^[a-f0-9]{40}$/,'The full immutable artist pin is required');
+let reviewUrl;const requestedUrl=option('url');if(requestedUrl!==undefined){const parsed=new URL(requestedUrl);assert.ok(parsed.protocol==='https:'&&!parsed.username&&!parsed.password&&!parsed.search&&!parsed.hash&&parsed.pathname.endsWith('/'),'Review URL must be an HTTPS base directory without credentials/query/hash');reviewUrl=parsed.href;}
+const requestedPlanOnly=option('plan-only');if(requestedPlanOnly!==undefined)assert.ok(['true','false'].includes(requestedPlanOnly),'Plan-only must be true or false');const planningOnly=requestedPlanOnly==='true';
+const matrix=[
+ {id:'bear-front-regression',animal:'bear',mode:'mouse',frontOnly:true},
+ {id:'goat20mm-exit-regression',animal:'goat',mode:'mouse',frontOnly:true,exitShift:.02},
+ {id:'goat-mouse-street-barrel-glance',animal:'goat',mode:'mouse',barrel:true},
+ ...['goat','horse','bear'].flatMap(animal=>['keyboard','mouse'].map(mode=>({id:animal+'-'+mode,animal,mode})))
+].map(row=>({...row,status:'not-run'}));
+const requestedCases=option('cases');if(requestedCases!==undefined)assert.match(requestedCases,/^[a-z0-9-]+(?:,[a-z0-9-]+)*$/,'Cases must be a nonempty comma-separated list of exact case IDs');
+const selectedIds=requestedCases===undefined?matrix.map(row=>row.id):requestedCases.split(',');assert.equal(new Set(selectedIds).size,selectedIds.length,'Duplicate selected review case');for(const id of selectedIds)assert.ok(matrix.some(row=>row.id===id),'Unknown selected review case: '+id);
+const selectedCases=selectedIds.map(id=>matrix.find(row=>row.id===id)),selectedProfiles=new Set(selectedCases.map(row=>row.animal));for(const row of matrix)if(!selectedIds.includes(row.id)){row.status='excluded';row.reason='Intentionally excluded by explicit --cases selection; not run';}
+const selection={mode:requestedCases===undefined?'complete-default':'explicit-subset',selectedIds,excludedIds:matrix.filter(row=>row.status==='excluded').map(row=>row.id),target:reviewUrl||'local checked package',planningOnly};
 const output=path.resolve(option('output')||'artifacts/qa/house-traversal-gameplay/'+Date.now());assert.ok(!fs.existsSync(output),'Use fresh evidence');fs.mkdirSync(output,{recursive:true});
 const save=(name,value)=>fs.writeFileSync(path.join(output,name),JSON.stringify(value,null,2)+'\n'),sha=b=>createHash('sha256').update(b).digest('hex');
 assert.equal(sha(fs.readFileSync('dist/build-manifest.json')),expectedManifest);
+save('selection.json',{selection,matrix});
 const sources=['tools/review/house-traversal-gameplay.mjs','tools/review/catalogue-browser.mjs','tools/review/browser-lanes.mjs','tools/review/house-traversal-physical.mjs','tools/review/house-traversal-controls.mjs','package.json'];
 for(const file of sources){const target=path.join(output,'restart-source',file);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(file,target);}
-const restart={owner:'Coder Tinderbox',project:'M28 actual gameplay',cwd:process.cwd(),executable:process.execPath,args:process.argv.slice(1),runtime:process.version,sources,sourceHashes:sources.map(path=>({path,sha256:sha(fs.readFileSync(path))})),artCommit:commit,manifestSha256:expectedManifest,inputs:'Checked dist and real title/character/menu/joystick/contextual controls',outputs:output,pendingWork:'Canonical source-only planning, then2regressions,1mouse barrel glance and6full H15 visits',automaticRestart:false,deadline:'Existing browser harness installs one absolute shutdown time20minutes from its launch; never reset',stop:'STOP file or harness deadline/finally',ports:'Recorded by helper.json at launch'};save('restart.json',restart);
+const restart={owner:'Coder Tinderbox',project:'M28 actual gameplay',cwd:process.cwd(),executable:process.execPath,args:process.argv.slice(1),runtime:process.version,sources,sourceHashes:sources.map(path=>({path,sha256:sha(fs.readFileSync(path))})),artCommit:commit,manifestSha256:expectedManifest,selection,inputs:'Checked dist and real title/character/menu/joystick/contextual controls',outputs:output,pendingWork:matrix,automaticRestart:false,deadline:'Existing browser harness installs one absolute shutdown time20minutes from its launch; never reset',stop:'STOP file or harness deadline/finally',ports:'Recorded by helper.json at launch'};save('restart.json',restart);
 const source=pinnedTraversalSource(commit),plan=source.plan,prepared={};
+// Nested circulationRoutes are exported source-local metadata. Use the actual
+// instance's native rigid transform, independently of prototypeRoute placement.
+let kitchenPlan=null;
+if(selectedIds.includes('bear-mouse')){
+ const house=plan.house,local=house.data.navigation?.circulationRoutes?.kitchen;assert.equal(local?.length,9,'Reviewed nine-point kitchen successor required');
+ const world=([x,y,z])=>{const p=[[x,y,z],[z,y,-x],[-x,y,-z],[-z,y,x]][house.quarterTurns];return p.map((v,i)=>v+house.translation[i]);};
+ const settee=house.data.items.find(i=>i.id==='hopkins-fifteen::item/l0/parlor/settee');assert.deepEqual(settee?.position,[21.5,.48,12.4]);
+ kitchenPlan={sourceCommit:commit,sourcePath:'workbenches/catalogue-modular/house-data.json',sourceField:'navigation.circulationRoutes.kitchen',sourceFrame:'Native house-local [x,height,z]',translation:[...house.translation],quarterTurns:house.quarterTurns,local,world:local.map(world),setteeCentre:[...settee.position],scope:'Actual-input bear-mouse kitchen out-and-back before final exit; same route deadline and arrival/stall thresholds'};
+}
 // Resolve expectations against the pinned real support before creating the
 // browser. This disposable Node fixture is never the gameplay player.
-for(const characterId of ['bear','goat','horse']){
- const driver=physicalDriver({...source,characterId}),nav=createNavigation(driver.provider.trial,{...driver.body,start:plan.route[0],slide:true});
+for(const characterId of ['bear','goat','horse'].filter(id=>selectedProfiles.has(id))){
+ const driver=physicalDriver({...source,characterId}),nav=createNavigation(driver.provider.trial,{...driver.body,start:plan.route[0],slideProfile:NATIVE_DISC_SLIDE}),proofNav=createNavigation(driver.provider.trial,{...driver.body,start:plan.route[0],slideProfile:NATIVE_DISC_SLIDE});
  try{
   const resolve=p=>{const q=[...p],support=nav.support(q,q[1]);if(support)q[1]=support.y;return q;},targets={};
   for(const offset of [0,-.05,.05,-.1,.1])targets[String(offset)]=plan.route.map((p,i)=>resolve(plan.point(i,offset)));
-  const probes={wall:null,unsupported:null};
+  const probes={wall:null,unsupported:null},rejectedUnsupported=[],rejectedWall=[];
+  function wallProof(from,target){
+   const dx=target[0]-from[0],dz=target[2]-from[2],d=Math.hypot(dx,dz),side=[-dz/d,0,dx/d],modes=[...new Set(selectedCases.filter(row=>row.animal===characterId).map(row=>row.mode))],samples=[];
+   for(const mode of modes)for(const offset of [0,-.105,.105]){
+    const start=from.map((v,k)=>v+side[k]*offset),support=nav.support(start,from[1]);if(!support||Math.abs(support.y-from[1])>1e-5||!nav.clear(start,start))return null;proofNav.setPosition(start);let window=[],stable=false,last;
+    for(let tick=0;tick<120;tick++){
+     const p=proofNav.snapshot(),x=target[0]-p.x,z=target[2]-p.y,distance=Math.hypot(x,z),tolerance=mode==='keyboard'?.105:.035;
+     if(distance<tolerance&&Math.abs(p.elevation-target[1])<1e-5){if(rejectedWall.length<32)rejectedWall.push({mode,offset,from:start,target,actual:p.position,reason:'Actual controller reaches the existing positive arrival tolerance before a wall rejection'});return null;}
+     const magnitude=mode==='keyboard'?1:Math.max(.13,Math.min(.5,distance/(DEFAULT_CONFIG.player.speed*DEFAULT_CONFIG.step)));let stick=worldToStick({x:x/distance*magnitude,y:z/distance*magnitude},DEFAULT_CONFIG.input);
+     if(mode==='keyboard'){const angle=Math.round(Math.atan2(stick.y,stick.x)/(Math.PI/4))*Math.PI/4,c=Math.cos(angle),s=Math.sin(angle),keys={x:Math.abs(c)>.4?Math.sign(c):0,y:Math.abs(s)>.4?Math.sign(s):0},n=Math.max(1,Math.hypot(keys.x,keys.y));stick={x:keys.x/n,y:keys.y/n};}
+     const direction=movementVector(stick,false,DEFAULT_CONFIG.input);last=proofNav.move(direction.x,direction.y,DEFAULT_CONFIG.step);if(Math.abs(last.elevation-from[1])>1e-5||last.lastBlock?.reason==='No reachable support')return null;
+     window.push({time:(tick+1)*DEFAULT_CONFIG.step,position:last.position});while(window.length>1&&window.at(-1).time-window[1].time>1.05)window.shift();
+     const boundary=last.lastBlock?.id&&driver.provider.trial.scene.index.surfaces.get(last.lastBlock.id);
+     if(window.at(-1).time-window[0].time>1&&window.every(row=>Math.hypot(row.position[0]-window[0].position[0],row.position[2]-window[0].position[2])<.005)&&boundary?.kind==='wall'&&!boundary.openingId){stable=true;break;}
+    }
+    if(!stable){if(rejectedWall.length<32)rejectedWall.push({mode,offset,from:start,target,actual:last?.position,reason:'No bounded stationary native wall rejection under the actual input mapping'});return null;}
+    samples.push({mode,offset,start,stop:last.position,distanceToTarget:Math.hypot(last.x-target[0],last.y-target[2]),block:last.lastBlock,stationaryWindow:window});
+   }return {profile:NATIVE_DISC_SLIDE,samples,scope:'CPU-only bounded native wall rejection with actual mouse/keyboard mapping and unchanged arrival/stall thresholds'};
+  }
+  function unsupportedProof(from,target){
+   const dx=target[0]-from[0],dz=target[2]-from[2],d=Math.hypot(dx,dz),side=[-dz/d,0,dx/d],samples=[];
+   for(const offset of [0,-.105,.105]){
+    const start=from.map((v,k)=>v+side[k]*offset),support=nav.support(start,from[1]);if(!support||Math.abs(support.y-from[1])>1e-5||!nav.clear(start,start))return null;
+    proofNav.setPosition(start);const x=target[0]-start[0],z=target[2]-start[2],distance=Math.hypot(x,z),end=proofNav.move(x/distance,z/distance,distance/DEFAULT_CONFIG.player.speed);
+    if(end.lastBlock?.reason!=='No reachable support'||Math.abs(end.elevation-from[1])>1e-5||Math.hypot(end.x-target[0],end.y-target[2])<=.105){if(rejectedUnsupported.length<32)rejectedUnsupported.push({from:start,target,actual:end.position,block:end.lastBlock,reason:'Actual incremental native path does not prove an unsupported edge at the starting height'});return null;}
+    const ex=target[0]-end.x,ez=target[2]-end.y,n=Math.hypot(ex,ez),repeat=proofNav.move(ex/n,ez/n,DEFAULT_CONFIG.step);if(repeat.lastBlock?.reason!=='No reachable support'||Math.hypot(repeat.x-end.x,repeat.y-end.y)>1e-6||Math.abs(repeat.elevation-end.elevation)>1e-6)return null;
+    samples.push({offset,start,acceptedPath:end.acceptedPath,stop:end.position,repeat:repeat.position,block:repeat.lastBlock});
+   }return {profile:NATIVE_DISC_SLIDE,samples,scope:'Disposable native planning only; bounded incremental movement proves stationary unsupported rejection at the original height, including keyboard arrival offsets'};
+  }
   for(let i=plan.route.length-1;i>=plan.inside;i--){
    const a=resolve(plan.route[i]);if(!nav.support(a,a[1])||!nav.clear(a,a))continue;
    for(const distance of [.35,.6,.9,1.2])for(const [x,z]of [[1,0],[-1,0],[0,1],[0,-1],[.70710678,.70710678],[-.70710678,.70710678],[.70710678,-.70710678],[-.70710678,-.70710678]]){
     const b=[a[0]+x*distance,a[1],a[2]+z*distance],support=nav.support(b,b[1]),clear=nav.clear(a,b),block=nav.snapshot().lastBlock,boundary=block&&driver.provider.trial.scene.index.surfaces.get(block.id);
-    if(!probes.wall&&support&&Math.abs(support.y-a[1])<1e-6&&!clear&&boundary?.kind==='wall'&&!boundary.openingId)probes.wall={fromIndex:i,target:b,sourceBoundaryId:block.id};
-    if(!probes.unsupported&&a[1]>plan.floorY+.22&&!support&&clear)probes.unsupported={fromIndex:i,target:b};
+    if(!probes.wall&&support&&Math.abs(support.y-a[1])<1e-6&&!clear&&boundary?.kind==='wall'&&!boundary.openingId){const proof=wallProof(a,b);if(proof)probes.wall={fromIndex:i,target:b,sourceBoundaryId:block.id,proof};}
+    if(!probes.unsupported&&a[1]>plan.floorY+.22&&!support&&clear){const proof=unsupportedProof(a,b);if(proof)probes.unsupported={fromIndex:i,target:b,proof};}
    }
   }
-  prepared[characterId]={body:driver.body,targets,probes};
+  prepared[characterId]={body:driver.body,targets,probes,rejectedUnsupported,rejectedWall};
  }finally{driver.dispose();}
 }
 // Derive one quiet west approach from the actual street prop/profile, then
@@ -55,17 +109,13 @@ async function planBarrel(){
   return {prop,body:driver.body,route,stance,before,after,requestedWorld:{x:1,y:0},ticks:4,frames,oracle,scope:'CPU planning only; no actual pawn placement. Source/profile clearance and real provider path verified; fixture disposed before browser.'};
  }finally{driver.dispose();}
 }
-let barrelPlan;try{barrelPlan=await planBarrel();}catch(error){save('preflight-failure.json',{stage:'canonical-barrel-source-plan',error:error.stack,prepared});throw error;}
-const matrix=[
- {id:'bear-front-regression',animal:'bear',mode:'mouse',frontOnly:true},
- {id:'goat20mm-exit-regression',animal:'goat',mode:'mouse',frontOnly:true,exitShift:.02},
- {id:'goat-mouse-street-barrel-glance',animal:'goat',mode:'mouse',barrel:true},
- ...['goat','horse','bear'].flatMap(animal=>['keyboard','mouse'].map(mode=>({id:animal+'-'+mode,animal,mode})))
-].map(row=>({...row,status:'not-run'}));
-save('preflight-plan.json',{artCommit:commit,sourceClosure:source.records,route:plan.route,front:plan.front,inside:plan.inside,outside:plan.outside,flights:plan.flights,interpolatedStances:plan.interpolatedStances,prepared,barrelPlan,matrix,planningFixtures:{h15:3,barrel:1,remaining:0},scope:'Actual full Catalogue visit; source-only physical planning fixtures disposed before browser launch. Fixed-step runtime with trusted DOM inputs; no FPS claim.'});
-save('restart.json',{...restart,pendingWork:matrix,planningFixtures:{h15:3,barrel:1,remaining:0}});
+let barrelPlan=null;try{if(selectedCases.some(row=>row.barrel))barrelPlan=await planBarrel();}catch(error){save('preflight-failure.json',{stage:'canonical-barrel-source-plan',error:error.stack,prepared,selection,matrix});throw error;}
+const planningFixtures={h15:selectedProfiles.size,barrel:barrelPlan?1:0,remaining:0};
+save('preflight-plan.json',{artCommit:commit,sourceClosure:source.records,route:plan.route,front:plan.front,inside:plan.inside,outside:plan.outside,flights:plan.flights,interpolatedStances:plan.interpolatedStances,prepared,barrelPlan,kitchenPlan,selection,matrix,planningFixtures,scope:'Actual full Catalogue visit; source-only physical planning fixtures disposed before browser launch. Fixed-step runtime with trusted DOM inputs; no FPS claim.'});
+save('restart.json',{...restart,pendingWork:matrix,planningFixtures});
+if(planningOnly){save('plan-only-result.json',{planningComplete:true,browserLaunched:false,selectedActualCasesPassed:0,selection,matrix,planningFixtures,scope:'CPU canonical-source planning only; no actual input acceptance'});console.log(JSON.stringify({planningComplete:true,browserLaunched:false,selectedActualCasesPassed:0,selectedIds}));}
 
-await withCatalogueBrowser(async({page,baseUrl,manifestSha256,errors})=>{
+if(!planningOnly)await withCatalogueBrowser(async({page,baseUrl,manifestSha256,errors})=>{
  assert.equal(manifestSha256,expectedManifest);page.setDefaultTimeout(15000);
  const helper=JSON.parse(fs.readFileSync(path.join(output,'helper.json'))),expires=Date.parse(helper.expiresAt);save('absolute-deadline.json',{startedAt:helper.startedAt,expiresAt:helper.expiresAt,intervalMs:expires-Date.parse(helper.startedAt),automaticStop:helper.automaticStop});assert.equal(expires-Date.parse(helper.startedAt),1200000);
  let current,active,keys=new Set(),mouseHeld=false,held={x:0,y:0},centre,radius,startedRoute=0,frame=0,shift=0;
@@ -164,12 +214,21 @@ await withCatalogueBrowser(async({page,baseUrl,manifestSha256,errors})=>{
   for(let i=end;i>=0;i--){
    const offset=!test.frontOnly&&test.mode==='mouse'?(i<=plan.inside?-.05:checkpointSet.has(i)?.1:0):0,magnitude=!test.frontOnly&&test.mode==='mouse'?(i>plan.inside?.2:.5):1;
    await walk(target(i,offset),'out-'+i,{autoOpen:i>plan.outside,magnitude});
+   if(test.id==='bear-mouse'&&i===plan.inside){
+    assert.ok(kitchenPlan);const insideStance=target(i,offset);
+    for(const [index,p]of kitchenPlan.world.entries()){
+     await walk(p,'kitchen-in-'+index,{autoOpen:false,magnitude:.5});
+     if(index===3)await capture('kitchen-passage',{kitchenPlan});
+    }
+    for(let index=kitchenPlan.world.length-1;index>=0;index--)await walk(kitchenPlan.world[index],'kitchen-out-'+index,{autoOpen:false,magnitude:.5});
+    await walk(insideStance,'kitchen-return-inside',{autoOpen:false,magnitude:.5});
+   }
    if(i===plan.inside&&test.exitShift){const before=current.player.x;await move(worldToStick({x:test.exitShift/(DEFAULT_CONFIG.player.speed*DEFAULT_CONFIG.step),y:0},DEFAULT_CONFIG.input));await step('walked20mm-exit-offset');await stop();assert.ok(Math.abs(current.player.x-before-test.exitShift)<1e-5);shift=test.exitShift;await capture('walked20mm-exit-offset');}
    if(i===plan.outside)await action('close');
   }
   await capture('outside');await finishReview(test);
  }
- try{for(const test of matrix)await review(test);assert.deepEqual(errors,[]);save('acceptance.json',{pass:true,matrix,visits,negatives,unrun,barrelGlances,sourceCommit:commit,manifestSha256,query:'?catalogue=modules',input:'Trusted DOM controls in actual production application; manual fixed-step clock, no FPS or phone claim',limits:['Bell & Alder full species/input matrix not repeated in this bounded H15 correction','Only selected offset/magnitude combinations repeated in browser; full67provider controls are separate']});}
- catch(error){if(active)active.status='failed';save('acceptance.json',{pass:false,error:error.stack,finding:error.finding,current,matrix,visits,negatives,unrun,barrelGlances});try{save('first-failure-input-events.json',await page.evaluate(()=>qa.inputEvents));await capture('failure',{error:String(error)});}catch{}throw error;}
+ try{for(const test of selectedCases)await review(test);assert.deepEqual(errors,[]);save('acceptance.json',{pass:true,scope:'Selected actual-input cases only; intentionally excluded cases are not passed',selection,matrix,visits,negatives,unrun,barrelGlances,sourceCommit:commit,manifestSha256,query:'?catalogue=modules',input:'Trusted DOM controls in actual production application; manual fixed-step clock, no FPS or phone claim',limits:['Bell & Alder full species/input matrix not repeated in this bounded H15 correction','Only selected offset/magnitude combinations repeated in browser; full67provider controls are separate']});}
+ catch(error){if(active)active.status='failed';save('acceptance.json',{pass:false,error:error.stack,finding:error.finding,current,selection,matrix,visits,negatives,unrun,barrelGlances});try{save('first-failure-input-events.json',await page.evaluate(()=>qa.inputEvents));await capture('failure',{error:String(error)});}catch{}throw error;}
  finally{try{await stop('final-release');await page.evaluate(()=>qa.app.dispose());}catch{}save('matrix.json',matrix);}
-},{output,lifetimeMs:1200000,purpose:'M28 one20minute absolute-expiry actual-input H15 regression/native traversal review; stop first unexpected failure; no performance benchmark'});
+},{output,url:reviewUrl,lifetimeMs:1200000,purpose:'M28 one20minute absolute-expiry '+(reviewUrl?'public':'local')+' actual-input review of '+selectedCases.length+' selected cases; stop first unexpected failure; no performance benchmark'});
