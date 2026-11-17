@@ -1,0 +1,310 @@
+{
+  "scope": "Finite CPU source/contact fixture. No renderer, normal-input traversal or visual acceptance.",
+  "caseId": "inert",
+  "sourceIndexSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+  "partitionProducerSha256": "789d95810f23c1035064bdf3d80ddba78c63cd73a87969ed230048a6e6ce14e6",
+  "cold": {
+    "elapsedMs": 392.4469,
+    "metrics": {
+      "geometry": {
+        "canonicalCarriers": 12446,
+        "sourceParts": 12858,
+        "decodedUniqueGeometries": 434,
+        "appearanceMaterials": 9,
+        "startupWorldShapesExpanded": 0,
+        "startupThermalCellsAllocated": 0,
+        "decodedAttributeGeometries": 0,
+        "transformedQueries": 0,
+        "renderExpansions": 0,
+        "nativeSourceExpansions": 0,
+        "nativePartTransforms": 0,
+        "presentationBlueprints": 0,
+        "presentationPartTransforms": 0,
+        "staticIndexBins": 148
+      },
+      "query": {
+        "querySurfaces": 12859,
+        "sourceParts": 12858,
+        "sourceCarriers": 12446,
+        "claimedCarriers": 0,
+        "cachedShapes": 0,
+        "cachedTriangles": 0,
+        "peakShapes": 0,
+        "peakTriangles": 0,
+        "shapeBuilds": 0,
+        "maxSingleQueryTriangles": 0,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "activation": {
+        "batches": 0,
+        "activatedCarriers": 0,
+        "probedCells": 0,
+        "lastBatchMs": 0,
+        "totalBatchMs": 0,
+        "peakBatchMs": 0,
+        "peakBatchCarriers": 0
+      }
+    },
+    "support": {
+      "nodes": 0,
+      "coldCarrierNodes": 12446,
+      "declaredPairs": 15285,
+      "adjacencyPairs": 25198,
+      "anchors": 231,
+      "initiallySupported": 0,
+      "unresolvedInitial": 1038,
+      "missingLocalLinks": 0,
+      "checks": 0,
+      "unresolvedExamples": [
+        "new-york::carrier/clerestory/0/window-0/jamb--1",
+        "new-york::carrier/clerestory/0/window-0/jamb-1",
+        "new-york::carrier/clerestory/0/window-0/sash-1",
+        "new-york::carrier/clerestory/0/window-0/sash-2",
+        "new-york::carrier/clerestory/0/window-0/sash-3",
+        "new-york::carrier/clerestory/0/window-1/jamb--1",
+        "new-york::carrier/clerestory/0/window-1/jamb-1",
+        "new-york::carrier/clerestory/0/window-1/sash-1"
+      ]
+    }
+  },
+  "coldContact": {
+    "position": [
+      50.5,
+      3.02,
+      25.979999999515712
+    ],
+    "id": "new-york::cold/main/0/lower-3/glass",
+    "sourceSurfaceId": "new-york::carrier/main/0/lower-3/glass",
+    "material": "glass"
+  },
+  "tool": {
+    "point": {
+      "x": 50.5,
+      "y": 25.979999999515712,
+      "h": 3.02
+    },
+    "dischargePoint": {
+      "x": 50.5,
+      "y": 25.979999999515712,
+      "h": 3.02
+    },
+    "cells": [],
+    "result": "no-fuel",
+    "nativeTick": 1
+  },
+  "activated": {
+    "elapsedMs": 916.1575,
+    "metrics": {
+      "geometry": {
+        "canonicalCarriers": 12446,
+        "sourceParts": 12858,
+        "decodedUniqueGeometries": 434,
+        "appearanceMaterials": 9,
+        "startupWorldShapesExpanded": 0,
+        "startupThermalCellsAllocated": 0,
+        "decodedAttributeGeometries": 0,
+        "transformedQueries": 1,
+        "renderExpansions": 0,
+        "nativeSourceExpansions": 551,
+        "nativePartTransforms": 555,
+        "presentationBlueprints": 0,
+        "presentationPartTransforms": 0,
+        "staticIndexBins": 148
+      },
+      "query": {
+        "querySurfaces": 12859,
+        "sourceParts": 12858,
+        "sourceCarriers": 12446,
+        "claimedCarriers": 551,
+        "cachedShapes": 0,
+        "cachedTriangles": 0,
+        "peakShapes": 1,
+        "peakTriangles": 12,
+        "shapeBuilds": 1,
+        "maxSingleQueryTriangles": 12,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "activation": {
+        "batches": 1,
+        "activatedCarriers": 551,
+        "probedCells": 1,
+        "lastBatchMs": 912.0075999999999,
+        "totalBatchMs": 912.0075999999999,
+        "peakBatchMs": 912.0075999999999,
+        "peakBatchCarriers": 551
+      }
+    },
+    "cells": 13084,
+    "fuels": 7769,
+    "support": {
+      "nodes": 17509,
+      "coldCarrierNodes": 11895,
+      "declaredPairs": 15285,
+      "adjacencyPairs": 25198,
+      "anchors": 231,
+      "initiallySupported": 0,
+      "unresolvedInitial": 1038,
+      "missingLocalLinks": 0,
+      "checks": 0,
+      "unresolvedExamples": [
+        "new-york::carrier/clerestory/0/window-0/jamb--1",
+        "new-york::carrier/clerestory/0/window-0/jamb-1",
+        "new-york::carrier/clerestory/0/window-0/sash-1",
+        "new-york::carrier/clerestory/0/window-0/sash-2",
+        "new-york::carrier/clerestory/0/window-0/sash-3",
+        "new-york::carrier/clerestory/0/window-1/jamb--1",
+        "new-york::carrier/clerestory/0/window-1/jamb-1",
+        "new-york::carrier/clerestory/0/window-1/sash-1"
+      ]
+    }
+  },
+  "tick": {
+    "elapsedMs": 1658.1624,
+    "ticks": 91,
+    "metrics": {
+      "tick": 91,
+      "worldTime": 3.033333333333333,
+      "fuel": {
+        "initial": 0,
+        "added": 578.8214004249477,
+        "burned": 0,
+        "escaped": 0,
+        "remaining": 578.8214004249477,
+        "airborne": 0,
+        "error": 0
+      },
+      "heat": {
+        "generated": 0,
+        "input": 0,
+        "ambient": 0,
+        "blocked": 0,
+        "cap": 0,
+        "escaped": 0,
+        "stored": 0,
+        "radiationInTransit": 0,
+        "error": 0,
+        "relativeError": 0
+      },
+      "burningCount": 0,
+      "burningArea": 0,
+      "combustibleArea": 1036.9759499622114,
+      "burningAreaFraction": 0,
+      "burnedFraction": 0,
+      "activeCells": 0,
+      "fallingCount": 0,
+      "queuedRadiationSources": 0,
+      "queuedRays": 0,
+      "oldestRadiationQueryDelay": 0,
+      "oldestRadiationEnergyAge": 0,
+      "stats": {
+        "ticks": 91,
+        "cellVisits": 0,
+        "burnVisits": 706979,
+        "linkBuilds": 0,
+        "rayBuilds": 0,
+        "rayTests": 0,
+        "invalidations": 0,
+        "ignitions": 0,
+        "failures": 0,
+        "landings": 0,
+        "peakActive": 0,
+        "maxBurnsPerFuelPerTick": 0
+      }
+    },
+    "carriers": {
+      "staticInitial": 15767.943953000535,
+      "activeInitial": 578.8211030000004,
+      "coldReserve": 15189.122850000338,
+      "canonicalCarriers": 12446,
+      "activeCarriers": 551,
+      "reservedCarriers": 11895,
+      "nativeStaticBirths": 578.8214004249477,
+      "nativeClippingDelta": 0.00029742494723450363,
+      "nativePartitionError": {
+        "signedDelta": 0.00029742494723450363,
+        "positive": 0.0006453400711620113,
+        "negative": 0.009309581584079529,
+        "roundoffBound": 0.000001549774187819531
+      },
+      "world": {
+        "initial": 15767.943953000535,
+        "added": 0,
+        "remaining": 15767.944250425286,
+        "airborne": 0,
+        "burned": 0,
+        "escaped": 0,
+        "error": -0.0002974247508973349
+      }
+    },
+    "geometry": {
+      "geometry": {
+        "canonicalCarriers": 12446,
+        "sourceParts": 12858,
+        "decodedUniqueGeometries": 434,
+        "appearanceMaterials": 9,
+        "startupWorldShapesExpanded": 0,
+        "startupThermalCellsAllocated": 0,
+        "decodedAttributeGeometries": 0,
+        "transformedQueries": 147,
+        "renderExpansions": 0,
+        "nativeSourceExpansions": 551,
+        "nativePartTransforms": 555,
+        "presentationBlueprints": 0,
+        "presentationPartTransforms": 0,
+        "staticIndexBins": 148
+      },
+      "query": {
+        "querySurfaces": 12859,
+        "sourceParts": 12858,
+        "sourceCarriers": 12446,
+        "claimedCarriers": 551,
+        "cachedShapes": 147,
+        "cachedTriangles": 1820,
+        "peakShapes": 147,
+        "peakTriangles": 1820,
+        "shapeBuilds": 148,
+        "maxSingleQueryTriangles": 12,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "activation": {
+        "batches": 1,
+        "activatedCarriers": 551,
+        "probedCells": 1,
+        "lastBatchMs": 912.0075999999999,
+        "totalBatchMs": 912.0075999999999,
+        "peakBatchMs": 912.0075999999999,
+        "peakBatchCarriers": 551
+      }
+    },
+    "support": {
+      "nodes": 17509,
+      "coldCarrierNodes": 11895,
+      "declaredPairs": 15285,
+      "adjacencyPairs": 25198,
+      "anchors": 4516,
+      "initiallySupported": 17167,
+      "unresolvedInitial": 1038,
+      "missingLocalLinks": 0,
+      "checks": 1,
+      "unresolvedExamples": [
+        "new-york::carrier/clerestory/0/window-0/jamb--1",
+        "new-york::carrier/clerestory/0/window-0/jamb-1",
+        "new-york::carrier/clerestory/0/window-0/sash-1",
+        "new-york::carrier/clerestory/0/window-0/sash-2",
+        "new-york::carrier/clerestory/0/window-0/sash-3",
+        "new-york::carrier/clerestory/0/window-1/jamb--1",
+        "new-york::carrier/clerestory/0/window-1/jamb-1",
+        "new-york::carrier/clerestory/0/window-1/sash-1"
+      ]
+    }
+  }
+}

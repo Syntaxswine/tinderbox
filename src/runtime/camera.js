@@ -15,7 +15,7 @@ export function createCameraRig(container, renderer, world, {x = 10, h = 14, y =
     const width = (world.width * Math.abs(y) + world.height * Math.abs(x)) / Math.hypot(x, y);
     let overviewSpan=Math.max(18,width/aspect);
     if(world.camera?.overviewBounds){
-      const source=world.camera.overviewBounds,elevation=player?.elevation||0,b={min:[source.min[0],source.min[1]+elevation,source.min[2]],max:[source.max[0],source.max[1]+elevation,source.max[2]]},centre=new THREE.Vector3(...b.min).add(new THREE.Vector3(...b.max)).multiplyScalar(.5);
+      const source=world.camera.overviewBounds,elevation=world.sourceSections?0:player?.elevation||0,b={min:[source.min[0],source.min[1]+elevation,source.min[2]],max:[source.max[0],source.max[1]+elevation,source.max[2]]},centre=new THREE.Vector3(...b.min).add(new THREE.Vector3(...b.max)).multiplyScalar(.5);
       target.copy(centre);place();let horizontal=0,vertical=0;
       for(const px of [b.min[0],b.max[0]])for(const py of [b.min[1],b.max[1]])for(const pz of [b.min[2],b.max[2]]){
         const point=new THREE.Vector3(px,py,pz).applyMatrix4(camera.matrixWorldInverse);horizontal=Math.max(horizontal,Math.abs(point.x));vertical=Math.max(vertical,Math.abs(point.y));
@@ -35,6 +35,7 @@ export function createCameraRig(container, renderer, world, {x = 10, h = 14, y =
     plane.constant=-(player?.elevation||0);
     ray.setFromCamera(new THREE.Vector2((clientX - box.left) / box.width * 2 - 1, -(clientY - box.top) / box.height * 2 + 1), camera);
     const surface=pickSurface?.(ray.ray);
+    if(surface===false)return null; // An authoritative source query missed.
     if(surface)return surface;
     if (!ray.ray.intersectPlane(plane, point) || point.x < 0 || point.z < 0 || point.x >= world.width || point.z >= world.height) return null;
     return {x: point.x, y: point.z};
@@ -57,7 +58,7 @@ export function createCameraRig(container, renderer, world, {x = 10, h = 14, y =
   function update(next) {
     player=next;
     if (mode==='follow' && player) { targetPlayer(); place(); }
-    else if(mode==='overview'&&player&&world.camera?.overviewBounds){target.y=(world.camera.overviewBounds.min[1]+world.camera.overviewBounds.max[1])/2+(player.elevation||0);place();}
+    else if(mode==='overview'&&player&&world.camera?.overviewBounds){target.y=(world.camera.overviewBounds.min[1]+world.camera.overviewBounds.max[1])/2+(world.sourceSections?0:player.elevation||0);place();}
   }
   function setMode(value){if(!['overview','follow'].includes(value))return false;mode=value;zoom=1;resize();return true;}
   resize();

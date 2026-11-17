@@ -3,7 +3,7 @@ export async function fetchJSON(url,signal){const response=await fetch(url,{sign
 function intersects(bounds,point,radius,below,above){return point.x>=bounds.min[0]-radius&&point.x<=bounds.max[0]+radius&&point.y>=bounds.min[2]-radius&&point.y<=bounds.max[2]+radius&&point.elevation>=bounds.min[1]-above&&point.elevation<=bounds.max[1]+below;}
 // Independent spatial/height sections with shared, reference-counted geometry.
 // Only the offline build invokes the original whole-building factories.
-export function createSectionStreamer({THREE:T,root,manifest,baseUrl,loadJSON=fetchJSON,signal,onError=()=>{},limits={}}){
+export function createSectionStreamer({THREE:T,root,manifest,baseUrl,loadJSON=fetchJSON,signal,onError=()=>{},limits={},createSectionView,onResidency=()=>{},overview='plan'}){
   const policy={loadRadius:21,retainRadius:32,below:2.3,above:6.5,maxSections:192,concurrency:4,...limits};
   const lifetime=new AbortController(),abort=()=>dispose();signal?.addEventListener('abort',abort,{once:true});
   const resident=new Map(),geometries=new Map(),materials=new Map(),jobs=new Map();let desired=new Map(),queue=[],closed=false,view='follow',point,key='',doorKey='',doorStates={},failure=null,loads=0,releases=0,peakSections=0,peakGeometries=0;
@@ -31,8 +31,14 @@ export function createSectionStreamer({THREE:T,root,manifest,baseUrl,loadJSON=fe
     }entry.refs++;return entry.material;
   }
   function releaseMaterial(id){const entry=materials.get(id);if(entry&&--entry.refs===0){entry.material.dispose();materials.delete(id);}}
-  function retire(id){const record=resident.get(id);if(!record)return;resident.delete(id);record.root.removeFromParent();for(const batch of record.batches){batch.mesh.dispose();releaseGeometry(batch.geometryId);releaseMaterial(batch.materialId);}record.root.clear();releases++;}
+  function retire(id){const record=resident.get(id);if(!record)return;resident.delete(id);record.root.removeFromParent();if(record.view)record.view.dispose();for(const batch of record.batches){batch.mesh.dispose();releaseGeometry(batch.geometryId);releaseMaterial(batch.materialId);}record.root.clear();releases++;onResidency(id,false);}
   async function build(section){
+    if(createSectionView){
+      const owned=await createSectionView(section,lifetime.signal);
+      if(closed||!desired.has(section.id)){owned.dispose();return;}
+      if(resident.size>=policy.maxSections){const removable=[...resident.keys()].find(id=>!desired.has(id));if(removable)retire(removable);else{owned.dispose();throw Error('Nearby source sections exceed the bounded visit budget');}}
+      root.add(owned.root);resident.set(section.id,{root:owned.root,view:owned,batches:[],bounds:section.bounds});loads++;peakSections=Math.max(peakSections,resident.size);onResidency(section.id,true);return;
+    }
     const data=await loadJSON(url(section.url),lifetime.signal),group=new T.Group(),batches=[],byKey=new Map();group.name='Place section '+section.id;
     for(const part of data.parts){const id=part.geometry+'/'+part.material;if(!byKey.has(id))byKey.set(id,[]);byKey.get(id).push(part);}
     try{
@@ -43,9 +49,9 @@ export function createSectionStreamer({THREE:T,root,manifest,baseUrl,loadJSON=fe
         mesh.userData={parts,sectionId:section.id,sourceGeometry:true};
         const batch={mesh,parts,geometryId,materialId};batches.push(batch);pose(batch);mesh.computeBoundingBox();mesh.computeBoundingSphere();group.add(mesh);
       }
-      if(closed||view!=='follow'||!desired.has(section.id)){for(const b of batches){b.mesh.dispose();releaseGeometry(b.geometryId);releaseMaterial(b.materialId);}group.clear();return;}
+      if(closed||view!=='follow'&&overview!=='sections'||!desired.has(section.id)){for(const b of batches){b.mesh.dispose();releaseGeometry(b.geometryId);releaseMaterial(b.materialId);}group.clear();return;}
       if(resident.size>=policy.maxSections){const removable=[...resident.keys()].find(id=>!desired.has(id));if(removable)retire(removable);else throw Error('Nearby source sections exceed the bounded visit budget');}
-      root.add(group);resident.set(section.id,{root:group,batches,bounds:section.bounds});loads++;peakSections=Math.max(peakSections,resident.size);
+      root.add(group);resident.set(section.id,{root:group,batches,bounds:section.bounds});loads++;peakSections=Math.max(peakSections,resident.size);onResidency(section.id,true);
     }catch(error){group.removeFromParent();for(const b of batches){b.mesh.dispose();releaseGeometry(b.geometryId);releaseMaterial(b.materialId);}group.clear();throw error;}
   }
   function pose(batch){const matrix=new T.Matrix4();batch.parts.forEach((part,i)=>batch.mesh.setMatrixAt(i,matrix.fromArray(part.openMatrix&&doorStates[part.portalId]?part.openMatrix:part.matrix)));batch.mesh.instanceMatrix.needsUpdate=true;batch.mesh.computeBoundingBox();batch.mesh.computeBoundingSphere();}
@@ -60,16 +66,16 @@ export function createSectionStreamer({THREE:T,root,manifest,baseUrl,loadJSON=fe
     const nextDoors=JSON.stringify(portalStates);if(nextDoors!==doorKey){doorKey=nextDoors;doorStates={...portalStates};for(const r of resident.values())for(const b of r.batches)pose(b);}
     const nextKey=[view,Math.floor(player.x/4),Math.floor(player.y/4),Math.floor(player.elevation/1.06)].join('/');
     if(nextKey===key)return;key=nextKey;
-    const wanted=view==='overview'?[]:manifest.chunks.filter(section=>intersects(section.bounds,player,policy.loadRadius,policy.below,policy.above));
+    const wanted=view==='overview'?overview==='sections'?manifest.chunks:[]:manifest.chunks.filter(section=>intersects(section.bounds,player,policy.loadRadius,policy.below,policy.above));
     if(wanted.length>policy.maxSections){failure=Error('Nearby source sections exceed the bounded visit budget');onError(failure);return;}
     desired=new Map(wanted.map(section=>[section.id,section]));
-    for(const [id,record]of resident)if(view==='overview'||!intersects(record.bounds,player,policy.retainRadius,policy.below+2.12,policy.above+2.12))retire(id);
+    for(const [id,record]of resident)if(view==='overview'?overview!=='sections':!intersects(record.bounds,player,policy.retainRadius,policy.below+2.12,policy.above+2.12))retire(id);
     queue=wanted.filter(section=>!resident.has(section.id)&&!jobs.has(section.id)).sort((a,b)=>Math.hypot((a.bounds.min[0]+a.bounds.max[0])/2-player.x,(a.bounds.min[2]+a.bounds.max[2])/2-player.y)-Math.hypot((b.bounds.min[0]+b.bounds.max[0])/2-player.x,(b.bounds.min[2]+b.bounds.max[2])/2-player.y));pump();
   }
   function readyAt(player){return !closed&&!failure&&(view==='overview'||manifest.chunks.filter(section=>intersects(section.bounds,player,1.1,.3,2.4)).every(section=>resident.has(section.id)));}
   async function settled(){while(jobs.size||queue.length){await Promise.allSettled([...jobs.values()]);}if(failure)throw failure;}
-  function metrics(){return{activeSections:resident.size,pendingSections:jobs.size+queue.length,geometries:geometries.size,materials:materials.size,peakSections,peakGeometries,sectionLoads:loads,sectionReleases:releases,maxSections:policy.maxSections,view,cutaway,failed:!!failure};}
+  function metrics(){return{activeSections:resident.size,pendingSections:jobs.size+queue.length,geometries:geometries.size,materials:materials.size,externalViews:[...resident.values()].filter(r=>r.view).length,peakSections,peakGeometries,sectionLoads:loads,sectionReleases:releases,maxSections:policy.maxSections,view,cutaway,failed:!!failure};}
   function dispose(){if(closed)return;closed=true;lifetime.abort();signal?.removeEventListener('abort',abort);queue=[];desired.clear();for(const id of [...resident.keys()])retire(id);for(const [id,entry]of geometries)if(entry.geometry&&entry.refs<=0){entry.geometry.dispose();geometries.delete(id);}}
   if(signal?.aborted)dispose();
-  return {update,isReadyAt:readyAt,settled,metrics,dispose};
+  return {update,isReadyAt:readyAt,settled,metrics,dispose,residentIds:()=>[...resident.keys()]};
 }

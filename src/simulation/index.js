@@ -413,6 +413,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
     commands.push({...structuredClone(command), atTick, sequence: ++commandSequence}); return true;
   }
   return {dispatch, snapshot,capabilities,setView(mode){if(disposed)throw Error('Simulation disposed');field.setView?.(mode);},
+    pickAimSurface(ray){return disposed?false:field.pickAimSurface?.(ray)??null;},
     thermalAudit(){if(disposed)throw Error('Simulation disposed');return field.sourceAudit?.()??null;},
     advance(realDeltaSeconds) {
       if (disposed) throw Error('Simulation disposed');

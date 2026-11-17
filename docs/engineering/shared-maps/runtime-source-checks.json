@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "scope": "Base plus exactly ten support controls; source/CPU engineering review only. No renderer, build, package, phone visual or Pages acceptance.",
+  "baseline": "6d1061cd3ab7e6c9bff212381193376473413b30",
+  "runtimeDeclaration": "docs/engineering/shared-maps/runtime-integration.json",
+  "checks": [
+    {"command":"node tools/compile-map-sources.mjs --check","passed":true,"carriers":12446,"parts":12858,"geometries":434,"indexSha256":"e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab","librarySha256":"1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"},
+    {"command":"node tools/check.mjs","passed":true,"ownScripts":389,"staticModules":409,"tests":586,"passedTests":586,"failedTests":0,"artSyntaxDependencyChecks":59,"sharedThreeAndProvenance":true,"localLog":"artifacts/qa/shared-map-runtime/source-gate-v2/check.log"},
+    {"command":"node tools/record-shared-map-runtime.mjs --check","passed":true,"changedBaselineRuntimeFiles":20,"addedRuntimeFiles":34},
+    {"command":"node tools/review/check-shared-map-integrated.mjs --output=artifacts/qa/shared-map-runtime/m29-native-source-v1","passed":true,"physicalAssertions":15,"routes":60,"registrationComparisons":819,"maxRelativeRegistrationError":1.2434497875801753e-14,"originalCheckerUnchanged":true,"originalReferenceUnchanged":true,"historicalReceiptUnchanged":true},
+    {"command":"python art/source/shared-map-fire-bindings/support-overrides-v1/check.py","passed":true,"acceptedJoins":10,"invalidInputControls":12},
+    {"command":"git diff --check","passed":true}
+  ],
+  "failedAttempts": "docs/engineering/shared-maps/runtime-failed-attempts.json",
+  "remaining": [
+    "Architect review of exact source-local partition implementation",
+    "All-carrier closed/open partition/accounting coverage and burning-door pose/fuel/char/ghost-heat controls before final promotion",
+    "Global source support families and the separately accepted 48-block addition",
+    "Fresh bounded renderer grant, normal-input phone review and upper-floor/streamed-retirement routes",
+    "New York obstacle-resolved wind remains absent; ambient control is labelled explicitly",
+    "Build/package/nested-host and later Administration/Horticulture rollout"
+  ],
+  "helpers": "All finite CPU commands completed. No server, renderer, browser, watcher, port or retained helper was created. The recorded source-gate shell lifetime exited."
+}

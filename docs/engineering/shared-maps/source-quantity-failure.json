@@ -1,0 +1,81 @@
+{
+  "scope": "Finite CPU source/contact probe. No renderer, actual-input or visual acceptance.",
+  "cold": {
+    "elapsedMs": 327.9914,
+    "metrics": {
+      "canonicalCarriers": 12446,
+      "sourceParts": 12858,
+      "decodedUniqueGeometries": 434,
+      "appearanceMaterials": 9,
+      "worldShapesExpanded": 0,
+      "thermalCellsAllocated": 0,
+      "decodedAttributeGeometries": 0,
+      "transformedQueries": 0,
+      "renderExpansions": 0,
+      "nativeSourceExpansions": 0,
+      "staticIndexBins": 148,
+      "querySurfaces": 12859,
+      "sourceCarriers": 12446,
+      "claimedCarriers": 0,
+      "cachedShapes": 0,
+      "cachedTriangles": 0,
+      "peakShapes": 0,
+      "peakTriangles": 0,
+      "shapeBuilds": 0,
+      "maxSingleQueryTriangles": 0,
+      "maxShapes": 192,
+      "maxTriangles": 65536,
+      "fuelAllocated": 0,
+      "batches": 0,
+      "activatedCarriers": 0,
+      "probedCells": 0,
+      "lastBatchMs": 0,
+      "totalBatchMs": 0,
+      "peakBatchMs": 0,
+      "peakBatchCarriers": 0
+    },
+    "support": {
+      "nodes": 0,
+      "coldCarrierNodes": 12446,
+      "declaredPairs": 15277,
+      "adjacencyPairs": 18188,
+      "anchors": 231,
+      "initiallySupported": 0,
+      "unresolvedInitial": 1029,
+      "missingLocalLinks": 0,
+      "checks": 0,
+      "unresolvedExamples": [
+        "new-york::carrier/clerestory/0/window-0/jamb--1",
+        "new-york::carrier/clerestory/0/window-0/jamb-1",
+        "new-york::carrier/clerestory/0/window-0/sash-1",
+        "new-york::carrier/clerestory/0/window-0/sash-2",
+        "new-york::carrier/clerestory/0/window-0/sash-3",
+        "new-york::carrier/clerestory/0/window-1/jamb--1",
+        "new-york::carrier/clerestory/0/window-1/jamb-1",
+        "new-york::carrier/clerestory/0/window-1/sash-1"
+      ]
+    }
+  },
+  "quantityProbe": {
+    "carriers": 579,
+    "stagedBoundaries": 17563,
+    "stagedFuels": 7691,
+    "differences": [
+      {
+        "id": "new-york::carrier/ny-well-guard-east/top",
+        "nativeQuantity": 0.4083343109294491,
+        "canonical": 0.408333,
+        "difference": 0.0000013109294491053802,
+        "tolerance": 0.000001
+      },
+      {
+        "id": "new-york::carrier/ny-well-guard-west/top",
+        "nativeQuantity": 0.4083343109294491,
+        "canonical": 0.408333,
+        "difference": 0.0000013109294491053802,
+        "tolerance": 0.000001
+      }
+    ],
+    "maxAbsolute": 0.00005371327983283436
+  }
+}
