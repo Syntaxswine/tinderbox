@@ -1,0 +1,70 @@
+import {writeFileSync} from 'node:fs';
+import {createRegionalQueryKernel as create} from '../../../../src/runtime/regional-effective-query.js';
+import {createBoundaryIndex,bounds,EPS} from '../../../../workbenches/furnished-house/geometry.js';
+import {sweptCylinderClear as ordinarySweep} from '../../../../src/runtime/collision.js';
+import {boxFixture,boxTriangles,planeFixture,activate,hitValues} from '../../../../tests/fixtures/regional-query-data.mjs';
+const cases=[];
+const add=(name,run)=>cases.push({name,run});
+const unit=()=>{
+ const i=boxFixture(1),ts=boxTriangles([0,0,0],[1,1,1]),s=i.sources[0];
+ i.nativeInventory=[];i.min=[0,0,0];i.max=[1,1,1];
+ s.surfaceTriangles=ts;s.solidTriangles=ts;s.rayRecord.triangles=ts;s.rayRecord.bounds=bounds(ts.flat());return i;
+};
+const record=(input,id,surface,solid,closed=true)=>({...input.sources[0].rayRecord,id,sourceSurfaceId:id,
+ kind:'floor',triangles:surface,solidTriangles:solid,closedShape:closed,bounds:bounds([...surface.flat(),...solid.flat()])});
+const compare=(k,v,rs,a,b)=>({regional:hitValues(k.segment(v,a,b)),ordinary:hitValues(createBoundaryIndex(rs).crossings(a,b)),
+ regionalTransmission:k.trace(v,a,b).transmission,ordinaryTransmission:createBoundaryIndex(rs).trace(a,b).transmission});
+add('1 native slab ray uses solid underside in ordinary index',()=>{
+ const i=boxFixture(1),ts=boxTriangles([.2,.2,.2],[.8,.8,.8]),top=ts.filter(t=>t.every(p=>p[1]===.8)),r=record(i,'native-slab',top,ts);
+ i.nativeInventory=[{cell:[0,0,0],record:r}];const k=create(i);
+ try{activate(k,i);return {admitted:true,...compare(k,k.view(),[r],[.5,-1,.5],[.5,.5,.5])};}finally{k.dispose();}
+});
+add('2 cold source rayRecord solid channel follows ordinary index',()=>{
+ const i=boxFixture(1),s=i.sources[0],ts=s.solidTriangles;s.surfaceTriangles=ts.filter(t=>t.every(p=>p[1]===.9));
+ s.rayRecord.triangles=s.surfaceTriangles;s.rayRecord.solidTriangles=ts;i.nativeInventory=[];const k=create(i);
+ try{return {admitted:true,...compare(k,k.view(),[s.rayRecord],[.5,-1,.5],[.5,.5,.5])};}finally{k.dispose();}
+});
+add('3 cold closed interior in retained upper query halo',()=>{
+ const i=unit(),k=create(i),p={x:.5,y:.5},low=1-EPS/2,high=1-EPS/4;
+ try{return {admitted:true,low,high,regionalClear:k.sweptCylinderClear(k.view(),p,p,.1,low,high),
+ ordinaryClear:ordinarySweep(p,p,.1,low,high,{triangles:i.sources[0].solidTriangles,closed:true})};}finally{k.dispose();}
+});
+add('4 native closed interior in retained upper query halo',()=>{
+ const i=unit(),ts=i.sources[0].solidTriangles,r=record(i,'native-unit',ts,ts);i.nativeInventory=[{cell:[0,0,0],record:r}];
+ const k=create(i),p={x:.5,y:.5},low=1-EPS/2,high=1-EPS/4;
+ try{activate(k,i);return {admitted:true,low,high,regionalClear:k.sweptCylinderClear(k.view(),p,p,.1,low,high),
+ ordinaryClear:ordinarySweep(p,p,.1,low,high,{triangles:r.solidTriangles,closed:true})};}finally{k.dispose();}
+});
+add('5 cold outer-face provenance must name original last cell',()=>{
+ const i=unit(),k=create(i);
+ try{const h=k.segment(k.view(),[2,.5,.5],[.5,.5,.5])[0],pieces=k.faces(k.view(),{channel:'surface'}).filter(p=>p.primitive===h.provenance.primitive);
+ let coverageError=null;try{k.coverage({partId:'box',cells:[h.provenance.cell],records:[],complete:true});}catch(e){coverageError=e.message;}
+ return {admitted:true,t:h.t,segmentCell:h.provenance.cell,hitCell:h.provenance.hitCell,segmentHalo:h.provenance.halo,
+ faceOwners:pieces.map(p=>({cell:p.cell,outerHalo:p.outerHalo})),expectedSourceCell:[0,0,0],coverageError};}finally{k.dispose();}
+});
+add('6 unsupported native floor solid below original cell is explicitly rejected',()=>{
+ const i=unit(),ts=boxTriangles([.2,-.12,.2],[.8,.8,.8]),top=ts.filter(t=>t.every(p=>p[1]===.8));
+ i.nativeInventory=[{cell:[0,0,0],record:record(i,'unsupported-floor',top,ts)}];
+ try{const k=create(i);k.dispose();return {admitted:true,expected:'reject beyond original cell halo'};}catch(e){return {admitted:false,error:e.message,expected:'reject beyond original cell halo'};}
+});
+add('7 out-of-source-span surface must be rejected or preserved if admitted',()=>{
+ const i=planeFixture(),s=i.sources[0];i.nativeInventory=[];
+ s.surfaceTriangles=s.surfaceTriangles.map(t=>t.map(p=>[p[0],1.5,p[2]]));s.rayRecord.triangles=s.surfaceTriangles;
+ s.rayRecord.bounds=bounds([...s.surfaceTriangles.flat(),...s.solidTriangles.flat()]);s.partRef.bounds=s.rayRecord.bounds;
+ let k;try{k=create(i);}catch(e){return {admitted:false,error:e.message};}
+ try{return {admitted:true,...compare(k,k.view(),[s.rayRecord],[.5,2,.5],[.5,1,.5]),
+ surfacePieces:k.faces(k.view(),{channel:'surface'}).length,expected:'explicit unsupported-span rejection or ordinary cold surface preservation'};}finally{k.dispose();}
+});
+add('8 native surface outside its cell halo must not be admitted as halo',()=>{
+ const i=planeFixture(),r=i.nativeInventory[0].record,solid=r.triangles;
+ r.triangles=i.sources[0].surfaceTriangles;r.solidTriangles=solid;r.bounds=bounds([...r.triangles.flat(),...solid.flat()]);
+ i.nativeInventory=[{cell:[0,0,0],record:r}];let k;try{k=create(i);}catch(e){return {admitted:false,error:e.message};}
+ try{activate(k,i);const h=k.segment(k.view(),[2.5,1, .5],[2.5,0,.5])[0];
+ return {admitted:true,nativeSourceCell:[0,0,0],farHit:h&&{id:h.surface.id,provenance:h.provenance},
+ expected:'reject surface overreach just as solid overreach; x=2.5 is beyond cell 0 plus 2 EPS'};}finally{k.dispose();}
+});
+if(cases.length!==8)throw Error('Exactly eight bounded crafted cases');
+const results=[];
+for(const {name,run} of cases){try{results.push({name,...run()});}catch(e){results.push({name,unexpectedError:e.stack});}}
+writeFileSync("docs/engineering/shared-maps/regional-query-boundaries-v1/crafted-successor-results.json",JSON.stringify({reproSourceCommit:'c9b02eb278854380cc41f1de77ed4b0c57e4dc47',queryLfSha256:"d329946d6e916b232a534d8e9524fb004015cf7bd2a58e5f125a026fe2d4b3e9",pid:process.pid,capturedAt:new Date().toISOString(),craftedCasesExecuted:8,nativeCompilerCalls:0,worldTrials:0,results},null,2)+'\n');
+for(const r of results)console.log(JSON.stringify(r));
