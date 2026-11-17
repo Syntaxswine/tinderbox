@@ -1,0 +1,83 @@
+// Offline/source-only normalization. No fetch, world fuel or render installation.
+import {sourceGeometryTriangles} from './map-source-shapes.js';
+import {bounds,triangleArea,pointOnTriangle,clipPolygon,cross,sub,dot,EPS} from '../../workbenches/furnished-house/geometry.js';
+import {originalMaterialComponents} from '../simulation/original-support-ports.js';
+
+export const SUPPORT_PORT_SOURCE_PINS=Object.freeze({family:'34b25f91d457fb65e611b89f182c0e05bb946d7506a0581b53e945a2d9731e06',front48:'a5a34f18a4d18b5a316096edf58b941e727a7546e544636a5a29469bc5c5b1c2',clear96:'08bcb4f535a59c67dcaa4e71ac57d7e7034d870ffb690d48ce191d3937b4dd78',saddlePilot:'0d1469e541657fa6f3ed537ff2f4ba7fe01f3952c273e0eba2720c224a436bcd',saddleBatch:'e1c2ff019f5dcf4e05f48739be843afdaa818f6c7f3c1ff8f11de1561a8e05fd'});
+const qualify=(place,id)=>id.startsWith(place+'::')?id:place+'::'+id;
+const pair=(a,b)=>a+' -> '+b;
+
+export function normalizeOriginalSupportBlueprint({family,geometryBindings,controls,front,clear,pilot,batch,retiredMoving,retiredBracing,placeId='new-york'}){
+  if(family.version!==1||family.relationships?.length!==3276||controls.joins?.length!==10||front.members?.length!==48||clear.members?.length!==96||pilot.members?.length!==1||batch.members?.length!==19||retiredMoving.records?.length!==8||retiredBracing.records?.length!==216)throw Error('Exact accepted New York support sets required');
+  const relations=[],pairs=new Map(),requirements=[],retired=[],additionMembers=[...front.members,...clear.members,...pilot.members,...batch.members];
+  const add=(row,regions,source)=>{const child=qualify(placeId,row.childCarrierId),parent=qualify(placeId,row.parentCarrierId),id=row.id||source+'/'+relations.length,old=pairs.get(pair(child,parent));
+    if(old&&old.direction!==row.direction)throw Error('Conflicting accepted support directions');
+    const relation={id,child,parent,kind:row.proposedKind||row.kind,direction:row.direction,source,regions};relations.push(relation);if(!pairs.has(pair(child,parent)))pairs.set(pair(child,parent),[]);pairs.get(pair(child,parent)).push(relation);return relation;
+  };
+  for(const row of family.relationships){if(row.groundAnchor!==false||row.wholeCarrierRetirement!==false||!row.localRegions?.length||!['parent-to-child','symmetric-structural'].includes(row.direction))throw Error('Unaccepted family support semantics');
+    const regions=row.localRegions.map(r=>({id:r.id,kind:r.actualGeometryCertificate.proposedKind,parent:{bounds:r.parentBounds,point:r.parentWitness,geometryRefs:geometryBindings.carriers[row.parentCarrierId]},child:{bounds:r.childBounds,point:r.childWitness,geometryRefs:geometryBindings.carriers[row.childCarrierId]},certificate:r.actualGeometryCertificate,sourceRegion:r}));add(row,regions,'family');
+  }
+  // The family table explicitly normalizes existing canonical pairs. Preserve
+  // the ten original controls as aliases instead of reintroducing broad links.
+  const controlAliases=[];for(const [i,row]of controls.joins.entries()){const key=pair(qualify(placeId,row.childCarrierId),qualify(placeId,row.parentCarrierId));if(pairs.has(key))controlAliases.push({control:i,pair:key,familyRelations:pairs.get(key).map(r=>r.id)});else add({...row,id:'control/'+i},[{id:'control/'+i,kind:row.kind,parent:row.parentRegion,child:row.childRegion,certificate:row.evidence}],'ten-controls');}
+  for(const [name,asset]of [['front48',front],['clear96',clear]])for(const [i,row]of asset.joins.entries())add({...row,id:row.id||name+'/'+i},[{id:row.id||name+'/'+i,kind:row.kind,parent:row.parentRegion,child:row.childRegion,certificate:row.evidence} ],name);
+  for(const [member,ports,semantics]of [[pilot.members[0],pilot.ports,pilot.selectedSupportSemantics],...batch.members.map(m=>[m,m.ports,m.selectedSupportSemantics])]){
+    if(member.role!=='timber-fitting'||member.anchors?.length||member.groundAnchor!==false||semantics?.fittingRequirement?.operator!=='ALL_FIXED_PORTS'||semantics.fittingRequirement.fixedPortIds?.length!==2||semantics.roofRolePreserved!=='roof-covering'||semantics.newAnchor!==false||semantics.reverseBrace!==false||semantics.anyParentSubstitutionAllowed!==false)throw Error('Both fixed saddle lower ports and original roof role required');
+    const ownerId=qualify(placeId,member.id),upper=semantics.upperDependency,lowerIds=[];let upperBondId;
+    for(const port of ports){const top=port.id===upper.fixedPortId,child=top?upper.childCarrierId:member.id,parent=top?member.id:port.fixedParentCarrierId,id=port.id;
+      const relation={id,childCarrierId:child,parentCarrierId:parent,kind:'bearing-face',direction:'parent-to-child'};
+      add(relation,[{id,kind:'bearing-face',saddlePort:port,saddleOwnerId:ownerId,top,member,originalParentGeometry:port.fixedOriginalParentGeometry||batch.namedOriginalParents[port.fixedParentCarrierId]}],'native-saddle');if(top)upperBondId=id;else lowerIds.push(id);
+    }
+    if(lowerIds.length!==2||lowerIds.some(id=>!semantics.fittingRequirement.fixedPortIds.includes(id))||!upperBondId)throw Error('Incomplete original saddle ports');requirements.push({id:member.id+'/requires-both',ownerId,portIds:lowerIds,upperBondId,sourceSemantics:semantics});
+  }
+  for(const row of [...controls.retiredSupportInterpretations,...retiredMoving.records,...retiredBracing.records])retired.push({child:qualify(placeId,row.childCarrierId),parent:qualify(placeId,row.parentCarrierId),kind:row.originalEvidenceKind||row.originalRelation?.kind,sourceRecord:row});
+  return {placeId,relations,requirements,retired,additionMembers,controlAliases,counts:{familyPairs:3276,familyRegions:family.relationships.reduce((n,r)=>n+r.localRegions.length,0),sourceControls:10,frontMembers:48,clearMembers:96,saddles:20,retiredInterpretations:retired.length}};
+}
+
+function binaryValues(raw,type){const bytes=raw instanceof Uint8Array?raw:new Uint8Array(raw),view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength),size=type==='Float32Array'?4:2;if(bytes.byteLength%size)throw Error('Misaligned accepted native buffer');return Array.from({length:bytes.byteLength/size},(_,i)=>type==='Float32Array'?view.getFloat32(i*4,true):view.getUint16(i*2,true));}
+function sameBits(a,b){return a.length===b.length&&a.every((v,i)=>Object.is(v,b[i]));}
+export function decodeAcceptedSaddleProfile(profile,readJson,readBytes){
+  const physical=readJson((profile.physicalGeometry||profile.geometry).path),render=readJson(profile.renderGeometry.path),mapping=readJson(profile.physicalRenderMapping.path),buffers=profile.binaryBuffers;
+  if(!sameBits(physical.attributes.position.array,binaryValues(readBytes(buffers['physical/position'].path),'Float32Array'))||!sameBits(physical.index.array,binaryValues(readBytes(buffers['physical/index'].path),'Uint16Array'))||!sameBits(render.attributes.position.array,binaryValues(readBytes(buffers['render/position'].path),'Float32Array')))throw Error('Accepted physical/render native buffer identity changed');
+  const p=physical.attributes.position.array,r=render.attributes.position.array;if(mapping.physicalVertexCount!==p.length/3||mapping.renderVertexCount!==r.length/3||mapping.renderToPhysicalVertex.length!==r.length/3||mapping.physicalTriangleCount!==physical.index.array.length/3||mapping.renderTriangleToPhysicalTriangle.length!==render.index.array.length/3)throw Error('Incomplete physical/render mapping');
+  for(const [i,j]of mapping.renderToPhysicalVertex.entries())for(let a=0;a<3;a++)if(!Object.is(r[i*3+a],p[j*3+a]))throw Error('Render seam creates another physical vertex');
+  for(let i=0;i<render.index.array.length;i++){const triangle=Math.floor(i/3),physicalTriangle=mapping.renderTriangleToPhysicalTriangle[triangle],actual=mapping.renderToPhysicalVertex[render.index.array[i]],expected=physical.index.array[physicalTriangle*3+i%3];if(actual!==expected)throw Error('Render face lost original physical identity');}
+  return {physical,render,mapping};
+}
+export function supportAdditionParts({front,clear,pilot,batch},readJson,readBytes){
+  const shared=readJson(front.geometry.path),profiles=new Map([['pilot',decodeAcceptedSaddleProfile(pilot,readJson,readBytes)],...Object.entries(batch.profiles).map(([id,p])=>[id,decodeAcceptedSaddleProfile(p,readJson,readBytes)])]),parts=[];
+  for(const [member,decoded]of [...front.members.map(m=>[m,{physical:shared}]),...clear.members.map(m=>[m,{physical:shared}]),[pilot.members[0],profiles.get('pilot')],...batch.members.map(m=>[m,profiles.get(m.profileId)])]){
+    if(member.canonicalOwnerCount!==undefined&&member.canonicalOwnerCount!==1||member.groundAnchor!==false||member.anchors.length||member.finish!==null)throw Error('Addition physical owner/anchor/finish changed');const geometry=decoded.physical,triangleCount=geometry.index.array.length/3,triangles=sourceGeometryTriangles({matrix:member.matrix,triangleCount},geometry);
+    parts.push({id:member.sourcePartId||member.id.slice('carrier/'.length),ownerId:qualify('new-york',member.id),role:member.role,triangles,originalMatrix:member.matrix,originalBounds:member.bounds,bounds:bounds(triangles.flat()),physicalRenderMapping:decoded.mapping||null,renderGeometry:decoded.render||geometry,canonicalOwnerCount:1,sourceMember:member,sourceGeometry:geometry,quantityReference:member.quantityReference??member.fuelAmount});
+  }return parts;
+}
+
+// Adapter for actual effective-view faces. It adds no closure/cell-plane caps.
+// Native primitive numbers are resolved back to original physical source faces.
+export function supportFragmentsFromFaces(parts,faces){
+  const originals=new Map(parts.map(p=>[p.id,{...p,components:originalMaterialComponents(p.triangles)}])),groups=new Map();
+  const area=poly=>poly.slice(1,-1).reduce((n,_,i)=>n+triangleArea([poly[0],poly[i+1],poly[i+2]]),0);
+  function originalPatch(poly,t){
+    const a=t[0],u=sub(t[1],a),v=sub(t[2],a),n=cross(u,v),length=Math.hypot(...n);if(poly.some(p=>Math.abs(dot(sub(p,a),n))/length>EPS))return [];
+    const uu=dot(u,u),uv=dot(u,v),vv=dot(v,v),den=uu*vv-uv*uv;
+    // Existing polygon clipping in barycentric coordinates; world coordinates
+    // remain attributes. This subdivides an actual face, never adds a cap.
+    let q=poly.map(p=>{const s=sub(p,a),x=(dot(s,u)*vv-dot(s,v)*uv)/den,y=(dot(s,v)*uu-dot(s,u)*uv)/den;return [x,y,x+y,...p];});q=clipPolygon(q,0,0,true);q=clipPolygon(q,1,0,true);q=clipPolygon(q,2,1,false);return q.map(p=>p.slice(3));
+  }
+  for(const face of faces){const p=originals.get(face.partId);if(!p)throw Error('Unknown effective original support part');const patches=[];
+    if(!face.sourceCell)patches.push({component:p.components.find(c=>c.primitives.includes(face.primitive)).id,primitive:face.primitive,poly:face.polygon});
+    else for(const c of p.components)for(const i of c.primitives){const poly=originalPatch(face.polygon,p.triangles[i]);if(area(poly)>0)patches.push({component:c.id,primitive:i,poly});}
+    const originalArea=area(face.polygon),mappedArea=patches.reduce((n,p)=>n+area(p.poly),0),roundoff=64*Number.EPSILON*Math.max(1,originalArea)*Math.max(1,patches.length);
+    if(face.sourceCell&&Math.abs(mappedArea-originalArea)>roundoff){
+      // The existing measured rectangular-panel recipe creates real native
+      // side closures. Their source is that recipe, not an old exterior face.
+      const source=p.nativeSources?.find(s=>s.id===face.sourceSurfaceId),recipe=source&&source.nativePartId===p.id&&['floor','wall','roof','window'].includes(source.kind)&&source.thickness>0&&!source.solidTriangles?.length;
+      if(mappedArea>roundoff||!recipe||p.components.length!==1||face.record.closedShape===false)throw Error('Unrepresentable native original material/face mapping: '+face.recordId+' primitive '+face.primitive);
+      patches.push({component:0,primitive:null,poly:face.polygon,nativeClosureSource:source.id});
+    }
+    for(const patch of patches){const component=patch.component,cell=face.sourceCell||face.cell,mode=face.sourceCell?'native':'cold',id=[face.partId,face.recordId,cell.join(','),component].join('@');let group=groups.get(id);if(!group){group={id,partId:p.id,ownerId:p.ownerId,recordId:face.recordId,sourceSurfaceId:face.sourceSurfaceId,component,cell,mode,triangles:[],triangleProvenance:[]};groups.set(id,group);}
+      for(let i=1;i<patch.poly.length-1;i++){const t=[patch.poly[0],patch.poly[i],patch.poly[i+1]];if(triangleArea(t)>0){group.triangles.push(t);group.triangleProvenance.push({originalPrimitive:patch.primitive,nativePrimitive:face.primitive,nativeClosureSource:patch.nativeClosureSource||null});}}
+    }
+  }
+  return [...groups.values()].filter(g=>g.triangles.length).flatMap(g=>originalMaterialComponents(g.triangles).map((c,i)=>{const provenance=c.primitives.map(n=>g.triangleProvenance[n]);return {...g,id:g.id+'/local-'+i,primitives:[...new Set(provenance.map(p=>p.originalPrimitive).filter(i=>i!==null))],nativeClosurePrimitives:provenance.filter(p=>p.originalPrimitive===null).map(p=>p.nativePrimitive),triangles:c.primitives.map(n=>g.triangles[n]),triangleProvenance:provenance,localComponent:i};}));
+}

@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-11-17T23:28:42.1756287Z",
+  "owner": "Coder Tinderbox",
+  "processes": [
+    {
+      "receipt": "small-adapters-first.json",
+      "pid": 67764,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T23:00:37.624Z",
+      "endedAt": "2026-11-17T23:00:38.1Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "small-adapters-parse-fixed.json",
+      "pid": 6952,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T23:00:52.695Z",
+      "endedAt": "2026-11-17T23:00:53.07Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "small-core-checkpoint.json",
+      "pid": 63080,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T23:25:53.601Z",
+      "endedAt": "2026-11-17T23:25:53.952Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "small-corrected.json",
+      "pid": 26116,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T22:37:20.695Z",
+      "endedAt": "2026-11-17T22:37:21.053Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "small-first.json",
+      "pid": 40840,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T22:30:40.608Z",
+      "endedAt": "2026-11-17T22:30:41.068Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "small-native-panel.json",
+      "pid": 6036,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T23:05:43.53Z",
+      "endedAt": "2026-11-17T23:05:43.901Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "small-physical.json",
+      "pid": 40516,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T22:48:56.052Z",
+      "endedAt": "2026-11-17T22:48:56.525Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    }
+  ],
+  "retainedHelpers": [],
+  "portsAllocated": [],
+  "stopMethod": "Finite hidden foreground children exited; no termination required"
+}

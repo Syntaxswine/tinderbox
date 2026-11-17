@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "base": "4eae509b41aba018da4dc42b63757338d6760324",
+  "status": "Partial passing core; New York adapters incomplete",
+  "passedCoreChecks": true,
+  "coreGroups": 8,
+  "unchangedQueryControls": 20,
+  "totalFocused": 28,
+  "actualNewYorkDiagnostics": 0,
+  "diagnosticAllowanceConsumed": false,
+  "originalRoofCompilations": 0,
+  "unrepresentableNewYorkShapeDemonstrated": false,
+  "archives": [
+    {
+      "folder": "bounded-source-compiler-v1",
+      "rawFilesIncludingManifest": 33,
+      "originalSourcePins": 8,
+      "preserved": true
+    },
+    {
+      "folder": "bounded-source-compiler-guards-v1",
+      "rawFilesIncludingManifest": 13,
+      "originalSourcePins": 5,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-kernel-v1",
+      "rawFilesIncludingManifest": 46,
+      "originalSourcePins": 4,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-boundaries-v1",
+      "rawFilesIncludingManifest": 21,
+      "originalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-witness-v1",
+      "rawFilesIncludingManifest": 27,
+      "originalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-receipt-bridge-v1",
+      "rawFilesIncludingManifest": 45,
+      "originalSourcePins": 6,
+      "preserved": true
+    }
+  ],
+  "unchangedFiles": [
+    "workbenches/furnished-house/geometry.js",
+    "workbenches/furnished-house/support.js",
+    "workbenches/furnished-house/scene.js",
+    "workbenches/furnished-house/regional-domain.js",
+    "workbenches/furnished-house/partition-error.js",
+    "src/runtime/collision.js",
+    "src/runtime/regional-effective-query.js",
+    "src/runtime/regional-receipt-bridge.js",
+    "src/simulation/regional-source-pilot.js",
+    "src/simulation/source-support.js",
+    "src/simulation/source-support-calculations.js",
+    "src/content/map-source-support-data.js",
+    "src/content/map-source-support-overrides.js",
+    "tests/integration/regional-effective-query.test.mjs",
+    "tests/integration/regional-query-boundaries.test.mjs",
+    "tests/integration/regional-query-witness.test.mjs",
+    "tests/integration/regional-receipt-bridge.test.mjs",
+    "tests/fixtures/regional-query-data.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "cb407fcc75ca2a532cc46591bd8f9a90542d440a97bdc2e98050d92d3d94d0bf"
+    },
+    {
+      "path": "tests/integration/original-support-ports.test.mjs",
+      "lfSha256": "5bd815233366e957c8a28ea7d26b159c869f3b9778f1274012e783b22d07488e"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "lfSha256": "bd504b2cfc4068d7e872fbcb1d1dd2fb0085445c64f2537b6be567edb6c8550f"
+    }
+  ],
+  "preservedUntestedWip": [
+    {
+      "snapshot": "docs/engineering/shared-maps/support-port-birth-v1/untested-source-extension.js.txt",
+      "restorePath": "src/simulation/original-support-ports.js",
+      "status": "Unrun whole-source contacts, native identity inference and source-component guard extensions; separate from checkpoint core.",
+      "rawSha256": "c58150d16d375aba1458da71c0c8adb0dfc93d9534d4e9c8904da9ad91b61f6c"
+    },
+    {
+      "snapshot": "docs/engineering/shared-maps/support-port-birth-v1/untested-original-support-adapters.js.txt",
+      "restorePath": "src/content/original-support-adapters.js",
+      "status": "Partial tiny controls passed; full accepted New York catalogue and twenty native assets never exercised.",
+      "rawSha256": "6a05bb53c0b83db37b1981c82fecc33582fd6727ee704edd7ab50c8bb14903d8"
+    },
+    {
+      "snapshot": "docs/engineering/shared-maps/support-port-birth-v1/untested-original-support-adapters.test.mjs.txt",
+      "restorePath": "tests/integration/original-support-adapters.test.mjs",
+      "status": "Preserved small adapter controls; not in the core checkpoint test runner.",
+      "rawSha256": "4e8fbbd427f9324dc43cc6a443820363b43248dc20f1b9662e81ee6c9d4d007c"
+    }
+  ],
+  "declaration": {
+    "modified": 22,
+    "added": 50
+  },
+  "protectedWip": true,
+  "closedTestChildren": 7,
+  "helpers": [],
+  "ports": [],
+  "productionEnabled": false
+}
