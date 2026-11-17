@@ -2,8 +2,9 @@ import {mountContextAction} from './door-action.js';
 import {mountLanternPreview} from './lantern-preview.js';
 import {ETCHING_SIZE, ETCHING_FRAMES, OIL_LANTERN_SIZE, OIL_LANTERN_FRAME, OIL_BARREL_SIZE, OIL_BARREL_FRAME} from './etching-frames.js';
 import {mountMap} from './map.js';
+import {mountMenuNavigation} from './menu-navigation.js';
 import {bindInterfacePreferences, interfacePreferences} from './preferences.js';
-import {TOOLS, normalizeStick, pointerStick, stockText, viewOf, toolFeedbackOf, navigationOf, lanternHint} from './model.js';
+import {TOOLS, normalizeStick, pointerStick, stockText, viewOf, toolFeedbackOf, navigationOf, capabilitiesOf, snapshotCapabilitiesOf, lanternHint} from './model.js';
 export {mountMainMenu} from './main-menu.js';
 export {mountTitleScreen} from './title-screen.js';
 export {createInterfacePreferences} from './preferences.js';
@@ -42,12 +43,13 @@ const markup = '<header class="tb-top">' +
   '<button type="button" class="square-control industrial-switch tb-pause" data-pause aria-label="Menu — pause and open scene menu" aria-expanded="false"><span class="switch-legend">'+icon('pause')+'<span class="switch-label">MENU</span></span></button></div></div></section>' +
   '<div class="tb-menu-backdrop" data-menu hidden><section class="tb-menu tb-wood-panel" role="dialog" aria-modal="true" aria-labelledby="tb-menu-title"><div class="tb-menu-heading"><div class="tb-masthead" aria-hidden="true"><span>THE</span><strong>TINDERBOX</strong></div><div class="tb-issue" aria-hidden="true"><span>EXPOSITION · 1893</span><span>FIELD EDITION</span></div><h1 id="tb-menu-title" tabindex="-1" data-menu-title>Paused</h1></div>' +
   '<div data-pause-panel><p class="tb-menu-note" data-pause-note>The trail can wait.</p><button type="button" class="tb-menu-button tb-resume" data-resume>' + icon('play') + '<span>Resume scene</span><kbd>ESC</kbd></button><button type="button" class="tb-menu-button" data-options>' + icon('options') + '<span>Controls & options</span></button><button type="button" class="tb-menu-button" data-reset>' + icon('reset') + '<span>Reset test scene</span></button></div>' +
-  '<div data-options-panel hidden><p class="tb-menu-note">Interface preferences apply to this session.</p><label class="tb-option"><input type="checkbox" data-reduce-motion>Reduce interface motion</label><label class="tb-option"><input type="checkbox" data-contrast>High contrast labels</label><dl class="tb-key-guide"><div><dt>Move</dt><dd>Drag stick · WASD · arrows</dd></div><div><dt>Tools</dt><dd>1–5</dd></div><div><dt>Use / pour</dt><dd>Tap tool · Space for selected tool</dd></div><div><dt>Medicine</dt><dd>Walk over it to use it</dd></div><div><dt>Pause</dt><dd>Esc · P</dd></div></dl><p class="tb-menu-note">Tap Oil barrel to start or stop pouring. Tap Torch to light, then tap to ignite nearby fuel. Press Oil lantern to aim, drag the stick, release, then press Throw lantern. Escape cancels aim. Hold Flamethrower to spray where you face. Walk over drugs or medicine to use them. Inversion reverses movement only.</p><button type="button" class="tb-menu-button" data-back>Back to pause</button></div></section></div>' +
+  '<div data-options-panel hidden><p class="tb-menu-note">Interface preferences apply to this session.</p><label class="tb-option"><input type="checkbox" data-reduce-motion>Reduce interface motion</label><label class="tb-option"><input type="checkbox" data-contrast>High contrast labels</label><dl class="tb-key-guide"><div><dt>Move</dt><dd>Drag stick · WASD · arrows</dd></div><div><dt>Tools</dt><dd>1–5</dd></div><div><dt>Use / pour</dt><dd>Tap tool · Space for selected tool</dd></div><div><dt>Interact</dt><dd>Tap nearby action · E</dd></div><div><dt>Medicine</dt><dd>Walk over it to use it</dd></div><div><dt>Pause</dt><dd>Esc · P</dd></div></dl><p class="tb-menu-note">Tap Oil barrel to start or stop pouring. Tap Torch to light, then tap to ignite nearby fuel. Press Oil lantern to aim, drag the stick, release, then press Throw lantern. Escape cancels aim. Hold Flamethrower to spray where you face. Walk over drugs or medicine to use them. Inversion reverses movement only.</p><button type="button" class="tb-menu-button" data-back>Back to pause</button></div></section></div>' +
   '<span class="tb-sr-only" role="status" aria-live="polite" data-announcement></span>';
 
-export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInteraction, mode='gameplay', placeTitle='', preferences=interfacePreferences} = {}) {
+export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInteraction, mode='gameplay', capabilities, placeTitle='', preferences=interfacePreferences} = {}) {
   if (!root?.ownerDocument || typeof onCommand !== 'function') throw new TypeError('mountUI requires a DOM root and onCommand callback.');
-  if(!['gameplay','explore'].includes(mode))throw new TypeError('Unknown UI mode.');
+  const visitCapabilities=capabilitiesOf(capabilities,mode);
+  mode=visitCapabilities.mode;
   const exploring=mode==='explore',hasExit=typeof onExitToMenu==='function';
   const doc=root.ownerDocument, win=doc.defaultView, shell=doc.createElement('section');
   shell.className='tb-ui';shell.dataset.mode=mode; shell.setAttribute('aria-label',exploring?'Tinderbox exploration controls':'Tinderbox player controls');
@@ -103,8 +105,12 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
   const on=(target,type,handler,options)=>{target.addEventListener(type,handler,options);listeners.push(()=>target.removeEventListener(type,handler,options));};
   const emit=command=>{if(!disposed)onCommand(command);};
   const blocked=()=>!view||view.locked||Boolean(menu)||exiting;
-  const contextBlocked=()=>blocked()||(!exploring&&Boolean(view?.lanternAim||lanternPending));
+  const contextBlocked=()=>blocked()||!view.capabilities.interact||(!exploring&&Boolean(view?.lanternAim||lanternPending));
   const contextAction=mountContextAction({shell,onProjectInteraction,onCommand:emit,isBlocked:contextBlocked,spaceShortcut:exploring,mark:icon('play')});
+  const menuNavigation=exploring?null:mountMenuNavigation({root:find('[data-pause-panel]'),placeTitle,mark:icon,onView:type=>{
+    if(disposed||menu!=='pause'||!view?.paused||exiting||awaitingResume||!view.capabilities.overview)return;
+    cancelInput();emit({type});resume();paint();
+  }});
   const capture=(element,id)=>{try{element.setPointerCapture(id);}catch{/* Window listeners cover unavailable capture. */}};
   const release=(element,id)=>{if(element&&id!==null)try{if(element.hasPointerCapture(id))element.releasePointerCapture(id);}catch{/* Already released. */}};
   function sendMove(vector){
@@ -120,7 +126,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     element?.classList.remove('is-pressed');release(element,id);if(held)emit({type:'primary',pressed:false});
   }
   function beginAction(button,source,pointerId=null){
-    if(blocked()||lanternPending||button.disabled||primaryPointer!==null||primarySources.size)return false;
+    if(blocked()||!view.capabilities.tools||lanternPending||button.disabled||primaryPointer!==null||primarySources.size)return false;
     if(view.lanternAim||button.dataset.tool==='molotov')lockLanternTransition();
     if(disposed||blocked())return false;
     primaryElement=button;primaryTool=button.dataset.tool;awaitingSelection=true;primaryPointer=pointerId;
@@ -131,7 +137,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     primarySources.add(source);button.classList.add('is-pressed');emit({type:'primary',pressed:true});paint();return true;
   }
   function selectTool(id){
-    if(blocked()||lanternPending)return;
+    if(blocked()||!view.capabilities.tools||lanternPending)return;
     releaseTrigger();
     if(view.lanternAim&&id!=='molotov')lockLanternTransition();
     emit({type:'select-tool',tool:id});paint();
@@ -165,10 +171,12 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
   function paint(){
     if(!view)return;
     const gated=blocked(),aim=gated?null:view.lanternAim;
+    menuNavigation?.update({...view.navigation,view:view.cameraView},{available:view.capabilities.overview,enabled:menu==='pause'&&view.paused&&!exiting&&!awaitingResume});
+    find('.tb-health').hidden=exploring||!view.capabilities.health;
     const promptLostFocus=contextAction.update(exploring?view.navigation.interaction:view.interaction,contextBlocked());
     lanternPreview?.update(aim);
     const aimState=aim?[Boolean(aim.target),aim.adjusting,aim.canThrow]:null;
-    const signature=exploring?JSON.stringify([view.paused,view.navigation,menu,exiting,contextAction.isVisible()]):JSON.stringify([view.characterName,view.tool.id,view.hp,view.maxHp,view.inventory,view.pouring,view.paused,view.effects,view.torch,view.lanternKnown,aimState,Boolean(lanternPending),feedback,menu,primaryTool,primarySources.size,exiting]);
+    const signature=exploring?JSON.stringify([view.capabilities,view.paused,view.navigation,menu,exiting,contextAction.isVisible()]):JSON.stringify([view.capabilities,view.navigation,view.cameraView,view.characterName,view.tool.id,view.hp,view.maxHp,view.inventory,view.pouring,view.paused,view.effects,view.torch,view.lanternKnown,aimState,Boolean(lanternPending),feedback,menu,primaryTool,primarySources.size,exiting]);
     if(signature===renderSignature){if(promptLostFocus)restorePromptFocus();return;}
     renderSignature=signature;
     const controlsLocked=gated||Boolean(lanternPending);
@@ -188,7 +196,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
       shell.dataset.nativeLevel=navigation.level===null?'':String(navigation.level);
       const actionHint=contextAction.isVisible()&&navigation.interaction?(navigation.interaction.enabled?navigation.interaction.label+' · E / Space':navigation.interaction.reason):'Drag the stick or use WASD to explore.';
       if(hint.textContent!==actionHint)hint.textContent=actionHint;
-      for(const button of all('[data-view]'))button.disabled=gated;
+      for(const button of all('[data-view]'))button.disabled=gated||!view.capabilities.overview;
       find('[data-death]').hidden=true;paintMenu();
       const announcement='Location: '+navigation.locationLabel+'.'+(!view.paused&&contextAction.isVisible()&&navigation.interaction?(navigation.interaction.enabled?' '+navigation.interaction.label+' available.':' '+navigation.interaction.reason):'')+(view.paused?' Paused.':'');
       if(announcement!==previousAnnouncement){find('[data-announcement]').textContent=announcement;previousAnnouncement=announcement;}
@@ -211,7 +219,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     for(const tool of TOOLS){
       const button=buttons.get(tool.id),stock=Math.max(0,Number(view.inventory[tool.stock])||0),pouring=tool.id==='jerry-can'&&view.pouring,held=primaryTool===tool.id&&primarySources.size>0;
       const torch=tool.id==='torch',lantern=tool.id==='molotov',state=view.torch;
-      button.disabled=controlsLocked||(stock<=0&&!pouring)||(torch&&state.disabled)||(lantern&&(!view.lanternKnown||Boolean(aim&&!aim.canThrow)));
+      button.disabled=!view.capabilities.tools||controlsLocked||(stock<=0&&!pouring)||(torch&&state.disabled)||(lantern&&(!view.lanternKnown||Boolean(aim&&!aim.canThrow)));
       button.dataset.empty=String(stock<=0);button.dataset.lit=String(torch?state.phase==='lit':pouring||held||(lantern&&Boolean(aim)));
       button.dataset.torchPhase=torch?state.phase:'';
       button.setAttribute('aria-pressed',String(view.tool.id===tool.id));
@@ -226,7 +234,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     paintIcon(find('[data-selected-icon]'),view.tool.id);find('[data-tool-name]').textContent=view.tool.label;
     find('[data-tool-hint]').textContent=view.pouring?'Pouring · tap Oil barrel to stop':view.toolHint;
     find('[data-selected-stock]').textContent=view.resourceText;
-    find('[data-loadout-state]').textContent=view.dead?view.characterName.toUpperCase()+' DOWN':view.paused?'PAUSED':view.pouring?'● POURING':view.tool.id==='torch'?view.torch.status:view.stock<=0?'EMPTY':aim?(aim.canThrow?'AIM LOCKED':'AIMING'):view.tool.id==='molotov'&&!view.lanternKnown?'WAIT':'READY';
+    find('[data-loadout-state]').textContent=!view.capabilities.tools?'TOOLS UNAVAILABLE':view.dead?view.characterName.toUpperCase()+' DOWN':view.paused?'PAUSED':view.pouring?'● POURING':view.tool.id==='torch'?view.torch.status:view.stock<=0?'EMPTY':aim?(aim.canThrow?'AIM LOCKED':'AIMING'):view.tool.id==='molotov'&&!view.lanternKnown?'WAIT':'READY';
     find('[data-health-text]').textContent=Math.ceil(view.hp)+' / '+stockText(view.maxHp);find('[data-health-fill]').style.width=(view.hp/view.maxHp*100)+'%';
     find('.tb-health-meter').setAttribute('aria-valuenow',String(view.hp));find('.tb-health-meter').setAttribute('aria-valuemax',String(view.maxHp));shell.dataset.lowHealth=String(view.hp/view.maxHp<=.3);
     for(const name of ['powder','inversion']){const effect=find('[data-effect="'+name+'"]');effect.hidden=!view.effects[name].active;effect.querySelector('[data-time]').textContent=view.effects[name].remaining;}
@@ -299,8 +307,8 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     if(blocked()||lanternPending||editable(event.target))return;
     if(moveCodes.has(event.code)){event.preventDefault();if(!event.repeat){keys.add(event.code);updateMovement();}}
     else if(event.code==='KeyE'||exploring&&event.code==='Space'&&(active===doc.body||active===stick||active?.tagName==='CANVAS')){event.preventDefault();if(!event.repeat)contextAction.request();}
-    else if(!exploring&&/^Digit[1-5]$/.test(event.code)&&!event.repeat){event.preventDefault();selectTool(TOOLS[Number(event.code.at(-1))-1].id);}
-    else if(!exploring&&(event.code==='Space'||event.code==='Enter'&&view.tool.id==='molotov')&&(active===doc.body||active===stick||active?.tagName==='CANVAS')){
+    else if(!exploring&&view.capabilities.tools&&/^Digit[1-5]$/.test(event.code)&&!event.repeat){event.preventDefault();selectTool(TOOLS[Number(event.code.at(-1))-1].id);}
+    else if(!exploring&&view.capabilities.tools&&(event.code==='Space'||event.code==='Enter'&&view.tool.id==='molotov')&&(active===doc.body||active===stick||active?.tagName==='CANVAS')){
       event.preventDefault();
       if(!event.repeat){
         const button=buttons.get(view.tool.id);
@@ -322,7 +330,7 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
     const fallback=stick.disabled?(field&&!field.closest('[hidden]')?field:pause):stick;
     fallback.focus({preventScroll:true});
   }
-  for(const button of all('[data-view]'))on(button,'click',()=>{if(!blocked())emit({type:button.dataset.view});});
+  for(const button of all('[data-view]'))on(button,'click',()=>{if(!blocked()&&view.capabilities.overview)emit({type:button.dataset.view});});
   for(const button of all('[data-exit-to-menu]'))on(button,'click',()=>{if(disposed||!hasExit)return;exiting=true;cancelInput();paint();onExitToMenu();});
   if(cancelAim)on(cancelAim,'click',requestAimCancel);
   on(pause,'click',openMenu);on(find('[data-resume]'),'click',resume);
@@ -340,7 +348,10 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
       if(disposed)return;
       const previouslyPaused=view?.paused,wasAiming=Boolean(view?.lanternAim),priorFocus=doc.activeElement;
       let restoreFocus=false;
-      view=exploring?{paused:Boolean(snapshot?.paused),locked:Boolean(snapshot?.paused),navigation:navigationOf(snapshot)}:viewOf(snapshot);
+      const capabilities=snapshotCapabilitiesOf(snapshot,visitCapabilities);
+      const hadTools=view?.capabilities.tools;
+      view=exploring?{capabilities,paused:Boolean(snapshot?.paused),locked:Boolean(snapshot?.paused),navigation:navigationOf(snapshot)}:viewOf(snapshot,capabilities);
+      if(hadTools&&!capabilities.tools)cancelInput();
       const aiming=Boolean(view.lanternAim),changedAim=wasAiming!==aiming;
       if(!exploring){
         readToolEvents(snapshot);
@@ -357,6 +368,6 @@ export function mountUI({root, onCommand, onZoom, onExitToMenu, onProjectInterac
       if(changedAim&&!blocked()&&(priorFocus===cancelAim||priorFocus===doc.body||aiming&&priorFocus===buttons.get('molotov')))stick.focus({preventScroll:true});
       if(restoreFocus){if(previousFocus?.isConnected&&previousFocus!==doc.body&&gameplayFocus(previousFocus)&&!previousFocus.disabled&&!previousFocus.closest('[hidden]'))previousFocus.focus({preventScroll:true});else pause.focus({preventScroll:true});}
     },
-    dispose(){if(disposed)return;cancelInput();disposed=true;contextAction.dispose();lanternPreview?.dispose();unbindPreferences();for(const remove of listeners.splice(0))remove();shell.remove();}
+    dispose(){if(disposed)return;cancelInput();disposed=true;contextAction.dispose();menuNavigation?.dispose();lanternPreview?.dispose();unbindPreferences();for(const remove of listeners.splice(0))remove();shell.remove();}
   };
 }

@@ -87,28 +87,51 @@ export function lanternHint(aim, known) {
   return 'Adjust your aim before throwing.';
 }
 
+// Explicit host capabilities take precedence over legacy mount modes. Invalid records
+// fail at the boundary instead of exposing tools on a partial exploration host.
+export function capabilitiesOf(value, fallbackMode='gameplay') {
+  if(!['gameplay','explore'].includes(fallbackMode))throw new TypeError('Unknown UI mode.');
+  if(value===undefined)return Object.freeze({version:1,mode:fallbackMode,tools:fallbackMode==='gameplay',health:fallbackMode==='gameplay',interact:true,overview:fallbackMode==='explore'});
+  if(!value || value.version!==1 || !['gameplay','explore'].includes(value.mode) ||
+    !['tools','health','interact','overview'].every(key=>typeof value[key]==='boolean'))throw new TypeError('Tinderbox UI requires v1 host capabilities.');
+  return Object.freeze({version:1,mode:value.mode,tools:value.tools,health:value.health,interact:value.interact,overview:value.overview});
+}
+
+// A mode transition requires a new visit/mount. Never reveal gameplay controls
+// on a snapshot still identifying itself as an exploration host.
+export function snapshotCapabilitiesOf(snapshot, visitCapabilities) {
+  const capabilities=capabilitiesOf(snapshot?.capabilities===undefined?visitCapabilities:snapshot.capabilities,visitCapabilities.mode);
+  if(capabilities.mode!==visitCapabilities.mode || snapshot?.mode!==undefined&&snapshot.mode!==capabilities.mode)
+    throw new TypeError('Host capability mode changed within a visit.');
+  const escalation=['tools','health','interact','overview'].find(field=>capabilities[field]&&!visitCapabilities[field]);
+  if(escalation)throw new TypeError('Snapshot exceeds factory capability: '+escalation);
+  return capabilities;
+}
+
 // Presentation only. This function neither mutates a snapshot nor advances time.
-export function viewOf(snapshot) {
+export function viewOf(snapshot, hostCapabilities) {
   if (!snapshot || snapshot.version !== 1 || !snapshot.player) throw new TypeError('Tinderbox UI requires a v1 snapshot.');
   const {player, effects = {}} = snapshot;
+  const capabilities=capabilitiesOf(hostCapabilities===undefined?snapshot.capabilities:hostCapabilities);
   const inventory = player.inventory ?? {};
   const tool = TOOLS.find(item => item.id === player.tool) ?? TOOLS[0];
-  const dead = !(player.hp > 0);
+  const dead = capabilities.health && !(player.hp > 0);
   const locked = Boolean(snapshot.paused || dead);
   const stock = Math.max(0, Number(inventory[tool.stock]) || 0);
   const pouring = Boolean(player.pouring && tool.id === 'jerry-can');
   const torch=torchViewOf(player),torchSelected=tool.id==='torch';
   const armed=lanternAimOf(player.lanternAim),lanternKnown=player.lanternAim===null||armed!==null;
-  const lanternSelected=tool.id==='molotov',lanternAim=lanternSelected?armed:null;
+  const lanternSelected=tool.id==='molotov',lanternAim=capabilities.tools&&lanternSelected?armed:null;
   return {
+    capabilities,navigation:navigationOf(snapshot),cameraView:['overview','follow'].includes(snapshot.navigation?.view)?snapshot.navigation.view:null,
     characterName:characterNameOf(player)||'Bear',torch,lanternAim,lanternKnown,interaction:interactionOf(player.interaction), player, tool, inventory, dead, locked, paused: Boolean(snapshot.paused), stock, pouring,
     hp: Math.max(0, Math.min(player.maxHp || 100, player.hp || 0)),
     maxHp: Math.max(1, player.maxHp || 100),
     primaryLabel: pouring ? 'Stop' : torchSelected ? torch.label : lanternAim ? 'Throw lantern' : tool.action,
-    primaryMode: pouring ? 'POURING' : torchSelected ? torch.status : stock<=0 ? 'EMPTY' : tool.id==='flamethrower' ? 'HOLD' : lanternSelected&&!lanternKnown ? 'WAIT' : lanternAim ? 'AIM' : 'PRESS',
+    primaryMode: !capabilities.tools ? 'WAIT' : pouring ? 'POURING' : torchSelected ? torch.status : stock<=0 ? 'EMPTY' : tool.id==='flamethrower' ? 'HOLD' : lanternSelected&&!lanternKnown ? 'WAIT' : lanternAim ? 'AIM' : 'PRESS',
     resourceText: torchSelected ? torch.resource : stockText(stock)+' '+tool.unit+(stock<=0?' · EMPTY':''),
     toolHint: torchSelected ? torch.hint : lanternSelected ? lanternHint(lanternAim,lanternKnown) : tool.hint,
-    primaryDisabled: locked || (stock <= 0 && !pouring) || (torchSelected && torch.disabled) || (lanternSelected && (!lanternKnown || Boolean(lanternAim && !lanternAim.canThrow))),
+    primaryDisabled: !capabilities.tools || locked || (stock <= 0 && !pouring) || (torchSelected && torch.disabled) || (lanternSelected && (!lanternKnown || Boolean(lanternAim && !lanternAim.canThrow))),
     effects: {
       powder: {active: Boolean(effects.powder?.active), remaining: remainingText(effects.powder?.remaining)},
       inversion: {active: Boolean(effects.inversion?.active), remaining: remainingText(effects.inversion?.remaining)}
@@ -127,7 +150,7 @@ export function characterNameOf(player) {
 // Navigation-only projection. Native level indexes are metadata, never floor names.
 export function navigationOf(snapshot) {
   if(!snapshot || snapshot.version!==1 || !snapshot.player)throw new TypeError('Tinderbox navigation requires a v1 snapshot.');
-  const player=snapshot.player,label=typeof player.locationLabel==='string'?player.locationLabel.trim():'';
+  const player=snapshot.player,label=[player.locationLabel,snapshot.navigation?.locationLabel].find(value=>typeof value==='string'&&value.trim())?.trim()??'';
   return {characterName:characterNameOf(player),locationLabel:label||'Location pending',level:Number.isInteger(player.level)?player.level:null,
     interaction:doorInteractionOf(player.interaction)};
 }
