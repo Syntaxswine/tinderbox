@@ -1,6 +1,6 @@
 """Independent CPU/source checks of the additive NY completion; never starts a renderer."""
 from pathlib import Path
-import collections, hashlib, importlib.util, json, math, re, struct, subprocess, sys
+import argparse, collections, hashlib, importlib.util, json, math, re, struct, subprocess, sys
 sys.dont_write_bytecode=True
 ROOT=Path(__file__).resolve().parents[4];HERE=Path(__file__).parent
 s=importlib.util.spec_from_file_location('original_binding_math',HERE.parent/'export.py');M=importlib.util.module_from_spec(s);s.loader.exec_module(M)
@@ -12,6 +12,59 @@ def check(ok,label):
 def read(path):return json.loads((ROOT/path).read_text(encoding='utf-8'))
 def sha(path):return hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
 def near(a,b,tol=3e-5):return abs(a-b)<=tol
+
+# The original art ownership gate remains the default. Combined review substitutes
+# one exact reviewed runtime tree, not a mutable declaration or a general src waiver.
+PRESERVED_REF='c791c7b94da99b032ae3293395a6eb23cacf0038'
+RUNTIME_REF='6f54554ceaefe0d63ad617836bd30e63466d66d4'
+DECLARATION='docs/engineering/shared-maps/runtime-integration.json'
+PRODUCER='tools/record-shared-map-runtime.mjs'
+PROTECTED=['assets/art/place-scenes','assets/art/exposition-new-york','assets/art/exposition-new-york-tile','assets/art/exploration-access','art/source/exploration-access','workbenches/art/check-exposition-new-york-tile.mjs','workbenches/art/check-exploration-access.mjs','vendor']
+
+def lf(data):return data.replace(b'\r\n',b'\n')
+def digest(data):return hashlib.sha256(data).hexdigest()
+def git(context,*args):return subprocess.check_output(['git',*args],cwd=context)
+def unchanged(context,ref,paths):
+ return subprocess.run(['git','diff','--quiet','--no-ext-diff',ref,'--',*paths],cwd=context).returncode==0
+
+def context_gate(combined=False,context_worktree=None):
+ check(combined or context_worktree is None,'context:external checkout requires explicit combined mode')
+ context=Path(context_worktree).resolve() if context_worktree is not None else ROOT
+ protected=PROTECTED if combined else [*PROTECTED,'src']
+ label='preserved:raw sources and historical checkers' if combined else 'preserved:raw sources runtime and historical checkers'
+ check(unchanged(context,PRESERVED_REF,protected),label)
+ check(not git(context,'ls-files','--others','--exclude-standard','--',*protected).strip(),'preserved:no untracked protected sources')
+ if not combined:return {'mode':'art-only','preservedRef':PRESERVED_REF}
+ if context!=ROOT:
+  check(unchanged(ROOT,PRESERVED_REF,[*PROTECTED,'src']),'preserved:artist checkout raw sources runtime and historical checkers')
+  check(not git(ROOT,'ls-files','--others','--exclude-standard','--',*PROTECTED,'src').strip(),'preserved:no untracked artist protected sources')
+ # Pin both declaration and executable to the accepted coder commit before running
+ # the read-only producer. Updating working hashes alone cannot approve new code.
+ declaration=lf((context/DECLARATION).read_bytes())
+ check(declaration==lf(git(context,'show',RUNTIME_REF+':'+DECLARATION)),'context:exact accepted runtime declaration')
+ check(lf((context/PRODUCER).read_bytes())==lf(git(context,'show',RUNTIME_REF+':'+PRODUCER)),'context:exact accepted declaration producer')
+ data=json.loads(declaration)
+ check(data['version']==1 and data['baselineCommit']==M.BASE,'context:accepted declaration baseline')
+ check(data['sourceIntakes']=={'ui':'2c866a6bf173e1549c54d34c124a9d055febda3d','artist':'59b9373f47d51531c7e505613f67dd1e426b37f1'},'context:exact accepted runtime intakes')
+ frozen=data['frozenM28']
+ check(digest(lf((context/frozen['path']).read_bytes()))==frozen['lfSha256'],'context:frozen prior runtime declaration')
+ rows=data['runtimeFiles']+data['addedFiles'];paths=[row['path'] for row in rows]
+ check(len(paths)==len(set(paths)),'context:unique declared runtime files')
+ for row in data['runtimeFiles']:
+  check(digest(lf(git(context,'show',data['baselineCommit']+':'+row['path'])))==row['beforeLfSha256'],'context:declared before LF hash '+row['path'])
+  check(digest(lf((context/row['path']).read_bytes()))==row['afterLfSha256'],'context:declared after LF hash '+row['path'])
+ for row in data['addedFiles']:
+  check(digest(lf((context/row['path']).read_bytes()))==row['lfSha256'],'context:declared added LF hash '+row['path'])
+ declared_src={p for p in paths if p.startswith('src/')}
+ reviewed_src=set(git(context,'diff','--name-only','--no-renames',data['baselineCommit'],RUNTIME_REF,'--','src').decode().splitlines())
+ check(declared_src==reviewed_src,'context:all accepted src deltas explicitly declared')
+ check(unchanged(context,RUNTIME_REF,['src']),'context:entire src tree equals reviewed runtime')
+ check(not git(context,'ls-files','--others','--exclude-standard','--','src').strip(),'context:no undeclared untracked src')
+ producer=subprocess.run(['node',PRODUCER,'--check'],cwd=context,capture_output=True,text=True)
+ check(producer.returncode==0,'context:accepted runtime declaration producer check '+producer.stderr.strip())
+ counts={'runtimeFiles':len(data['runtimeFiles']),'addedFiles':len(data['addedFiles'])}
+ check(json.loads(producer.stdout)==counts,'context:exact producer file counts')
+ return {'mode':'combined','preservedRef':PRESERVED_REF,'acceptedRuntimeCommit':RUNTIME_REF,'declarationPath':DECLARATION,'declarationLfSha256':digest(declaration),**counts,'declaredSrcChanges':len(declared_src),'producerCheck':'PASS','readOnlyExternalContext':context!=ROOT}
 
 def bary(p,t):
  a,b,q=M.sub(t[1],t[0]),M.sub(t[2],t[0]),M.sub(p,t[0]);aa,bb,ab,qa,qb=M.dot(a,a),M.dot(b,b),M.dot(a,b),M.dot(q,a),M.dot(q,b);d=aa*bb-ab*ab;v=(bb*qa-ab*qb)/d;w=(aa*qb-ab*qa)/d;return [1-v-w,v,w]
@@ -51,12 +104,16 @@ def on_surface(point,ts):
  return False
 
 def main():
+ parser=argparse.ArgumentParser(description=__doc__)
+ parser.add_argument('--combined-context',action='store_true',help='Verify only the exact accepted runtime declaration/tree instead of the art-only src gate.')
+ parser.add_argument('--context-worktree',type=Path,help='Read-only combined checkout; requires --combined-context. Art checks still run in this checkout.')
+ parser.add_argument('--record',action='store_true',help='Write the corresponding art-only or combined CPU/source receipt.')
+ args=parser.parse_args()
+ context=context_gate(args.combined_context,args.context_worktree)
  base=read('assets/art/shared-map-fire-bindings/new-york.json');a=read('assets/art/shared-map-fire-bindings/new-york-complete-v1.json');ev=read('art/source/shared-map-fire-bindings/completion-v1/binding-evidence.json');ovpath=a['effectiveGeometryOverlay']['indexPath'];overlay=read(ovpath);geo_ev=read(overlay['evidencePath']);nav=read(a['sourceScene']['navigationPath']);proposal=read('art/source/shared-map-fire-bindings/new-york-coverage-proposal.json');geoms={}
  check(sha('assets/art/shared-map-fire-bindings/new-york.json')=='7490e3bfeeab4a6080d2c9d97b99fc81bac875d711c83fcbe4c10e34e008b1f9','preserved:accepted pilot bytes')
  check(sha(ovpath)==a['effectiveGeometryOverlay']['sha256'],'hash:effective index')
  check(sha(a['sourceScene']['indexPath'])==a['sourceScene']['sha256'] and sha(a['sourceScene']['navigationPath'])==a['sourceScene']['navigationSha256'],'preserved:original scene and navigation')
- protected=['assets/art/place-scenes','assets/art/exposition-new-york','assets/art/exposition-new-york-tile','assets/art/exploration-access','art/source/exploration-access','workbenches/art/check-exposition-new-york-tile.mjs','workbenches/art/check-exploration-access.mjs','src','vendor']
- check(subprocess.run(['git','diff','--quiet','c791c7b9','--',*protected],cwd=ROOT).returncode==0,'preserved:raw sources runtime and historical checkers')
  check({r['commit'] for r in a['completionAuthority']}=={'fe29be3a174121914cc762e1bc9f10004186fb65','2ec28370bdb7e0b4c57b687a5b58f8b2d78215ae','b509e5c4832c86291e8909a423fe92b8b030b18d','01299a68a7c769353f2f7f005a5969c0b7383f70','400eb8bca7ce4a5cee1196880861f1f14c6b268f'},'policy:exact completion and response authorities')
  for row in a['completionAuthority']:
   data=subprocess.check_output(['git','show',row['commit']+':'+row['path']],cwd=ROOT);check((ROOT/row['snapshotPath']).read_bytes()==data and hashlib.sha256(data).hexdigest()==row['sha256'],'policy:committed accepted authority snapshot')
@@ -168,7 +225,7 @@ def main():
     check(minimum>=r-1e-6,f'native:effective closed geometry blocks {animal["species"]}/{portal["id"]}/{lateral}: {hit}/{minimum}')
     sweeps.append({'portalId':portal['id'],'species':animal['species'],'lateral':lateral,'radius':r,'height':height,'minimumHorizontalSurfaceDistance':minimum,'passed':True})
  check(len(sweeps)==45,'native:all five portals three animals three lateral routes')
- result={'version':1,'result':'PASS','checks':dict(checks),'carrierCount':len(by),'replacementCount':29,'nativeSweeps':sweeps,'additionalUnsupportedCarrierIds':sorted(unsupported),'completedBindingsSha256':sha('assets/art/shared-map-fire-bindings/new-york-complete-v1.json'),'effectiveIndexSha256':sha(ovpath),'geometryTriangles':a['coverage']['sourceTriangles'],'finiteLedger':a['finiteLedger'],'rendererStarted':False,'actualInputAcceptance':False}
- if '--record' in sys.argv:(HERE/'check-results.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n',encoding='utf-8',newline='\n')
+ result={'version':1,'result':'PASS','context':context,'checks':dict(checks),'carrierCount':len(by),'replacementCount':29,'nativeSweeps':sweeps,'additionalUnsupportedCarrierIds':sorted(unsupported),'completedBindingsSha256':sha('assets/art/shared-map-fire-bindings/new-york-complete-v1.json'),'effectiveIndexSha256':sha(ovpath),'geometryTriangles':a['coverage']['sourceTriangles'],'finiteLedger':a['finiteLedger'],'rendererStarted':False,'actualInputAcceptance':False}
+ if args.record:(HERE/('combined-check-results.json' if args.combined_context else 'check-results.json')).write_text(json.dumps(result,indent=2,sort_keys=True)+'\n',encoding='utf-8',newline='\n')
  print(json.dumps({k:v for k,v in result.items() if k not in ('nativeSweeps','finiteLedger')},sort_keys=True))
 if __name__=='__main__':main()
