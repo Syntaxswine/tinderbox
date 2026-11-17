@@ -53,6 +53,8 @@ The [prepared overlay contract](../art/shared-map-fire-bindings/overlay-contract
 
 The [coder response](../engineering/shared-maps/overlay-response.md) accepts the paths, frames and replacement shape. Child-owned attachment records include finite emitted-world local witnesses; gap mounts identify both actual attachment regions. Cosmetic multi-parent cases state any/all requirements explicitly. Architect reviewed and relayed the exact response to the artist, authorizing the accepted exports to proceed. Runtime registration and source-aware picking remain worker development until their next exact candidate is delivered.
 
+During implementation the artist reproduces retained cornice T-junctions. The architect permits derived index subdivision only within the existing 25 cap-repair IDs, with unchanged original attribute-buffer prefix, face-interpolation proof and original-to-derived triangle/ownership mapping. The milestone records this explicit amendment; the earlier literal triangle-prefix statement cannot be claimed for subdivided parts. Effective geometry, dimensions, apertures and original raw files remain the same controlled boundary. Export/closure proof is still pending.
+
 ## Remaining acceptance
 
 Review the exact New York runtime/source candidate, finite cold/active fuel ownership, native support and closed/open barrier controls before a bounded normal-zoom tool/traversal review. Resolve substantial source/material/support gaps explicitly. Then reuse the adapter for the remaining production destinations and compatibility routes, run one coherent combined verification/package gate, and review actual inputs and appearance before promotion. Record helper ownership, actual expiry and verified cleanup for every later preview session.
