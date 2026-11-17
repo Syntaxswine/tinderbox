@@ -59,3 +59,30 @@ No profile, control, build, renderer or physics/activation/compilation/material
 change is included. A failed equivalence check stops this experiment. Commit
 only the scoped candidate/evidence after checks pass and await root review.
 No readiness, master or Pages promotion is granted.
+
+## Frozen-tree audit clarification
+
+The first pre-test audit compares all source trees to the algorithm's standalone
+`55cd9b59` commit and rejects source-only artist evidence already present in the
+approved combined checkout. Preserve that failed audit and receipt. The strict
+whole-tree base is `76290ae0ef5d08b2abdfcea5234f997f973b65e2`, already named
+above and in the fifth review grant; the algorithm reference stays exact
+`55cd9b597744244fbd0168939b13fbc66662d7b3` / LF `1e6bd6ec`.
+Prove those references have identical support-module bytes. Correct only these
+explicit baseline roles in audit/producer, retaining strict equality of every
+`src/assets/art/vendor/workbenches` path except the one approved support module.
+No ignored subtree, new source allowance, test/comparator relaxation or extra
+measurement is granted. Rerun the corrected source gate, then the existing
+checks and the single unused measurement only if they pass.
+
+The next focused run passes 55/56 cases. Its new cold-query tape diagnostic uses
+the pre-cache `cd443ccd` oracle and observes eight calls versus four after a
+forced cached rebuild. For that new diagnostic only, use separately pinned
+`55cd9b59` / LF `1e6bd6ec`, whose accepted cache already replays the second block.
+Preserve the failed log/test snapshot; compare the complete ordered tape strictly
+with the accepted cache reference. All original `cd443ccd` physical/native,
+support, stock and host comparators remain unchanged. No call-count tolerance,
+ignored queries, algorithm change or additional measurement is granted. A source
+metadata correction resolving these explicit accepted reference roles may be
+recorded and checked without another pause; meaningful assertion failures still
+stop the experiment.
