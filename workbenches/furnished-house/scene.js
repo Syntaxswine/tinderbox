@@ -18,7 +18,7 @@ export const DEFAULT_PROFILES=Object.freeze({
 });
 const PASS={air:1,glass:.05,timber:.02,wood:.02,masonry:0,stone:0,brick:0,iron:0,metal:0};
 const combustible=m=>/wood|oak|timber|cloth|linen|wool|oil|coal|lacquer|shingle|clapboard/i.test(typeof m==='string'?m:JSON.stringify(m));
-export function compileScene(data,{profiles={},onLoadPhase}={}) {
+export function compileScene(data,{profiles={},onLoadPhase,querySource}={}) {
   data=prepareFurnishedData(data);
   if(data.version!==1||!Array.isArray(data.surfaces))throw Error('Expected version-1 artist house data');
   const origin=data.gridOrigin||[0,.48,0],pitch=data.thermalCell||CELL,cells=new Map(),fuels=new Map(),items=new Map(),parts=new Map(),boundaries=[];
@@ -70,24 +70,30 @@ export function compileScene(data,{profiles={},onLoadPhase}={}) {
         b.closedShape=s.closedShape!==false&&s.solidTriangles.every(t=>t.every(v=>v.every((n,i)=>n>=clipBox.min[i]-EPS&&n<=clipBox.max[i]+EPS)));
         b.bounds=bounds([...clipped.flat(),...b.solidTriangles.flat()]);
       }
-      const sign=normal.find(v=>Math.abs(v)>1e-6)<0?-1:1,oriented=normal.map(v=>Math.round(v*sign*1e6)/1e6);b.sheetKey=[...(data.sandbox?.version===1||data.catalogueModules?.version===1?[s.instanceId]:[]),s.kind,s.level??'',...oriented,Math.round(dotPlane(normal,clipped[0][0])*sign*1e6)/1e6].join(':');
+      const sign=normal.find(v=>Math.abs(v)>1e-6)<0?-1:1,oriented=normal.map(v=>Math.round(v*sign*1e6)/1e6);b.sheetKey=[...(data.sandbox?.version===1||data.catalogueModules?.version===1||data.scene?.version===1?[s.instanceId]:[]),s.kind,s.level??'',...oriented,Math.round(dotPlane(normal,clipped[0][0])*sign*1e6)/1e6].join(':');
       boundaries.push(b);
       const amount=Number(s.fuelAmount??(combustible(mat)?triangles.reduce((a,t)=>a+triangleArea(t),0):0))*area/triangles.reduce((a,t)=>a+triangleArea(t),0);
       const cls=s.fuelClass||({floor:'frame',wall:'partition',roof:'roof',door:'door'}[s.kind]);
       if(amount>EPS&&cls) {
         const exposed=(cls==='grass'?[1]:[-1,1]).map(sign=>cellAt(p.map((v,i)=>v+normal[i]*sign*.01))),unique=[...new Set(exposed)];
         const f=addFuel({id:`fuel:${id}`,cls,amount,area,position:p,boundaryId:id,sourceSurfaceId:s.id,normal,cells:unique,level:s.level,supports:b.supports});b.fuelId=f.id;
+        // An explicitly assigned coating is a separate finite account. Its
+        // consumption cannot retire the structural core or add another solid.
+        if(s.finish?.amount>0){const coating=addFuel({id:`fuel:${id}:finish`,cls:s.finish.fuelClass,amount:s.finish.amount*area/triangles.reduce((a,t)=>a+triangleArea(t),0),area,position:p,sourceSurfaceId:s.id,normal,cells:[...unique],level:s.level,physicalFinish:true,coreFuelId:f.id});f.coatingFuelIds=[coating.id];}
       }
       b.heatCells=[...new Set([-1,1].map(sign=>cellAt(p.map((v,i)=>v+normal[i]*sign*.01))))];cell(c);
     }
   }
   onLoadPhase?.({phase:'physical-clipping-ready',boundaries:boundaries.length,fuels:fuels.size,cells:cells.size});
   const index=createBoundaryIndex(boundaries);
+  // Additional native inert bodies share this index without allocating fuel
+  // or thermal air cells. Their geometry stays lazy and source-exact.
+  querySource?.install(index);
   onLoadPhase?.({phase:'physical-index-ready',boundaries:boundaries.length});
   // An explicitly declared ground plane provides support. It is not the
   // source kernel's special k=0 rule and does not seal an upper floor void.
-  const groundY=data.groundY??0,houseBox=bounds(data.surfaces.flatMap(s=>s.triangles?.flat()||[]));
-  const ground={id:'terrain:ground',sourceSurfaceId:'terrain:ground',kind:'ground',normal:[0,1,0],supports:true,transmission:0,thickness:.12,triangles:[[[houseBox.min[0]-10,groundY,houseBox.min[2]-10],[houseBox.max[0]+10,groundY,houseBox.min[2]-10],[houseBox.max[0]+10,groundY,houseBox.max[2]+10]],[[houseBox.min[0]-10,groundY,houseBox.min[2]-10],[houseBox.max[0]+10,groundY,houseBox.max[2]+10],[houseBox.min[0]-10,groundY,houseBox.max[2]+10]]]};index.put(ground);
+  const groundY=data.groundY??0,houseBox=data.sourceBounds||bounds(data.surfaces.flatMap(s=>s.triangles?.flat()||[]));
+  if(data.implicitGround!==false){const ground={id:'terrain:ground',sourceSurfaceId:'terrain:ground',kind:'ground',normal:[0,1,0],supports:true,transmission:0,thickness:.12,triangles:[[[houseBox.min[0]-10,groundY,houseBox.min[2]-10],[houseBox.max[0]+10,groundY,houseBox.min[2]-10],[houseBox.max[0]+10,groundY,houseBox.max[2]+10]],[[houseBox.min[0]-10,groundY,houseBox.min[2]-10],[houseBox.max[0]+10,groundY,houseBox.max[2]+10],[houseBox.min[0]-10,groundY,houseBox.max[2]+10]]]};index.put(ground);}
   for(const item of data.items||[])items.set(item.id,{...item,position:[...(item.position||[0,0,0])],initialPosition:[...(item.position||[0,0,0])],intact:true,falling:false});
   const storeByPart=new Map((data.stores||[]).map(s=>[s.fuelPartId,s]));
   for(const part of data.furnitureParts||[]) {

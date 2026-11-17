@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "scope": "CPU/source checkpoint only; not a finished landmark gameplay map, renderer or Pages acceptance.",
+  "baselineCommit": "6d1061cd3ab7e6c9bff212381193376473413b30",
+  "sourceIntakes": {
+    "ui": "2c866a6bf173e1549c54d34c124a9d055febda3d",
+    "artist": "59b9373f47d51531c7e505613f67dd1e426b37f1"
+  },
+  "frozenM28": {
+    "path": "docs/engineering/house-traversal/runtime-integration.json",
+    "lfSha256": "15cbdd597b9366ccb503645658e3f45aaba3fcda0e5eb05c62ae156f67e47347"
+  },
+  "runtimeFiles": [
+    {
+      "path": "src/main.js",
+      "beforeLfSha256": "a336391864d9c3dcf5a6aa4cef65858fee9328ce04f97123cfadeda4862c451b",
+      "afterLfSha256": "e9876bfe0cc971e732d7d63f14a29c0c58f0cbf6679f40fc7ab9939d16da46da",
+      "reason": "Select the accepted Catalogue module host by default; explicit legacy, cottage and witness query compatibility retained."
+    },
+    {
+      "path": "src/runtime/application.js",
+      "beforeLfSha256": "be7c3cef58e26bda192c7e86c1e49f72f48cf8dd9fa444ac4e7ad46dd63e27d7",
+      "afterLfSha256": "8399230eebf3896ae05169aa2ab5a4424f0f9f0c1221ed4ffd5c6834f4e87e74",
+      "reason": "Publish authoritative factory capabilities in active visit state."
+    },
+    {
+      "path": "src/runtime/index.js",
+      "beforeLfSha256": "6b7e1823979c04de7b98bfab9e3e57f8200369f108b3020d8ebd5fb74c2d1a34",
+      "afterLfSha256": "86c03d1035b17d28bf81ee326e0a0e080e591f26a746ff92cae8f45278930a5d",
+      "reason": "Forward the same frozen capabilities to UI and reject snapshot grants above the factory ceiling."
+    },
+    {
+      "path": "src/runtime/navigation.js",
+      "beforeLfSha256": "aeeaaa2f403d88dfbb9d407624636a7ab18280f58594101639682df4dfb3a263",
+      "afterLfSha256": "a1b454d2a4844fb086e9673f92afbd6a1f0eb8eed00ddf042e709b09eb39722d",
+      "reason": "Extract pure native movement/support/door queries; preserve diagnostic exploration clocks."
+    },
+    {
+      "path": "src/simulation/catalogue-thermal.js",
+      "beforeLfSha256": "3421387654b93f5f0a889d9ca6b02ca199563efff91fc1b0a13e1db15203dbbe",
+      "afterLfSha256": "b2ec3eac4d611d7d8ab25845fa8562da226f7e20dc0f14f7d768ffc9992568c3",
+      "reason": "Compatibility entry delegates to the single scene-thermal provider; Catalogue remains the control."
+    },
+    {
+      "path": "src/simulation/index.js",
+      "beforeLfSha256": "b35e6d6508da6e3b5bf5871954823cff7ce182373c311f654895c3ebdaba689e",
+      "afterLfSha256": "41a5c6cb266832aca9863da92a1cd2b3912a8b785cceb79e560e7ec7f06b1e84",
+      "reason": "Rehost sparse map data in the existing five-tool gameplay loop with native elevations and standard stock/clocks."
+    },
+    {
+      "path": "src/ui/index.js",
+      "beforeLfSha256": "265dd45adeaa74e4cf0bc1c4710fdf8ae008a11feef19fb5f2e94c62214207a5",
+      "afterLfSha256": "4147f8bb91c7d2fc5ca1015f7e0fa7defcbb054d707b1e12cdffccd222f1679d",
+      "reason": "Exact accepted UI capability intake 2c866a6b; presentation follows authoritative host state."
+    },
+    {
+      "path": "src/ui/model.js",
+      "beforeLfSha256": "9870591efb0aecef294e3e4b4ec49a913cb3b954d8966719e4849254b8498142",
+      "afterLfSha256": "a319748dd25a7ccb08099f8e96d819f712d191d6ed06862ee5384e76b75b6b97",
+      "reason": "Exact accepted UI capability intake 2c866a6b; presentation follows authoritative host state."
+    },
+    {
+      "path": "src/ui/title-screen.js",
+      "beforeLfSha256": "8dd5fbd52b14d62cf13e6e5a11e9a132111a310504f4b9643658944bac80fc05",
+      "afterLfSha256": "8602af31dac60959dc735cc22a45c469e09be6edd4cbabdc470092359a4fa013",
+      "reason": "Exact accepted UI capability intake 2c866a6b; presentation follows authoritative host state."
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "beforeLfSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
+      "afterLfSha256": "cb61bcc2d8ab96a2d8b69e6deaa91fdd5408595aaf06f5a638970ff89c2f8e68",
+      "reason": "Install lazy inert queries, explicit sparse support bounds/ground policy and finite source coatings; coefficients unchanged."
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "beforeLfSha256": "1accf6d27f27d78dd019f24e10f15354fd79b81b6cb8c87ee63ab90fdd98f1b5",
+      "afterLfSha256": "734011a4a9d19cf67c5af361a95a963f812f52b265b6f5f060099ca6b2a50b93",
+      "reason": "Exclude inert query publication copies; retain coatings with their parent in falls and exposed-face samples."
+    },
+    {
+      "path": "workbenches/furnished-house/support.js",
+      "beforeLfSha256": "b223335247526ff50971401d6cfa3e26dc1fb849b9fff29982b1a13fefd9f49b",
+      "afterLfSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372",
+      "reason": "Recognize shared-scene instance scope for the existing explicit native stair/support graph."
+    }
+  ],
+  "addedFiles": [
+    {
+      "path": "src/content/shared-map-pilot.js",
+      "lfSha256": "2788db4544102cc1726239a525734dbd2b09635640cd8155c960d0a4faab7210"
+    },
+    {
+      "path": "src/content/visit-capabilities.js",
+      "lfSha256": "28b54e84cbf8ece1aeef3774fc4fe510db37e6c2a83f03680442ddc5e0802986"
+    },
+    {
+      "path": "src/runtime/native-query-registry.js",
+      "lfSha256": "42dfe59ab9c07e8b37a5c59c02f28378ca84f8fdc437746b41570889487be858"
+    },
+    {
+      "path": "src/runtime/place-navigation.js",
+      "lfSha256": "97801016c27b38f8d5f61f327cd4726f0e88048f213edc34fbd85d66f5c858c0"
+    },
+    {
+      "path": "src/runtime/polygons.js",
+      "lfSha256": "15d8259b6a7939272465f3809d65de261a1dc10322475a6e98291487050000ec"
+    },
+    {
+      "path": "src/simulation/map-navigation.js",
+      "lfSha256": "267a297f2c49686700d5beef5172da8b47bf05c89fb5a017defbeca129232510"
+    },
+    {
+      "path": "src/simulation/scene-thermal.js",
+      "lfSha256": "564cdb8ce1dcc2edaf3507f73573b24ab5173197ac3245aeb17b24c9ab375f6b"
+    },
+    {
+      "path": "src/simulation/source-carriers.js",
+      "lfSha256": "3bce384e9aca4e136f10494890dc5f00445426508f4503181f9c43c52547dc88"
+    },
+    {
+      "path": "src/ui/menu-navigation.js",
+      "lfSha256": "2e4bb6e6cccb9a0574fcf2ad7d0e844fe2afbf2ff023854da8be5c138ef5e4d9"
+    },
+    {
+      "path": "tools/compile-shared-map-pilot.mjs",
+      "lfSha256": "0ed450e99c7647972041780fb537d35759b4b483416be6bc86fe24e37dae3dfa"
+    },
+    {
+      "path": "tools/record-shared-map-runtime.mjs",
+      "lfSha256": "c422b20eae60bc5915a796f2efc774e3badfbadeb6ce72e42d079130a63af44b"
+    },
+    {
+      "path": "tools/review/check-shared-map-integrated.mjs",
+      "lfSha256": "6bb851cde9a6e16101a39c23947730f71769825b32a9629913d90d3ea0626691"
+    },
+    {
+      "path": "tools/review/shared-map-pilot-cost.mjs",
+      "lfSha256": "3954295cceca17bde963a3172cc4b20387e0027438fb5b63df416a9b06ce6684"
+    }
+  ]
+}

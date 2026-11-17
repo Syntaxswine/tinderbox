@@ -315,8 +315,11 @@ test('a paving dud, an already-burning tile, and ordinary spread never create wi
   } finally { sim.dispose(); }
 });
 
-test('only the opted-in visit posts the officer outside Bell & Alder and publishes witness state', () => {
-  assert.deepEqual(catalogueVisit(), {cottageMode: null, scenario: 'neighborhood'});
+test('shared Catalogue is the default while witness and cottage compatibility routes stay explicit', () => {
+  assert.deepEqual(catalogueVisit(), {cottageMode: null, scenario: 'neighborhood',moduleMode:true});
+  assert.deepEqual(catalogueVisit('?catalogue=legacy'), {cottageMode:null,scenario:'neighborhood'});
+  assert.equal(catalogueVisit('?catalogue=modules').moduleMode,true);
+  assert.equal(catalogueVisit('?witness=1&catalogue=legacy').moduleMode,undefined);
   assert.equal(catalogueVisit('?witness=0').scenario, 'neighborhood');
   assert.equal(catalogueVisit('?witness=1').scenario, SHOP_WITNESS_SCENARIO);
   assert.deepEqual(catalogueVisit('?witness=1&cottages=calm'), {cottageMode: 'calm', scenario: COTTAGE_PAIR_SCENARIO});

@@ -10,7 +10,7 @@ export let currentApplication=null;
 export function catalogueVisit(search = '') {
   const cottageMode = catalogueCottageMode(search);
   const witness = new URLSearchParams(search).get('witness') === '1';
-  const moduleMode=!cottageMode&&new URLSearchParams(search).get('catalogue')==='modules';
+  const moduleMode=!cottageMode&&new URLSearchParams(search).get('catalogue')!=='legacy';
   return {cottageMode, scenario: cottageMode ? COTTAGE_PAIR_SCENARIO : witness ? SHOP_WITNESS_SCENARIO : 'neighborhood',...(moduleMode?{moduleMode:true}:{})};
 }
 
@@ -57,7 +57,7 @@ export function startApplication({root=document.querySelector('#game'),ui=UI,sel
       const playing=state.phase==='visit',busy=state.phase==='loading',atTitle=state.phase==='title';menuRoot.hidden=playing||atTitle;titleRoot.hidden=!atTitle;hud.hidden=!playing;viewport.hidden=state.phase==='menu'||atTitle;loading.hidden=!busy;
       if(atTitle&&!title)title=ui.mountTitleScreen({root:titleRoot,onStart:()=>app?.openMenu()});
       if(!atTitle&&title){title.dispose();title=null;}
-      if(help)help.hidden=!playing;root.dataset.mode=playing?(state.placeId==='catalogue-street'?'gameplay':'explore'):'menu';
+      if(help)help.hidden=!playing;root.dataset.mode=playing?(state.capabilities?.mode??'explore'):'menu';
       if(busy)loading.querySelector('span').textContent='Opening '+PLACES.find(p=>p.id===state.loadingId).title+'…';
       menu.update({loadingId:state.loadingId,error:state.error,selectedCharacterId:state.selectedCharacterId});
     },

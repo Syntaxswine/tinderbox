@@ -3,12 +3,12 @@ export function createApplication({places,characters=[],selectedCharacterId='goa
   const catalogue=new Map(places.map(place=>[place.id,place]));
   const choices=new Set(characters.map(character=>character.id));
   if(choices.size&&!choices.has(selectedCharacterId))throw Error('Unknown initial character');
-  let epoch=0,active=null,pending=null,retiring=null,closed=false,state={phase:startAtTitle?'title':'menu',loadingId:null,error:null,placeId:null,selectedCharacterId};
+  let epoch=0,active=null,pending=null,retiring=null,closed=false,state={phase:startAtTitle?'title':'menu',loadingId:null,error:null,placeId:null,selectedCharacterId,capabilities:null};
   function publish(next){state={...state,...next};onState({...state});}
   function retire(){
     const old=pending;pending=null;
     if(old){old.controller.abort();const next=Promise.allSettled([retiring,old.promise]).then(()=>{});retiring=next;void next.then(()=>{if(retiring===next)retiring=null;});}
-    if(active){const previous=active;active=null;previous.dispose();}
+    if(active){const previous=active;active=null;previous.dispose();}state={...state,capabilities:null};
     return retiring;
   }
   function returnToMenu({error=null,focusId=state.placeId||state.loadingId}={}){
@@ -32,7 +32,7 @@ export function createApplication({places,characters=[],selectedCharacterId='goa
           onError:error=>{if(!closed&&ticket===epoch)returnToMenu({focusId:id,error:message(error)});}});
         if(closed||ticket!==epoch||controller.signal.aborted){visit?.dispose();return false;}
         if(!visit||typeof visit.dispose!=='function')throw Error('Visit did not supply its lifecycle handle');
-        pending=null;active=visit;publish({phase:'visit',loadingId:null,placeId:id,error:null});return true;
+        pending=null;active=visit;publish({phase:'visit',loadingId:null,placeId:id,error:null,capabilities:visit.capabilities??null});return true;
       }catch(error){
         const current=!closed&&ticket===epoch&&!controller.signal.aborted;
         visit?.dispose();
