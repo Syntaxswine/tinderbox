@@ -1,0 +1,535 @@
+{
+  "equivalent": true,
+  "commandTapeIdentical": true,
+  "derivedFixtureIdentical": true,
+  "states": {
+    "cold": {
+      "nativeSha256": "e4658d98b81cbcf6a2ec36ecd1c1b03e27a06d75ad162d467442cb09a0c783d9",
+      "hostSha256": "73caa8ead89504c31b94e179aa62a7806d903d04e00b009c8f92af01aa1a9f5f",
+      "supportLinksSha256": "9cf37b5466d3d643df25a8f5d059d5691963fa49175538e7420087275a2b0298",
+      "replaySha256": "d636bc7e874b16d88b12e6a21c9378548d136debf6e9d7ffeb2be78fc9fa0afb",
+      "counts": {
+        "boundaries": 12859,
+        "fuels": 0,
+        "cells": 0,
+        "supportNodes": 12446,
+        "supportEdges": 58270
+      },
+      "fuel": {
+        "initial": 0,
+        "added": 0,
+        "burned": 0,
+        "escaped": 0,
+        "remaining": 0,
+        "airborne": 0,
+        "error": 0
+      },
+      "heat": {
+        "generated": 0,
+        "input": 0,
+        "ambient": 0,
+        "blocked": 0,
+        "cap": 0,
+        "escaped": 0,
+        "stored": 0,
+        "radiationInTransit": 0,
+        "error": 0,
+        "relativeError": 0
+      }
+    },
+    "before": {
+      "nativeSha256": "c7a4280165a8844d630812784ee59bfcff03e3882df3aa4cfb9d79d07cf5f16c",
+      "hostSha256": "d4746043f6312d51d41e4396c41a46921701e80b9aad56aac605972dacf84798",
+      "supportLinksSha256": "6705563d082cea6ad75751cface9a1e7ffc1b87ad8104e638962ada4da5d3aea",
+      "replaySha256": "956661bd81281b297e36a92735ad125ac8b5ba26c741b7f7d9b5e678d827b637",
+      "counts": {
+        "boundaries": 32098,
+        "fuels": 8973,
+        "cells": 14694,
+        "supportNodes": 30965,
+        "supportEdges": 297889
+      },
+      "fuel": {
+        "initial": 0,
+        "added": 704.891997660365,
+        "burned": 0,
+        "escaped": 0,
+        "remaining": 704.8919976603568,
+        "airborne": 0,
+        "error": 8.185452315956354e-12
+      },
+      "heat": {
+        "generated": 0,
+        "input": 1.05,
+        "ambient": 0.012524701494972909,
+        "blocked": 0,
+        "cap": 0,
+        "escaped": 0,
+        "stored": 1.037475298505027,
+        "radiationInTransit": 0,
+        "error": 0,
+        "relativeError": 0
+      }
+    },
+    "after": {
+      "nativeSha256": "51f62e860eec43d560dbc765a92bbb63e8fe34b75a7588b942bcc834847b6ff0",
+      "hostSha256": "d440dc8b18cb6195861cb27549a889cdf827f3289a8d69250a9304da43d2cced",
+      "supportLinksSha256": "4e48260e7503a28c04db306061fc7a486b592a384278ef7766a91e5c819874c9",
+      "replaySha256": "f1a9a559f7d2562c70a63e67325e5968bd62c047a04644b3bc12a366328ca7fe",
+      "counts": {
+        "boundaries": 47177,
+        "fuels": 21530,
+        "cells": 27952,
+        "supportNodes": 45187,
+        "supportEdges": 536363
+      },
+      "fuel": {
+        "initial": 0,
+        "added": 1834.6261287150205,
+        "burned": 0.003312501332628011,
+        "escaped": 0,
+        "remaining": 1834.6228162137343,
+        "airborne": 0,
+        "error": -4.638422979041934e-11
+      },
+      "heat": {
+        "generated": 0.39750015991536125,
+        "input": 3.2499999999999925,
+        "ambient": 0.29139033757911825,
+        "blocked": 0.12288663885204286,
+        "cap": 0,
+        "escaped": 0.05964652516432357,
+        "stored": 3.1735766583198783,
+        "radiationInTransit": 0,
+        "error": -8.881784197001252e-15,
+        "relativeError": -2.435033257738738e-15
+      }
+    }
+  },
+  "control": {
+    "wallMs": 20135.2337,
+    "cpuMs": 24313,
+    "phaseDelta": {
+      "commandsAndFallsMs": 9.24109999999746,
+      "burnRegistryMs": 0.12430000000313157,
+      "transportMs": 68.06099999999424,
+      "preheatMs": 7.4517999999989115,
+      "coolingMs": 0.42510000000402215,
+      "boundaryAndSupportMs": 8315.277599999998,
+      "itemsMs": 0.09810000000106811
+    }
+  },
+  "profile": {
+    "wallMs": 20513.4018,
+    "cpuMs": 25374,
+    "phaseDelta": {
+      "commandsAndFallsMs": 10.04529999999977,
+      "burnRegistryMs": 0.08870000000024447,
+      "transportMs": 73.49460000000181,
+      "preheatMs": 7.431199999989985,
+      "coolingMs": 0.44790000000648433,
+      "boundaryAndSupportMs": 8738.521299999995,
+      "itemsMs": 0.09330000000772998
+    }
+  },
+  "topSelf": [
+    {
+      "name": "candidates",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 99,
+      "column": 22,
+      "ms": 2919.976
+    },
+    {
+      "name": "connectContact",
+      "url": "src/simulation/source-support.js",
+      "line": 48,
+      "column": 26,
+      "ms": 1790.469
+    },
+    {
+      "name": "rebuild",
+      "url": "src/simulation/source-support.js",
+      "line": 60,
+      "column": 19,
+      "ms": 1078.765
+    },
+    {
+      "name": "dot",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 6,
+      "column": 20,
+      "ms": 1069.663
+    },
+    {
+      "name": "(anonymous)",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 6,
+      "column": 38,
+      "ms": 1008.664
+    },
+    {
+      "name": "(anonymous)",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 99,
+      "column": 63,
+      "ms": 994.603
+    },
+    {
+      "name": "(garbage collector)",
+      "url": "",
+      "line": 0,
+      "column": 0,
+      "ms": 921.348
+    },
+    {
+      "name": "owner.<computed>",
+      "url": "artifacts/qa/shared-map-runtime/phone-review-v4/matched-cpu.mjs",
+      "line": 58,
+      "column": 132,
+      "ms": 755.192
+    },
+    {
+      "name": "sub",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 4,
+      "column": 20,
+      "ms": 636.778
+    },
+    {
+      "name": "(anonymous)",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 99,
+      "column": 188,
+      "ms": 590.202
+    },
+    {
+      "name": "(anonymous)",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 4,
+      "column": 35,
+      "ms": 546.736
+    },
+    {
+      "name": "add",
+      "url": "src/simulation/source-support.js",
+      "line": 43,
+      "column": 15,
+      "ms": 468.116
+    },
+    {
+      "name": "digest",
+      "url": "artifacts/qa/shared-map-runtime/phone-review-v4/matched-cpu.mjs",
+      "line": 60,
+      "column": 9,
+      "ms": 396.033
+    },
+    {
+      "name": "reachable",
+      "url": "src/simulation/source-support.js",
+      "line": 37,
+      "column": 21,
+      "ms": 314.388
+    },
+    {
+      "name": "(anonymous)",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 111,
+      "column": 29,
+      "ms": 310.49
+    },
+    {
+      "name": "inPrism",
+      "url": "workbenches/furnished-house/support.js",
+      "line": 6,
+      "column": 17,
+      "ms": 279.181
+    },
+    {
+      "name": "(anonymous)",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 3,
+      "column": 35,
+      "ms": 262.221
+    },
+    {
+      "name": "touching",
+      "url": "workbenches/furnished-house/support.js",
+      "line": 11,
+      "column": 18,
+      "ms": 235.643
+    },
+    {
+      "name": "pointOnTriangle",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 53,
+      "column": 32,
+      "ms": 209.856
+    },
+    {
+      "name": "compileScene",
+      "url": "workbenches/furnished-house/scene.js",
+      "line": 29,
+      "column": 29,
+      "ms": 195.818
+    },
+    {
+      "name": "state",
+      "url": "src/simulation/source-support.js",
+      "line": 78,
+      "column": 17,
+      "ms": 195.569
+    },
+    {
+      "name": "(anonymous)",
+      "url": "src/runtime/place-navigation.js",
+      "line": 75,
+      "column": 66,
+      "ms": 176.429
+    },
+    {
+      "name": "strictArea",
+      "url": "workbenches/furnished-house/partition-error.js",
+      "line": 10,
+      "column": 22,
+      "ms": 173.119
+    },
+    {
+      "name": "segmentCandidates",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 100,
+      "column": 29,
+      "ms": 161.863
+    },
+    {
+      "name": "commit",
+      "url": "workbenches/furnished-house/simulation.js",
+      "line": 460,
+      "column": 136,
+      "ms": 157.189
+    }
+  ],
+  "topInclusive": [
+    {
+      "name": "(root)",
+      "url": "",
+      "line": 0,
+      "column": 0,
+      "ms": 20382.902
+    },
+    {
+      "name": "evaluate",
+      "url": "",
+      "line": 0,
+      "column": 0,
+      "ms": 19288.363
+    },
+    {
+      "name": "run",
+      "url": "node:internal/modules/esm/module_job",
+      "line": 426,
+      "column": 12,
+      "ms": 19288.363
+    },
+    {
+      "name": "(anonymous)",
+      "url": "artifacts/qa/shared-map-runtime/phone-review-v4/cpu-profile-v1/fixture.mjs",
+      "line": 1,
+      "column": 1,
+      "ms": 19280.5
+    },
+    {
+      "name": "advance",
+      "url": "src/simulation/index.js",
+      "line": 418,
+      "column": 12,
+      "ms": 17908.552
+    },
+    {
+      "name": "step",
+      "url": "artifacts/qa/shared-map-runtime/phone-review-v4/cpu-profile-v1/fixture.mjs",
+      "line": 29,
+      "column": 12,
+      "ms": 17908.552
+    },
+    {
+      "name": "owner.<computed>",
+      "url": "artifacts/qa/shared-map-runtime/phone-review-v4/matched-cpu.mjs",
+      "line": 58,
+      "column": 132,
+      "ms": 16981.522
+    },
+    {
+      "name": "step",
+      "url": "src/simulation/index.js",
+      "line": 283,
+      "column": 16,
+      "ms": 16808.418
+    },
+    {
+      "name": "step",
+      "url": "src/simulation/scene-thermal.js",
+      "line": 180,
+      "column": 16,
+      "ms": 15363.928
+    },
+    {
+      "name": "nativeAdvance",
+      "url": "src/simulation/scene-thermal.js",
+      "line": 181,
+      "column": 25,
+      "ms": 15360.849
+    },
+    {
+      "name": "state",
+      "url": "src/simulation/source-support.js",
+      "line": 78,
+      "column": 17,
+      "ms": 14044.258
+    },
+    {
+      "name": "rebuild",
+      "url": "src/simulation/source-support.js",
+      "line": 60,
+      "column": 19,
+      "ms": 13468.448
+    },
+    {
+      "name": "trial.step",
+      "url": "artifacts/qa/shared-map-runtime/phone-review-v4/cpu-profile-v1/fixture.mjs",
+      "line": 25,
+      "column": 50,
+      "ms": 8588.155
+    },
+    {
+      "name": "step",
+      "url": "workbenches/furnished-house/simulation.js",
+      "line": 485,
+      "column": 114,
+      "ms": 8586.639
+    },
+    {
+      "name": "stepOnce",
+      "url": "workbenches/furnished-house/simulation.js",
+      "line": 284,
+      "column": 20,
+      "ms": 8583.513
+    },
+    {
+      "name": "mechanicalFalls",
+      "url": "workbenches/furnished-house/simulation.js",
+      "line": 168,
+      "column": 27,
+      "ms": 8461.6
+    },
+    {
+      "name": "unsupported",
+      "url": "src/simulation/source-support.js",
+      "line": 80,
+      "column": 23,
+      "ms": 8460.034
+    },
+    {
+      "name": "beforeStep",
+      "url": "src/simulation/source-activation.js",
+      "line": 26,
+      "column": 22,
+      "ms": 6652.328
+    },
+    {
+      "name": "pendingSources",
+      "url": "src/simulation/source-support.js",
+      "line": 79,
+      "column": 26,
+      "ms": 5695.013
+    },
+    {
+      "name": "command",
+      "url": "artifacts/qa/shared-map-runtime/phone-review-v4/cpu-profile-v1/fixture.mjs",
+      "line": 30,
+      "column": 15,
+      "ms": 5667.791
+    },
+    {
+      "name": "useTool",
+      "url": "artifacts/qa/shared-map-runtime/phone-review-v4/cpu-profile-v1/fixture.mjs",
+      "line": 44,
+      "column": 17,
+      "ms": 4797.337
+    },
+    {
+      "name": "candidates",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 99,
+      "column": 22,
+      "ms": 4628.643
+    },
+    {
+      "name": "touching",
+      "url": "workbenches/furnished-house/support.js",
+      "line": 11,
+      "column": 18,
+      "ms": 4306.781
+    },
+    {
+      "name": "connectContact",
+      "url": "src/simulation/source-support.js",
+      "line": 48,
+      "column": 26,
+      "ms": 4078.811
+    },
+    {
+      "name": "inPrism",
+      "url": "workbenches/furnished-house/support.js",
+      "line": 6,
+      "column": 17,
+      "ms": 4056.627
+    },
+    {
+      "name": "(anonymous)",
+      "url": "workbenches/furnished-house/support.js",
+      "line": 9,
+      "column": 52,
+      "ms": 2916.809
+    },
+    {
+      "name": "pointOnTriangle",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 53,
+      "column": 32,
+      "ms": 2904.065
+    },
+    {
+      "name": "dot",
+      "url": "workbenches/furnished-house/geometry.js",
+      "line": 6,
+      "column": 20,
+      "ms": 2063.031
+    },
+    {
+      "name": "ensurePoint",
+      "url": "src/simulation/source-activation.js",
+      "line": 21,
+      "column": 23,
+      "ms": 1854.714
+    },
+    {
+      "name": "ensure",
+      "url": "src/simulation/source-activation.js",
+      "line": 5,
+      "column": 18,
+      "ms": 1822.581
+    }
+  ],
+  "gcSamples": [
+    {
+      "name": "(garbage collector)",
+      "url": "",
+      "line": 0,
+      "column": 0,
+      "ms": 921.348
+    }
+  ],
+  "sampledIntervalMs": 20383.055,
+  "inclusiveCountersOverlap": true
+}

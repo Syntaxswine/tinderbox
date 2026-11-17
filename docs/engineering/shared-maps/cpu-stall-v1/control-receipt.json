@@ -1,0 +1,1131 @@
+{
+  "version": 1,
+  "mode": "control",
+  "passed": true,
+  "source": {
+    "frozenRuntime": "cd443ccdd9cbbb38cf4c338ef697d902739726d6",
+    "workspaceCommit": "42dac6a6c851574b1bbb61ec2b21722c239e7250",
+    "productionDiffEmpty": true,
+    "originalLfSha256": "61dd3d834093d3a4abb5d3a5387aa3f8aed3d3421982ecb03384a36225190474",
+    "derivedLfSha256": "43f508cb92a9efd7e49113b12c3ed60968bc66a6f1c7fae659685e5ae38d8253",
+    "producerSha256": "091fdb58315c83de84c70f4fbbf14b0872432bc78c44753231cf12519c2ed89b",
+    "sourceIntakes": {
+      "uiCapabilities": "2c866a6bf173e1549c54d34c124a9d055febda3d",
+      "uiPresentation": "47f87fb01fe922b1085c05e3082986c50b04a5c7",
+      "uiShortLandscapeLayout": "130fe10db3af8a7efcd04e71139a2fbed74b1e91",
+      "uiToolSelectionOrdering": "8f0cd5743d159c53f56eeeb4eabd137cd3d7621c",
+      "artistPilot": "59b9373f47d51531c7e505613f67dd1e426b37f1",
+      "artistComplete": "82b7fc604eb183d65e7569366c47f45e5f07c1b5",
+      "artistCheckerContext": "90c226f674d51a2d030fcdd4679e61a3bdd9ebfe",
+      "artistFirstSupportControls": "9a88959d2011d182377a9eeb95d5ed9d222e46b1"
+    },
+    "runtimePackages": [
+      {
+        "path": "assets/runtime/map-sources/new-york/index.json",
+        "bytes": 8021251,
+        "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+      },
+      {
+        "path": "assets/runtime/map-sources/new-york/library.json",
+        "bytes": 3150020,
+        "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+      }
+    ]
+  },
+  "bounds": {
+    "wallMs": 60000,
+    "totalHostSteps": 1000,
+    "heldWindowHostSteps": 32,
+    "heldWorldSeconds": 0.5333333333333333
+  },
+  "wallMs": 20135.2337,
+  "cpuUsageUs": {
+    "user": 23469000,
+    "system": 844000
+  },
+  "cpuMs": 24313,
+  "marks": [
+    {
+      "stage": "fixture-import-start",
+      "wallMs": 84.87979999999993,
+      "cpuUsageUs": {
+        "user": 16000,
+        "system": 0
+      },
+      "hrtimeUs": 2946495774025,
+      "memory": {
+        "rss": 56111104,
+        "heapTotal": 10682368,
+        "heapUsed": 7403688,
+        "external": 13647798,
+        "arrayBuffers": 11212923
+      }
+    },
+    {
+      "stage": "cold-prepare-start",
+      "wallMs": 218.04449999999997,
+      "cpuUsageUs": {
+        "user": 63000,
+        "system": 109000
+      },
+      "hrtimeUs": 2946495907181,
+      "memory": {
+        "rss": 56999936,
+        "heapTotal": 18907136,
+        "heapUsed": 10487520,
+        "external": 5582878,
+        "arrayBuffers": 49963
+      }
+    },
+    {
+      "stage": "cold-prepare-ready",
+      "wallMs": 640.8800999999999,
+      "cpuUsageUs": {
+        "user": 563000,
+        "system": 281000
+      },
+      "hrtimeUs": 2946496330020,
+      "memory": {
+        "rss": 302440448,
+        "heapTotal": 241250304,
+        "heapUsed": 119131712,
+        "external": 16572307,
+        "arrayBuffers": 11213006
+      }
+    },
+    {
+      "stage": "held-start",
+      "wallMs": 7725.964099999999,
+      "cpuUsageUs": {
+        "user": 9734000,
+        "system": 500000
+      },
+      "hrtimeUs": 2946503415100,
+      "memory": {
+        "rss": 583270400,
+        "heapTotal": 519077888,
+        "heapUsed": 415868624,
+        "external": 6333956,
+        "arrayBuffers": 974655
+      }
+    },
+    {
+      "stage": "held-end",
+      "wallMs": 19727.999200000002,
+      "cpuUsageUs": {
+        "user": 23078000,
+        "system": 828000
+      },
+      "hrtimeUs": 2946515417153,
+      "memory": {
+        "rss": 759033856,
+        "heapTotal": 607653888,
+        "heapUsed": 478784296,
+        "external": 6644076,
+        "arrayBuffers": 1284775
+      }
+    },
+    {
+      "stage": "fixture-end",
+      "wallMs": 20117.710300000002,
+      "cpuUsageUs": {
+        "user": 23469000,
+        "system": 828000
+      },
+      "hrtimeUs": 2946515806834,
+      "memory": {
+        "rss": 799072256,
+        "heapTotal": 667738112,
+        "heapUsed": 529058704,
+        "external": 6644076,
+        "arrayBuffers": 1284775
+      }
+    },
+    {
+      "stage": "fixture-import-end",
+      "wallMs": 20120.1371,
+      "cpuUsageUs": {
+        "user": 23469000,
+        "system": 828000
+      },
+      "hrtimeUs": 2946515809268,
+      "memory": {
+        "rss": 799109120,
+        "heapTotal": 667738112,
+        "heapUsed": 529151368,
+        "external": 6652268,
+        "arrayBuffers": 1292967
+      }
+    }
+  ],
+  "hostSteps": 366,
+  "states": {
+    "cold": {
+      "nativeSha256": "e4658d98b81cbcf6a2ec36ecd1c1b03e27a06d75ad162d467442cb09a0c783d9",
+      "hostSha256": "73caa8ead89504c31b94e179aa62a7806d903d04e00b009c8f92af01aa1a9f5f",
+      "supportLinksSha256": "9cf37b5466d3d643df25a8f5d059d5691963fa49175538e7420087275a2b0298",
+      "replaySha256": "d636bc7e874b16d88b12e6a21c9378548d136debf6e9d7ffeb2be78fc9fa0afb",
+      "counts": {
+        "boundaries": 12859,
+        "fuels": 0,
+        "cells": 0,
+        "supportNodes": 12446,
+        "supportEdges": 58270
+      },
+      "fuel": {
+        "initial": 0,
+        "added": 0,
+        "burned": 0,
+        "escaped": 0,
+        "remaining": 0,
+        "airborne": 0,
+        "error": 0
+      },
+      "heat": {
+        "generated": 0,
+        "input": 0,
+        "ambient": 0,
+        "blocked": 0,
+        "cap": 0,
+        "escaped": 0,
+        "stored": 0,
+        "radiationInTransit": 0,
+        "error": 0,
+        "relativeError": 0
+      }
+    },
+    "before": {
+      "nativeSha256": "c7a4280165a8844d630812784ee59bfcff03e3882df3aa4cfb9d79d07cf5f16c",
+      "hostSha256": "d4746043f6312d51d41e4396c41a46921701e80b9aad56aac605972dacf84798",
+      "supportLinksSha256": "6705563d082cea6ad75751cface9a1e7ffc1b87ad8104e638962ada4da5d3aea",
+      "replaySha256": "956661bd81281b297e36a92735ad125ac8b5ba26c741b7f7d9b5e678d827b637",
+      "counts": {
+        "boundaries": 32098,
+        "fuels": 8973,
+        "cells": 14694,
+        "supportNodes": 30965,
+        "supportEdges": 297889
+      },
+      "fuel": {
+        "initial": 0,
+        "added": 704.891997660365,
+        "burned": 0,
+        "escaped": 0,
+        "remaining": 704.8919976603568,
+        "airborne": 0,
+        "error": 8.185452315956354e-12
+      },
+      "heat": {
+        "generated": 0,
+        "input": 1.05,
+        "ambient": 0.012524701494972909,
+        "blocked": 0,
+        "cap": 0,
+        "escaped": 0,
+        "stored": 1.037475298505027,
+        "radiationInTransit": 0,
+        "error": 0,
+        "relativeError": 0
+      }
+    },
+    "after": {
+      "nativeSha256": "51f62e860eec43d560dbc765a92bbb63e8fe34b75a7588b942bcc834847b6ff0",
+      "hostSha256": "d440dc8b18cb6195861cb27549a889cdf827f3289a8d69250a9304da43d2cced",
+      "supportLinksSha256": "4e48260e7503a28c04db306061fc7a486b592a384278ef7766a91e5c819874c9",
+      "replaySha256": "f1a9a559f7d2562c70a63e67325e5968bd62c047a04644b3bc12a366328ca7fe",
+      "counts": {
+        "boundaries": 47177,
+        "fuels": 21530,
+        "cells": 27952,
+        "supportNodes": 45187,
+        "supportEdges": 536363
+      },
+      "fuel": {
+        "initial": 0,
+        "added": 1834.6261287150205,
+        "burned": 0.003312501332628011,
+        "escaped": 0,
+        "remaining": 1834.6228162137343,
+        "airborne": 0,
+        "error": -4.638422979041934e-11
+      },
+      "heat": {
+        "generated": 0.39750015991536125,
+        "input": 3.2499999999999925,
+        "ambient": 0.29139033757911825,
+        "blocked": 0.12288663885204286,
+        "cap": 0,
+        "escaped": 0.05964652516432357,
+        "stored": 3.1735766583198783,
+        "radiationInTransit": 0,
+        "error": -8.881784197001252e-15,
+        "relativeError": -2.435033257738738e-15
+      }
+    }
+  },
+  "commandsSha256": "1c0be0380e13be5c22a7fcc679c29e7203d35f3ed59aa2bd68b319c233a4af1e",
+  "calls": {
+    "trial.frame": {
+      "count": 367,
+      "totalMs": 43.838199999998324,
+      "maxMs": 15.056700000000092
+    },
+    "trial.metrics": {
+      "count": 1788,
+      "totalMs": 29.414599999992333,
+      "maxMs": 2.3222999999998137
+    },
+    "query.supportAt": {
+      "count": 35644,
+      "totalMs": 830.4244000000524,
+      "maxMs": 7.737599999999929
+    },
+    "query.candidates": {
+      "count": 147259,
+      "totalMs": 5418.931999999713,
+      "maxMs": 5.324000000000069
+    },
+    "support.pendingSources": {
+      "count": 183,
+      "totalMs": 5734.640100000002,
+      "maxMs": 1950.0710999999992
+    },
+    "trial.hotSites": {
+      "count": 183,
+      "totalMs": 0.9752999999998337,
+      "maxMs": 0.10339999999996508
+    },
+    "activation.beforeStep": {
+      "count": 183,
+      "totalMs": 6740.44639999999,
+      "maxMs": 1950.1167999999998
+    },
+    "support.unsupported": {
+      "count": 183,
+      "totalMs": 8358.484599999994,
+      "maxMs": 3070.392
+    },
+    "sourceQuery.shape": {
+      "count": 11542,
+      "totalMs": 33.58349999997654,
+      "maxMs": 0.2613999999994121
+    },
+    "physical.prepare": {
+      "count": 28,
+      "totalMs": 1350.6616000000056,
+      "maxMs": 662.4156000000003
+    },
+    "sourceQuery.prepareClaim": {
+      "count": 28,
+      "totalMs": 1.941599999997834,
+      "maxMs": 0.5108000000000175
+    },
+    "physical.validate": {
+      "count": 28,
+      "totalMs": 21.78230000000258,
+      "maxMs": 6.092899999999645
+    },
+    "support.sourcesAdded": {
+      "count": 28,
+      "totalMs": 34.075899999995045,
+      "maxMs": 14.525500000000193
+    },
+    "physical.commit": {
+      "count": 28,
+      "totalMs": 600.6500999999948,
+      "maxMs": 303.28420000000006
+    },
+    "trial.replaceSupportReferences": {
+      "count": 28,
+      "totalMs": 9.152899999995498,
+      "maxMs": 0.7170999999980268
+    },
+    "query.crossings": {
+      "count": 936,
+      "totalMs": 35.420999999998,
+      "maxMs": 0.9522999999999229
+    },
+    "activation.ensurePoint": {
+      "count": 310,
+      "totalMs": 1134.2669999999634,
+      "maxMs": 1017.3468000000003
+    },
+    "query.trace": {
+      "count": 148,
+      "totalMs": 38.93749999999636,
+      "maxMs": 2.1337000000003172
+    }
+  },
+  "nativePhaseTotals": {
+    "commandsAndFallsMs": 85.48640000000046,
+    "burnRegistryMs": 0.8035999999963224,
+    "transportMs": 68.61149999999816,
+    "preheatMs": 8.068300000000363,
+    "coolingMs": 0.5835999999987962,
+    "boundaryAndSupportMs": 8359.610699999997,
+    "itemsMs": 0.801200000003746
+  },
+  "slowNativeSteps": [
+    {
+      "tick": 57,
+      "elapsedMs": 56.589300000000094,
+      "phases": {
+        "commandsAndFallsMs": 38.94629999999984,
+        "burnRegistryMs": 0.0060000000000854925,
+        "transportMs": 0.0026000000000294676,
+        "preheatMs": 0.002399999999852298,
+        "coolingMs": 0.0005000000001018634,
+        "boundaryAndSupportMs": 17.612300000000005,
+        "itemsMs": 0.014200000000073487
+      },
+      "sourceSurfaces": 16,
+      "cells": 120
+    },
+    {
+      "tick": 92,
+      "elapsedMs": 54.30529999999999,
+      "phases": {
+        "commandsAndFallsMs": 35.19979999999987,
+        "burnRegistryMs": 0.006000000000312866,
+        "transportMs": 0.002199999999902502,
+        "preheatMs": 0.002300000000104774,
+        "coolingMs": 0.0008999999995467078,
+        "boundaryAndSupportMs": 19.07420000000002,
+        "itemsMs": 0.015500000000429281
+      },
+      "sourceSurfaces": 16,
+      "cells": 120
+    },
+    {
+      "tick": 169,
+      "elapsedMs": 41.96990000000005,
+      "phases": {
+        "commandsAndFallsMs": 1.4659999999985303,
+        "burnRegistryMs": 0.016200000000026193,
+        "transportMs": 39.738900000000285,
+        "preheatMs": 0.5783000000010361,
+        "coolingMs": 0.10080000000016298,
+        "boundaryAndSupportMs": 0.05949999999938882,
+        "itemsMs": 0.005600000000413274
+      },
+      "sourceSurfaces": 2833,
+      "cells": 14726
+    },
+    {
+      "tick": 170,
+      "elapsedMs": 2623.8770000000004,
+      "phases": {
+        "commandsAndFallsMs": 1.5949999999993452,
+        "burnRegistryMs": 0.009700000000520959,
+        "transportMs": 25.8765999999996,
+        "preheatMs": 0.4969999999993888,
+        "coolingMs": 0.03260000000045693,
+        "boundaryAndSupportMs": 2595.8351999999995,
+        "itemsMs": 0.023700000001554145
+      },
+      "sourceSurfaces": 5206,
+      "cells": 22801
+    },
+    {
+      "tick": 171,
+      "elapsedMs": 2647.3642,
+      "phases": {
+        "commandsAndFallsMs": 1.609599999999773,
+        "burnRegistryMs": 0.004299999998693238,
+        "transportMs": 0.2157999999999447,
+        "preheatMs": 0.4611000000004424,
+        "coolingMs": 0.033999999999650754,
+        "boundaryAndSupportMs": 2645.0185999999994,
+        "itemsMs": 0.01569999999992433
+      },
+      "sourceSurfaces": 5207,
+      "cells": 22805
+    },
+    {
+      "tick": 172,
+      "elapsedMs": 3073.5400999999983,
+      "phases": {
+        "commandsAndFallsMs": 1.858299999999872,
+        "burnRegistryMs": 0.016199999998207204,
+        "transportMs": 0.4209999999984575,
+        "preheatMs": 0.7537000000011176,
+        "coolingMs": 0.03450000000157161,
+        "boundaryAndSupportMs": 3070.4344999999994,
+        "itemsMs": 0.014599999998608837
+      },
+      "sourceSurfaces": 5733,
+      "cells": 27952
+    }
+  ],
+  "held": {
+    "hostSteps": 32,
+    "callsBefore": {
+      "trial.frame": {
+        "count": 335,
+        "totalMs": 24.527500000001965,
+        "maxMs": 15.056700000000092
+      },
+      "trial.metrics": {
+        "count": 1688,
+        "totalMs": 4.879099999999653,
+        "maxMs": 1.2013999999999214
+      },
+      "query.supportAt": {
+        "count": 27072,
+        "totalMs": 511.6337000000092,
+        "maxMs": 7.737599999999929
+      },
+      "query.candidates": {
+        "count": 37698,
+        "totalMs": 1562.3627999999649,
+        "maxMs": 5.324000000000069
+      },
+      "support.pendingSources": {
+        "count": 167,
+        "totalMs": 3764.0091000000025,
+        "maxMs": 1859.4161999999997
+      },
+      "trial.hotSites": {
+        "count": 167,
+        "totalMs": 0.5317999999986114,
+        "maxMs": 0.10339999999996508
+      },
+      "activation.beforeStep": {
+        "count": 167,
+        "totalMs": 3765.082599999998,
+        "maxMs": 1859.4282999999996
+      },
+      "support.unsupported": {
+        "count": 167,
+        "totalMs": 43.61249999999973,
+        "maxMs": 19.064499999999953
+      },
+      "sourceQuery.shape": {
+        "count": 8463,
+        "totalMs": 14.641900000010992,
+        "maxMs": 0.21939999999995052
+      },
+      "physical.prepare": {
+        "count": 3,
+        "totalMs": 733.7616000000005,
+        "maxMs": 662.4156000000003
+      },
+      "sourceQuery.prepareClaim": {
+        "count": 3,
+        "totalMs": 0.8276000000000749,
+        "maxMs": 0.5108000000000175
+      },
+      "physical.validate": {
+        "count": 3,
+        "totalMs": 6.308199999999488,
+        "maxMs": 4.665899999999965
+      },
+      "support.sourcesAdded": {
+        "count": 3,
+        "totalMs": 16.130499999999984,
+        "maxMs": 14.525500000000193
+      },
+      "physical.commit": {
+        "count": 3,
+        "totalMs": 338.0390000000002,
+        "maxMs": 303.28420000000006
+      },
+      "trial.replaceSupportReferences": {
+        "count": 3,
+        "totalMs": 1.1779999999998836,
+        "maxMs": 0.5730999999996129
+      },
+      "query.crossings": {
+        "count": 11,
+        "totalMs": 2.64410000000089,
+        "maxMs": 0.9522999999999229
+      },
+      "activation.ensurePoint": {
+        "count": 2,
+        "totalMs": 1127.1309,
+        "maxMs": 1017.3468000000003
+      }
+    },
+    "phasesBefore": {
+      "commandsAndFallsMs": 76.245300000003,
+      "burnRegistryMs": 0.6792999999931908,
+      "transportMs": 0.5505000000039217,
+      "preheatMs": 0.6165000000014516,
+      "coolingMs": 0.15849999999477404,
+      "boundaryAndSupportMs": 44.33310000000074,
+      "itemsMs": 0.7031000000026779
+    },
+    "before": {
+      "tick": 334,
+      "world": 5.566666666666652,
+      "fuel": 6,
+      "thermal": {
+        "backend": "native-map-trial",
+        "representation": "native-map-sparse-sources",
+        "nativeTick": 167,
+        "nativeWorldTime": 5.566666666666666,
+        "residual": 0,
+        "pendingDepositedFuel": 0,
+        "metrics": {
+          "tick": 167,
+          "worldTime": 5.566666666666666,
+          "fuel": {
+            "initial": 0,
+            "added": 704.891997660365,
+            "burned": 0,
+            "escaped": 0,
+            "remaining": 704.8919976603568,
+            "airborne": 0,
+            "error": 8.185452315956354e-12
+          },
+          "heat": {
+            "generated": 0,
+            "input": 1.05,
+            "ambient": 0.012524701494972909,
+            "blocked": 0,
+            "cap": 0,
+            "escaped": 0,
+            "stored": 1.037475298505027,
+            "radiationInTransit": 0,
+            "error": 0,
+            "relativeError": 0
+          },
+          "burningCount": 0,
+          "burningArea": 0,
+          "combustibleArea": 1212.742474312725,
+          "burningAreaFraction": 0,
+          "burnedFraction": 0,
+          "activeCells": 1,
+          "fallingCount": 0,
+          "queuedRadiationSources": 0,
+          "queuedRays": 0,
+          "oldestRadiationQueryDelay": 0,
+          "oldestRadiationEnergyAge": 0,
+          "stats": {
+            "ticks": 167,
+            "cellVisits": 2,
+            "burnVisits": 298798,
+            "linkBuilds": 0,
+            "rayBuilds": 0,
+            "rayTests": 0,
+            "invalidations": 0,
+            "ignitions": 0,
+            "failures": 0,
+            "landings": 0,
+            "peakActive": 1,
+            "maxBurnsPerFuelPerTick": 0
+          }
+        },
+        "gridCells": 14694,
+        "activation": {
+          "batches": 3,
+          "activatedCarriers": 720,
+          "probedCells": 2,
+          "lastBatchMs": 107.9339,
+          "totalBatchMs": 1135.2564,
+          "peakBatchMs": 1014.9531999999999,
+          "peakBatchCarriers": 547
+        },
+        "query": {
+          "querySurfaces": 12859,
+          "sourceParts": 12858,
+          "sourceCarriers": 12446,
+          "claimedCarriers": 720,
+          "cachedShapes": 169,
+          "cachedTriangles": 2336,
+          "peakShapes": 169,
+          "peakTriangles": 2528,
+          "shapeBuilds": 496,
+          "maxSingleQueryTriangles": 200,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "carriers": {
+          "staticInitial": 15767.943953000535,
+          "activeInitial": 704.8916540000006,
+          "coldReserve": 15063.052299000316,
+          "canonicalCarriers": 12446,
+          "activeCarriers": 720,
+          "reservedCarriers": 11726,
+          "nativeStaticBirths": 704.891997660365,
+          "nativeClippingDelta": 0.0003436603643649505,
+          "nativePartitionError": {
+            "signedDelta": 0.0003436603643649505,
+            "positive": 0.0007524332194655772,
+            "negative": 0.010551287378306278,
+            "roundoffBound": 0.0000017539327796357273
+          },
+          "world": {
+            "initial": 15767.943953000535,
+            "added": 0,
+            "remaining": 15767.944296660673,
+            "airborne": 0,
+            "burned": 0,
+            "escaped": 0,
+            "error": -0.0003436601382418303
+          }
+        },
+        "limitations": {
+          "declaredSupportUnresolved": [],
+          "unassignedParts": 0
+        },
+        "support": {
+          "nodes": 19239,
+          "coldCarrierNodes": 11726,
+          "declaredPairs": 15285,
+          "adjacencyPairs": 25198,
+          "anchors": 4560,
+          "initiallySupported": 18619,
+          "unresolvedInitial": 1038,
+          "missingLocalLinks": 0,
+          "checks": 5
+        },
+        "navigation": {},
+        "resident": {
+          "state": "routine",
+          "routeIndex": 0,
+          "holdUntil": null,
+          "smokeSince": null,
+          "lookSince": null,
+          "exitIndex": 0,
+          "blocked": null
+        },
+        "instances": [
+          "new-york"
+        ],
+        "wind": {
+          "kind": "ambient-control",
+          "speed": 1.5,
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "obstacleResolved": false
+        },
+        "profiles": {
+          "grass": {
+            "threshold": 0.85,
+            "delay": 0.18,
+            "seconds": 1,
+            "energy": 36.666666666666664
+          },
+          "oil": {
+            "threshold": 0.6,
+            "delay": 0,
+            "seconds": 14,
+            "energy": 800
+          },
+          "clapboard": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 180,
+            "energy": 3420
+          },
+          "partition": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 180,
+            "energy": 2200
+          },
+          "door": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 60,
+            "energy": 1000
+          },
+          "roof": {
+            "threshold": 1.1,
+            "delay": 3,
+            "seconds": 180,
+            "energy": 1980
+          },
+          "frame": {
+            "threshold": 1.3,
+            "delay": 3,
+            "seconds": 180,
+            "energy": 2250
+          },
+          "furniture": {
+            "threshold": 1.1,
+            "delay": 3,
+            "seconds": 60,
+            "energy": 1200
+          },
+          "cloth": {
+            "threshold": 0.8,
+            "delay": 0.5,
+            "seconds": 20,
+            "energy": 600
+          },
+          "lacquer": {
+            "threshold": 0.5,
+            "delay": 0,
+            "seconds": 4,
+            "energy": 120
+          },
+          "coal": {
+            "threshold": 1.6,
+            "delay": 15,
+            "seconds": 300,
+            "energy": 1800
+          },
+          "embers": {
+            "threshold": 0.7,
+            "delay": 0,
+            "seconds": 8,
+            "energy": 500
+          }
+        },
+        "inputProfiles": {
+          "matches": 1.05,
+          "torch": 1.8,
+          "flamethrowerEnergyPerSecond": 12,
+          "lanternPayload": 0.5,
+          "gasPerMetre": 0.08
+        },
+        "timing": {
+          "nativeSteps": 1,
+          "nativeSimulationMs": 0.7502999999996973,
+          "physicalPublicationMs": 0.1312000000007174,
+          "rasterPublicationMs": 0,
+          "diagnosticsMs": 0.019099999999525608,
+          "nativePhases": {
+            "commandsAndFallsMs": 0.006899999999404827,
+            "burnRegistryMs": 0.0037000000002080924,
+            "transportMs": 0.0024000000003070454,
+            "preheatMs": 0.019400000000132422,
+            "coolingMs": 0.008799999999610009,
+            "boundaryAndSupportMs": 0.004500000000007276,
+            "itemsMs": 0.0037000000002080924
+          },
+          "hostWork": {
+            "hostSteps": 334,
+            "nativeSteps": 167,
+            "nativeSimulationMs": 176.71769999999856,
+            "backendAdvanceMs": 3971.0780999999934,
+            "metricsQueriesMs": 4.02530000000138,
+            "looseFuelQueriesMs": 0.9669000000035339,
+            "physicalPublicationMs": 44.973599999998896,
+            "rasterPublicationMs": 0,
+            "diagnosticsMs": 11.237599999998565,
+            "smokeSignalCalls": 0,
+            "smokeSignalsMs": 0,
+            "smokeSightMs": 0,
+            "navigationMs": 553.4787000000024
+          }
+        }
+      }
+    },
+    "after": {
+      "tick": 366,
+      "world": 6.099999999999984,
+      "fuel": 5.945000000000001,
+      "thermal": {
+        "backend": "native-map-trial",
+        "representation": "native-map-sparse-sources",
+        "nativeTick": 183,
+        "nativeWorldTime": 6.1,
+        "residual": 0,
+        "pendingDepositedFuel": 0,
+        "metrics": {
+          "tick": 183,
+          "worldTime": 6.1,
+          "fuel": {
+            "initial": 0,
+            "added": 1834.6261287150205,
+            "burned": 0.003312501332628011,
+            "escaped": 0,
+            "remaining": 1834.6228162137343,
+            "airborne": 0,
+            "error": -4.638422979041934e-11
+          },
+          "heat": {
+            "generated": 0.39750015991536125,
+            "input": 3.2499999999999925,
+            "ambient": 0.29139033757911825,
+            "blocked": 0.12288663885204286,
+            "cap": 0,
+            "escaped": 0.05964652516432357,
+            "stored": 3.1735766583198783,
+            "radiationInTransit": 0,
+            "error": -8.881784197001252e-15,
+            "relativeError": -2.435033257738738e-15
+          },
+          "burningCount": 1,
+          "burningArea": 0.5300002132204816,
+          "combustibleArea": 3014.5431974488965,
+          "burningAreaFraction": 0.00017581443638591825,
+          "burnedFraction": 0.0000018055457080773728,
+          "activeCells": 48,
+          "fallingCount": 0,
+          "queuedRadiationSources": 0,
+          "queuedRays": 0,
+          "oldestRadiationQueryDelay": 0,
+          "oldestRadiationEnergyAge": 0,
+          "stats": {
+            "ticks": 183,
+            "cellVisits": 1041,
+            "burnVisits": 606232,
+            "linkBuilds": 2,
+            "rayBuilds": 96,
+            "rayTests": 434,
+            "invalidations": 0,
+            "ignitions": 1,
+            "failures": 0,
+            "landings": 0,
+            "peakActive": 48,
+            "maxBurnsPerFuelPerTick": 1
+          }
+        },
+        "gridCells": 27952,
+        "activation": {
+          "batches": 28,
+          "activatedCarriers": 1577,
+          "probedCells": 49,
+          "lastBatchMs": 407.8613000000005,
+          "totalBatchMs": 2101.748599999997,
+          "peakBatchMs": 1014.9531999999999,
+          "peakBatchCarriers": 547
+        },
+        "query": {
+          "querySurfaces": 12859,
+          "sourceParts": 12858,
+          "sourceCarriers": 12446,
+          "claimedCarriers": 1577,
+          "cachedShapes": 169,
+          "cachedTriangles": 2072,
+          "peakShapes": 169,
+          "peakTriangles": 15432,
+          "shapeBuilds": 1775,
+          "maxSingleQueryTriangles": 220,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "carriers": {
+          "staticInitial": 15767.943953000535,
+          "activeInitial": 1834.625174999997,
+          "coldReserve": 13933.318778000263,
+          "canonicalCarriers": 12446,
+          "activeCarriers": 1577,
+          "reservedCarriers": 10869,
+          "nativeStaticBirths": 1834.6261287150205,
+          "nativeClippingDelta": 0.000953715023570112,
+          "nativePartitionError": {
+            "signedDelta": 0.000953715023570112,
+            "positive": 0.002059858937931026,
+            "negative": 0.024180248645889538,
+            "roundoffBound": 0.000004247383921170295
+          },
+          "world": {
+            "initial": 15767.943953000535,
+            "added": 0,
+            "remaining": 15767.941594213997,
+            "airborne": 0,
+            "burned": 0.003312501332628011,
+            "escaped": 0,
+            "error": -0.0009537147946029959
+          }
+        },
+        "limitations": {
+          "declaredSupportUnresolved": [],
+          "unassignedParts": 0
+        },
+        "support": {
+          "nodes": 34318,
+          "coldCarrierNodes": 10869,
+          "declaredPairs": 15285,
+          "adjacencyPairs": 25198,
+          "anchors": 5178,
+          "initiallySupported": 31738,
+          "unresolvedInitial": 1038,
+          "missingLocalLinks": 0,
+          "checks": 9
+        },
+        "navigation": {},
+        "resident": {
+          "state": "routine",
+          "routeIndex": 0,
+          "holdUntil": null,
+          "smokeSince": null,
+          "lookSince": null,
+          "exitIndex": 0,
+          "blocked": null
+        },
+        "instances": [
+          "new-york"
+        ],
+        "wind": {
+          "kind": "ambient-control",
+          "speed": 1.5,
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "obstacleResolved": false
+        },
+        "profiles": {
+          "grass": {
+            "threshold": 0.85,
+            "delay": 0.18,
+            "seconds": 1,
+            "energy": 36.666666666666664
+          },
+          "oil": {
+            "threshold": 0.6,
+            "delay": 0,
+            "seconds": 14,
+            "energy": 800
+          },
+          "clapboard": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 180,
+            "energy": 3420
+          },
+          "partition": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 180,
+            "energy": 2200
+          },
+          "door": {
+            "threshold": 1.1,
+            "delay": 5,
+            "seconds": 60,
+            "energy": 1000
+          },
+          "roof": {
+            "threshold": 1.1,
+            "delay": 3,
+            "seconds": 180,
+            "energy": 1980
+          },
+          "frame": {
+            "threshold": 1.3,
+            "delay": 3,
+            "seconds": 180,
+            "energy": 2250
+          },
+          "furniture": {
+            "threshold": 1.1,
+            "delay": 3,
+            "seconds": 60,
+            "energy": 1200
+          },
+          "cloth": {
+            "threshold": 0.8,
+            "delay": 0.5,
+            "seconds": 20,
+            "energy": 600
+          },
+          "lacquer": {
+            "threshold": 0.5,
+            "delay": 0,
+            "seconds": 4,
+            "energy": 120
+          },
+          "coal": {
+            "threshold": 1.6,
+            "delay": 15,
+            "seconds": 300,
+            "energy": 1800
+          },
+          "embers": {
+            "threshold": 0.7,
+            "delay": 0,
+            "seconds": 8,
+            "energy": 500
+          }
+        },
+        "inputProfiles": {
+          "matches": 1.05,
+          "torch": 1.8,
+          "flamethrowerEnergyPerSecond": 12,
+          "lanternPayload": 0.5,
+          "gasPerMetre": 0.08
+        },
+        "timing": {
+          "nativeSteps": 1,
+          "nativeSimulationMs": 2.0887000000002445,
+          "physicalPublicationMs": 0.5001000000011118,
+          "rasterPublicationMs": 0,
+          "diagnosticsMs": 0.023600000000442378,
+          "nativePhases": {
+            "commandsAndFallsMs": 0.029200000000855653,
+            "burnRegistryMs": 0.0033000000003085006,
+            "transportMs": 0.21849999999903957,
+            "preheatMs": 0.5076000000008207,
+            "coolingMs": 0.02809999999954016,
+            "boundaryAndSupportMs": 0.02690000000075088,
+            "itemsMs": 0.0017000000007101335
+          },
+          "hostWork": {
+            "hostSteps": 366,
+            "nativeSteps": 183,
+            "nativeSimulationMs": 8592.078699999995,
+            "backendAdvanceMs": 15387.169299999994,
+            "metricsQueriesMs": 28.511499999989837,
+            "looseFuelQueriesMs": 1.10199999999395,
+            "physicalPublicationMs": 78.13549999999623,
+            "rasterPublicationMs": 0,
+            "diagnosticsMs": 12.213600000008228,
+            "smokeSignalCalls": 0,
+            "smokeSignalsMs": 0,
+            "smokeSightMs": 0,
+            "navigationMs": 585.5207000000019
+          }
+        }
+      }
+    }
+  },
+  "digestCosts": [
+    {
+      "wallMs": 79.4493,
+      "cpuUsageUs": {
+        "user": 78000,
+        "system": 16000
+      }
+    },
+    {
+      "wallMs": 230.35360000000037,
+      "cpuUsageUs": {
+        "user": 281000,
+        "system": 16000
+      }
+    },
+    {
+      "wallMs": 384.66509999999835,
+      "cpuUsageUs": {
+        "user": 391000,
+        "system": 0
+      }
+    }
+  ],
+  "gc": {
+    "events": [],
+    "totalMs": 0
+  },
+  "profile": null,
+  "inclusiveCountersOverlap": true,
+  "cleanup": {
+    "profilerDisconnected": true,
+    "gcObserverDisconnected": true,
+    "simulationDisposed": true,
+    "compiledDisposed": true,
+    "noServerOrBrowser": true,
+    "ports": [],
+    "retainedHelpers": false,
+    "closedAt": "2026-11-17T10:01:41.367Z"
+  },
+  "totalProcessElapsedMs": 20809.0464,
+  "totalProcessCpuUsageUs": {
+    "user": 23531000,
+    "system": 906000
+  }
+}
