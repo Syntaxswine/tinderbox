@@ -83,3 +83,35 @@ No second control, optimization, build, renderer or performance-improvement clai
 is included. Attribute the remaining first-use and held stalls to actual source
 work before proposing the next bounded algorithm. Label inclusive timings and
 diagnostic memory limits. Existing native rules and source data remain frozen.
+
+## Carrier-local continuity experiment
+
+The coder reports the single final-successor profile complete with original
+candidate host preimages strictly equal and native/support/replay results intact.
+Raw profile SHA-256 is
+`15e00230eadd532e559b97dc85025bed6bd2145b235dd4e957f55b9a7339491f`.
+The profiled first glass host step is 2.928 seconds: sampled support rebuilding
+includes 1.068 seconds of same-carrier continuity, including .735 seconds of
+global candidate work. Contact and native compilation remain additional costs;
+these inclusive figures overlap and are not an improvement comparison.
+The unchanged-source attribution archive is delivered separately for review.
+
+Approve one next bounded experiment: use the existing native boundary-index
+constructor temporarily inside an uncached same-carrier continuity calculation.
+Preserve the current 1 m bins, overlap/thickness filtering, ID order, original
+`a.id < b.id` and carrier/node membership filters and directed contact predicate.
+Use current authoritative native records, prove their geometry agrees with the
+old filtered global query, then discard the temporary bins after producing the
+same cached edge-ID block. No cold mesh, persistent index variant, contact/region
+algorithm, activation, native compilation or physical/source rule changes.
+
+Before measurement require exact ordered candidate and geometry comparisons for
+normal and retired patches, real doors, changed pose/bounds/thickness, asymmetric
+facets and unrelated overlapping cold/active carriers. Preserve full model,
+support, replay, finite-stock and clock results, bounds and declaration checks.
+Only after those pass, permit one unprofiled unchanged 32-step fixture, at most
+60 wall seconds / 1,000 host steps, with identical snapshot reads and returned-
+publication host timing. Retain raw host comparisons, exact pins, temporary
+index counts/bounds, CPU/wall/worst-step evidence and verified disposal/cleanup.
+No new profile, build, renderer, readiness or promotion is included. A failed
+equivalence check stops the experiment; the comparator is not relaxed.
