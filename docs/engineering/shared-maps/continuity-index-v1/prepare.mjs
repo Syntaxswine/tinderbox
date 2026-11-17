@@ -1,0 +1,13 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';
+const out='artifacts/qa/shared-map-runtime/continuity-index-v1/',sha=s=>createHash('sha256').update(s).digest('hex'),lf=p=>fs.readFileSync(p,'utf8').replace(/\r\n/g,'\n'),audit=JSON.parse(lf(out+'source-audit.json'));
+assert.equal(sha(lf(audit.currentSource.path)),audit.currentSource.afterLfSha256);
+let code=lf('docs/engineering/shared-maps/support-cache-attribution-v1/profile.mjs');const originalProducer=sha(code),changes=[];
+function replace(before,after,purpose){assert.equal(code.split(before).length-1,1,purpose);code=code.replace(before,after);changes.push({purpose,before,after});}
+replace("assert.equal(mode,'profile','Exactly one attribution-only profile is authorized');const lane='final-source-attribution';","assert.equal(mode,'control','Exactly one unprofiled continuity measurement is authorized');const lane='continuity-candidate';",'No profile or additional control');
+replace(code.split('\n').find(l=>l.startsWith('const experimentDelta=')),`const experimentDelta=${JSON.stringify(audit.currentSource)};assert.equal(git('diff','--name-only',frozen,'--','src','assets','art','vendor','workbenches'),experimentDelta.path);assert.equal(sha(fs.readFileSync(experimentDelta.path,'utf8').replace(/\\r\\n/g,'\\n')),experimentDelta.afterLfSha256);`,'Freeze the sole approved production delta');
+replace("purpose:'M29 7e6ba530 one final-source attribution profile'","purpose:'M29 architect-authorized one unprofiled carrier-local continuity measurement'",'Record the actual next grant');
+replace("productionDiffEmpty:true,finalProductionPins:experimentDelta,lane,attributionOnly:true,authority:'7e6ba530b92d8cc26544d13059bea9528332ef1b',","productionDiffEmpty:false,candidateProductionDelta:experimentDelta,lane,candidateMeasurement:true,parentAttributionCommit:'a5e171d9d924b6baf46151f416f23cd0d5746120',",'Distinguish the one-path candidate from frozen attribution');
+replace('report.attributionOnly=true;','report.candidateMeasurement=true;','Label the measured successor');
+fs.writeFileSync(out+'measure.mjs',code);
+fs.writeFileSync(out+'preparation.json',JSON.stringify({scope:'One unprofiled candidate measurement after ordered/current-geometry equivalence passes. No new control, profile, build or GL.',referenceRuntime:audit.baseRuntime,parentAttributionCommit:'a5e171d9d924b6baf46151f416f23cd0d5746120',productionDelta:audit.currentSource,originalProducerLfSha256:originalProducer,producerLfSha256:sha(code),hostReadSchedule:'Same approved snapshots; timer uses only the advance return value.',changes},null,2)+'\n');
+console.log(JSON.stringify({source:audit.currentSource,producerSha256:sha(code)}));

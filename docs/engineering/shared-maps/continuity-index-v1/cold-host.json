@@ -1,0 +1,111 @@
+{
+  "tick": 0,
+  "clocks": {
+    "active": 0,
+    "player": 0,
+    "world": 0,
+    "playerScale": 1,
+    "worldScale": 1
+  },
+  "player": {
+    "id": "hero",
+    "characterId": "goat",
+    "species": "goat",
+    "height": 1.66,
+    "x": 56,
+    "y": 14,
+    "radius": 0.5,
+    "heading": 0,
+    "moving": false,
+    "hp": 100,
+    "maxHp": 100,
+    "tool": "matches",
+    "pouring": false,
+    "usingTool": false,
+    "inventory": {
+      "matches": 12,
+      "gas": 4,
+      "molotovs": 4,
+      "torchFuel": 5,
+      "flamethrowerFuel": 6,
+      "powder": 4,
+      "healing": 3,
+      "inversion": 3
+    },
+    "travelled": 0,
+    "lanternAim": null,
+    "torch": {
+      "phase": "unlit",
+      "durationSeconds": 41.66666666666667,
+      "remainingSeconds": 41.66666666666667
+    },
+    "elevation": 0,
+    "interior": false,
+    "characterFire": {
+      "version": 1,
+      "active": false,
+      "mode": "none",
+      "intensity": 0,
+      "age": 0
+    },
+    "interaction": null
+  },
+  "actors": [],
+  "paused": false,
+  "discharge": {
+    "version": 1,
+    "tick": 0,
+    "active": false,
+    "tool": null,
+    "origin": null,
+    "shapeOrigin": null,
+    "heading": 0,
+    "range": 0,
+    "radius": 0,
+    "halfAngle": 0,
+    "connectRays": false,
+    "rays": [],
+    "lead": null
+  },
+  "events": [],
+  "navigation": {
+    "placeId": "new-york",
+    "view": "follow",
+    "waitingForSection": false,
+    "portalStates": {
+      "ny-front": false,
+      "ny-east": false,
+      "ny-west": false,
+      "ny-east-upper": false,
+      "ny-west-upper": false
+    },
+    "collision": {
+      "querySurfaces": 12859,
+      "sourceParts": 12858,
+      "sourceCarriers": 12446,
+      "claimedCarriers": 0,
+      "cachedShapes": 0,
+      "cachedTriangles": 0,
+      "peakShapes": 0,
+      "peakTriangles": 0,
+      "shapeBuilds": 0,
+      "maxSingleQueryTriangles": 0,
+      "maxShapes": 192,
+      "maxTriangles": 65536,
+      "thermalCellsAllocated": 0,
+      "fuelAllocated": 0,
+      "bodies": [
+        {
+          "detailedColliders": 1207,
+          "cachedShapes": 0,
+          "cachedTriangles": 0,
+          "peakCachedShapes": 0,
+          "peakCachedTriangles": 0,
+          "maxCachedShapes": 192,
+          "maxCachedTriangles": 65536
+        }
+      ]
+    },
+    "navigation": {}
+  }
+}
