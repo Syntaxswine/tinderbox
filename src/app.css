@@ -24,4 +24,7 @@ html,body { margin:0; width:100%; height:100%; overflow:hidden; }
 @media(max-height:600px) and (min-width:651px) {
   #viewport { inset:70px 0 206px; }
   .field-help { top:66px; }
+  /* Gameplay fills the visit; existing HUD controls overlay the scene. */
+  #game[data-mode="gameplay"] #viewport { inset:0; }
+  #game[data-mode="gameplay"] .field-help { display:none; }
 }
