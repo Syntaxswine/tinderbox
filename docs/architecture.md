@@ -35,6 +35,8 @@
 
 ## Reuse-first technical direction
 
+The owner now requests consistent fire gameplay across the existing maps and permits rehosting the existing workproduct in new gameplay maps. [Milestone 29](milestones/29-shared-gameplay-maps.md) uses Catalogue's shared gameplay/tool/thermal/presentation core with map-specific landmark geometry, access, material bindings and streamed state. It supersedes the old production-landmark exploration-only restriction while preserving original sources and diagnostic controls. Exactly four menu destinations remain; New York is the first engineering pilot before the same adapter is applied to Administration and Horticulture.
+
 The inspected Farmyard baseline is a browser game using JavaScript ES modules and a vendored Three.js renderer. `field-view.js` constructs an orthographic camera. The source project builds and checks with Node.js 22 or newer, without a package installation.
 
 The opening mechanics test uses that stack with one pinned Three.js instance and separate simulation, art and interface factories. Build and launch commands are in the root README. A move to Godot, Unity, or another runtime has not been approved. Direct reuse of the donor game's assets/interface remains the required foundation for the next visual pass.
