@@ -37,7 +37,7 @@ export function createSharedMapInputFactory({descriptor,policy,loadProjection=lo
     const report=inspectSharedMapInputs(captured,sharedMapInputInventory(model),capturedPolicy);let prepared=false,closed=false,binding=null,preparing=null,binds=0,lastProducer=null;
     const live=()=>{if(closed)throw Error('Map input session disposed');signal?.throwIfAborted();};
     const ready=()=>{live();if(report.status!=='READY')throw new MapInputNotReadyError(report);};
-    const plan=report.plan,qualify=id=>qualifyInputOwner(model.placeId,id);
+    const plan=report.plan,qualify=id=>qualifyInputOwner(model.placeId,id),ownerModes=Object.freeze(Object.fromEntries(report.status==='READY'?plan.owners.map(o=>[o.id,o.mode]):[]));
     async function prepare(){
       ready();if(prepared)return;if(preparing)return preparing;
       preparing=(async()=>{
@@ -84,13 +84,13 @@ export function createSharedMapInputFactory({descriptor,policy,loadProjection=lo
         const support={parts:plan.parts.map(p=>({id:p.id,ownerId:p.ownerId})),bonds:plan.support.bonds.map(b=>({id:b.id,kind:b.kind,direction:b.direction,sourceSha256:b.proofRef.sha256,parent:endpoint(b.parent,b.kind),child:endpoint(b.child,b.kind)})),anchors:plan.support.anchors.map(({partId,elevation,component})=>({partId,elevation,component})),requirements:plan.support.requirements.map(g=>({id:g.id,ownerId:qualify(g.ownerId),portIds:g.portIds,upperBondId:g.upperBondId})),approvedMounts:[]};
         for(const b of support.bonds)if(b.kind==='fixed-assembly-mount')support.approvedMounts.push(structuredClone(b));
         const core=createOriginalSupportPorts({...support,parts:support.parts.map(p=>({...p,triangles:originals.get(p.id).triangles}))});try{for(const b of core.bindings())for(const side of ['parent','child']){const spec=plan.support.bonds.find(v=>v.id===b.id)[side];if(b[side].component!==spec.component||b[side].primitive!==spec.primitive)throw Error('Original endpoint retarget forbidden');}}finally{core.dispose();}
-        const regionalOwners=plan.owners.filter(o=>o.mode==='regional'),allowedOwnerIds=new Set(plan.owners.map(o=>o.id));
-        const mode={mode:'hybrid-world-v1',sourceRevision:plan.sourceRevision,allowedOwnerIds,ownerModes:Object.fromEntries(plan.owners.map(o=>[o.id,o.mode])),support,
+        const regionalOwners=plan.owners.filter(o=>ownerModes[o.id]==='regional'),allowedOwnerIds=new Set(plan.owners.map(o=>o.id));
+        const mode={mode:'hybrid-world-v1',sourceRevision:plan.sourceRevision,allowedOwnerIds,ownerModes,support,
           get producer(){if(disposed)throw Error('Map input binding disposed');return producer??=createRegionalSourcePilot({sourceRevision:plan.sourceRevision,owners:regionalOwners.map(o=>model.carrierById.get(o.id)),data:{version:1,runtimeAdapterVersion:1,implicitGround:false,gridOrigin:plan.grid.origin,thermalCell:plan.grid.pitch,surfaces:regionalOwners.flatMap(o=>bundles.get(o.id).surfaces),openings:[],items:[],furnitureParts:[],stores:[]}});},
-          querySources(context){return plan.parts.filter(p=>allowedOwnerIds.has(p.ownerId)&&mode.ownerModes[p.ownerId]==='regional').map(p=>{const original=originals.get(p.id),part=model.partById.get(p.id),ss=context.surfaces.filter(s=>s.nativePartId===p.id),surfaceTriangles=ss.length===1?ss[0].triangles:original.triangles;return {partRef:part,surfaceTriangles,solidTriangles:original.triangles,closed:part.closed,rayRecord:{id:registry.queryId(p.id),sourceSurfaceId:part.carrierId,sourceCarrierId:part.carrierId,nativePartId:p.id,triangles:surfaceTriangles,solidTriangles:original.triangles,bounds:part.bounds,intact:true,openFraction:0,transmission:materialTransmission(part.material)}};});}};
+          querySources(context){return plan.parts.filter(p=>allowedOwnerIds.has(p.ownerId)&&ownerModes[p.ownerId]==='regional').map(p=>{const original=originals.get(p.id),part=model.partById.get(p.id),ss=context.surfaces.filter(s=>s.nativePartId===p.id),surfaceTriangles=ss.length===1?ss[0].triangles:original.triangles;return {partRef:part,surfaceTriangles,solidTriangles:original.triangles,closed:part.closed,rayRecord:{id:registry.queryId(p.id),sourceSurfaceId:part.carrierId,sourceCarrierId:part.carrierId,nativePartId:p.id,triangles:surfaceTriangles,solidTriangles:original.triangles,bounds:part.bounds,intact:true,openFraction:0,transmission:materialTransmission(part.material)}};});}};
         binds++;binding={mode,dispose,metrics:()=>producer?.diagnostics()};return binding;
       }catch(error){dispose();throw new MapInputNotReadyError(freezeInput({...report,phase:'SOURCE_VALIDATION',status:'NOT_READY',sourceValidation:'REJECTED',findings:[{code:'SOURCE_BINDING_NOT_READY',id:model.placeId,detail:error.message}]}));}
     }
-    return {report,prepare,bindRegistry,metrics:()=>({prepared,closed,binds,activeBindings:binding?1:0,producer:binding?.metrics()||lastProducer}),dispose(){if(closed)return;closed=true;binding?.dispose();}};
+    return {report,ownerModes,prepare,bindRegistry,metrics:()=>({prepared,closed,binds,activeBindings:binding?1:0,producer:binding?.metrics()||lastProducer}),dispose(){if(closed)return;closed=true;binding?.dispose();}};
   };
 }

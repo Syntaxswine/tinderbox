@@ -11,8 +11,9 @@ import {createSourceCarrierLedger} from '../../src/simulation/source-carriers.js
 import fs from 'node:fs';
 const resources=[];limitDiagnosticTrialSteps(64);
 const compile=(f,options={})=>compileSharedMap(f.index,f.library,f.navigation,{inputFactory:f.factory(),...options});
-function world(compiled){
-  const query=compiled.createQuerySource(),ledger=createSourceCarrierLedger(compiled.sourceCarriers,{modes:compiled.sourceOwnerModes});let trial,activation;
+function world(compiled,beforeConstruction=()=>{}){
+  const query=compiled.createQuerySource();let ledger,trial,activation;
+  try{beforeConstruction(compiled.sourceOwnerModes);ledger=createSourceCarrierLedger(compiled.sourceCarriers,{modes:compiled.sourceOwnerModes});}catch(error){query.dispose();throw error;}
   const definitions=compiled.sourceCarriers.flatMap(c=>compiled.sources.sourcesForCarrier(c.id).surfaces),thermalTriangles=definitions.reduce((n,s)=>n+s.triangles.length,0),logicalCells=definitions.reduce((n,s)=>{const ps=s.triangles.flat(),lo=[0,1,2].map(i=>Math.min(...ps.map(p=>p[i]))),hi=[0,1,2].map(i=>Math.max(...ps.map(p=>p[i])));return n+hi.reduce((cells,v,i)=>{const first=Math.floor(lo[i]/[.5,1.06,.5][i]+1e-7),last=v-lo[i]<1e-7?first:Math.ceil(v/[.5,1.06,.5][i]-1e-7)-1;return cells*(last-first+1);},1);},0);assert.ok(logicalCells<=64&&thermalTriangles<=256);
   try{trial=createTrial(compiled.data,{querySource:query,supportGraphFactory:compiled.supportGraphFactory,wind:calmWind});activation=compiled.createActivation({trial,querySource:query,ledger});return {query,ledger,trial,activation,dispose(){activation.dispose();trial.dispose();query.dispose();ledger.dispose();resources.push({logicalCells,thermalTriangles,query:query.metrics(),inputs:compiled.metrics().inputs,geometry:compiled.metrics().geometry});}};}
   catch(error){activation?.dispose();trial?.dispose();query.dispose();ledger.dispose();throw error;}
@@ -67,12 +68,28 @@ test('source binding failure is named and releases provider/pins without a nativ
 });
 
 test('explicit reviewed dual endpoints retain separate points/selectors and cells before genuine birth',async()=>{
-  const f=inputFixture(),b=f.descriptor.support.bonds[2];b.proofKind='dual-endpoint-bearing-source-proposal';f.policy.proofKinds=['bearing-face-v1','dual-endpoint-bearing-source-proposal'];
-  for(const e of [b.parent,b.child])e.selector={min:[.3,.12,.2],max:[.5,.13,.3]};
+  const f=inputFixture({dualUpper:true});
   // The two authored source faces coincide in this synthetic control. Select
   // different own interior witnesses inside the unchanged native port limit.
-  b.child.point=[.375+.000001,.125,.25];b.child.bindingPlan.surfacePoint=b.child.point;
   const c=compile(f);let w;try{await c.prepareInputs();w=world(c);assert.equal(c.inputReport.plan.support.bonds[2].parent.point[0],.375);assert.equal(c.inputReport.plan.support.bonds[2].child.point[0],.375+.000001);w.activation.ensurePoint([.375,0,.25]);assert.ok(w.trial.supportGraph.snapshot().ports.find(p=>p.id==='upper-port').live);}finally{w?.dispose();c.dispose();}
+});
+
+function rejectsBeforeExpansion(f,code){
+  let context,compiled,report;const factory=f.factory();try{assert.throws(()=>compiled=compileSharedMap(f.index,f.library,f.navigation,{inputFactory:args=>{context=args;return factory(args);},onInputReport:r=>report=r}),error=>error.code==='MAP_INPUT_NOT_READY'&&error.report.findings.some(f=>f.code===code));assert.equal(report.phase,'METADATA_ADMISSION');assert.equal(context.sources.metrics().transformedQueries,0);assert.equal(context.sources.metrics().nativeSourceExpansions,0);assert.equal(f.loads.length,0);}finally{compiled?.dispose();}
+}
+
+test('P2 appended projections cannot become anchors and original anchors require exact reviewed tuples',()=>{
+  const projected=inputFixture();projected.descriptor.support.anchors.push({id:'invented-upper-root',partId:'upper',component:0,elevation:.125,proofRef:projected.policy.reviewedRefs[0]});rejectsBeforeExpansion(projected,'PROJECTION_ANCHOR_FORBIDDEN');
+  for(const change of [a=>a.elevation=.125,a=>a.component=1,a=>a.partId='fit']){const original=inputFixture();change(original.descriptor.support.anchors[0]);rejectsBeforeExpansion(original,'ORIGINAL_ANCHOR_NOT_APPROVED');}
+});
+
+test('P2 caller mode mutation before trial construction cannot change captured query ledger or activation selection',async()=>{
+  const f=inputFixture(),c=compile(f);let w;try{await c.prepareInputs();w=world(c,modes=>{assert.throws(()=>{modes['fixture::roof']='whole';},TypeError);assert.equal(modes['fixture::roof'],'regional');});const retained=c.sourceOwnerModes;assert.ok(Object.isFrozen(retained));assert.ok(w.ledger.isRegional('fixture::roof'));assert.throws(()=>w.activation.ensure(['fixture::roof']),/explicit point/);w.activation.ensurePoint([.375,0,.25]);assert.ok(w.trial.supportGraph.snapshot().ports.every(p=>p.live));assert.equal(c.sourceOwnerModes,retained);assert.equal(c.sources.metrics().transformedQueries,4);}finally{w?.dispose();c.dispose();}
+});
+
+test('P2 geometrically valid replacement witnesses cannot reuse a file ref or source revision as authority',()=>{
+  const f=inputFixture(),b=f.descriptor.support.bonds[0];b.parent.primitive=7;for(const e of [b.parent,b.child]){e.point=[.6,0,.25];e.bindingPlan.surfacePoint=[.6,0,.25];e.bindingPlan.cell=[1,0,0];}rejectsBeforeExpansion(f,'SOURCE_BOND_WITNESS_NOT_APPROVED');
+  for(const change of [b=>b.direction='symmetric-structural',b=>b.child.component=1,b=>b.parent.selector={min:[.125,0,.125],max:[.875,0,.375]}]){const variant=inputFixture();change(variant.descriptor.support.bonds[0]);rejectsBeforeExpansion(variant,'SOURCE_BOND_WITNESS_NOT_APPROVED');}
 });
 
 test('actual metadata recognizes the accepted two source roots while refusing unbound native derivation',()=>{

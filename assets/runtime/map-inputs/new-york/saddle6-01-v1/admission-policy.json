@@ -12,6 +12,2004 @@
       "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
     }
   ],
+  "approvedBonds": [
+    {
+      "id": "legacy-pair-000",
+      "kind": "bearing-face",
+      "direction": "parent-to-child",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/0/proof",
+      "parent": {
+        "partId": "main/5/seam-7-1/1",
+        "ownerId": "carrier/main/5/seam-7-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.94000025282304,
+          16.869999996423722,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            16.869999996423722,
+            59.4900016784668
+          ],
+          "max": [
+            64.07999999821186,
+            16.95999961718917,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "edge-6/cornice-7",
+        "ownerId": "carrier/edge-6/cornice-7",
+        "primitive": 1,
+        "component": 0,
+        "point": [
+          63.94000025282304,
+          16.869999996423722,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            16.869999996423722,
+            59.4900016784668
+          ],
+          "max": [
+            64.07999999821186,
+            16.95999961718917,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-001",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/1/proof",
+      "parent": {
+        "partId": "main/5/cell-7-1/1",
+        "ownerId": "carrier/main/5/cell-7-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.920000238551026,
+          16.83999997501572,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            14.84000015258789,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            16.84000015258789,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/seam-7-1/1",
+        "ownerId": "carrier/main/5/seam-7-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.920000238551026,
+          16.83999997501572,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            16.839999619871378,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            16.95999961718917,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-002",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/2/proof",
+      "parent": {
+        "partId": "attic-floor/tile-7-33",
+        "ownerId": "carrier/attic-floor/tile-7-33",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          63.94666666785876,
+          14.839999731630087,
+          59.02666666607062
+        ],
+        "selector": {
+          "min": [
+            63,
+            14.719999734312296,
+            59
+          ],
+          "max": [
+            64,
+            14.839999731630087,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/cell-7-1/1",
+        "ownerId": "carrier/main/5/cell-7-1/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          63.94666666785876,
+          14.84000015258789,
+          59.02666666607062
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            14.84000015258789,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            16.84000015258789,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-003",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/3/proof",
+      "parent": {
+        "partId": "main/5/cell-6-1/1",
+        "ownerId": "carrier/main/5/cell-6-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.96000000089407,
+          14.720000000670552,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            12.720000267028809,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            14.720000267028809,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "attic-floor/tile-7-33",
+        "ownerId": "carrier/attic-floor/tile-7-33",
+        "primitive": 9,
+        "component": 0,
+        "point": [
+          63.96000000089407,
+          14.720000000670552,
+          60
+        ],
+        "selector": {
+          "min": [
+            63,
+            14.719999734312296,
+            59
+          ],
+          "max": [
+            64,
+            14.839999731630087,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-004",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/4/proof",
+      "parent": {
+        "partId": "main/5/seam-5-1/1",
+        "ownerId": "carrier/main/5/seam-5-1/1",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          63.980000000447035,
+          12.719999846071005,
+          59.125
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            12.599999848753214,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            12.719999846071005,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/cell-6-1/1",
+        "ownerId": "carrier/main/5/cell-6-1/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          63.980000000447035,
+          12.720000267028809,
+          59.125
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            12.720000267028809,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            14.720000267028809,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-005",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/5/proof",
+      "parent": {
+        "partId": "main/5/cell-5-1/1",
+        "ownerId": "carrier/main/5/cell-5-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.920000238551026,
+          12.600000203897554,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            10.600000381469727,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            12.600000381469727,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/seam-5-1/1",
+        "ownerId": "carrier/main/5/seam-5-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.920000238551026,
+          12.600000203897554,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            12.599999848753214,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            12.719999846071005,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-006",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/6/proof",
+      "parent": {
+        "partId": "main/5/seam-4-1/1",
+        "ownerId": "carrier/main/5/seam-4-1/1",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          63.980000000447035,
+          10.599999960511923,
+          59.125
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            10.479999963194132,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            10.599999960511923,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/cell-5-1/1",
+        "ownerId": "carrier/main/5/cell-5-1/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          63.980000000447035,
+          10.600000381469727,
+          59.125
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            10.600000381469727,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            12.600000381469727,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-007",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/7/proof",
+      "parent": {
+        "partId": "main/5/cell-4-1/1",
+        "ownerId": "carrier/main/5/cell-4-1/1",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          63.980000000447035,
+          10.479999542236328,
+          59.125
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            8.479999542236328,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            10.479999542236328,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/seam-4-1/1",
+        "ownerId": "carrier/main/5/seam-4-1/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          63.980000000447035,
+          10.479999963194132,
+          59.125
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            10.479999963194132,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            10.599999960511923,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-008",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/8/proof",
+      "parent": {
+        "partId": "main/5/seam-3-1/1",
+        "ownerId": "carrier/main/5/seam-3-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.920000015993914,
+          8.479999897380669,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            8.36000007763505,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            8.48000007495284,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/cell-4-1/1",
+        "ownerId": "carrier/main/5/cell-4-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.920000015993914,
+          8.479999897380669,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            8.479999542236328,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            10.479999542236328,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-009",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/9/proof",
+      "parent": {
+        "partId": "main/5/cell-3-1/1",
+        "ownerId": "carrier/main/5/cell-3-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.920000026623406,
+          8.360000114887953,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            6.360000133514404,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            8.360000133514404,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/seam-3-1/1",
+        "ownerId": "carrier/main/5/seam-3-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.920000026623406,
+          8.360000114887953,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            8.36000007763505,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            8.48000007495284,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-010",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/10/proof",
+      "parent": {
+        "partId": "main/5/seam-2-1/1",
+        "ownerId": "carrier/main/5/seam-2-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.92000000327825,
+          6.360000170767307,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            6.240000192075968,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            6.360000189393759,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/cell-3-1/1",
+        "ownerId": "carrier/main/5/cell-3-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.92000000327825,
+          6.360000170767307,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            6.360000133514404,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            8.360000133514404,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-011",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/11/proof",
+      "parent": {
+        "partId": "main/5/cell-2-1/1",
+        "ownerId": "carrier/main/5/cell-2-1/1",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          63.980000000447035,
+          6.239999771118164,
+          59.125
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            4.239999771118164,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            6.239999771118164,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/seam-2-1/1",
+        "ownerId": "carrier/main/5/seam-2-1/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          63.980000000447035,
+          6.240000192075968,
+          59.125
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            6.240000192075968,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            6.360000189393759,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-012",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/12/proof",
+      "parent": {
+        "partId": "main/5/seam-1-1/1",
+        "ownerId": "carrier/main/5/seam-1-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.92000000327825,
+          4.239999808371067,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            4.1199998296797276,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            4.2399998269975185,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/cell-2-1/1",
+        "ownerId": "carrier/main/5/cell-2-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.92000000327825,
+          4.239999808371067,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            4.239999771118164,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            6.239999771118164,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-013",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/13/proof",
+      "parent": {
+        "partId": "main/5/cell-1-1/1",
+        "ownerId": "carrier/main/5/cell-1-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.920000026623406,
+          4.1199998669326305,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            2.119999885559082,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            4.119999885559082,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/seam-1-1/1",
+        "ownerId": "carrier/main/5/seam-1-1/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.920000026623406,
+          4.1199998669326305,
+          60
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            4.1199998296797276,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            4.2399998269975185,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-014",
+      "kind": "bearing-face",
+      "direction": "parent-to-child",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/14/proof",
+      "parent": {
+        "partId": "edge-5/cornice-0",
+        "ownerId": "carrier/edge-5/cornice-0",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          63.946666588385895,
+          2.1199999986588955,
+          59.11368417033962
+        ],
+        "selector": {
+          "min": [
+            63.80999994277954,
+            2.0000000013411046,
+            57.80999946594238
+          ],
+          "max": [
+            64.1899995803833,
+            2.1199999986588955,
+            60.189998626708984
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/5/cell-1-1/1",
+        "ownerId": "carrier/main/5/cell-1-1/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          63.946666588385895,
+          2.119999885559082,
+          59.11368417033962
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            2.119999885559082,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            4.119999885559082,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-015",
+      "kind": "bearing-face",
+      "direction": "parent-to-child",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/15/proof",
+      "parent": {
+        "partId": "main/4/cell-0-5/1",
+        "ownerId": "carrier/main/4/cell-0-5/1",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          64.04965567365761,
+          2,
+          58.07632180058116
+        ],
+        "selector": {
+          "min": [
+            64,
+            0,
+            57.92000000178814
+          ],
+          "max": [
+            65,
+            2,
+            58.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "edge-5/cornice-0",
+        "ownerId": "carrier/edge-5/cornice-0",
+        "primitive": 1,
+        "component": 0,
+        "point": [
+          64.04965567365761,
+          2.0000000013411046,
+          58.07632180058116
+        ],
+        "selector": {
+          "min": [
+            63.80999994277954,
+            2.0000000013411046,
+            57.80999946594238
+          ],
+          "max": [
+            64.1899995803833,
+            2.1199999986588955,
+            60.189998626708984
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-016",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/16/proof",
+      "parent": {
+        "partId": "main-roof-deck/tile--1-31",
+        "ownerId": "carrier/main-roof-deck/tile--1-31",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          55.066666682561234,
+          16.95999961718917,
+          57.86666663487752
+        ],
+        "selector": {
+          "min": [
+            55,
+            16.839999619871378,
+            57
+          ],
+          "max": [
+            56,
+            16.95999961718917,
+            58
+          ]
+        }
+      },
+      "child": {
+        "partId": "roof/rear-tail",
+        "ownerId": "carrier/roof/rear-tail",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          55.06666668256122,
+          16.96,
+          57.86666663487752
+        ],
+        "selector": {
+          "min": [
+            47.80000019073486,
+            16.96,
+            57.799999952316284
+          ],
+          "max": [
+            64.19999980926514,
+            17.609999976158143,
+            60.200000047683716
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-017",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/17/proof",
+      "parent": {
+        "partId": "main-roof-deck/tile--1-32",
+        "ownerId": "carrier/main-roof-deck/tile--1-32",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          55.28191489537089,
+          16.95999961718917,
+          58.43149973647069
+        ],
+        "selector": {
+          "min": [
+            55,
+            16.839999619871378,
+            58
+          ],
+          "max": [
+            56,
+            16.95999961718917,
+            59
+          ]
+        }
+      },
+      "child": {
+        "partId": "roof/rear-tail",
+        "ownerId": "carrier/roof/rear-tail",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          55.28191489537089,
+          16.96,
+          58.43149973647069
+        ],
+        "selector": {
+          "min": [
+            47.80000019073486,
+            16.96,
+            57.799999952316284
+          ],
+          "max": [
+            64.19999980926514,
+            17.609999976158143,
+            60.200000047683716
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-018",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/18/proof",
+      "parent": {
+        "partId": "main-roof-deck/tile--1-33",
+        "ownerId": "carrier/main-roof-deck/tile--1-33",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          55.5,
+          16.95999961718917,
+          59.25
+        ],
+        "selector": {
+          "min": [
+            55,
+            16.839999619871378,
+            59
+          ],
+          "max": [
+            56,
+            16.95999961718917,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "roof/rear-tail",
+        "ownerId": "carrier/roof/rear-tail",
+        "primitive": 7,
+        "component": 0,
+        "point": [
+          55.5,
+          16.96,
+          59.25
+        ],
+        "selector": {
+          "min": [
+            47.80000019073486,
+            16.96,
+            57.799999952316284
+          ],
+          "max": [
+            64.19999980926514,
+            17.609999976158143,
+            60.200000047683716
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-019",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/19/proof",
+      "parent": {
+        "partId": "main/6/cell-7-8/1",
+        "ownerId": "carrier/main/6/cell-7-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          16.839999886229634,
+          59.96000000089407
+        ],
+        "selector": {
+          "min": [
+            55,
+            14.84000015258789,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            16.84000015258789,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main-roof-deck/tile--1-33",
+        "ownerId": "carrier/main-roof-deck/tile--1-33",
+        "primitive": 3,
+        "component": 0,
+        "point": [
+          55,
+          16.839999886229634,
+          59.96000000089407
+        ],
+        "selector": {
+          "min": [
+            55,
+            16.839999619871378,
+            59
+          ],
+          "max": [
+            56,
+            16.95999961718917,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-020",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/20/proof",
+      "parent": {
+        "partId": "attic-floor/tile--1-33",
+        "ownerId": "carrier/attic-floor/tile--1-33",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          55.04965517137479,
+          14.839999731630087,
+          59.92367816255459
+        ],
+        "selector": {
+          "min": [
+            55,
+            14.719999734312296,
+            59
+          ],
+          "max": [
+            56,
+            14.839999731630087,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/cell-7-8/1",
+        "ownerId": "carrier/main/6/cell-7-8/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          55.04965517137479,
+          14.84000015258789,
+          59.92367816255459
+        ],
+        "selector": {
+          "min": [
+            55,
+            14.84000015258789,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            16.84000015258789,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-021",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/21/proof",
+      "parent": {
+        "partId": "main/6/cell-6-8/1",
+        "ownerId": "carrier/main/6/cell-6-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          14.720000000670552,
+          59.96000000089407
+        ],
+        "selector": {
+          "min": [
+            55,
+            12.720000267028809,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            14.720000267028809,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "attic-floor/tile--1-33",
+        "ownerId": "carrier/attic-floor/tile--1-33",
+        "primitive": 3,
+        "component": 0,
+        "point": [
+          55,
+          14.720000000670552,
+          59.96000000089407
+        ],
+        "selector": {
+          "min": [
+            55,
+            14.719999734312296,
+            59
+          ],
+          "max": [
+            56,
+            14.839999731630087,
+            60
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-022",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/22/proof",
+      "parent": {
+        "partId": "main/6/seam-5-8/1",
+        "ownerId": "carrier/main/6/seam-5-8/1",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          55.875,
+          12.719999846071005,
+          59.980000000447035
+        ],
+        "selector": {
+          "min": [
+            55,
+            12.599999848753214,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            12.719999846071005,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/cell-6-8/1",
+        "ownerId": "carrier/main/6/cell-6-8/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          55.875,
+          12.720000267028809,
+          59.980000000447035
+        ],
+        "selector": {
+          "min": [
+            55,
+            12.720000267028809,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            14.720000267028809,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-023",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/23/proof",
+      "parent": {
+        "partId": "main/6/cell-5-8/1",
+        "ownerId": "carrier/main/6/cell-5-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          12.600000203897554,
+          59.920000238551026
+        ],
+        "selector": {
+          "min": [
+            55,
+            10.600000381469727,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            12.600000381469727,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/seam-5-8/1",
+        "ownerId": "carrier/main/6/seam-5-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          12.600000203897554,
+          59.920000238551026
+        ],
+        "selector": {
+          "min": [
+            55,
+            12.599999848753214,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            12.719999846071005,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-024",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/24/proof",
+      "parent": {
+        "partId": "main/6/seam-4-8/1",
+        "ownerId": "carrier/main/6/seam-4-8/1",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          55.875,
+          10.599999960511923,
+          59.980000000447035
+        ],
+        "selector": {
+          "min": [
+            55,
+            10.479999963194132,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            10.599999960511923,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/cell-5-8/1",
+        "ownerId": "carrier/main/6/cell-5-8/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          55.875,
+          10.600000381469727,
+          59.980000000447035
+        ],
+        "selector": {
+          "min": [
+            55,
+            10.600000381469727,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            12.600000381469727,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-025",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/25/proof",
+      "parent": {
+        "partId": "main/6/cell-4-8/1",
+        "ownerId": "carrier/main/6/cell-4-8/1",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          55.875,
+          10.479999542236328,
+          59.980000000447035
+        ],
+        "selector": {
+          "min": [
+            55,
+            8.479999542236328,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            10.479999542236328,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/seam-4-8/1",
+        "ownerId": "carrier/main/6/seam-4-8/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          55.875,
+          10.479999963194132,
+          59.980000000447035
+        ],
+        "selector": {
+          "min": [
+            55,
+            10.479999963194132,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            10.599999960511923,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-026",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/26/proof",
+      "parent": {
+        "partId": "main/6/seam-3-8/1",
+        "ownerId": "carrier/main/6/seam-3-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          8.479999897380669,
+          59.920000015993914
+        ],
+        "selector": {
+          "min": [
+            55,
+            8.36000007763505,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            8.48000007495284,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/cell-4-8/1",
+        "ownerId": "carrier/main/6/cell-4-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          8.479999897380669,
+          59.920000015993914
+        ],
+        "selector": {
+          "min": [
+            55,
+            8.479999542236328,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            10.479999542236328,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-027",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/27/proof",
+      "parent": {
+        "partId": "main/6/cell-3-8/1",
+        "ownerId": "carrier/main/6/cell-3-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          8.360000114887953,
+          59.920000026623406
+        ],
+        "selector": {
+          "min": [
+            55,
+            6.360000133514404,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            8.360000133514404,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/seam-3-8/1",
+        "ownerId": "carrier/main/6/seam-3-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          8.360000114887953,
+          59.920000026623406
+        ],
+        "selector": {
+          "min": [
+            55,
+            8.36000007763505,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            8.48000007495284,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-028",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/28/proof",
+      "parent": {
+        "partId": "main/6/seam-2-8/1",
+        "ownerId": "carrier/main/6/seam-2-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          6.360000170767307,
+          59.92000000327825
+        ],
+        "selector": {
+          "min": [
+            55,
+            6.240000192075968,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            6.360000189393759,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/cell-3-8/1",
+        "ownerId": "carrier/main/6/cell-3-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          6.360000170767307,
+          59.92000000327825
+        ],
+        "selector": {
+          "min": [
+            55,
+            6.360000133514404,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            8.360000133514404,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-029",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/29/proof",
+      "parent": {
+        "partId": "main/6/cell-2-8/1",
+        "ownerId": "carrier/main/6/cell-2-8/1",
+        "primitive": 4,
+        "component": 0,
+        "point": [
+          55.875,
+          6.239999771118164,
+          59.980000000447035
+        ],
+        "selector": {
+          "min": [
+            55,
+            4.239999771118164,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            6.239999771118164,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/seam-2-8/1",
+        "ownerId": "carrier/main/6/seam-2-8/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          55.875,
+          6.240000192075968,
+          59.980000000447035
+        ],
+        "selector": {
+          "min": [
+            55,
+            6.240000192075968,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            6.360000189393759,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-030",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/30/proof",
+      "parent": {
+        "partId": "main/6/seam-1-8/1",
+        "ownerId": "carrier/main/6/seam-1-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          4.239999808371067,
+          59.92000000327825
+        ],
+        "selector": {
+          "min": [
+            55,
+            4.1199998296797276,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            4.2399998269975185,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/cell-2-8/1",
+        "ownerId": "carrier/main/6/cell-2-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          4.239999808371067,
+          59.92000000327825
+        ],
+        "selector": {
+          "min": [
+            55,
+            4.239999771118164,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            6.239999771118164,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-031",
+      "kind": "bearing-face",
+      "direction": "symmetric-structural",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/31/proof",
+      "parent": {
+        "partId": "main/6/cell-1-8/1",
+        "ownerId": "carrier/main/6/cell-1-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          4.1199998669326305,
+          59.920000026623406
+        ],
+        "selector": {
+          "min": [
+            55,
+            2.119999885559082,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            4.119999885559082,
+            60.07999999821186
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/seam-1-8/1",
+        "ownerId": "carrier/main/6/seam-1-8/1",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55,
+          4.1199998669326305,
+          59.920000026623406
+        ],
+        "selector": {
+          "min": [
+            55,
+            4.1199998296797276,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            4.2399998269975185,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-032",
+      "kind": "bearing-face",
+      "direction": "parent-to-child",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/32/proof",
+      "parent": {
+        "partId": "edge-6/cornice-0",
+        "ownerId": "carrier/edge-6/cornice-0",
+        "primitive": 0,
+        "component": 0,
+        "point": [
+          55.594931453931984,
+          2.1199999986588955,
+          59.954060917826716
+        ],
+        "selector": {
+          "min": [
+            47.8100004196167,
+            2.0000000013411046,
+            59.810001373291016
+          ],
+          "max": [
+            64.1899995803833,
+            2.1199999986588955,
+            60.189998626708984
+          ]
+        }
+      },
+      "child": {
+        "partId": "main/6/cell-1-8/1",
+        "ownerId": "carrier/main/6/cell-1-8/1",
+        "primitive": 6,
+        "component": 0,
+        "point": [
+          55.594931453931984,
+          2.119999885559082,
+          59.954060917826716
+        ],
+        "selector": {
+          "min": [
+            55,
+            2.119999885559082,
+            59.92000000178814
+          ],
+          "max": [
+            56,
+            4.119999885559082,
+            60.07999999821186
+          ]
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-033",
+      "kind": "bearing-face",
+      "direction": "parent-to-child",
+      "proofKind": "dual-endpoint-bearing-source-proposal",
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/contacts/33/proof",
+      "parent": {
+        "partId": "main/5/cell-0-1/1",
+        "ownerId": "carrier/main/5/cell-0-1/1",
+        "primitive": 5,
+        "component": 0,
+        "point": [
+          63.946666588385895,
+          2,
+          59.973333580713174
+        ],
+        "selector": {
+          "min": [
+            63.92000000178814,
+            0,
+            59
+          ],
+          "max": [
+            64.07999999821186,
+            2,
+            60
+          ]
+        }
+      },
+      "child": {
+        "partId": "edge-6/cornice-0",
+        "ownerId": "carrier/edge-6/cornice-0",
+        "primitive": 1,
+        "component": 0,
+        "point": [
+          63.946666588385895,
+          2.0000000013411046,
+          59.973333580713174
+        ],
+        "selector": {
+          "min": [
+            47.8100004196167,
+            2.0000000013411046,
+            59.810001373291016
+          ],
+          "max": [
+            64.1899995803833,
+            2.1199999986588955,
+            60.189998626708984
+          ]
+        }
+      }
+    }
+  ],
+  "approvedAnchors": [
+    {
+      "partId": "main/4/cell-0-5/1",
+      "component": 0,
+      "elevation": 0,
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/anchors/0"
+    },
+    {
+      "partId": "main/5/cell-0-1/1",
+      "component": 0,
+      "elevation": 0,
+      "proofRef": {
+        "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+        "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+        "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+      },
+      "proofPointer": "/anchors/1"
+    }
+  ],
   "approvedProjections": [
     {
       "approval": {

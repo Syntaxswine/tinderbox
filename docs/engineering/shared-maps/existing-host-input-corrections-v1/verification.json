@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "scope": "Three architect P2 input-authority corrections",
+  "runs": [
+    {
+      "name": "original-findings",
+      "passed": false,
+      "groups": 3,
+      "compiler": 0,
+      "trials": 0,
+      "steps": 0,
+      "receiptSha256": "2cb9058c617e8e5993fa73635bc59ff58fa8dcd93613b40a3467e06238ce1607",
+      "logSha256": "b2683669562ad06a2a4c748de3535c2607cad15fcf68b15fb59e0fc405f6a1c7"
+    },
+    {
+      "name": "corrected",
+      "passed": true,
+      "groups": 24,
+      "compiler": 50,
+      "trials": 15,
+      "steps": 4,
+      "receiptSha256": "af397f92343dddf6ae71ad7a5334b924ef1ccdf4fa8894a2a2902e8140077b24",
+      "logSha256": "7881b6ec2901050769b76ee1f22ec25ecc70722c628fec296d484944574e9cb1"
+    }
+  ],
+  "correctedGroups": 24,
+  "compilerCalls": 50,
+  "disposedTrials": 15,
+  "steps": 4,
+  "approvedSourceBonds": 34,
+  "approvedOriginalAnchors": 2,
+  "missingActualInputs": 188,
+  "oldWitnessesAndArchivesUnchanged": true,
+  "protectedWipExcluded": true,
+  "helpersClosed": 2,
+  "actualNewYorkExpansions": 0,
+  "actualNewYorkCompilerCalls": 0,
+  "fullNewYorkDiagnostics": 0,
+  "rendererCalls": 0,
+  "builds": 0
+}
