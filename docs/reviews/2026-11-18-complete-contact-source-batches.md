@@ -105,3 +105,31 @@ failure and name any unattempted tail. No geometry changes, new solver, widened
 tolerance, native compilation, live support/world work or rendering is granted.
 Independent receipts are `six-representative-scope-audit.json` and
 `six-representative-root-verify.log` in the same ignored architect QA directory.
+
+## Closed-flag-only delta
+
+Accept UI `7f1fc05ecd92c1d9d88c681ad15fea1f2b078c64`, architect intake
+`758914ee`, as 419 additional source contacts. Exact scope is 70 paths /
+69 payload pins. Root passes the hydrated metadata audit and independently
+rechecks all 419 saved contacts across three pages, including the first baluster
+on original primitives 16 and 6. No candidate search is repeated and archive
+writes are zero. The old 210-file packet is unchanged.
+
+The [derived delta](../engineering/shared-maps/other-contact-source-v3/README.md)
+admits only previously blocked instances with identical positive primitive
+partitions, identical nonmaterial ordinals, and complete component records
+differing solely in `closed` flags. All 415 formerly blocked instances satisfy
+that condition. The actual world components supply membership. Both frame
+records remain present; reciprocal-multiplication source-predicate normals and
+canonical division-order export normals are recorded separately. No volume,
+capacity, closed-solid, bearing or grounding claim is accepted.
+
+The 419 new proofs comprise 80 porch/neck and 339 railing-cap regions. Other-contact
+totals become 1,438 proposed and 144 unproved; the original 140 empty-selector
+and four ambiguous-membership cases remain unchanged. Including the six cornice
+follow-ups, inventory totals are 2,928 proposed and 3,090 unproved of 6,018.
+The ongoing cornice delta has not been counted here. Runtime mappings and real
+map acceptance remain separate. No compiler/native/world/graph/render/build
+run or retained helper/port was created. Root receipts are
+`other-v3-scope-audit.json`, `other-v3-root-verify.log` and
+`other-v3-root-recheck.json` in the same ignored architect QA directory.
