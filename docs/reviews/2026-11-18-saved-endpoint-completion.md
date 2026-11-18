@@ -1,8 +1,10 @@
 # Saved endpoint completion: returned native-clipping mismatch
 
-Coder `1f857eac5f2140becf707a6f02f49626cf8c6289`, intaken as `80828b4e`, is
-**returned for one P2 correction**. No native New York test, map enablement or
-Pages promotion is approved. Production inputs/policy remain unchanged.
+Coder `1f857eac5f2140becf707a6f02f49626cf8c6289`, intaken as `80828b4e`,
+was **returned for one P2 correction**. Correction
+`faacbf1d97ed5cb05ffb4e619fb55523b736d2fc`, intaken as `f0033919`, is accepted as
+a disabled thermal-projection mapping checkpoint after the checks below.
+Map enablement and Pages remain unapproved. Production inputs/policy are unchanged.
 
 Root independently passed all **35 bounded controls**: 54 synthetic compiler
 calls, sixteen created/disposed trials and four steps. It checked 33 changed
@@ -58,3 +60,46 @@ Root evidence remains under `artifacts/qa/m29-architect-intake/`:
 `source-endpoints-root-controls.json` and `hybrid-root-sourcecells.{json,log}`.
 The next explicit correction/validation grant is recorded in the amended
 [saved endpoint contract](../engineering/shared-maps/new-york-saved-endpoint-completion.md).
+
+## Correction acceptance and limits
+
+The correction uses a conservative floor/near-neighbor broad phase, at most
+eight candidates inside the unchanged canonical loop. Acceptance requires a
+positive retained clipped patch and the unchanged projected point's membership
+under existing native predicates. EPS, source geometry/points, preference/tie
+rules and exact-record retirement remain unchanged.
+
+Root independently passed **38/38 controls**: 78 synthetic compiler calls,
+twenty created/disposed trials and four steps. Four genuine Float32 boundary
+births retain exact-record loss despite another intact incident record. The
+positive-patch-with-missing-point negative rejects. Root checked 37 changed paths
+/35 payload pins and audited snapshots, failures, authority copies, counters,
+unchanged production/source pins and cleanup. The original four-case failure
+and the intermediate fixture failure remain preserved; the latter's zero
+regional-owner fixture was corrected without changing runtime rules.
+
+The separately authorized corrected saved-data child inspected 74 fixed
+endpoints /152 candidates (maximum four). It maps all four returned cases, but
+the new membership check refuses `legacy-pair-008/child` and `-026/child`.
+Final result: 72 mapped /two UNBOUND; 68 of the other seventy plans are exactly
+unchanged. These remain unreviewed mapping proposals, not native authority.
+All 37 independent source tuples, quantities, two roots, ALL/upper semantics,
+179 alternatives /141 outside-cohort refs and production files are unchanged.
+
+The focused follow-up found no further confirmed defect in the containment
+correction and verified six focused source/test/tool pins against Git/receipts,
+with four changed-file manifest pins. It identified a separate unresolved
+representation question: the mapper checks the projected point on retained
+thermal triangles, while actual support checks the original physical port on
+`solidTriangles || triangles`, with original component/primitive/record filters.
+Coplanar sheet fixtures do not prove equivalence for the two thick panels.
+Thus the two refusals establish neither absent physical contacts nor genuine
+native binding failures. Keep them explicitly unproven.
+
+Additional root QA: `native-cell-correction-scope-audit.json`,
+`native-cell-correction-root-evidence.json`, `native-cell-correction-root-controls.json`
+and `hybrid-root-nativecells.{json,log}`. All owned root/worker child PIDs were
+verified absent; no helper or port is retained. No actual source/native compiler,
+trial, support evaluation, clock or renderer ran in this correction or root rerun.
+The next explicit investigation is the
+[two-panel physical/native diagnostic](../engineering/shared-maps/new-york-two-panel-native-diagnostic.md).
