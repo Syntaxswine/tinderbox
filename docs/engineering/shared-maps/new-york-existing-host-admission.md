@@ -1,5 +1,10 @@
 # Next investigation: original New York inputs in the existing host
 
+Update: optional adapter correction `e1cbd7d5` passed independent 24/24 controls
+and focused source review. The next explicit grant is the
+[bounded source-preparation contract](new-york-source-preparation.md). Earlier
+allowances below remain historical and do not grant a native or rendered run.
+
 Architect proposal following the disabled coupled checkpoint. Execution begins
 only after the [returned runtime findings](../../reviews/2026-11-18-hybrid-publication-review.md)
 are corrected and reviewed. This document grants no actual compiler, world,
