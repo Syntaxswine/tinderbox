@@ -36,3 +36,12 @@ Root's ignored audit/recheck files are
 All children are finite foreground processes; no helper or port is retained.
 No native/compiler/decoder/blueprint expansion, graph/world/publication,
 renderer, build or benchmark runs occurred. Master and Pages remain unchanged.
+
+The separate read-only baluster diagnosis finds 200 finite raw/world triangles:
+180 positive and 20 exact zero-area faces with duplicate coordinates. No
+positive EPS-small or nonfinite triangle exists; transformation adds no defect.
+Original ordinals and raw/world hashes are recorded under UI QA
+`baluster-2352-e67235b6/`. The narrow
+[nonmaterial-face proposal](../engineering/shared-maps/duplicate-vertex-material-faces.md)
+preserves raw arrays/indices and requires a separate contact recheck after its
+code review. The original unproved contact is not reclassified by diagnosis.

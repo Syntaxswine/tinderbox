@@ -45,3 +45,30 @@ selectors using each original endpoint's actual bounds, while preserving the
 original null field and fixed physical point. Ranges await review of the concrete
 paving source evidence. The larger source inventory remains unattempted outside
 the separately delivered checkpoints.
+
+## Endpoint-bounds successor
+
+Accept `58b6820bc51e9793def70f5e47edc92c08052232`, architect intake
+`985db7e3`, for the precise null/absent shared-selector extension. Each endpoint
+still requires valid original bounds and the fixed point on its original face.
+Source/native patches clip by those bounds, plus shared bounds when present.
+Null/absence, historical data, immutable proof authority and exact retirement
+remain intact. Explicit source ranges remain rejected.
+
+Root independently passes all 11 affected groups (four new, seven existing),
+25 source/evidence pins and exact 26-path scope. The committed dentil example
+from `e67235b6`, region `715ed699e0b9c5185bf38ab4`, prepares one source proof
+from two original owners/parts and 12 source definitions; no native records bind.
+Its source bytes, indices, geometry hashes, bounds and history are pinned.
+
+The root verifier replaces only worker-specific dirty-tree scope checks with
+exact candidate scope and reads the actual protected worker proposal. The first
+wrapper exposed CRLF/LF byte-size differences; current checkout LF hashes and
+exact committed text bytes now verify the saved metadata. That original wrapper
+failure is retained. No candidate/archive bytes change. Root's ignored audit is
+`artifacts/qa/m29-architect-intake/review-endpoint-bounds.mjs`.
+
+The original deliberate-null rejection and corrected fixture-only failure
+remain recorded. All four child PIDs 62620, 64500, 14200 and 53436 are absent.
+No actual native, whole-map diagnostic, world/stock, renderer, benchmark or build
+ran. This extends the isolated source mapper; live-map acceptance remains open.
