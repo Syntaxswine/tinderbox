@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {originalMaterialComponents} from '../../../src/simulation/original-support-ports.js';
+import {sourceGeometryTriangles} from '../../../src/content/map-source-shapes.js';
+const source=JSON.parse(fs.readFileSync('docs/engineering/shared-maps/duplicate-vertex-material-v1/ui-result.json'));
+const bytes=fs.readFileSync('assets/art/place-scenes/new-york/geometry/'+source.geometryId+'.json'),g=JSON.parse(bytes),sha=b=>createHash('sha256').update(b).digest('hex');
+assert.equal(sha(bytes),source.geometryRawSha256);
+const raw=sourceGeometryTriangles({matrix:[1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],triangleCount:200},g),world=sourceGeometryTriangles({matrix:source.emittedWorldMatrix,triangleCount:200},g),r=originalMaterialComponents(raw),w=originalMaterialComponents(world);
+const partition=c=>c.map(p=>p.primitives),brief=c=>c.map(p=>({id:p.id,faces:p.primitives.length,closed:p.closed,first:p.primitives[0],last:p.primitives.at(-1)}));
+const out={sourcePart:2352,sourceGeometryHash:source.geometryRawSha256,raw:brief(r),world:brief(w),samePrimitivePartitions:JSON.stringify(partition(r))===JSON.stringify(partition(w)),nativeCalls:0,contactSearches:0,sourceArraysChanged:false};
+fs.writeFileSync('artifacts/qa/m29-architect-intake/baluster-frame-topology-diagnostic.json',JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify(out));
