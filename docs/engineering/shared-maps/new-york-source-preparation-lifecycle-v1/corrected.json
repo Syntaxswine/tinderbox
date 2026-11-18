@@ -1,0 +1,277 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Deferred source-preparation host-disposal P2 reproduction/correction",
+  "pid": 32920,
+  "creationTime": "2026-11-18T08:29:12.487Z",
+  "startedAt": "2026-11-18T08:29:12.487Z",
+  "endedAt": "2026-11-18T08:29:13.312Z",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "tests/integration/shared-map-source-preparation.test.mjs",
+    "tests/integration/shared-map-inputs.test.mjs",
+    "tests/integration/map-source-geometry.test.mjs",
+    "tests/integration/hybrid-world-publication.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/shared-map.js",
+      "lfSha256": "9f96cfa30e2e8d38936ee109dfb06ad5304c007057fa63ded32e3e6e206b9ace"
+    },
+    {
+      "path": "src/content/shared-map-source-preparation.js",
+      "lfSha256": "2b2845c64d91646e9ad7d21111ed71856a64c8f6e31e60e496ed1ad496e40b96"
+    },
+    {
+      "path": "src/content/shared-map-inputs.js",
+      "lfSha256": "7d5e9f697027d082489e3df8ed5082cc23238310b66361283bdca706871814bc"
+    },
+    {
+      "path": "tests/integration/shared-map-source-preparation.test.mjs",
+      "lfSha256": "08d5e2ece4b9d06e0936294a333e98d3888817dc4315c0325445a9319e3c5a0b"
+    },
+    {
+      "path": "tests/fixtures/shared-map-input-data.mjs",
+      "lfSha256": "6a2a1c406f05e9b443f7eb60b86692cb32586b12b30e0606c59276b632e46584"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-lifecycle-v1/run.mjs",
+      "lfSha256": "72a73418954f467ea708cb78b6ea39e30e4e8d51e2e136d10a19eb291a11bc18"
+    },
+    {
+      "path": "tests/integration/shared-map-inputs.test.mjs",
+      "lfSha256": "f1c0f245f26050685ed2d0824e0e86da93ea452b6c8bd93e9da9db5e562239a5"
+    },
+    {
+      "path": "tests/integration/map-source-geometry.test.mjs",
+      "lfSha256": "39a30f917abf23f2266e135a0d4ea06a37aa0b4b562c52b6b4ff66a82c2dfd40"
+    },
+    {
+      "path": "tests/integration/hybrid-world-publication.test.mjs",
+      "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8"
+    },
+    {
+      "path": "tests/fixtures/hybrid-world-data.mjs",
+      "lfSha256": "f93182dbad50827074a735e690a2e4edd6c3d4fcb841e23e8d43c3390001b6c5"
+    }
+  ],
+  "passed": true,
+  "exitCode": 0,
+  "groups": 31,
+  "resources": {
+    "evidence": [
+      {
+        "geometry": {
+          "canonicalCarriers": 4,
+          "sourceParts": 4,
+          "decodedUniqueGeometries": 3,
+          "appearanceMaterials": 1,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "nativeBlueprints": 4,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 4,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 4,
+          "nativePartTransforms": 0,
+          "borrowedNativeParts": 4,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 2
+        },
+        "query": {
+          "querySurfaces": 5,
+          "sourceParts": 4,
+          "sourceCarriers": 4,
+          "claimedCarriers": 0,
+          "cachedShapes": 18,
+          "cachedTriangles": 56,
+          "peakShapes": 18,
+          "peakTriangles": 56,
+          "workingShapes": 0,
+          "workingTriangles": 0,
+          "workingLeases": 0,
+          "peakWorkingShapes": 0,
+          "peakWorkingTriangles": 0,
+          "shapeBuilds": 4,
+          "maxSingleQueryTriangles": 12,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "originalParts": 4,
+        "originalTriangles": 28,
+        "blueprintSurfaces": 14,
+        "blueprintTriangles": 28,
+        "nativeCompiles": 0,
+        "producers": 0,
+        "trials": 0,
+        "supportEvaluations": 0,
+        "clockSteps": 0,
+        "renderers": 0,
+        "builds": 0
+      },
+      {
+        "geometry": {
+          "canonicalCarriers": 4,
+          "sourceParts": 4,
+          "decodedUniqueGeometries": 3,
+          "appearanceMaterials": 1,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "nativeBlueprints": 4,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 4,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 4,
+          "nativePartTransforms": 0,
+          "borrowedNativeParts": 4,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 2
+        },
+        "query": {
+          "querySurfaces": 5,
+          "sourceParts": 4,
+          "sourceCarriers": 4,
+          "claimedCarriers": 0,
+          "cachedShapes": 18,
+          "cachedTriangles": 56,
+          "peakShapes": 18,
+          "peakTriangles": 56,
+          "workingShapes": 0,
+          "workingTriangles": 0,
+          "workingLeases": 0,
+          "peakWorkingShapes": 0,
+          "peakWorkingTriangles": 0,
+          "shapeBuilds": 4,
+          "maxSingleQueryTriangles": 12,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "originalParts": 4,
+        "originalTriangles": 28,
+        "blueprintSurfaces": 14,
+        "blueprintTriangles": 28,
+        "nativeCompiles": 0,
+        "producers": 0,
+        "trials": 0,
+        "supportEvaluations": 0,
+        "clockSteps": 0,
+        "renderers": 0,
+        "builds": 0
+      },
+      {
+        "geometry": {
+          "canonicalCarriers": 4,
+          "sourceParts": 4,
+          "decodedUniqueGeometries": 3,
+          "appearanceMaterials": 1,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "nativeBlueprints": 4,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 4,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 4,
+          "nativePartTransforms": 0,
+          "borrowedNativeParts": 4,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 2
+        },
+        "query": {
+          "querySurfaces": 5,
+          "sourceParts": 4,
+          "sourceCarriers": 4,
+          "claimedCarriers": 0,
+          "cachedShapes": 13,
+          "cachedTriangles": 46,
+          "peakShapes": 13,
+          "peakTriangles": 46,
+          "workingShapes": 0,
+          "workingTriangles": 0,
+          "workingLeases": 0,
+          "peakWorkingShapes": 0,
+          "peakWorkingTriangles": 0,
+          "shapeBuilds": 4,
+          "maxSingleQueryTriangles": 12,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "originalParts": 4,
+        "originalTriangles": 28,
+        "blueprintSurfaces": 9,
+        "blueprintTriangles": 18,
+        "nativeCompiles": 0,
+        "producers": 0,
+        "trials": 0,
+        "supportEvaluations": 0,
+        "clockSteps": 0,
+        "renderers": 0,
+        "builds": 0
+      }
+    ],
+    "lifecycleEvidence": [
+      {
+        "sameLibrary": true,
+        "parts": 3,
+        "owners": 3,
+        "partIds": 3,
+        "ownerIds": 3,
+        "geometryIds": [
+          "floor",
+          "fit",
+          "roof"
+        ],
+        "queryAttempts": 0,
+        "worldWrites": 0,
+        "blueprintWrites": 0,
+        "geometry": {
+          "canonicalCarriers": 3,
+          "sourceParts": 3,
+          "decodedUniqueGeometries": 3,
+          "appearanceMaterials": 1,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "nativeBlueprints": 0,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 0,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 0,
+          "nativePartTransforms": 0,
+          "borrowedNativeParts": 0,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 0
+        },
+        "query": null
+      }
+    ],
+    "compiler": {
+      "calls": 50
+    },
+    "trial": {
+      "created": 15,
+      "steps": 4,
+      "disposed": 15
+    },
+    "actualNewYorkSourcePreparations": 0
+  },
+  "timeoutMs": 30000,
+  "maxSteps": 64,
+  "maxSourceCells": 64,
+  "maxSourceTriangles": 256,
+  "actualNewYorkPreparations": 0,
+  "actualNewYorkTransforms": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

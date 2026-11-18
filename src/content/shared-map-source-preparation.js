@@ -41,14 +41,15 @@ export function deriveSharedSourceEndpoint({endpoint,part,components,surfaces,gr
 // Reuse the host's one decoded model/source owner and one registry. This source
 // phase is explicit, single-use, and never calls the hybrid producer or trial.
 export async function prepareSharedMapSourceInputs({compiled,descriptor,policy,budget,pendingBondIds=[],loadProjection,signal,onWorldTable=()=>{},onBlueprints=()=>{}}){
+  const live=()=>{compiled.assertLive();signal?.throwIfAborted();};live();
   if(used.has(compiled)||compiled.sources.metrics().transformedQueries||compiled.sources.metrics().nativeSourceExpansions)throw new SourcePreparationBoundary('SOURCE_OWNER_ALREADY_USED','A second preparation/transform is not permitted');
   const inventory=sharedMapInputInventory(compiled.model),preflight=preflightSharedMapSourcePreparation({descriptor,policy,inventory,budget,pendingBondIds});
   if(preflight.status!=='PREFLIGHT_READY')throw new SourcePreparationBoundary('SOURCE_PREFLIGHT_NOT_READY',JSON.stringify(preflight.problems));
   used.add(compiled);
   const p=preflight.admission.plan,pins=[],originals=new Map(),components=new Map(),bundles=new Map(),findings=[];let query,releaseProvider,worldTable,blueprints;
-  const live=()=>signal?.throwIfAborted(),qualify=id=>qualifyInputOwner(p.placeId,id),before=compiled.sources.metrics();
+  const qualify=id=>qualifyInputOwner(p.placeId,id),before=compiled.sources.metrics();
   try{
-    await prepareSharedMapProjections({model:compiled.model,sources:compiled.sources,projections:p.projections,loadProjection,signal});live();query=compiled.createQuerySource();
+    await prepareSharedMapProjections({model:compiled.model,sources:compiled.sources,projections:p.projections,loadProjection,signal,assertLive:live});live();query=compiled.createQuerySource();
     for(const spec of p.parts){live();const pin=query.pinOriginal(spec.id);pins.push(pin);if(pin.shape.triangles.length!==spec.physicalTriangles)throw new SourcePreparationBoundary('ORIGINAL_COUNT_CHANGED',spec.id);originals.set(spec.id,pin.shape);components.set(spec.id,originalMaterialComponents(pin.shape.triangles));}
     worldTable={version:1,sourceRevision:p.sourceRevision,frame:'emitted-world',grid:p.grid,parts:p.parts.map(spec=>({id:spec.id,ownerId:spec.ownerId,globalIndex:spec.globalIndex,geometry:spec.geometry,physicalGeometry:compiled.model.partById.get(spec.id).physicalGeometry??spec.geometry,matrix:compiled.model.partById.get(spec.id).matrix,closed:originals.get(spec.id).closed,triangles:originals.get(spec.id).triangles,components:components.get(spec.id)}))};
     await onWorldTable(worldTable);live();
