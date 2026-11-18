@@ -6,13 +6,14 @@ const area=triangles=>triangles.reduce((n,t)=>n+triangleArea(t),0);
 
 export function createMapSourceGeometry(model){
   const attributes=new Map(),blueprints=new Map(),order=new Map(model.carriers.map((c,i)=>[c.id,i])),portalCarriers=new Map(),bins=new Map();
-  let transformedQueries=0,renderExpansions=0,nativeSourceExpansions=0,nativePartTransforms=0,presentationBlueprints=0,presentationPartTransforms=0;
-  for(const c of model.carriers){
+  let transformedQueries=0,renderExpansions=0,nativeSourceExpansions=0,nativePartTransforms=0,presentationBlueprints=0,presentationPartTransforms=0,borrowedNativeParts=0,originalShapeProvider=null;
+  function registerCarrier(c){
     for(let x=Math.floor(c.bounds.min[0]/8);x<=Math.floor(c.bounds.max[0]/8);x++)for(let y=Math.floor(c.bounds.min[1]/8);y<=Math.floor(c.bounds.max[1]/8);y++)for(let z=Math.floor(c.bounds.min[2]/8);z<=Math.floor(c.bounds.max[2]/8);z++){const key=[x,y,z].join(',');if(!bins.has(key))bins.set(key,[]);bins.get(key).push(c.id);}
     for(const n of c.parts){const p=model.parts[n];if(p.portalId&&p.openMatrix){if(!portalCarriers.has(p.portalId))portalCarriers.set(p.portalId,new Set());portalCarriers.get(p.portalId).add(c.id);}}
   }
+  for(const c of model.carriers)registerCarrier(c);
   function part(id){const p=model.partById.get(id);if(!p)throw Error('Unknown native part '+id);return p;}
-  function triangles(p,open=false){const g=model.library.geometries[p.geometry];return sourceGeometryTriangles({matrix:open&&p.openMatrix?p.openMatrix:p.matrix,triangleCount:(g.index?.array.length??g.attributes.position.array.length/g.attributes.position.itemSize)/3},g);}
+  function triangles(p,open=false){const g=model.library.geometries[p.physicalGeometry||p.geometry];return sourceGeometryTriangles({matrix:open&&p.openMatrix?p.openMatrix:p.matrix,triangleCount:(g.index?.array.length??g.attributes.position.array.length/g.attributes.position.itemSize)/3},g);}
   function readAttributes(key){
     if(attributes.has(key))return attributes.get(key);const g=model.library.geometries[key],result={};
     for(const [name,a]of Object.entries(g.attributes)){const Type=TYPES[a.type];if(!Type)throw Error('Unsupported native source attribute');result[name]=new T.BufferAttribute(new Type(a.array),a.itemSize,a.normalized);}
@@ -34,7 +35,7 @@ export function createMapSourceGeometry(model){
   function sourceBlueprint(id,presentation=false){
     if(!presentation&&blueprints.has(id))return blueprints.get(id);const c=model.carrierById.get(id);if(!c)throw Error('Unknown canonical source '+id);
     const surfaces=[],openings=[];
-    for(const number of c.parts){const p=model.parts[number];if(!p.physical)continue;if(presentation)presentationPartTransforms++;else nativePartTransforms++;const ts=triangles(p),prefix=id+'/part/'+number,pose=doorPose(p),level=c.level??Math.floor(p.bounds.min[1]/2.12+1e-5);let plane;
+    for(const number of c.parts){const p=model.parts[number];if(!p.physical)continue;let ts;if(!presentation&&originalShapeProvider){ts=originalShapeProvider(p.id).triangles;borrowedNativeParts++;}else{if(presentation)presentationPartTransforms++;else nativePartTransforms++;ts=triangles(p);}const prefix=id+'/part/'+number,pose=doorPose(p),level=c.level??Math.floor(p.bounds.min[1]/2.12+1e-5);let plane;
       if(['wall-area','top-area','leaf-area'].includes(c.quantityRule)||c.material==='glass'){
         try{plane=nativePanel({quantityBasis:{rule:c.quantityRule},physicalMaterial:c.material,fuelAmount:0},ts);}catch{/* Non-box and diagonal sources retain their exact facets. */}
       }
@@ -52,10 +53,12 @@ export function createMapSourceGeometry(model){
     const result={surfaces,openings};if(presentation)presentationBlueprints++;else{blueprints.set(id,result);nativeSourceExpansions++;}return result;
   }
   return {model,order:id=>order.get(id),portalCarriers:id=>[...(portalCarriers.get(id)||[])],
+    registerProjectionCarrier(id){const c=model.carrierById.get(id);if(!c||order.has(id))throw Error('New appended source owner required');order.set(id,model.carriers.indexOf(c));registerCarrier(c);},
+    useOriginalShapes(provider){if(originalShapeProvider)throw Error('Original source geometry already owned');blueprints.clear();originalShapeProvider=provider;let released=false;return ()=>{if(released)return;released=true;if(originalShapeProvider===provider){originalShapeProvider=null;blueprints.clear();}};},
     near(point,radius){const ids=new Set();for(let x=Math.floor((point[0]-radius)/8);x<=Math.floor((point[0]+radius)/8);x++)for(let y=Math.floor((point[1]-radius)/8);y<=Math.floor((point[1]+radius)/8);y++)for(let z=Math.floor((point[2]-radius)/8);z<=Math.floor((point[2]+radius)/8);z++)for(const id of bins.get([x,y,z].join(','))||[])ids.add(id);return [...ids].filter(id=>{const b=model.carrierById.get(id).bounds;return Math.hypot(...point.map((v,i)=>Math.max(b.min[i]-v,v-b.max[i],0)))<=radius;});},
     shapeForPart(id,open){const p=part(id);transformedQueries++;return {triangles:triangles(p,open),closed:p.closed};},renderGeometry,
     sourcesForCarrier(id,portalStates={}){const source=sourceBlueprint(id);return {surfaces:source.surfaces,openings:source.openings.map(o=>({...o,initialOpenFraction:portalStates[o.portalId]?1:0}))};},
     presentationSourcesForCarrier(id,portalStates={}){const source=sourceBlueprint(id,true);return {surfaces:source.surfaces,openings:source.openings.map(o=>({...o,initialOpenFraction:portalStates[o.portalId]?1:0}))};},
-    metrics:()=>({...model.metrics(),decodedAttributeGeometries:attributes.size,transformedQueries,renderExpansions,nativeSourceExpansions,nativePartTransforms,presentationBlueprints,presentationPartTransforms,staticIndexBins:bins.size}),
-    dispose(){attributes.clear();blueprints.clear();bins.clear();portalCarriers.clear();}};
+    metrics:()=>({...model.metrics(),nativeBlueprints:blueprints.size,decodedAttributeGeometries:attributes.size,transformedQueries,renderExpansions,nativeSourceExpansions,nativePartTransforms,borrowedNativeParts,presentationBlueprints,presentationPartTransforms,staticIndexBins:bins.size}),
+    dispose(){originalShapeProvider=null;attributes.clear();blueprints.clear();bins.clear();portalCarriers.clear();}};
 }

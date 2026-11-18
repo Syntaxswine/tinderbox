@@ -1,0 +1,67 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Synthetic existing-host factory admission, ownership, birth and lifecycle controls",
+  "sourcePins": [
+    {
+      "path": "src/content/shared-map-admission.js",
+      "lfSha256": "639aca9552234a4e51c1e444967233012a08c5a90b51600700a8f5f93f50ae55"
+    },
+    {
+      "path": "src/content/shared-map-inputs.js",
+      "lfSha256": "c9a304df516a7f79a92c86d75a4d78a30c21ab51af9c5811b9005e2b309028fa"
+    },
+    {
+      "path": "src/content/map-source-geometry.js",
+      "lfSha256": "15aea125781ffb0c99af961b2ae68a9558b9217bed58c0d9ecac5f2c47ad0fbf"
+    },
+    {
+      "path": "src/content/shared-map.js",
+      "lfSha256": "1ea119dc427deac3f9e7c285a67159b7907eed685617dff4511600d2aeb98386"
+    },
+    {
+      "path": "src/runtime/shared-map.js",
+      "lfSha256": "9668582d43300011d5dfb7cd046a7e1a7a3b85d714b6e7b8605d5750a0e5ad13"
+    },
+    {
+      "path": "src/simulation/hybrid-world-publication.js",
+      "lfSha256": "c6aab29d8003a5f1c71b63a3147b65c8526d80999fdc20692bc92abcf69089b0"
+    },
+    {
+      "path": "tests/fixtures/shared-map-input-data.mjs",
+      "lfSha256": "029828ad8f0320d67d795273867dba0f8b30505bc1153453840d35a7df99caa3"
+    },
+    {
+      "path": "tests/integration/shared-map-inputs.test.mjs",
+      "lfSha256": "5dd4bad31f46e4141894d598704f57e546abe814dafd61fc37e587b0e48aa0e5"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-inputs-v1/run.mjs",
+      "lfSha256": "9431f516563411f93597dfa5284243745f6156136ed2eb777b5cfb09c7fc73ff"
+    }
+  ],
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "tests/integration/shared-map-inputs.test.mjs"
+  ],
+  "pid": 42844,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "creationTime": "2026-11-18T06:57:53.021Z",
+  "startedAt": "2026-11-18T06:57:53.021Z",
+  "endedAt": "2026-11-18T06:57:53.564Z",
+  "exitCode": 1,
+  "observedPass": false,
+  "timeoutMs": 30000,
+  "maxTrialSteps": 64,
+  "maxSourceCells": 64,
+  "maxSourceThermalTriangles": 256,
+  "actualNewYorkExpansions": 0,
+  "actualNewYorkCompilerCalls": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "benchmarks": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+const dir='docs/engineering/shared-maps/existing-host-inputs-v1/',name=process.argv[2];
+if(!/^[a-z0-9-]+$/.test(name||'')||fs.existsSync(dir+name+'.json'))throw Error('Fresh named bounded child required');
+const sha=b=>createHash('sha256').update(b).digest('hex'),paths=['src/content/shared-map-admission.js','src/content/shared-map-inputs.js','src/content/map-source-geometry.js','src/content/shared-map.js','src/runtime/shared-map.js','src/simulation/hybrid-world-publication.js','tests/fixtures/shared-map-input-data.mjs','tests/integration/shared-map-inputs.test.mjs',dir+'run.mjs',...(process.argv.includes('--controls')?['tests/integration/map-source-geometry.test.mjs','tests/integration/hybrid-world-publication.test.mjs','tests/fixtures/hybrid-world-data.mjs']:[])];
+const sourcePins=paths.map(path=>({path,lfSha256:sha(fs.readFileSync(path,'utf8').replace(/\r\n/g,'\n'))}));
+const args=['--test','--test-reporter=tap','--experimental-test-isolation=none','--test-concurrency=1','tests/integration/shared-map-inputs.test.mjs',...(process.argv.includes('--controls')?['tests/integration/map-source-geometry.test.mjs','tests/integration/hybrid-world-publication.test.mjs']:[])];
+const startedAt=new Date().toISOString(),child=spawnSync(process.execPath,args,{windowsHide:true,timeout:30000,encoding:'utf8',maxBuffer:1024*1024}),log=(child.stdout||'')+(child.stderr||'');
+fs.writeFileSync(dir+name+'.log',log);const passed=child.status===0&&!/^not ok |^# fail [1-9]/m.test(log);
+if(!passed)fs.writeFileSync(dir+name+'-failed-inputs.json',JSON.stringify(paths.map(path=>({path,text:fs.readFileSync(path,'utf8')})),null,2)+'\n');
+fs.writeFileSync(dir+name+'.json',JSON.stringify({owner:'Coder Tinderbox',purpose:'Synthetic existing-host factory admission, ownership, birth and lifecycle controls',sourcePins,args,pid:child.pid,executable:process.execPath,creationTime:startedAt,startedAt,endedAt:new Date().toISOString(),exitCode:child.status,observedPass:passed,timeoutMs:30000,maxTrialSteps:64,maxSourceCells:64,maxSourceThermalTriangles:256,actualNewYorkExpansions:0,actualNewYorkCompilerCalls:0,rendererCalls:0,builds:0,benchmarks:0,ports:[],retainedHelpers:[]},null,2)+'\n');
+const hook=log.match(/^(?:# )?INPUT_RESOURCES (.+)$/m),resource=hook?JSON.parse(hook[1]):null;console.log(JSON.stringify({name,passed,tests:Number(log.match(/^# tests (\d+)$/m)?.[1]),compiler:resource?.compiler,trial:resource?.trial,log:dir+name+'.log'}));process.exitCode=passed?0:(child.status||1);

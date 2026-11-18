@@ -14,8 +14,12 @@ export async function loadSharedMapSources(placeId,{signal,loadPinned=pinnedJSON
   const root=new URL('../../assets/runtime/map-sources/'+placeId+'/',import.meta.url),loaded=await Promise.all(['index','library'].map(key=>loadPinned(new URL(key+'.json',root).href,pins[key],signal)));signal?.throwIfAborted();
   return {index:loaded[0],library:loaded[1]};
 }
-export async function createSharedMapRuntime({place,root,uiRoot,mountUI,signal,onExitToMenu,onError,onLoadPhase,...options}){
-  const [data,source]=await Promise.all([loadLandmark(place.id,{signal}),loadSharedMapSources(place.id,{signal})]);signal?.throwIfAborted();let art;
-  const compiled=compileSharedMap(source.index,source.library,data.navigation,{isSectionReady:p=>art?.isReadyAt(p)===true,streamMetrics:()=>art?.streamingMetrics()||{}});compiled.presentation=data;
-  return createRuntime({root,uiRoot,mountUI,signal,onError,onLoadPhase,...options,gameplayMap:compiled,uiOptions:{placeTitle:place.title,onExitToMenu},createArtScene:async args=>(art=await createSharedMapPresentation({...args,gameplayMap:compiled,createMapStructureArt}))});
+export async function createSharedMapRuntime({place,root,uiRoot,mountUI,signal,onExitToMenu,onError,onLoadPhase,inputFactory,onInputReport,
+  loadNavigation=loadLandmark,loadSources=loadSharedMapSources,runtimeFactory=createRuntime,...options}){
+  const [data,source]=await Promise.all([loadNavigation(place.id,{signal}),loadSources(place.id,{signal})]);signal?.throwIfAborted();let art,compiled;
+  try{
+    compiled=compileSharedMap(source.index,source.library,data.navigation,{isSectionReady:p=>art?.isReadyAt(p)===true,streamMetrics:()=>art?.streamingMetrics()||{},inputFactory,signal,onInputReport});compiled.presentation=data;
+    await compiled.prepareInputs();signal?.throwIfAborted();
+    return await runtimeFactory({root,uiRoot,mountUI,signal,onError,onLoadPhase,...options,gameplayMap:compiled,uiOptions:{placeTitle:place.title,onExitToMenu},createArtScene:async args=>(art=await createSharedMapPresentation({...args,gameplayMap:compiled,createMapStructureArt}))});
+  }catch(error){compiled?.dispose();throw error;}
 }
