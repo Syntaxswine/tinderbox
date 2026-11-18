@@ -1,5 +1,19 @@
 # Normalize original cornice contacts as a source batch
 
+## Current checkpoint scope
+
+Retain the full inventory below, but deliver the first original child
+`carrier/edge-0/cornice-1` before expanding to other children: 49 pairs / 96
+regions, including the unchanged passed 24-pair / 48-selector reference. Attempt
+its remaining 25 pairs / 48 selectors using the other wall geometry and rotated
+end. Mark other children **unattempted**, separately from proved, unsupported or
+ambiguous results. Preserve any broader WIP; a partial inventory is not a failed
+physical check. Return this compact checked first page and stop for review.
+This checkpoint refinement supersedes full-family execution in the first turn;
+no new solver or broad speculative design is required.
+
+## Source method and later inventory
+
 The architect's independent default checker reproduces artist `0e9ffa76`:
 24 pairs, 48 selectors, 144 positive contact checks and 479 negatives, with
 no unproved case or native call. The nine-path/eight-payload scope and pins

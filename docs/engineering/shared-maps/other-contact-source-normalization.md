@@ -1,5 +1,17 @@
 # Engineering source normalization for the remaining contact families
 
+## Current checkpoint scope
+
+Inventory all 1,582 regions, then implement/run **eight deterministic existing
+representatives**, one per family, recording their exact IDs. Include real range
+and primitive-offset treatment in the paving representative. Mark all other
+regions unattempted, separately from proved, unsupported or ambiguous. Deliver
+this first compact checked page and stop before expanding; preserve any broader
+WIP. This refines the first delivery below rather than requiring full-family
+execution or a new general solver in one turn.
+
+## Source method and later inventory
+
 After completing the `2143d37b` guard review, the existing UI specialist may
 assist with this offline engineering task. Keep all UI/runtime files, artist
 source assets, original proposals and the train candidate unchanged. Own only
