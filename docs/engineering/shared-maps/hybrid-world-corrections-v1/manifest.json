@@ -1,0 +1,531 @@
+{
+  "baseline": "57d350835508f028310881d00edad8d50ef8b057",
+  "scope": "Focused coupled mutation/temporary-budget/owner-mode/current-island corrections only",
+  "preserved": [
+    "docs/engineering/shared-maps/hybrid-world-publication-v1",
+    "docs/engineering/house-traversal/runtime-integration.json",
+    "src/main.js",
+    "src/runtime/shared-map.js",
+    "src/content/shared-map.js",
+    "docs/source-baseline.json",
+    "assets",
+    "art",
+    "vendor",
+    "tests/integration/hybrid-world-publication.test.mjs",
+    "tests/integration/source-activation.test.mjs",
+    "tests/integration/source-carriers.test.mjs"
+  ],
+  "protectedUnrelated": "docs/engineering/shared-maps/support-regions-proposal.md",
+  "files": [
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/.gitattributes",
+      "hashMode": "raw",
+      "bytes": 90,
+      "sha256": "40c83f13b27522cfe6d2924150d57b102c73c24d4ee889775af78958da3b1fda"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/README.md",
+      "hashMode": "raw",
+      "bytes": 8783,
+      "sha256": "83d9563a7ceba12db41dc15f7ece1f7f17794ff9d2a30e8a9ca4afd1b668ba87"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/architect-callback-repro.json",
+      "hashMode": "raw",
+      "bytes": 434,
+      "sha256": "4ed3a98a0ef16ae113d82115c4ff9ac873c3b88cfca0460c227db7d27b81e942"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/architect-callback-repro.mjs.txt",
+      "hashMode": "raw",
+      "bytes": 1756,
+      "sha256": "c86b654e72af333369ae35acde6c14c54295d9dbe1de5d21545ec87263853f57"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/architect-owner-modes-repro.json",
+      "hashMode": "raw",
+      "bytes": 141,
+      "sha256": "cb2b062c4fb9cadf9c463677053003ed705bbb4260cdbfbd9c087714381e5103"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/attempt-01.json",
+      "hashMode": "raw",
+      "bytes": 6020,
+      "sha256": "9c7f65069c2b7706f78a7c17055936c9fe3347701cc1fea351c1c06b82d79821"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/attempt-01.log",
+      "hashMode": "raw",
+      "bytes": 12634,
+      "sha256": "0ea69eb63a90c62c7c33f362f84702fcb89d899ad4f15974c5400e016256bf6b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/attempt-02.json",
+      "hashMode": "raw",
+      "bytes": 7053,
+      "sha256": "333656f2bae60e202eb5dcd725bd2f34952c7e740e674f79b0a4b16ab37ab860"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/attempt-02.log",
+      "hashMode": "raw",
+      "bytes": 15251,
+      "sha256": "a636d9fd43f63582379b1a2ad99fde99fb0ecfd31eab14cff8b2500a95c1b0d0"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/audit.mjs",
+      "hashMode": "raw",
+      "bytes": 8754,
+      "sha256": "8de46619a29218a9bb98f129c5466e5af8726bdf9119c4bbfc5eed5c5d683abc"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/authority.md",
+      "hashMode": "raw",
+      "bytes": 2264,
+      "sha256": "ec741c01a3c765e7c11987d9f81a8f2a1e03f52a57e559e26902287591f0099b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/bounded-final.json",
+      "hashMode": "raw",
+      "bytes": 7394,
+      "sha256": "f60bcb64abbe8bafba6cd2d2a7090b2eb4ff81c55312dcd09d79e6a2cb76b119"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/bounded-final.log",
+      "hashMode": "raw",
+      "bytes": 16677,
+      "sha256": "3fd957263c07afc5832e53271547931b95ba08b23eb820f24156476196a25f78"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/cleanup.json",
+      "hashMode": "raw",
+      "bytes": 9180,
+      "sha256": "00cfb0410ac5cba3cd4b3b5dd7a7326352a3e6f049e0c7c8f527cf12bcec361b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/consumers-final.json",
+      "hashMode": "raw",
+      "bytes": 7276,
+      "sha256": "a3064559bd93efed49908e46d449a428b602a759efbcb5e0222486918771d159"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/consumers-final.log",
+      "hashMode": "raw",
+      "bytes": 1731,
+      "sha256": "262ae012885c18e97af2785e090faf134e44a008fe944140f22f751257fe07e5"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/coupled-final.json",
+      "hashMode": "raw",
+      "bytes": 7394,
+      "sha256": "a42630c5e10ab134cbd55536570a10e8852acbf48bd723c4361e80b7fde0c47c"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/coupled-final.log",
+      "hashMode": "raw",
+      "bytes": 16677,
+      "sha256": "0607c3f3392a29be78b4b61aa49c1788fd8fa932c564c0ef54bc998224a4333d"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/islands-before.json",
+      "hashMode": "raw",
+      "bytes": 6900,
+      "sha256": "1481f7b2c4b74f93142815e4bf29907e9115f89b09b9a0088e53201a5bfc40a4"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/islands-before.log",
+      "hashMode": "raw",
+      "bytes": 1980,
+      "sha256": "d8b87fa0a16124ec0da630fd303976c4980fc9e60553e6eb2a1d6053c8026cd8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/legacy-bounded.json",
+      "hashMode": "raw",
+      "bytes": 7750,
+      "sha256": "3c47a52db0fe714778d45b3f2cbad1fd1f98787bac360cf11fcde313b7e396de"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/legacy-bounded.log",
+      "hashMode": "raw",
+      "bytes": 659,
+      "sha256": "f7720e926d5559cab84d41b30f35cbb5c88b24a1a0543ebaad8ee985ddec1a22"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/legacy-current.json",
+      "hashMode": "raw",
+      "bytes": 7749,
+      "sha256": "fb186fa31b3e9a2d43d84b6256eb1dfe6f94c030cba4f57aaf3b6d85759efecd"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/legacy-current.log",
+      "hashMode": "raw",
+      "bytes": 658,
+      "sha256": "1b5c7c40c1e367f55a8b1922d0e641bca69ddc12564d33d2a8c6130a2c6eac11"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/legacy-final.json",
+      "hashMode": "raw",
+      "bytes": 7410,
+      "sha256": "25abd62a7726745cd9ef92924cd2cece1de387d13b7ab8e3b9751d215b9f6695"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/legacy-final.log",
+      "hashMode": "raw",
+      "bytes": 659,
+      "sha256": "253a074c32c8bae4d0a1c0967d8c8873a43f8d688a2cd18d3e3f9f2335c69ceb"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/radiation-positive.json",
+      "hashMode": "raw",
+      "bytes": 6903,
+      "sha256": "c7652667de85a18f3cd57f136c1d2157d48318d6f4ce437fc160c89a51412060"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/radiation-positive.log",
+      "hashMode": "raw",
+      "bytes": 1049,
+      "sha256": "cd190ff611eb2e772b3fb21355c91079b6a4b3f6eca89fcfd02b54137b8622e8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/resources.json",
+      "hashMode": "raw",
+      "bytes": 9363,
+      "sha256": "d34ca10777334050a3ee855229878dc6cd516df4524b6655711d71c8c0c841e7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/run.mjs",
+      "hashMode": "raw",
+      "bytes": 4020,
+      "sha256": "c002aba311d797aefa4c954d726d94967250281fde84b341fa101c55acd9c112"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/041813583a87818d0fd558f66b5fbf26b33e70bb65c78aae0b62c745fd6d622d.txt",
+      "hashMode": "raw",
+      "bytes": 8586,
+      "sha256": "041813583a87818d0fd558f66b5fbf26b33e70bb65c78aae0b62c745fd6d622d"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/0c618422e9d29a4f0fed37bd953e87ac13dd07baf73803a109ab4cd2a0757b8f.txt",
+      "hashMode": "raw",
+      "bytes": 3211,
+      "sha256": "0c618422e9d29a4f0fed37bd953e87ac13dd07baf73803a109ab4cd2a0757b8f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/13ab3e9b27f6ccd20fb857449222491c20b5479e976f400826757d439fc38fa3.txt",
+      "hashMode": "raw",
+      "bytes": 65520,
+      "sha256": "13ab3e9b27f6ccd20fb857449222491c20b5479e976f400826757d439fc38fa3"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/1fdfda98c3b4c71c27cece5d52b705e97b17194d6cf5b2aadcf9802612c39286.txt",
+      "hashMode": "raw",
+      "bytes": 30092,
+      "sha256": "1fdfda98c3b4c71c27cece5d52b705e97b17194d6cf5b2aadcf9802612c39286"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/37d829aede8ca4b5ecd71c3d1ea1bdff3e2add6be7a429cf000783ae05f871bc.txt",
+      "hashMode": "raw",
+      "bytes": 65585,
+      "sha256": "37d829aede8ca4b5ecd71c3d1ea1bdff3e2add6be7a429cf000783ae05f871bc"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/3f7109efad743023c44a7bb79d38cf67e4f73e7af3538b24348fcfa6c64ea663.txt",
+      "hashMode": "raw",
+      "bytes": 5389,
+      "sha256": "3f7109efad743023c44a7bb79d38cf67e4f73e7af3538b24348fcfa6c64ea663"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/4987f58cab20e01b4090622b817e4f5a4f96b6d629ebc23276a9af834c0516a9.txt",
+      "hashMode": "raw",
+      "bytes": 14832,
+      "sha256": "4987f58cab20e01b4090622b817e4f5a4f96b6d629ebc23276a9af834c0516a9"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8.txt",
+      "hashMode": "raw",
+      "bytes": 12124,
+      "sha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/58341c5dc888b904d82a4a0ad725e84772f86a7f83a84f875cbe3951fea34544.txt",
+      "hashMode": "raw",
+      "bytes": 62330,
+      "sha256": "58341c5dc888b904d82a4a0ad725e84772f86a7f83a84f875cbe3951fea34544"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/5bd1b1c92446c7771656c3da57aa45fd9f347a95958ebe429c0ed8c382aec011.txt",
+      "hashMode": "raw",
+      "bytes": 9769,
+      "sha256": "5bd1b1c92446c7771656c3da57aa45fd9f347a95958ebe429c0ed8c382aec011"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/5e55efb917c96213d2b8005b5dc10813e39ec95f35fa3fa65b2ca8dc359662f6.txt",
+      "hashMode": "raw",
+      "bytes": 5280,
+      "sha256": "5e55efb917c96213d2b8005b5dc10813e39ec95f35fa3fa65b2ca8dc359662f6"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/60b9b1bd9e69ff2f7a2c640bb03d743c14f23a55c72725db4acf8bfe8c90b0b7.txt",
+      "hashMode": "raw",
+      "bytes": 784,
+      "sha256": "60b9b1bd9e69ff2f7a2c640bb03d743c14f23a55c72725db4acf8bfe8c90b0b7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/6c45d40d70abd027ad4055d784dd3b777d347bd453354039ad335e7d7f003ab7.txt",
+      "hashMode": "raw",
+      "bytes": 14425,
+      "sha256": "6c45d40d70abd027ad4055d784dd3b777d347bd453354039ad335e7d7f003ab7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/7997584c85e56e2e227a53fd4d9bcca590cc9fdd71a0a5d0f7fed9dde3da86b9.txt",
+      "hashMode": "raw",
+      "bytes": 3559,
+      "sha256": "7997584c85e56e2e227a53fd4d9bcca590cc9fdd71a0a5d0f7fed9dde3da86b9"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/7a18859d96ab98e09cc70dceed496b584e1396eb4eb2f587433af6be067dd767.txt",
+      "hashMode": "raw",
+      "bytes": 5820,
+      "sha256": "7a18859d96ab98e09cc70dceed496b584e1396eb4eb2f587433af6be067dd767"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/86f66d1759c0b719882ce0db8164592cc098e2fe620634bd37181d8a7415ac4f.txt",
+      "hashMode": "raw",
+      "bytes": 3399,
+      "sha256": "86f66d1759c0b719882ce0db8164592cc098e2fe620634bd37181d8a7415ac4f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/89b4c5975b4b50b50ba71565181b4d82bfc4e715e8be9555f4c12aabc591666f.txt",
+      "hashMode": "raw",
+      "bytes": 15324,
+      "sha256": "89b4c5975b4b50b50ba71565181b4d82bfc4e715e8be9555f4c12aabc591666f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/8ae4e3f02223e10682ebbc477c31d0e6d8efe0722502d1d082ea816835d2186f.txt",
+      "hashMode": "raw",
+      "bytes": 1790,
+      "sha256": "8ae4e3f02223e10682ebbc477c31d0e6d8efe0722502d1d082ea816835d2186f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/8de5a7e61369af5de07d63c95c42d906c7c8fc46c08a13dcd31b0a3fbaf9097d.txt",
+      "hashMode": "raw",
+      "bytes": 9554,
+      "sha256": "8de5a7e61369af5de07d63c95c42d906c7c8fc46c08a13dcd31b0a3fbaf9097d"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/8f51b1ba511fc95672c4247bc7777012ae577ec6030e6c37ede32175acbda93f.txt",
+      "hashMode": "raw",
+      "bytes": 9877,
+      "sha256": "8f51b1ba511fc95672c4247bc7777012ae577ec6030e6c37ede32175acbda93f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/992a0f2409daec98e434eaa56e174b4e129a69de8ec28e2253111c4ff2370ea7.txt",
+      "hashMode": "raw",
+      "bytes": 9417,
+      "sha256": "992a0f2409daec98e434eaa56e174b4e129a69de8ec28e2253111c4ff2370ea7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/9a35aa64bfa91c14280737540698d25fe7fb7244f46123217d1aeb73ff6c3386.txt",
+      "hashMode": "raw",
+      "bytes": 19950,
+      "sha256": "9a35aa64bfa91c14280737540698d25fe7fb7244f46123217d1aeb73ff6c3386"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/9d134894b1de39f7ffda71c78722db6df0212339ddbaf7e57c701adfff7fd1f9.txt",
+      "hashMode": "raw",
+      "bytes": 17053,
+      "sha256": "9d134894b1de39f7ffda71c78722db6df0212339ddbaf7e57c701adfff7fd1f9"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/a90e589c550ff30b3bead989e0bee948cf7f1325b65bb34babe28f388c72be45.txt",
+      "hashMode": "raw",
+      "bytes": 9135,
+      "sha256": "a90e589c550ff30b3bead989e0bee948cf7f1325b65bb34babe28f388c72be45"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/b16f259f84647c72713090a47af81dfe7e6371e2f38a48748a79dff7c58f53f7.txt",
+      "hashMode": "raw",
+      "bytes": 12140,
+      "sha256": "b16f259f84647c72713090a47af81dfe7e6371e2f38a48748a79dff7c58f53f7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/b4ee76309f479ae99c5b5a807605fc364fc7e8506118ea5b3e42680bc7d818f8.txt",
+      "hashMode": "raw",
+      "bytes": 9271,
+      "sha256": "b4ee76309f479ae99c5b5a807605fc364fc7e8506118ea5b3e42680bc7d818f8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/b80ce81dfa615d419421437076d3bdd69fa5bba48fde4e6ef7f7492b1e908655.txt",
+      "hashMode": "raw",
+      "bytes": 20072,
+      "sha256": "b80ce81dfa615d419421437076d3bdd69fa5bba48fde4e6ef7f7492b1e908655"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/b93ef0eea804cc38c004d42a40dc7cc246a199cccd4e70d036b21139c932a201.txt",
+      "hashMode": "raw",
+      "bytes": 4324,
+      "sha256": "b93ef0eea804cc38c004d42a40dc7cc246a199cccd4e70d036b21139c932a201"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/bb19ab1ad5873e7c7de62765815098dc4ff2b4523ac4aed8cb61fca8c348066d.txt",
+      "hashMode": "raw",
+      "bytes": 9774,
+      "sha256": "bb19ab1ad5873e7c7de62765815098dc4ff2b4523ac4aed8cb61fca8c348066d"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/bb1e194b801b292d2af2854441952b8e6507ee8c4e251ffcec02bb799b9369a2.txt",
+      "hashMode": "raw",
+      "bytes": 62282,
+      "sha256": "bb1e194b801b292d2af2854441952b8e6507ee8c4e251ffcec02bb799b9369a2"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/c002aba311d797aefa4c954d726d94967250281fde84b341fa101c55acd9c112.txt",
+      "hashMode": "raw",
+      "bytes": 4020,
+      "sha256": "c002aba311d797aefa4c954d726d94967250281fde84b341fa101c55acd9c112"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/c0d0cf0ca932dd0be6d3177c96021ac58f6e50cf346c6f3cfdd86c03f5b183d0.txt",
+      "hashMode": "raw",
+      "bytes": 2446,
+      "sha256": "c0d0cf0ca932dd0be6d3177c96021ac58f6e50cf346c6f3cfdd86c03f5b183d0"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/cbb36fe676f7e2ee51c2aa6f5f605b232fd5d1cff6cf51fcbc0f95b8a67c43b8.txt",
+      "hashMode": "raw",
+      "bytes": 6150,
+      "sha256": "cbb36fe676f7e2ee51c2aa6f5f605b232fd5d1cff6cf51fcbc0f95b8a67c43b8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/d98c28ef5e8699155848c70740b42871ef32f5a80e0ca5dd397dae5686e3d673.txt",
+      "hashMode": "raw",
+      "bytes": 3753,
+      "sha256": "d98c28ef5e8699155848c70740b42871ef32f5a80e0ca5dd397dae5686e3d673"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/e4947502a29c46d042a9868ad504e4f678e9b7e09352abf88ca30a043288f825.txt",
+      "hashMode": "raw",
+      "bytes": 3132,
+      "sha256": "e4947502a29c46d042a9868ad504e4f678e9b7e09352abf88ca30a043288f825"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/ebe52052b767b0003a8950fe828e56cd6c1616204aaab4e1192ccba0324d67d9.txt",
+      "hashMode": "raw",
+      "bytes": 6677,
+      "sha256": "ebe52052b767b0003a8950fe828e56cd6c1616204aaab4e1192ccba0324d67d9"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/ec741c01a3c765e7c11987d9f81a8f2a1e03f52a57e559e26902287591f0099b.txt",
+      "hashMode": "raw",
+      "bytes": 2264,
+      "sha256": "ec741c01a3c765e7c11987d9f81a8f2a1e03f52a57e559e26902287591f0099b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/f8c0c4a86bf61f5e095c07289b295fdf93ee004c03bc487d189ca01d0c31f3a7.txt",
+      "hashMode": "raw",
+      "bytes": 14878,
+      "sha256": "f8c0c4a86bf61f5e095c07289b295fdf93ee004c03bc487d189ca01d0c31f3a7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/f93182dbad50827074a735e690a2e4edd6c3d4fcb841e23e8d43c3390001b6c5.txt",
+      "hashMode": "raw",
+      "bytes": 5858,
+      "sha256": "f93182dbad50827074a735e690a2e4edd6c3d4fcb841e23e8d43c3390001b6c5"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/source-evidence/f97c30f6a16539fd30a2a6bb4a63db477a5470860ab93d95087f80e6a54c3c2e.txt",
+      "hashMode": "raw",
+      "bytes": 17502,
+      "sha256": "f97c30f6a16539fd30a2a6bb4a63db477a5470860ab93d95087f80e6a54c3c2e"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "hashMode": "LF-normalized",
+      "bytes": 18461,
+      "sha256": "d502c9f7e8a8cfdeb616b0fb7a0ead736110e7ae7ad7118b27d1acd9f97aee8c"
+    },
+    {
+      "path": "src/runtime/hybrid-source-queries.js",
+      "hashMode": "LF-normalized",
+      "bytes": 4324,
+      "sha256": "b93ef0eea804cc38c004d42a40dc7cc246a199cccd4e70d036b21139c932a201"
+    },
+    {
+      "path": "src/runtime/regional-effective-query.js",
+      "hashMode": "LF-normalized",
+      "bytes": 30092,
+      "sha256": "1fdfda98c3b4c71c27cece5d52b705e97b17194d6cf5b2aadcf9802612c39286"
+    },
+    {
+      "path": "src/runtime/source-query-registry.js",
+      "hashMode": "LF-normalized",
+      "bytes": 9417,
+      "sha256": "992a0f2409daec98e434eaa56e174b4e129a69de8ec28e2253111c4ff2370ea7"
+    },
+    {
+      "path": "src/simulation/hybrid-source-support.js",
+      "hashMode": "LF-normalized",
+      "bytes": 6677,
+      "sha256": "ebe52052b767b0003a8950fe828e56cd6c1616204aaab4e1192ccba0324d67d9"
+    },
+    {
+      "path": "src/simulation/hybrid-world-publication.js",
+      "hashMode": "LF-normalized",
+      "bytes": 9769,
+      "sha256": "5bd1b1c92446c7771656c3da57aa45fd9f347a95958ebe429c0ed8c382aec011"
+    },
+    {
+      "path": "src/simulation/source-carriers.js",
+      "hashMode": "LF-normalized",
+      "bytes": 8524,
+      "sha256": "a564bbef05996c8a62027d319bf99d8b79360dfe7c2d6a9e1b9beae7b30ecfd6"
+    },
+    {
+      "path": "src/simulation/source-follow.js",
+      "hashMode": "LF-normalized",
+      "bytes": 3211,
+      "sha256": "0c618422e9d29a4f0fed37bd953e87ac13dd07baf73803a109ab4cd2a0757b8f"
+    },
+    {
+      "path": "tests/fixtures/hybrid-cold-islands.mjs",
+      "hashMode": "LF-normalized",
+      "bytes": 5280,
+      "sha256": "5e55efb917c96213d2b8005b5dc10813e39ec95f35fa3fa65b2ca8dc359662f6"
+    },
+    {
+      "path": "tests/fixtures/hybrid-world-data.mjs",
+      "hashMode": "LF-normalized",
+      "bytes": 5858,
+      "sha256": "f93182dbad50827074a735e690a2e4edd6c3d4fcb841e23e8d43c3390001b6c5"
+    },
+    {
+      "path": "tests/integration/hybrid-world-corrections.test.mjs",
+      "hashMode": "LF-normalized",
+      "bytes": 17502,
+      "sha256": "f97c30f6a16539fd30a2a6bb4a63db477a5470860ab93d95087f80e6a54c3c2e"
+    },
+    {
+      "path": "tools/record-shared-map-runtime.mjs",
+      "hashMode": "LF-normalized",
+      "bytes": 6104,
+      "sha256": "c3a40671f6a73fc66f757fddeb72b1543485f4cca17844dc43b41a7d77d0de81"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "hashMode": "LF-normalized",
+      "bytes": 14832,
+      "sha256": "4987f58cab20e01b4090622b817e4f5a4f96b6d629ebc23276a9af834c0516a9"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "hashMode": "LF-normalized",
+      "bytes": 20072,
+      "sha256": "b80ce81dfa615d419421437076d3bdd69fa5bba48fde4e6ef7f7492b1e908655"
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "hashMode": "LF-normalized",
+      "bytes": 65064,
+      "sha256": "1d2eeae42135d144fd5e9ce34588e303367f5391979ccd082b60ee8e866cffdb"
+    }
+  ]
+}

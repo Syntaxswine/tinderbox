@@ -89,7 +89,8 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
   let initialCombustibleArea=[...fuels.values()].reduce((v,f)=>v+(f.area||0),0);const targetBins=new Map();
   for(const c of cells.values())if(c.fuels.length){const b=c.position.map(v=>Math.floor(v/2)).join(',');if(!targetBins.has(b))targetBins.set(b,[]);targetBins.get(b).push(c);}
   let targetRepresentatives=[...targetBins.values()].map(list=>list.sort((a,b)=>a.id.localeCompare(b.id))[0]);
-  function radiantEntries(c) {
+  function radiantEntries(c,preparedSelection) {
+    if(preparedSelection)return (preparedSelection.get(c.id)||[]).map(e=>({target:cells.get(e.id),d:e.d,distance:e.distance}));
     const list=targetRepresentatives.map(target=>({target,d:sub(target.position,c.position)})).map(v=>({...v,distance:length(v.d)})).filter(v=>v.distance>.85&&v.distance<=r.radiantRange).sort((a,b)=>a.distance-b.distance||a.target.id.localeCompare(b.target.id));
     // Spread work across near/far geometry, with a hard, declared link count.
     const chosen=list.length<=r.radiantCells?list:Array.from({length:r.radiantCells},(_,i)=>list[Math.floor(i*list.length/r.radiantCells)]);
@@ -236,10 +237,10 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     if(hull.length<3)return null;
     // Use the actual contacted solid face, including slab undersides and a
     // fitting's top, rather than its source plane or support-graph role.
-    const faces=s=>(s.solidTriangles||s.triangles).filter(t=>{const n=unit(cross(sub(t[1],t[0]),sub(t[2],t[0])));return Math.abs(dot(n,normal))>.9999&&Math.abs(dot(sub(t[0],contact),normal))<1e-5;});
-    let selected=surface,triangles=intersectFootprint(hull,faces(surface),y);
+    const footprint=s=>{const clip=ts=>intersectFootprint(hull,ts.filter(t=>{const n=unit(cross(sub(t[1],t[0]),sub(t[2],t[0])));return Math.abs(dot(n,normal))>.9999&&Math.abs(dot(sub(t[0],contact),normal))<1e-5;}),y);return s.withSourceGeometry?s.withSourceGeometry(clip):clip(s.solidTriangles||s.triangles);};
+    let selected=surface,triangles=footprint(surface);
     if(!triangles.length){const box=bounds(hull);box.min[1]-=.02;box.max[1]+=.02;let best=0;
-      for(const candidate of index.candidates(box)){if(!candidate.intact||index.pass(candidate)>=.99)continue;const clipped=intersectFootprint(hull,faces(candidate),y),area=clipped.reduce((v,t)=>v+triangleArea(t),0);if(area>best+EPS){best=area;selected=candidate;triangles=clipped;}}
+      for(const candidate of index.candidates(box)){if(!candidate.intact||index.pass(candidate)>=.99)continue;const clipped=footprint(candidate),area=clipped.reduce((v,t)=>v+triangleArea(t),0);if(area>best+EPS){best=area;selected=candidate;triangles=clipped;}}
     }
     // A line/corner touch with no supported area is a graze. Keep falling to
     // the next real bearing face; never manufacture a landed orphan fuel.
@@ -448,7 +449,23 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     result.tombstones=result.tombstones.filter(t=>!(t.collection==='falls'&&falls.has(t.id)||t.collection==='rubble'&&rubble.has(t.id)));
     dirty.clear();itemDirty.clear();partDirty.clear();eventCursor=events.length;return result;
   }
-  const sourceRegistrations=[];
+  const sourceRegistrations=[],preparedSources=new WeakMap(),preparedRegistrations=new WeakMap();
+  function prepareSourceRegistration(plans){
+    if(closed)throw Error('Trial disposed');index.assertSteppable();const expectedTick=tick,records=[...radCache],positions=new Map(),bins=new Map(),selections=new Map();let done=false;
+    for(const p of plans){const staged=preparedSources.get(p);if(!staged)throw Error('Owned native source stage required');for(const c of staged.cells.values())positions.set(c.id,[...c.position]);}
+    for(const p of plans){
+      const staged=preparedSources.get(p),changed=new Set(),selected=radiationSelection?new Map():undefined;
+      for(const f of staged.fuels)for(const c of f.cells){const key=c.position.map(v=>Math.floor(v/2)).join(',');let list=bins.get(key);if(!list){list=(targetBins.get(key)||[]).map(c=>({id:c.id,position:[...c.position]}));bins.set(key,list);}if(!list.some(v=>v.id===c.id)){list.push({id:c.id,position:[...c.position]});changed.add(key);}}
+      const representatives=[...changed].map(key=>bins.get(key).sort((a,b)=>a.id.localeCompare(b.id))[0]);
+      if(selected)for(const[,record]of records)if(representatives.some(target=>length(sub(target.position,record.cell.position))<=r.radiantRange+EPS)){
+        const refs=radiationSelection.select({sourceId:record.cell.id,position:[...record.cell.position],range:r.radiantRange,count:r.radiantCells});
+        selected.set(record.cell.id,refs.map(reference=>{const position=cells.get(reference.id)?.position||positions.get(reference.id);if(!position||position.some((v,i)=>v!==reference.position[i]))throw Error('Missing or displaced diagnostic radiation target '+reference.id);const d=sub(position,record.cell.position);return {id:reference.id,d,distance:length(d)};}));
+      }
+      selections.set(p,selected);
+    }
+    function validate(){if(done||closed||tick!==expectedTick||radCache.size!==records.length||records.some(([id,value])=>radCache.get(id)!==value))throw Error('Stale native source registration stage');}
+    const stage=Object.freeze({validate,dispose(){done=true;selections.clear();positions.clear();bins.clear();records.length=0;preparedRegistrations.delete(stage);}});preparedRegistrations.set(stage,{validate,selections});validate();return stage;
+  }
   function replaceSupportReferences(proxyIds){
     const replaced=new Set(proxyIds);let rebound=0;
     const support=p=>index.supportAt(p[0],p[2],p[1]+.03,p[1]-.15)?.surface.id;
@@ -460,8 +477,9 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     return rebound;
   }
   function prepareSources(sources,{regionalAdmission=null}={}){
-    if(closed)throw Error('Trial disposed');const plan=regionalAdmission?scene.prepareRegionalSources(regionalAdmission):scene.prepareSources(sources);
-    function register(result){
+    if(closed)throw Error('Trial disposed');index.assertSteppable();const plan=regionalAdmission?scene.prepareRegionalSources(regionalAdmission):scene.prepareSources(sources);
+    function notifySupport(result){if(supportGraph.sourcesAdded)supportGraph.sourcesAdded(result);else supportGraph=(supportGraphFactory||createSupportGraph)(scene);}
+    function register(result,deferSupportNotification=false,preparedSelection){
       ledger.added+=result.quantity;
       const changedTargets=new Set();
       for(const id of result.fuelIds){const f=fuels.get(id);initialCombustibleArea+=f.area||0;for(const c of f.cells){const key=c.position.map(v=>Math.floor(v/2)).join(',');if(!targetBins.has(key))targetBins.set(key,[]);const list=targetBins.get(key);if(!list.includes(c)){list.push(c);changedTargets.add(key);}}}
@@ -472,23 +490,23 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
       for(const id of result.newCellIds){const c=cells.get(id);cellOrder.set(c,cellOrder.size);for(let z=-1;z<=1;z++)for(let y=-1;y<=1;y++)for(let x=-1;x<=1;x++){const neighbour=cells.get(scene.key(c.c.map((v,i)=>v+[x,y,z][i])));if(neighbour)neighbour.links=null;}}orderedCellCount=cells.size;
       for(const record of radCache.values())if(changedRepresentatives.some(target=>length(sub(target.position,record.cell.position))<=r.radiantRange+EPS)){
         for(let i=rayQueue.length-1;i>=0;i--)if(rayQueue[i]===record)rayQueue.splice(i,1);
-        record.entries=radiantEntries(record.cell);record.cursor=0;record.links=[];record.complete=!record.entries.length;record.enqueuedTick=tick;
+        record.entries=radiantEntries(record.cell,preparedSelection);record.cursor=0;record.links=[];record.complete=!record.entries.length;record.enqueuedTick=tick;
         if(record.complete){if(record.energy>0)emitRadiation(record);}else rayQueue.push(record);
       }
       for(const b of result.boundaries){dirty.add(b.id);boundaryOrder.set(b,boundaryOrder.size);if(!supportBySource.has(b.sourceSurfaceId))supportBySource.set(b.sourceSurfaceId,[]);supportBySource.get(b.sourceSurfaceId).push(b);if(b.kind==='window'){windows.push(b);for(const c of b.heatCells||[]){if(!windowsByCell.has(c))windowsByCell.set(c,[]);windowsByCell.get(c).push(b);}}}
       registeredFuels();samplesTick=metricsTick=-1;samplesCache=metricsCache=null;
-      if(supportGraph.sourcesAdded)supportGraph.sourcesAdded(result);else supportGraph=(supportGraphFactory||createSupportGraph)(scene);
+      if(!deferSupportNotification)notifySupport(result);
       sourceRegistrations.push({tick,sourceIds:result.sourceIds,quantity:result.quantity,boundaries:result.boundaries.length,fuels:result.fuelIds.length});
       return result;
     }
-    return {quantity:plan.quantity,quantities:plan.quantities,records:plan.records,boundaries:plan.boundaries,fuels:plan.fuels,validate(){if(closed)throw Error('Trial disposed');plan.validate();},
-      seal(lease){if(closed)throw Error('Trial disposed');const install=plan.seal(lease);return ()=>register(install());},
-      commit(){if(closed)throw Error('Trial disposed');return register(plan.commit());},dispose:plan.dispose};
+    const staged={quantity:plan.quantity,quantities:plan.quantities,records:plan.records,boundaries:plan.boundaries,fuels:plan.fuels,validate(){if(closed)throw Error('Trial disposed');plan.validate();},
+      seal(lease,{deferSupportNotification=false,deferRegistration=false,registration}={}){if(closed)throw Error('Trial disposed');const install=plan.seal(lease);let selection;if(deferRegistration){const owned=preparedRegistrations.get(registration);if(!owned||!owned.selections.has(staged))throw Error('Owned native registration preparation required');owned.validate();selection=owned.selections.get(staged);}return ()=>{const result=install();if(deferRegistration){let registered=false;return {...result,register(){if(registered)throw Error('Native source already registered');registered=true;return register(result,deferSupportNotification,selection);},notifySupport:()=>notifySupport(result)};}const registered=register(result,deferSupportNotification);return deferSupportNotification?{...registered,notifySupport:()=>notifySupport(result)}:registered;};},
+      commit(){if(closed)throw Error('Trial disposed');index.assertSteppable();return register(plan.commit());},dispose(){preparedSources.delete(staged);plan.dispose();}};preparedSources.set(staged,{cells:plan.registrationCells,fuels:plan.registrationFuels});return staged;
   }
   function command(input) {if(closed)throw Error('Trial disposed');const value={...structuredClone(input),sequence:++commandSequence,tick:input.tick??tick+1};if(!Number.isInteger(value.tick)||value.tick<=tick)throw Error('Commands must target a future integer tick');commands.push(value);commands.sort((a,b)=>a.tick-b.tick||a.sequence-b.sequence);commandLog.push(value);return value;}
-  return {scene,get supportGraph(){return supportGraph;},prepareSources,replaceSupportReferences,rules:r,events,stats,wind,windMetadata,executionCache,executionTimings:()=>({...executionTimings}),activeCellIds:()=>[...active].map(c=>c.id),
+  return {scene,get supportGraph(){return supportGraph;},prepareSources,prepareSourceRegistration,replaceSupportReferences,rules:r,events,stats,wind,windMetadata,executionCache,executionTimings:()=>({...executionTimings}),activeCellIds:()=>[...active].map(c=>c.id),
     hotSites:()=>[...[...active].filter(c=>c.heat>EPS).map(c=>({id:c.id,position:[...c.position]})),...[...(executionCache?litFuels:fuels.values())].filter(f=>f.lit&&f.amount>EPS&&f.falling).map(f=>({id:f.id,position:[...f.position]}))],
-    boundariesForSource:id=>supportBySource.get(id)||[],looseFuelAmount:()=>fuelTotals().looseAmount,command,step(count=1){if(closed)throw Error('Trial disposed');index.assertReadable();if(!Number.isInteger(count)||count<0)throw Error('Whole nonnegative steps required');if(trialSteps+count>diagnosticStepCeiling)throw Error('Diagnostic trial step budget exceeded');for(let i=0;i<count;i++){trialSteps++;stepOnce();}return tick;},frame,fireSamples,metrics,
+    boundariesForSource:id=>supportBySource.get(id)||[],looseFuelAmount:()=>fuelTotals().looseAmount,command,step(count=1){if(closed)throw Error('Trial disposed');index.assertSteppable();if(!Number.isInteger(count)||count<0)throw Error('Whole nonnegative steps required');if(trialSteps+count>diagnosticStepCeiling)throw Error('Diagnostic trial step budget exceeded');for(let i=0;i<count;i++){trialSteps++;stepOnce();}return tick;},frame,fireSamples,metrics,
     snapshot(){return {version:1,tick,worldTime:tick*dt,cells:[...cells.values()].filter(c=>c.heat).map(c=>({id:c.id,heat:c.heat})),fuels:[...fuels.values()].map(f=>({id:f.id,cls:f.cls,amount:f.amount,initial:f.initial,area:f.area,char:f.char,lit:f.lit,litAt:f.litAt,spentAt:f.spentAt,falling:f.falling,position:f.position,boundaryId:f.boundaryId,sourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,supportBoundaryId:f.supportBoundaryId,store:f.store?{id:f.store.id,kind:f.store.kind,reacted:f.store.reacted,blocked:f.store.blocked}:null,cellIds:f.cells.map(c=>c.id),burningCellId:f.burningCell?.id})),boundaries:[...index.surfaces.values()].map(boundaryFrame),falls:[...falls.values()],events:events.slice(-1024),eventCount:events.length,items:[...items.values()].map(i=>({id:i.id,position:i.position,intact:i.intact,falling:i.falling,currentSupportIds:i.currentSupportIds})),parts:[...parts.values()].map(p=>({id:p.id,intact:p.intact})),rubble:[...rubble.values()],metrics:metrics()};},
     replay(){return {version:1,prefabId:data.prefabId,sourceHashes:data.sourceHashes,runtimeAdapterVersion:data.runtimeAdapterVersion||0,runtimeAdaptations:data.runtimeAdaptations||[],rules:r,profiles:scene.profile,wind:windMetadata,commands:structuredClone(commandLog),...(sourceRegistrations.length?{sourceRegistrations:structuredClone(sourceRegistrations)}:{}),endTick:tick};},
     publicationGeometryDiagnostics:()=>({boundaryEntries:sampleGeometry.size,activeBoundaryIds:sampleBoundaryIds.size}),

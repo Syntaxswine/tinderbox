@@ -1,0 +1,23 @@
+// Finite hidden test child; fresh names preserve every attempt and exact inputs.
+import fs from 'node:fs';
+import {spawnSync,execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+const dir='docs/engineering/shared-maps/hybrid-world-corrections-v1/',name=process.argv[2],legacy=process.argv.includes('--legacy');
+if(!/^[a-z0-9-]+$/.test(name||'')||fs.existsSync(dir+name+'.json'))throw Error('Fresh named bounded run required');
+const changed=execFileSync('git',['diff','--name-only','--','src','workbenches','tests'],{windowsHide:true,encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean);
+const files=[...new Set([...changed,'tests/integration/hybrid-world-corrections.test.mjs','tests/integration/hybrid-world-publication.test.mjs','tests/integration/source-activation.test.mjs','tests/integration/source-carriers.test.mjs','tests/fixtures/hybrid-world-data.mjs',dir+'run.mjs',dir+'authority.md'])];
+if(fs.existsSync('tests/fixtures/hybrid-cold-islands.mjs'))files.push('tests/fixtures/hybrid-cold-islands.mjs');
+if(legacy)files.push('docs/engineering/shared-maps/hybrid-world-publication-v1/legacy-preload.mjs');
+const before=files.map(path=>({path,raw:fs.readFileSync(path)})),sha=b=>createHash('sha256').update(b).digest('hex');
+fs.mkdirSync(dir+'source-evidence',{recursive:true});
+const sourcePins=before.map(p=>{const rawSha256=sha(p.raw),snapshot='source-evidence/'+rawSha256+'.txt';if(!fs.existsSync(dir+snapshot))fs.writeFileSync(dir+snapshot,p.raw);return {path:p.path,rawSha256,lfSha256:sha(p.raw.toString().replace(/\r\n/g,'\n')),snapshot};});
+const args=['--test','--test-reporter=tap','--experimental-test-isolation=none','--test-concurrency=1'];
+if(process.argv.includes('--islands'))args.push('--test-name-pattern=genuine cold U islands','tests/integration/hybrid-world-corrections.test.mjs');
+else if(process.argv.includes('--radiation'))args.push('--test-name-pattern=radiation selection faults','tests/integration/hybrid-world-corrections.test.mjs');
+else if(legacy)args.push('--import=./docs/engineering/shared-maps/hybrid-world-publication-v1/legacy-preload.mjs','--test-name-pattern=thermal-frontier','tests/integration/source-activation.test.mjs');
+else args.push('--test-skip-pattern=thermal-frontier','tests/integration/hybrid-world-corrections.test.mjs','tests/integration/hybrid-world-publication.test.mjs','tests/integration/source-activation.test.mjs','tests/integration/source-carriers.test.mjs');
+const startedAt=new Date().toISOString(),child=spawnSync(process.execPath,args,{windowsHide:true,timeout:30000,maxBuffer:2*1024*1024,encoding:'utf8'}),log=(child.stdout||'')+(child.stderr||'');
+fs.writeFileSync(dir+name+'.log',log);
+const passed=child.status===0&&!/^not ok |^# fail [1-9]/m.test(log);
+fs.writeFileSync(dir+name+'.json',JSON.stringify({owner:'Coder Tinderbox',purpose:legacy?'Affected unchanged legacy thermal-frontier comparison after shared native registration/notification changes':'Focused coupled notification and cumulative-budget corrections',baseline:'57d350835508f028310881d00edad8d50ef8b057',sourcePins,pid:child.pid,executable:process.execPath,args,startedAt,endedAt:new Date().toISOString(),timeoutMs:30000,maxTrialSteps:legacy?128:64,maxFixtureLogicalCells:64,maxFixtureThermalTriangles:256,exitCode:child.status,observedPass:passed,signal:child.signal,error:child.error?.message,actualNewYorkCalls:0,fullNewYorkDiagnostics:0,rendererCalls:0,builds:0,benchmarks:0,ports:[],retainedHelpers:[]},null,2)+'\n');
+console.log(log);process.exitCode=passed?0:(child.status||1);

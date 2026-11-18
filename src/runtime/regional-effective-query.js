@@ -116,10 +116,11 @@ function createKernel({grid,sources,nativeInventory=[],sourceRevision},participa
   const bodyProbeBounds=box=>({min:box.min.map((v,i)=>v-BODY_EPS*(1+2*(box.max[i]-v))),max:box.max.map((v,i)=>v+BODY_EPS*(1+2*(v-box.min[i])))});
   function bodyWitnessBox(p,c,shapeBox){const b=cellBox(c),probe=bodyProbeBounds(shapeBox);return {min:b.min.map((v,i)=>c[i]===p.min[i]?Math.min(v,probe.min[i]):v),max:b.max.map((v,i)=>c[i]===p.max[i]?Math.max(v,probe.max[i]):v)};}
   function cellsIn(p,box){const lo=coords(box.min).map((v,i)=>Math.max(p.min[i],v-1)),hi=coords(box.max).map((v,i)=>Math.min(p.max[i],v+1)),out=[];for(let z=lo[2];z<=hi[2];z++)for(let y=lo[1];y<=hi[1];y++)for(let x=lo[0];x<=hi[0];x++)out.push([x,y,z]);return out;}
-  function facePieces(state,{channel,box,includeInactive=false,partId}={}){
+  function facePieces(state,{channel,box,includeInactive=false,partId,domain,visit}={}){
     if(!['surface','solid'].includes(channel))throw Error('Explicit original surface/solid channel required');const out=[];
     for(const p of parts.values())if(!partId||p.spec.partRef.id===partId){
       const offer=(record,ts,kind,sourceCell=null)=>{
+        if(domain&&kind!==domain)return;
         if(!includeInactive&&record.intact===false)return;
         for(let i=0;i<ts.length;i++){
           const t=ts[i],b=bounds(t);if(box&&!overlap(b,box))continue;
@@ -128,7 +129,7 @@ function createKernel({grid,sources,nativeInventory=[],sourceRevision},participa
             // A polygon lying entirely in an upper ownership plane belongs to
             // the neighbouring cell. Shared edges have zero surface measure.
             if([0,1,2].some(axis=>poly.every(v=>v[axis]===cb.max[axis])))continue;
-            const outerHalo=poly.some(v=>coords(v).some((n,i)=>n<p.min[i]||n>p.max[i]));out.push({partId:p.spec.partRef.id,ownerId:p.spec.partRef.carrierId,record,recordId:record.id,sourceSurfaceId:record.sourceSurfaceId,cell:c,sourceCell,channel,primitive:i,polygon:poly,normal:normal(t),halo:outerHalo||!!sourceCell&&!same(c,sourceCell),outerHalo});
+            const outerHalo=poly.some(v=>coords(v).some((n,i)=>n<p.min[i]||n>p.max[i])),piece={partId:p.spec.partRef.id,ownerId:p.spec.partRef.carrierId,record,recordId:record.id,sourceSurfaceId:record.sourceSurfaceId,cell:c,sourceCell,channel,primitive:i,polygon:poly,normal:normal(t),halo:outerHalo||!!sourceCell&&!same(c,sourceCell),outerHalo};if(visit)visit(piece);else out.push(piece);
           }
         }
       };

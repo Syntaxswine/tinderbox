@@ -1,0 +1,172 @@
+// Metres, X/Z ground and Y up. Shared by heat, tools, support and navigation.
+export const EPS = 1e-7;
+export const add = (a,b) => a.map((v,i)=>v+b[i]);
+export const sub = (a,b) => a.map((v,i)=>v-b[i]);
+export const mul = (a,s) => a.map(v=>v*s);
+export const dot = (a,b) => a.reduce((v,x,i)=>v+x*b[i],0);
+export const cross = (a,b) => [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+export const length = a => Math.hypot(...a);
+export const unit = a => mul(a,1/(length(a)||1));
+// One world-time gravity integration for native debris and supported bodies.
+// The caller owns velocity; preserve the existing semi-implicit operation order.
+export function gravityStep(position,velocity,delta){velocity[1]-=9.81*delta;return add(position,mul(velocity,delta));}
+export const centre = points => mul(points.reduce(add,[0,0,0]),1/points.length);
+export const triangleArea = t => length(cross(sub(t[1],t[0]),sub(t[2],t[0])))/2;
+export function bounds(points){const min=[Infinity,Infinity,Infinity],max=[-Infinity,-Infinity,-Infinity];for(const p of points)for(let i=0;i<3;i++){min[i]=Math.min(min[i],p[i]);max[i]=Math.max(max[i],p[i]);}return {min,max};}
+export const overlaps = (a,b,margin=EPS) => [0,1,2].every(i=>a.min[i]<=b.max[i]+margin&&a.max[i]>=b.min[i]-margin);
+export function clipPolygon(poly,axis,value,above) {
+  const out=[];
+  for(let i=0;i<poly.length;i++) {
+    const a=poly[i],b=poly[(i+1)%poly.length],ia=above?a[axis]>=value-EPS:a[axis]<=value+EPS,ib=above?b[axis]>=value-EPS:b[axis]<=value+EPS;
+    if(ia)out.push(a);
+    if(ia!==ib) { const t=(value-a[axis])/(b[axis]-a[axis]);out.push(add(a,mul(sub(b,a),t))); }
+  }
+  return out;
+}
+export function clipTriangle(triangle,box) {
+  let p=triangle;
+  for(let axis=0;axis<3&&p.length;axis++)p=clipPolygon(clipPolygon(p,axis,box.min[axis],true),axis,box.max[axis],false);
+  return p.slice(1,-1).map((_,i)=>[p[0],p[i+1],p[i+2]]).filter(t=>triangleArea(t)>EPS);
+}
+export function projectedHull(points,y) {
+  const list=[...new Map(points.map(p=>[`${p[0]},${p[2]}`,[p[0],y,p[2]]])).values()].sort((a,b)=>a[0]-b[0]||a[2]-b[2]);
+  const turn=(a,b,c)=>(b[0]-a[0])*(c[2]-a[2])-(b[2]-a[2])*(c[0]-a[0]),lower=[],upper=[];
+  for(const p of list){while(lower.length>=2&&turn(lower.at(-2),lower.at(-1),p)<=EPS)lower.pop();lower.push(p);}for(const p of [...list].reverse()){while(upper.length>=2&&turn(upper.at(-2),upper.at(-1),p)<=EPS)upper.pop();upper.push(p);}return [...lower.slice(0,-1),...upper.slice(0,-1)];
+}
+export function intersectFootprint(polygon,triangles,y) {
+  const result=[];
+  for(const t of triangles) {
+    const sign=Math.sign((t[1][0]-t[0][0])*(t[2][2]-t[0][2])-(t[1][2]-t[0][2])*(t[2][0]-t[0][0]));if(!sign)continue;let poly=polygon;
+    for(let edge=0;edge<3&&poly.length;edge++) {
+      const a=t[edge],b=t[(edge+1)%3],distance=p=>sign*((b[0]-a[0])*(p[2]-a[2])-(b[2]-a[2])*(p[0]-a[0])),next=[];
+      for(let i=0;i<poly.length;i++){const p=poly[i],q=poly[(i+1)%poly.length],dp=distance(p),dq=distance(q),inside=dp>=-EPS;if(inside)next.push([p[0],y,p[2]]);if(inside!==(dq>=-EPS)){const f=dp/(dp-dq);next.push([p[0]+f*(q[0]-p[0]),y,p[2]+f*(q[2]-p[2])]);}}poly=next;
+    }
+    for(let i=1;i<poly.length-1;i++){const triangle=[poly[0],poly[i],poly[i+1]];if(triangleArea(triangle)>EPS)result.push(triangle);}
+  }
+  return result;
+}
+export function extrudePlane(triangles,normal,low,high) {
+  const at=(p,d)=>p.map((v,i)=>v+normal[i]*d),front=triangles.map(t=>t.map(p=>at(p,high))),back=triangles.map(t=>[...t].reverse().map(p=>at(p,low))),edges=new Map(),key=p=>p.map(v=>Math.round(v*1e7)).join(',');
+  for(const t of triangles)for(let i=0;i<3;i++){const a=t[i],b=t[(i+1)%3],id=[key(a),key(b)].sort().join('|');if(edges.has(id))edges.delete(id);else edges.set(id,[a,b]);}
+  const sides=[...edges.values()].flatMap(([a,b])=>{const ah=at(a,high),bh=at(b,high),al=at(a,low),bl=at(b,low);return [[ah,bh,bl],[ah,bl,al]];});return [...front,...back,...sides];
+}
+export function pointOnTriangle(p,t,tolerance=EPS) {
+  const [a,b,c]=t,u=sub(b,a),v=sub(c,a),w=sub(p,a),uu=dot(u,u),vv=dot(v,v),uv=dot(u,v),wu=dot(w,u),wv=dot(w,v),d=uu*vv-uv*uv;
+  if(d<EPS*EPS)return false;
+  const s=(vv*wu-uv*wv)/d,r=(uu*wv-uv*wu)/d;
+  return s>=-tolerance&&r>=-tolerance&&s+r<=1+tolerance;
+}
+// Includes triangle edges and vertices. Simultaneous diagonal/corner hits are
+// all collected; there is no choice among axis-ordered routes around a wall.
+const prepared=new WeakMap();
+function prepareTriangle(t) {
+  let p=prepared.get(t);if(p)return p;
+  const a=t[0],ux=t[1][0]-a[0],uy=t[1][1]-a[1],uz=t[1][2]-a[2],vx=t[2][0]-a[0],vy=t[2][1]-a[1],vz=t[2][2]-a[2],nx=uy*vz-uz*vy,ny=uz*vx-ux*vz,nz=ux*vy-uy*vx,nn=Math.hypot(nx,ny,nz),uu=ux*ux+uy*uy+uz*uz,vv=vx*vx+vy*vy+vz*vz,uv=ux*vx+uy*vy+uz*vz;
+  p={a,ux,uy,uz,vx,vy,vz,nx:nx/nn,ny:ny/nn,nz:nz/nn,uu,vv,uv,inverse:1/(uu*vv-uv*uv)};prepared.set(t,p);return p;
+}
+export function segmentTriangle(from,to,triangle,thickness=0) {
+  const p=prepareTriangle(triangle),ax=from[0]-p.a[0],ay=from[1]-p.a[1],az=from[2]-p.a[2],dx=to[0]-from[0],dy=to[1]-from[1],dz=to[2]-from[2],a=ax*p.nx+ay*p.ny+az*p.nz,den=dx*p.nx+dy*p.ny+dz*p.nz;
+  if(Math.abs(den)<EPS) {
+    if(Math.abs(a)>thickness/2+EPS)return null;
+    const wu=ax*p.ux+ay*p.uy+az*p.uz,wv=ax*p.vx+ay*p.vy+az*p.vz,s=(p.vv*wu-p.uv*wv)*p.inverse,r=(p.uu*wv-p.uv*wu)*p.inverse;if(s>=-EPS&&r>=-EPS&&s+r<=1+EPS)return 0;
+    const axis=Math.abs(p.nx)>Math.abs(p.ny)?(Math.abs(p.nx)>Math.abs(p.nz)?0:2):(Math.abs(p.ny)>Math.abs(p.nz)?1:2),i=(axis+1)%3,j=(axis+2)%3;
+    for(let edge=0;edge<3;edge++) {
+      const c=triangle[edge],d=triangle[(edge+1)%3],ex=d[i]-c[i],ey=d[j]-c[j],fx=to[i]-from[i],fy=to[j]-from[j],det=fx*ey-fy*ex;if(Math.abs(det)<EPS)continue;
+      const rx=c[i]-from[i],ry=c[j]-from[j],t=(rx*ey-ry*ex)/det,u=(rx*fy-ry*fx)/det;if(t>=-EPS&&t<=1+EPS&&u>=-EPS&&u<=1+EPS)return Math.max(0,Math.min(1,t));
+    }
+    return null;
+  }
+  const t=-a/den;if(t< -EPS||t>1+EPS)return null;
+  const x=ax+dx*t,y=ay+dy*t,z=az+dz*t,wu=x*p.ux+y*p.uy+z*p.uz,wv=x*p.vx+y*p.vy+z*p.vz,s=(p.vv*wu-p.uv*wv)*p.inverse,r=(p.uu*wv-p.uv*wu)*p.inverse;
+  return s>=-EPS&&r>=-EPS&&s+r<=1+EPS?Math.max(0,Math.min(1,t)):null;
+}
+function segmentBox(from,to,b) {
+  let low=0,high=1;
+  for(let i=0;i<3;i++){const d=to[i]-from[i];if(Math.abs(d)<EPS){if(from[i]<b.min[i]-EPS||from[i]>b.max[i]+EPS)return false;}else{const a=(b.min[i]-EPS-from[i])/d,c=(b.max[i]+EPS-from[i])/d;low=Math.max(low,Math.min(a,c));high=Math.min(high,Math.max(a,c));if(low>high)return false;}}
+  return true;
+}
+
+export function createBoundaryIndex(records,binSize=1) {
+  const surfaces=new Map(),bins=new Map(),listeners=new Map(),pathListeners=new Map(),deferred=new Set(),mutationListeners=new Set();let revision=0,membershipRevision=0,publication=null,internalRead=false,notifying=false;
+  const readable=()=>{if(publication&&!internalRead)throw Error('Physical publication in progress');};
+  const mutable=()=>{if(notifying)throw Error('Physical publication notifications in progress');};
+  const notify=fn=>{if(publication)deferred.add(fn);else fn();};
+  const binKey=(i,j,k)=>`${i},${j},${k}`;
+  function visit(box,fn) { for(let k=Math.floor((box.min[2]-EPS)/binSize);k<=Math.floor((box.max[2]+EPS)/binSize);k++)for(let j=Math.floor((box.min[1]-EPS)/binSize);j<=Math.floor((box.max[1]+EPS)/binSize);j++)for(let i=Math.floor((box.min[0]-EPS)/binSize);i<=Math.floor((box.max[0]+EPS)/binSize);i++)fn(binKey(i,j,k)); }
+  function put(record) {
+    mutable();
+    const old=surfaces.get(record.id);if(old)return old; // one canonical identity
+    const s={intact:true,openFraction:0,transmission:0,...record};s.bounds??=bounds(s.triangles.flat());surfaces.set(s.id,s);membershipRevision++;
+    visit(s.bounds,key=>{if(!bins.has(key))bins.set(key,new Set());bins.get(key).add(s);});return s;
+  }
+  records.forEach(put);
+  function candidates(box) { readable();const result=new Set();visit(box,key=>{for(const s of bins.get(key)||[])if(overlaps(box,s.bounds,(s.thickness||0)/2))result.add(s);});return [...result].sort((a,b)=>a.id.localeCompare(b.id)); }
+  function segmentCandidates(from,to,onBin=null) {
+    const result=new Set(),delta=sub(to,from),c=from.map(v=>Math.floor(v/binSize)),end=to.map(v=>Math.floor(v/binSize)),step=delta.map(Math.sign),next=c.map((v,i)=>step[i]?(((v+(step[i]>0?1:0))*binSize-from[i])/delta[i]):Infinity),increment=delta.map(v=>v?binSize/Math.abs(v):Infinity);
+    const include=cell=>{const key=binKey(...cell);onBin?.(key);for(const s of bins.get(key)||[])result.add(s);};include(c);
+    const limit=end.reduce((n,v,i)=>n+Math.abs(v-c[i]),0)+4;
+    for(let n=0;n<limit;n++) {
+      const t=Math.min(...next);if(t>1+EPS||!Number.isFinite(t))break;
+      const axes=[0,1,2].filter(i=>Math.abs(next[i]-t)<EPS);
+      // All subsets at a simultaneous crossing include edge and corner bins.
+      for(let mask=1;mask<1<<axes.length;mask++){const touched=[...c];for(let a=0;a<axes.length;a++)if(mask>>a&1)touched[axes[a]]+=step[axes[a]];include(touched);}
+      for(const i of axes){c[i]+=step[i];next[i]+=increment[i];}
+    }
+    return [...result].sort((a,b)=>a.id.localeCompare(b.id));
+  }
+  function crossings(from,to,{ignore=[],includeEndpoints=false}={}) {
+    readable();const skip=new Set(ignore),hits=[];
+    for(const s of segmentCandidates(from,to)) {
+      if(skip.has(s.id)||!segmentBox(from,to,s.bounds))continue;
+      if(s.queryCrossings){for(const h of s.queryCrossings(from,to,{includeEndpoints}))hits.push({...h,surface:s});continue;}
+      let first=Infinity,normal=null;
+      for(const t of s.solidTriangles||s.triangles) {const hit=segmentTriangle(from,to,t,s.thickness||0);if(hit!==null&&((includeEndpoints)||hit>EPS&&hit<1-EPS)&&hit<first){first=hit;const p=prepareTriangle(t);normal=[p.nx,p.ny,p.nz];}}
+      if(first<Infinity)hits.push({surface:s,t:first,normal});
+    }
+    hits.sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id));
+    // Subdivision seams represent one physical sheet. Distinct sheets at a
+    // corner still all count, including when they meet at the same parameter.
+    const unique=[];
+    for(const hit of hits){const key=hit.surface.sheetKey||hit.surface.sourceSurfaceId||hit.surface.id,old=unique.findIndex(other=>(other.surface.sheetKey||other.surface.sourceSurfaceId||other.surface.id)===key&&Math.abs(other.t-hit.t)<EPS*10);if(old<0)unique.push(hit);else if(pass(hit.surface)<pass(unique[old].surface))unique[old]=hit;}
+    return unique.sort((a,b)=>a.t-b.t||a.surface.id.localeCompare(b.surface.id));
+  }
+  const pass=s=>s.intact?(s.actualDoorPose?s.transmission:Math.max(0,Math.min(1,s.openFraction+(1-s.openFraction)*s.transmission))):1;
+  function trace(from,to,options={}) {const hits=crossings(from,to,options);return {hits,transmission:hits.reduce((p,h)=>p*pass(h.surface),1)};}
+  function change(id,patch) {
+    mutable();
+    const s=surfaces.get(id);if(!s)throw Error(`Unknown boundary ${id}`);
+    const moved=Object.hasOwn(patch,'solidTriangles')||Object.hasOwn(patch,'bounds'),affected=new Set();
+    if(moved)visit(s.bounds,key=>{bins.get(key)?.delete(s);for(const fn of pathListeners.get(key)||[])affected.add(fn);});
+    if(Object.hasOwn(patch,'openingId')&&patch.openingId!==s.openingId)membershipRevision++;
+    Object.assign(s,patch);revision++;
+    if(moved)visit(s.bounds,key=>{if(!bins.has(key))bins.set(key,new Set());bins.get(key).add(s);for(const fn of pathListeners.get(key)||[])affected.add(fn);});
+    for(const fn of mutationListeners)notify(()=>fn(s));
+    for(const fn of affected)notify(fn);
+    for(const invalidate of listeners.get(id)?.keys()||[])notify(invalidate);return s;
+  }
+  function watch(ids,invalidate) {
+    const owned=[...new Set(ids)];let subscribed=true;
+    for(const id of owned){if(!listeners.has(id))listeners.set(id,new Map());const callbacks=listeners.get(id);callbacks.set(invalidate,(callbacks.get(invalidate)||0)+1);}
+    // Existing consumers may ignore this handle. Duplicate registrations keep
+    // one notification until their final independent owner unsubscribes.
+    return ()=>{if(!subscribed)return;subscribed=false;for(const id of owned){const callbacks=listeners.get(id),count=callbacks?.get(invalidate)||0;if(count>1)callbacks.set(invalidate,count-1);else callbacks?.delete(invalidate);if(callbacks?.size===0)listeners.delete(id);}};
+  }
+  function watchPath(from,to,invalidate) {segmentCandidates(from,to,key=>{if(!pathListeners.has(key))pathListeners.set(key,new Set());pathListeners.get(key).add(invalidate);});}
+  function addBatch(records){
+    mutable();
+    const ids=new Set();for(const record of records){if(!record.id||surfaces.has(record.id)||ids.has(record.id))throw Error('Duplicate new physical boundary '+record.id);ids.add(record.id);}
+    const added=records.map(put),affected=new Set();
+    if(added.length){revision++;for(const s of added)visit(s.bounds,key=>{for(const fn of pathListeners.get(key)||[])affected.add(fn);});for(const fn of affected)notify(fn);}
+    return added;
+  }
+  function supportAt(x,z,fromY,toY=-10) {
+    const hits=crossings([x,fromY,z],[x,toY,z],{includeEndpoints:true});
+    return hits.find(h=>h.surface.intact&&(h.surface.openFraction<1||h.surface.supportFromMesh&&h.surface.actualDoorPose)&&Math.abs((h.surface.supportFromMesh?h.normal:h.surface.normal)?.[1]??0)>.2&&h.surface.supports);
+  }
+  return {surfaces,bins,put,addBatch,candidates,crossings,trace,change,watch,watchPath,supportAt,pass,
+    assertReadable:readable,assertSteppable(){readable();mutable();},isPublication:lease=>publication===lease&&lease!==null,
+    readDuringPublication(lease,fn){if(publication!==lease||!lease)throw Error('Physical publication lease required');internalRead=true;try{return fn();}finally{internalRead=false;}},
+    publish(fn,{afterCommit=[],onObserverError}={}){mutable();if(publication)throw Error('Reentrant physical publication');const lease=Object.freeze({});publication=lease;let result;try{result=fn(lease);}catch(error){deferred.clear();throw error;}finally{publication=null;}const callbacks=[...afterCommit,...deferred];deferred.clear();notifying=true;try{for(const callback of callbacks){try{callback();}catch(error){if(!onObserverError)throw error;onObserverError(error);}}}finally{notifying=false;}return result;},
+    observeMutation(fn){mutationListeners.add(fn);return ()=>mutationListeners.delete(fn);},
+    get revision(){return revision;},get membershipRevision(){return membershipRevision;}};
+}

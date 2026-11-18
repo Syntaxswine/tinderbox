@@ -87,12 +87,15 @@ function segmentBox(from,to,b) {
 }
 
 export function createBoundaryIndex(records,binSize=1) {
-  const surfaces=new Map(),bins=new Map(),listeners=new Map(),pathListeners=new Map(),deferred=new Set(),mutationListeners=new Set();let revision=0,membershipRevision=0,publication=null,internalRead=false;
+  const surfaces=new Map(),bins=new Map(),listeners=new Map(),pathListeners=new Map(),deferred=new Set(),mutationListeners=new Set();let revision=0,membershipRevision=0,publication=null,internalRead=false,notifying=false,readLeases=0;
   const readable=()=>{if(publication&&!internalRead)throw Error('Physical publication in progress');};
+  const idle=()=>{readable();if(notifying)throw Error('Physical publication notifications in progress');};
+  const mutable=()=>{if(notifying)throw Error('Physical publication notifications in progress');if(readLeases)throw Error('Release borrowed physical query geometry before mutation');};
   const notify=fn=>{if(publication)deferred.add(fn);else fn();};
   const binKey=(i,j,k)=>`${i},${j},${k}`;
   function visit(box,fn) { for(let k=Math.floor((box.min[2]-EPS)/binSize);k<=Math.floor((box.max[2]+EPS)/binSize);k++)for(let j=Math.floor((box.min[1]-EPS)/binSize);j<=Math.floor((box.max[1]+EPS)/binSize);j++)for(let i=Math.floor((box.min[0]-EPS)/binSize);i<=Math.floor((box.max[0]+EPS)/binSize);i++)fn(binKey(i,j,k)); }
   function put(record) {
+    mutable();
     const old=surfaces.get(record.id);if(old)return old; // one canonical identity
     const s={intact:true,openFraction:0,transmission:0,...record};s.bounds??=bounds(s.triangles.flat());surfaces.set(s.id,s);membershipRevision++;
     visit(s.bounds,key=>{if(!bins.has(key))bins.set(key,new Set());bins.get(key).add(s);});return s;
@@ -131,6 +134,7 @@ export function createBoundaryIndex(records,binSize=1) {
   const pass=s=>s.intact?(s.actualDoorPose?s.transmission:Math.max(0,Math.min(1,s.openFraction+(1-s.openFraction)*s.transmission))):1;
   function trace(from,to,options={}) {const hits=crossings(from,to,options);return {hits,transmission:hits.reduce((p,h)=>p*pass(h.surface),1)};}
   function change(id,patch) {
+    mutable();
     const s=surfaces.get(id);if(!s)throw Error(`Unknown boundary ${id}`);
     const moved=Object.hasOwn(patch,'solidTriangles')||Object.hasOwn(patch,'bounds'),affected=new Set();
     if(moved)visit(s.bounds,key=>{bins.get(key)?.delete(s);for(const fn of pathListeners.get(key)||[])affected.add(fn);});
@@ -150,6 +154,7 @@ export function createBoundaryIndex(records,binSize=1) {
   }
   function watchPath(from,to,invalidate) {segmentCandidates(from,to,key=>{if(!pathListeners.has(key))pathListeners.set(key,new Set());pathListeners.get(key).add(invalidate);});}
   function addBatch(records){
+    mutable();
     const ids=new Set();for(const record of records){if(!record.id||surfaces.has(record.id)||ids.has(record.id))throw Error('Duplicate new physical boundary '+record.id);ids.add(record.id);}
     const added=records.map(put),affected=new Set();
     if(added.length){revision++;for(const s of added)visit(s.bounds,key=>{for(const fn of pathListeners.get(key)||[])affected.add(fn);});for(const fn of affected)notify(fn);}
@@ -160,9 +165,10 @@ export function createBoundaryIndex(records,binSize=1) {
     return hits.find(h=>h.surface.intact&&(h.surface.openFraction<1||h.surface.supportFromMesh&&h.surface.actualDoorPose)&&Math.abs((h.surface.supportFromMesh?h.normal:h.surface.normal)?.[1]??0)>.2&&h.surface.supports);
   }
   return {surfaces,bins,put,addBatch,candidates,crossings,trace,change,watch,watchPath,supportAt,pass,
-    assertReadable:readable,isPublication:lease=>publication===lease&&lease!==null,
+    assertReadable:readable,assertIdle:idle,assertSteppable(){readable();mutable();},isPublication:lease=>publication===lease&&lease!==null,
+    holdReadLease(){if(publication)throw Error('Physical publication in progress');readLeases++;let released=false;return {release(){if(released)return;released=true;readLeases--;}};},
     readDuringPublication(lease,fn){if(publication!==lease||!lease)throw Error('Physical publication lease required');internalRead=true;try{return fn();}finally{internalRead=false;}},
-    publish(fn){if(publication)throw Error('Reentrant physical publication');const lease=Object.freeze({});publication=lease;let result;try{result=fn(lease);}catch(error){deferred.clear();throw error;}finally{publication=null;}const callbacks=[...deferred];deferred.clear();for(const callback of callbacks)callback();return result;},
+    publish(fn,{afterCommit=[],onObserverError}={}){mutable();if(publication)throw Error('Reentrant physical publication');const lease=Object.freeze({});publication=lease;let result;try{result=fn(lease);}catch(error){deferred.clear();throw error;}finally{publication=null;}const callbacks=[...afterCommit,...deferred];deferred.clear();notifying=true;try{for(const callback of callbacks){try{callback();}catch(error){if(!onObserverError)throw error;onObserverError(error);}}}finally{notifying=false;}return result;},
     observeMutation(fn){mutationListeners.add(fn);return ()=>mutationListeners.delete(fn);},
     get revision(){return revision;},get membershipRevision(){return membershipRevision;}};
 }
