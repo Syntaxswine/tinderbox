@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import {bindCorniceWallContact} from './src/content/cornice-wall-contact-pilot.js';
+const input=JSON.parse(fs.readFileSync('fixture.json')),tokens=[Object.freeze({fixture:0}),Object.freeze({fixture:1})],payloads=new WeakMap();let originalId,neighborId;
+for(const [i,side] of ['parent','child'].entries()){
+ const end=input.proof.ends[side],part=input.parts.find(p=>p.id===end.partId),face=[part.triangles[end.primitive]],record={id:end.sourceId+'@'+end.sourceCell.join(','),sourceSurfaceId:end.sourceId,nativePartId:end.partId,sourceCarrierId:end.ownerId,triangles:face,solidTriangles:face},entries=[{cell:end.sourceCell,record}];
+ if(side==='parent'){originalId=record.id;const cell=[66,7,52];neighborId=end.sourceId+'@'+cell.join(',');entries.push({cell,record:{...record,id:neighborId}});}
+ payloads.set(tokens[i],{epoch:0,sourceRevision:input.sourceRevision,ownerId:end.ownerId,entries});
+}
+const reader=Object.freeze({context:()=>({generation:0,sourceRevision:input.sourceRevision,grid:input.grid}),inspect(token){if(!payloads.has(token))throw Error('Foreign synthetic token');return payloads.get(token);}}),proof=structuredClone(input.proof);
+proof.ends.parent.sourceCell=[66,7,52]; // The sole changed proof field.
+let pilot,error=null;try{pilot=bindCorniceWallContact({parts:structuredClone(input.parts),proof,reader,slices:tokens});}catch(e){error=e.message;}
+let report;
+try{const binding=pilot?.binding(),result=pilot?.evaluate({revision:1,retireRecords:[originalId]});report={candidate:'f7a25711567deb95bc14db01776c4893df3ef5e2',control:'Change only proof.ends.parent.sourceCell from [67,7,52] to [66,7,52]',syntheticCases:1,privateProducerAuthenticationExercised:false,reader:'opaque-token fixture with one selected original facet channel per record; not a replay of real native geometry',originalNativeCompilerCalls:0,worldTrials:0,expected:'Reject retargeted proof instead of binding the neighboring record',accepted:!!pilot,error,originalId,neighborId,boundParent:binding?.parent,liveAfterOriginalBoundRecordRetirement:result?.live,bugReproduced:!!pilot&&binding.parent.nativeRecordId===neighborId&&result.live===true};}finally{pilot?.dispose();}
+fs.writeFileSync('synthetic-cell-retarget-results.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

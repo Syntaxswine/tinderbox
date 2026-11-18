@@ -1,0 +1,5 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+const dir='docs/engineering/shared-maps/cornice-wall-proof-validation-v1/',owned=['src/content/cornice-wall-contact-pilot.js','tests/integration/cornice-wall-proof-validation.test.mjs','docs/engineering/shared-maps/runtime-integration.json'],sha=b=>createHash('sha256').update(b).digest('hex'),files=[...owned,...fs.readdirSync(dir).filter(p=>p!=='manifest.json').map(p=>dir+p)].sort().map(path=>{const b=fs.readFileSync(path),mode=owned.includes(path)?'LF':'raw';return {path,mode,sha256:sha(mode==='LF'?b.toString('utf8').replace(/\r\n/g,'\n'):b)};});
+const result={version:1,base:'f7a25711567deb95bc14db01776c4893df3ef5e2',scope:'Proof-validation correction only; historical native evidence unchanged; no new native execution',files};if(process.argv.includes('--check'))assert.deepEqual(JSON.parse(fs.readFileSync(dir+'manifest.json')),result);else fs.writeFileSync(dir+'manifest.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({manifestEntries:files.length,sourcePaths:owned.length}));

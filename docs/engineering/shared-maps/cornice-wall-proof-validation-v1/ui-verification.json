@@ -1,0 +1,90 @@
+{
+  "coderCandidate": "f7a25711567deb95bc14db01776c4893df3ef5e2",
+  "artistCandidate": "420ee0098e843e6daf6e70a4f5fb50c0ffa3eb37",
+  "adapterSha256": "a7e15e55e869b3239499b31b686574f44cedfcb2b3c6d9cb8ed09ec451253069",
+  "readOnlyEvidenceReview": {
+    "inputSha256": "73351984911afc329903b862fe81e09140b13a9be6b5458402a01eca42622446",
+    "nativeResultSha256": "2098a99e94eaeb59d0647a6cc964e29c30952aab89b4a97bdcbc921a4c010d9d",
+    "artistContactRecordSha256": "c6890d1c477264deb2d5f259b29d719ce9812b8c371462fb27519bf55dae6411",
+    "runtimeAndTestPinsVerified": 16,
+    "bothOriginalOrderedTriangleHashesMatch": true,
+    "originalPartsAndPrimitives": {
+      "wall": [
+        6304,
+        10
+      ],
+      "cornice": [
+        2406,
+        0
+      ]
+    },
+    "historicalRegionExactlyPreserved": true,
+    "historicalVolumeNullFalseFieldsPreserved": true,
+    "savedNativeCalls": 2,
+    "savedNativeCallsRerun": false,
+    "savedFocusedTests": "48/48 inspected; not rerun",
+    "savedMappedWallNativePrimitives": [
+      3,
+      4,
+      5
+    ],
+    "savedRejectedWallCutCaps": [
+      8,
+      9
+    ],
+    "savedRetirements": "Either bound ID dead; unrelated wall ID live; no anchors or grounding claim"
+  },
+  "syntheticControls": {
+    "count": 2,
+    "suiteRuns": 0,
+    "privateProducerAuthenticationExercised": false,
+    "reader": "Opaque-token synthetic seam fixture using two selected original facet channels, not actual native geometry replay.",
+    "endpointOrder": "Rejected by native contact predicate; suspected issue not reproduced.",
+    "proofCellRetarget": "Accepted sourceCell [66,7,52] and remained live after retirement of original fixed [67,7,52] ID.",
+    "newActualNativeCompilerCalls": 0
+  },
+  "finding": {
+    "priority": "P2",
+    "path": "src/content/cornice-wall-contact-pilot.js",
+    "line": 52,
+    "title": "Validate fixed source-cell proof before choosing native record",
+    "detail": "bindCorniceWallContact matches authenticated inventory against caller-provided proof.ends.sourceCell without revalidating the proved projection-to-cell selection. An altered proof can retarget the one-pair binding to a neighboring record.",
+    "scope": "Confirmed at the synthetic binder validation seam, not a bypass of producer slice authentication and not a failed saved real run.",
+    "suggestion": "Accept a producer/source-bound validated proof capability, or revalidate the exact fixed endpoint tuple and derived source-cell selection before matching records."
+  },
+  "boundedConclusion": "Saved coder and artist evidence supports one declared original directed surface-contact alternative; adapter proof-input validation needs tightening before relying on it as an enforced fixed-pair API. No family binding, load capacity, ground support or live acceptance.",
+  "priorSnapshots": {
+    "regional-query-c9b02eb": {
+      "files": 11,
+      "unchanged": true
+    },
+    "regional-query-68b6e399": {
+      "files": 16,
+      "unchanged": true
+    },
+    "regional-query-e84ed22c": {
+      "files": 18,
+      "unchanged": true
+    },
+    "regional-bridge-4eae509b": {
+      "files": 28,
+      "unchanged": true
+    },
+    "support-ports-f45f0c4e": {
+      "files": 27,
+      "unchanged": true
+    },
+    "support-ports-e83ff7af": {
+      "files": 32,
+      "unchanged": true
+    }
+  },
+  "trackedCheckoutClean": true,
+  "uiHead": "2999e51bdd0fdc0002c9b8df2054296b6b3e3569",
+  "trainCandidate": "fb0628605c274550ff8abad50b151843f08747d1",
+  "backgroundHelpersStarted": 0,
+  "foregroundRunsCompleted": true,
+  "portsStarted": [],
+  "commits": 0,
+  "pushes": 0
+}

@@ -1,0 +1,99 @@
+{"syntheticCellRetarget":{"boundParent":{"partId":"main/0/cell-3-1/1","ownerId":"new-york::carrier/main/0/cell-3-1/1","component":0,"primitive":10,"channel":"solid","sourceSurfaceId":"new-york::carrier/main/0/cell-3-1/1/part/6304/plane","nativeRecordId":"new-york::carrier/main/0/cell-3-1/1/part/6304/plane@66,7,52","cell":[66,7,52],"nativePrimitives":[0]},"liveAfterOriginalRetirement":true,"privateProducerAuthenticationExercised":false,"nativeCompilerCalls":0}}
+✖ UI regression: altered parent sourceCell cannot retarget the immutable original binding (5.9953ms)
+✔ validated original source proof keeps the valid local contact and exact retirement controls (3.8974ms)
+✖ issued endpoint tuple is immutable and caller-frozen copied metadata has no issuance authority (1.8525ms)
+✖ source validation captures owned original input and rejects changed parts at binding (2.2253ms)
+✖ serialized proof metadata must be revalidated from original source definitions before binding (1.5028ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 1
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 168.8697
+
+✖ failing tests:
+
+test at tests\integration\cornice-wall-proof-validation.test.mjs:16:1
+✖ UI regression: altered parent sourceCell cannot retarget the immutable original binding (5.9953ms)
+  AssertionError [ERR_ASSERTION]: Altered proof must reject before neighboring record selection
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/cornice-wall-proof-validation.test.mjs:19:271)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\integration\cornice-wall-proof-validation.test.mjs:29:1
+✖ issued endpoint tuple is immutable and caller-frozen copied metadata has no issuance authority (1.8525ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /validated original contact proof/. Input:
+  
+  'Error: Exact producer-owned contact record absent or ambiguous: parent'
+  
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/cornice-wall-proof-validation.test.mjs:32:111)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Exact producer-owned contact record absent or ambiguous: parent
+        at bindCorniceWallContact (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/content/cornice-wall-contact-pilot.js:53:34)
+        at file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/cornice-wall-proof-validation.test.mjs:32:129
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/cornice-wall-proof-validation.test.mjs:32:111)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1201:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+        at Test.postRun (node:internal/test_runner/test:1330:19)
+        at Test.run (node:internal/test_runner/test:1258:12),
+    expected: /validated original contact proof/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\integration\cornice-wall-proof-validation.test.mjs:35:1
+✖ source validation captures owned original input and rejects changed parts at binding (2.2253ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/cornice-wall-proof-validation.test.mjs:37:24)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /validated original contact proof/,
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\integration\cornice-wall-proof-validation.test.mjs:41:1
+✖ serialized proof metadata must be revalidated from original source definitions before binding (1.5028ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/cornice-wall-proof-validation.test.mjs:42:110)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /validated original contact proof/,
+    operator: 'throws',
+    diff: 'simple'
+  }

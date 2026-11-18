@@ -1,0 +1,38 @@
+diff --git a/src/content/cornice-wall-contact-pilot.js b/src/content/cornice-wall-contact-pilot.js
+index 78be6bf5..5ca5b2b0 100644
+--- a/src/content/cornice-wall-contact-pilot.js
++++ b/src/content/cornice-wall-contact-pilot.js
+@@ -5,6 +5,7 @@ import {supportSurfacesTouch} from '../../workbenches/furnished-house/support.js
+ const freeze=v=>{if(v&&typeof v==='object'&&!Object.isFrozen(v)){for(const x of Object.values(v))freeze(x);Object.freeze(v);}return v;};
+ export const CORNICE_WALL_CONTACT=freeze({relationshipId:'fa9dc4a25193e94ce7b5793e',regionId:'19428b0ef95337ce4e9f64a6',point:[33.5,8.330000001490117,25.92000000178814],direction:'parent-to-child',parent:{partId:'main/0/cell-3-1/1',ownerId:'new-york::carrier/main/0/cell-3-1/1',globalPartIndex:6304,primitive:10,component:0,channel:'solid',role:'exterior-wall'},child:{partId:'edge-0/cornice-1',ownerId:'new-york::carrier/edge-0/cornice-1',globalPartIndex:2406,primitive:0,component:0,channel:'surface',role:'timber-fitting'}});
+ const on=(p,t)=>segmentTriangle(p,p,t)!==null,shape=ts=>({triangles:ts,solidTriangles:ts,bounds:bounds(ts.flat()),normal:unit(cross(sub(ts[0][1],ts[0][0]),sub(ts[0][2],ts[0][0]))),kind:'wall',thickness:0}),same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
++const validatedProofs=new WeakMap();
+ 
+ // Surface-only intersection with ONE named original triangle. No cut cap or
+ // unselected exterior face acquires that triangle's original identity.
+@@ -19,6 +20,9 @@ export function originalContactPatches(triangles,original){
+ }
+ 
+ export function proveCorniceWallContact({parts,surfaces,region,grid}){
++  // Capture authoritative original input before validation. Issued proofs and
++  // their source definitions cannot be retargeted by later caller mutation.
++  const captured=structuredClone({parts,surfaces,region,grid});({parts,surfaces,region,grid}=captured);
+   const c=CORNICE_WALL_CONTACT,p=c.point;
+   if(region.id!==c.regionId||!same(grid,{origin:[0,0,0],pitch:[.5,1.06,.5]})||parts.length!==2)throw Error('Exact one-pair original input required');
+   const ends={};
+@@ -40,10 +44,14 @@ export function proveCorniceWallContact({parts,surfaces,region,grid}){
+   }
+   const a=parts.find(p=>p.id===c.parent.partId).triangles[c.parent.primitive],b=parts.find(p=>p.id===c.child.partId).triangles[c.child.primitive],ca=clipTriangle(a,ends.parent.selector),cb=clipTriangle(b,ends.child.selector);
+   if(!supportSurfacesTouch(shape([a]),shape([b]))||!ca.length||!cb.length||!supportSurfacesTouch(shape(ca),shape(cb)))throw Error('Existing native original contact predicate rejected pair');
+-  return freeze({version:1,interpretation:'proposed-fixed-original-contact',relationshipId:c.relationshipId,regionId:c.regionId,point:[...p],direction:c.direction,kind:'bearing-face',grid:structuredClone(grid),ends,sourceChecks:{originalContact:true,selectorClippedContact:true},historicalVolumeEvidenceChanged:false});
++  const proof=freeze({version:1,interpretation:'proposed-fixed-original-contact',relationshipId:c.relationshipId,regionId:c.regionId,point:[...p],direction:c.direction,kind:'bearing-face',grid:structuredClone(grid),ends,sourceChecks:{originalContact:true,selectorClippedContact:true},historicalVolumeEvidenceChanged:false});
++  validatedProofs.set(proof,freeze(captured));return proof;
+ }
+ 
+ export function bindCorniceWallContact({parts,proof,reader,slices}){
++  const validated=validatedProofs.get(proof);
++  if(!validated||!same(parts,validated.parts))throw Error('A validated original contact proof with matching original parts is required; revalidate serialized metadata from original source definitions');
++  parts=validated.parts;
+   const c=CORNICE_WALL_CONTACT,context=reader.context();
+   if(proof.interpretation!=='proposed-fixed-original-contact'||!same(proof.point,c.point)||!same(context.grid,proof.grid)||slices.length!==2)throw Error('Fixed original contact and authenticated two-receipt context required');
+   const captured=[...slices],read=()=>captured.map(s=>reader.inspect(s)),payloads=read();
