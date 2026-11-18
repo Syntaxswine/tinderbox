@@ -10,6 +10,35 @@ this first compact checked page and stop before expanding; preserve any broader
 WIP. This refines the first delivery below rather than requiring full-family
 execution or a new general solver in one turn.
 
+## Following source batch after the first-page acceptance
+
+The architect accepts `e67235b6`'s seven source positives and explicit unproved /
+unattempted states. Corrected material helpers `0ce79739` with `25c74d2d` are now
+accepted separately. UI may recheck the one original baluster representative
+with that exact pinned positive-material component function, then process the
+remaining **1,574** original regions in a separate `other-contact-source-v2/`
+derived package. Preserve the old packet and its historical unproved result.
+The seven old positives must remain exact references. A baluster contact still
+needs an actual source check; its 200/180/20 diagnosis alone is not a proof.
+
+Use only the existing witness/facet-intersection source method and original
+contact predicates, with positive original components and absolute/range-local
+primitive identities kept distinct. Preserve authored directions, all history,
+null bounds, source ranges and quantities. No solver or geometry repair is
+authorized to clear difficult cases; named unproved results are valid. Retain
+raw hashes/ordinals of nonmaterial faces while excluding them from contact
+membership. The current-fragment guard does not authorize source renumbering.
+
+Pages remain at most 256 regions / 60 seconds, with a finite foreground
+coordinator at most ten minutes and durable progress. Reuse the corrected
+owned-handle exception-safe runner from artist `b93dcee2` with exact provenance
+and this task's owner metadata; do not copy its unrelated source assets or build
+another lifecycle framework. Unexpected failed pages stop and are preserved;
+unexecuted pages remain unattempted. Verification rechecks saved positives
+without searching beyond the existing method. Keep shared dictionaries/cache,
+aggregate counts/reasons and one compact candidate. All no-native/world/graph /
+renderer/build limits below continue to apply. Coder owns consumer mapping.
+
 ## Source method and later inventory
 
 After completing the `2143d37b` guard review, the existing UI specialist may
