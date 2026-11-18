@@ -1,0 +1,127 @@
+import test,{after} from 'node:test';
+import assert from 'node:assert/strict';
+import {world} from '../fixtures/hybrid-world-data.mjs';
+import {sceneCompileDiagnostics} from '../../workbenches/furnished-house/scene.js';
+import {trialDiagnostics,limitDiagnosticTrialSteps} from '../../workbenches/furnished-house/simulation.js';
+import {sweptCylinderClear} from '../../src/runtime/collision.js';
+
+limitDiagnosticTrialSteps(64);
+const resources=[];
+function finish(f){f.dispose();resources.push({logicalCells:f.logicalCells,sourceTriangles:f.sourceTriangles,regionalCompiles:f.producer.diagnostics().nativeCalls,retainedReceipts:f.producer.diagnostics().retainedReceipts,queries:f.queries.metrics()});f.producer.dispose();}
+function balanced(f){const m=f.ledger.metrics(f.trial.metrics().fuel);assert.ok(Math.abs(m.world.error+m.nativeClippingDelta)<1e-10);return m;}
+function committedFloor(f,before){
+  const next=f.activation.state();assert.equal(next.revision,before.revision+1);assert.equal(f.queries.isClaimedPart('floor'),true);assert.equal(f.queries.shape('floor').triangles.length,0);
+  assert.equal(f.ledger.metrics().coldReserve,.3+.9);assert.ok(f.trial.metrics().fuel.added>.5);
+  const records=[...f.trial.scene.index.surfaces.values()].filter(b=>!b.queryOnly);assert.equal(records.length,2);
+  for(const b of records)assert.equal(f.trial.supportGraph.nodes.get(b.id),b);
+  balanced(f);return next;
+}
+after(()=>{
+  const trial=trialDiagnostics();console.log('HYBRID_CORRECTION_RESOURCES '+JSON.stringify({compiler:sceneCompileDiagnostics(),trial,fixtures:resources,actualNewYorkCalls:0,fullNewYorkDiagnostics:0,rendererCalls:0,builds:0}));
+  assert.ok(trial.steps<=64);assert.equal(trial.created,trial.disposed);
+  for(const f of resources){assert.ok(f.logicalCells<=64&&f.sourceTriangles<=256);assert.equal(f.retainedReceipts,0);assert.equal(f.queries.cachedShapes,0);assert.equal(f.queries.cachedTriangles,0);assert.equal(f.queries.workingTriangles,0);assert.equal(f.queries.workingShapes,0);assert.equal(f.queries.workingLeases,0);}
+});
+
+test('the architect support-notification fault is reported only after all consumers commit',()=>{
+  let activated=0,watched=0;const f=world({onActivated(){activated++;committedFloor(f,before);}}),before=f.activation.state();
+  try{
+    const plan=f.activation.prepare({whole:['floor-owner']}),fault=Error('Injected support notification failure');
+    f.trial.supportGraph.sourcesAdded=()=>{committedFloor(f,before);throw fault;};
+    f.trial.scene.index.watch([f.queries.queryId('floor')],()=>{watched++;committedFloor(f,before);});
+    let caught;assert.throws(()=>plan.publish(),error=>{caught=error;return error instanceof AggregateError&&error.committed===true&&error.errors.includes(fault);});
+    assert.equal(caught.publication,committedFloor(f,before));assert.equal(activated,1);assert.equal(watched,1);
+    const fuel=f.trial.metrics().fuel.added;assert.throws(()=>plan.publish(),/Stale|committed/);plan.dispose();assert.equal(f.trial.metrics().fuel.added,fuel);
+    assert.equal(f.activation.metrics().pendingStages,0);
+  }finally{finish(f);}
+});
+
+test('post-commit notifications permit consistent reads and reject reentrant publication, steps and mutation',()=>{
+  const f=world(),before=f.activation.state();let called=0,other;
+  try{
+    const plan=f.activation.prepare({whole:['floor-owner']});other=f.activation.prepare({whole:['fit-owner']});
+    f.trial.supportGraph.sourcesAdded=()=>{
+      called++;committedFloor(f,before);
+      assert.throws(()=>f.activation.prepare({whole:['fit-owner']}),/notifications/);
+      assert.throws(()=>other.publish(),/notifications/);assert.throws(()=>f.trial.step(1),/notifications/);
+      assert.throws(()=>f.trial.scene.index.change(f.queries.queryId('fit'),{intact:false}),/notifications/);
+      assert.throws(()=>f.activation.dispose(),/notifications/);assert.equal(f.trial.tick,0);
+    };
+    assert.equal(plan.publish(),committedFloor(f,before));assert.equal(called,1);other.dispose();other=null;
+    assert.equal(f.trial.scene.index.surfaces.get(f.queries.queryId('fit')).intact,true);
+    f.trial.step(1);assert.equal(f.trial.tick,1);balanced(f);
+  }finally{other?.dispose();finish(f);}
+});
+
+test('activation and index observer failures are drained and reported without skipping other observers',()=>{
+  const activationFault=Error('Injected activation observer failure'),watchFault=Error('Injected index observer failure');let activated=0,watched=0;
+  const f=world({onActivated(){activated++;committedFloor(f,before);throw activationFault;}}),before=f.activation.state();
+  try{
+    const id=f.queries.queryId('floor');
+    f.trial.scene.index.watch([id],()=>{watched++;committedFloor(f,before);throw watchFault;});
+    f.trial.scene.index.watch([id],()=>{watched++;committedFloor(f,before);});
+    assert.throws(()=>f.activation.prepare({whole:['floor-owner']}).publish(),e=>e.committed===true&&e.errors.length===2&&e.errors.includes(activationFault)&&e.errors.includes(watchFault));
+    assert.equal(activated,1);assert.equal(watched,2);committedFloor(f,before);assert.equal(f.activation.metrics().pendingStages,0);
+  }finally{finish(f);}
+});
+
+test('support projects both touched regional parts once per solve and releases the complete projection',()=>{
+  const f=world();try{
+    const r=f.receipt([0,0,0]);f.activation.prepare({whole:['floor-owner','fit-owner'],receipts:[r]}).publish();
+    const regional=f.queries.regional(),before=regional.diagnostics();assert.equal(regional.touched('roof-a'),true);assert.equal(regional.touched('roof-b'),true);
+    assert.deepEqual(f.trial.supportGraph.unsupported(),[]);
+    const next=regional.diagnostics();assert.equal(next.projectionCalls-before.projectionCalls,1);assert.equal(next.projectedParts-before.projectedParts,2);
+    assert.equal(next.liveProjectionLoans,0);assert.equal(f.queries.metrics().workingTriangles,0);assert.equal(f.queries.metrics().workingLeases,0);
+    assert.throws(()=>regional.withPieces(()=>{assert.ok(f.queries.metrics().workingTriangles>0);throw Error('Injected projection consumer failure');}),/Injected projection consumer/);
+    assert.equal(f.queries.metrics().workingTriangles,0);assert.equal(regional.diagnostics().liveProjectionLoans,0);balanced(f);
+  }finally{finish(f);}
+});
+
+test('two-part projections use cumulative shared cache budget, including nested failure and new cache admission',()=>{
+  const probe=world();let cached,a,b;
+  try{
+    const regional=probe.queries.regional();cached=probe.queries.metrics().cachedTriangles;
+    regional.withPieces(()=>{a=probe.queries.metrics().workingTriangles;},{partId:'roof-a'});
+    regional.withPieces(()=>{b=probe.queries.metrics().workingTriangles;},{partId:'roof-b'});
+    assert.ok(a>0&&b>0);
+  }finally{finish(probe);}
+  // The registry reserves 8192 fallback triangles. This lowers the existing
+  // total ceiling for a meaningful tiny control; no large synthetic mesh.
+  const low=world({queryLimits:{triangles:8192+cached+Math.max(a,b)}});
+  try{
+    const regional=low.queries.regional();
+    regional.withPieces(()=>{}, {partId:'roof-a'});regional.withPieces(()=>{}, {partId:'roof-b'});
+    assert.throws(()=>regional.withPieces(()=>{}),/exceeds combined cache/);assert.equal(low.queries.metrics().workingTriangles,0);
+    regional.withPieces(()=>{
+      assert.equal(low.queries.metrics().workingTriangles,a);
+      assert.throws(()=>regional.withPieces(()=>{}, {partId:'roof-b'}),/exceeds combined cache/);
+      assert.equal(low.queries.metrics().workingTriangles,a);assert.equal(low.queries.metrics().workingLeases,1);
+    },{partId:'roof-a'});
+    assert.equal(low.queries.metrics().workingTriangles,0);assert.equal(low.queries.metrics().workingLeases,0);
+  }finally{finish(low);}
+  const exact=world({queryLimits:{triangles:8192+cached+a+b}});
+  try{
+    const regional=exact.queries.regional();
+    regional.withPieces(()=>regional.withPieces(()=>{
+      const q=exact.queries.metrics();assert.equal(q.workingTriangles,a+b);assert.equal(q.workingLeases,2);
+      assert.throws(()=>exact.queries.reserveSourceGeometry('injected-extra',[[[0,0,0],[.1,0,0],[0,0,.1]]]),/exceeds combined query cache/);
+      assert.equal(exact.queries.metrics().workingTriangles,a+b);assert.equal(exact.queries.metrics().cachedTriangles,cached);
+    },{partId:'roof-b'}),{partId:'roof-a'});
+    assert.equal(exact.queries.metrics().workingTriangles,0);assert.equal(regional.diagnostics().liveProjectionLoans,0);
+  }finally{finish(exact);}
+});
+
+test('lazy shape loans stay counted, block publication while borrowed, and clear on release or disposal',()=>{
+  const f=world();let disposed=false;
+  try{
+    const a=f.queries.shape('roof-a'),b=f.queries.shape('roof-b'),regional=f.queries.regional(),before=regional.diagnostics().projectionCalls;
+    assert.equal(sweptCylinderClear({x:1.3,y:.2},{x:1.3,y:.2},.05,-.01,.01,a),false);
+    assert.equal(regional.diagnostics().projectionCalls,before);assert.equal(f.queries.metrics().workingTriangles,0);
+    const ta=a.triangles,tb=b.triangles;assert.ok(ta.length>0&&tb.length>0);assert.equal(f.queries.metrics().workingLeases,2);
+    assert.throws(()=>f.activation.prepare(),/Release regional geometry loans/);assert.equal(f.activation.state().revision,0);
+    a.release();a.release();assert.equal(ta.length,0);b.release();assert.equal(tb.length,0);assert.equal(f.queries.metrics().workingTriangles,0);
+    f.activation.prepare().publish();assert.equal(f.activation.state().revision,1);
+    const held=f.queries.shape('roof-a'),ts=held.triangles;assert.ok(ts.length>0);assert.equal(f.queries.metrics().workingLeases,1);
+    finish(f);disposed=true;assert.equal(ts.length,0);held.release();assert.throws(()=>held.triangles,/disposed/);
+    assert.equal(f.queries.metrics().workingLeases,0);assert.equal(f.queries.metrics().workingTriangles,0);
+  }finally{if(!disposed)finish(f);}
+});

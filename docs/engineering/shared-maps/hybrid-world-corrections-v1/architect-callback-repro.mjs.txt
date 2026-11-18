@@ -1,0 +1,27 @@
+// Genuine tiny fixture, injected support notification fault, zero clock steps.
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {world} from '../../../tests/fixtures/hybrid-world-data.mjs';
+import {trialDiagnostics,limitDiagnosticTrialSteps} from '../../../workbenches/furnished-house/simulation.js';
+import {sceneCompileDiagnostics} from '../../../workbenches/furnished-house/scene.js';
+limitDiagnosticTrialSteps(0);
+const f=world();
+let plan;
+try{
+  const before=f.activation.state(),stock=f.ledger.metrics(),physical=f.trial.scene.index.surfaces.size;
+  plan=f.activation.prepare({whole:['floor-owner']});
+  f.trial.supportGraph.sourcesAdded=()=>{throw Error('Injected support notification failure');};
+  let failure;
+  try{plan.publish();}catch(error){failure=error.message;}
+  const result={failure,publicationAdvanced:f.activation.state()!==before,
+    fuelAdded:f.trial.metrics().fuel.added,coldReserveBefore:stock.coldReserve,
+    coldReserveAfter:f.ledger.metrics().coldReserve,wholeClaimed:f.queries.isClaimedPart('floor'),
+    physicalRecordsAdded:f.trial.scene.index.surfaces.size-physical,
+    compiler:sceneCompileDiagnostics(),trial:trialDiagnostics(),actualNewYorkCalls:0};
+  assert.equal(failure,'Injected support notification failure');
+  result.partialPublicationObserved=result.fuelAdded>0&&!result.publicationAdvanced&&!result.wholeClaimed&&result.coldReserveAfter===stock.coldReserve;
+  assert.equal(result.partialPublicationObserved,true);
+  fs.writeFileSync('artifacts/qa/m29-architect-intake/hybrid-callback-repro.json',JSON.stringify(result,null,2)+'\n');
+  console.log(JSON.stringify(result));
+}finally{plan?.dispose();f.dispose();}
+assert.equal(trialDiagnostics().created,trialDiagnostics().disposed);

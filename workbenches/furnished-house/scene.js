@@ -139,6 +139,7 @@ export function compileScene(data,{profiles={},onLoadPhase,querySource,regionalP
   onLoadPhase?.({phase:'physical-scene-ready',boundaries:index.surfaces.size,fuels:fuels.size,cells:cells.size,items:items.size,parts:parts.size});
   const sourceDefinitions=new Map(data.surfaces.map(s=>[s.id,s]));
   function prepareSources(sources){
+    index.assertSteppable();
     if(region||sources?.partialCompilation)throw Error('Partial compiler receipts cannot enter whole-source installation');
     if(!Array.isArray(sources?.surfaces)||!sources.surfaces.length)throw Error('Explicit native source surfaces required');
     const ids=new Set();for(const s of sources.surfaces){if(!s.id||sourceDefinitions.has(s.id)||ids.has(s.id))throw Error('Duplicate native source '+s.id);ids.add(s.id);}
@@ -157,17 +158,18 @@ export function compileScene(data,{profiles={},onLoadPhase,querySource,regionalP
       for(const s of sources.surfaces)sourceDefinitions.set(s.id,s);committed=true;
       return {quantity:fragment.initialFuel,boundaries:added,fuelIds:fuelRecords.map(f=>f.id),sourceIds:[...ids],newCellIds};
     }
-    return {quantity:fragment.initialFuel,quantities:[...quantities].map(([id,nativeQuantity])=>({id,nativeQuantity,...proofs.get(id)})),records:boundaries,boundaries:boundaries.length,fuels:fuelRecords.length,validate,
+    return {quantity:fragment.initialFuel,quantities:[...quantities].map(([id,nativeQuantity])=>({id,nativeQuantity,...proofs.get(id)})),records:boundaries,registrationCells:fragment.cells,registrationFuels:fuelRecords,boundaries:boundaries.length,fuels:fuelRecords.length,validate,
       seal(lease){if(!index.isPublication(lease))throw Error('Physical publication lease required');validate();return ()=>{if(committed||!index.isPublication(lease))throw Error('Stale physical stage');return install();};},
-      commit(){validate();return install();},dispose(){fragment.index.surfaces.clear();fragment.cells.clear();fragment.fuels.clear();fragment.sourceDefinitions.clear();boundaries.length=0;fuelRecords.length=0;definitions.clear();proofs.clear();committed=true;}};
+      commit(){index.assertSteppable();validate();return install();},dispose(){fragment.index.surfaces.clear();fragment.cells.clear();fragment.fuels.clear();fragment.sourceDefinitions.clear();boundaries.length=0;fuelRecords.length=0;definitions.clear();proofs.clear();committed=true;}};
   }
   function prepareRegionalSources(token){
+    index.assertSteppable();
     if(data.internalHybrid!==true||region)throw Error('Internal hybrid world required');const admission=readRegionalWorldAdmission(token),context=admission.context,records=[],fuelRecords=[],definitions=new Map(),localCells=new Map(),ids=new Set();if(context.sourceRevision!==data.hybridSourceRevision||JSON.stringify(context.grid.origin)!==JSON.stringify(origin)||JSON.stringify(context.grid.pitch)!==JSON.stringify(pitch))throw Error('Regional world revision/grid mismatch');let done=false,bundles=admission.bundles;
     for(const b of bundles){for(const e of b.entries){if(ids.has(e.record.id))throw Error('Duplicate staged regional boundary');ids.add(e.record.id);records.push({...b.scene.index.surfaces.get(e.record.id),sourceCell:[...e.cell]});}for(const f of b.scene.fuels.values())fuelRecords.push(f);for(const[id,s]of b.scene.sourceDefinitions)definitions.set(id,s);for(const[id,c]of b.scene.cells)localCells.set(id,c);}
     const quantity=fuelRecords.reduce((n,f)=>n+f.amount,0);
     function validate(){if(done)throw Error('Regional stage disposed/committed');admission.validate();for(const b of records)if(index.surfaces.has(b.id))throw Error('Duplicate regional native boundary');for(const f of fuelRecords)if(fuels.has(f.id)||!profile[f.cls])throw Error('Duplicate/unknown regional native fuel');for(const[id,s]of definitions)if(sourceDefinitions.has(id)&&sourceDefinitions.get(id)!==s)throw Error('Regional source definition changed');}
     function install(){const newCellIds=[...localCells.keys()].filter(id=>!cells.has(id)),remap=c=>cell(c.c);for(const c of localCells.values())remap(c);for(const f of fuelRecords)addFuel({...f,cells:f.cells.map(remap)});const added=index.addBatch(records.map(b=>({...b,heatCells:b.heatCells?.map(remap)})));for(const[id,s]of definitions)sourceDefinitions.set(id,s);done=true;admission.dispose();return {quantity,boundaries:added,fuelIds:fuelRecords.map(f=>f.id),sourceIds:[...definitions.keys()],newCellIds};}
-    validate();return {quantity,quantities:[],records,boundaries:records.length,fuels:fuelRecords.length,validate,seal(lease){if(!index.isPublication(lease))throw Error('Physical publication lease required');validate();return ()=>{if(done||!index.isPublication(lease))throw Error('Stale regional physical stage');return install();};},commit(){validate();return install();},dispose(){if(!done){done=true;admission.dispose();}records.length=0;fuelRecords.length=0;definitions.clear();localCells.clear();bundles=null;}};
+    validate();return {quantity,quantities:[],records,registrationCells:localCells,registrationFuels:fuelRecords,boundaries:records.length,fuels:fuelRecords.length,validate,seal(lease){if(!index.isPublication(lease))throw Error('Physical publication lease required');validate();return ()=>{if(done||!index.isPublication(lease))throw Error('Stale regional physical stage');return install();};},commit(){index.assertSteppable();validate();return install();},dispose(){if(!done){done=true;admission.dispose();}records.length=0;fuelRecords.length=0;definitions.clear();localCells.clear();bundles=null;}};
   }
   return {data,origin,pitch,profile,cells,fuels,items,parts,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor,sourceDefinitions,prepareSources,prepareRegionalSources,...(region?{partialCompilation:true,regionalTrace:region.trace}:{})};
 }

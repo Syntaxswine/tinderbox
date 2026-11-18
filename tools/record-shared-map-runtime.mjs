@@ -23,9 +23,9 @@ const reasons={
   'src/simulation/config.js':'Resolve validated visit defaults once so New York camera and input share its front-side orientation; preserve global defaults.',
   'src/simulation/catalogue-thermal.js':'Compatibility entry delegates to the single scene-thermal provider; Catalogue remains the control.',
   'src/ui/index.js':'Accepted UI capability intake 2c866a6b and queued tool-intent correction 8f0cd574; immediate use follows the ordered input request while presentation remains snapshot-owned.',
-  'workbenches/furnished-house/geometry.js':'Extract the unchanged native gravity step, prevalidate physical batches and defer observers during an internal publication lease; keep owned boundary watches and effective cold crossings.',
-  'workbenches/furnished-house/scene.js':'Stage sparse sources with unchanged compiler/clipper/profiles and local quantity envelopes; preserve rigid doors, reject arbitrary partial outputs and admit authenticated regional receipts only in the disabled internal mode.',
-  'workbenches/furnished-house/simulation.js':'Install whole sources or authenticated regional receipts in the same trial without resetting heat/time; preserve native falls, support and fuel accounting; expose bounded diagnostic counters and an opt-in child step ceiling.',
+  'workbenches/furnished-house/geometry.js':'Extract unchanged native gravity; stage physical batches, block mutation/steps during post-commit notifications and keep consistent readable effective queries and owned watches.',
+  'workbenches/furnished-house/scene.js':'Stage sparse whole sources or authenticated regional receipts with unchanged compiler/profiles and local quantity envelopes; expose borrowed registration cells, reject partial inputs and guard reentrant direct installation.',
+  'workbenches/furnished-house/simulation.js':'Install in one existing trial; stage diagnostic radiation selection before mutation, register owned native state before post-commit support notifications, scope borrowed landing geometry and preserve fuel/clocks and bounded diagnostic counters.',
   'workbenches/furnished-house/support.js':'Recognize shared-scene instance scope for the existing explicit native stair/support graph.',
   'tools/review/catalogue-browser.mjs':'Record task identity/deadline/server port before launch and verify cleanup even when browser launch fails; QA tooling only.'
 };

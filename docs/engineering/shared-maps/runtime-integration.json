@@ -146,20 +146,20 @@
     {
       "path": "workbenches/furnished-house/geometry.js",
       "beforeLfSha256": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
-      "afterLfSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
-      "reason": "Extract the unchanged native gravity step, prevalidate physical batches and defer observers during an internal publication lease; keep owned boundary watches and effective cold crossings."
+      "afterLfSha256": "4987f58cab20e01b4090622b817e4f5a4f96b6d629ebc23276a9af834c0516a9",
+      "reason": "Extract unchanged native gravity; stage physical batches, block mutation/steps during post-commit notifications and keep consistent readable effective queries and owned watches."
     },
     {
       "path": "workbenches/furnished-house/scene.js",
       "beforeLfSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
-      "afterLfSha256": "6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e",
-      "reason": "Stage sparse sources with unchanged compiler/clipper/profiles and local quantity envelopes; preserve rigid doors, reject arbitrary partial outputs and admit authenticated regional receipts only in the disabled internal mode."
+      "afterLfSha256": "b80ce81dfa615d419421437076d3bdd69fa5bba48fde4e6ef7f7492b1e908655",
+      "reason": "Stage sparse whole sources or authenticated regional receipts with unchanged compiler/profiles and local quantity envelopes; expose borrowed registration cells, reject partial inputs and guard reentrant direct installation."
     },
     {
       "path": "workbenches/furnished-house/simulation.js",
       "beforeLfSha256": "1accf6d27f27d78dd019f24e10f15354fd79b81b6cb8c87ee63ab90fdd98f1b5",
-      "afterLfSha256": "8665bb22e688d21dadd9f51138608b73b1331c3d1616a40668400596840f8d4f",
-      "reason": "Install whole sources or authenticated regional receipts in the same trial without resetting heat/time; preserve native falls, support and fuel accounting; expose bounded diagnostic counters and an opt-in child step ceiling."
+      "afterLfSha256": "1d2eeae42135d144fd5e9ce34588e303367f5391979ccd082b60ee8e866cffdb",
+      "reason": "Install in one existing trial; stage diagnostic radiation selection before mutation, register owned native state before post-commit support notifications, scope borrowed landing geometry and preserve fuel/clocks and bounded diagnostic counters."
     },
     {
       "path": "workbenches/furnished-house/support.js",
@@ -227,7 +227,7 @@
     },
     {
       "path": "src/runtime/hybrid-source-queries.js",
-      "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0"
+      "lfSha256": "b93ef0eea804cc38c004d42a40dc7cc246a199cccd4e70d036b21139c932a201"
     },
     {
       "path": "src/runtime/native-query-registry.js",
@@ -243,7 +243,7 @@
     },
     {
       "path": "src/runtime/regional-effective-query.js",
-      "lfSha256": "94b83c8a166b4ad589a43ab33c9e556aee25c9f8dba9eea708c7fc6c51dbce0a"
+      "lfSha256": "1fdfda98c3b4c71c27cece5d52b705e97b17194d6cf5b2aadcf9802612c39286"
     },
     {
       "path": "src/runtime/regional-receipt-bridge.js",
@@ -259,7 +259,7 @@
     },
     {
       "path": "src/runtime/source-query-registry.js",
-      "lfSha256": "6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560"
+      "lfSha256": "992a0f2409daec98e434eaa56e174b4e129a69de8ec28e2253111c4ff2370ea7"
     },
     {
       "path": "src/simulation/actor-support.js",
@@ -267,11 +267,11 @@
     },
     {
       "path": "src/simulation/hybrid-source-support.js",
-      "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452"
+      "lfSha256": "ebe52052b767b0003a8950fe828e56cd6c1616204aaab4e1192ccba0324d67d9"
     },
     {
       "path": "src/simulation/hybrid-world-publication.js",
-      "lfSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f"
+      "lfSha256": "5bd1b1c92446c7771656c3da57aa45fd9f347a95958ebe429c0ed8c382aec011"
     },
     {
       "path": "src/simulation/map-navigation.js",
@@ -299,11 +299,11 @@
     },
     {
       "path": "src/simulation/source-carriers.js",
-      "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b"
+      "lfSha256": "a564bbef05996c8a62027d319bf99d8b79360dfe7c2d6a9e1b9beae7b30ecfd6"
     },
     {
       "path": "src/simulation/source-follow.js",
-      "lfSha256": "aee6a5e72f2d4b64edc3e6faf44d4de1d7448e9000b765aa0f9c677be15d5d06"
+      "lfSha256": "0c618422e9d29a4f0fed37bd953e87ac13dd07baf73803a109ab4cd2a0757b8f"
     },
     {
       "path": "src/simulation/source-support-calculations.js",
@@ -331,7 +331,7 @@
     },
     {
       "path": "tools/record-shared-map-runtime.mjs",
-      "lfSha256": "d6b234a2dda841bb9ad1a405838537169f579506d6de0c6664d3afdd340de9dd"
+      "lfSha256": "c3a40671f6a73fc66f757fddeb72b1543485f4cca17844dc43b41a7d77d0de81"
     },
     {
       "path": "tools/review/check-shared-map-integrated.mjs",

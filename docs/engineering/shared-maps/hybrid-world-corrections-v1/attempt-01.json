@@ -1,0 +1,120 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Focused coupled notification and cumulative-budget corrections",
+  "baseline": "57d350835508f028310881d00edad8d50ef8b057",
+  "sourcePins": [
+    {
+      "path": "src/runtime/hybrid-source-queries.js",
+      "rawSha256": "b93ef0eea804cc38c004d42a40dc7cc246a199cccd4e70d036b21139c932a201",
+      "lfSha256": "b93ef0eea804cc38c004d42a40dc7cc246a199cccd4e70d036b21139c932a201",
+      "snapshot": "source-evidence/b93ef0eea804cc38c004d42a40dc7cc246a199cccd4e70d036b21139c932a201.txt"
+    },
+    {
+      "path": "src/runtime/regional-effective-query.js",
+      "rawSha256": "1fdfda98c3b4c71c27cece5d52b705e97b17194d6cf5b2aadcf9802612c39286",
+      "lfSha256": "1fdfda98c3b4c71c27cece5d52b705e97b17194d6cf5b2aadcf9802612c39286",
+      "snapshot": "source-evidence/1fdfda98c3b4c71c27cece5d52b705e97b17194d6cf5b2aadcf9802612c39286.txt"
+    },
+    {
+      "path": "src/runtime/source-query-registry.js",
+      "rawSha256": "a90e589c550ff30b3bead989e0bee948cf7f1325b65bb34babe28f388c72be45",
+      "lfSha256": "a90e589c550ff30b3bead989e0bee948cf7f1325b65bb34babe28f388c72be45",
+      "snapshot": "source-evidence/a90e589c550ff30b3bead989e0bee948cf7f1325b65bb34babe28f388c72be45.txt"
+    },
+    {
+      "path": "src/simulation/hybrid-source-support.js",
+      "rawSha256": "cbb36fe676f7e2ee51c2aa6f5f605b232fd5d1cff6cf51fcbc0f95b8a67c43b8",
+      "lfSha256": "cbb36fe676f7e2ee51c2aa6f5f605b232fd5d1cff6cf51fcbc0f95b8a67c43b8",
+      "snapshot": "source-evidence/cbb36fe676f7e2ee51c2aa6f5f605b232fd5d1cff6cf51fcbc0f95b8a67c43b8.txt"
+    },
+    {
+      "path": "src/simulation/hybrid-world-publication.js",
+      "rawSha256": "8de5a7e61369af5de07d63c95c42d906c7c8fc46c08a13dcd31b0a3fbaf9097d",
+      "lfSha256": "8de5a7e61369af5de07d63c95c42d906c7c8fc46c08a13dcd31b0a3fbaf9097d",
+      "snapshot": "source-evidence/8de5a7e61369af5de07d63c95c42d906c7c8fc46c08a13dcd31b0a3fbaf9097d.txt"
+    },
+    {
+      "path": "tests/fixtures/hybrid-world-data.mjs",
+      "rawSha256": "7a18859d96ab98e09cc70dceed496b584e1396eb4eb2f587433af6be067dd767",
+      "lfSha256": "7a18859d96ab98e09cc70dceed496b584e1396eb4eb2f587433af6be067dd767",
+      "snapshot": "source-evidence/7a18859d96ab98e09cc70dceed496b584e1396eb4eb2f587433af6be067dd767.txt"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "rawSha256": "6c45d40d70abd027ad4055d784dd3b777d347bd453354039ad335e7d7f003ab7",
+      "lfSha256": "6c45d40d70abd027ad4055d784dd3b777d347bd453354039ad335e7d7f003ab7",
+      "snapshot": "source-evidence/6c45d40d70abd027ad4055d784dd3b777d347bd453354039ad335e7d7f003ab7.txt"
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "rawSha256": "bb1e194b801b292d2af2854441952b8e6507ee8c4e251ffcec02bb799b9369a2",
+      "lfSha256": "deca66fe40b8a79370ede039f5ae697cb7f7b4258f2d1872b9b20523a6b6f4a5",
+      "snapshot": "source-evidence/bb1e194b801b292d2af2854441952b8e6507ee8c4e251ffcec02bb799b9369a2.txt"
+    },
+    {
+      "path": "tests/integration/hybrid-world-corrections.test.mjs",
+      "rawSha256": "8f51b1ba511fc95672c4247bc7777012ae577ec6030e6c37ede32175acbda93f",
+      "lfSha256": "8f51b1ba511fc95672c4247bc7777012ae577ec6030e6c37ede32175acbda93f",
+      "snapshot": "source-evidence/8f51b1ba511fc95672c4247bc7777012ae577ec6030e6c37ede32175acbda93f.txt"
+    },
+    {
+      "path": "tests/integration/hybrid-world-publication.test.mjs",
+      "rawSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8",
+      "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8",
+      "snapshot": "source-evidence/4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8.txt"
+    },
+    {
+      "path": "tests/integration/source-activation.test.mjs",
+      "rawSha256": "3f7109efad743023c44a7bb79d38cf67e4f73e7af3538b24348fcfa6c64ea663",
+      "lfSha256": "3f7109efad743023c44a7bb79d38cf67e4f73e7af3538b24348fcfa6c64ea663",
+      "snapshot": "source-evidence/3f7109efad743023c44a7bb79d38cf67e4f73e7af3538b24348fcfa6c64ea663.txt"
+    },
+    {
+      "path": "tests/integration/source-carriers.test.mjs",
+      "rawSha256": "c0d0cf0ca932dd0be6d3177c96021ac58f6e50cf346c6f3cfdd86c03f5b183d0",
+      "lfSha256": "c0d0cf0ca932dd0be6d3177c96021ac58f6e50cf346c6f3cfdd86c03f5b183d0",
+      "snapshot": "source-evidence/c0d0cf0ca932dd0be6d3177c96021ac58f6e50cf346c6f3cfdd86c03f5b183d0.txt"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/run.mjs",
+      "rawSha256": "e4947502a29c46d042a9868ad504e4f678e9b7e09352abf88ca30a043288f825",
+      "lfSha256": "e4947502a29c46d042a9868ad504e4f678e9b7e09352abf88ca30a043288f825",
+      "snapshot": "source-evidence/e4947502a29c46d042a9868ad504e4f678e9b7e09352abf88ca30a043288f825.txt"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-corrections-v1/authority.md",
+      "rawSha256": "8ae4e3f02223e10682ebbc477c31d0e6d8efe0722502d1d082ea816835d2186f",
+      "lfSha256": "8ae4e3f02223e10682ebbc477c31d0e6d8efe0722502d1d082ea816835d2186f",
+      "snapshot": "source-evidence/8ae4e3f02223e10682ebbc477c31d0e6d8efe0722502d1d082ea816835d2186f.txt"
+    }
+  ],
+  "pid": 38820,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "--test-skip-pattern=thermal-frontier",
+    "tests/integration/hybrid-world-corrections.test.mjs",
+    "tests/integration/hybrid-world-publication.test.mjs",
+    "tests/integration/source-activation.test.mjs",
+    "tests/integration/source-carriers.test.mjs"
+  ],
+  "startedAt": "2026-11-18T05:18:31.190Z",
+  "endedAt": "2026-11-18T05:18:31.905Z",
+  "timeoutMs": 30000,
+  "maxTrialSteps": 64,
+  "maxFixtureLogicalCells": 64,
+  "maxFixtureThermalTriangles": 256,
+  "exitCode": 0,
+  "observedPass": true,
+  "signal": null,
+  "actualNewYorkCalls": 0,
+  "fullNewYorkDiagnostics": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "benchmarks": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

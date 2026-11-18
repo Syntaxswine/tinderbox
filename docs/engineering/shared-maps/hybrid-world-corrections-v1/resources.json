@@ -1,0 +1,355 @@
+{
+  "baseline": "57d350835508f028310881d00edad8d50ef8b057",
+  "method": "Raw saved logs and exact source snapshots; no runtime/test replay",
+  "acceptedRuns": [
+    "bounded-final",
+    "legacy-bounded"
+  ],
+  "uniqueAcceptedGroups": 25,
+  "totalOwnedCompilerCalls": 233,
+  "totalOwnedTrialSteps": 363,
+  "allOwnedTrialsCreatedDisposed": 95,
+  "actualNewYorkCalls": 0,
+  "fullNewYorkDiagnostics": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "benchmarks": 0,
+  "pages": 0,
+  "defaultEnablement": 0,
+  "runs": [
+    {
+      "name": "attempt-01",
+      "passed": true,
+      "stats": {
+        "tests": 18,
+        "pass": 18,
+        "fail": 0
+      },
+      "receiptSha256": "9c7f65069c2b7706f78a7c17055936c9fe3347701cc1fea351c1c06b82d79821",
+      "logSha256": "0ea69eb63a90c62c7c33f362f84702fcb89d899ad4f15974c5400e016256bf6b",
+      "compiler": {
+        "calls": 42
+      },
+      "trial": {
+        "created": 18,
+        "steps": 7,
+        "disposed": 18
+      },
+      "wallMs": 715,
+      "maxTrialSteps": 64,
+      "fixtures": 8,
+      "maxSourceCells": 13,
+      "maxSourceTriangles": 18,
+      "peakCacheShapes": 6,
+      "peakCacheTriangles": 32,
+      "peakWorkingShapes": 2,
+      "peakWorkingTriangles": 28,
+      "allFixtureLoansCachesAndReceiptsReleased": true
+    },
+    {
+      "name": "islands-before",
+      "passed": false,
+      "stats": {
+        "tests": 1,
+        "pass": 0,
+        "fail": 1
+      },
+      "receiptSha256": "1481f7b2c4b74f93142815e4bf29907e9115f89b09b9a0088e53201a5bfc40a4",
+      "logSha256": "d8b87fa0a16124ec0da630fd303976c4980fc9e60553e6eb2a1d6053c8026cd8",
+      "compiler": {
+        "calls": 3
+      },
+      "trial": {
+        "created": 1,
+        "steps": 0,
+        "disposed": 1
+      },
+      "wallMs": 348,
+      "maxTrialSteps": 64,
+      "fixtures": 1,
+      "maxSourceCells": 7,
+      "maxSourceTriangles": 24,
+      "peakCacheShapes": 4,
+      "peakCacheTriangles": 44,
+      "peakWorkingShapes": 1,
+      "peakWorkingTriangles": 30,
+      "allFixtureLoansCachesAndReceiptsReleased": true,
+      "islands": {
+        "originalComponents": 1,
+        "nativeBridgeRecords": [
+          "u-face@0,0,4"
+        ],
+        "rightUnrooted": false,
+        "leftUnrooted": false,
+        "worldSteps": 0,
+        "logicalCells": 7,
+        "sourceTriangles": 24
+      }
+    },
+    {
+      "name": "attempt-02",
+      "passed": true,
+      "stats": {
+        "tests": 22,
+        "pass": 22,
+        "fail": 0
+      },
+      "receiptSha256": "333656f2bae60e202eb5dcd725bd2f34952c7e740e674f79b0a4b16ab37ab860",
+      "logSha256": "a636d9fd43f63582379b1a2ad99fde99fb0ecfd31eab14cff8b2500a95c1b0d0",
+      "compiler": {
+        "calls": 53
+      },
+      "trial": {
+        "created": 21,
+        "steps": 12,
+        "disposed": 21
+      },
+      "wallMs": 545,
+      "maxTrialSteps": 64,
+      "fixtures": 11,
+      "maxSourceCells": 13,
+      "maxSourceTriangles": 24,
+      "peakCacheShapes": 7,
+      "peakCacheTriangles": 44,
+      "peakWorkingShapes": 2,
+      "peakWorkingTriangles": 30,
+      "allFixtureLoansCachesAndReceiptsReleased": true,
+      "islands": {
+        "originalComponents": 1,
+        "nativeBridgeRecords": [
+          "u-face@0,0,4"
+        ],
+        "rightUnrooted": true,
+        "leftUnrooted": false,
+        "worldSteps": 0,
+        "logicalCells": 7,
+        "sourceTriangles": 24
+      }
+    },
+    {
+      "name": "radiation-positive",
+      "passed": true,
+      "stats": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0
+      },
+      "receiptSha256": "c7652667de85a18f3cd57f136c1d2157d48318d6f4ce437fc160c89a51412060",
+      "logSha256": "cd190ff611eb2e772b3fb21355c91079b6a4b3f6eca89fcfd02b54137b8622e8",
+      "compiler": {
+        "calls": 4
+      },
+      "trial": {
+        "created": 1,
+        "steps": 3,
+        "disposed": 1
+      },
+      "wallMs": 456,
+      "maxTrialSteps": 64,
+      "fixtures": 1,
+      "maxSourceCells": 13,
+      "maxSourceTriangles": 18,
+      "peakCacheShapes": 7,
+      "peakCacheTriangles": 44,
+      "peakWorkingShapes": 0,
+      "peakWorkingTriangles": 0,
+      "allFixtureLoansCachesAndReceiptsReleased": true
+    },
+    {
+      "name": "legacy-final",
+      "passed": true,
+      "stats": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0
+      },
+      "receiptSha256": "25abd62a7726745cd9ef92924cd2cece1de387d13b7ab8e3b9751d215b9f6695",
+      "logSha256": "253a074c32c8bae4d0a1c0967d8c8873a43f8d688a2cd18d3e3f9f2335c69ceb",
+      "compiler": {
+        "calls": 4
+      },
+      "trial": {
+        "created": 2,
+        "steps": 90,
+        "disposed": 2
+      },
+      "wallMs": 378,
+      "maxTrialSteps": 128,
+      "fixtures": 0,
+      "maxSourceCells": 0,
+      "maxSourceTriangles": 0,
+      "peakCacheShapes": 0,
+      "peakCacheTriangles": 0,
+      "peakWorkingShapes": 0,
+      "peakWorkingTriangles": 0,
+      "allFixtureLoansCachesAndReceiptsReleased": true
+    },
+    {
+      "name": "consumers-final",
+      "passed": true,
+      "stats": {
+        "tests": 2,
+        "pass": 2,
+        "fail": 0
+      },
+      "receiptSha256": "a3064559bd93efed49908e46d449a428b602a759efbcb5e0222486918771d159",
+      "logSha256": "262ae012885c18e97af2785e090faf134e44a008fe944140f22f751257fe07e5",
+      "compiler": {
+        "calls": 4
+      },
+      "trial": {
+        "created": 2,
+        "steps": 15,
+        "disposed": 2
+      },
+      "wallMs": 357,
+      "maxTrialSteps": 64,
+      "fixtures": 2,
+      "maxSourceCells": 13,
+      "maxSourceTriangles": 18,
+      "peakCacheShapes": 6,
+      "peakCacheTriangles": 32,
+      "peakWorkingShapes": 2,
+      "peakWorkingTriangles": 28,
+      "allFixtureLoansCachesAndReceiptsReleased": true
+    },
+    {
+      "name": "coupled-final",
+      "passed": true,
+      "stats": {
+        "tests": 24,
+        "pass": 24,
+        "fail": 0
+      },
+      "receiptSha256": "a42630c5e10ab134cbd55536570a10e8852acbf48bd723c4361e80b7fde0c47c",
+      "logSha256": "0607c3f3392a29be78b4b61aa49c1788fd8fa932c564c0ef54bc998224a4333d",
+      "compiler": {
+        "calls": 57
+      },
+      "trial": {
+        "created": 23,
+        "steps": 28,
+        "disposed": 23
+      },
+      "wallMs": 679,
+      "maxTrialSteps": 64,
+      "fixtures": 13,
+      "maxSourceCells": 13,
+      "maxSourceTriangles": 24,
+      "peakCacheShapes": 7,
+      "peakCacheTriangles": 44,
+      "peakWorkingShapes": 2,
+      "peakWorkingTriangles": 30,
+      "allFixtureLoansCachesAndReceiptsReleased": true,
+      "islands": {
+        "originalComponents": 1,
+        "nativeBridgeRecords": [
+          "u-face@0,0,4"
+        ],
+        "rightUnrooted": true,
+        "leftUnrooted": false,
+        "worldSteps": 0,
+        "logicalCells": 7,
+        "sourceTriangles": 24
+      }
+    },
+    {
+      "name": "legacy-current",
+      "passed": true,
+      "stats": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0
+      },
+      "receiptSha256": "fb186fa31b3e9a2d43d84b6256eb1dfe6f94c030cba4f57aaf3b6d85759efecd",
+      "logSha256": "1b5c7c40c1e367f55a8b1922d0e641bca69ddc12564d33d2a8c6130a2c6eac11",
+      "compiler": {
+        "calls": 4
+      },
+      "trial": {
+        "created": 2,
+        "steps": 90,
+        "disposed": 2
+      },
+      "wallMs": 365,
+      "maxTrialSteps": 128,
+      "fixtures": 0,
+      "maxSourceCells": 0,
+      "maxSourceTriangles": 0,
+      "peakCacheShapes": 0,
+      "peakCacheTriangles": 0,
+      "peakWorkingShapes": 0,
+      "peakWorkingTriangles": 0,
+      "allFixtureLoansCachesAndReceiptsReleased": true
+    },
+    {
+      "name": "bounded-final",
+      "passed": true,
+      "stats": {
+        "tests": 24,
+        "pass": 24,
+        "fail": 0
+      },
+      "receiptSha256": "f60bcb64abbe8bafba6cd2d2a7090b2eb4ff81c55312dcd09d79e6a2cb76b119",
+      "logSha256": "3fd957263c07afc5832e53271547931b95ba08b23eb820f24156476196a25f78",
+      "compiler": {
+        "calls": 58
+      },
+      "trial": {
+        "created": 23,
+        "steps": 28,
+        "disposed": 23
+      },
+      "wallMs": 562,
+      "maxTrialSteps": 64,
+      "fixtures": 13,
+      "maxSourceCells": 13,
+      "maxSourceTriangles": 24,
+      "peakCacheShapes": 7,
+      "peakCacheTriangles": 44,
+      "peakWorkingShapes": 2,
+      "peakWorkingTriangles": 30,
+      "allFixtureLoansCachesAndReceiptsReleased": true,
+      "islands": {
+        "originalComponents": 1,
+        "nativeBridgeRecords": [
+          "u-face@0,0,4"
+        ],
+        "rightUnrooted": true,
+        "leftUnrooted": false,
+        "worldSteps": 0,
+        "logicalCells": 7,
+        "sourceTriangles": 24
+      }
+    },
+    {
+      "name": "legacy-bounded",
+      "passed": true,
+      "stats": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0
+      },
+      "receiptSha256": "3c47a52db0fe714778d45b3f2cbad1fd1f98787bac360cf11fcde313b7e396de",
+      "logSha256": "f7720e926d5559cab84d41b30f35cbb5c88b24a1a0543ebaad8ee985ddec1a22",
+      "compiler": {
+        "calls": 4
+      },
+      "trial": {
+        "created": 2,
+        "steps": 90,
+        "disposed": 2
+      },
+      "wallMs": 257,
+      "maxTrialSteps": 128,
+      "fixtures": 0,
+      "maxSourceCells": 0,
+      "maxSourceTriangles": 0,
+      "peakCacheShapes": 0,
+      "peakCacheTriangles": 0,
+      "peakWorkingShapes": 0,
+      "peakWorkingTriangles": 0,
+      "allFixtureLoansCachesAndReceiptsReleased": true
+    }
+  ]
+}

@@ -2,8 +2,8 @@ import {regionalStockRow} from './regional-source-pilot.js';
 const EPS=1e-7;
 // Canonical static stock exists before thermal activation. Visual section
 // residency cannot create, refill or discard it. The trial retains combustion.
-export function createSourceCarrierLedger(records,{modes={}}={}){
-  const carriers=new Map();let nativeStaticBirths=0,activeInitial=0,activeCarriers=0,closed=false,stockRevision=0;const allowance={positive:0,negative:0,roundoffBound:0};
+export function createSourceCarrierLedger(records,{modes:inputModes={}}={}){
+  const modes=Object.freeze({...inputModes}),carriers=new Map();let nativeStaticBirths=0,activeInitial=0,activeCarriers=0,closed=false,stockRevision=0;const allowance={positive:0,negative:0,roundoffBound:0};
   for(const input of records){
     const quantity=input.fuelAmount+(input.finish?.amount||0);
     if(typeof input.id!=='string'||!input.id||carriers.has(input.id)||!Number.isFinite(input.fuelAmount)||input.fuelAmount<0||!Number.isFinite(quantity)||quantity<0)throw Error('Invalid canonical source quantity');
