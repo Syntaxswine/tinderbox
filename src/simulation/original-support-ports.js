@@ -14,21 +14,29 @@ const distance=(a,b)=>Math.hypot(...a.map((v,i)=>v-b[i]));
 export const ORIGINAL_SUPPORT_LIMITS=Object.freeze({parts:14000,bonds:20000,fragments:65536,triangles:400000});
 
 export function originalMaterialComponents(triangles){
-  const edgeMap=new Map(),links=triangles.map(()=>[]);
-  for(const [i,t]of triangles.entries()){if(!Array.isArray(t)||t.length!==3||!t.every(vector)||!(triangleArea(t)>0))throw Error('Finite original physical triangles required');for(let j=0;j<3;j++){const edge=[key(t[j]),key(t[(j+1)%3])].sort().join('|');if(!edgeMap.has(edge))edgeMap.set(edge,[]);edgeMap.get(edge).push(i);}}
+  const edgeMap=new Map(),links=triangles.map(()=>[]),material=[];
+  for(const [i,t]of triangles.entries()){
+    if(!Array.isArray(t)||t.length!==3||!t.every(vector))throw Error('Finite original physical triangles required');const area=triangleArea(t);
+    // Exact repeated coordinates prove an empty face. Keep its raw slot/ID,
+    // but exclude even its zero-length edges from material topology.
+    if(area===0&&t.some((a,j)=>t.some((b,k)=>j<k&&a.every((v,n)=>v===b[n]))))continue;
+    if(!Number.isFinite(area)||!(area>0))throw Error('Finite original physical triangles required');material.push(i);
+    for(let j=0;j<3;j++){const edge=[key(t[j]),key(t[(j+1)%3])].sort().join('|');if(!edgeMap.has(edge))edgeMap.set(edge,[]);edgeMap.get(edge).push(i);}
+  }
+  if(!material.length)throw Error('Finite original physical triangles required');
   for(const ids of edgeMap.values())for(const a of ids)for(const b of ids)if(a!==b)links[a].push(b);
-  const seen=new Set(),out=[];for(let i=0;i<triangles.length;i++)if(!seen.has(i)){const ids=[i];seen.add(i);for(let n=0;n<ids.length;n++)for(const j of links[ids[n]])if(!seen.has(j)){seen.add(j);ids.push(j);}ids.sort((a,b)=>a-b);const set=new Set(ids),closed=[...edgeMap.values()].filter(list=>list.some(id=>set.has(id))).every(list=>list.length===2);out.push({id:out.length,primitives:ids,closed});}return out;
+  const seen=new Set(),out=[];for(const i of material)if(!seen.has(i)){const ids=[i];seen.add(i);for(let n=0;n<ids.length;n++)for(const j of links[ids[n]])if(!seen.has(j)){seen.add(j);ids.push(j);}ids.sort((a,b)=>a-b);const set=new Set(ids),closed=[...edgeMap.values()].filter(list=>list.some(id=>set.has(id))).every(list=>list.length===2);out.push({id:out.length,primitives:ids,closed});}return out;
 }
 
 export function createOriginalSupportPorts({parts,bonds,requirements=[],anchors=[]}){
   if(!Array.isArray(parts)||parts.length>ORIGINAL_SUPPORT_LIMITS.parts||!Array.isArray(bonds)||bonds.length>ORIGINAL_SUPPORT_LIMITS.bonds)throw Error('Bounded original support data required');
   const originals=new Map(),bindings=[],groups=[],roots=[];let closed=false,generation=0,triangleCount=0;
-  for(const p of parts){if(!p.id||!p.ownerId||originals.has(p.id)||!Array.isArray(p.triangles)||!p.triangles.length)throw Error('Unique original physical part required');triangleCount+=p.triangles.length;if(triangleCount>ORIGINAL_SUPPORT_LIMITS.triangles)throw Error('Original support triangle ceiling');const components=originalMaterialComponents(p.triangles);originals.set(p.id,{...p,components});freeze(p);}
+  for(const p of parts){if(!p.id||!p.ownerId||originals.has(p.id)||!Array.isArray(p.triangles)||!p.triangles.length)throw Error('Unique original physical part required');triangleCount+=p.triangles.length;if(triangleCount>ORIGINAL_SUPPORT_LIMITS.triangles)throw Error('Original support triangle ceiling');const components=originalMaterialComponents(p.triangles),materialTriangles=components.flatMap(c=>c.primitives.map(i=>p.triangles[i]));originals.set(p.id,{...p,components,materialTriangles});freeze(p);}
   if(!Array.isArray(anchors))throw Error('Original anchor records required');
   for(const r of anchors){const {partId,elevation,component}=r||{},p=originals.get(partId);if(!p||!Number.isFinite(elevation)||component!==undefined&&(!Number.isSafeInteger(component)||!p.components[component]))throw Error('Original anchor part/elevation/component required');roots.push(freeze({partId,elevation,...component===undefined?{}:{component}}));}
   function bindEndpoint(spec,strict){
     const part=originals.get(spec.partId);if(!part||!vector(spec.point))throw Error('Named original part and physical witness required');
-    if(strict&&!inside(spec.point,part.triangles))throw Error('Strict embed witness is outside original material or inside a void: '+spec.partId);
+    if(strict&&!inside(spec.point,part.materialTriangles))throw Error('Strict embed witness is outside original material or inside a void: '+spec.partId);
     const allowed=spec.primitives||part.triangles.map((_,i)=>i),candidates=[];
     for(const c of part.components){if(strict&&(!c.closed||!inside(spec.point,c.primitives.map(i=>part.triangles[i]))))continue;
       for(const i of c.primitives)if(allowed.includes(i)){const p=closest(spec.point,part.triangles[i]);candidates.push({partId:part.id,ownerId:part.ownerId,component:c.id,primitive:i,point:p,distance:distance(p,spec.point),originalWitness:[...spec.point],nativeRecordId:spec.nativeRecordId??null,cell:spec.cell&&[...spec.cell]});}}

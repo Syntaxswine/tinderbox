@@ -1,0 +1,160 @@
+{
+  "status": "passed",
+  "baseCommit": "58b6820bc51e9793def70f5e47edc92c08052232",
+  "changedRuntime": "src/simulation/original-support-ports.js",
+  "scope": "Six new and 35 affected existing physical/strict/contact groups; original material topology only",
+  "baseline": {
+    "tests": 6,
+    "pass": 1,
+    "fail": 5
+  },
+  "affected": {
+    "tests": 41,
+    "pass": 41,
+    "fail": 0
+  },
+  "realBaluster": {
+    "globalSourcePartIndex": 2352,
+    "geometryPath": "assets/art/place-scenes/new-york/geometry/8bab8c76f9be09b30411af10f745a5555a5c475b9e20f2d84a3dd979cc40cfa3.json",
+    "geometryRawSha256": "f127db015f33b5b1a7532c3c6fc3b2410564f7ecd6e21330c3f4bb29f68a7e77",
+    "rawTriangles": 200,
+    "positiveMaterialFaces": 180,
+    "nonmaterialFaces": 20,
+    "excludedAbsolutePrimitives": [
+      0,
+      19,
+      20,
+      39,
+      40,
+      59,
+      60,
+      79,
+      80,
+      99,
+      100,
+      119,
+      120,
+      139,
+      140,
+      159,
+      160,
+      179,
+      180,
+      199
+    ],
+    "rawOrderedFloat64Sha256": "c039a9b9bc626d7ac45e8d60760230b331501a600f5eada95a68c67af5678a75",
+    "worldOrderedFloat64Sha256": "afd88f2ecfba687f30f57f40255ba8126e6fad8903047230b7b12909842106de",
+    "rawArraysUnchanged": true,
+    "balusterPhysicalContactAccepted": false
+  },
+  "unchangedEffectiveFragmentAndGraphAuthority": true,
+  "originalTriangleCeiling": 400000,
+  "scopeCounts": {
+    "actualNativeCompilerCalls": 0,
+    "sourceCarrierExpansions": 0,
+    "fullNewYorkDiagnostics": 0,
+    "balusterContactSearches": 0,
+    "worldSteps": 0,
+    "rendererCalls": 0,
+    "benchmarks": 0,
+    "builds": 0
+  },
+  "protectedUnrelated": {
+    "path": "docs/engineering/shared-maps/support-regions-proposal.md",
+    "sha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f",
+    "staged": false
+  },
+  "retainedHelpers": [],
+  "files": [
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/.gitattributes",
+      "bytes": 90,
+      "lfSha256": "40c83f13b27522cfe6d2924150d57b102c73c24d4ee889775af78958da3b1fda"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/README.md",
+      "bytes": 3343,
+      "lfSha256": "bf4ad698130213bcabaa8e12b50c7c2594061b1cb699cdda1d69afafede46051"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/affected.json",
+      "bytes": 2586,
+      "lfSha256": "34a6c154e516077073d63b404df78837c1e30730cf6a0cfca7be4cfe1bd0d963"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/affected.log",
+      "bytes": 9752,
+      "lfSha256": "9702e35378cbaaf6f25ab8545e1c8a0ce90b66787d2a3423b957b0dd9dd0536c"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/authority.md",
+      "bytes": 2823,
+      "lfSha256": "6b6e3a855c63439782283bee5597df82199eae510f0da240c3f5101705b0646c"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/baseline.json",
+      "bytes": 1466,
+      "lfSha256": "16d490b68816e90cd5f71c61d6b29c2d8ca8d7138f728d55f878c77ded9e3fc0"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/baseline.log",
+      "bytes": 7168,
+      "lfSha256": "f420a2dbc683e0ce205bb1bc4d1acb61285da075cfefa99349c041fe22c039ab"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/cleanup.json",
+      "bytes": 515,
+      "lfSha256": "abf7261457d1847f915d8e5165c520bc61ea68ba5b8ee95bd0aa409d5235418d"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/run-focused.mjs",
+      "bytes": 1857,
+      "lfSha256": "55577e204f857c9f0b3aa8fdb81843c14c9ce956da37985481dbb5846f8bed00"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/source-pins.json",
+      "bytes": 1957,
+      "lfSha256": "39027e2c4188d5729f3c236d1ad4d5e73c619ac3c6d458f7df886c70e79a91f1"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/ui-diagnose.mjs.txt",
+      "bytes": 7248,
+      "lfSha256": "a2118360c0f3467b1759384483c5ec228ccfd781a60ce1d6517b49ec529a3762"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/ui-diagnostic.log",
+      "bytes": 922,
+      "lfSha256": "b2b0a1683c2ba067d2444d46d690788431c98281f0534224481a8e00d18c409a"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/ui-launch.json",
+      "bytes": 1149,
+      "lfSha256": "b7c838a0c9bbef4ca816255daca84dff51c5a80f37aae089d5009ac43ef3b461"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/ui-result.json",
+      "bytes": 13675,
+      "lfSha256": "2d1a9e6d1d6a6434daff5ede449394822726c6c589f9d56b3ebff4afef85b8a2"
+    },
+    {
+      "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/verify.mjs",
+      "bytes": 5980,
+      "lfSha256": "a91257fa249036a3bfc15659a56b6c1da2522f3245c545750ba61dbe722cfd5b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "bytes": 17585,
+      "lfSha256": "439d296b56826e8eb542e591e090ca96e37a7a6b734ee92e46de3b265173933a"
+    },
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "bytes": 14329,
+      "lfSha256": "77e6437965507e12efa81e6892434760eacc422248bdd2f6be34ebb0ba366c38"
+    },
+    {
+      "path": "tests/integration/duplicate-vertex-material.test.mjs",
+      "bytes": 7682,
+      "lfSha256": "b706399fd1c253336d25455f95097f6e9bb58608cc7476930e356b7bff924f71"
+    }
+  ]
+}

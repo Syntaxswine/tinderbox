@@ -1,0 +1,46 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Duplicate-coordinate empty original faces and affected physical/strict regressions only",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "tests/integration/duplicate-vertex-material.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "cf0d78893da17af650a634c5e8d1d957c560de1f042294e003eb9dab93beb510"
+    },
+    {
+      "path": "src/content/original-contact-adapter.js",
+      "lfSha256": "ee683a7793135591ab0592fcb687a944f47d59dce2aad3a8c8e9a79315f74434"
+    },
+    {
+      "path": "src/content/map-source-shapes.js",
+      "lfSha256": "a2b8c075973e973650d9a4cc90673a85549cf19887cd212e4ffa810f27a24b9e"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "lfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+    },
+    {
+      "path": "tests/integration/duplicate-vertex-material.test.mjs",
+      "lfSha256": "b706399fd1c253336d25455f95097f6e9bb58608cc7476930e356b7bff924f71"
+    }
+  ],
+  "pid": 32536,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-18T02:29:27.643Z",
+  "endedAt": "2026-11-18T02:29:27.944Z",
+  "exitCode": 1,
+  "signal": null,
+  "timeoutMs": 20000,
+  "nativeCompilerCalls": 0,
+  "sourceCarrierExpansions": 0,
+  "fullNewYorkDiagnostics": 0,
+  "contactSearches": 0,
+  "worldSteps": 0,
+  "rendererCalls": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

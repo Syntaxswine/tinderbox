@@ -1,0 +1,791 @@
+{
+  "sourceCheckpoint": "e67235b6e9d87760b1b36d802833de44456b1bd8",
+  "sourceRef": "0e9ffa764610f7ab047e3d4cdebd05342273463f",
+  "partId": "clerestory/front-rail/baluster-0",
+  "sourcePartId": "clerestory/front-rail/baluster-0",
+  "ownerId": "carrier/clerestory/front-rail/baluster-0",
+  "globalSourcePartIndex": 2352,
+  "instanceId": 40,
+  "geometryId": "8bab8c76f9be09b30411af10f745a5555a5c475b9e20f2d84a3dd979cc40cfa3",
+  "geometryRawSha256": "f127db015f33b5b1a7532c3c6fc3b2410564f7ecd6e21330c3f4bb29f68a7e77",
+  "positionStorage": "Float32Array",
+  "indexStorage": "Uint16Array",
+  "sourceRange": null,
+  "emittedWorldMatrix": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    42.34146308898926,
+    21.479999542236328,
+    34,
+    1
+  ],
+  "geometryEps": 1e-7,
+  "epsSmallDefinition": "0 < existing triangleArea <= geometry EPS; exact zeros are counted separately",
+  "exactZeroDefinition": "Exact collinearity of stored binary64 coordinates via integer power-of-two scaling; also report the existing Float64 triangleArea zero test",
+  "rawOrderedFloat64Sha256": "c039a9b9bc626d7ac45e8d60760230b331501a600f5eada95a68c67af5678a75",
+  "worldOrderedFloat64Sha256": "afd88f2ecfba687f30f57f40255ba8126e6fad8903047230b7b12909842106de",
+  "worldMatchesSavedFirstPageHash": true,
+  "helperPins": {
+    "geometrySha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+    "componentSourceSha256": "cb407fcc75ca2a532cc46591bd8f9a90542d440a97bdc2e98050d92d3d94d0bf",
+    "componentFunctionSha256": "9fd80797f4b3fe8baa56cd21569e0ccf11c5ffb1cb290a2b71bb547873b33b3c"
+  },
+  "raw": {
+    "triangles": 200,
+    "nonfiniteCoordinatePrimitives": [],
+    "nonfiniteAreaPrimitives": [],
+    "exactBinaryZeroAreaPrimitives": [
+      0,
+      19,
+      20,
+      39,
+      40,
+      59,
+      60,
+      79,
+      80,
+      99,
+      100,
+      119,
+      120,
+      139,
+      140,
+      159,
+      160,
+      179,
+      180,
+      199
+    ],
+    "helperFloat64ZeroAreaPrimitives": [
+      0,
+      19,
+      20,
+      39,
+      40,
+      59,
+      60,
+      79,
+      80,
+      99,
+      100,
+      119,
+      120,
+      139,
+      140,
+      159,
+      160,
+      179,
+      180,
+      199
+    ],
+    "positiveEpsSmallPrimitives": [],
+    "existingHelperRejectPrimitives": [
+      0,
+      19,
+      20,
+      39,
+      40,
+      59,
+      60,
+      79,
+      80,
+      99,
+      100,
+      119,
+      120,
+      139,
+      140,
+      159,
+      160,
+      179,
+      180,
+      199
+    ],
+    "firstExistingHelperRejectPrimitive": 0,
+    "exactZeroCauses": [
+      {
+        "primitive": 0,
+        "sourceVertexIndices": [
+          0,
+          11,
+          1
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 19,
+        "sourceVertexIndices": [
+          21,
+          10,
+          20
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 20,
+        "sourceVertexIndices": [
+          11,
+          22,
+          12
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 39,
+        "sourceVertexIndices": [
+          32,
+          21,
+          31
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 40,
+        "sourceVertexIndices": [
+          22,
+          33,
+          23
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 59,
+        "sourceVertexIndices": [
+          43,
+          32,
+          42
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 60,
+        "sourceVertexIndices": [
+          33,
+          44,
+          34
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 79,
+        "sourceVertexIndices": [
+          54,
+          43,
+          53
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 80,
+        "sourceVertexIndices": [
+          44,
+          55,
+          45
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 99,
+        "sourceVertexIndices": [
+          65,
+          54,
+          64
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 100,
+        "sourceVertexIndices": [
+          55,
+          66,
+          56
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 119,
+        "sourceVertexIndices": [
+          76,
+          65,
+          75
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 120,
+        "sourceVertexIndices": [
+          66,
+          77,
+          67
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 139,
+        "sourceVertexIndices": [
+          87,
+          76,
+          86
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 140,
+        "sourceVertexIndices": [
+          77,
+          88,
+          78
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 159,
+        "sourceVertexIndices": [
+          98,
+          87,
+          97
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 160,
+        "sourceVertexIndices": [
+          88,
+          99,
+          89
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 179,
+        "sourceVertexIndices": [
+          109,
+          98,
+          108
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 180,
+        "sourceVertexIndices": [
+          99,
+          110,
+          100
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 199,
+        "sourceVertexIndices": [
+          120,
+          109,
+          119
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    ],
+    "existingHelperException": {
+      "name": "Error",
+      "message": "Finite original physical triangles required"
+    },
+    "componentCount": null,
+    "counts": {
+      "nonfiniteCoordinates": 0,
+      "nonfiniteArea": 0,
+      "exactZeroArea": 20,
+      "helperZeroArea": 20,
+      "positiveEpsSmall": 0,
+      "existingHelperRejects": 20
+    }
+  },
+  "world": {
+    "triangles": 200,
+    "nonfiniteCoordinatePrimitives": [],
+    "nonfiniteAreaPrimitives": [],
+    "exactBinaryZeroAreaPrimitives": [
+      0,
+      19,
+      20,
+      39,
+      40,
+      59,
+      60,
+      79,
+      80,
+      99,
+      100,
+      119,
+      120,
+      139,
+      140,
+      159,
+      160,
+      179,
+      180,
+      199
+    ],
+    "helperFloat64ZeroAreaPrimitives": [
+      0,
+      19,
+      20,
+      39,
+      40,
+      59,
+      60,
+      79,
+      80,
+      99,
+      100,
+      119,
+      120,
+      139,
+      140,
+      159,
+      160,
+      179,
+      180,
+      199
+    ],
+    "positiveEpsSmallPrimitives": [],
+    "existingHelperRejectPrimitives": [
+      0,
+      19,
+      20,
+      39,
+      40,
+      59,
+      60,
+      79,
+      80,
+      99,
+      100,
+      119,
+      120,
+      139,
+      140,
+      159,
+      160,
+      179,
+      180,
+      199
+    ],
+    "firstExistingHelperRejectPrimitive": 0,
+    "exactZeroCauses": [
+      {
+        "primitive": 0,
+        "sourceVertexIndices": [
+          0,
+          11,
+          1
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 19,
+        "sourceVertexIndices": [
+          21,
+          10,
+          20
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 20,
+        "sourceVertexIndices": [
+          11,
+          22,
+          12
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 39,
+        "sourceVertexIndices": [
+          32,
+          21,
+          31
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 40,
+        "sourceVertexIndices": [
+          22,
+          33,
+          23
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 59,
+        "sourceVertexIndices": [
+          43,
+          32,
+          42
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 60,
+        "sourceVertexIndices": [
+          33,
+          44,
+          34
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 79,
+        "sourceVertexIndices": [
+          54,
+          43,
+          53
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 80,
+        "sourceVertexIndices": [
+          44,
+          55,
+          45
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 99,
+        "sourceVertexIndices": [
+          65,
+          54,
+          64
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 100,
+        "sourceVertexIndices": [
+          55,
+          66,
+          56
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 119,
+        "sourceVertexIndices": [
+          76,
+          65,
+          75
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 120,
+        "sourceVertexIndices": [
+          66,
+          77,
+          67
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 139,
+        "sourceVertexIndices": [
+          87,
+          76,
+          86
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 140,
+        "sourceVertexIndices": [
+          77,
+          88,
+          78
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 159,
+        "sourceVertexIndices": [
+          98,
+          87,
+          97
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 160,
+        "sourceVertexIndices": [
+          88,
+          99,
+          89
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 179,
+        "sourceVertexIndices": [
+          109,
+          98,
+          108
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 180,
+        "sourceVertexIndices": [
+          99,
+          110,
+          100
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "primitive": 199,
+        "sourceVertexIndices": [
+          120,
+          109,
+          119
+        ],
+        "coincidentVertexPairs": [
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    ],
+    "existingHelperException": {
+      "name": "Error",
+      "message": "Finite original physical triangles required"
+    },
+    "componentCount": null,
+    "counts": {
+      "nonfiniteCoordinates": 0,
+      "nonfiniteArea": 0,
+      "exactZeroArea": 20,
+      "helperZeroArea": 20,
+      "positiveEpsSmall": 0,
+      "existingHelperRejects": 20
+    }
+  },
+  "transitions": {
+    "worldOnlyExactZeroPrimitives": [],
+    "rawOnlyExactZeroPrimitives": [],
+    "worldOnlyZerosThatWereRawPositiveEpsSmall": []
+  },
+  "repairs": 0,
+  "filteredTriangles": 0,
+  "remaps": 0,
+  "contactSearches": 0,
+  "nativeCompilerCalls": 0,
+  "runtimeDecoderCalls": 0,
+  "graphWorldRendererBuildRuns": 0
+}
