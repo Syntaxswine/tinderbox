@@ -1,0 +1,138 @@
+{
+  "status": "passed",
+  "baseCommit": "25c74d2d2b9ae749a721e2ff71e6c116023c2379",
+  "sourcePreparationBase": "0ce79739c8b45a249395253f361964f343c2e576",
+  "artistCommit": "6c13bc5e58c07f09d5b1ffc1a78fb31b8dabdc2c",
+  "counts": {
+    "uniqueParts": 50,
+    "uniqueSourceDefinitions": 55,
+    "selectorProofs": 96,
+    "fixedPorts": 192,
+    "ownedDictionaryCopies": 1,
+    "perProofGeometryCopies": 0,
+    "originalTriangles": 600
+  },
+  "passingGroups": {
+    "new": 4,
+    "existingGeneric": 7,
+    "existingEndpointBounds": 4,
+    "total": 15
+  },
+  "referencesMatched": 48,
+  "fullHistoricalObjectsPreserved": 96,
+  "historicalNonNullSourceFaces": 2,
+  "sourceBudget": {
+    "cachedOwnersRevalidated": 25,
+    "cachedDefinitionsReused": 30,
+    "cachedOwnerExpansions": 0,
+    "cachedPartTransforms": 0,
+    "newOriginalPartTransforms": 25,
+    "newSourceBlueprintPartTransforms": 25,
+    "newUniqueSourceOwners": 25,
+    "resumedOwnerExpansions": 0,
+    "resumedOriginalPartTransforms": 0
+  },
+  "scopeCounts": {
+    "actualNativeCompilerCalls": 0,
+    "fullNewYorkDiagnostics": 0,
+    "worldSteps": 0,
+    "rendererCalls": 0,
+    "builds": 0,
+    "benchmarks": 0
+  },
+  "nativeRecordsBound": 0,
+  "runtimeAndDeclarationUnchanged": true,
+  "protectedUnrelated": {
+    "path": "docs/engineering/shared-maps/support-regions-proposal.md",
+    "sha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f",
+    "staged": false
+  },
+  "retainedHelpers": [],
+  "files": [
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/.gitattributes",
+      "bytes": 90,
+      "lfSha256": "40c83f13b27522cfe6d2924150d57b102c73c24d4ee889775af78958da3b1fda"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/README.md",
+      "bytes": 4202,
+      "lfSha256": "910e5105da2e5276d0a0a8aa3c39bf461ebf2eeff9513744da82b6a77f298866"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/authority.md",
+      "bytes": 2345,
+      "lfSha256": "e51d5a9b61e658f52f059f3f6be010be8325628a54ba6b1b160ede1825e44c51"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/checks-01.json",
+      "bytes": 1729,
+      "lfSha256": "53053109b976abd12eaa017d561ff683dd9ef1c982f10a497d96f97d2a89b57a"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/checks-01.log",
+      "bytes": 3842,
+      "lfSha256": "16546f807e76ec984bb84a3aebf009e981cbaaa4b71bd9b2eaf35b3b24fb9e40"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/cleanup.json",
+      "bytes": 517,
+      "lfSha256": "7f8e80a62503f03a02875626f2bb8e4f70f7198bd6cef47bba053c15ecc0f036"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/input.json",
+      "bytes": 229883,
+      "lfSha256": "1974dc7b4d56daaa701ef46cece6ace831b09d2eb906d331edf47a0c31eed8fb"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/prepare-input.mjs",
+      "bytes": 11238,
+      "lfSha256": "22b666976c58690f5e76083ecc3a4edda4bbced4f77708680973aa89161bc6a2"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/resume-authority.json",
+      "bytes": 611,
+      "lfSha256": "1b2700b6bed0db10952e1e9ca5b1e7a426db856bbf769c12b68f4eb29f143145"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/resume-review.md",
+      "bytes": 3630,
+      "lfSha256": "2807c6efda93827fff2a119757a9073eab03ec70f53a5621ac760d1a9c46286b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/run-bounded.mjs",
+      "bytes": 1995,
+      "lfSha256": "48c0d2b65660d4e629255ab41cc3475712248c43c8ce2e1f170a338e0c2dc240"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/source-01.json",
+      "bytes": 1436,
+      "lfSha256": "11579ca6a500fce04faa8f023cff68c791c80852b85f360d2c7573aef1c72dbf"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/source-01.log",
+      "bytes": 2508,
+      "lfSha256": "1da9c0073414ad65ddd75b0bebd2b6e86fb78f22c5e144eebe1ad567184f5cbc"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/source-pins.json",
+      "bytes": 4566,
+      "lfSha256": "2eb155b860d8d75edcd8011d3af4ecde1f7d8ceb71c04ad042ed6cecd696e345"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/source-result.json",
+      "bytes": 46962,
+      "lfSha256": "2e33e180c96b7748018b7624cdafd04bdf21736ea712b8ce4131e97ed28a6f2e"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/verify.mjs",
+      "bytes": 7613,
+      "lfSha256": "9648138f9f3956ec2b89e7e5d284970ffb20fe336f90a43b3a99f8689696894d"
+    },
+    {
+      "path": "tests/integration/cornice-page-contact.test.mjs",
+      "bytes": 7533,
+      "lfSha256": "6706775fa25a521f793d5fe1db27f237c17d56428b14b81e5bf8a2358eb3ab1a"
+    }
+  ]
+}

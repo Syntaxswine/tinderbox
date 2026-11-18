@@ -1,0 +1,51 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Minimal rotated-end synthetic mapper and affected checks",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "tests/integration/cornice-page-contact.test.mjs",
+    "tests/integration/original-contact-adapter.test.mjs",
+    "tests/integration/contact-endpoint-bounds.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/original-contact-adapter.js",
+      "lfSha256": "ee683a7793135591ab0592fcb687a944f47d59dce2aad3a8c8e9a79315f74434"
+    },
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "5fd1b729132c74099cd42f9f2647c52721b44a53468bab3b69d23a5f4ba7d02d"
+    },
+    {
+      "path": "tests/fixtures/original-contact-seam.mjs",
+      "lfSha256": "5110154d24a3f3f678e54d41cf0e26eab5386b15d03f064fb83cf442656ffa20"
+    },
+    {
+      "path": "tests/integration/cornice-page-contact.test.mjs",
+      "lfSha256": "6706775fa25a521f793d5fe1db27f237c17d56428b14b81e5bf8a2358eb3ab1a"
+    },
+    {
+      "path": "tests/integration/original-contact-adapter.test.mjs",
+      "lfSha256": "1bb1d5b2fc1205200272ec7185b39e7924bcea7964f16b81e2f29f5fb22b41f1"
+    },
+    {
+      "path": "tests/integration/contact-endpoint-bounds.test.mjs",
+      "lfSha256": "e389343612a0548db1811742e0711b74583d1c17407f6b288550a03dc952da3b"
+    }
+  ],
+  "pid": 30412,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-18T03:11:43.023Z",
+  "endedAt": "2026-11-18T03:11:43.550Z",
+  "exitCode": 0,
+  "signal": null,
+  "timeoutMs": 20000,
+  "actualNativeCompilerCalls": 0,
+  "fullNewYorkDiagnostics": 0,
+  "worldSteps": 0,
+  "rendererCalls": 0,
+  "privateProducerAuthenticationExercised": false,
+  "ports": [],
+  "retainedHelpers": []
+}

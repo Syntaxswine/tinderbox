@@ -1,0 +1,1291 @@
+{
+  "status": "source-proofs-prepared-native-unbound",
+  "inputSha256": "1974dc7b4d56daaa701ef46cece6ace831b09d2eb906d331edf47a0c31eed8fb",
+  "sourceRevision": "dcc3a17e39cdc07578b4fba5308d6c21817a6ccdd9ca98a908fb1e5a292eccea",
+  "counts": {
+    "uniqueParts": 50,
+    "uniqueSourceDefinitions": 55,
+    "selectorProofs": 96,
+    "fixedPorts": 192,
+    "ownedDictionaryCopies": 1,
+    "perProofGeometryCopies": 0,
+    "originalTriangles": 600
+  },
+  "rejected": [],
+  "nativeRecordsBound": 0,
+  "referenceProofsMatched": 48,
+  "fullHistoricalObjectsPreserved": 96,
+  "historicalNonNullSourceFaces": [
+    {
+      "id": "c1ad9f00a637e0172ec3c689",
+      "historicalVolume": {
+        "geometricBearing": false,
+        "kind": "fixed-embed",
+        "sourceFace": {
+          "actualSurfacePoint": [
+            79.96000000089407,
+            8.330000001490117,
+            26.01999996643933
+          ],
+          "sourceCarrierId": "carrier/edge-0/cornice-1",
+          "sourceTriangle": 2
+        },
+        "sourceRange": null,
+        "worldWitness": [
+          79.96000000089407,
+          8.329900001490117,
+          26.01999996643933
+        ]
+      }
+    },
+    {
+      "id": "f4a1f689ba409b62112733c1",
+      "historicalVolume": {
+        "geometricBearing": false,
+        "kind": "fixed-embed",
+        "sourceFace": {
+          "actualSurfacePoint": [
+            32.03999999910593,
+            8.330000001490117,
+            26.01999996643933
+          ],
+          "sourceCarrierId": "carrier/edge-0/cornice-1",
+          "sourceTriangle": 0
+        },
+        "sourceRange": null,
+        "worldWitness": [
+          32.03999999910593,
+          8.329900001490117,
+          26.01999996643933
+        ]
+      }
+    }
+  ],
+  "proofPins": [
+    {
+      "id": "19428b0ef95337ce4e9f64a6",
+      "sha256": "27dade2c7d6aeb46497af43e8dc816afc7ea6c570c61dbc01dd05d3965e2e812"
+    },
+    {
+      "id": "4a520de25677539d97a968b6",
+      "sha256": "0ece1cdd01d5b82835e478709392b1a03e0f53c35c0bc829833188f22a4d2ab6"
+    },
+    {
+      "id": "e31226ad959ac1ae59ead1b7",
+      "sha256": "89850c7fc675b5d16c3516e0aa88bcaa23f23190c6c190d73e694c79cd66ab71"
+    },
+    {
+      "id": "c5663ad87e38a6bbd7ca20c5",
+      "sha256": "e41a0c00aed087eecdb54ce1be86264cc59861d06f34bb9089901b15a44d9b6f"
+    },
+    {
+      "id": "253ab5675e01be128b9f3ea6",
+      "sha256": "255b73e2d945ecb5fa46365c2c7e59559559cdd26c4ee06bfd057ae36ac3d989"
+    },
+    {
+      "id": "d6e5a912ce6b851bb0b8f099",
+      "sha256": "073df13e23fb6b72c60d7ee8cc0310c477af22263ff516e313af9a50d12c30fd"
+    },
+    {
+      "id": "28975b66ffa286a5540561b8",
+      "sha256": "85b31d8bb3caa4f9afa5c46ebbdd2ba3bc76ed71976bf33a7628fdf72e010bae"
+    },
+    {
+      "id": "55ea15de154ab3b2016b5988",
+      "sha256": "19ad945d55516428ba2cbf5aa7edd086533374bf4c5ea10a39ccdfd330e05207"
+    },
+    {
+      "id": "ead207bee65c06079c519b26",
+      "sha256": "9ca45684e2fbc81c61a771c9a17d90bc44c3b8eed11b94bdaaf401434acd2878"
+    },
+    {
+      "id": "d655f212b2143d59385b432b",
+      "sha256": "1ad59748bf79c7d8752ce0350442f2de0744670a9710aedd02eddd2ffd8bbaa7"
+    },
+    {
+      "id": "98a14328f6c3c00e3295e620",
+      "sha256": "9a8622bfe737fc76533fe40e416a8930fed463cc0c1f2091b39026f6b77773e0"
+    },
+    {
+      "id": "5b568c5ef2fd1e83b96084fe",
+      "sha256": "cb08358edb5453956bd05e70d42f6b41a45d68995762e67d95b24411b85affe5"
+    },
+    {
+      "id": "5dcd12afd336b523b3a592e5",
+      "sha256": "d83cb36c4510e4cfe2e8028df6cd2e7ba9ca0087f4912294037b0cfac3bd3a21"
+    },
+    {
+      "id": "26c00dabc2e10c94e5a15dd1",
+      "sha256": "a9b4e88ed86172837107aee97924fa05524f5fbbb0e44dc2055302bb24374372"
+    },
+    {
+      "id": "342568657e02c5a6eb24ed79",
+      "sha256": "48b95b41ff8e99e19e329194ff0c089348d5436782c4e9ebe702fe798b9957ed"
+    },
+    {
+      "id": "04f47d87b837204c0ffcf1a3",
+      "sha256": "c4a0e8309eb3bbf79502f2702adbddedf45211b7bfe965ff493edf7b6df7c1e0"
+    },
+    {
+      "id": "705f424b119a1998c1c0f0a0",
+      "sha256": "4fc012e12b5a5435f72bbb085cd28b4bc98ea91fe20b968d8fb806c4ccf04264"
+    },
+    {
+      "id": "fb1d107c5862de83549a7ab4",
+      "sha256": "20ff4ccf88d50a8b74f7fa5807852cc0f3c69e2a45744b8259acd93c21eb01e7"
+    },
+    {
+      "id": "1fa3c8a2de0b9fdfc7282d35",
+      "sha256": "165cd745cd16cac27d1079920a1971a00ff175a169cd26dcd8644cebd588dbf1"
+    },
+    {
+      "id": "fd46488c71e379071f467946",
+      "sha256": "c51291f36a4848f62f8605d2bc6619cb7943053d8f6fefa3d03213a2db0af16d"
+    },
+    {
+      "id": "fd7b02ecfdaec37ba6dfcf81",
+      "sha256": "88526021c7b210a72c3c493e3ee5d78bfc5ea2f89486dd269132c55ba7d800cf"
+    },
+    {
+      "id": "49048636049c30806a68bc01",
+      "sha256": "1fb05aa8ea974c01c74d45e153aff5357e731c113ad53bf45ba2fa24271824f7"
+    },
+    {
+      "id": "308382dcf336708c0f759a54",
+      "sha256": "1f0eec72905ae0c173861aa8a4d121f36cca09b4d1836c40c0d860c821560617"
+    },
+    {
+      "id": "ebd4900bc3e8c5b97e2aaf54",
+      "sha256": "688c23b60bb53f88b24f937ccd72324c75baa8423918b046ad20964df55359b2"
+    },
+    {
+      "id": "f7af29d8feba34302226289b",
+      "sha256": "57c8547507c68891aa9e8fc344597ba3620db2f5f6e7333c2aa20ac1c3cd6ae6"
+    },
+    {
+      "id": "f460300a53fe3517b1842251",
+      "sha256": "844a33239e5e6724ed85fca943107de151d6da373d0520e9e86b414833ec8cc6"
+    },
+    {
+      "id": "7212b1b57ef2e9d8a1fad94b",
+      "sha256": "481a0ad81229ec99676a2b87c5db816262733cfefdb1c5efe6cfa8964db28648"
+    },
+    {
+      "id": "b521cb22f5ff8d783944f75b",
+      "sha256": "6699d4e0604d2390ccff8bd06546833b89fee73a98b4fd6cb035ac1c51b65357"
+    },
+    {
+      "id": "35f10dbd75219833c8f0e0db",
+      "sha256": "fc7ba7d0d89a78bdbe8de1d4fdf9af5113a40aa1c2363a50d3ffa8b5c743ef79"
+    },
+    {
+      "id": "24b10890a29c29f28a5d842c",
+      "sha256": "2db762584ef67d3a504747e244288381fbce3c0e7bc86a2d9117986caf4b9a89"
+    },
+    {
+      "id": "9b75a3d14498fa9105647764",
+      "sha256": "c5eff678a0d7cd67fa741a06f26017d353e6ec1552bd62822e3bd5ba12ad781c"
+    },
+    {
+      "id": "fd8822c37f6dbddd12c380cb",
+      "sha256": "ac4ccb66772f731cca6bf08925f3656a14bebf9ca0abf78c2bc7ba5d9401d97d"
+    },
+    {
+      "id": "1d5530d345cdd96aeedc6b3f",
+      "sha256": "a4e74d9781c166ede3b570c37751ffdaa1ac52ac2c256a771de4e4cb724eeb4d"
+    },
+    {
+      "id": "7242e6a64b18c2ab00162b7f",
+      "sha256": "dfa48be68528817a99e2fe86dba5d7231657c3e5f83dbaf43f73c891b94e892b"
+    },
+    {
+      "id": "fe217ba97b28ae41d6cf0a07",
+      "sha256": "45907f5e423094a95e8025c35729e24dc2aca067dd6f3912a972976d96f9e97c"
+    },
+    {
+      "id": "b862db4b03a62ace73389a20",
+      "sha256": "e231a5cfa6ee28954b7fc0851ce91f92a9e69baae599326d085129decb9d5931"
+    },
+    {
+      "id": "61d47a1de9d69d0280b248ca",
+      "sha256": "430d0136a674afb8655d41167490cfb88640c86c870b3b4d70a7f87f382394b3"
+    },
+    {
+      "id": "62f5bf900382aabfe98231ca",
+      "sha256": "e601ecd29db098dd03fb7d58b6c44450ca26fbf8e7c35755f7b00b191371546d"
+    },
+    {
+      "id": "e95d309ff6153ba67901f33f",
+      "sha256": "88934157b8cf5f95995e69e7f51d465001e3e0707fa9baf333318eff0eaea4ee"
+    },
+    {
+      "id": "c75df3d49c889d7312d7a80c",
+      "sha256": "96d404552389e3a28bea76c571f74af0d8a4738b58714dbe3f8e0cffb3e68e1e"
+    },
+    {
+      "id": "d77006ac710990517110648b",
+      "sha256": "0be3889d55ed7146016ff438d04db85ed2c69fc7f9945f9496d22ffbd9fc6096"
+    },
+    {
+      "id": "6f3775584ee2ead81454bb57",
+      "sha256": "5f8c42786072de224ae5390149f837d8f4a9ed38d5c7e5861a3dd68b61deb64a"
+    },
+    {
+      "id": "2287501ab436943a273a87fa",
+      "sha256": "9db5a6ca0f02df5dd7df07389bc5fada1ec80fe3d1dd9b9c2ee92c371ef4913d"
+    },
+    {
+      "id": "2a06e705dee28b34e78d9bd6",
+      "sha256": "fcde00dc1e025f267d8e572d8ee6249a98b3fdbe8e6fe32aafe76aba28917709"
+    },
+    {
+      "id": "637480c0e6c06b8a41be9307",
+      "sha256": "91a9652130f76b1a6136d1747393d0732795a5431430dbed554bd60285d33bf6"
+    },
+    {
+      "id": "add315751085fbc8be53a382",
+      "sha256": "265f176c9dae0b748161a18aa45e058806ce6b20577ed69a1378b0c441140192"
+    },
+    {
+      "id": "8806fcdd49aee48d7104a4fb",
+      "sha256": "9442ba0bdb361d0706441e83fe10b56322afbd2bf01383f479cbb21f0f9d2de3"
+    },
+    {
+      "id": "40ef25ce7b8d237e33010daa",
+      "sha256": "1772994e7de728d60bd184d3200c19cba09dfc55c81492d780e4700734cd51d1"
+    },
+    {
+      "id": "6c5cf1071703ae1408aac345",
+      "sha256": "15131ea824ccb63ae0779551e4bc1e6b705242b828681d8f852ef7fe343f571e"
+    },
+    {
+      "id": "438d7760b7311b66337884de",
+      "sha256": "f47875502232dda07c02b7279054ea8102d514e45347098d3b3e231dcdf8be3a"
+    },
+    {
+      "id": "78505e9d7c45fc7213d793d1",
+      "sha256": "bf3bf25697d31a8cf946f9f18f67f8f134abdb4ba0155be2d9f5a6fd1b27d8c0"
+    },
+    {
+      "id": "f7b3e932f47f8997ab4340ce",
+      "sha256": "28b4d12c53708ef1a675c64da1bf464d9646fe081247b71682d0db12f0ea56f8"
+    },
+    {
+      "id": "7abd63859f842fa8af8ad4ad",
+      "sha256": "240e045e24dc773fe76f2ccf13926b0b38dadb7a26d8c1bc7f947c6c70ba198f"
+    },
+    {
+      "id": "c132506caa4de278b02bf4bd",
+      "sha256": "f4dd951e8974dfbc715a8e65cb1190a838f716a3f8c3835e4f93d93ba0e9e8e0"
+    },
+    {
+      "id": "990235f8308c993977ad0392",
+      "sha256": "61bea00c7d66cae39ec6938fd8e6b19d0ce0271041fc76d2e9e80f7be18d28a1"
+    },
+    {
+      "id": "220dc36ef6ef54c9635e7a92",
+      "sha256": "19bf4bda624e9ee4890ec89f016cc51e4322421e10c9a197c8653d21e0449167"
+    },
+    {
+      "id": "10c24f3a4c590a65cb205417",
+      "sha256": "7df4066287ac57f899fc1c8d2dad3ac2b203af913d0f5808c17cd3b453a32069"
+    },
+    {
+      "id": "54c75dfb2f7fe69f63e4112e",
+      "sha256": "6b419b44a51224a5caf4b0ee23bbd137bcde051365d46e0e07e1cc87c3091758"
+    },
+    {
+      "id": "6c5b8b1df002d4beca64b5aa",
+      "sha256": "0ddf1ea33fb150d7928eff1f5fea1e9199c5b86ef485a84e780d6cbbcd302dce"
+    },
+    {
+      "id": "54fc44e2232cfa4cff8bf433",
+      "sha256": "556a18bbf1ecb3ee2e28dd76c0ad7be417c5f5f44c35550688bb1b3a9f598285"
+    },
+    {
+      "id": "879fe2fae4beae9b0bfcefdf",
+      "sha256": "e9fc4bc7d6bc82f137100b16ea2ff31581c5d193e3d2463405bcfddef4dc40de"
+    },
+    {
+      "id": "9929efc3e2a807a855a26982",
+      "sha256": "e54143c4cb8766c722c5363f53f6179edb3fd66e48c304b5404bebf98dd03c31"
+    },
+    {
+      "id": "5bc0821a6248b9a67e97eced",
+      "sha256": "7e7598c3395e7e1934279548118ed97435e06259030e484cf6fa6bae55353163"
+    },
+    {
+      "id": "031468a330b9869da8fc047e",
+      "sha256": "cb5a60143fe7d68abecf4baa6d36110f55f3165d1bdd7c628f765f8c7d89c13b"
+    },
+    {
+      "id": "ce13d88da775e9b908cc4388",
+      "sha256": "495e62af389ef7845bdd07408882a33649608e44cec4209717629da4120ffd34"
+    },
+    {
+      "id": "8860cf8d4f2e4dc53754e8ba",
+      "sha256": "4c4e07f7f9d231145b8356f6f9feaa7e5b3a718954b264c804cbc19a5e024105"
+    },
+    {
+      "id": "bcab56151e0914d7e6eb9b47",
+      "sha256": "f9a11f86fc47a59487c2149886076324162cdd96db4945bc8e2f36a18f281bf0"
+    },
+    {
+      "id": "b5517aaa2d9348ff7b63dbda",
+      "sha256": "cb0f3f8542f83d1b0fe892953be35dc48e646ac596c5b3e82650bfd9e974aef6"
+    },
+    {
+      "id": "442c7c6cb3f7785e97de2483",
+      "sha256": "cfebdcafaf0032cc1ac2e760373823c06688fa682fc9b3b7cc40e956f5081c60"
+    },
+    {
+      "id": "3bde706385ee61cfc40a2b92",
+      "sha256": "ff2eb460a65fac0f413d09a0fa19881d3463573c2cb2f585378ed3e4b31812bf"
+    },
+    {
+      "id": "ee121e62ccd9a63d37130694",
+      "sha256": "5cb79a3159474b1cc2124b8e3d01d03734dee6375899c39a95f70547b997d7c4"
+    },
+    {
+      "id": "078e9132fc99e7b98b8dc8c6",
+      "sha256": "5e3cb019a8fcb267115eb56496865efa62170931ce5e61aa3d7ea002d70f20a6"
+    },
+    {
+      "id": "718b89059641a6022e9558da",
+      "sha256": "5112c8c6ae7528498190ecd5d44699ae536c6931713b415bf69f54aadcfe48c4"
+    },
+    {
+      "id": "6e9c08f1517cb9931f41dd32",
+      "sha256": "f493bdd80fefc93dd45576bdb3ef1cb96ca73625ef2a9eb3c0ec403f0090b47d"
+    },
+    {
+      "id": "b7bcf4f3edf45878bb510099",
+      "sha256": "9b1292e0a6959aeb2d2ff0f5165cfa0627eb3c12dd0b78506407366ee2c91a7e"
+    },
+    {
+      "id": "cd6333cc929dd35e4ed5bf9e",
+      "sha256": "d0dc1ac01e8e12dfc485cf643427e12f3cd91fe59cf9763a767a1f88161ce061"
+    },
+    {
+      "id": "f0df5fd7c11a24bd6afbcfc6",
+      "sha256": "2fd6aa1bad792197e453efc8f0f9c6926a37b801e9fa6d504b1a9f5167fff7a8"
+    },
+    {
+      "id": "242bf67b4ab53cf723a6b7e3",
+      "sha256": "c367230993db3305f1f1260ebf8f054fa6833fc88de45b8229455606d37d6d89"
+    },
+    {
+      "id": "3da6116abc5b635c5d2b031f",
+      "sha256": "554e0f9bd6f3108e44f27a81a222cb2ecb8ac51bae5d76d02235a1f8fa5e94df"
+    },
+    {
+      "id": "9422d630c5a539dce93b8b1e",
+      "sha256": "390e5e8b9d5b52561ade2a24fbeea125fcf87898f600f8b16a12c95a1baba614"
+    },
+    {
+      "id": "f09b40a6b2ce6742b8d323c2",
+      "sha256": "456786deb24e0d7827efd2653b526a487f0ff7d55134f799c36ea99e80a6b247"
+    },
+    {
+      "id": "875dfee1c4a0118d689efafc",
+      "sha256": "251fc12eb3b25d9ebc4db45b8c0bbdecbb381ec6ecf2773595c36d6e31e45d1f"
+    },
+    {
+      "id": "e1a6cde078367aa610694f6a",
+      "sha256": "a627e1a32144e92e55e5743eedf89a9bf7f09355011c429a36bec3af800eb9de"
+    },
+    {
+      "id": "357e748ed2e0e23bd066de99",
+      "sha256": "95c50ca67af21781eba1df8c57a64eee2d45a51abae96f7309aa88cc96bf49cd"
+    },
+    {
+      "id": "213e48b759ad9b1fb8a60840",
+      "sha256": "84a02b384b9ef8c0e40044214584a9676ea530704c7bd7fd7fe2e75cb602dffa"
+    },
+    {
+      "id": "038e5dfa2f2a8f29b9649cef",
+      "sha256": "eb5203870036daad74ad4b50171c2de077c1b1d2e0aa739432aa6e13033841ff"
+    },
+    {
+      "id": "47958f2e01ae1c062c749cd1",
+      "sha256": "cb550996bad99e73c9b9163d095ca65a7eef040870e74cca41ebe9c59042d9c2"
+    },
+    {
+      "id": "18e1f0c86dbe135c558fde46",
+      "sha256": "1defb5177805012e6578ee956e38e5abcbddd4213294b3f8ef3534dfa1ede5b0"
+    },
+    {
+      "id": "783409b79b976f6cc5b7e0db",
+      "sha256": "d34cdf04485279cf50290fe2fdb6694fa770bf59fa18c7dd08114230e19dde2f"
+    },
+    {
+      "id": "e9ccdff66a6ae94b097f431f",
+      "sha256": "cadad02e9b5ae194ccbe286c73a30db8efe6d914d76e12a102ad5562022d6b2a"
+    },
+    {
+      "id": "22617ca3fb03c86e6ea20ade",
+      "sha256": "74094c620562cd99be929b3f6e73dc5f4cca945c695fe3ffe26d95b441936922"
+    },
+    {
+      "id": "1f7b0abc01db2e242abc689e",
+      "sha256": "9810c99170ab05f0da944fbfcf3f81fdc21a1ab4a66c008ff530dc115366fff9"
+    },
+    {
+      "id": "c6f302c17da821b9c29eaae1",
+      "sha256": "b09f356fb8a46e89934c8d78ae71bd87befe345b1d2e3a655b0515b350367ff9"
+    },
+    {
+      "id": "b4dd61e9c495a3fd6f5474bb",
+      "sha256": "c4719bce3db556ca7ff82c788725876b4c9767cb332e068cfa7b60529bad9191"
+    },
+    {
+      "id": "c1ad9f00a637e0172ec3c689",
+      "sha256": "7c7317cf97fe6bb5b050fe148e426e2237256977b98bc57b23b50c63d48c2544"
+    },
+    {
+      "id": "f4a1f689ba409b62112733c1",
+      "sha256": "6d28b0b947172c40d07b3cfca19d342a7ba968b8402e963a522e481885fa278c"
+    }
+  ],
+  "rotatedProofs": [
+    {
+      "version": 1,
+      "id": "c1ad9f00a637e0172ec3c689",
+      "relationshipId": "47bee1552b009efbc4a57509",
+      "kind": "proposed-original-contact",
+      "point": [
+        79.92000000178814,
+        8.330000001490117,
+        26.01999996643933
+      ],
+      "direction": "parent-to-child",
+      "selector": {
+        "max": [
+          80,
+          8.330000001490117,
+          27
+        ],
+        "min": [
+          79,
+          8.129999998509884,
+          26
+        ]
+      },
+      "historicalVolume": {
+        "geometricBearing": false,
+        "kind": "fixed-embed",
+        "sourceFace": {
+          "actualSurfacePoint": [
+            79.96000000089407,
+            8.330000001490117,
+            26.01999996643933
+          ],
+          "sourceCarrierId": "carrier/edge-0/cornice-1",
+          "sourceTriangle": 2
+        },
+        "sourceRange": null,
+        "worldWitness": [
+          79.96000000089407,
+          8.329900001490117,
+          26.01999996643933
+        ]
+      },
+      "sourceRevision": "dcc3a17e39cdc07578b4fba5308d6c21817a6ccdd9ca98a908fb1e5a292eccea",
+      "grid": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "pitch": [
+          0.5,
+          1.06,
+          0.5
+        ]
+      },
+      "ends": {
+        "parent": {
+          "partId": "main/1/cell-3-0/1",
+          "ownerId": "new-york::carrier/main/1/cell-3-0/1",
+          "globalPartIndex": 7347,
+          "role": "exterior-wall",
+          "component": 0,
+          "primitive": 8,
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "selector": {
+            "max": [
+              80,
+              8.330000001490117,
+              26.180000007152557
+            ],
+            "min": [
+              79.92000000178814,
+              8.129999998509884,
+              26
+            ]
+          },
+          "sourceId": "new-york::carrier/main/1/cell-3-0/1/part/7347/plane",
+          "channel": "solid",
+          "projection": [
+            80,
+            8.330000001490117,
+            26.01999996643933
+          ],
+          "sourceCell": [
+            160,
+            7,
+            52
+          ],
+          "sourceSpan": {
+            "min": [
+              160,
+              6,
+              52
+            ],
+            "max": [
+              160,
+              7,
+              53
+            ]
+          }
+        },
+        "child": {
+          "partId": "edge-0/cornice-1",
+          "ownerId": "new-york::carrier/edge-0/cornice-1",
+          "globalPartIndex": 2406,
+          "role": "timber-fitting",
+          "component": 0,
+          "primitive": 2,
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "selector": {
+            "max": [
+              80,
+              8.330000001490117,
+              26.180000007152557
+            ],
+            "min": [
+              79.92000000178814,
+              8.129999998509884,
+              26
+            ]
+          },
+          "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+          "channel": "surface",
+          "projection": [
+            79.92000000178814,
+            8.330000001490117,
+            26.01999996643933
+          ],
+          "sourceCell": [
+            159,
+            7,
+            52
+          ],
+          "sourceSpan": {
+            "min": [
+              63,
+              7,
+              51
+            ],
+            "max": [
+              160,
+              7,
+              52
+            ]
+          }
+        }
+      }
+    },
+    {
+      "version": 1,
+      "id": "f4a1f689ba409b62112733c1",
+      "relationshipId": "df053b9324331803add24045",
+      "kind": "proposed-original-contact",
+      "point": [
+        32.07999999821186,
+        8.330000001490117,
+        26.01999996643933
+      ],
+      "direction": "parent-to-child",
+      "selector": {
+        "max": [
+          33,
+          8.330000001490117,
+          27
+        ],
+        "min": [
+          32,
+          8.129999998509884,
+          26
+        ]
+      },
+      "historicalVolume": {
+        "geometricBearing": false,
+        "kind": "fixed-embed",
+        "sourceFace": {
+          "actualSurfacePoint": [
+            32.03999999910593,
+            8.330000001490117,
+            26.01999996643933
+          ],
+          "sourceCarrierId": "carrier/edge-0/cornice-1",
+          "sourceTriangle": 0
+        },
+        "sourceRange": null,
+        "worldWitness": [
+          32.03999999910593,
+          8.329900001490117,
+          26.01999996643933
+        ]
+      },
+      "sourceRevision": "dcc3a17e39cdc07578b4fba5308d6c21817a6ccdd9ca98a908fb1e5a292eccea",
+      "grid": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "pitch": [
+          0.5,
+          1.06,
+          0.5
+        ]
+      },
+      "ends": {
+        "parent": {
+          "partId": "main/11/cell-3-27/1",
+          "ownerId": "new-york::carrier/main/11/cell-3-27/1",
+          "globalPartIndex": 8218,
+          "role": "exterior-wall",
+          "component": 0,
+          "primitive": 8,
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "selector": {
+            "max": [
+              32.07999999821186,
+              8.330000001490117,
+              26.180000007152557
+            ],
+            "min": [
+              32,
+              8.129999998509884,
+              26
+            ]
+          },
+          "sourceId": "new-york::carrier/main/11/cell-3-27/1/part/8218/plane",
+          "channel": "solid",
+          "projection": [
+            32,
+            8.330000001490117,
+            26.01999996643933
+          ],
+          "sourceCell": [
+            64,
+            7,
+            52
+          ],
+          "sourceSpan": {
+            "min": [
+              64,
+              6,
+              52
+            ],
+            "max": [
+              64,
+              7,
+              53
+            ]
+          }
+        },
+        "child": {
+          "partId": "edge-0/cornice-1",
+          "ownerId": "new-york::carrier/edge-0/cornice-1",
+          "globalPartIndex": 2406,
+          "role": "timber-fitting",
+          "component": 0,
+          "primitive": 0,
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "selector": {
+            "max": [
+              32.07999999821186,
+              8.330000001490117,
+              26.180000007152557
+            ],
+            "min": [
+              32,
+              8.129999998509884,
+              26
+            ]
+          },
+          "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+          "channel": "surface",
+          "projection": [
+            32.07999999821186,
+            8.330000001490117,
+            26.01999996643933
+          ],
+          "sourceCell": [
+            64,
+            7,
+            52
+          ],
+          "sourceSpan": {
+            "min": [
+              63,
+              7,
+              51
+            ],
+            "max": [
+              160,
+              7,
+              52
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "partChecks": [
+    {
+      "partId": "edge-0/cornice-1",
+      "ownerId": "new-york::carrier/edge-0/cornice-1",
+      "globalPartIndex": 2406,
+      "globalCarrierIndex": 2406,
+      "reused": true,
+      "geometryId": "eb00a03d406e98ba1052101ff72273da5ff8148d0b95af94f85a998962bc16bf",
+      "matrixFloat64Sha256": "b2b83715319381dd13c28cdeb88da691c9d36568d230fad281b75266884da3c4",
+      "worldTrianglesFloat64Sha256": "59fb5409e64201f3ea9195d2daefef1f3510a447cbfb46a06afb445bb403ca1a"
+    },
+    {
+      "partId": "main/0/cell-3-1/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-1/1",
+      "globalPartIndex": 6304,
+      "globalCarrierIndex": 6304,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "fc06c767fe1be37852749d83f60a00fc0cbcc1fedc12885ad7cfe94a04ba975a",
+      "worldTrianglesFloat64Sha256": "5e2d5213391aecaa958ad220256894572856c02d62c95d83cd9b1e8bed47a530"
+    },
+    {
+      "partId": "main/0/cell-3-10/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-10/1",
+      "globalPartIndex": 6305,
+      "globalCarrierIndex": 6305,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "5a7e2662c8389b68498b804fe0d6124212c96e0e92cbdee555e0b6bcf35c1afa",
+      "worldTrianglesFloat64Sha256": "0bebe6cbec498bb8869597b0da4d6e59a8a563098118d0b76bcb834acc6b5f7e"
+    },
+    {
+      "partId": "main/0/cell-3-11/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-11/1",
+      "globalPartIndex": 6306,
+      "globalCarrierIndex": 6306,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "2b3b353d87af3f77b3be0e0a63876c32eb674c54273617efc13c802e844ae108",
+      "worldTrianglesFloat64Sha256": "44803f2d648cb84f4e9b2dcc9177ab66b6bd60bb232d64e7829525e562eaa60a"
+    },
+    {
+      "partId": "main/0/cell-3-12/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-12/1",
+      "globalPartIndex": 6307,
+      "globalCarrierIndex": 6307,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "91ffdb50f18e12027990c486842cec1a28ccc905563971633f1a07701b96fd31",
+      "worldTrianglesFloat64Sha256": "49eb0e7c141ec32ecba6c89d149184ed54b5c320fe7b349fc9536375233fda8a"
+    },
+    {
+      "partId": "main/0/cell-3-13/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-13/1",
+      "globalPartIndex": 6308,
+      "globalCarrierIndex": 6308,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "efc9ea7a74d6ab1fe4e65f81f420710562e0877a511b8a43257329e710fdc711",
+      "worldTrianglesFloat64Sha256": "c5d5399f174cb7e6e04ec40ce430cfc4eed7ed28dab46dde9af33c7431a100b1"
+    },
+    {
+      "partId": "main/0/cell-3-14/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-14/1",
+      "globalPartIndex": 6309,
+      "globalCarrierIndex": 6309,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "9b8792ebd5760272470e754312edcb27c51f1b4b76d3214f4c4ee17455343b8d",
+      "worldTrianglesFloat64Sha256": "7fefa31d02703288919642baee33c5333e0bb36ce6e3ba58e218166bf1369fac"
+    },
+    {
+      "partId": "main/0/cell-3-15/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-15/1",
+      "globalPartIndex": 6310,
+      "globalCarrierIndex": 6310,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "66a3c54cbd4fc608910f26096f0d948c61650a3e25d1e9f60aea0555f8f34eff",
+      "worldTrianglesFloat64Sha256": "cbc717320e5d2aa80f29e30bb9f1e7cd95c042ad466d4d05c2473b3b67a276cc"
+    },
+    {
+      "partId": "main/0/cell-3-16/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-16/1",
+      "globalPartIndex": 6311,
+      "globalCarrierIndex": 6311,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "98465625659742a5e7961949530a8a39fb67423de98a0f5f3b1dc1734bf3df57",
+      "worldTrianglesFloat64Sha256": "8708bb75c668dfe574bb346b24d90f520ef11b426078d23a05f99dd7f3a17225"
+    },
+    {
+      "partId": "main/0/cell-3-17/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-17/1",
+      "globalPartIndex": 6312,
+      "globalCarrierIndex": 6312,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "7fa81bd1ca28540f90b7ce1822210b9e7f817227fe49dd7ebe2bf1255a578add",
+      "worldTrianglesFloat64Sha256": "6e867624c84f586e46f7b8b870c3a2a458cf3943ad7423be391638a2d86de7a4"
+    },
+    {
+      "partId": "main/0/cell-3-18/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-18/1",
+      "globalPartIndex": 6313,
+      "globalCarrierIndex": 6313,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "fe9de3f465687ea92092598d951c67c0467128212ed0c8b15a33c62f25adbe7c",
+      "worldTrianglesFloat64Sha256": "9afe2eeca0067914c88c6252612a7b707d8c366131ce94589f6f218aee5f684f"
+    },
+    {
+      "partId": "main/0/cell-3-19/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-19/1",
+      "globalPartIndex": 6314,
+      "globalCarrierIndex": 6314,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "0075c45cba44588220ae95707872628cde9db46f310fab5df7ecd82043dd92ee",
+      "worldTrianglesFloat64Sha256": "fa857440c018f3c35af57099b3962eafa2f4d556722ad97e596572f22609b18d"
+    },
+    {
+      "partId": "main/0/cell-3-2/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-2/1",
+      "globalPartIndex": 6315,
+      "globalCarrierIndex": 6315,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "bd99e14a682822e2d0c80f4d12bcd4d00f48158de21f19944905f33f4d99aa2e",
+      "worldTrianglesFloat64Sha256": "36249cae5ccea3ba79209c6493060ff037eeac68937ea2f8b29386561b74993c"
+    },
+    {
+      "partId": "main/0/cell-3-20/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-20/1",
+      "globalPartIndex": 6316,
+      "globalCarrierIndex": 6316,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "e4e66b2e6c234e4d0dc87df114dec5064f8670241675adb2239768337e91bc65",
+      "worldTrianglesFloat64Sha256": "d98d953e9e4b5bd524bfdd78b2ddded6db0229717b14b680774e65c1b25e8b3e"
+    },
+    {
+      "partId": "main/0/cell-3-21/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-21/1",
+      "globalPartIndex": 6317,
+      "globalCarrierIndex": 6317,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "b1395dba8f2889d6dd42358e0124d79e63855e5f7f7e038c432c7bae8657d52c",
+      "worldTrianglesFloat64Sha256": "7dcc3af2c5ef433a7f407aa6837ce487f7c2d895c00ea94692ac8dcd6608a331"
+    },
+    {
+      "partId": "main/0/cell-3-22/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-22/1",
+      "globalPartIndex": 6318,
+      "globalCarrierIndex": 6318,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "9347ba7f64c8da3e64ebe28677f2420d5976ab763214a51fc0fc80687d9271ce",
+      "worldTrianglesFloat64Sha256": "fee5b24ab98c7bab178fe81a8f6ea3a8928617ed22656934193bdaa4a92172d8"
+    },
+    {
+      "partId": "main/0/cell-3-23/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-23/1",
+      "globalPartIndex": 6319,
+      "globalCarrierIndex": 6319,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "b98c94e769f9c7b7615809c1f2d6f52e43b9bf41cc5d60958dbaebb5afd77baf",
+      "worldTrianglesFloat64Sha256": "0e9d042f79fa51668a6ce5d78792ffdec8bf8a03bb5dfc4def1a99ede6994a83"
+    },
+    {
+      "partId": "main/0/cell-3-24/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-24/1",
+      "globalPartIndex": 6320,
+      "globalCarrierIndex": 6320,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "34eeb27cb36b9791abee46968363d96c5edd835c73abbc134153e4ca23cd4f0c",
+      "worldTrianglesFloat64Sha256": "49212279251e9b0b4caba0e1cdf6e48fc8b1b65e2bf3a0c750b72d976857b63c"
+    },
+    {
+      "partId": "main/0/cell-3-25/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-25/1",
+      "globalPartIndex": 6321,
+      "globalCarrierIndex": 6321,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "2b80245759915306a3ba1f8964fa4e12a8f859441020b43415c8619fba96c92d",
+      "worldTrianglesFloat64Sha256": "873e87d26e88b0b27a131e53df65cdf873648aa1998fe5828942917cd7d64ad7"
+    },
+    {
+      "partId": "main/0/cell-3-26/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-26/1",
+      "globalPartIndex": 6322,
+      "globalCarrierIndex": 6322,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "aceedcfd74c1ed4ef3d967452a5853906e84429795fbf158590956b7d2c9c556",
+      "worldTrianglesFloat64Sha256": "c8831d0ad589a61ac43bfd7370946dbd06244f2da70c6c242c1bd686fd9dc54c"
+    },
+    {
+      "partId": "main/0/cell-3-27/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-27/1",
+      "globalPartIndex": 6323,
+      "globalCarrierIndex": 6323,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "81c36f2c03f8b5b4f26d263b6783c8a486011d4bb0563ebbf62ecd17a65ca3ad",
+      "worldTrianglesFloat64Sha256": "d77e21cd567e71e5c18847350946a72c2c0dbdc47de886394b28e363e41c59a9"
+    },
+    {
+      "partId": "main/0/cell-3-28/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-28/1",
+      "globalPartIndex": 6324,
+      "globalCarrierIndex": 6324,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "830e7744f5130f72682786d8a36c0b86f660c72e659690bb79ba3617360543b1",
+      "worldTrianglesFloat64Sha256": "117afb36ff643851feab31fc35a2fed0062b14585a83e53a7492bc7b2a96c83d"
+    },
+    {
+      "partId": "main/0/cell-3-29/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-29/1",
+      "globalPartIndex": 6325,
+      "globalCarrierIndex": 6325,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "aa3e786586023d596253d18d7b32e758ad89b0481705f49151b659aac41f1442",
+      "worldTrianglesFloat64Sha256": "8fbfff6e789eccbddf4aeacaf5dff8f5c3b38bd95836cfc5e439ebfed84bd4a4"
+    },
+    {
+      "partId": "main/0/cell-3-3/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-3/1",
+      "globalPartIndex": 6326,
+      "globalCarrierIndex": 6326,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "ad5a089581c3af4bbd961386b395d3ee87d7dd0d88b6e2d7ce867cda2246a936",
+      "worldTrianglesFloat64Sha256": "be15ed466025ea992b65ef6f594e61718f79cd4ffab2091ebe0d084781bf9b1a"
+    },
+    {
+      "partId": "main/0/cell-3-30/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-30/1",
+      "globalPartIndex": 6327,
+      "globalCarrierIndex": 6327,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "290ab4874199123a710a84d9262f3ff6f9c0b43f5af24caa4a1d6368bd5904f3",
+      "worldTrianglesFloat64Sha256": "feb78331f7314e57325f0e7dbf77bd6e56e99c972fa25f8407cc87b79d6846dd"
+    },
+    {
+      "partId": "main/0/cell-3-31/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-31/1",
+      "globalPartIndex": 6328,
+      "globalCarrierIndex": 6328,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "8d8be12b21c7d3a6145f4617a9d7fea46e141b496a2782754932667ce83e26a6",
+      "worldTrianglesFloat64Sha256": "02dfcd38098ff89de5c4268e62c9a1bc1ef873963b8125c7edd5bb1aad499a4c"
+    },
+    {
+      "partId": "main/0/cell-3-32/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-32/1",
+      "globalPartIndex": 6329,
+      "globalCarrierIndex": 6329,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "fe31c8652fb78988af6a33c3b6222b785aeeeacf495d5a7e7d42d4732649dfd3",
+      "worldTrianglesFloat64Sha256": "388633ce006320f65f929a826dc0f8521671b548e11f74ba35f91c6bf17476ae"
+    },
+    {
+      "partId": "main/0/cell-3-33/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-33/1",
+      "globalPartIndex": 6330,
+      "globalCarrierIndex": 6330,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "e8d691bb131583e3d1f8eab65867e2f141e799f0f06b04cb3030b37e8b0f1079",
+      "worldTrianglesFloat64Sha256": "c394e5bff63c3ba985de0871a840ee2ac3faa92861ccd57b9f6720b0f2203111"
+    },
+    {
+      "partId": "main/0/cell-3-34/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-34/1",
+      "globalPartIndex": 6331,
+      "globalCarrierIndex": 6331,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "335b6c2cd4da5d5c75dce2b232666a9c1a1376bdf2446a74c311ef9c46fa691a",
+      "worldTrianglesFloat64Sha256": "59fd87dcbb96868ade0087d5d108914ff560c190adfcabacbf45b2a482ee5548"
+    },
+    {
+      "partId": "main/0/cell-3-35/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-35/1",
+      "globalPartIndex": 6332,
+      "globalCarrierIndex": 6332,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "e380d67262711dd3f287f2fe4b7673a4260bfad1cee3e5d61d5bc01ad7abda47",
+      "worldTrianglesFloat64Sha256": "1bc908195301866e142617ba59b4f92951b18a0d032e9c2456317f9ac0fca488"
+    },
+    {
+      "partId": "main/0/cell-3-36/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-36/1",
+      "globalPartIndex": 6333,
+      "globalCarrierIndex": 6333,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "9c77c9c67067c13c8af5f09b9055386cad759d5f610da91290fa4001d42188b1",
+      "worldTrianglesFloat64Sha256": "24856036b19068dac008022c516207d861349e4d9b440488700ae3858dfa96fe"
+    },
+    {
+      "partId": "main/0/cell-3-37/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-37/1",
+      "globalPartIndex": 6334,
+      "globalCarrierIndex": 6334,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "21a9ac18781759548ea3cc6f55f0315cc96d478ffbb303b96ab78a119a7c1350",
+      "worldTrianglesFloat64Sha256": "0fb1dac6533233820495ff83dca92766e356c15d8ff46d2a5755082a0e825890"
+    },
+    {
+      "partId": "main/0/cell-3-38/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-38/1",
+      "globalPartIndex": 6335,
+      "globalCarrierIndex": 6335,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "7f2d9fa81cc65b24dd214439b809f1e4bfef90d4824e00b72ba83a5047d672a3",
+      "worldTrianglesFloat64Sha256": "e28de773f13b8e714966dd92ad06f5bd45291a18bb99c43617741bf019834113"
+    },
+    {
+      "partId": "main/0/cell-3-39/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-39/1",
+      "globalPartIndex": 6336,
+      "globalCarrierIndex": 6336,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "5847c0d56e180ee485ba1501876f5c106e9c440bb038629c079913242306af54",
+      "worldTrianglesFloat64Sha256": "caf9d6560fb3ede216c1d0d47e33c49a9015b2516b77cfd9722f2fe7e68a4c0b"
+    },
+    {
+      "partId": "main/0/cell-3-4/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-4/1",
+      "globalPartIndex": 6337,
+      "globalCarrierIndex": 6337,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "2c06502f27e78457104ede633fbf0239f1dbd04e7abea99240e6955d3305d7f5",
+      "worldTrianglesFloat64Sha256": "76c6c93481a3b2accb4f49fb7ab19b71635ead995956d58ce7aa612492c3f38d"
+    },
+    {
+      "partId": "main/0/cell-3-40/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-40/1",
+      "globalPartIndex": 6338,
+      "globalCarrierIndex": 6338,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "cdaf86b39f46d137ff954925c0d9c03c18bb56e4bc6229001720ecb0506ebbc8",
+      "worldTrianglesFloat64Sha256": "1622f07dba35c101bae7b299086bb39655cffd7859a561821c08df2b2c198fe8"
+    },
+    {
+      "partId": "main/0/cell-3-41/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-41/1",
+      "globalPartIndex": 6339,
+      "globalCarrierIndex": 6339,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "1a44bdd1703627b1e02950b7a0e006c3c9025170caf25695f075c69cbaf72878",
+      "worldTrianglesFloat64Sha256": "4c18c7b4d3738384504125e0940fe1f9c7a3fc4038a493ad51325800243d0d16"
+    },
+    {
+      "partId": "main/0/cell-3-42/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-42/1",
+      "globalPartIndex": 6340,
+      "globalCarrierIndex": 6340,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "65c487e7067abee1f203b4cd725feb6648621a4192c41984b3b3c3c46cd3508f",
+      "worldTrianglesFloat64Sha256": "92af76ae8b2198b511e2e414ff78b737c36a6c021e977af507d2389ebc48e389"
+    },
+    {
+      "partId": "main/0/cell-3-43/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-43/1",
+      "globalPartIndex": 6341,
+      "globalCarrierIndex": 6341,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "ca8bf25af4999f1fcd7c58c90a7d1f71890e79bf0188977aea08a14fd5b03db7",
+      "worldTrianglesFloat64Sha256": "a30629689a1cbc1d89c9237e466cb722928e9e3371934ca7488cec9ad93da368"
+    },
+    {
+      "partId": "main/0/cell-3-44/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-44/1",
+      "globalPartIndex": 6342,
+      "globalCarrierIndex": 6342,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "09c66984bc0d67fe42f53b6606fc756ad5502a027a5bae526179ce7c2dbb6975",
+      "worldTrianglesFloat64Sha256": "614c3d2c7129fa677299b975e9498075fc6320f2f17dc19d2e0ba6c5afcec00a"
+    },
+    {
+      "partId": "main/0/cell-3-45/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-45/1",
+      "globalPartIndex": 6343,
+      "globalCarrierIndex": 6343,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "d7faa5dc402945a7b9dee0ccb810826d1ff234b0e1f4d3a899099fd61a6eb547",
+      "worldTrianglesFloat64Sha256": "57b4bbfb79126b25d455cee0ac4aa1fad63694b5e2ef11f8d8cf6fe5537b4184"
+    },
+    {
+      "partId": "main/0/cell-3-46/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-46/1",
+      "globalPartIndex": 6344,
+      "globalCarrierIndex": 6344,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "010d9e9fd53e243dcbd9a3e8647e2a2c6a0de1181d386f1f2a83dbfba8db8cc9",
+      "worldTrianglesFloat64Sha256": "2bb02a406e80d103f5cad99cfa5c3169ec2f1404465e7e2bbf9ac218edfe3a10"
+    },
+    {
+      "partId": "main/0/cell-3-47/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-47/1",
+      "globalPartIndex": 6345,
+      "globalCarrierIndex": 6345,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "c68715896cd2d54d52cd73b2415405e80a9e8b2e163cc10a520c2838e51d27d4",
+      "worldTrianglesFloat64Sha256": "88e0a05e98cf92df24562bbacea8065ceed28e62b52ba2e7619ca8a8565af217"
+    },
+    {
+      "partId": "main/0/cell-3-5/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-5/1",
+      "globalPartIndex": 6346,
+      "globalCarrierIndex": 6346,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "2833f2c8a5df0bd406d6cc7201d51f3f45c090ff881deb287394ca02dea94494",
+      "worldTrianglesFloat64Sha256": "c7574a68f73212f7a961175fb401bce2faea808f588cbced0939e80b0efd7a22"
+    },
+    {
+      "partId": "main/0/cell-3-6/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-6/1",
+      "globalPartIndex": 6347,
+      "globalCarrierIndex": 6347,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "1accf8319efa30048029a9c9c1c330ab48e98237f5c96e17bbabeacb637aa9dc",
+      "worldTrianglesFloat64Sha256": "41d1611514a26d5198c7347f1aa2c0bc261e71f03df1043a0834a71a2c0d0667"
+    },
+    {
+      "partId": "main/0/cell-3-7/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-7/1",
+      "globalPartIndex": 6348,
+      "globalCarrierIndex": 6348,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "c00d646f06ae1064133d0454429b5e5c1392219112a5e6960f503fd0c0aee48d",
+      "worldTrianglesFloat64Sha256": "b3cd831d2e7f70e70176a7f2ddd9e12a16ba41a4337fcbc1492d101602a1a97e"
+    },
+    {
+      "partId": "main/0/cell-3-8/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-8/1",
+      "globalPartIndex": 6349,
+      "globalCarrierIndex": 6349,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "7a106ac7c4a6f717936d2eed770b7df110083f32cae3a8079d021d21e34f0ef1",
+      "worldTrianglesFloat64Sha256": "02c46111805ce56ea6d1dafe390a9e9f669da56f5efc322cd21261c34fe26eb5"
+    },
+    {
+      "partId": "main/0/cell-3-9/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-9/1",
+      "globalPartIndex": 6350,
+      "globalCarrierIndex": 6350,
+      "reused": true,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "4ee6664664fc89abeeb2ef73d7e61c97caa804a2fa13232bdcc09c8b829740d6",
+      "worldTrianglesFloat64Sha256": "fb20e9c06122f0f85cfa9ebe3c5b96a726d32efb06f6e577fc18014d44380b4f"
+    },
+    {
+      "partId": "main/1/cell-3-0/1",
+      "ownerId": "new-york::carrier/main/1/cell-3-0/1",
+      "globalPartIndex": 7347,
+      "globalCarrierIndex": 7249,
+      "reused": false,
+      "geometryId": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "matrixFloat64Sha256": "c7c87ac5e107fc435be0b9a56eba745e0d824417a1348699be7cb3e637a1d0b9",
+      "worldTrianglesFloat64Sha256": "f6c3ecfa68391a9403e5c93be0c0a8b5bf50093258b71889a6ac222f11590e7a"
+    },
+    {
+      "partId": "main/11/cell-3-27/1",
+      "ownerId": "new-york::carrier/main/11/cell-3-27/1",
+      "globalPartIndex": 8218,
+      "globalCarrierIndex": 8036,
+      "reused": false,
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "matrixFloat64Sha256": "38c7fa597393f7b4eb0a80a2548b4271d43190c35987c8553383582d7cbfc61b",
+      "worldTrianglesFloat64Sha256": "568ea4534eb04a5ca15dae9ea0dbe6bccfba502ff905b667872044b5d730acfa"
+    }
+  ],
+  "metrics": {
+    "selectedOwners": 25,
+    "selectedParts": 25,
+    "decodedAttributeGeometries": 0,
+    "transformedQueries": 0,
+    "renderExpansions": 0,
+    "nativeSourceExpansions": 25,
+    "nativePartTransforms": 25,
+    "presentationBlueprints": 0,
+    "presentationPartTransforms": 0,
+    "staticIndexBins": 16
+  },
+  "cachedOwnersRevalidated": 25,
+  "cachedDefinitionsReused": 30,
+  "cachedOwnerExpansions": 0,
+  "cachedPartTransforms": 0,
+  "newOriginalPartTransforms": 25,
+  "newSourceBlueprintPartTransforms": 25,
+  "newSourceOwnerExpansions": 25,
+  "actualNativeCompilerCalls": 0,
+  "pairValidationSessions": 0,
+  "fullNewYorkDiagnostics": 0,
+  "worldSteps": 0,
+  "rendererCalls": 0,
+  "retainedHelpers": []
+}
