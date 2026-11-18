@@ -1,0 +1,8 @@
+Final staging check:
+art/source/shared-map-fire-bindings/cornice-family-contact-page-01-v1/calculation-worker-stdout.txt:1: trailing whitespace.
+
+The flagged byte is the CR of the original Windows Python stdout CRLF.
+The captured single-line JSON has no trailing spaces/tabs. Its raw bytes and
+SHA-256 remain unchanged. The file-specific whitespace rule enables cr-at-eol
+while retaining blank-at-eol, blank-at-eof and space-before-tab checks.
+No source calculation/check page is retried by this packaging correction.

@@ -1,0 +1,20 @@
+Preflight command: node --check check-contact-page.mjs, through run_owned.
+No source page or geometry calculation had started.
+
+Traceback (most recent call last):
+  File "<stdin>", line 6, in <module>
+  File "C:\Users\baals\.codex\worktrees\art-assets\tinderbox\art\source\shared-map-fire-bindings\cornice-family-contact-page-01-v1\lifecycle.py", line 65, in run_owned
+    final=identity(p)
+  File "C:\Users\baals\.codex\worktrees\art-assets\tinderbox\art\source\shared-map-fire-bindings\cornice-family-contact-page-01-v1\lifecycle.py", line 26, in identity
+    raise OSError(ctypes.get_last_error(),"QueryFullProcessImageNameW failed for owned child")
+OSError: [Errno 31] QueryFullProcessImageNameW failed for owned child
+
+The call reached final identity collection only after communicate/final cleanup
+had confirmed process exit. The first preflight did not persist its PID before
+that receipt error; no PID is invented retrospectively. No helper is retained.
+
+Correction: after confirmed exit, retain the executable already captured while
+the same owned handle was live, and independently match its creation FILETIME.
+Live timeout termination still requires PID/creation/executable revalidation.
+Persist the next preflight's start/end journal. This is not a failed source-page
+retry: the exclusive calculation marker still does not exist.
