@@ -1,0 +1,425 @@
+{
+  "finished": true,
+  "status": "UNREVIEWED_NATIVE_DIAGNOSTIC",
+  "error": null,
+  "counter": {
+    "compilerCalls": 2,
+    "canonicalCells": 12,
+    "originalPortEvaluations": 2
+  },
+  "compiler": {
+    "calls": 2
+  },
+  "trial": {
+    "created": 0,
+    "steps": 0,
+    "disposed": 0
+  },
+  "outputs": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/selected-originals.json",
+      "bytes": 19930,
+      "sha256": "6e06a79f6c32f28de019f459084806228f642f48f8ff53eb35f50e2820868f03"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/selected-blueprints.json",
+      "bytes": 3678,
+      "sha256": "31cffb6c03f393446d10c4dd42b4242751ab895926b416e1b8a290f60e46076e"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/native-legacy-pair-008.json",
+      "bytes": 41757,
+      "sha256": "56d257a1552f829d6ae01c4b27b395812f9afa5cab8b953a26ce785bffb4919b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/result-legacy-pair-008.json",
+      "bytes": 13680,
+      "sha256": "2fadad979272d32f17df9893a30e243b7872cfdb9247f289ee0fb1671b852ba5"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/native-legacy-pair-026.json",
+      "bytes": 41805,
+      "sha256": "ba81cb1db257fef1e8a57eaa860d780d1791f16109bc383185b8d5855e01e582"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/result-legacy-pair-026.json",
+      "bytes": 13680,
+      "sha256": "db49ec0500cf5d969777ec9ddb14e59a22172ccf2c91fcbace09d89ebeb900e8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/diagnostic-results.json",
+      "bytes": 33986,
+      "sha256": "026c11002fb0f0f2a513f3a71a7b832b269a5695a4a9b1e52db81e7f75d66cb7"
+    }
+  ],
+  "lookup": {
+    "bufferCosts": [
+      {
+        "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-world.json",
+        "bytes": 181888
+      },
+      {
+        "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-blueprints.json",
+        "bytes": 168975
+      },
+      {
+        "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/mapped-plan-proposal.json",
+        "bytes": 194338
+      },
+      {
+        "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/endpoint-results.json",
+        "bytes": 314516
+      },
+      {
+        "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/source-policy-proposal.json",
+        "bytes": 65466
+      },
+      {
+        "path": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/mapped-plan-proposal.json",
+        "bytes": 193443
+      }
+    ],
+    "aggregateInputBytes": 1118626,
+    "geometryArrays": 164,
+    "geometryTriangleSlots": 708,
+    "fallbackReserve": {
+      "shapes": 24,
+      "triangles": 8192
+    },
+    "interpretation": "Full frozen JSON tables parsed for ID lookup/accounting only; no source operations on unselected geometry"
+  },
+  "memory": [
+    {
+      "phase": "before-lookup",
+      "rss": 49901568,
+      "heapTotal": 13012992,
+      "heapUsed": 9393056,
+      "external": 5471326,
+      "arrayBuffers": 182313
+    },
+    {
+      "phase": "parsed-lookup",
+      "rss": 52129792,
+      "heapTotal": 13369344,
+      "heapUsed": 10164616,
+      "external": 6940855,
+      "arrayBuffers": 1651802
+    },
+    {
+      "phase": "unselected-table-references-dropped",
+      "rss": 52289536,
+      "heapTotal": 13369344,
+      "heapUsed": 10862096,
+      "external": 6971454,
+      "arrayBuffers": 1651802
+    },
+    {
+      "phase": "disposed",
+      "rss": 62341120,
+      "heapTotal": 20287488,
+      "heapUsed": 12151256,
+      "external": 5464935,
+      "arrayBuffers": 145283
+    }
+  ],
+  "queryBeforeDispose": {
+    "query": {
+      "querySurfaces": 5,
+      "sourceParts": 4,
+      "sourceCarriers": 4,
+      "claimedCarriers": 0,
+      "cachedShapes": 30,
+      "cachedTriangles": 260,
+      "peakShapes": 30,
+      "peakTriangles": 260,
+      "workingShapes": 0,
+      "workingTriangles": 0,
+      "workingLeases": 0,
+      "peakWorkingShapes": 0,
+      "peakWorkingTriangles": 0,
+      "shapeBuilds": 4,
+      "maxSingleQueryTriangles": 12,
+      "maxShapes": 192,
+      "maxTriangles": 65536,
+      "thermalCellsAllocated": 0,
+      "fuelAllocated": 0
+    },
+    "working": {
+      "shapes": 0,
+      "triangles": 0
+    },
+    "fallbackReserve": {
+      "shapes": 24,
+      "triangles": 8192
+    },
+    "combinedReserved": {
+      "shapes": 54,
+      "triangles": 8452
+    }
+  },
+  "queryAfterDispose": {
+    "query": {
+      "querySurfaces": 5,
+      "sourceParts": 4,
+      "sourceCarriers": 4,
+      "claimedCarriers": 0,
+      "cachedShapes": 0,
+      "cachedTriangles": 0,
+      "peakShapes": 30,
+      "peakTriangles": 260,
+      "workingShapes": 0,
+      "workingTriangles": 0,
+      "workingLeases": 0,
+      "peakWorkingShapes": 0,
+      "peakWorkingTriangles": 0,
+      "shapeBuilds": 4,
+      "maxSingleQueryTriangles": 12,
+      "maxShapes": 192,
+      "maxTriangles": 65536,
+      "thermalCellsAllocated": 0,
+      "fuelAllocated": 0
+    },
+    "working": {
+      "shapes": 0,
+      "triangles": 0
+    },
+    "fallbackReserve": {
+      "shapes": 24,
+      "triangles": 8192
+    },
+    "combinedReserved": {
+      "shapes": 24,
+      "triangles": 8192
+    }
+  },
+  "ownerEvents": [
+    {
+      "phase": "originals-borrowed",
+      "query": {
+        "querySurfaces": 5,
+        "sourceParts": 4,
+        "sourceCarriers": 4,
+        "claimedCarriers": 0,
+        "cachedShapes": 4,
+        "cachedTriangles": 48,
+        "peakShapes": 4,
+        "peakTriangles": 48,
+        "workingShapes": 0,
+        "workingTriangles": 0,
+        "workingLeases": 0,
+        "peakWorkingShapes": 0,
+        "peakWorkingTriangles": 0,
+        "shapeBuilds": 4,
+        "maxSingleQueryTriangles": 12,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "working": {
+        "shapes": 0,
+        "triangles": 0
+      },
+      "fallbackReserve": {
+        "shapes": 24,
+        "triangles": 8192
+      },
+      "combinedReserved": {
+        "shapes": 28,
+        "triangles": 8240
+      }
+    },
+    {
+      "phase": "working-reserved",
+      "query": {
+        "querySurfaces": 5,
+        "sourceParts": 4,
+        "sourceCarriers": 4,
+        "claimedCarriers": 0,
+        "cachedShapes": 5,
+        "cachedTriangles": 50,
+        "peakShapes": 5,
+        "peakTriangles": 50,
+        "workingShapes": 0,
+        "workingTriangles": 0,
+        "workingLeases": 0,
+        "peakWorkingShapes": 0,
+        "peakWorkingTriangles": 0,
+        "shapeBuilds": 4,
+        "maxSingleQueryTriangles": 12,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "working": {
+        "shapes": 16,
+        "triangles": 4096
+      },
+      "fallbackReserve": {
+        "shapes": 24,
+        "triangles": 8192
+      },
+      "combinedReserved": {
+        "shapes": 45,
+        "triangles": 12338
+      }
+    },
+    {
+      "phase": "working-released",
+      "query": {
+        "querySurfaces": 5,
+        "sourceParts": 4,
+        "sourceCarriers": 4,
+        "claimedCarriers": 0,
+        "cachedShapes": 17,
+        "cachedTriangles": 154,
+        "peakShapes": 17,
+        "peakTriangles": 154,
+        "workingShapes": 0,
+        "workingTriangles": 0,
+        "workingLeases": 0,
+        "peakWorkingShapes": 0,
+        "peakWorkingTriangles": 0,
+        "shapeBuilds": 4,
+        "maxSingleQueryTriangles": 12,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "working": {
+        "shapes": 0,
+        "triangles": 0
+      },
+      "fallbackReserve": {
+        "shapes": 24,
+        "triangles": 8192
+      },
+      "combinedReserved": {
+        "shapes": 41,
+        "triangles": 8346
+      }
+    },
+    {
+      "phase": "working-reserved",
+      "query": {
+        "querySurfaces": 5,
+        "sourceParts": 4,
+        "sourceCarriers": 4,
+        "claimedCarriers": 0,
+        "cachedShapes": 18,
+        "cachedTriangles": 156,
+        "peakShapes": 18,
+        "peakTriangles": 156,
+        "workingShapes": 0,
+        "workingTriangles": 0,
+        "workingLeases": 0,
+        "peakWorkingShapes": 0,
+        "peakWorkingTriangles": 0,
+        "shapeBuilds": 4,
+        "maxSingleQueryTriangles": 12,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "working": {
+        "shapes": 16,
+        "triangles": 4096
+      },
+      "fallbackReserve": {
+        "shapes": 24,
+        "triangles": 8192
+      },
+      "combinedReserved": {
+        "shapes": 58,
+        "triangles": 12444
+      }
+    },
+    {
+      "phase": "working-released",
+      "query": {
+        "querySurfaces": 5,
+        "sourceParts": 4,
+        "sourceCarriers": 4,
+        "claimedCarriers": 0,
+        "cachedShapes": 30,
+        "cachedTriangles": 260,
+        "peakShapes": 30,
+        "peakTriangles": 260,
+        "workingShapes": 0,
+        "workingTriangles": 0,
+        "workingLeases": 0,
+        "peakWorkingShapes": 0,
+        "peakWorkingTriangles": 0,
+        "shapeBuilds": 4,
+        "maxSingleQueryTriangles": 12,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "working": {
+        "shapes": 0,
+        "triangles": 0
+      },
+      "fallbackReserve": {
+        "shapes": 24,
+        "triangles": 8192
+      },
+      "combinedReserved": {
+        "shapes": 54,
+        "triangles": 8452
+      }
+    },
+    {
+      "phase": "disposed",
+      "query": {
+        "querySurfaces": 5,
+        "sourceParts": 4,
+        "sourceCarriers": 4,
+        "claimedCarriers": 0,
+        "cachedShapes": 0,
+        "cachedTriangles": 0,
+        "peakShapes": 30,
+        "peakTriangles": 260,
+        "workingShapes": 0,
+        "workingTriangles": 0,
+        "workingLeases": 0,
+        "peakWorkingShapes": 0,
+        "peakWorkingTriangles": 0,
+        "shapeBuilds": 4,
+        "maxSingleQueryTriangles": 12,
+        "maxShapes": 192,
+        "maxTriangles": 65536,
+        "thermalCellsAllocated": 0,
+        "fuelAllocated": 0
+      },
+      "working": {
+        "shapes": 0,
+        "triangles": 0
+      },
+      "fallbackReserve": {
+        "shapes": 24,
+        "triangles": 8192
+      },
+      "combinedReserved": {
+        "shapes": 24,
+        "triangles": 8192
+      }
+    }
+  ],
+  "sourceDecodes": 0,
+  "sourceExpansions": 0,
+  "sourceTransforms": 0,
+  "trials": 0,
+  "clockSteps": 0,
+  "fireSteps": 0,
+  "rootPathReevaluations": 0,
+  "worldInstallations": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

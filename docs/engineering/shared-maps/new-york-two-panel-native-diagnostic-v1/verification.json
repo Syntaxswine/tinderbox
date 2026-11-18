@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "scope": "Two saved thick-panel physical native-port diagnostic only",
+  "runs": [
+    {
+      "name": "synthetic-initial",
+      "groups": 3,
+      "compilerCalls": 2,
+      "portEvaluations": 2,
+      "trials": 0,
+      "steps": 0,
+      "receiptSha256": "2ffc21c513ad7fc2553d493bf0a1d08fc7cee4cd550bc24ae2d13fd1ae02a975",
+      "logSha256": "cb3a17f577a908464788fdd78adff505fddf073f20b132376a41f494a35a9e77"
+    },
+    {
+      "name": "synthetic-ready",
+      "groups": 3,
+      "compilerCalls": 2,
+      "portEvaluations": 2,
+      "trials": 0,
+      "steps": 0,
+      "receiptSha256": "2c15ec3367c8bd00e7b24a61cf0c088e83a19a30bab28ef5aedcb52f37720596",
+      "logSha256": "950532e272e97e5dd0d042b91380d0422e7282d80d3bd2bdf37aa40d49448f6d"
+    }
+  ],
+  "syntheticCompilerCalls": 4,
+  "syntheticPortEvaluations": 4,
+  "syntheticTrials": 0,
+  "syntheticSteps": 0,
+  "actualNativeAttempts": 1,
+  "actualCompilerCalls": 2,
+  "actualPortEvaluations": 2,
+  "actualCanonicalCells": 12,
+  "actualOriginalParts": 4,
+  "actualOriginalTriangles": 48,
+  "actualThermalInputTriangles": 4,
+  "canonicalInputQuantity": 4,
+  "actualOutputQuantity": 4.000001410385229,
+  "results": [
+    {
+      "id": "legacy-pair-008",
+      "status": "UNREPRESENTABLE_UNDER_CAPTURED_CELL",
+      "childPort": null,
+      "originalPointsUnchanged": true
+    },
+    {
+      "id": "legacy-pair-026",
+      "status": "UNREPRESENTABLE_UNDER_CAPTURED_CELL",
+      "childPort": null,
+      "originalPointsUnchanged": true
+    }
+  ],
+  "nativeThermalTriangles": 32,
+  "nativePhysicalTriangles": 176,
+  "lookupShapesWithFallback": 188,
+  "lookupTrianglesWithFallback": 8900,
+  "nativeWorkingShapesWithFallback": 70,
+  "nativeWorkingTrianglesWithFallback": 12548,
+  "geometryCacheAfterDisposal": {
+    "shapes": 0,
+    "triangles": 0,
+    "workingLeases": 0
+  },
+  "helpersClosed": 3,
+  "sourceDecodes": 0,
+  "sourceExpansions": 0,
+  "sourceTransforms": 0,
+  "trials": 0,
+  "clockSteps": 0,
+  "fireSteps": 0,
+  "rootPathReevaluations": 0,
+  "worldInstallations": 0,
+  "renderers": 0,
+  "builds": 0,
+  "runtimeFixImplemented": false,
+  "productionPolicyChanged": false,
+  "oldPacketsUnchanged": true,
+  "protectedWipExcluded": true
+}
