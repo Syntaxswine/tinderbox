@@ -43,3 +43,21 @@ No actual native/compiler, world/stock, whole-New-York diagnostic, renderer,
 benchmark, build or retained helper is authorized. Preserve old source results
 and failed controls as historical facts; keep evidence compact and deliver a
 separate checked commit/push for architect review.
+
+## Confirmed current-fragment admission gap
+
+Root's independent `duplicate-face-grounding-repro.mjs` in ignored M29 QA shows
+that `0ce79739` still permits a raw empty original face to seed a surviving
+fragment at elevation zero. The original box genuinely touches ground. After
+its actual surviving original faces are clipped to Y >= 1, it is unrooted;
+appending the original empty face to the fragment geometry grounds it again,
+although the declared primitive list excludes that empty ordinal. Source
+component enumeration alone does not exclude it from current root seeding.
+
+Acceptance of `0ce79739` is held. Reject or exclude nonmaterial current fragment
+geometry before all continuity/contact/root use. A narrow **tightening** of
+current fragment admission to finite positive-area physical triangles is allowed;
+this supersedes only the earlier byte-identical-evaluate constraint. Keep the
+effective closed-solid proof guard, original IDs, legitimate internal caps and
+valid positive fragments unchanged. Preserve and add this exact foundation-loss
+regression; no new native/world or geometry/quantity work is authorized.
