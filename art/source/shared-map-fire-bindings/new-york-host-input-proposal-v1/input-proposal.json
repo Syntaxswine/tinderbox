@@ -1,0 +1,1813 @@
+{
+  "version": 1,
+  "status": "SOURCE_METADATA_INPUT_PROPOSAL_NOT_ADMITTED",
+  "target": "existing New York host / existing destination",
+  "authority": {
+    "source": "direct architect message",
+    "instruction": {
+      "path": "art/source/shared-map-fire-bindings/new-york-host-input-proposal-v1/authority.md"
+    },
+    "upcomingHostAssembly": {
+      "$file": "hostAssemblyContext",
+      "$pointer": ""
+    },
+    "assemblyRuntimeExecutionGranted": false
+  },
+  "sourceFiles": {
+    "asset": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/index.json",
+      "bytes": 14158,
+      "sha256": "0d1469e541657fa6f3ed537ff2f4ba7fe01f3952c273e0eba2720c224a436bcd",
+      "content": "metadata"
+    },
+    "nativeApprovalPackage": {
+      "kind": "git-object",
+      "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/review-package.json",
+      "bytes": 11785,
+      "sha256": "76ac168b01ed5e541acd7ecbd82cf3e65391701cb547ad2ac9e8ad5a4d89cd8b",
+      "content": "metadata",
+      "commit": "c1ed407aedfc5ffec8b473dc7b88c697e140c054"
+    },
+    "base": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-fire-bindings/new-york-complete-v1.json",
+      "bytes": 40518109,
+      "sha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba",
+      "content": "metadata"
+    },
+    "runtimeIndex": {
+      "kind": "git-object",
+      "path": "assets/runtime/map-sources/new-york/index.json",
+      "bytes": 8021251,
+      "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+      "content": "metadata",
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25"
+    },
+    "runtimeLibrary": {
+      "kind": "git-object",
+      "path": "assets/runtime/map-sources/new-york/library.json",
+      "bytes": 3150020,
+      "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296",
+      "content": "opaque-library",
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25"
+    },
+    "hostDataContract": {
+      "kind": "git-object",
+      "path": "src/content/map-source-data.js",
+      "bytes": 11012,
+      "sha256": "7222511cdfe215996ac2a9fd2ec1977dbfc5ae46c57e373936a0735a7acf5e07",
+      "content": "source-text",
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25"
+    },
+    "hostSurfaceContract": {
+      "kind": "git-object",
+      "path": "src/content/map-source-geometry.js",
+      "bytes": 7604,
+      "sha256": "83db4af6a2754b06c24e7afc1c28f617403ab44d609ec22a90fe2e8914445a01",
+      "content": "source-text",
+      "commit": "2b350309d9116812a1d3988af090614bdaefbc25"
+    },
+    "hostAssemblyContext": {
+      "kind": "repository-file",
+      "path": "art/source/shared-map-fire-bindings/new-york-host-input-proposal-v1/host-assembly-context.md",
+      "bytes": 5715,
+      "sha256": "4b1602973cfc208a6a08e9a5fffe508bab36134f26ef2958f988a3c64419d995",
+      "content": "source-text"
+    },
+    "ancestorContext": {
+      "kind": "repository-file",
+      "path": "art/source/shared-map-fire-bindings/new-york-host-input-proposal-v1/ancestor-context-summary.json",
+      "bytes": 763,
+      "sha256": "39e798d4ec71af609e0b9d0214704e00507a6e4c6ea0e067437e34d0d82db0c9",
+      "content": "metadata"
+    },
+    "overlay": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/index.json",
+      "bytes": 92869,
+      "sha256": "f1252c7364adfeb025f573fc4650020e71915a3e17e71bcf2e725e56c3f1c941",
+      "content": "metadata"
+    },
+    "mapping": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/geometry/vertex-mapping.json",
+      "bytes": 3228,
+      "sha256": "72bc95fe33f77c80d863edba9ab4f1695dd2755026c368ebe5b823af0cacca8c",
+      "content": "metadata"
+    },
+    "quantityCertificate": {
+      "kind": "repository-file",
+      "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/quantity-certificate.json",
+      "bytes": 1480,
+      "sha256": "d1f71899b0f213341cb57582c05bb4cb0dc924f186e055b94c8476d50b2636fa",
+      "content": "metadata"
+    },
+    "nativeChecks": {
+      "kind": "repository-file",
+      "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/check-results.json",
+      "bytes": 4202,
+      "sha256": "51ee8a05a2e7e809a5c81c82f1f8baaa09c5ecbb061fda570da603cf6581db81",
+      "content": "metadata"
+    },
+    "nativeBufferEvidence": {
+      "kind": "repository-file",
+      "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/actual-buffer-results.json",
+      "bytes": 21395,
+      "sha256": "53a34c526ef7111008d71be9365b996a8ef763b9886281658d8de95d803affe4",
+      "content": "opaque-geometry"
+    },
+    "fixedPortSemantics": {
+      "kind": "repository-file",
+      "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/fixed-port-semantics.json",
+      "bytes": 1203,
+      "sha256": "c3ebf41c54c2cccd0c69c6182955cb5a675a98b0c87384a577e92073d7555cec",
+      "content": "metadata"
+    },
+    "interfaceGates": {
+      "kind": "repository-file",
+      "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/interface-gates.json",
+      "bytes": 3133,
+      "sha256": "0d35aaa52326deeeecc326e77c192440092bdc697d5834bac8d10084734b2563",
+      "content": "metadata"
+    },
+    "saddlePhysical": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/geometry/physical.json",
+      "bytes": 1116,
+      "sha256": "85b98cb5b08f53573e7f3e96655908fb38d6eca431d052fa31869c7e2910a908",
+      "content": "opaque-geometry"
+    },
+    "saddleRender": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/geometry/render.json",
+      "bytes": 9479,
+      "sha256": "f8ab8db6a18654e691580f2de3beb283a8675750e247aece503fd9080b697243",
+      "content": "opaque-geometry"
+    },
+    "binary:physical/index": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/physical-index.u16le.bin",
+      "bytes": 96,
+      "sha256": "e70c6572e7c67886849481707888a21dff515f14e99f23fb387bc45ba0e95c1f",
+      "content": "binary"
+    },
+    "binary:physical/position": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/physical-position.f32le.bin",
+      "bytes": 120,
+      "sha256": "883d1941ae87f5add7ecae5bbdbd42dec03861bc0a9c54e5f71f3686d011a6ce",
+      "content": "binary"
+    },
+    "binary:render/grossUV": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/render-uv.f32le.bin",
+      "bytes": 384,
+      "sha256": "580982c3396abd98f4342403f258b57c23e0515269612b3c456f21318df3a2ca",
+      "content": "binary"
+    },
+    "binary:render/index": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/render-index.u16le.bin",
+      "bytes": 96,
+      "sha256": "03ce6321ae65c3c6b1204faade3a17c83ee854d08f9965f970f792727491c5cd",
+      "content": "binary"
+    },
+    "binary:render/normal": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/render-normal.f32le.bin",
+      "bytes": 576,
+      "sha256": "119b56f6b61f287e0977196160b17193bfd1198951b2e4bc7455dafb9c054969",
+      "content": "binary"
+    },
+    "binary:render/position": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/render-position.f32le.bin",
+      "bytes": 576,
+      "sha256": "894f1233e2c418d08d4a3982c060df4cf2f0410434b8775b5484f6fdf11fb245",
+      "content": "binary"
+    },
+    "binary:render/uv": {
+      "kind": "repository-file",
+      "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/buffers/render-uv.f32le.bin",
+      "bytes": 384,
+      "sha256": "580982c3396abd98f4342403f258b57c23e0515269612b3c456f21318df3a2ca",
+      "content": "binary"
+    },
+    "corniceGeometry": {
+      "kind": "repository-file",
+      "path": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+      "bytes": 5723,
+      "sha256": "d3f70276fdae9c7b2b86de21728a684fb9df84f74552d8112af380a9cd9af07d",
+      "content": "opaque-geometry"
+    },
+    "roofGeometry": {
+      "kind": "repository-file",
+      "path": "assets/art/place-scenes/new-york/geometry/ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415.json",
+      "bytes": 3514,
+      "sha256": "9f3ed10d083a5a52c316b83f1579e4fa6148e3b4974b5d7969257d3beddf6669",
+      "content": "opaque-geometry"
+    },
+    "upperGeometry": {
+      "kind": "repository-file",
+      "path": "assets/art/place-scenes/new-york/geometry/e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e.json",
+      "bytes": 1882,
+      "sha256": "c2c3d561053b1185d75dcb4a9038f594e04ae12dbf9aaea53daa632a15e47346",
+      "content": "opaque-geometry"
+    },
+    "family": {
+      "kind": "repository-file",
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/relationships.json",
+      "bytes": 8661963,
+      "sha256": "34b25f91d457fb65e611b89f182c0e05bb946d7506a0581b53e945a2d9731e06",
+      "content": "metadata"
+    },
+    "corniceProofPage0": {
+      "kind": "repository-file",
+      "path": "art/source/shared-map-fire-bindings/cornice-facet-delta-v1/pages/child-032-page-00.json",
+      "bytes": 35361,
+      "sha256": "2aa908d55dde0d1857bfd2f4cc3661f88e49b2e49af3738cc650ab808e44a8be",
+      "content": "metadata"
+    },
+    "corniceProofPage1": {
+      "kind": "repository-file",
+      "path": "art/source/shared-map-fire-bindings/cornice-facet-delta-v1/pages/child-032-page-01.json",
+      "bytes": 5505,
+      "sha256": "be91bef96f56bd09c78d5db2350ee2e7390cae6b8964982d75d0cdea49f17f65",
+      "content": "metadata"
+    },
+    "upperIncidentProofs": {
+      "kind": "git-object",
+      "path": "docs/engineering/shared-maps/other-contact-source-v2/contacts-proposal.json",
+      "bytes": 7260320,
+      "sha256": "150e7d22cd130ea1f9f542a2809c86886047065b896f239a22ff9027131feaa7",
+      "content": "metadata",
+      "commit": "aeb6e169b85c805ea97d642fbff5a1951a0e7be1"
+    }
+  },
+  "selectedMembers": [
+    {
+      "key": "saddle",
+      "originalCarrierId": "carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "qualifiedCanonicalOwnerId": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "globalCarrierOrdinal": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "globalPartOrdinal": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "originalPartId": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "sourcePartId": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "cataloguedInPinnedHost": false,
+      "sourceMember": {
+        "$file": "asset",
+        "$pointer": "/members/0"
+      },
+      "historicalDoubleProposalId": "proposal-only/roof-saddle/main-parapet-6/bay-01",
+      "role": "timber-fitting",
+      "physicalMaterial": "timber",
+      "fuelClass": "frame",
+      "quantity": {
+        "canonicalOwnerCount": 1,
+        "amount": 0.04011965567822286,
+        "valueRef": {
+          "$file": "asset",
+          "$pointer": "/members/0/quantityReference"
+        },
+        "exactCertificate": {
+          "$file": "quantityCertificate",
+          "$pointer": ""
+        },
+        "selectedBitsLE": "a2262142908aa43f",
+        "finishFieldPresent": true,
+        "finishValue": null,
+        "selectedBirthMode": {
+          "status": "UNBOUND",
+          "value": null
+        },
+        "surfaceQuantityAllocation": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "sourcePose": {
+        "classification": "ONLY_APPROVED_ORIGINAL_STATIC_POSE",
+        "matrix": {
+          "$file": "asset",
+          "$pointer": "/members/0/matrix"
+        },
+        "authoredStockTileOccupancy": {
+          "$file": "asset",
+          "$pointer": "/modularInterface/occupiedCells"
+        },
+        "occupancyIsNotNativeCellIdentity": true
+      },
+      "physicalRenderSourceMap": {
+        "kind": "one physical body with alternate mapped render buffer",
+        "physicalGeometry": {
+          "$file": "saddlePhysical",
+          "$pointer": ""
+        },
+        "renderGeometry": {
+          "$file": "saddleRender",
+          "$pointer": ""
+        },
+        "mapping": {
+          "$file": "mapping",
+          "$pointer": ""
+        },
+        "binaryBuffers": {
+          "physical/index": {
+            "$file": "binary:physical/index",
+            "$pointer": ""
+          },
+          "physical/position": {
+            "$file": "binary:physical/position",
+            "$pointer": ""
+          },
+          "render/grossUV": {
+            "$file": "binary:render/grossUV",
+            "$pointer": ""
+          },
+          "render/index": {
+            "$file": "binary:render/index",
+            "$pointer": ""
+          },
+          "render/normal": {
+            "$file": "binary:render/normal",
+            "$pointer": ""
+          },
+          "render/position": {
+            "$file": "binary:render/position",
+            "$pointer": ""
+          },
+          "render/uv": {
+            "$file": "binary:render/uv",
+            "$pointer": ""
+          }
+        },
+        "physicalVertices": 10,
+        "renderVertices": 48,
+        "physicalTriangles": 16,
+        "renderTriangles": 16,
+        "sourceFaceIds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "sourceConnectivityCertificate": {
+          "$file": "nativeChecks",
+          "$pointer": "/physicalTopology"
+        },
+        "nativeFragmentCellAndRenderPatchMapping": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "sourceSurfaceIdentity": {
+        "status": "UNBOUND",
+        "hostPartAndSurfaceIds": null,
+        "assetLocalFaceIdsRef": {
+          "$file": "mapping",
+          "$pointer": "/sourceFaceTriangles"
+        },
+        "assetFaceIdsAreNotHostSurfaceIds": true
+      },
+      "ranges": {
+        "approvedAssetBuffer": "complete declared physical/render buffers",
+        "nativeSourceRangeMapping": {
+          "status": "UNBOUND",
+          "value": null
+        },
+        "generatedNativeCaps": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "sourceOrigin": {
+        "approvedCommit": "c1ed407aedfc5ffec8b473dc7b88c697e140c054",
+        "finalFloat32Buffers": true,
+        "historicalSourceNotReplaced": true
+      },
+      "nativeRecordIds": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "nativeCellIds": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "nativePortBindings": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "rootPath": {
+        "status": "UNPROVED",
+        "proof": null
+      }
+    },
+    {
+      "key": "cornice",
+      "originalCarrierId": "carrier/edge-6/cornice-7",
+      "qualifiedCanonicalOwnerId": "new-york::carrier/edge-6/cornice-7",
+      "canonicalSource": {
+        "$file": "base",
+        "$pointer": "/carriers/2636"
+      },
+      "globalCarrierOrdinal": 2636,
+      "globalCarrierRecord": {
+        "$file": "runtimeIndex",
+        "$pointer": "/carriers/2636"
+      },
+      "originalPartId": "edge-6/cornice-7",
+      "sourcePartId": "edge-6/cornice-7",
+      "hostRenderPartId": "edge-6/cornice-7",
+      "globalPartOrdinal": 2636,
+      "globalPartRecord": {
+        "$file": "runtimeIndex",
+        "$pointer": "/parts/2636"
+      },
+      "sourceBinding": {
+        "$file": "base",
+        "$pointer": "/carriers/2636/renderBindings/0"
+      },
+      "role": "timber-fitting",
+      "physicalMaterial": "timber",
+      "fuelClass": "frame",
+      "quantity": {
+        "canonicalOwnerCount": 1,
+        "amount": 24.47992,
+        "valueRef": {
+          "$file": "base",
+          "$pointer": "/carriers/2636/fuelAmount"
+        },
+        "recipe": {
+          "$file": "base",
+          "$pointer": "/carriers/2636/quantityBasis"
+        },
+        "certificateKind": "preserved declared canonical gameplay quantity; no new geometric measurement",
+        "sourceFacts": {
+          "$file": "base",
+          "$pointer": "/sourceFacts"
+        },
+        "gameplayAssignments": {
+          "$file": "base",
+          "$pointer": "/gameplayAssignments"
+        },
+        "finishFieldPresent": false,
+        "finishValue": null,
+        "finishSourceMember": {
+          "$file": "base",
+          "$pointer": "/carriers/2636"
+        },
+        "selectedBirthMode": {
+          "status": "UNBOUND",
+          "value": null
+        },
+        "surfaceQuantityAllocation": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "sourcePose": {
+        "classification": "STATIC_AUTHORED_POSE",
+        "matrix": {
+          "$file": "base",
+          "$pointer": "/carriers/2636/renderBindings/0/matrix"
+        },
+        "noAuthoredMovingPortal": true
+      },
+      "physicalRenderSourceMap": {
+        "kind": "same original unsliced geometry and original part identity",
+        "geometry": {
+          "$file": "corniceGeometry",
+          "$pointer": ""
+        },
+        "geometryId": "ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2",
+        "declaredTriangles": 12,
+        "originalNativeCellToRenderMap": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "ranges": {
+        "status": "DECLARED_UNSLICED_SOURCE",
+        "approvedOriginalRange": {
+          "$file": "asset",
+          "$pointer": "/namedOriginalParents/carrier~1edge-6~1cornice-7/0/sourceRange"
+        },
+        "runtimeOriginalRange": {
+          "$file": "runtimeIndex",
+          "$pointer": "/parts/2636/12"
+        },
+        "originalPrimitiveFrame": "absolute original buffer ordinals",
+        "generatedNativeRangeAndCapMapping": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "effectiveRepairSubdivision": {
+        "applies": false,
+        "overlay": {
+          "$file": "overlay",
+          "$pointer": ""
+        },
+        "matchingReplacementRecords": []
+      },
+      "sourceSurfaceIdentity": {
+        "status": "UNBOUND",
+        "actualIds": null,
+        "knownPrefixFromPinnedSourceText": "new-york::carrier/edge-6/cornice-7/part/2636",
+        "unboundSuffix": "/face/<group ordinal>",
+        "groupOrdinalToOriginalPrimitives": {
+          "status": "UNBOUND",
+          "value": null
+        },
+        "contract": {
+          "$file": "hostSurfaceContract",
+          "$pointer": ""
+        }
+      },
+      "nativeRecordIds": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "nativeCellIds": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "nativePortBindings": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "rootPath": {
+        "status": "UNPROVED",
+        "proof": null
+      },
+      "originalAnchors": {
+        "$file": "base",
+        "$pointer": "/carriers/2636/anchors"
+      },
+      "retirement": {
+        "$file": "base",
+        "$pointer": "/carriers/2636/retirement"
+      }
+    },
+    {
+      "key": "roof",
+      "originalCarrierId": "carrier/roof/rear-tail",
+      "qualifiedCanonicalOwnerId": "new-york::carrier/roof/rear-tail",
+      "canonicalSource": {
+        "$file": "base",
+        "$pointer": "/carriers/10031"
+      },
+      "globalCarrierOrdinal": 10031,
+      "globalCarrierRecord": {
+        "$file": "runtimeIndex",
+        "$pointer": "/carriers/10031"
+      },
+      "originalPartId": "roof/rear-tail",
+      "sourcePartId": "roof/rear-tail",
+      "hostRenderPartId": "roof/rear-tail",
+      "globalPartOrdinal": 10391,
+      "globalPartRecord": {
+        "$file": "runtimeIndex",
+        "$pointer": "/parts/10391"
+      },
+      "sourceBinding": {
+        "$file": "base",
+        "$pointer": "/carriers/10031/renderBindings/0"
+      },
+      "role": "roof-covering",
+      "physicalMaterial": "timber-covering",
+      "fuelClass": "roof",
+      "quantity": {
+        "canonicalOwnerCount": 1,
+        "amount": 42.088619,
+        "valueRef": {
+          "$file": "base",
+          "$pointer": "/carriers/10031/fuelAmount"
+        },
+        "recipe": {
+          "$file": "base",
+          "$pointer": "/carriers/10031/quantityBasis"
+        },
+        "certificateKind": "preserved declared canonical gameplay quantity; no new geometric measurement",
+        "sourceFacts": {
+          "$file": "base",
+          "$pointer": "/sourceFacts"
+        },
+        "gameplayAssignments": {
+          "$file": "base",
+          "$pointer": "/gameplayAssignments"
+        },
+        "finishFieldPresent": false,
+        "finishValue": null,
+        "finishSourceMember": {
+          "$file": "base",
+          "$pointer": "/carriers/10031"
+        },
+        "selectedBirthMode": {
+          "status": "UNBOUND",
+          "value": null
+        },
+        "surfaceQuantityAllocation": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "sourcePose": {
+        "classification": "STATIC_AUTHORED_POSE",
+        "matrix": {
+          "$file": "base",
+          "$pointer": "/carriers/10031/renderBindings/0/matrix"
+        },
+        "noAuthoredMovingPortal": true
+      },
+      "physicalRenderSourceMap": {
+        "kind": "same original unsliced geometry and original part identity",
+        "geometry": {
+          "$file": "roofGeometry",
+          "$pointer": ""
+        },
+        "geometryId": "ed3d9c5a8eaf212ab88e42b57ea8dd89cfa7bbad9d1a85b616b505c51fcb4415",
+        "declaredTriangles": 8,
+        "originalNativeCellToRenderMap": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "ranges": {
+        "status": "DECLARED_UNSLICED_SOURCE",
+        "approvedOriginalRange": {
+          "$file": "asset",
+          "$pointer": "/namedOriginalParents/carrier~1roof~1rear-tail/0/sourceRange"
+        },
+        "runtimeOriginalRange": {
+          "$file": "runtimeIndex",
+          "$pointer": "/parts/10391/12"
+        },
+        "originalPrimitiveFrame": "absolute original buffer ordinals",
+        "generatedNativeRangeAndCapMapping": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "effectiveRepairSubdivision": {
+        "applies": false,
+        "overlay": {
+          "$file": "overlay",
+          "$pointer": ""
+        },
+        "matchingReplacementRecords": []
+      },
+      "sourceSurfaceIdentity": {
+        "status": "UNBOUND",
+        "actualIds": null,
+        "knownPrefixFromPinnedSourceText": "new-york::carrier/roof/rear-tail/part/10391",
+        "unboundSuffix": "/face/<group ordinal>",
+        "groupOrdinalToOriginalPrimitives": {
+          "status": "UNBOUND",
+          "value": null
+        },
+        "contract": {
+          "$file": "hostSurfaceContract",
+          "$pointer": ""
+        }
+      },
+      "nativeRecordIds": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "nativeCellIds": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "nativePortBindings": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "rootPath": {
+        "status": "UNPROVED",
+        "proof": null
+      },
+      "originalAnchors": {
+        "$file": "base",
+        "$pointer": "/carriers/10031/anchors"
+      },
+      "retirement": {
+        "$file": "base",
+        "$pointer": "/carriers/10031/retirement"
+      }
+    },
+    {
+      "key": "upper",
+      "originalCarrierId": "carrier/main-parapet-6/base",
+      "qualifiedCanonicalOwnerId": "new-york::carrier/main-parapet-6/base",
+      "canonicalSource": {
+        "$file": "base",
+        "$pointer": "/carriers/4641"
+      },
+      "globalCarrierOrdinal": 4641,
+      "globalCarrierRecord": {
+        "$file": "runtimeIndex",
+        "$pointer": "/carriers/4641"
+      },
+      "originalPartId": "main-parapet-6/base",
+      "sourcePartId": "main-parapet-6/base",
+      "hostRenderPartId": "main-parapet-6/base",
+      "globalPartOrdinal": 4641,
+      "globalPartRecord": {
+        "$file": "runtimeIndex",
+        "$pointer": "/parts/4641"
+      },
+      "sourceBinding": {
+        "$file": "base",
+        "$pointer": "/carriers/4641/renderBindings/0"
+      },
+      "role": "timber-fitting",
+      "physicalMaterial": "timber",
+      "fuelClass": "frame",
+      "quantity": {
+        "canonicalOwnerCount": 1,
+        "amount": 5.333333,
+        "valueRef": {
+          "$file": "base",
+          "$pointer": "/carriers/4641/fuelAmount"
+        },
+        "recipe": {
+          "$file": "base",
+          "$pointer": "/carriers/4641/quantityBasis"
+        },
+        "certificateKind": "preserved declared canonical gameplay quantity; no new geometric measurement",
+        "sourceFacts": {
+          "$file": "base",
+          "$pointer": "/sourceFacts"
+        },
+        "gameplayAssignments": {
+          "$file": "base",
+          "$pointer": "/gameplayAssignments"
+        },
+        "finishFieldPresent": false,
+        "finishValue": null,
+        "finishSourceMember": {
+          "$file": "base",
+          "$pointer": "/carriers/4641"
+        },
+        "selectedBirthMode": {
+          "status": "UNBOUND",
+          "value": null
+        },
+        "surfaceQuantityAllocation": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "sourcePose": {
+        "classification": "STATIC_AUTHORED_POSE",
+        "matrix": {
+          "$file": "base",
+          "$pointer": "/carriers/4641/renderBindings/0/matrix"
+        },
+        "noAuthoredMovingPortal": true
+      },
+      "physicalRenderSourceMap": {
+        "kind": "same original unsliced geometry and original part identity",
+        "geometry": {
+          "$file": "upperGeometry",
+          "$pointer": ""
+        },
+        "geometryId": "e3bac80564bfffe0c48f107de11b87fe4b7d3b3c9561312b551993a3cb65525e",
+        "declaredTriangles": 12,
+        "originalNativeCellToRenderMap": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "ranges": {
+        "status": "DECLARED_UNSLICED_SOURCE",
+        "approvedOriginalRange": {
+          "$file": "asset",
+          "$pointer": "/namedOriginalParents/carrier~1main-parapet-6~1base/0/sourceRange"
+        },
+        "runtimeOriginalRange": {
+          "$file": "runtimeIndex",
+          "$pointer": "/parts/4641/12"
+        },
+        "originalPrimitiveFrame": "absolute original buffer ordinals",
+        "generatedNativeRangeAndCapMapping": {
+          "status": "UNBOUND",
+          "value": null
+        }
+      },
+      "effectiveRepairSubdivision": {
+        "applies": false,
+        "overlay": {
+          "$file": "overlay",
+          "$pointer": ""
+        },
+        "matchingReplacementRecords": []
+      },
+      "sourceSurfaceIdentity": {
+        "status": "UNBOUND",
+        "actualIds": null,
+        "knownPrefixFromPinnedSourceText": "new-york::carrier/main-parapet-6/base/part/4641",
+        "unboundSuffix": "/face/<group ordinal>",
+        "groupOrdinalToOriginalPrimitives": {
+          "status": "UNBOUND",
+          "value": null
+        },
+        "contract": {
+          "$file": "hostSurfaceContract",
+          "$pointer": ""
+        }
+      },
+      "nativeRecordIds": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "nativeCellIds": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "nativePortBindings": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "rootPath": {
+        "status": "UNPROVED",
+        "proof": null
+      },
+      "originalAnchors": {
+        "$file": "base",
+        "$pointer": "/carriers/4641/anchors"
+      },
+      "retirement": {
+        "$file": "base",
+        "$pointer": "/carriers/4641/retirement"
+      }
+    }
+  ],
+  "fixedAuthoredPorts": [
+    {
+      "authoredPortId": "carrier/roof-saddle-native/main-parapet-6/bay-01/port-cornice",
+      "sourceDeclaration": {
+        "$file": "asset",
+        "$pointer": "/ports/0"
+      },
+      "fittingPhysicalTriangles": [
+        8,
+        9
+      ],
+      "assetLocalSourceFaceId": 3,
+      "physicalRenderFaceMap": {
+        "$file": "mapping",
+        "$pointer": "/sourceFaceTriangles/3"
+      },
+      "declaredCounterpartCarrierId": "carrier/edge-6/cornice-7",
+      "counterpartSourceTriangles": [
+        0,
+        2
+      ],
+      "counterpartSourceDeclaration": {
+        "$file": "asset",
+        "$pointer": "/ports/0/fixedOriginalParentGeometry/0"
+      },
+      "directedSourceAssignment": {
+        "$file": "asset",
+        "$pointer": "/proposedContacts/0"
+      },
+      "parent": "carrier/edge-6/cornice-7",
+      "child": "carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "nativeFixedPortRecordCellComponentBinding": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "survivingParentRemapAllowed": false
+    },
+    {
+      "authoredPortId": "carrier/roof-saddle-native/main-parapet-6/bay-01/port-roof-seat",
+      "sourceDeclaration": {
+        "$file": "asset",
+        "$pointer": "/ports/1"
+      },
+      "fittingPhysicalTriangles": [
+        6,
+        7
+      ],
+      "assetLocalSourceFaceId": 2,
+      "physicalRenderFaceMap": {
+        "$file": "mapping",
+        "$pointer": "/sourceFaceTriangles/2"
+      },
+      "declaredCounterpartCarrierId": "carrier/roof/rear-tail",
+      "counterpartSourceTriangles": [
+        2,
+        3
+      ],
+      "counterpartSourceDeclaration": {
+        "$file": "asset",
+        "$pointer": "/ports/1/fixedOriginalParentGeometry/0"
+      },
+      "directedSourceAssignment": {
+        "$file": "asset",
+        "$pointer": "/proposedContacts/1"
+      },
+      "parent": "carrier/roof/rear-tail",
+      "child": "carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "nativeFixedPortRecordCellComponentBinding": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "survivingParentRemapAllowed": false
+    },
+    {
+      "authoredPortId": "carrier/roof-saddle-native/main-parapet-6/bay-01/port-top",
+      "sourceDeclaration": {
+        "$file": "asset",
+        "$pointer": "/ports/2"
+      },
+      "fittingPhysicalTriangles": [
+        12,
+        13
+      ],
+      "assetLocalSourceFaceId": 5,
+      "physicalRenderFaceMap": {
+        "$file": "mapping",
+        "$pointer": "/sourceFaceTriangles/5"
+      },
+      "declaredCounterpartCarrierId": "carrier/main-parapet-6/base",
+      "counterpartSourceTriangles": [
+        6,
+        7
+      ],
+      "counterpartSourceDeclaration": {
+        "$file": "asset",
+        "$pointer": "/ports/2/fixedOriginalParentGeometry/0"
+      },
+      "directedSourceAssignment": {
+        "$file": "asset",
+        "$pointer": "/proposedContacts/2"
+      },
+      "parent": "carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "child": "carrier/main-parapet-6/base",
+      "nativeFixedPortRecordCellComponentBinding": {
+        "status": "UNBOUND",
+        "value": null
+      },
+      "survivingParentRemapAllowed": false
+    }
+  ],
+  "approvedGameplayAssembly": {
+    "source": {
+      "$file": "asset",
+      "$pointer": "/selectedSupportSemantics"
+    },
+    "exactAssignment": {
+      "anyParentSubstitutionAllowed": false,
+      "cycleCreatedSupportAllowed": false,
+      "fittingRequirement": {
+        "bothOriginalParentsMustBeIndependentlySupported": true,
+        "fixedPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-01/port-cornice",
+          "carrier/roof-saddle-native/main-parapet-6/bay-01/port-roof-seat"
+        ],
+        "operator": "ALL_FIXED_PORTS",
+        "portRetirement": "Loss of either fixed original port invalidates this fitting requirement; never substitute another surviving parent.",
+        "supportCannotComeFromFittingUpperOrDescendants": true
+      },
+      "newAnchor": false,
+      "reverseBrace": false,
+      "roofRolePreserved": "roof-covering",
+      "selectedAuthorityCommit": "44c7aa333a6c74d5723120a404fc1dec33cce162",
+      "semanticsKind": "Architect-selected conservative assembly ownership under binary support; not stress capacity.",
+      "upperDependency": {
+        "childCarrierId": "carrier/main-parapet-6/base",
+        "direction": "parent-to-child",
+        "fixedPortId": "carrier/roof-saddle-native/main-parapet-6/bay-01/port-top",
+        "localOneMetreIntervalX": [
+          49,
+          50
+        ],
+        "parentCarrierId": "carrier/roof-saddle-native/main-parapet-6/bay-01"
+      },
+      "version": 1
+    },
+    "scope": "selected conservative ALL lower assembly plus local directed upper; not stress capacity",
+    "actualIndependentLowerRootPaths": "UNPROVED",
+    "actualNativeFixedPortBindings": "UNBOUND",
+    "retirementMustRemainLocal": true
+  },
+  "ordinaryImmediateCandidates": [
+    {
+      "member": "cornice",
+      "semantics": "ORDINARY_PARENT_ALTERNATIVES_NOT_REQUIRED_ALL",
+      "compatibilityIndexIsNotPortBindingAuthority": true,
+      "originalParentIds": {
+        "$file": "base",
+        "$pointer": "/carriers/2636/supportCarrierIds"
+      },
+      "count": 34,
+      "globalParentOrdinals": [
+        8920,
+        9189,
+        9190,
+        9191,
+        9192,
+        9193,
+        9194,
+        9195,
+        9196,
+        9197,
+        9198,
+        9199,
+        9200,
+        9201,
+        9202,
+        9203,
+        9204,
+        9287,
+        4705,
+        5039,
+        5213,
+        5247,
+        5281,
+        5315,
+        5349,
+        5383,
+        5449,
+        5483,
+        5813,
+        5959,
+        5993,
+        6027,
+        6061,
+        6095
+      ],
+      "typedSourceEvidence": {
+        "$file": "base",
+        "$pointer": "/carriers/2636/supportEvidence"
+      },
+      "declaredLocalAttachmentRecords": {
+        "$file": "base",
+        "$pointer": "/carriers/2636/attachmentRecords"
+      },
+      "normalizedRowsForTheseExactLegacyPairs": [],
+      "normalizedImmutablePortBindings": "UNBOUND",
+      "independentRootPath": "UNPROVED",
+      "sourceCataloguesDoNotProveARequiredOrMinimalClosure": true
+    },
+    {
+      "member": "roof",
+      "semantics": "ORDINARY_PARENT_ALTERNATIVES_NOT_REQUIRED_ALL",
+      "compatibilityIndexIsNotPortBindingAuthority": true,
+      "originalParentIds": {
+        "$file": "base",
+        "$pointer": "/carriers/10031/supportCarrierIds"
+      },
+      "count": 72,
+      "globalParentOrdinals": [
+        4703,
+        4704,
+        4705,
+        5037,
+        5038,
+        5039,
+        5211,
+        5212,
+        5213,
+        5245,
+        5246,
+        5247,
+        5279,
+        5280,
+        5281,
+        5313,
+        5314,
+        5315,
+        5347,
+        5348,
+        5349,
+        5381,
+        5382,
+        5383,
+        5415,
+        5447,
+        5448,
+        5449,
+        5481,
+        5482,
+        5483,
+        5811,
+        5812,
+        5813,
+        5957,
+        5958,
+        5959,
+        5991,
+        5992,
+        5993,
+        6025,
+        6026,
+        6027,
+        6059,
+        6060,
+        6061,
+        6093,
+        6094,
+        6095,
+        6127,
+        8875,
+        8919,
+        8920,
+        9189,
+        9190,
+        9191,
+        9192,
+        9193,
+        9194,
+        9195,
+        9196,
+        9197,
+        9198,
+        9199,
+        9200,
+        9201,
+        9202,
+        9203,
+        9204,
+        9287,
+        9288,
+        9386
+      ],
+      "typedSourceEvidence": {
+        "$file": "base",
+        "$pointer": "/carriers/10031/supportEvidence"
+      },
+      "declaredLocalAttachmentRecords": {
+        "$file": "base",
+        "$pointer": "/carriers/10031/attachmentRecords"
+      },
+      "normalizedRowsForTheseExactLegacyPairs": [],
+      "normalizedImmutablePortBindings": "UNBOUND",
+      "independentRootPath": "UNPROVED",
+      "sourceCataloguesDoNotProveARequiredOrMinimalClosure": true
+    },
+    {
+      "member": "upper",
+      "semantics": "ORDINARY_PARENT_ALTERNATIVES_NOT_REQUIRED_ALL",
+      "compatibilityIndexIsNotPortBindingAuthority": true,
+      "originalParentIds": {
+        "$file": "base",
+        "$pointer": "/carriers/4641/supportCarrierIds"
+      },
+      "count": 0,
+      "globalParentOrdinals": [],
+      "typedSourceEvidence": {
+        "$file": "base",
+        "$pointer": "/carriers/4641/supportEvidence"
+      },
+      "declaredLocalAttachmentRecords": {
+        "$file": "base",
+        "$pointer": "/carriers/4641/attachmentRecords"
+      },
+      "normalizedRowsForTheseExactLegacyPairs": [],
+      "normalizedImmutablePortBindings": "UNBOUND",
+      "independentRootPath": "UNPROVED",
+      "sourceCataloguesDoNotProveARequiredOrMinimalClosure": true
+    }
+  ],
+  "normalizedImmediateCandidates": [
+    {
+      "kind": "ADDITIONAL_NORMALIZED_INCOMING_CANDIDATE",
+      "member": "cornice",
+      "relationshipId": "38bd992fc06c649aa5a21f58",
+      "originalRelationship": {
+        "$file": "family",
+        "$pointer": "/relationships/950"
+      },
+      "parentCarrierId": "carrier/edge-6/cornice-6",
+      "parentCatalogue": {
+        "$file": "base",
+        "$pointer": "/carriers/2635"
+      },
+      "parentGlobalCarrierOrdinal": 2635,
+      "childCarrierId": "carrier/edge-6/cornice-7",
+      "direction": "parent-to-child",
+      "wholeCarrierRetirement": false,
+      "regions": [
+        {
+          "regionId": "19dd7e8fc0c15bdab59b1e7f",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/0"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/0/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "ad5cf34472179998fbdbceae",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/1"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/1/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "52981ecca2873223354c5b3f",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/2"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/2/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "0afd716fd13d5d0de7455dfb",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/3"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/3/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "914a23f46810e3201f1a520e",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/4"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/4/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "2f113f250765f5d2b9810d8a",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/5"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/5/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "9a6ec7e2431b892b1a7e4b78",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/6"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/6/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "840f61eb2ba8245f42443589",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/7"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/7/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "48d4fbe28475590f1c615d82",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/8"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/8/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "6097f1e0cc2d79d2f98d6e1d",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/9"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/9/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "a67ae2c68d7bc89977d50268",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/10"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/10/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "f581a29565b6a49a7f7cf1d2",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/11"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/11/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "0d186f2704be98a17729e848",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/12"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/12/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "cafd46670e5cb6eee0db503b",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/13"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/13/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "9ecd285b448b500d0f0da62c",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/14"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/14/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "95b2a36563cac20c74cf5044",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/15"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/15/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "facd4402d2d04ed72537c8cd",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/16"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/16/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "245ade3964b17b87f32c2848",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/17"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/17/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "dff8172f6adff50533263362",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/18"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/18/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "8c9b58474cb558d2675529f5",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/19"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/19/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "e5693fcaaeb53b9a8bf27d45",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/20"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/20/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "1539d75834425a5fafd15404",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/21"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/21/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "4edd940d0215eaed2867b7d5",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/22"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/22/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "3465f3af3c20832f711645d6",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/23"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/23/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "35507691e712f708736d3161",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/24"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/24/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "5229cca02a5aebabd3f2b8ac",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/25"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/25/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "37b59ca5d5f6c4b9a769db04",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/26"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/26/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "0228f4f1293cd3fa384439b2",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/27"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/27/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "38314554ffff01f8fb7f4e63",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/28"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/28/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "696739b6c12ab5d75b8a50c0",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/29"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/29/result"
+          },
+          "status": "unproved",
+          "remainingReason": "native-contact-rejected",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "ad98f897ac0066dd60022a29",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/30"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/30/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "d74003de4a8d7e0b9bef8311",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/31"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage0",
+            "$pointer": "/regions/31/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "22b2361573f18666c3cb6884",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/32"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage1",
+            "$pointer": "/regions/0/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        },
+        {
+          "regionId": "74c938672e29a999018e6613",
+          "originalRegion": {
+            "$file": "family",
+            "$pointer": "/relationships/950/localRegions/33"
+          },
+          "existingProof": {
+            "$file": "corniceProofPage1",
+            "$pointer": "/regions/1/result"
+          },
+          "status": "source-contact-proposed",
+          "nativeBinding": "UNBOUND"
+        }
+      ],
+      "notReplacementForLegacyAlternatives": true,
+      "requiredSubsetOrRootedAdmission": "UNPROVED"
+    }
+  ],
+  "upperOutgoingIncidentReferences": [
+    {
+      "regionId": "537cd20e057c902e4174981d",
+      "relationshipId": "9617ef3d0e2177c0753d0560",
+      "parentCarrierId": "carrier/main-parapet-6/base",
+      "childCarrierId": "carrier/main-parapet-6/pier-1",
+      "existingProof": {
+        "$file": "upperIncidentProofs",
+        "$pointer": "/regions/1553"
+      },
+      "status": "source-contact-proposed",
+      "sourcePointer": "/relationships/3247/localRegions/0",
+      "nativeBinding": "UNBOUND",
+      "notAnIncomingRootForUpper": true
+    },
+    {
+      "regionId": "b4dc40021b0eb1b685b550fc",
+      "relationshipId": "4d8d22495b5864605d1fb246",
+      "parentCarrierId": "carrier/main-parapet-6/base",
+      "childCarrierId": "carrier/main-parapet-6/pier-2",
+      "existingProof": {
+        "$file": "upperIncidentProofs",
+        "$pointer": "/regions/1554"
+      },
+      "status": "source-contact-proposed",
+      "sourcePointer": "/relationships/3248/localRegions/0",
+      "nativeBinding": "UNBOUND",
+      "notAnIncomingRootForUpper": true
+    },
+    {
+      "regionId": "6d75afe262bce9286924b37e",
+      "relationshipId": "15c0577bf994d29fb9bbe3cd",
+      "parentCarrierId": "carrier/main-parapet-6/base",
+      "childCarrierId": "carrier/main-parapet-6/pier-3",
+      "existingProof": {
+        "$file": "upperIncidentProofs",
+        "$pointer": "/regions/1555"
+      },
+      "status": "source-contact-proposed",
+      "sourcePointer": "/relationships/3249/localRegions/0",
+      "nativeBinding": "UNBOUND",
+      "notAnIncomingRootForUpper": true
+    },
+    {
+      "regionId": "9c41e87801188f4a3c9b2916",
+      "relationshipId": "5b3b4fbe4e3bdd1ba658d0d1",
+      "parentCarrierId": "carrier/main-parapet-6/base",
+      "childCarrierId": "carrier/main-parapet-6/pier-4",
+      "existingProof": {
+        "$file": "upperIncidentProofs",
+        "$pointer": "/regions/1556"
+      },
+      "status": "source-contact-proposed",
+      "sourcePointer": "/relationships/3250/localRegions/0",
+      "nativeBinding": "UNBOUND",
+      "notAnIncomingRootForUpper": true
+    },
+    {
+      "regionId": "c825773ebf5fbb867eee258f",
+      "relationshipId": "617089ea81b87fe89ddfd514",
+      "parentCarrierId": "carrier/main-parapet-6/base",
+      "childCarrierId": "carrier/main-parapet-6/pier-5",
+      "existingProof": {
+        "$file": "upperIncidentProofs",
+        "$pointer": "/regions/1557"
+      },
+      "status": "source-contact-proposed",
+      "sourcePointer": "/relationships/3251/localRegions/0",
+      "nativeBinding": "UNBOUND",
+      "notAnIncomingRootForUpper": true
+    }
+  ],
+  "ancestorMetadata": {
+    "canonicalCatalogue": {
+      "$file": "base",
+      "$pointer": "/carriers"
+    },
+    "globalCatalogue": {
+      "$file": "runtimeIndex",
+      "$pointer": "/carriers"
+    },
+    "contextOnly": {
+      "$file": "ancestorContext",
+      "$pointer": ""
+    },
+    "ancestorGraphFlattened": false,
+    "393IsNotARequiredOrMinimalClosure": true,
+    "requiredRootedClosure": {
+      "status": "UNBOUND",
+      "value": null
+    },
+    "capacityAdmission": {
+      "status": "UNBOUND",
+      "value": null
+    }
+  },
+  "hostIdentityContract": {
+    "qualificationSourceText": {
+      "$file": "hostDataContract",
+      "$pointer": ""
+    },
+    "surfaceGenerationSourceText": {
+      "$file": "hostSurfaceContract",
+      "$pointer": ""
+    },
+    "catalogueRevision": "2b350309d9116812a1d3988af090614bdaefbc25",
+    "newSaddleHostPartProjection": "UNBOUND",
+    "sourceSurfaceGroupOrdinals": "UNBOUND",
+    "generatedNativeCapsCannotClaimOriginalSurfaceIds": true,
+    "unknownSourceRangesMustNotBeNormalized": true,
+    "completeOwnerQuantitiesAndFinishRequiredBeforeBirth": true,
+    "selectedWholeOrRegionalModeBeforeBirth": "UNBOUND",
+    "wholeFallbackAfterRegionalRejectionAllowed": false,
+    "rootAndFixedPortBindingsRequiredBeforeRuntimeAdmission": true
+  },
+  "scope": {
+    "selectedCanonicalMembers": 4,
+    "declaredImmediatePhysicalTriangles": 48,
+    "declaredCountIsNotSupportClosure": true,
+    "legacyImmediateCandidateCounts": {
+      "cornice": 34,
+      "roof": 72,
+      "upper": 0
+    },
+    "normalizedCorniceRegions": 34,
+    "normalizedCorniceSourceProposals": 23,
+    "normalizedCorniceUnresolved": 11,
+    "outgoingUpperSourceReferences": 5,
+    "otherNineteenSaddlesFront48Clear96Selected": false,
+    "geometryDecodedOrTransformed": 0,
+    "newContactSearches": 0,
+    "nativeCompilations": 0,
+    "supportGraphSolves": 0,
+    "worldOrTrialCalls": 0,
+    "rendererBuildBenchmarkCalls": 0,
+    "cacheOrLimitChanges": 0
+  },
+  "admissionUnbound": [
+    "saddle host part/global ordinals and concrete source-surface identities",
+    "complete owner surface/finish allocation and selected mode before birth",
+    "native cell/record/source-range/generated-cap/physical-render-patch lineage",
+    "fixed-port binding and BOTH independent rooted lower paths",
+    "required ancestry and source/query/support-cache capacity admission"
+  ]
+}
