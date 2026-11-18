@@ -1,0 +1,1268 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Bounded synthetic thick-panel native diagnostic and fixed-cell/allowance controls",
+  "pid": 38788,
+  "creationTime": "2026-11-18T09:59:26.861Z",
+  "startedAt": "2026-11-18T09:59:26.861Z",
+  "endedAt": "2026-11-18T09:59:27.067Z",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "tests/integration/two-panel-native-diagnostic.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "tools/review/thick-panel-port-diagnostic.mjs",
+      "lfSha256": "bcb13398dd05f699381697976426afcf353a432fd4cd7e263886964402567f5d"
+    },
+    {
+      "path": "tests/integration/two-panel-native-diagnostic.test.mjs",
+      "lfSha256": "d71b16ffab828c50e45eda1520eadda731c56e52ca9eafb6de1d53fa65a944f4"
+    },
+    {
+      "path": "src/simulation/hybrid-source-support.js",
+      "lfSha256": "ebe52052b767b0003a8950fe828e56cd6c1616204aaab4e1192ccba0324d67d9"
+    },
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f"
+    },
+    {
+      "path": "src/content/cornice-wall-contact-pilot.js",
+      "lfSha256": "920933e0eeb85ef61824a3be4780a736b981510b247f838b2aa97d5143bf7b21"
+    },
+    {
+      "path": "src/runtime/source-query-registry.js",
+      "lfSha256": "992a0f2409daec98e434eaa56e174b4e129a69de8ec28e2253111c4ff2370ea7"
+    },
+    {
+      "path": "src/content/source-fixed-cell.js",
+      "lfSha256": "b77c8fe89d57d6b01d29132691a49adddd1bcdc2b89f0d34e97b6293d96340f8"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "lfSha256": "b80ce81dfa615d419421437076d3bdd69fa5bba48fde4e6ef7f7492b1e908655"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "lfSha256": "4987f58cab20e01b4090622b817e4f5a4f96b6d629ebc23276a9af834c0516a9"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/run-synthetic.mjs",
+      "lfSha256": "06047746758c77e51a24171ffb83490c0be08cb9adb983b9903f1075f8484990"
+    }
+  ],
+  "passed": true,
+  "exitCode": 0,
+  "groups": 3,
+  "resources": {
+    "results": [
+      {
+        "kind": "thick-positive",
+        "summary": {
+          "id": "thick-bearing",
+          "status": "REPRESENTABLE_UNDER_CAPTURED_CELL",
+          "interpretation": "Disposable two-part physical-port diagnostic, not rooted support or production approval",
+          "sourceWitness": {
+            "parent": {
+              "partId": "parent",
+              "ownerId": "fixture::parent",
+              "component": 0,
+              "primitive": 6,
+              "point": [
+                0.42,
+                0.125,
+                0.375
+              ]
+            },
+            "child": {
+              "partId": "child",
+              "ownerId": "fixture::child",
+              "component": 0,
+              "primitive": 8,
+              "point": [
+                0.42,
+                0.125,
+                0.375
+              ]
+            }
+          },
+          "canonicalization": {
+            "parent": {
+              "authoredPoint": [
+                0.42,
+                0.125,
+                0.375
+              ],
+              "initializedPoint": [
+                0.42,
+                0.125,
+                0.375
+              ],
+              "delta": [
+                0,
+                0,
+                0
+              ],
+              "distance": 0,
+              "pointChanged": false,
+              "originalPrimitive": 6,
+              "originalComponent": 0
+            },
+            "child": {
+              "authoredPoint": [
+                0.42,
+                0.125,
+                0.375
+              ],
+              "initializedPoint": [
+                0.42,
+                0.125,
+                0.375
+              ],
+              "delta": [
+                0,
+                0,
+                0
+              ],
+              "distance": 0,
+              "pointChanged": false,
+              "originalPrimitive": 8,
+              "originalComponent": 0
+            }
+          },
+          "capturedSourceCell": [
+            1,
+            0,
+            0
+          ],
+          "capturedSourceSurfaceId": "fixture::child/part/1/plane",
+          "thermalProjection": {
+            "status": "SYNTHETIC_CONTROL"
+          },
+          "projectedPoint": [
+            0.5,
+            0.125,
+            0.375
+          ],
+          "native": [
+            {
+              "recordId": "fixture::child/part/1/plane@1,0,0",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                0,
+                0
+              ],
+              "partId": "child",
+              "thermalTriangles": 3,
+              "physicalTriangles": 16,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    0,
+                    1,
+                    4,
+                    5,
+                    8,
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": true,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": true,
+              "authoredPointInPhysical": true,
+              "initializedPointInPhysical": true
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,1,0",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                1,
+                0
+              ],
+              "partId": "child",
+              "thermalTriangles": 2,
+              "physicalTriangles": 12,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    0,
+                    1,
+                    9,
+                    10
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": false,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,2,0",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                2,
+                0
+              ],
+              "partId": "child",
+              "thermalTriangles": 2,
+              "physicalTriangles": 12,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    0,
+                    1,
+                    6,
+                    7,
+                    9,
+                    10
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": false,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,0,1",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                0,
+                1
+              ],
+              "partId": "child",
+              "thermalTriangles": 4,
+              "physicalTriangles": 20,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    4,
+                    5,
+                    8,
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,1,1",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                1,
+                1
+              ],
+              "partId": "child",
+              "thermalTriangles": 4,
+              "physicalTriangles": 20,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    8,
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,2,1",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                2,
+                1
+              ],
+              "partId": "child",
+              "thermalTriangles": 2,
+              "physicalTriangles": 12,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    6,
+                    7,
+                    9,
+                    10
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": false,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,0,2",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                0,
+                2
+              ],
+              "partId": "child",
+              "thermalTriangles": 2,
+              "physicalTriangles": 12,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    8,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,1,2",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                1,
+                2
+              ],
+              "partId": "child",
+              "thermalTriangles": 4,
+              "physicalTriangles": 20,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    2,
+                    3,
+                    8,
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,2,2",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                2,
+                2
+              ],
+              "partId": "child",
+              "thermalTriangles": 3,
+              "physicalTriangles": 16,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    2,
+                    3,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            }
+          ],
+          "diagnosticLineagePredicates": 108,
+          "hybridCoreResult": {
+            "generation": 0,
+            "revision": 0,
+            "supportedIds": [],
+            "unrootedIds": [
+              "cold:parent/0",
+              "fixture::child/part/1/plane@1,0,0",
+              "fixture::child/part/1/plane@1,0,1",
+              "fixture::child/part/1/plane@1,0,2",
+              "fixture::child/part/1/plane@1,1,0",
+              "fixture::child/part/1/plane@1,1,1",
+              "fixture::child/part/1/plane@1,1,2",
+              "fixture::child/part/1/plane@1,2,0",
+              "fixture::child/part/1/plane@1,2,1",
+              "fixture::child/part/1/plane@1,2,2"
+            ],
+            "births": [],
+            "ports": [
+              {
+                "id": "thick-bearing",
+                "parent": "cold:parent/0",
+                "child": "fixture::child/part/1/plane@1,0,0",
+                "live": true
+              }
+            ],
+            "unresolvedBindings": [],
+            "oldEdgeConflicts": []
+          },
+          "diagnosticPort": {
+            "id": "thick-bearing",
+            "parent": "cold:parent/0",
+            "child": "fixture::child/part/1/plane@1,0,0",
+            "live": true
+          },
+          "candidateRecordIds": [
+            "fixture::child/part/1/plane@1,0,0"
+          ],
+          "inputQuantity": 2,
+          "inputFuelClass": "clapboard",
+          "inputFinish": null,
+          "outputQuantity": 2.0000012000001597,
+          "outputFuelRecords": 9,
+          "outputFuelAmounts": [
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,0,0",
+              "amount": 0.35062513100000997,
+              "initial": 0.35062513100000997,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,1,0",
+              "amount": 0.39750018100001994,
+              "initial": 0.39750018100001994,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,2,0",
+              "amount": 0.0018750380000098984,
+              "initial": 0.0018750380000098984,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,0,1",
+              "amount": 0.4675002370000202,
+              "initial": 0.4675002370000202,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,1,1",
+              "amount": 0.53000031200004,
+              "initial": 0.53000031200004,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,2,1",
+              "amount": 0.0025000510000198657,
+              "initial": 0.0025000510000198657,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,0,2",
+              "amount": 0.11687510600000997,
+              "initial": 0.11687510600000997,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,1,2",
+              "amount": 0.13250013100001992,
+              "initial": 0.13250013100001992,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,2,2",
+              "amount": 0.000625013000009966,
+              "initial": 0.000625013000009966,
+              "cls": "clapboard"
+            }
+          ],
+          "canonicalSourceCells": 9,
+          "nativeRecords": 9,
+          "allocatedAirCells": 100,
+          "anchors": [],
+          "rootedSupport": "NOT_ESTABLISHED_NO_ROOTS",
+          "worldInstalled": false,
+          "futureProductionNativeIds": {
+            "parent": null,
+            "child": null
+          },
+          "resources": {
+            "query": {
+              "querySurfaces": 3,
+              "sourceParts": 2,
+              "sourceCarriers": 2,
+              "claimedCarriers": 0,
+              "cachedShapes": 21,
+              "cachedTriangles": 192,
+              "peakShapes": 21,
+              "peakTriangles": 192,
+              "workingShapes": 0,
+              "workingTriangles": 0,
+              "workingLeases": 0,
+              "peakWorkingShapes": 0,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 2,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            },
+            "working": {
+              "shapes": 16,
+              "triangles": 4096
+            },
+            "fallbackReserve": {
+              "shapes": 24,
+              "triangles": 8192
+            },
+            "combinedReserved": {
+              "shapes": 61,
+              "triangles": 12480
+            }
+          }
+        },
+        "counter": {
+          "compilerCalls": 1,
+          "canonicalCells": 9,
+          "originalPortEvaluations": 1
+        },
+        "after": {
+          "query": {
+            "querySurfaces": 3,
+            "sourceParts": 2,
+            "sourceCarriers": 2,
+            "claimedCarriers": 0,
+            "cachedShapes": 0,
+            "cachedTriangles": 0,
+            "peakShapes": 21,
+            "peakTriangles": 192,
+            "workingShapes": 0,
+            "workingTriangles": 0,
+            "workingLeases": 0,
+            "peakWorkingShapes": 0,
+            "peakWorkingTriangles": 0,
+            "shapeBuilds": 2,
+            "maxSingleQueryTriangles": 12,
+            "maxShapes": 192,
+            "maxTriangles": 65536,
+            "thermalCellsAllocated": 0,
+            "fuelAllocated": 0
+          },
+          "working": {
+            "shapes": 0,
+            "triangles": 0
+          },
+          "fallbackReserve": {
+            "shapes": 24,
+            "triangles": 8192
+          },
+          "combinedReserved": {
+            "shapes": 24,
+            "triangles": 8192
+          }
+        }
+      },
+      {
+        "kind": "wrong-captured-cell",
+        "summary": {
+          "id": "thick-bearing",
+          "status": "UNREPRESENTABLE_UNDER_CAPTURED_CELL",
+          "interpretation": "Disposable two-part physical-port diagnostic, not rooted support or production approval",
+          "sourceWitness": {
+            "parent": {
+              "partId": "parent",
+              "ownerId": "fixture::parent",
+              "component": 0,
+              "primitive": 6,
+              "point": [
+                0.42,
+                0.125,
+                0.375
+              ]
+            },
+            "child": {
+              "partId": "child",
+              "ownerId": "fixture::child",
+              "component": 0,
+              "primitive": 8,
+              "point": [
+                0.42,
+                0.125,
+                0.375
+              ]
+            }
+          },
+          "canonicalization": {
+            "parent": {
+              "authoredPoint": [
+                0.42,
+                0.125,
+                0.375
+              ],
+              "initializedPoint": [
+                0.42,
+                0.125,
+                0.375
+              ],
+              "delta": [
+                0,
+                0,
+                0
+              ],
+              "distance": 0,
+              "pointChanged": false,
+              "originalPrimitive": 6,
+              "originalComponent": 0
+            },
+            "child": {
+              "authoredPoint": [
+                0.42,
+                0.125,
+                0.375
+              ],
+              "initializedPoint": [
+                0.42,
+                0.125,
+                0.375
+              ],
+              "delta": [
+                0,
+                0,
+                0
+              ],
+              "distance": 0,
+              "pointChanged": false,
+              "originalPrimitive": 8,
+              "originalComponent": 0
+            }
+          },
+          "capturedSourceCell": [
+            1,
+            2,
+            2
+          ],
+          "capturedSourceSurfaceId": "fixture::child/part/1/plane",
+          "thermalProjection": {
+            "status": "SYNTHETIC_CONTROL"
+          },
+          "projectedPoint": [
+            0.5,
+            0.125,
+            0.375
+          ],
+          "native": [
+            {
+              "recordId": "fixture::child/part/1/plane@1,0,0",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                0,
+                0
+              ],
+              "partId": "child",
+              "thermalTriangles": 3,
+              "physicalTriangles": 16,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    0,
+                    1,
+                    4,
+                    5,
+                    8,
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": true,
+              "authoredPointInPhysical": true,
+              "initializedPointInPhysical": true
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,1,0",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                1,
+                0
+              ],
+              "partId": "child",
+              "thermalTriangles": 2,
+              "physicalTriangles": 12,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    0,
+                    1,
+                    9,
+                    10
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": false,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,2,0",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                2,
+                0
+              ],
+              "partId": "child",
+              "thermalTriangles": 2,
+              "physicalTriangles": 12,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    0,
+                    1,
+                    6,
+                    7,
+                    9,
+                    10
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": false,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,0,1",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                0,
+                1
+              ],
+              "partId": "child",
+              "thermalTriangles": 4,
+              "physicalTriangles": 20,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    4,
+                    5,
+                    8,
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,1,1",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                1,
+                1
+              ],
+              "partId": "child",
+              "thermalTriangles": 4,
+              "physicalTriangles": 20,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    8,
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,2,1",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                2,
+                1
+              ],
+              "partId": "child",
+              "thermalTriangles": 2,
+              "physicalTriangles": 12,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    6,
+                    7,
+                    9,
+                    10
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": false,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,0,2",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                0,
+                2
+              ],
+              "partId": "child",
+              "thermalTriangles": 2,
+              "physicalTriangles": 12,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    8,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,1,2",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                1,
+                2
+              ],
+              "partId": "child",
+              "thermalTriangles": 4,
+              "physicalTriangles": 20,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    2,
+                    3,
+                    8,
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": false,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            },
+            {
+              "recordId": "fixture::child/part/1/plane@1,2,2",
+              "sourceSurfaceId": "fixture::child/part/1/plane",
+              "sourceCell": [
+                1,
+                2,
+                2
+              ],
+              "partId": "child",
+              "thermalTriangles": 3,
+              "physicalTriangles": 16,
+              "lineage": [
+                {
+                  "component": 0,
+                  "primitives": [
+                    2,
+                    3,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11
+                  ]
+                }
+              ],
+              "componentMatches": true,
+              "primitiveMatches": true,
+              "capturedCellMatches": true,
+              "capturedSurfaceMatches": true,
+              "authoredPointInThermal": false,
+              "projectedPointInThermal": false,
+              "authoredPointInPhysical": false,
+              "initializedPointInPhysical": false
+            }
+          ],
+          "diagnosticLineagePredicates": 108,
+          "hybridCoreResult": {
+            "generation": 0,
+            "revision": 0,
+            "supportedIds": [],
+            "unrootedIds": [
+              "cold:parent/0",
+              "fixture::child/part/1/plane@1,0,0",
+              "fixture::child/part/1/plane@1,0,1",
+              "fixture::child/part/1/plane@1,0,2",
+              "fixture::child/part/1/plane@1,1,0",
+              "fixture::child/part/1/plane@1,1,1",
+              "fixture::child/part/1/plane@1,1,2",
+              "fixture::child/part/1/plane@1,2,0",
+              "fixture::child/part/1/plane@1,2,1",
+              "fixture::child/part/1/plane@1,2,2"
+            ],
+            "births": [],
+            "ports": [
+              {
+                "id": "thick-bearing",
+                "parent": "cold:parent/0",
+                "child": null,
+                "live": false
+              }
+            ],
+            "unresolvedBindings": [],
+            "oldEdgeConflicts": []
+          },
+          "diagnosticPort": {
+            "id": "thick-bearing",
+            "parent": "cold:parent/0",
+            "child": null,
+            "live": false
+          },
+          "candidateRecordIds": [
+            "fixture::child/part/1/plane@1,2,2"
+          ],
+          "inputQuantity": 2,
+          "inputFuelClass": "clapboard",
+          "inputFinish": null,
+          "outputQuantity": 2.0000012000001597,
+          "outputFuelRecords": 9,
+          "outputFuelAmounts": [
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,0,0",
+              "amount": 0.35062513100000997,
+              "initial": 0.35062513100000997,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,1,0",
+              "amount": 0.39750018100001994,
+              "initial": 0.39750018100001994,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,2,0",
+              "amount": 0.0018750380000098984,
+              "initial": 0.0018750380000098984,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,0,1",
+              "amount": 0.4675002370000202,
+              "initial": 0.4675002370000202,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,1,1",
+              "amount": 0.53000031200004,
+              "initial": 0.53000031200004,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,2,1",
+              "amount": 0.0025000510000198657,
+              "initial": 0.0025000510000198657,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,0,2",
+              "amount": 0.11687510600000997,
+              "initial": 0.11687510600000997,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,1,2",
+              "amount": 0.13250013100001992,
+              "initial": 0.13250013100001992,
+              "cls": "clapboard"
+            },
+            {
+              "id": "fuel:fixture::child/part/1/plane@1,2,2",
+              "amount": 0.000625013000009966,
+              "initial": 0.000625013000009966,
+              "cls": "clapboard"
+            }
+          ],
+          "canonicalSourceCells": 9,
+          "nativeRecords": 9,
+          "allocatedAirCells": 100,
+          "anchors": [],
+          "rootedSupport": "NOT_ESTABLISHED_NO_ROOTS",
+          "worldInstalled": false,
+          "futureProductionNativeIds": {
+            "parent": null,
+            "child": null
+          },
+          "resources": {
+            "query": {
+              "querySurfaces": 3,
+              "sourceParts": 2,
+              "sourceCarriers": 2,
+              "claimedCarriers": 0,
+              "cachedShapes": 21,
+              "cachedTriangles": 192,
+              "peakShapes": 21,
+              "peakTriangles": 192,
+              "workingShapes": 0,
+              "workingTriangles": 0,
+              "workingLeases": 0,
+              "peakWorkingShapes": 0,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 2,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            },
+            "working": {
+              "shapes": 16,
+              "triangles": 4096
+            },
+            "fallbackReserve": {
+              "shapes": 24,
+              "triangles": 8192
+            },
+            "combinedReserved": {
+              "shapes": 61,
+              "triangles": 12480
+            }
+          }
+        },
+        "counter": {
+          "compilerCalls": 1,
+          "canonicalCells": 9,
+          "originalPortEvaluations": 1
+        },
+        "after": {
+          "query": {
+            "querySurfaces": 3,
+            "sourceParts": 2,
+            "sourceCarriers": 2,
+            "claimedCarriers": 0,
+            "cachedShapes": 0,
+            "cachedTriangles": 0,
+            "peakShapes": 21,
+            "peakTriangles": 192,
+            "workingShapes": 0,
+            "workingTriangles": 0,
+            "workingLeases": 0,
+            "peakWorkingShapes": 0,
+            "peakWorkingTriangles": 0,
+            "shapeBuilds": 2,
+            "maxSingleQueryTriangles": 12,
+            "maxShapes": 192,
+            "maxTriangles": 65536,
+            "thermalCellsAllocated": 0,
+            "fuelAllocated": 0
+          },
+          "working": {
+            "shapes": 0,
+            "triangles": 0
+          },
+          "fallbackReserve": {
+            "shapes": 24,
+            "triangles": 8192
+          },
+          "combinedReserved": {
+            "shapes": 24,
+            "triangles": 8192
+          }
+        }
+      },
+      {
+        "kind": "precompile-bounds",
+        "counter": {
+          "compilerCalls": 0,
+          "canonicalCells": 0,
+          "originalPortEvaluations": 0
+        },
+        "after": {
+          "query": {
+            "querySurfaces": 3,
+            "sourceParts": 2,
+            "sourceCarriers": 2,
+            "claimedCarriers": 0,
+            "cachedShapes": 0,
+            "cachedTriangles": 0,
+            "peakShapes": 3,
+            "peakTriangles": 26,
+            "workingShapes": 0,
+            "workingTriangles": 0,
+            "workingLeases": 0,
+            "peakWorkingShapes": 0,
+            "peakWorkingTriangles": 0,
+            "shapeBuilds": 2,
+            "maxSingleQueryTriangles": 12,
+            "maxShapes": 192,
+            "maxTriangles": 65536,
+            "thermalCellsAllocated": 0,
+            "fuelAllocated": 0
+          },
+          "working": {
+            "shapes": 0,
+            "triangles": 0
+          },
+          "fallbackReserve": {
+            "shapes": 24,
+            "triangles": 8192
+          },
+          "combinedReserved": {
+            "shapes": 24,
+            "triangles": 8192
+          }
+        }
+      }
+    ],
+    "compiler": {
+      "calls": 2
+    },
+    "trial": {
+      "created": 0,
+      "steps": 0,
+      "disposed": 0
+    },
+    "actualSavedNativeDiagnostics": 0,
+    "actualSourceTransforms": 0
+  },
+  "timeoutMs": 30000,
+  "maxSourceCells": 64,
+  "maxThermalTriangles": 256,
+  "maxSteps": 64,
+  "actualSavedNativeDiagnostics": 0,
+  "actualSourceTransforms": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

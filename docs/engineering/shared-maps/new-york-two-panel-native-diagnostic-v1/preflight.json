@@ -1,0 +1,61 @@
+{
+  "base": "faacbf1d97ed5cb05ffb4e619fb55523b736d2fc",
+  "grant": {
+    "commit": "18b42f8565268eb6db24b21049b8c843a1b44786",
+    "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic.md",
+    "sha256": "81acd89d9faf8c3b96c057641782961fe6cefa3d0356002964ce5e5b7844979f"
+  },
+  "sourcePins": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-world.json",
+      "sha256": "5353b5f6d6ccae1d13931bfa93f4bbdcfd498994f33a5eff49db82c2ece5c8fd"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-blueprints.json",
+      "sha256": "1685e0afc81e21b16f8db3fa00e81bc326a9b1ca24453c759abcf55df28ebbf2"
+    }
+  ],
+  "metadataPins": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/mapped-plan-proposal.json",
+      "sha256": "3dffa5a07e9a1e6a60ab8c879248cc799c3137f854b6a7871f75842aabf60cf1"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/endpoint-results.json",
+      "sha256": "f74498b407419af012c998d1ff505b8bd72f584dbfaa8406a2ef3cf96b5139b7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/source-policy-proposal.json",
+      "sha256": "26dae672f43a51064a67e57089a7dfc33e13e57a964c52661520dcb70f6d97e2"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/mapped-plan-proposal.json",
+      "sha256": "77a5516d4385af86218871e9674bbc080cfbd157fd0037a49afc3b984bc362f8"
+    }
+  ],
+  "cases": [
+    {
+      "id": "legacy-pair-008",
+      "parent": "main/5/seam-3-1/1",
+      "child": "main/5/cell-4-1/1"
+    },
+    {
+      "id": "legacy-pair-026",
+      "parent": "main/6/seam-3-8/1",
+      "child": "main/6/cell-4-8/1"
+    }
+  ],
+  "limits": {
+    "compilerCalls": 2,
+    "canonicalCells": 12,
+    "originalPortEvaluations": 2
+  },
+  "sourceParts": 4,
+  "originalTriangles": 48,
+  "compiledChildren": 2,
+  "thermalInputTriangles": 4,
+  "canonicalInputQuantity": 4,
+  "sourceDecodeExpandTransformAllowance": 0,
+  "oldAllowances": "SPENT_NO_REPLAY",
+  "futureProductionNativeIds": null
+}

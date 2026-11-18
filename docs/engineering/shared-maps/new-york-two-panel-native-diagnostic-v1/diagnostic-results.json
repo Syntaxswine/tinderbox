@@ -1,0 +1,1194 @@
+{
+  "version": 1,
+  "status": "UNREVIEWED_NATIVE_DIAGNOSTIC",
+  "base": "faacbf1d97ed5cb05ffb4e619fb55523b736d2fc",
+  "grant": {
+    "commit": "18b42f8565268eb6db24b21049b8c843a1b44786",
+    "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic.md"
+  },
+  "sourcePins": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-world.json",
+      "sha256": "5353b5f6d6ccae1d13931bfa93f4bbdcfd498994f33a5eff49db82c2ece5c8fd"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-blueprints.json",
+      "sha256": "1685e0afc81e21b16f8db3fa00e81bc326a9b1ca24453c759abcf55df28ebbf2"
+    }
+  ],
+  "metadataPins": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/mapped-plan-proposal.json",
+      "sha256": "3dffa5a07e9a1e6a60ab8c879248cc799c3137f854b6a7871f75842aabf60cf1"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/endpoint-results.json",
+      "sha256": "f74498b407419af012c998d1ff505b8bd72f584dbfaa8406a2ef3cf96b5139b7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/source-policy-proposal.json",
+      "sha256": "26dae672f43a51064a67e57089a7dfc33e13e57a964c52661520dcb70f6d97e2"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/mapped-plan-proposal.json",
+      "sha256": "77a5516d4385af86218871e9674bbc080cfbd157fd0037a49afc3b984bc362f8"
+    }
+  ],
+  "cohort": [
+    {
+      "id": "legacy-pair-008",
+      "parent": "main/5/seam-3-1/1",
+      "child": "main/5/cell-4-1/1"
+    },
+    {
+      "id": "legacy-pair-026",
+      "parent": "main/6/seam-3-8/1",
+      "child": "main/6/cell-4-8/1"
+    }
+  ],
+  "parts": 4,
+  "originalTriangles": 48,
+  "compiledChildren": 2,
+  "thermalInputTriangles": 4,
+  "canonicalInputQuantity": 4,
+  "actualOutputQuantity": 4.000001410385229,
+  "results": [
+    {
+      "id": "legacy-pair-008",
+      "status": "UNREPRESENTABLE_UNDER_CAPTURED_CELL",
+      "interpretation": "Disposable two-part physical-port diagnostic, not rooted support or production approval",
+      "sourceWitness": {
+        "parent": {
+          "partId": "main/5/seam-3-1/1",
+          "ownerId": "carrier/main/5/seam-3-1/1",
+          "component": 0,
+          "primitive": 0,
+          "point": [
+            63.920000015993914,
+            8.479999897380669,
+            60
+          ],
+          "distance": 0,
+          "originalWitness": [
+            63.920000015993914,
+            8.479999897380669,
+            60
+          ],
+          "nativeRecordId": null,
+          "selector": {
+            "min": [
+              63.92000000178814,
+              8.36000007763505,
+              59
+            ],
+            "max": [
+              64.07999999821186,
+              8.48000007495284,
+              60
+            ]
+          },
+          "bindingPlan": {
+            "kind": "source-blueprint-original-face-v1",
+            "channel": "solid",
+            "suffix": "plane",
+            "surfacePoint": [
+              63.920000015993914,
+              8.420000076293945,
+              60
+            ],
+            "cell": [
+              127,
+              7,
+              119
+            ],
+            "nativeRecordId": null,
+            "nativeCellId": null,
+            "proofRef": null
+          }
+        },
+        "child": {
+          "partId": "main/5/cell-4-1/1",
+          "ownerId": "carrier/main/5/cell-4-1/1",
+          "component": 0,
+          "primitive": 0,
+          "point": [
+            63.920000015993914,
+            8.479999897380669,
+            60
+          ],
+          "distance": 0,
+          "originalWitness": [
+            63.920000015993914,
+            8.479999897380669,
+            60
+          ],
+          "nativeRecordId": null,
+          "selector": {
+            "min": [
+              63.92000000178814,
+              8.479999542236328,
+              59
+            ],
+            "max": [
+              64.07999999821186,
+              10.479999542236328,
+              60
+            ]
+          },
+          "bindingPlan": null
+        }
+      },
+      "canonicalization": {
+        "parent": {
+          "authoredPoint": [
+            63.920000015993914,
+            8.479999897380669,
+            60
+          ],
+          "initializedPoint": [
+            63.920000015993914,
+            8.479999897380669,
+            60
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ],
+          "distance": 0,
+          "pointChanged": false,
+          "originalPrimitive": 0,
+          "originalComponent": 0
+        },
+        "child": {
+          "authoredPoint": [
+            63.920000015993914,
+            8.479999897380669,
+            60
+          ],
+          "initializedPoint": [
+            63.920000015993914,
+            8.479999897380669,
+            60
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ],
+          "distance": 0,
+          "pointChanged": false,
+          "originalPrimitive": 0,
+          "originalComponent": 0
+        }
+      },
+      "capturedSourceCell": [
+        128,
+        7,
+        119
+      ],
+      "capturedSourceSurfaceId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+      "thermalProjection": {
+        "bondId": "legacy-pair-008",
+        "side": "child",
+        "sourceWitness": {
+          "partId": "main/5/cell-4-1/1",
+          "ownerId": "carrier/main/5/cell-4-1/1",
+          "component": 0,
+          "primitive": 0,
+          "point": [
+            63.920000015993914,
+            8.479999897380669,
+            60
+          ],
+          "distance": 0,
+          "originalWitness": [
+            63.920000015993914,
+            8.479999897380669,
+            60
+          ],
+          "nativeRecordId": null,
+          "selector": {
+            "min": [
+              63.92000000178814,
+              8.479999542236328,
+              59
+            ],
+            "max": [
+              64.07999999821186,
+              10.479999542236328,
+              60
+            ]
+          }
+        },
+        "status": "UNBOUND",
+        "reason": "FIXED_POINT_NOT_IN_RETAINED_NATIVE_PATCH",
+        "detail": "FIXED_POINT_NOT_IN_RETAINED_NATIVE_PATCH: main/5/cell-4-1/1",
+        "cellOwnership": {
+          "status": "UNBOUND",
+          "reason": "FIXED_POINT_NOT_IN_RETAINED_NATIVE_PATCH",
+          "cell": null,
+          "candidates": [
+            {
+              "cell": [
+                128,
+                7,
+                119
+              ],
+              "clipBounds": {
+                "min": [
+                  63.9999999,
+                  7.4199999,
+                  59.4999999
+                ],
+                "max": [
+                  64.5000001,
+                  8.4800001,
+                  60.0000001
+                ]
+              },
+              "clippedTriangleCount": 2,
+              "clippedArea": 2.78881813848079e-7,
+              "positivePatch": true,
+              "retainedPointMember": false,
+              "valid": false
+            },
+            {
+              "cell": [
+                128,
+                8,
+                119
+              ],
+              "clipBounds": {
+                "min": [
+                  63.9999999,
+                  8.479999900000001,
+                  59.4999999
+                ],
+                "max": [
+                  64.5000001,
+                  9.5400001,
+                  60.0000001
+                ]
+              },
+              "clippedTriangleCount": 3,
+              "clippedArea": 0.530000111192631,
+              "positivePatch": true,
+              "retainedPointMember": false,
+              "valid": false
+            }
+          ],
+          "sourceSpan": {
+            "min": [
+              128,
+              7,
+              118
+            ],
+            "max": [
+              128,
+              9,
+              119
+            ]
+          },
+          "floorCell": [
+            128,
+            8,
+            120
+          ]
+        }
+      },
+      "projectedPoint": [
+        64,
+        8.479999897380669,
+        60
+      ],
+      "native": [
+        {
+          "recordId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,7,118",
+          "sourceSurfaceId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+          "sourceCell": [
+            128,
+            7,
+            118
+          ],
+          "partId": "main/5/cell-4-1/1",
+          "thermalTriangles": 2,
+          "physicalTriangles": 12,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                6,
+                7,
+                9,
+                11
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": false,
+          "capturedCellMatches": false,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        },
+        {
+          "recordId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,8,118",
+          "sourceSurfaceId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+          "sourceCell": [
+            128,
+            8,
+            118
+          ],
+          "partId": "main/5/cell-4-1/1",
+          "thermalTriangles": 4,
+          "physicalTriangles": 20,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                2,
+                3,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": false,
+          "capturedCellMatches": false,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        },
+        {
+          "recordId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,9,118",
+          "sourceSurfaceId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+          "sourceCell": [
+            128,
+            9,
+            118
+          ],
+          "partId": "main/5/cell-4-1/1",
+          "thermalTriangles": 3,
+          "physicalTriangles": 16,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                2,
+                3,
+                4,
+                5,
+                8,
+                10,
+                11
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": false,
+          "capturedCellMatches": false,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        },
+        {
+          "recordId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,7,119",
+          "sourceSurfaceId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+          "sourceCell": [
+            128,
+            7,
+            119
+          ],
+          "partId": "main/5/cell-4-1/1",
+          "thermalTriangles": 2,
+          "physicalTriangles": 12,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                6,
+                7,
+                9,
+                11
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": false,
+          "capturedCellMatches": true,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        },
+        {
+          "recordId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,8,119",
+          "sourceSurfaceId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+          "sourceCell": [
+            128,
+            8,
+            119
+          ],
+          "partId": "main/5/cell-4-1/1",
+          "thermalTriangles": 3,
+          "physicalTriangles": 16,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": false,
+          "capturedCellMatches": false,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        },
+        {
+          "recordId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,9,119",
+          "sourceSurfaceId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+          "sourceCell": [
+            128,
+            9,
+            119
+          ],
+          "partId": "main/5/cell-4-1/1",
+          "thermalTriangles": 2,
+          "physicalTriangles": 12,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                0,
+                1,
+                4,
+                5,
+                8,
+                9,
+                10
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": true,
+          "capturedCellMatches": false,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        }
+      ],
+      "diagnosticLineagePredicates": 72,
+      "hybridCoreResult": {
+        "generation": 0,
+        "revision": 0,
+        "supportedIds": [],
+        "unrootedIds": [
+          "cold:main/5/seam-3-1/1/0",
+          "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,7,118",
+          "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,7,119",
+          "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,8,118",
+          "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,8,119",
+          "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,9,118",
+          "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,9,119"
+        ],
+        "births": [],
+        "ports": [
+          {
+            "id": "legacy-pair-008",
+            "parent": "cold:main/5/seam-3-1/1/0",
+            "child": null,
+            "live": false
+          }
+        ],
+        "unresolvedBindings": [],
+        "oldEdgeConflicts": []
+      },
+      "diagnosticPort": {
+        "id": "legacy-pair-008",
+        "parent": "cold:main/5/seam-3-1/1/0",
+        "child": null,
+        "live": false
+      },
+      "candidateRecordIds": [],
+      "inputQuantity": 2,
+      "inputFuelClass": "clapboard",
+      "inputFinish": null,
+      "outputQuantity": 2.0000007051926145,
+      "outputFuelRecords": 6,
+      "outputFuelAmounts": [
+        {
+          "id": "fuel:new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,7,118",
+          "amount": 2.788818916231571e-7,
+          "initial": 2.788818916231571e-7,
+          "cls": "clapboard"
+        },
+        {
+          "id": "fuel:new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,8,118",
+          "amount": 0.5300002060000208,
+          "initial": 0.5300002060000208,
+          "cls": "clapboard"
+        },
+        {
+          "id": "fuel:new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,9,118",
+          "amount": 0.46999991511812866,
+          "initial": 0.46999991511812866,
+          "cls": "clapboard"
+        },
+        {
+          "id": "fuel:new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,7,119",
+          "amount": 2.78881813848079e-7,
+          "initial": 2.78881813848079e-7,
+          "cls": "clapboard"
+        },
+        {
+          "id": "fuel:new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,8,119",
+          "amount": 0.530000111192631,
+          "initial": 0.530000111192631,
+          "cls": "clapboard"
+        },
+        {
+          "id": "fuel:new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,9,119",
+          "amount": 0.4699999151181286,
+          "initial": 0.4699999151181286,
+          "cls": "clapboard"
+        }
+      ],
+      "canonicalSourceCells": 6,
+      "nativeRecords": 6,
+      "allocatedAirCells": 80,
+      "anchors": [],
+      "rootedSupport": "NOT_ESTABLISHED_NO_ROOTS",
+      "worldInstalled": false,
+      "futureProductionNativeIds": {
+        "parent": null,
+        "child": null
+      },
+      "resources": {
+        "query": {
+          "querySurfaces": 5,
+          "sourceParts": 4,
+          "sourceCarriers": 4,
+          "claimedCarriers": 0,
+          "cachedShapes": 17,
+          "cachedTriangles": 154,
+          "peakShapes": 17,
+          "peakTriangles": 154,
+          "workingShapes": 0,
+          "workingTriangles": 0,
+          "workingLeases": 0,
+          "peakWorkingShapes": 0,
+          "peakWorkingTriangles": 0,
+          "shapeBuilds": 4,
+          "maxSingleQueryTriangles": 12,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "working": {
+          "shapes": 16,
+          "triangles": 4096
+        },
+        "fallbackReserve": {
+          "shapes": 24,
+          "triangles": 8192
+        },
+        "combinedReserved": {
+          "shapes": 57,
+          "triangles": 12442
+        }
+      }
+    },
+    {
+      "id": "legacy-pair-026",
+      "status": "UNREPRESENTABLE_UNDER_CAPTURED_CELL",
+      "interpretation": "Disposable two-part physical-port diagnostic, not rooted support or production approval",
+      "sourceWitness": {
+        "parent": {
+          "partId": "main/6/seam-3-8/1",
+          "ownerId": "carrier/main/6/seam-3-8/1",
+          "component": 0,
+          "primitive": 0,
+          "point": [
+            55,
+            8.479999897380669,
+            59.920000015993914
+          ],
+          "distance": 0,
+          "originalWitness": [
+            55,
+            8.479999897380669,
+            59.920000015993914
+          ],
+          "nativeRecordId": null,
+          "selector": {
+            "min": [
+              55,
+              8.36000007763505,
+              59.92000000178814
+            ],
+            "max": [
+              56,
+              8.48000007495284,
+              60.07999999821186
+            ]
+          },
+          "bindingPlan": {
+            "kind": "source-blueprint-original-face-v1",
+            "channel": "solid",
+            "suffix": "plane",
+            "surfacePoint": [
+              55,
+              8.420000076293945,
+              59.920000015993914
+            ],
+            "cell": [
+              110,
+              7,
+              119
+            ],
+            "nativeRecordId": null,
+            "nativeCellId": null,
+            "proofRef": null
+          }
+        },
+        "child": {
+          "partId": "main/6/cell-4-8/1",
+          "ownerId": "carrier/main/6/cell-4-8/1",
+          "component": 0,
+          "primitive": 0,
+          "point": [
+            55,
+            8.479999897380669,
+            59.920000015993914
+          ],
+          "distance": 0,
+          "originalWitness": [
+            55,
+            8.479999897380669,
+            59.920000015993914
+          ],
+          "nativeRecordId": null,
+          "selector": {
+            "min": [
+              55,
+              8.479999542236328,
+              59.92000000178814
+            ],
+            "max": [
+              56,
+              10.479999542236328,
+              60.07999999821186
+            ]
+          },
+          "bindingPlan": null
+        }
+      },
+      "canonicalization": {
+        "parent": {
+          "authoredPoint": [
+            55,
+            8.479999897380669,
+            59.920000015993914
+          ],
+          "initializedPoint": [
+            55,
+            8.479999897380669,
+            59.920000015993914
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ],
+          "distance": 0,
+          "pointChanged": false,
+          "originalPrimitive": 0,
+          "originalComponent": 0
+        },
+        "child": {
+          "authoredPoint": [
+            55,
+            8.479999897380669,
+            59.920000015993914
+          ],
+          "initializedPoint": [
+            55,
+            8.479999897380669,
+            59.920000015993914
+          ],
+          "delta": [
+            0,
+            0,
+            0
+          ],
+          "distance": 0,
+          "pointChanged": false,
+          "originalPrimitive": 0,
+          "originalComponent": 0
+        }
+      },
+      "capturedSourceCell": [
+        110,
+        7,
+        120
+      ],
+      "capturedSourceSurfaceId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+      "thermalProjection": {
+        "bondId": "legacy-pair-026",
+        "side": "child",
+        "sourceWitness": {
+          "partId": "main/6/cell-4-8/1",
+          "ownerId": "carrier/main/6/cell-4-8/1",
+          "component": 0,
+          "primitive": 0,
+          "point": [
+            55,
+            8.479999897380669,
+            59.920000015993914
+          ],
+          "distance": 0,
+          "originalWitness": [
+            55,
+            8.479999897380669,
+            59.920000015993914
+          ],
+          "nativeRecordId": null,
+          "selector": {
+            "min": [
+              55,
+              8.479999542236328,
+              59.92000000178814
+            ],
+            "max": [
+              56,
+              10.479999542236328,
+              60.07999999821186
+            ]
+          }
+        },
+        "status": "UNBOUND",
+        "reason": "FIXED_POINT_NOT_IN_RETAINED_NATIVE_PATCH",
+        "detail": "FIXED_POINT_NOT_IN_RETAINED_NATIVE_PATCH: main/6/cell-4-8/1",
+        "cellOwnership": {
+          "status": "UNBOUND",
+          "reason": "FIXED_POINT_NOT_IN_RETAINED_NATIVE_PATCH",
+          "cell": null,
+          "candidates": [
+            {
+              "cell": [
+                110,
+                7,
+                120
+              ],
+              "clipBounds": {
+                "min": [
+                  54.9999999,
+                  7.4199999,
+                  59.9999999
+                ],
+                "max": [
+                  55.5000001,
+                  8.4800001,
+                  60.5000001
+                ]
+              },
+              "clippedTriangleCount": 2,
+              "clippedArea": 2.78881813848079e-7,
+              "positivePatch": true,
+              "retainedPointMember": false,
+              "valid": false
+            },
+            {
+              "cell": [
+                110,
+                8,
+                120
+              ],
+              "clipBounds": {
+                "min": [
+                  54.9999999,
+                  8.479999900000001,
+                  59.9999999
+                ],
+                "max": [
+                  55.5000001,
+                  9.5400001,
+                  60.5000001
+                ]
+              },
+              "clippedTriangleCount": 3,
+              "clippedArea": 0.530000111192631,
+              "positivePatch": true,
+              "retainedPointMember": false,
+              "valid": false
+            }
+          ],
+          "sourceSpan": {
+            "min": [
+              110,
+              7,
+              120
+            ],
+            "max": [
+              111,
+              9,
+              120
+            ]
+          },
+          "floorCell": [
+            110,
+            8,
+            120
+          ]
+        }
+      },
+      "projectedPoint": [
+        55,
+        8.479999897380669,
+        60
+      ],
+      "native": [
+        {
+          "recordId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@110,7,120",
+          "sourceSurfaceId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+          "sourceCell": [
+            110,
+            7,
+            120
+          ],
+          "partId": "main/6/cell-4-8/1",
+          "thermalTriangles": 2,
+          "physicalTriangles": 12,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                6,
+                7,
+                9,
+                11
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": false,
+          "capturedCellMatches": true,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        },
+        {
+          "recordId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@111,7,120",
+          "sourceSurfaceId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+          "sourceCell": [
+            111,
+            7,
+            120
+          ],
+          "partId": "main/6/cell-4-8/1",
+          "thermalTriangles": 2,
+          "physicalTriangles": 12,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                6,
+                7,
+                9,
+                11
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": false,
+          "capturedCellMatches": false,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        },
+        {
+          "recordId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@110,8,120",
+          "sourceSurfaceId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+          "sourceCell": [
+            110,
+            8,
+            120
+          ],
+          "partId": "main/6/cell-4-8/1",
+          "thermalTriangles": 3,
+          "physicalTriangles": 16,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": false,
+          "capturedCellMatches": false,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        },
+        {
+          "recordId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@111,8,120",
+          "sourceSurfaceId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+          "sourceCell": [
+            111,
+            8,
+            120
+          ],
+          "partId": "main/6/cell-4-8/1",
+          "thermalTriangles": 4,
+          "physicalTriangles": 20,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                2,
+                3,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": false,
+          "capturedCellMatches": false,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        },
+        {
+          "recordId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@110,9,120",
+          "sourceSurfaceId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+          "sourceCell": [
+            110,
+            9,
+            120
+          ],
+          "partId": "main/6/cell-4-8/1",
+          "thermalTriangles": 2,
+          "physicalTriangles": 12,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                0,
+                1,
+                4,
+                5,
+                8,
+                9,
+                10
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": true,
+          "capturedCellMatches": false,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        },
+        {
+          "recordId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@111,9,120",
+          "sourceSurfaceId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+          "sourceCell": [
+            111,
+            9,
+            120
+          ],
+          "partId": "main/6/cell-4-8/1",
+          "thermalTriangles": 3,
+          "physicalTriangles": 16,
+          "lineage": [
+            {
+              "component": 0,
+              "primitives": [
+                2,
+                3,
+                4,
+                5,
+                8,
+                10,
+                11
+              ]
+            }
+          ],
+          "componentMatches": true,
+          "primitiveMatches": false,
+          "capturedCellMatches": false,
+          "capturedSurfaceMatches": true,
+          "authoredPointInThermal": false,
+          "projectedPointInThermal": false,
+          "authoredPointInPhysical": false,
+          "initializedPointInPhysical": false
+        }
+      ],
+      "diagnosticLineagePredicates": 72,
+      "hybridCoreResult": {
+        "generation": 0,
+        "revision": 0,
+        "supportedIds": [],
+        "unrootedIds": [
+          "cold:main/6/seam-3-8/1/0",
+          "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@110,7,120",
+          "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@110,8,120",
+          "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@110,9,120",
+          "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@111,7,120",
+          "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@111,8,120",
+          "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@111,9,120"
+        ],
+        "births": [],
+        "ports": [
+          {
+            "id": "legacy-pair-026",
+            "parent": "cold:main/6/seam-3-8/1/0",
+            "child": null,
+            "live": false
+          }
+        ],
+        "unresolvedBindings": [],
+        "oldEdgeConflicts": []
+      },
+      "diagnosticPort": {
+        "id": "legacy-pair-026",
+        "parent": "cold:main/6/seam-3-8/1/0",
+        "child": null,
+        "live": false
+      },
+      "candidateRecordIds": [],
+      "inputQuantity": 2,
+      "inputFuelClass": "clapboard",
+      "inputFinish": null,
+      "outputQuantity": 2.0000007051926145,
+      "outputFuelRecords": 6,
+      "outputFuelAmounts": [
+        {
+          "id": "fuel:new-york::carrier/main/6/cell-4-8/1/part/9279/plane@110,7,120",
+          "amount": 2.78881813848079e-7,
+          "initial": 2.78881813848079e-7,
+          "cls": "clapboard"
+        },
+        {
+          "id": "fuel:new-york::carrier/main/6/cell-4-8/1/part/9279/plane@111,7,120",
+          "amount": 2.788818916231571e-7,
+          "initial": 2.788818916231571e-7,
+          "cls": "clapboard"
+        },
+        {
+          "id": "fuel:new-york::carrier/main/6/cell-4-8/1/part/9279/plane@110,8,120",
+          "amount": 0.530000111192631,
+          "initial": 0.530000111192631,
+          "cls": "clapboard"
+        },
+        {
+          "id": "fuel:new-york::carrier/main/6/cell-4-8/1/part/9279/plane@111,8,120",
+          "amount": 0.5300002060000208,
+          "initial": 0.5300002060000208,
+          "cls": "clapboard"
+        },
+        {
+          "id": "fuel:new-york::carrier/main/6/cell-4-8/1/part/9279/plane@110,9,120",
+          "amount": 0.4699999151181286,
+          "initial": 0.4699999151181286,
+          "cls": "clapboard"
+        },
+        {
+          "id": "fuel:new-york::carrier/main/6/cell-4-8/1/part/9279/plane@111,9,120",
+          "amount": 0.46999991511812866,
+          "initial": 0.46999991511812866,
+          "cls": "clapboard"
+        }
+      ],
+      "canonicalSourceCells": 6,
+      "nativeRecords": 6,
+      "allocatedAirCells": 80,
+      "anchors": [],
+      "rootedSupport": "NOT_ESTABLISHED_NO_ROOTS",
+      "worldInstalled": false,
+      "futureProductionNativeIds": {
+        "parent": null,
+        "child": null
+      },
+      "resources": {
+        "query": {
+          "querySurfaces": 5,
+          "sourceParts": 4,
+          "sourceCarriers": 4,
+          "claimedCarriers": 0,
+          "cachedShapes": 30,
+          "cachedTriangles": 260,
+          "peakShapes": 30,
+          "peakTriangles": 260,
+          "workingShapes": 0,
+          "workingTriangles": 0,
+          "workingLeases": 0,
+          "peakWorkingShapes": 0,
+          "peakWorkingTriangles": 0,
+          "shapeBuilds": 4,
+          "maxSingleQueryTriangles": 12,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "working": {
+          "shapes": 16,
+          "triangles": 4096
+        },
+        "fallbackReserve": {
+          "shapes": 24,
+          "triangles": 8192
+        },
+        "combinedReserved": {
+          "shapes": 70,
+          "triangles": 12548
+        }
+      }
+    }
+  ],
+  "productionPolicy": "UNCHANGED",
+  "futureProductionNativeIds": null,
+  "rootedSupport": "NOT_ESTABLISHED_NO_ANCHORS"
+}
