@@ -1,0 +1,167 @@
+{
+  "sourcePins": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-world.json",
+      "sha256": "5353b5f6d6ccae1d13931bfa93f4bbdcfd498994f33a5eff49db82c2ece5c8fd"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-blueprints.json",
+      "sha256": "1685e0afc81e21b16f8db3fa00e81bc326a9b1ca24453c759abcf55df28ebbf2"
+    }
+  ],
+  "sourceRevision": "e733ed1050828f50b405f9927dd340acf3eba4d201eda79e939dcd5bf2af8a5b",
+  "surfaces": [
+    {
+      "bounds": {
+        "min": [
+          63.92000000178814,
+          8.479999542236328,
+          59
+        ],
+        "max": [
+          64.07999999821186,
+          10.479999542236328,
+          60
+        ]
+      },
+      "normal": [
+        1,
+        0,
+        0
+      ],
+      "triangles": [
+        [
+          [
+            64,
+            10.479999542236328,
+            60
+          ],
+          [
+            64,
+            8.479999542236328,
+            60
+          ],
+          [
+            64,
+            10.479999542236328,
+            59
+          ]
+        ],
+        [
+          [
+            64,
+            8.479999542236328,
+            60
+          ],
+          [
+            64,
+            8.479999542236328,
+            59
+          ],
+          [
+            64,
+            10.479999542236328,
+            59
+          ]
+        ]
+      ],
+      "thickness": 0.1599999964237213,
+      "kind": "wall",
+      "supports": true,
+      "id": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+      "weight": 2,
+      "instanceId": "new-york",
+      "sourceCarrierId": "new-york::carrier/main/5/cell-4-1/1",
+      "nativePartId": "main/5/cell-4-1/1",
+      "sourceMeshBindings": [
+        "main/5/cell-4-1/1"
+      ],
+      "renderAppearanceIds": [
+        "195d861c8e37b8c436767ffd709ed3ef39de5082da81965b7b92a93aad4d6959"
+      ],
+      "material": "timber",
+      "fuelClass": "clapboard",
+      "fuelAmount": 2,
+      "level": 4,
+      "supportFromMesh": true,
+      "nativeInertBody": false,
+      "role": "exterior-wall"
+    },
+    {
+      "bounds": {
+        "min": [
+          55,
+          8.479999542236328,
+          59.92000000178814
+        ],
+        "max": [
+          56,
+          10.479999542236328,
+          60.07999999821186
+        ]
+      },
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "triangles": [
+        [
+          [
+            55,
+            10.479999542236328,
+            60
+          ],
+          [
+            55,
+            8.479999542236328,
+            60
+          ],
+          [
+            56,
+            10.479999542236328,
+            60
+          ]
+        ],
+        [
+          [
+            55,
+            8.479999542236328,
+            60
+          ],
+          [
+            56,
+            8.479999542236328,
+            60
+          ],
+          [
+            56,
+            10.479999542236328,
+            60
+          ]
+        ]
+      ],
+      "thickness": 0.1599999964237213,
+      "kind": "wall",
+      "supports": true,
+      "id": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+      "weight": 2,
+      "instanceId": "new-york",
+      "sourceCarrierId": "new-york::carrier/main/6/cell-4-8/1",
+      "nativePartId": "main/6/cell-4-8/1",
+      "sourceMeshBindings": [
+        "main/6/cell-4-8/1"
+      ],
+      "renderAppearanceIds": [
+        "195d861c8e37b8c436767ffd709ed3ef39de5082da81965b7b92a93aad4d6959"
+      ],
+      "material": "timber",
+      "fuelClass": "clapboard",
+      "fuelAmount": 2,
+      "level": 4,
+      "supportFromMesh": true,
+      "nativeInertBody": false,
+      "role": "exterior-wall"
+    }
+  ]
+}
