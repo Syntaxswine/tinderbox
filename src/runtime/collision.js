@@ -68,6 +68,7 @@ function insideSolid(point,triangles){
   hits.sort((a,b)=>a-b);return hits.filter((v,i)=>i===0||v-hits[i-1]>EPS).length%2===1;
 }
 export function sweptCylinderClear(from,to,radius,minY,maxY,shape){
+  if(shape.sweep)return shape.sweep(from,to,radius,minY,maxY);
   const a=[from.x,from.y],b=[to.x,to.y];
   for(const triangle of shape.triangles){
     if(triangle.every(v=>v[1]<minY)||triangle.every(v=>v[1]>maxY))continue;

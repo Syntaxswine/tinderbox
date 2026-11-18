@@ -28,7 +28,7 @@ export function originalMaterialComponents(triangles){
   const seen=new Set(),out=[];for(const i of material)if(!seen.has(i)){const ids=[i];seen.add(i);for(let n=0;n<ids.length;n++)for(const j of links[ids[n]])if(!seen.has(j)){seen.add(j);ids.push(j);}ids.sort((a,b)=>a-b);const set=new Set(ids),closed=[...edgeMap.values()].filter(list=>list.some(id=>set.has(id))).every(list=>list.length===2);out.push({id:out.length,primitives:ids,closed});}return out;
 }
 
-export function createOriginalSupportPorts({parts,bonds,requirements=[],anchors=[]}){
+export function createOriginalSupportPorts({parts,bonds,requirements=[],anchors=[],approvedMounts=[]}){
   if(!Array.isArray(parts)||parts.length>ORIGINAL_SUPPORT_LIMITS.parts||!Array.isArray(bonds)||bonds.length>ORIGINAL_SUPPORT_LIMITS.bonds)throw Error('Bounded original support data required');
   const originals=new Map(),bindings=[],groups=[],roots=[];let closed=false,generation=0,triangleCount=0;
   for(const p of parts){if(!p.id||!p.ownerId||originals.has(p.id)||!Array.isArray(p.triangles)||!p.triangles.length)throw Error('Unique original physical part required');triangleCount+=p.triangles.length;if(triangleCount>ORIGINAL_SUPPORT_LIMITS.triangles)throw Error('Original support triangle ceiling');const components=originalMaterialComponents(p.triangles),materialTriangles=components.flatMap(c=>c.primitives.map(i=>p.triangles[i]));originals.set(p.id,{...p,components,materialTriangles});freeze(p);}
@@ -45,10 +45,12 @@ export function createOriginalSupportPorts({parts,bonds,requirements=[],anchors=
     if(strict){const ts=part.components[selected.component].primitives.map(i=>part.triangles[i]);if(selected.distance<=SOURCE_SUPPORT_TOLERANCE||ts.some(t=>{const hit=segmentTriangle(spec.point,selected.point,t);return hit!==null&&hit>0&&hit<1-1e-7;}))throw Error('Unrepresentable strict embed path: '+spec.partId);}
     return freeze(selected);
   }
-  const bondIds=new Set();for(const b of bonds){if(!b.id||bondIds.has(b.id)||!['parent-to-child','symmetric-structural'].includes(b.direction))throw Error('Conflicting original support bond');bondIds.add(b.id);const strict=b.kind==='fixed-embed',parent=bindEndpoint(b.parent,strict),child=bindEndpoint(b.child,strict);
+  const mounts=new Map();for(const m of structuredClone(approvedMounts)){if(!m.id||mounts.has(m.id)||m.kind!=='fixed-assembly-mount'||m.direction!=='parent-to-child'||!/^[a-f0-9]{64}$/.test(m.sourceSha256))throw Error('Explicit approved mount provenance required');mounts.set(m.id,freeze(m));}
+  const bondIds=new Set();for(const b of bonds){if(!b.id||bondIds.has(b.id)||!['parent-to-child','symmetric-structural'].includes(b.direction))throw Error('Conflicting original support bond');bondIds.add(b.id);const strict=b.kind==='fixed-embed',mount=b.kind==='fixed-assembly-mount',parent=bindEndpoint(b.parent,strict),child=bindEndpoint(b.child,strict);
+    if(mount){const m=mounts.get(b.id),tuple=e=>({partId:e.partId,point:e.point,primitives:e.primitives});if(!m||m.direction!==b.direction||JSON.stringify(tuple(m.parent))!==JSON.stringify(tuple(b.parent))||JSON.stringify(tuple(m.child))!==JSON.stringify(tuple(b.child)))throw Error('Unapproved/changed fixed mechanical mount');}
     if(strict&&distance(b.parent.point,b.child.point)!==0)throw Error('Strict embed needs one common original interior witness');
-    if(!strict&&distance(parent.point,child.point)>SOURCE_SUPPORT_TOLERANCE)throw Error('Separated original bearing ports: '+b.id);
-    if(!strict&&!supportSurfacesTouch(shape([originals.get(parent.partId).triangles[parent.primitive]]),shape([originals.get(child.partId).triangles[child.primitive]])))throw Error('Original native contact rejects bearing: '+b.id);
+    if(!strict&&!mount&&distance(parent.point,child.point)>SOURCE_SUPPORT_TOLERANCE)throw Error('Separated original bearing ports: '+b.id);
+    if(!strict&&!mount&&!supportSurfacesTouch(shape([originals.get(parent.partId).triangles[parent.primitive]]),shape([originals.get(child.partId).triangles[child.primitive]])))throw Error('Original native contact rejects bearing: '+b.id);
     bindings.push(freeze({...b,parent,child}));
   }
   const groupIds=new Set();for(const g of requirements){if(!g.id||groupIds.has(g.id)||g.portIds?.length!==2||new Set(g.portIds).size!==2||g.portIds.some(id=>!bondIds.has(id)))throw Error('Both fixed lower ports required');const ports=g.portIds.map(id=>bindings.find(b=>b.id===id)),upper=bindings.find(b=>b.id===g.upperBondId);if(ports.some(b=>b.child.ownerId!==g.ownerId||b.direction!=='parent-to-child')||!upper||upper.parent.ownerId!==g.ownerId||upper.direction!=='parent-to-child')throw Error('Invalid all-required fitting or directed top port');if(bindings.some(b=>b.child.ownerId===g.ownerId&&!g.portIds.includes(b.id)))throw Error('Incoming edge bypasses both required fitting ports');groupIds.add(g.id);groups.push(freeze({...g}));}

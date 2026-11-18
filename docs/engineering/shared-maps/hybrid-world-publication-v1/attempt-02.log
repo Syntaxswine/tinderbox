@@ -1,0 +1,74 @@
+HYBRID_RESOURCES {"compiler":{"calls":9},"trial":{"created":3,"steps":0,"disposed":3},"fixtures":[{"compiler":1,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":1,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":1,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}}],"actualNewYorkCalls":0,"fullNewYorkDiagnostics":0,"rendererCalls":0,"builds":0}
+TAP version 13
+# Subtest: coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port
+not ok 1 - coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port
+  ---
+  duration_ms: 20.9465
+  type: 'test'
+  location: 'C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tests\\integration\\hybrid-world-publication.test.mjs:11:1'
+  failureType: 'testCodeFailure'
+  error: 'Closed interior requires an original checked watertight mesh'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    checkedClosed (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:16:235)
+    admit (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:91:138)
+    Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:211:203)
+    Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/hybrid-source-queries.js:17:80)
+    Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/simulation/hybrid-world-publication.js:23:139)
+    TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/hybrid-world-publication.test.mjs:13:79)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1201:25)
+    Test.start (node:internal/test_runner/test:1096:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+  ...
+# Subtest: stale, forged or changed stages cannot register partial physical/stock/query state
+not ok 2 - stale, forged or changed stages cannot register partial physical/stock/query state
+  ---
+  duration_ms: 12.5689
+  type: 'test'
+  location: 'C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tests\\integration\\hybrid-world-publication.test.mjs:21:1'
+  failureType: 'testCodeFailure'
+  error: 'Closed interior requires an original checked watertight mesh'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    checkedClosed (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:16:235)
+    admit (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:91:138)
+    Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:211:203)
+    Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/hybrid-source-queries.js:17:80)
+    Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/simulation/hybrid-world-publication.js:23:139)
+    TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/hybrid-world-publication.test.mjs:24:74)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1201:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+    Test.postRun (node:internal/test_runner/test:1330:19)
+  ...
+# Subtest: world index retirement synchronizes domains before observers; reset recreates one clean trial generation
+not ok 3 - world index retirement synchronizes domains before observers; reset recreates one clean trial generation
+  ---
+  duration_ms: 6.3391
+  type: 'test'
+  location: 'C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tests\\integration\\hybrid-world-publication.test.mjs:29:1'
+  failureType: 'testCodeFailure'
+  error: 'Closed interior requires an original checked watertight mesh'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    checkedClosed (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:16:235)
+    admit (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:91:138)
+    Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/regional-effective-query.js:211:203)
+    Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/runtime/hybrid-source-queries.js:17:80)
+    Object.prepare (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/simulation/hybrid-world-publication.js:23:139)
+    TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/hybrid-world-publication.test.mjs:31:94)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1201:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+    Test.postRun (node:internal/test_runner/test:1330:19)
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 0
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 132.9613

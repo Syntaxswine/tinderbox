@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import {boxTriangles} from './regional-query-data.mjs';
+import {plane,fixture} from './regional-source-data.mjs';
+import {createRegionalSourcePilot} from '../../src/simulation/regional-source-pilot.js';
+import {createSourceQueryRegistry} from '../../src/runtime/source-query-registry.js';
+import {createSourceCarrierLedger} from '../../src/simulation/source-carriers.js';
+import {createSourceSupportGraph} from '../../src/simulation/source-support.js';
+import {createSourceActivation} from '../../src/simulation/source-activation.js';
+import {createTrial,calmWind} from '../../workbenches/furnished-house/simulation.js';
+import {bounds} from '../../workbenches/furnished-house/geometry.js';
+
+export const owners=[{id:'floor-owner',fuelAmount:.5,fuelClass:'frame'},{id:'fit-owner',fuelAmount:.3,fuelClass:'frame'},{id:'roof-owner',fuelAmount:.9,fuelClass:'roof'}];
+export const partData=[{id:'floor',ownerId:'floor-owner',triangles:boxTriangles([.1,-.12,.1],[.9,0,.3])},{id:'fit',ownerId:'fit-owner',triangles:boxTriangles([.3,0,.1],[1.5,.1,.3])},{id:'roof-a',ownerId:'roof-owner',triangles:plane('a',[1.1,0,.1],[3.9,0,.3]).triangles},{id:'roof-b',ownerId:'roof-owner',triangles:plane('b',[.3,.1,.1],[.9,.1,.3]).triangles}];
+const surface=(id,part,min,max,q,extra={})=>plane(id,min,max,q,{sourceCarrierId:partData.find(p=>p.id===part).ownerId,nativePartId:part,sourceMeshBindings:[part],...extra});
+export function inputs(){const surfaces=[surface('floor-top','floor',[.1,0,.1],[.9,0,.3],.5,{kind:'floor',fuelClass:'frame',thickness:.12}),{id:'fit-body',sourceCarrierId:'fit-owner',nativePartId:'fit',sourceMeshBindings:['fit'],instanceId:'fixture',kind:'attachment',normal:[0,1,0],triangles:partData[1].triangles,physicalShape:'source-closed-mesh',material:'timber',fuelClass:'frame',fuelAmount:.3,supports:true},surface('roof-a-face','roof-a',[1.1,0,.1],[3.9,0,.3],.7,{closedShape:false}),surface('roof-b-face','roof-b',[.3,.1,.1],[.9,.1,.3],.2,{closedShape:false})];
+  const count=surfaces.reduce((n,s)=>{const b=bounds(s.triangles.flat());return n+b.min.reduce((product,v,i)=>{const lo=Math.floor(v/[.5,1.06,.5][i]+1e-7),hi=b.max[i]-v<1e-7?lo:Math.ceil(b.max[i]/[.5,1.06,.5][i]-1e-7)-1;return product*(hi-lo+1);},1);},0),triangles=surfaces.reduce((n,s)=>n+s.triangles.length,0);assert.ok(count<=64&&triangles<=256);return {surfaces,logicalCells:count,sourceTriangles:triangles};}
+const end=(partId,point,primitives,sourceSurfaceId,cell)=>({partId,point,primitives,sourceSurfaceId,cell});
+export const supportDefinition={parts:partData.map(({id,ownerId})=>({id,ownerId})),anchors:[{partId:'floor',elevation:0},{partId:'roof-a',elevation:0}],bonds:[
+  {id:'floor-bearing',kind:'bearing-face',direction:'parent-to-child',parent:end('floor',[.4,0,.2],[6,7],'floor-top',[0,0,0]),child:end('fit',[.4,0,.2],[4,5],'fit-body',[0,0,0])},
+  {id:'roof-bearing',kind:'bearing-face',direction:'parent-to-child',parent:end('roof-a',[1.3,0,.2],[0,1],'roof-a-face',[2,0,0]),child:end('fit',[1.3,0,.2],[4,5],'fit-body',[2,0,0])},
+  {id:'upper',kind:'bearing-face',direction:'parent-to-child',parent:end('fit',[.4,.1,.2],[6,7],'fit-body',[0,0,0]),child:end('roof-b',[.4,.1,.2],[0,1],'roof-b-face',[0,0,0])}],requirements:[{id:'all',ownerId:'fit-owner',portIds:['floor-bearing','roof-bearing'],upperBondId:'upper'}]};
+export function newProducer(){const {surfaces}=inputs(),input=fixture(surfaces.slice(2),{quantity:.9});input.owners=[owners[2]];return createRegionalSourcePilot(input);}
+export function world({producer=newProducer(),onActivated,installedAmount}={}){
+  const {surfaces,logicalCells,sourceTriangles}=inputs(),nav={placeId:'fixture',surfaces:[{id:'terrain',terrain:true,height:-.2,polygons:[[[0,0],[4,0],[4,1],[0,1]]],holes:[]}],ceilings:[],portals:[],blockers:[]},parts=partData.map(p=>({id:p.id,carrierId:p.ownerId,material:'timber',physical:true,bounds:bounds(p.triangles.flat())}));
+  const queries=createSourceQueryRegistry({navigation:nav,parts,shapeForPart:id=>({triangles:partData.find(p=>p.id===id).triangles,closed:['floor','fit'].includes(id)})}),ledger=createSourceCarrierLedger(owners,{modes:{'roof-owner':'regional'}}),data={...fixture([]).data,internalHybrid:true,hybridSourceRevision:'a'.repeat(64),sourceBounds:{min:[0,-.2,0],max:[4,1,1]}};let trial,activation;
+  const sources={order:id=>owners.findIndex(o=>o.id===id),near:()=>owners.map(o=>o.id),portalCarriers:()=>[],sourcesForCarrier(id){return {surfaces:surfaces.filter(s=>s.sourceCarrierId===id).map(s=>installedAmount===undefined?s:{...s,fuelAmount:installedAmount}),openings:[]};}};
+  try{trial=createTrial(data,{querySource:queries,executionCache:true,wind:calmWind,supportGraphFactory:scene=>createSourceSupportGraph({scene,model:{},querySource:queries,internalHybrid:structuredClone(supportDefinition)})});
+    activation=createSourceActivation({trial,querySource:queries,ledger,sources,onActivated,internalHybrid:{mode:'hybrid-world-v1',producer,querySources(context){return partData.slice(2).map(p=>{const s=context.surfaces.find(s=>s.nativePartId===p.id),ts=p.triangles,box=bounds(ts.flat()),partRef={id:p.id,carrierId:p.ownerId,closed:false,bounds:box},rayRecord={id:'fixture::cold/'+p.id,sourceSurfaceId:s.id,sourceCarrierId:p.ownerId,nativePartId:p.id,triangles:ts,solidTriangles:ts,bounds:box,intact:true,openFraction:0,transmission:.02};return {partRef,surfaceTriangles:ts,solidTriangles:ts,closed:false,rayRecord};});}}});
+    return {trial,queries,ledger,activation,producer,logicalCells,sourceTriangles,receipt:min=>producer.compile(producer.region('roof-owner',min)),dispose(){activation.dispose();trial.dispose();queries.dispose();ledger.dispose();}};
+  }catch(error){activation?.dispose();trial?.dispose();queries.dispose();ledger.dispose();throw error;}
+}

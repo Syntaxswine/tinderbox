@@ -5,6 +5,7 @@ import {sourcePartitionAllowance} from '../../workbenches/furnished-house/partit
 import {createRegionalCompileDomain} from '../../workbenches/furnished-house/regional-domain.js';
 
 const descriptors=new WeakMap(),receipts=new WeakMap(),pilots=new WeakMap(),querySlices=new WeakMap();
+const worldAdmissions=new WeakMap();
 const freeze=value=>{if(value&&typeof value==='object'){for(const v of Object.values(value))freeze(v);Object.freeze(value);}return value;};
 const sum=list=>list.reduce((a,b)=>a+b,0);
 const finiteVector=value=>Array.isArray(value)&&value.length===3&&value.every(Number.isFinite);
@@ -36,8 +37,8 @@ function checkCertificate(c,native){
   if(![c.canonicalQuantity,c.canonicalRoundoff,c.positive,c.negative,c.roundoffBound,native].every(v=>Number.isFinite(v)&&v>=0)||c.epsilon!==EPS)throw Error('Invalid regional quantity certificate');
   const delta=native-c.canonicalQuantity;if(delta>c.positive||delta< -c.negative)throw Error('Regional native quantity exceeds its source-local certificate');
 }
-function stockRow(owner,list){
-  const q=sum(list.map(c=>c.q)),native=sum(list.map(c=>c.native)),full=list.length===owner.mins.length,proved=owner.inputRoundoff+sum(list.map(c=>c.canonicalRoundoff))+roundoff(owner.q,list.length);
+export function regionalStockRow(owner,list){
+  const totalRegions=owner.totalRegions??owner.mins.length,q=sum(list.map(c=>c.q)),native=sum(list.map(c=>c.native)),full=list.length===totalRegions,proved=owner.inputRoundoff+sum(list.map(c=>c.canonicalRoundoff))+roundoff(owner.q,list.length);
   if(![q,native,proved].every(v=>Number.isFinite(v)&&v>=0))throw Error('Invalid finite regional parent quantity/proof');
   const remainder=full?owner.q-q:0;if(full&&Math.abs(remainder)>proved)throw Error('Unproved canonical parent remainder');
   if(q>owner.q+proved)throw Error('Regional claims exceed original canonical stock');
@@ -46,8 +47,9 @@ function stockRow(owner,list){
   const positive=sum(list.map(c=>c.positive))+Math.max(0,-carry)+roundoff(native,list.length),negative=sum(list.map(c=>c.negative))+Math.max(0,carry)+roundoff(native,list.length),delta=native-canonical;
   if(![positive,negative].every(Number.isFinite))throw Error('Invalid finite regional parent clipping proof');
   if(delta>positive||delta< -negative)throw Error('Regional parent native roll-up exceeds its local proof');
-  return {id:owner.id,quantity:owner.q,state:full?'full':list.length?'partial':'cold',claimedRegions:list.length,totalRegions:owner.mins.length,canonicalMeasured:q,canonicalTransferred:canonical,coldReserve:owner.q-canonical,parentArithmeticCarry:carry,canonicalRemainder:remainder,remainderClosed:full,provedRemainderBound:proved,nativeBorn:native,clippingDelta:delta,partitionError:{epsilon:EPS,positive,negative}};
+  return {id:owner.id,quantity:owner.q,state:full?'full':list.length?'partial':'cold',claimedRegions:list.length,totalRegions,canonicalMeasured:q,canonicalTransferred:canonical,coldReserve:owner.q-canonical,parentArithmeticCarry:carry,canonicalRemainder:remainder,remainderClosed:full,provedRemainderBound:proved,nativeBorn:native,clippingDelta:delta,partitionError:{epsilon:EPS,positive,negative}};
 }
+const stockRow=regionalStockRow;
 export function createRegionalSourcePilot({data,owners,sourceRevision}){
   if(!/^[a-f0-9]{64}$/.test(sourceRevision)||data?.version!==1||data.runtimeAdapterVersion!==1||data.implicitGround!==false||!finiteVector(data.gridOrigin)||!finiteVector(data.thermalCell)||data.thermalCell.some((v,i)=>v!==[.5,1.06,.5][i]))throw Error('Static regional pilot needs a pinned native grid/source');
   if(['openings','items','furnitureParts','stores'].some(k=>data[k]?.length))throw Error('Only static isolated source surfaces are allowed');
@@ -133,7 +135,7 @@ export function createRegionalSourcePilot({data,owners,sourceRevision}){
   const pilot=Object.freeze({region,regions(id){live();const owner=ownerMap.get(id);if(!owner)throw Error('Unknown original region owner');return owner.mins.map(min=>region(id,min));},compile,querySlice,
     diagnostics:()=>({productionEnabled:false,closed,epoch,nativeCalls,visitedCells,certificateBuilds,retainedReceipts:activeReceipts.size,owners:[...ownerMap.values()].map(o=>({id:o.id,quantity:o.q,regions:o.mins.length,cachedCertificates:o.certificates.size}))}),
     dispose(){if(closed)return;for(const receipt of activeReceipts)receipt.dispose();closed=true;epoch++;ownerMap.clear();}});
-  pilots.set(pilot,{live,ownerMap,validateReceipt,sourceRevision,grid:{origin:input.gridOrigin,pitch:input.thermalCell},ledger:null,get closed(){return closed;},get epoch(){return epoch;},advance(){live();for(const receipt of activeReceipts)receipt.dispose();epoch++;}});return pilot;
+  pilots.set(pilot,{live,ownerMap,validateReceipt,sourceRevision,grid:freeze({origin:input.gridOrigin,pitch:input.thermalCell}),ledger:null,get closed(){return closed;},get epoch(){return epoch;},advance(){live();for(const receipt of activeReceipts)receipt.dispose();epoch++;}});return pilot;
 }
 
 // Pure receipt staging. It owns no trial/index installation, query proxy or clock.
@@ -185,3 +187,22 @@ export function createRegionalStockParticipant(pilot){
     diagnostics:()=>({generation,closed,retainedStockStates:states.size})});
   p.ledger=participant;return participant;
 }
+
+// One guarded producer reader for the disabled coupled world. This lock owns
+// receipt authority, not another stock account. Geometry remains borrowed.
+export function createRegionalWorldSource(pilot){
+  const p=pilots.get(pilot);if(!p)throw Error('Unknown regional producer');p.live();if(p.ledger)throw Error('Regional producer already owned');
+  let closed=false;const marker={},tickets=new Set();p.ledger=marker;
+  const live=()=>{p.live();if(closed||p.ledger!==marker)throw Error('Regional world source disposed');};
+  const inspect=slice=>{live();const s=querySlices.get(slice);if(!s||s.pilot!==pilot||s.payload.epoch!==p.epoch)throw Error('Unknown/foreign/stale regional slice');p.validateReceipt(s.receipt);return s.payload;};
+  const api=Object.freeze({
+    context(){live();return {generation:p.epoch,sourceRevision:p.sourceRevision,grid:p.grid,owners:[...p.ownerMap.values()].map(o=>({id:o.id,q:o.q,inputRoundoff:o.inputRoundoff,totalRegions:o.mins.length})),surfaces:[...p.ownerMap.values()].flatMap(o=>o.surfaces)};},
+    slice(receipt){live();return pilot.querySlice(receipt);},inspect,
+    admission(list){live();const captured=[...list],bundles=captured.map(receipt=>{const r=p.validateReceipt(receipt),slice=pilot.querySlice(receipt),payload=inspect(slice);return {scene:receipt.scene,entries:payload.entries,parts:payload.parts,slice,stock:{id:r.owner.id,q:r.owner.q,inputRoundoff:r.owner.inputRoundoff,totalRegions:r.owner.mins.length,key:r.key,claim:{q:receipt.certificate.canonicalQuantity,native:receipt.nativeQuantity,canonicalRoundoff:receipt.certificate.canonicalRoundoff,positive:receipt.certificate.positive,negative:receipt.certificate.negative}}};});
+      for(const b of bundles){freeze(b.stock);Object.freeze(b);}Object.freeze(bundles);
+      const token=Object.freeze({kind:'internal-hybrid-admission',generation:p.epoch}),entry={bundles,context:freeze({generation:p.epoch,sourceRevision:p.sourceRevision,grid:p.grid}),closed:false,validate(){live();if(entry.closed||token.generation!==p.epoch)throw Error('Stale regional world admission');for(const receipt of captured)p.validateReceipt(receipt);},dispose(){entry.closed=true;captured.length=0;entry.bundles=null;tickets.delete(entry);}};worldAdmissions.set(token,entry);tickets.add(entry);return token;
+    },
+    dispose({advance=true}={}){if(closed)return;for(const t of tickets)t.dispose();if(advance&&!p.closed)p.advance();closed=true;if(p.ledger===marker)p.ledger=null;}
+  });return api;
+}
+export function readRegionalWorldAdmission(token){const a=worldAdmissions.get(token);if(!a)throw Error('Genuine regional world admission required');a.validate();return Object.freeze({context:a.context,get bundles(){a.validate();return a.bundles;},validate:()=>a.validate(),dispose:()=>a.dispose()});}

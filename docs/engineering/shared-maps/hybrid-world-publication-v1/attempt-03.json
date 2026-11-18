@@ -1,0 +1,102 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Coupled genuine tiny-fixture compiler/trial conformance",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "tests/integration/hybrid-world-publication.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/shared-map.js",
+      "lfSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08"
+    },
+    {
+      "path": "src/runtime/collision.js",
+      "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755"
+    },
+    {
+      "path": "src/runtime/source-query-registry.js",
+      "lfSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c"
+    },
+    {
+      "path": "src/simulation/map-navigation.js",
+      "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322"
+    },
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f"
+    },
+    {
+      "path": "src/simulation/regional-source-pilot.js",
+      "lfSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda"
+    },
+    {
+      "path": "src/simulation/scene-thermal.js",
+      "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652"
+    },
+    {
+      "path": "src/simulation/source-activation.js",
+      "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d"
+    },
+    {
+      "path": "src/simulation/source-carriers.js",
+      "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b"
+    },
+    {
+      "path": "src/simulation/source-support.js",
+      "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "lfSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "lfSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a"
+    },
+    {
+      "path": "workbenches/furnished-house/simulation.js",
+      "lfSha256": "f7662a138ef4f981dffbfc085e4b9120219116218efbad0d8542cb606f332434"
+    },
+    {
+      "path": "src/runtime/hybrid-source-queries.js",
+      "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0"
+    },
+    {
+      "path": "src/simulation/hybrid-source-support.js",
+      "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452"
+    },
+    {
+      "path": "src/simulation/hybrid-world-publication.js",
+      "lfSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d"
+    },
+    {
+      "path": "tests/fixtures/hybrid-world-data.mjs",
+      "lfSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0"
+    },
+    {
+      "path": "tests/integration/hybrid-world-publication.test.mjs",
+      "lfSha256": "d838ac8666a7ec201531fda1b5e941354250413844bdc4327a8a2cbdcb09e954"
+    }
+  ],
+  "pid": 69588,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-18T04:04:56.184Z",
+  "endedAt": "2026-11-18T04:04:56.496Z",
+  "exitCode": 1,
+  "signal": null,
+  "timeoutMs": 30000,
+  "maxTrialSteps": 64,
+  "maxFixtureLogicalCells": 64,
+  "maxFixtureSourceTriangles": 256,
+  "actualNewYorkCalls": 0,
+  "fullNewYorkDiagnostics": 0,
+  "rendererCalls": 0,
+  "benchmarks": 0,
+  "builds": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

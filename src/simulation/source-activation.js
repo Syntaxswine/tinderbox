@@ -1,6 +1,8 @@
 // One synchronous transaction installs prepared native geometry, claims its
 // cold proxies and transfers canonical stock. It never owns a gameplay clock.
-export function createSourceActivation({trial,querySource,ledger,sources,onActivated=()=>{}}){
+import {createHybridWorldPublication} from './hybrid-world-publication.js';
+export function createSourceActivation({trial,querySource,ledger,sources,onActivated=()=>{},internalHybrid=null}){
+  if(internalHybrid)return createHybridWorldPublication({trial,querySource,ledger,sources,onActivated,internalHybrid});
   const probed=new Set(),activeParts=new Map(),activeCarriers=new Map();let closed=false,batches=0,activated=0,lastBatchMs=0,totalBatchMs=0,peakBatchMs=0,peakBatchCarriers=0;
   function ensure(carrierIds,reason='frontier'){
     if(closed)throw Error('Source activation disposed');

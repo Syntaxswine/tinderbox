@@ -1,0 +1,52 @@
+HYBRID_RESOURCES {"compiler":{"calls":12},"trial":{"created":4,"steps":1,"disposed":4},"fixtures":[{"compiler":2,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":2,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":2,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":1,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":2,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":1,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}}],"actualNewYorkCalls":0,"fullNewYorkDiagnostics":0,"rendererCalls":0,"builds":0}
+TAP version 13
+# Subtest: coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port
+ok 1 - coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port
+  ---
+  duration_ms: 85.7837
+  type: 'test'
+  ...
+# Subtest: stale, forged or changed stages cannot register partial physical/stock/query state
+ok 2 - stale, forged or changed stages cannot register partial physical/stock/query state
+  ---
+  duration_ms: 16.0029
+  type: 'test'
+  ...
+# Subtest: world index retirement synchronizes domains before observers; reset recreates one clean trial generation
+not ok 3 - world index retirement synchronizes domains before observers; reset recreates one clean trial generation
+  ---
+  duration_ms: 17.3698
+  type: 'test'
+  location: 'C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tests\\integration\\hybrid-world-publication.test.mjs:30:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 1.7000000000000002
+    - 1.7
+         ^
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1.7
+  actual: 1.7000000000000002
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/hybrid-world-publication.test.mjs:33:304)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1201:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+    Test.postRun (node:internal/test_runner/test:1330:19)
+    Test.run (node:internal/test_runner/test:1258:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 2
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 211.4481

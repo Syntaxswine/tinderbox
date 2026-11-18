@@ -23,7 +23,7 @@ export function createSceneThermal({compiled,state,definition,config,event,onLoa
   const querySource=compiled.createQuerySource?.();let trial,carrierLedger,mapNavigation,activation;
   const toolTraceOptions=compiled.sourceCarriers?{includeEndpoints:true}:undefined;
   try{
-    carrierLedger=compiled.sourceCarriers?createSourceCarrierLedger(compiled.sourceCarriers):null;
+    carrierLedger=compiled.sourceCarriers?createSourceCarrierLedger(compiled.sourceCarriers,{modes:compiled.sourceOwnerModes||{}}):null;
     trial=createTrial(compiled.data,{executionCache:compiled.executionCache!==false,profiles:{grass:CATALOGUE_GRASS_PROFILE},wind:compiled.sampleWind??ambientWind,windMetadata:compiled.windMetadata??{kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false},onLoadPhase,querySource,supportGraphFactory:compiled.supportGraphFactory});
     for(const id of compiled.activeCarrierIds||[])carrierLedger.activate(id,null,{initialInTrial:true});
     activation=compiled.createActivation?.({trial,querySource,ledger:carrierLedger});

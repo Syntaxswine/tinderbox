@@ -1,0 +1,111 @@
+{
+  "baseline": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41",
+  "node": "v24.15.0; project requires Node >=22",
+  "finalRuntimePins": "final-vetted.json",
+  "unchangedInputs": [
+    {
+      "path": "tests/integration/source-activation.test.mjs",
+      "lfSha256": "3f7109efad743023c44a7bb79d38cf67e4f73e7af3538b24348fcfa6c64ea663",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "tests/integration/source-carriers.test.mjs",
+      "lfSha256": "c0d0cf0ca932dd0be6d3177c96021ac58f6e50cf346c6f3cfdd86c03f5b183d0",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "tests/integration/original-support-ports.test.mjs",
+      "lfSha256": "fbb9cb09ba4f36674d13df26fcdda6981a44d13f91895e43ce2ba0e784b4caf7",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "tests/integration/original-support-embed.test.mjs",
+      "lfSha256": "89ddd9938e0a54aef9a57b7c46aea20e9b370f3f9636c749bdc403e81d96639b",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "tests/integration/original-support-rooting.test.mjs",
+      "lfSha256": "68bb6e173ec2d804fc9f8d9eeaaac217befdcd8a87510d150af948fd664de90b",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "tests/fixtures/regional-source-data.mjs",
+      "lfSha256": "9b3e9cf6d15b970f261ccef9d896ab32f83ed7ebde4dc278c286aa05ba5b9ea0",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "tests/fixtures/regional-query-data.mjs",
+      "lfSha256": "2aa19c52220d19582a82c7118783b11aa79988c38c768599aa1ff8d25d9d44a4",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "src/main.js",
+      "lfSha256": "4c6a25f71bb9ebe7e5d1da79e1b7db24f79dcddf377589fa440cd042aafdfeb9",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "src/runtime/shared-map.js",
+      "lfSha256": "3426bda64c5ac35aad9a421f129fe5da1a5f2fdba78d86ade72938af6f1402c8",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "docs/engineering/house-traversal/runtime-integration.json",
+      "lfSha256": "15cbdd597b9366ccb503645658e3f45aaba3fcda0e5eb05c62ae156f67e47347",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "assets/runtime/map-sources/new-york/index.json",
+      "lfSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    },
+    {
+      "path": "assets/runtime/map-sources/new-york/library.json",
+      "lfSha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296",
+      "unchangedFrom": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41"
+    }
+  ],
+  "operationalInputs": [
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-publication-v1/authority.md",
+      "lfSha256": "bbe31c31581e5775457556e096480eda4a635ba088009ff35e256b24a087eefe"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-publication-v1/legacy-preload.mjs",
+      "lfSha256": "60b9b1bd9e69ff2f7a2c640bb03d743c14f23a55c72725db4acf8bfe8c90b0b7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-publication-v1/physical-preload.mjs",
+      "lfSha256": "26f0b51f17a45b7d509ccc5038a54f14e0d856ee8524adcd752ab9df8e76c88e"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-publication-v1/run.mjs",
+      "lfSha256": "264ab05a089c031f977fd062be91388ca0ee6bddd6685f099ef0320e60abaa0f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-publication-v1/preserve-sources.mjs",
+      "lfSha256": "bfec92f28d23f7968412831d9dc757547e04efdc0680df8a190d3a71f4ab8035"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-world-publication-v1/package-evidence.mjs",
+      "lfSha256": "2a0b18526ba461fb222ba38779e9eeff1c7c35e23278d96d4edbe6b1d6c0420b"
+    }
+  ],
+  "legacyDifferencesAfterPassingRun": [
+    "src/content/shared-map.js",
+    "src/runtime/source-query-registry.js",
+    "src/simulation/regional-source-pilot.js",
+    "workbenches/furnished-house/scene.js",
+    "tests/fixtures/hybrid-world-data.mjs",
+    "tests/integration/hybrid-world-publication.test.mjs"
+  ],
+  "legacyDifferenceScope": "Later disabled-mode identity/admission guards and coupled fixture checks only; the unchanged original legacy test was not repeated for packaging.",
+  "protectedUnrelated": {
+    "path": "docs/engineering/shared-maps/support-regions-proposal.md",
+    "rawSha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f"
+  },
+  "sourceEvidence": {
+    "runs": 11,
+    "uniqueSnapshots": 36,
+    "method": "Each historical LF pin resolves to a preserved source text with its own raw SHA. Reconstruction of later changes is explicitly marked; no unobserved raw-byte identity is claimed."
+  }
+}
