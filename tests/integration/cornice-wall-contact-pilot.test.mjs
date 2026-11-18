@@ -1,0 +1,21 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {proveCorniceWallContact,originalContactPatches,CORNICE_WALL_CONTACT} from '../../src/content/cornice-wall-contact-pilot.js';
+const input=JSON.parse(fs.readFileSync('docs/engineering/shared-maps/cornice-wall-contact-v1/input.json'));
+const params=()=>structuredClone({parts:input.parts,surfaces:input.producerInput.data.surfaces,region:input.region,grid:input.grid});
+test('one original contact preserves global source indices and projected source cells',()=>{
+  const p=proveCorniceWallContact(params()),direction=n=>n.map(v=>v===0?0:v);assert.deepEqual(p.ends.parent.sourceCell,[67,7,52]);assert.deepEqual(p.ends.child.sourceCell,[67,7,51]);assert.deepEqual(p.ends.parent.regionMin,[64,7,52]);assert.deepEqual(p.ends.child.regionMin,[64,7,48]);assert.equal(p.ends.parent.globalPartIndex,6304);assert.equal(p.ends.child.globalPartIndex,2406);assert.deepEqual(direction(p.ends.parent.originalNormal),[0,0,-1]);assert.deepEqual(direction(p.ends.child.originalNormal),[0,1,0]);assert.equal(p.historicalVolumeEvidenceChanged,false);
+});
+test('reindexed or foreign original parts cannot silently change native source identity',()=>{
+  const p=params();p.parts[0].globalPartIndex=0;assert.throws(()=>proveCorniceWallContact(p),/original owner\/part\/index\/role/);
+});
+test('actual selected original triangles survive the surface filter; a cell cap does not',()=>{
+  const w=input.parts[0].triangles[10],c=input.parts[1].triangles[0],point=CORNICE_WALL_CONTACT.point;
+  assert.ok(originalContactPatches([w],w).length);assert.ok(originalContactPatches([c],c).length);
+  const cap=[[point[0],8.1,25.92],[point[0],8.35,26.08],[point[0],8.1,26.08]];
+  assert.deepEqual(originalContactPatches([cap],w),[]);assert.deepEqual(originalContactPatches([cap],c),[]);
+});
+test('original selector bounds reject a contact outside the agreed original region',()=>{
+  const p=params();p.region.parentBounds.max[0]=33.4;assert.throws(()=>proveCorniceWallContact(p),/selector contact proof/);
+});

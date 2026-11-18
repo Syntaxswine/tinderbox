@@ -1,0 +1,64 @@
+{
+  "owner": "Coder Tinderbox",
+  "project": "Tinderbox",
+  "purpose": "One fixed original wall/cornice contact pair; at most two non-roof regional compilations",
+  "authority": "d899d73fe4d79cf62e344832f132d911253a52ef",
+  "inputSha256": "73351984911afc329903b862fe81e09140b13a9be6b5458402a01eca42622446",
+  "sourcePins": [
+    {
+      "path": "src/content/cornice-wall-contact-pilot.js",
+      "lfSha256": "a7e15e55e869b3239499b31b686574f44cedfcb2b3c6d9cb8ed09ec451253069"
+    },
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "cf0d78893da17af650a634c5e8d1d957c560de1f042294e003eb9dab93beb510"
+    },
+    {
+      "path": "src/simulation/regional-source-pilot.js",
+      "lfSha256": "1e133e4f919fdf577e0cc448befea9d8255d3718a277108d45ceb3a59fe118ff"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "lfSha256": "8acefb0429d03033ecb81d8fa76fc3d56d6bba3ef910dbe104aa75ed5411d21b"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "lfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+    },
+    {
+      "path": "workbenches/furnished-house/support.js",
+      "lfSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372"
+    },
+    {
+      "path": "workbenches/furnished-house/partition-error.js",
+      "lfSha256": "418dfed7111863c5519ac258c97227a61adf96fe5aa103c0086980654a2faab1"
+    },
+    {
+      "path": "workbenches/furnished-house/regional-domain.js",
+      "lfSha256": "0868d2097af01a128cdfa61a3b88bbf54483bcc986023291dc03eddcf512a2cc"
+    },
+    {
+      "path": "docs/engineering/shared-maps/cornice-wall-contact-v1/validate-native.mjs",
+      "lfSha256": "030803cb4e2f176943be6c7d73ffeda38db27c7f321f6f3fa96f35b5e70290c6"
+    }
+  ],
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--max-old-space-size=512",
+    "docs/engineering/shared-maps/cornice-wall-contact-v1/validate-native.mjs"
+  ],
+  "workingDirectory": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox",
+  "startedAt": "2026-11-18T00:46:02.919Z",
+  "deadline": "2026-11-18T00:46:32.919Z",
+  "timeoutMs": 30000,
+  "maxOriginalNonRoofRegionalCompilations": 2,
+  "originalRoofCompilations": 0,
+  "fullNewYorkDiagnostics": 0,
+  "ports": [],
+  "stopMethod": "Finite foreground child; spawnSync enforces 30-second timeout using owned child handle",
+  "creationTimeBasis": "Spawn-attempt timestamp; no retained background helper",
+  "pid": 59184,
+  "endedAt": "2026-11-18T00:46:03.104Z",
+  "exitCode": 0,
+  "signal": null
+}

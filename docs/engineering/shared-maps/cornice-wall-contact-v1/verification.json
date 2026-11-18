@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "base": "e83ff7af6312fccb6d97b0923b8b46f48bbee871",
+  "status": "One-pair exploratory contact candidate; artist/combined acceptance pending",
+  "focusedTests": 48,
+  "pairValidationSessions": 1,
+  "originalNonRoofRegionalCompilations": 2,
+  "actualNativeCompilerCalls": 2,
+  "originalRoofCompilations": 0,
+  "fullNewYorkDiagnostics": 0,
+  "fullNewYorkDiagnosticAllowanceConsumed": false,
+  "sourceOwnerExpansions": 2,
+  "originalPartTransforms": 2,
+  "archives": [
+    {
+      "folder": "bounded-source-compiler-v1",
+      "rawFilesIncludingManifest": 33,
+      "historicalSourcePins": 8,
+      "preserved": true
+    },
+    {
+      "folder": "bounded-source-compiler-guards-v1",
+      "rawFilesIncludingManifest": 13,
+      "historicalSourcePins": 5,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-kernel-v1",
+      "rawFilesIncludingManifest": 46,
+      "historicalSourcePins": 4,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-boundaries-v1",
+      "rawFilesIncludingManifest": 21,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-witness-v1",
+      "rawFilesIncludingManifest": 27,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-receipt-bridge-v1",
+      "rawFilesIncludingManifest": 45,
+      "historicalSourcePins": 6,
+      "preserved": true
+    },
+    {
+      "folder": "support-port-birth-v1",
+      "rawFilesIncludingManifest": 30,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "support-embed-liveness-v1",
+      "rawFilesIncludingManifest": 25,
+      "historicalSourcePins": 5,
+      "preserved": true
+    }
+  ],
+  "unchangedFiles": [
+    "workbenches/furnished-house/geometry.js",
+    "workbenches/furnished-house/support.js",
+    "workbenches/furnished-house/scene.js",
+    "workbenches/furnished-house/regional-domain.js",
+    "workbenches/furnished-house/partition-error.js",
+    "src/runtime/collision.js",
+    "src/runtime/regional-effective-query.js",
+    "src/runtime/regional-receipt-bridge.js",
+    "src/simulation/regional-source-pilot.js",
+    "src/simulation/source-support.js",
+    "src/simulation/source-support-calculations.js",
+    "src/content/map-source-support-data.js",
+    "src/content/map-source-support-overrides.js",
+    "tests/integration/regional-effective-query.test.mjs",
+    "tests/integration/regional-query-boundaries.test.mjs",
+    "tests/integration/regional-query-witness.test.mjs",
+    "tests/integration/regional-receipt-bridge.test.mjs",
+    "tests/fixtures/regional-query-data.mjs",
+    "src/simulation/original-support-ports.js",
+    "tests/integration/original-support-ports.test.mjs",
+    "tests/integration/original-support-embed.test.mjs",
+    "tests/integration/original-support-rooting.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/cornice-wall-contact-pilot.js",
+      "lfSha256": "a7e15e55e869b3239499b31b686574f44cedfcb2b3c6d9cb8ed09ec451253069"
+    },
+    {
+      "path": "tests/integration/cornice-wall-contact-pilot.test.mjs",
+      "lfSha256": "d722d3892e0063d29101d7554be3933d84a506b247690ada4ecd515f8967731b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "lfSha256": "84bb33ca0a38f26b769ceccf33fc593315f8bcaed8d88a181e5c4e3c19146ca5"
+    }
+  ],
+  "runtimeDeclaration": {
+    "modified": 22,
+    "added": 51
+  },
+  "sourceHistoryAndWipPreserved": true,
+  "closedTestChildren": 3,
+  "helpers": [],
+  "ports": [],
+  "productionEnabled": false
+}
