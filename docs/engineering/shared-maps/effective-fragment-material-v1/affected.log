@@ -1,0 +1,274 @@
+TAP version 13
+# Subtest: null and absent shared selectors preserve original endpoint bounds and history
+ok 1 - null and absent shared selectors preserve original endpoint bounds and history
+  ---
+  duration_ms: 6.5446
+  type: 'test'
+  ...
+# Subtest: both original endpoint bounds remain mandatory, finite, ordered and containing the fixed point
+ok 2 - both original endpoint bounds remain mandatory, finite, ordered and containing the fixed point
+  ---
+  duration_ms: 7.5411
+  type: 'test'
+  ...
+# Subtest: native patches clip by each endpoint and additionally by any supplied shared selector
+ok 3 - native patches clip by each endpoint and additionally by any supplied shared selector
+  ---
+  duration_ms: 9.6204
+  type: 'test'
+  ...
+# Subtest: null shared selector keeps exact retirement/proof guards and still rejects explicit ranges
+ok 4 - null shared selector keeps exact retirement/proof guards and still rejects explicit ranges
+  ---
+  duration_ms: 3.4441
+  type: 'test'
+  ...
+# Subtest: real baluster keeps all 200 raw/world slots and exact original IDs while enumerating 180 material faces
+ok 5 - real baluster keeps all 200 raw/world slots and exact original IDs while enumerating 180 material faces
+  ---
+  duration_ms: 12.9576
+  type: 'test'
+  ...
+# Subtest: excluded original faces cannot become ports, fragment material or ground anchors
+ok 6 - excluded original faces cannot become ports, fragment material or ground anchors
+  ---
+  duration_ms: 7.8507
+  type: 'test'
+  ...
+# Subtest: nonfinite, malformed, unproved collinear and all-empty originals reject; positive EPS-small faces remain
+ok 7 - nonfinite, malformed, unproved collinear and all-empty originals reject; positive EPS-small faces remain
+  ---
+  duration_ms: 0.8122
+  type: 'test'
+  ...
+# Subtest: empty faces sharing a zero-length edge cannot join two actual positive-area components
+ok 8 - empty faces sharing a zero-length edge cannot join two actual positive-area components
+  ---
+  duration_ms: 0.5999
+  type: 'test'
+  ...
+# Subtest: strict original witnesses use positive components while effective closed-solid guards stay unchanged
+ok 9 - strict original witnesses use positive components while effective closed-solid guards stay unchanged
+  ---
+  duration_ms: 3.4038
+  type: 'test'
+  ...
+# Subtest: the unchanged original triangle ceiling counts every supplied slot including empty faces
+ok 10 - the unchanged original triangle ceiling counts every supplied slot including empty faces
+  ---
+  duration_ms: 1.1643
+  type: 'test'
+  ...
+# Subtest: architect repro: an original empty face cannot reground the upper fragment after actual foundation loss
+ok 11 - architect repro: an original empty face cannot reground the upper fragment after actual foundation loss
+  ---
+  duration_ms: 4.2532
+  type: 'test'
+  ...
+# Subtest: effective admission rejects malformed/nonfinite/zero-area geometry before support, but retains positive EPS-small patches
+ok 12 - effective admission rejects malformed/nonfinite/zero-area geometry before support, but retains positive EPS-small patches
+  ---
+  duration_ms: 1.7117
+  type: 'test'
+  ...
+# Subtest: positive-area internal caps remain admissible without inventing missing foundation material
+ok 13 - positive-area internal caps remain admissible without inventing missing foundation material
+  ---
+  duration_ms: 0.8009
+  type: 'test'
+  ...
+# Subtest: committed 24-pair batch prepares all 48 independent selectors with one shared dictionary
+ok 14 - committed 24-pair batch prepares all 48 independent selectors with one shared dictionary
+  ---
+  duration_ms: 18.4292
+  type: 'test'
+  ...
+# Subtest: translated pairs preserve distinct selectors, original triangles and actual receipt IDs
+ok 15 - translated pairs preserve distinct selectors, original triangles and actual receipt IDs
+  ---
+  duration_ms: 18.7674
+  type: 'test'
+  ...
+# Subtest: actual proof-cell regression rejects retargeted metadata and keeps exact bound retirement
+ok 16 - actual proof-cell regression rejects retargeted metadata and keeps exact bound retirement
+  ---
+  duration_ms: 9.4682
+  type: 'test'
+  ...
+# Subtest: wrong original owner, part or source cell reports a binding rejection without survivor lookup
+ok 17 - wrong original owner, part or source cell reports a binding rejection without survivor lookup
+  ---
+  duration_ms: 12.1889
+  type: 'test'
+  ...
+# Subtest: unsupported original selector/triangle is explicit and does not borrow a sibling proof
+ok 18 - unsupported original selector/triangle is explicit and does not borrow a sibling proof
+  ---
+  duration_ms: 25.0382
+  type: 'test'
+  ...
+# Subtest: reset, source generation and revision changes release old native bindings
+ok 19 - reset, source generation and revision changes release old native bindings
+  ---
+  duration_ms: 9.0253
+  type: 'test'
+  ...
+# Subtest: source disposal and expired opaque readers release generation-born geometry
+ok 20 - source disposal and expired opaque readers release generation-born geometry
+  ---
+  duration_ms: 22.6548
+  type: 'test'
+  ...
+# Subtest: architect repro: surviving original ports cannot bridge the removed strict embed
+ok 21 - architect repro: surviving original ports cannot bridge the removed strict embed
+  ---
+  duration_ms: 12.2875
+  type: 'test'
+  ...
+# Subtest: losing child material at the common witness also breaks the embed
+ok 22 - losing child material at the common witness also breaks the embed
+  ---
+  duration_ms: 1.7675
+  type: 'test'
+  ...
+# Subtest: open exterior facets fail closed without current closed material authority
+ok 23 - open exterior facets fail closed without current closed material authority
+  ---
+  duration_ms: 1.4277
+  type: 'test'
+  ...
+# Subtest: authoritative closed material can prove an embed for an exterior-only face view
+ok 24 - authoritative closed material can prove an embed for an exterior-only face view
+  ---
+  duration_ms: 2.4366
+  type: 'test'
+  ...
+# Subtest: a real closed void at the original witness defeats unchanged exterior ports
+ok 25 - a real closed void at the original witness defeats unchanged exterior ports
+  ---
+  duration_ms: 2.0413
+  type: 'test'
+  ...
+# Subtest: multiple closed boundary surfaces need authoritative material connectivity proof
+ok 26 - multiple closed boundary surfaces need authoritative material connectivity proof
+  ---
+  duration_ms: 1.8586
+  type: 'test'
+  ...
+# Subtest: different current closed components cannot share one original embed path
+ok 27 - different current closed components cannot share one original embed path
+  ---
+  duration_ms: 1.377
+  type: 'test'
+  ...
+# Subtest: a common witness on the current material boundary is not a strict interior proof
+ok 28 - a common witness on the current material boundary is not a strict interior proof
+  ---
+  duration_ms: 0.8062
+  type: 'test'
+  ...
+# Subtest: an explicitly supplied open solid cannot fall back to the original closed parent
+ok 29 - an explicitly supplied open solid cannot fall back to the original closed parent
+  ---
+  duration_ms: 1.228
+  type: 'test'
+  ...
+# Subtest: a real surviving joint stays live after its arbitrary exterior proxy is retired
+ok 30 - a real surviving joint stays live after its arbitrary exterior proxy is retired
+  ---
+  duration_ms: 1.7463
+  type: 'test'
+  ...
+# Subtest: an authoritative current closed slab still rejects a removed common witness
+ok 31 - an authoritative current closed slab still rejects a removed common witness
+  ---
+  duration_ms: 2.2035
+  type: 'test'
+  ...
+# Subtest: surviving common material cannot substitute a different fixed native record or cell
+ok 32 - surviving common material cannot substitute a different fixed native record or cell
+  ---
+  duration_ms: 2.0878
+  type: 'test'
+  ...
+# Subtest: both fixed lower ports and directed top give equal cold and native support
+ok 33 - both fixed lower ports and directed top give equal cold and native support
+  ---
+  duration_ms: 11.2667
+  type: 'test'
+  ...
+# Subtest: loss of either original lower port leaves the fitting and its upper unrooted
+ok 34 - loss of either original lower port leaves the fitting and its upper unrooted
+  ---
+  duration_ms: 3.2076
+  type: 'test'
+  ...
+# Subtest: upper and descendants cannot manufacture independently rooted roof support
+ok 35 - upper and descendants cannot manufacture independently rooted roof support
+  ---
+  duration_ms: 2.1214
+  type: 'test'
+  ...
+# Subtest: same-cell sibling cannot replace a retired fixed native owner
+ok 36 - same-cell sibling cannot replace a retired fixed native owner
+  ---
+  duration_ms: 1.9303
+  type: 'test'
+  ...
+# Subtest: both lower ports cannot root a fitting after its own material path separates
+ok 37 - both lower ports cannot root a fitting after its own material path separates
+  ---
+  duration_ms: 3.6562
+  type: 'test'
+  ...
+# Subtest: actual surviving material connects cold and native fragments and cannot bridge a retired gap
+ok 38 - actual surviving material connects cold and native fragments and cannot bridge a retired gap
+  ---
+  duration_ms: 1.4617
+  type: 'test'
+  ...
+# Subtest: disconnected original material, real gaps and mismatched strict witnesses reject false bonds
+ok 39 - disconnected original material, real gaps and mismatched strict witnesses reject false bonds
+  ---
+  duration_ms: 2.2624
+  type: 'test'
+  ...
+# Subtest: fixed jambs support headers, moving leaves do not brace them, and reset invalidates generations
+ok 40 - fixed jambs support headers, moving leaves do not brace them, and reset invalidates generations
+  ---
+  duration_ms: 1.14
+  type: 'test'
+  ...
+# Subtest: UI repro: unrelated valid ALL requirements can independently carry another fitting
+ok 41 - UI repro: unrelated valid ALL requirements can independently carry another fitting
+  ---
+  duration_ms: 16.2081
+  type: 'test'
+  ...
+# Subtest: removing independent lower grounding still leaves both dependent ALL fittings unrooted
+ok 42 - removing independent lower grounding still leaves both dependent ALL fittings unrooted
+  ---
+  duration_ms: 1.5128
+  type: 'test'
+  ...
+# Subtest: UI repro: caller mutation cannot relocate captured original grounding
+ok 43 - UI repro: caller mutation cannot relocate captured original grounding
+  ---
+  duration_ms: 0.7206
+  type: 'test'
+  ...
+# Subtest: original anchors require a named original part, finite elevation and valid component
+ok 44 - original anchors require a named original part, finite elevation and valid component
+  ---
+  duration_ms: 1.2284
+  type: 'test'
+  ...
+1..44
+# tests 44
+# suites 0
+# pass 44
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 472.536
