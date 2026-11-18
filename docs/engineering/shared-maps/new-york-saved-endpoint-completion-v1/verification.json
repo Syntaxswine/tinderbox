@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "scope": "Shared fixed source-cell rule and single saved-output proposal; no native New York authority",
+  "runs": [
+    {
+      "name": "synthetic-initial",
+      "passed": true,
+      "groups": 35,
+      "compiler": 54,
+      "disposedTrials": 16,
+      "steps": 4,
+      "receiptSha256": "41e75a4ec686bd643c28e3c20cb247d610f5a1edfa808c69abbfc2decbb57296",
+      "logSha256": "2dad698560204fefc2cf177601c437853cb15c6bc2f4c038eee2ea62ec6947b9"
+    },
+    {
+      "name": "synthetic-ready",
+      "passed": true,
+      "groups": 35,
+      "compiler": 54,
+      "disposedTrials": 16,
+      "steps": 4,
+      "receiptSha256": "c3f0b4b3696e1e9f193910c32c61809dcf38cfef4c1ece6a747f13810b0cc59c",
+      "logSha256": "2d32a4c84bb95d38fcc80afb7ed5fdd5365001249ed1654940e0b1cae0eac997"
+    }
+  ],
+  "checkedGroups": 35,
+  "syntheticCompilerCalls": 108,
+  "syntheticDisposedTrials": 32,
+  "syntheticSteps": 8,
+  "savedCompletions": 1,
+  "savedInspectedEndpoints": 74,
+  "savedIncidentCandidates": 77,
+  "maxCandidatesPerEndpoint": 2,
+  "mapped": 70,
+  "unbound": [
+    "legacy-pair-012/child",
+    "legacy-pair-014/child",
+    "legacy-pair-030/child",
+    "legacy-pair-032/child"
+  ],
+  "transitions": {
+    "exactPreviousPlans": 47,
+    "changedPreviousCell": 1,
+    "previousPlansNowUnbound": 3,
+    "boundariesMapped": 16,
+    "boundariesStillUnbound": 1,
+    "newSaddleMapped": 6
+  },
+  "reproduceAllPreviousMappings": false,
+  "readiness": "NOT_READY",
+  "findings": {
+    "SURFACE_PLAN_UNBOUND": 38,
+    "ORDINARY_ALTERNATIVES_NOT_READY": 32,
+    "ORDINARY_BINDINGS_NOT_READY": 32,
+    "BIRTH_DERIVATION_PLAN_UNBOUND": 74
+  },
+  "sourcePolicyTuples": 37,
+  "ordinaryAlternatives": 179,
+  "outsideCohortAlternatives": 141,
+  "helpersClosed": 3,
+  "actualSourceTransforms": 0,
+  "actualNativeCompiles": 0,
+  "actualTrials": 0,
+  "actualClockSteps": 0,
+  "supportEvaluations": 0,
+  "renderers": 0,
+  "builds": 0,
+  "priorPacketsUnchanged": true,
+  "productionInputsUnchanged": true,
+  "protectedWipExcluded": true
+}

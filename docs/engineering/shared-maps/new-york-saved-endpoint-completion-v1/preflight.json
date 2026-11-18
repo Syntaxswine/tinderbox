@@ -1,0 +1,49 @@
+{
+  "grant": {
+    "commit": "61b239ff",
+    "path": "docs/engineering/shared-maps/new-york-saved-endpoint-completion.md",
+    "sha256": "d641a9daf292845d14d0c9e72a7f76bab84ca850a8ba439ede804cfa3cde626c"
+  },
+  "sourcePins": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-world.json",
+      "sha256": "5353b5f6d6ccae1d13931bfa93f4bbdcfd498994f33a5eff49db82c2ece5c8fd"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-blueprints.json",
+      "sha256": "1685e0afc81e21b16f8db3fa00e81bc326a9b1ca24453c759abcf55df28ebbf2"
+    }
+  ],
+  "approvedProofs": [
+    {
+      "name": "cornice",
+      "commit": "6c8e7198040395978ba1f7f786a089efea8f687d",
+      "path": "art/source/shared-map-fire-bindings/new-york-saddle-three-source-witnesses-v1/proof-cornice.json",
+      "sha256": "7dd4355d4573e519f9e7bddb749d66b0586124d978a34aff4b416732a84c8b84",
+      "localPath": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/source-intake/proof-cornice.json"
+    },
+    {
+      "name": "roof-seat",
+      "commit": "6c8e7198040395978ba1f7f786a089efea8f687d",
+      "path": "art/source/shared-map-fire-bindings/new-york-saddle-three-source-witnesses-v1/proof-roof-seat.json",
+      "sha256": "77f22a667ef528ba5db22d4fd9fb544f2655791399ca5320ecb596a409828737",
+      "localPath": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/source-intake/proof-roof-seat.json"
+    },
+    {
+      "name": "top",
+      "commit": "6c8e7198040395978ba1f7f786a089efea8f687d",
+      "path": "art/source/shared-map-fire-bindings/new-york-saddle-three-source-witnesses-v1/proof-top.json",
+      "sha256": "b1a93f795b9ffa417376e3f4c230755331fde588d521af3042303f26954c1807",
+      "localPath": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/source-intake/proof-top.json"
+    }
+  ],
+  "parts": 38,
+  "originalTriangles": 456,
+  "blueprints": 78,
+  "thermalInputTriangles": 156,
+  "fixedEndpoints": 74,
+  "maxCandidatesPerEndpoint": 8,
+  "maxCandidateCount": 592,
+  "sourceTransforms": 0,
+  "nativeAllowance": 0
+}

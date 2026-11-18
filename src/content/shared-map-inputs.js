@@ -2,7 +2,8 @@ import {inspectSharedMapInputs,MapInputNotReadyError,qualifyInputOwner,freezeInp
 import {createRegionalSourcePilot} from '../simulation/regional-source-pilot.js';
 import {createOriginalSupportPorts,originalMaterialComponents} from '../simulation/original-support-ports.js';
 import {materialTransmission} from '../../workbenches/furnished-house/scene.js';
-import {bounds,clipTriangle,triangleArea,segmentTriangle,EPS} from '../../workbenches/furnished-house/geometry.js';
+import {segmentTriangle,EPS} from '../../workbenches/furnished-house/geometry.js';
+import {selectFixedSourceCell} from './source-fixed-cell.js';
 
 // This inventory reads identities/counts, never transforms source positions.
 export function sharedMapInputInventory(model){
@@ -70,8 +71,7 @@ export function createSharedMapInputFactory({descriptor,policy,loadProjection=lo
         const endpoint=(e,kind)=>{
           const part=model.partById.get(e.partId),ts=originals.get(e.partId).triangles,bp=e.bindingPlan,s=bundles.get(part.carrierId).surfaces.find(s=>s.id===part.carrierId+'/part/'+model.parts.indexOf(part)+'/'+bp.suffix),component=components.get(e.partId).find(c=>c.primitives.includes(e.primitive));
           if(component?.id!==e.component||kind!=='fixed-embed'&&segmentTriangle(e.point,e.point,ts[e.primitive])===null||!s)throw Error('Original endpoint component/primitive/surface differs from reviewed plan');
-          const sourcePoint=bp.surfacePoint,box=bounds(s.triangles.flat()),lo=box.min.map((v,i)=>Math.floor(v/plan.grid.pitch[i]+EPS)),hi=box.max.map((v,i)=>v-box.min[i]<EPS?lo[i]:Math.ceil(v/plan.grid.pitch[i]-EPS)-1),cell=sourcePoint.map((v,i)=>Math.floor(v/plan.grid.pitch[i]+EPS));
-          if(!sameInput(cell,bp.cell)||cell.some((v,i)=>v<lo[i]||v>hi[i])||!s.triangles.some(t=>segmentTriangle(sourcePoint,sourcePoint,t)!==null))throw Error('Own source projection/cell differs from reviewed plan');
+          const sourcePoint=bp.surfacePoint;if(!s.triangles.some(t=>segmentTriangle(sourcePoint,sourcePoint,t)!==null))throw Error('Own source projection differs from reviewed plan');
           if(bp.channel==='surface'&&!sameInput(sourcePoint,e.point))throw Error('Surface endpoint requires its own source-face point');
           if(bp.channel==='solid'&&!s.triangles.some(t=>segmentTriangle(e.point,e.point,t)!==null)){
             // Existing nativePanel projects a measured original solid to its
@@ -81,8 +81,7 @@ export function createSharedMapInputFactory({descriptor,policy,loadProjection=lo
             const offset=e.point.reduce((n,v,i)=>n+(v-sourcePoint[i])*s.normal[i],0),projected=e.point.map((v,i)=>v-offset*s.normal[i]),low=s.kind==='floor'?-s.thickness:-s.thickness/2,high=s.kind==='floor'?0:s.thickness/2;
             if(offset<low-EPS||offset>high+EPS||Math.hypot(...projected.map((v,i)=>v-sourcePoint[i]))>EPS)throw Error('Solid projection differs from measured original native panel');
           }
-          const clip={min:cell.map((v,i)=>v*plan.grid.pitch[i]-EPS),max:cell.map((v,i)=>(v+1)*plan.grid.pitch[i]+EPS)};
-          if(s.triangles.flatMap(t=>clipTriangle(t,clip)).reduce((n,t)=>n+triangleArea(t),0)<EPS)throw Error('Source endpoint has no positive thermal patch');
+          const ownership=selectFixedSourceCell(s,sourcePoint,plan.grid);if(ownership.status==='UNBOUND'||!sameInput(ownership.cell,bp.cell))throw Error('Own source projection/cell differs from reviewed occupied incident-cell plan');const cell=ownership.cell;
           return {partId:e.partId,point:[...e.point],primitives:[e.primitive],sourceSurfaceId:s.id,cell,nativeRecordId:null};
         };
         const support={parts:plan.parts.map(p=>({id:p.id,ownerId:p.ownerId})),bonds:plan.support.bonds.map(b=>({id:b.id,kind:b.kind,direction:b.direction,sourceSha256:b.proofRef.sha256,parent:endpoint(b.parent,b.kind),child:endpoint(b.child,b.kind)})),anchors:plan.support.anchors.map(({partId,elevation,component})=>({partId,elevation,component})),requirements:plan.support.requirements.map(g=>({id:g.id,ownerId:qualify(g.ownerId),portIds:g.portIds,upperBondId:g.upperBondId})),approvedMounts:[]};

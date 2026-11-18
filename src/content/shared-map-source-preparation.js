@@ -1,7 +1,9 @@
 import {inspectSharedMapInputs,HOST_INPUT_LIMITS,freezeInput,qualifyInputOwner} from './shared-map-admission.js';
 import {sharedMapInputInventory,prepareSharedMapProjections} from './shared-map-inputs.js';
 import {originalMaterialComponents} from '../simulation/original-support-ports.js';
-import {bounds,segmentTriangle,dot,sub,EPS} from '../../workbenches/furnished-house/geometry.js';
+import {segmentTriangle,dot,sub,EPS} from '../../workbenches/furnished-house/geometry.js';
+import {sourceSurfaceSpan,selectFixedSourceCell} from './source-fixed-cell.js';
+export {sourceSurfaceSpan} from './source-fixed-cell.js';
 
 const used=new WeakSet(),vector=p=>Array.isArray(p)&&p.length===3&&p.every(Number.isFinite);
 const pendingCodes=new Set(['SURFACE_PLAN_UNBOUND','ORDINARY_ALTERNATIVES_NOT_READY','ORDINARY_BINDINGS_NOT_READY','BIRTH_DERIVATION_PLAN_UNBOUND']);
@@ -18,7 +20,17 @@ export function preflightSharedMapSourcePreparation({descriptor,policy,inventory
   return freezeInput({version:1,status:problems.length?'NOT_READY':'PREFLIGHT_READY',phase:'SOURCE_PREPARATION_PREFLIGHT',counts,problems,pendingBondIds:[...pending],limits:HOST_INPUT_LIMITS,geometryFit:'Originals fit; derived arrays must acquire the same bounded registry reserve before use.',admission});
 }
 
-export function sourceSurfaceSpan(surface,grid){const b=bounds(surface.triangles.flat()),min=b.min.map((v,i)=>Math.floor((v-grid.origin[i])/grid.pitch[i]+EPS)),max=b.max.map((v,i)=>v-b.min[i]<EPS?min[i]:Math.ceil((v-grid.origin[i])/grid.pitch[i]-EPS)-1);return {min,max};}
+// Restore only exact original facets after independent JSON serialization.
+// Native-panel planes are derived even when coordinates equal a source face.
+export function restoreSavedSourceFacetSharing({world,blueprints}){
+  if(world.sourceRevision!==blueprints.sourceRevision)throw new SourcePreparationBoundary('SAVED_SOURCE_REVISION','World/blueprint revisions differ');
+  const parts=new Map(world.parts.map(p=>[p.id,p])),same=(a,b)=>a.length===b.length&&a.every((v,i)=>v.length===b[i].length&&v.every((n,j)=>Object.is(n,b[i][j])));let restoredTriangles=0,facetedSurfaces=0,derivedPlanes=0;
+  for(const s of blueprints.surfaces){const part=parts.get(s.nativePartId);if(!part||part.ownerId!==s.sourceCarrierId)throw new SourcePreparationBoundary('SAVED_SOURCE_OWNER',s.id);if(s.id.endsWith('/plane')){derivedPlanes++;continue;}
+    const restore=t=>{const matches=part.triangles.filter(original=>same(original,t));if(matches.length!==1)throw new SourcePreparationBoundary('SAVED_ORIGINAL_FACET_NOT_UNIQUE',s.id);restoredTriangles++;return matches[0];};
+    s.triangles=s.triangles.map(restore);if(s.solidTriangles){if(s.solidTriangles.length===s.triangles.length&&s.solidTriangles.every((t,i)=>same(t,s.triangles[i])))s.solidTriangles=s.triangles;else s.solidTriangles=s.solidTriangles.map(restore);}facetedSurfaces++;
+  }
+  return {facetedSurfaces,derivedPlanes,restoredTriangleReferences:restoredTriangles,restoredDerivedPlaneReferences:0,sourceTransforms:0};
+}
 
 // Map ONE already fixed original face. No contact search, nearest-face choice,
 // common selector, cell clamping, native record inference or support evaluation.
@@ -32,10 +44,9 @@ export function deriveSharedSourceEndpoint({endpoint,part,components,surfaces,gr
     if(candidates.length===1){const s=candidates[0],d=dot(sub(e.point,s.triangles[0][0]),s.normal);surfacePoint=e.point.map((v,i)=>v-d*s.normal[i]);channel='solid';}
   }
   if(candidates.length!==1||!candidates[0].triangles.some(t=>segmentTriangle(surfacePoint,surfacePoint,t)!==null))throw new SourcePreparationBoundary('SOURCE_PROJECTION_NOT_UNIQUE',e.partId);
-  const s=candidates[0],span=sourceSurfaceSpan(s,grid),cell=surfacePoint.map((v,i)=>Math.floor((v-grid.origin[i])/grid.pitch[i]+EPS));
-  if(cell.some((v,i)=>v<span.min[i]||v>span.max[i]))throw new SourcePreparationBoundary('SOURCE_CELL_OUTSIDE_ORIGINAL_LOOP',e.partId);
+  const s=candidates[0],ownership=selectFixedSourceCell(s,surfacePoint,grid);if(ownership.status==='UNBOUND'){const error=new SourcePreparationBoundary(ownership.reason,e.partId);error.cellOwnership=ownership;throw error;}const cell=ownership.cell;
   const suffix=s.id.slice(s.id.lastIndexOf('/part/')+6).split('/').slice(1).join('/');
-  return {status:'DERIVED_SOURCE_PLAN_UNREVIEWED',sourceSurfaceId:s.id,sourceSpan:span,originalPrimitive:e.primitive,originalComponent:e.component,bindingPlan:{kind:'source-blueprint-original-face-v1',channel,suffix,surfacePoint,cell,nativeRecordId:null,nativeCellId:null,proofRef:null},nativeAuthority:'UNBORN_UNPROVED'};
+  return {status:'DERIVED_SOURCE_PLAN_UNREVIEWED',sourceSurfaceId:s.id,sourceSpan:ownership.sourceSpan,cellOwnership:ownership,originalPrimitive:e.primitive,originalComponent:e.component,bindingPlan:{kind:'source-blueprint-original-face-v1',channel,suffix,surfacePoint,cell,nativeRecordId:null,nativeCellId:null,proofRef:null},nativeAuthority:'UNBORN_UNPROVED'};
 }
 
 // Reuse the host's one decoded model/source owner and one registry. This source
