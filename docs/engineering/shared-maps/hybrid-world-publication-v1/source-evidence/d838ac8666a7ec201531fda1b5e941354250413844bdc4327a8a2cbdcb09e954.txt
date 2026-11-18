@@ -1,0 +1,34 @@
+import test,{after} from 'node:test';
+import assert from 'node:assert/strict';
+import {world,newProducer} from '../fixtures/hybrid-world-data.mjs';
+import {sceneCompileDiagnostics} from '../../workbenches/furnished-house/scene.js';
+import {trialDiagnostics} from '../../workbenches/furnished-house/simulation.js';
+const resources=[];
+const dispose=f=>{const p=f.producer;f.dispose();resources.push({compiler:p.diagnostics().nativeCalls,retainedReceipts:p.diagnostics().retainedReceipts,logicalCells:f.logicalCells,sourceTriangles:f.sourceTriangles,query:f.queries.metrics()});};
+const balanced=f=>{const m=f.ledger.metrics(f.trial.metrics().fuel);assert.ok(Math.abs(m.world.error+m.nativeClippingDelta)<1e-10);assert.ok(m.nativeClippingDelta<=m.nativePartitionError.positive&&m.nativeClippingDelta>=-m.nativePartitionError.negative);return m;};
+after(()=>{const trial=trialDiagnostics();console.log('HYBRID_RESOURCES '+JSON.stringify({compiler:sceneCompileDiagnostics(),trial,fixtures:resources,actualNewYorkCalls:0,fullNewYorkDiagnostics:0,rendererCalls:0,builds:0}));assert.ok(trial.steps<=64);assert.ok(resources.every(r=>r.logicalCells<=64&&r.sourceTriangles<=256&&r.retainedReceipts===0&&r.query.cachedTriangles===0&&r.query.cachedShapes===0));});
+
+test('coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port',()=>{
+  let callbacks=0;const f=world({onActivated(){callbacks++;assert.ok(f.activation.state().revision>0);balanced(f);}});try{
+    const initial=f.activation.state(),r=f.receipt([0,0,0]),plan=f.activation.prepare({whole:['floor-owner','fit-owner'],receipts:[r]});assert.equal(f.trial.scene.fuels.size,0);assert.equal(f.activation.state(),initial);plan.validate();const first=plan.publish();assert.equal(callbacks,1);assert.equal(first.revision,1);assert.ok(f.trial.scene.fuels.size>0);assert.ok(f.queries.isClaimedPart('floor'));assert.equal(f.queries.shape('floor').triangles.length,0);assert.ok(f.trial.scene.index.supportAt(3.2,.2,.2,-.1),'unactivated roof stays cold');
+    assert.ok(f.trial.supportGraph.snapshot().ports.every(p=>p.live));assert.deepEqual(f.trial.supportGraph.unsupported(),[]);const lower=f.trial.supportGraph.snapshot().ports.find(p=>p.id==='roof-bearing').parent;assert.ok(f.trial.scene.index.surfaces.has(lower));const before=balanced(f),fuel=f.trial.metrics().fuel.added;
+    f.activation.prepare({retireRecords:[lower]}).publish();assert.equal(f.trial.scene.index.surfaces.get(lower).intact,false);assert.equal(f.trial.scene.index.supportAt(1.3,.2,.2,-.1),undefined);const unsupported=f.trial.supportGraph.unsupported();assert.ok(unsupported.some(b=>b.nativePartId==='fit'));assert.ok(unsupported.some(b=>b.nativePartId==='roof-b'));assert.equal(f.trial.supportGraph.snapshot().ports.find(p=>p.id==='roof-bearing').live,false);assert.equal(balanced(f).coldReserve,before.coldReserve);
+    const next=f.receipt([4,0,0]);f.activation.prepare({receipts:[next]}).publish();assert.equal(balanced(f).coldReserve,0);assert.ok(f.trial.metrics().fuel.added>fuel);assert.equal(f.trial.scene.index.supportAt(1.3,.2,.2,-.1),undefined);assert.ok(f.trial.scene.index.supportAt(3.2,.2,.2,-.1));assert.throws(()=>f.activation.prepare({receipts:[r]}),/overlapping|Duplicate/);assert.equal(f.activation.ensure(['floor-owner']),false);assert.throws(()=>f.activation.ensure(['roof-owner']),/explicit point/);assert.equal(f.trial.tick,0);f.trial.step(1);balanced(f);
+    const q=f.queries.metrics();assert.ok(q.cachedShapes<=192&&q.cachedTriangles+q.peakWorkingTriangles<=65536);f.activation.release(initial);f.activation.release(first);
+  }finally{dispose(f);}
+});
+
+test('stale, forged or changed stages cannot register partial physical/stock/query state',()=>{
+  const f=world();try{
+    const cold=f.activation.state(),r=f.receipt([0,0,0]);assert.throws(()=>f.activation.prepare({receipts:[{...r}]}),/Unknown|stale/);assert.equal(f.activation.state(),cold);assert.equal(f.trial.scene.fuels.size,0);
+    const a=f.activation.prepare({whole:['floor-owner']}),z=f.activation.prepare({receipts:[r]});z.publish();const keep=f.activation.state(),quantity=f.trial.metrics().fuel.added;assert.throws(()=>a.publish(),/Stale/);a.dispose();assert.equal(f.activation.state(),keep);assert.equal(f.trial.metrics().fuel.added,quantity);assert.equal(f.queries.isClaimedPart('floor'),false);
+    const other=f.receipt([4,0,0]),pending=f.activation.prepare({receipts:[other]});other.dispose();assert.throws(()=>pending.publish(),/stale|changed|disposed/);pending.dispose();assert.equal(f.activation.state(),keep);assert.equal(f.trial.metrics().fuel.added,quantity);balanced(f);
+  }finally{dispose(f);}
+});
+
+test('world index retirement synchronizes domains before observers; reset recreates one clean trial generation',()=>{
+  const producer=newProducer(),f=world({producer});let newer;try{
+    const r=f.receipt([0,0,0]),descriptor=producer.region('roof-owner',[4,0,0]);f.activation.prepare({whole:['floor-owner','fit-owner'],receipts:[r]}).publish();const id=f.trial.supportGraph.snapshot().ports.find(p=>p.id==='roof-bearing').parent;let watched=0;f.trial.scene.index.watch([id],()=>{watched++;assert.equal(f.trial.scene.index.supportAt(1.3,.2,.2,-.1),undefined);assert.equal(f.trial.supportGraph.snapshot().ports.find(p=>p.id==='roof-bearing').live,false);});f.trial.scene.index.change(id,{intact:false});assert.equal(watched,1);balanced(f);const old=f.activation.state(),pending=f.activation.prepare();dispose(f);
+    assert.throws(()=>pending.publish(),/disposed|Stale/);assert.throws(()=>f.activation.state(),/disposed/);assert.throws(()=>producer.compile(descriptor),/stale/);newer=world({producer});assert.ok(newer.activation.state().generation>old.generation);assert.equal(newer.trial.scene.fuels.size,0);assert.equal(newer.ledger.metrics().coldReserve,1.7);assert.throws(()=>newer.activation.prepare({receipts:[r]}),/stale/);
+  }finally{if(newer)dispose(newer);else if(f.queries.metrics().cachedShapes)dispose(f);producer.dispose();}
+});

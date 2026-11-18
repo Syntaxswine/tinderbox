@@ -1,0 +1,77 @@
+HYBRID_RESOURCES {"compiler":{"calls":26},"trial":{"created":9,"steps":6,"disposed":9},"fixtures":[{"compiler":2,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":2,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":22,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":2,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":1,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":2,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":1,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":2,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":0,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":2,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":2,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}}],"actualNewYorkCalls":0,"fullNewYorkDiagnostics":0,"rendererCalls":0,"builds":0}
+TAP version 13
+# Subtest: coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port
+ok 1 - coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port
+  ---
+  duration_ms: 89.627
+  type: 'test'
+  ...
+# Subtest: stale, forged or changed stages cannot register partial physical/stock/query state
+ok 2 - stale, forged or changed stages cannot register partial physical/stock/query state
+  ---
+  duration_ms: 18.2069
+  type: 'test'
+  ...
+# Subtest: world index retirement synchronizes domains before observers; reset recreates one clean trial generation
+ok 3 - world index retirement synchronizes domains before observers; reset recreates one clean trial generation
+  ---
+  duration_ms: 17.1269
+  type: 'test'
+  ...
+# Subtest: final receipt liveness rejects reentrant publication and a bad whole quantity before any partial birth
+ok 4 - final receipt liveness rejects reentrant publication and a bad whole quantity before any partial birth
+  ---
+  duration_ms: 23.5915
+  type: 'test'
+  ...
+# Subtest: only an exact explicitly supplied mechanical mount may keep its original real gap and direction
+ok 5 - only an exact explicitly supplied mechanical mount may keep its original real gap and direction
+  ---
+  duration_ms: 1.8577
+  type: 'test'
+  ...
+# Subtest: thermal frontier uses eligible regions from nearby air without whole fallback, duplicate birth or cache escape
+ok 6 - thermal frontier uses eligible regions from nearby air without whole fallback, duplicate birth or cache escape
+  ---
+  duration_ms: 32.7705
+  type: 'test'
+  ...
+# Subtest: atomic floor activation rebinds existing oil support and cannot resurrect a retired patch on reload
+ok 7 - atomic floor activation rebinds existing oil support and cannot resurrect a retired patch on reload
+  ---
+  duration_ms: 11.069
+  type: 'test'
+  ...
+# Subtest: a failed canonical transfer leaves the cold source, reserve, cells and clock untouched
+ok 8 - a failed canonical transfer leaves the cold source, reserve, cells and clock untouched
+  ---
+  duration_ms: 4.2639
+  type: 'test'
+  ...
+# Subtest: canonical static stock transfers once from cold reserve and visual reload cannot mint fuel
+ok 9 - canonical static stock transfers once from cold reserve and visual reload cannot mint fuel
+  ---
+  duration_ms: 0.5215
+  type: 'test'
+  ...
+# Subtest: unrelated reserved carriers do not alter active native fuel and failed activation keeps ownership cold
+ok 10 - unrelated reserved carriers do not alter active native fuel and failed activation keeps ownership cold
+  ---
+  duration_ms: 0.5647
+  type: 'test'
+  ...
+# Subtest: a distant reserve cannot hide an invalid local fuel transfer
+ok 11 - a distant reserve cannot hide an invalid local fuel transfer
+  ---
+  duration_ms: 0.2226
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 298.7844

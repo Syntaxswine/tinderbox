@@ -9,7 +9,11 @@ export const RULES=Object.freeze({step:STEP,maxHeat:5,loss:.18,up:3,upDiagonal:2
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
 export const ambientWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=1.5,out[1]=0,out[2]=0,out);
 export const calmWind=(_x,_y,_z,out=[0,0,0])=>(out[0]=out[1]=out[2]=0,out);
+let trialCalls=0,trialSteps=0,trialDisposals=0,diagnosticStepCeiling=Infinity;
+export const trialDiagnostics=()=>({created:trialCalls,steps:trialSteps,disposed:trialDisposals});
+export function limitDiagnosticTrialSteps(value){if(!Number.isSafeInteger(value)||value<trialSteps)throw Error('Finite diagnostic step ceiling required');diagnosticStepCeiling=value;}
 export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWind,windMetadata={kind:'ambient-control',speed:1.5,direction:[1,0,0],obstacleResolved:false},radiationSelection=null,executionCache=false,onLoadPhase,querySource,supportGraphFactory}={}) {
+  trialCalls++;
   const scene=compileScene(data,{profiles,onLoadPhase,querySource}),r={...RULES,...overrides},dt=r.step,{cells,fuels,items,parts,index,cellAt}=scene;
   data=scene.data;
   let tick=0,revision=0,fullNext=true,eventSequence=0,commandSequence=0,closed=false;const coolingFactor=1-Math.exp(-r.loss*dt);
@@ -455,10 +459,9 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
     for(const item of items.values())if(item.currentSupportIds?.some(id=>replaced.has(id))){const ids=item.supportContactOffsets.map(offset=>support(add(item.position,offset))).filter(id=>id&&!replaced.has(id));if(ids.length){item.currentSupportIds=[...new Set(ids)];itemSupportCache.delete(item.id);rebound++;}}
     return rebound;
   }
-  function prepareSources(sources){
-    if(closed)throw Error('Trial disposed');const plan=scene.prepareSources(sources);
-    return {quantity:plan.quantity,quantities:plan.quantities,boundaries:plan.boundaries,fuels:plan.fuels,validate:plan.validate,commit(){
-      if(closed)throw Error('Trial disposed');const result=plan.commit();
+  function prepareSources(sources,{regionalAdmission=null}={}){
+    if(closed)throw Error('Trial disposed');const plan=regionalAdmission?scene.prepareRegionalSources(regionalAdmission):scene.prepareSources(sources);
+    function register(result){
       ledger.added+=result.quantity;
       const changedTargets=new Set();
       for(const id of result.fuelIds){const f=fuels.get(id);initialCombustibleArea+=f.area||0;for(const c of f.cells){const key=c.position.map(v=>Math.floor(v/2)).join(',');if(!targetBins.has(key))targetBins.set(key,[]);const list=targetBins.get(key);if(!list.includes(c)){list.push(c);changedTargets.add(key);}}}
@@ -477,16 +480,19 @@ export function createTrial(data,{rules:overrides={},profiles={},wind=ambientWin
       if(supportGraph.sourcesAdded)supportGraph.sourcesAdded(result);else supportGraph=(supportGraphFactory||createSupportGraph)(scene);
       sourceRegistrations.push({tick,sourceIds:result.sourceIds,quantity:result.quantity,boundaries:result.boundaries.length,fuels:result.fuelIds.length});
       return result;
-    }};
+    }
+    return {quantity:plan.quantity,quantities:plan.quantities,records:plan.records,boundaries:plan.boundaries,fuels:plan.fuels,validate(){if(closed)throw Error('Trial disposed');plan.validate();},
+      seal(lease){if(closed)throw Error('Trial disposed');const install=plan.seal(lease);return ()=>register(install());},
+      commit(){if(closed)throw Error('Trial disposed');return register(plan.commit());},dispose:plan.dispose};
   }
   function command(input) {if(closed)throw Error('Trial disposed');const value={...structuredClone(input),sequence:++commandSequence,tick:input.tick??tick+1};if(!Number.isInteger(value.tick)||value.tick<=tick)throw Error('Commands must target a future integer tick');commands.push(value);commands.sort((a,b)=>a.tick-b.tick||a.sequence-b.sequence);commandLog.push(value);return value;}
   return {scene,get supportGraph(){return supportGraph;},prepareSources,replaceSupportReferences,rules:r,events,stats,wind,windMetadata,executionCache,executionTimings:()=>({...executionTimings}),activeCellIds:()=>[...active].map(c=>c.id),
     hotSites:()=>[...[...active].filter(c=>c.heat>EPS).map(c=>({id:c.id,position:[...c.position]})),...[...(executionCache?litFuels:fuels.values())].filter(f=>f.lit&&f.amount>EPS&&f.falling).map(f=>({id:f.id,position:[...f.position]}))],
-    boundariesForSource:id=>supportBySource.get(id)||[],looseFuelAmount:()=>fuelTotals().looseAmount,command,step(count=1){if(closed)throw Error('Trial disposed');if(!Number.isInteger(count)||count<0)throw Error('Whole nonnegative steps required');for(let i=0;i<count;i++)stepOnce();return tick;},frame,fireSamples,metrics,
+    boundariesForSource:id=>supportBySource.get(id)||[],looseFuelAmount:()=>fuelTotals().looseAmount,command,step(count=1){if(closed)throw Error('Trial disposed');index.assertReadable();if(!Number.isInteger(count)||count<0)throw Error('Whole nonnegative steps required');if(trialSteps+count>diagnosticStepCeiling)throw Error('Diagnostic trial step budget exceeded');for(let i=0;i<count;i++){trialSteps++;stepOnce();}return tick;},frame,fireSamples,metrics,
     snapshot(){return {version:1,tick,worldTime:tick*dt,cells:[...cells.values()].filter(c=>c.heat).map(c=>({id:c.id,heat:c.heat})),fuels:[...fuels.values()].map(f=>({id:f.id,cls:f.cls,amount:f.amount,initial:f.initial,area:f.area,char:f.char,lit:f.lit,litAt:f.litAt,spentAt:f.spentAt,falling:f.falling,position:f.position,boundaryId:f.boundaryId,sourceSurfaceId:f.sourceSurfaceId,itemId:f.itemId,supportBoundaryId:f.supportBoundaryId,store:f.store?{id:f.store.id,kind:f.store.kind,reacted:f.store.reacted,blocked:f.store.blocked}:null,cellIds:f.cells.map(c=>c.id),burningCellId:f.burningCell?.id})),boundaries:[...index.surfaces.values()].map(boundaryFrame),falls:[...falls.values()],events:events.slice(-1024),eventCount:events.length,items:[...items.values()].map(i=>({id:i.id,position:i.position,intact:i.intact,falling:i.falling,currentSupportIds:i.currentSupportIds})),parts:[...parts.values()].map(p=>({id:p.id,intact:p.intact})),rubble:[...rubble.values()],metrics:metrics()};},
     replay(){return {version:1,prefabId:data.prefabId,sourceHashes:data.sourceHashes,runtimeAdapterVersion:data.runtimeAdapterVersion||0,runtimeAdaptations:data.runtimeAdaptations||[],rules:r,profiles:scene.profile,wind:windMetadata,commands:structuredClone(commandLog),...(sourceRegistrations.length?{sourceRegistrations:structuredClone(sourceRegistrations)}:{}),endTick:tick};},
     publicationGeometryDiagnostics:()=>({boundaryEntries:sampleGeometry.size,activeBoundaryIds:sampleBoundaryIds.size}),
-    dispose(){if(closed)return;closed=true;supportGraph.dispose?.();commands.length=0;radCache.clear();pendingHeat.clear();samplesCache=null;sampleGeometry.clear();sampleBoundaryIds.clear();cellGeometry=new WeakMap();},get tick(){return tick;},get worldTime(){return tick*dt;}};
+    dispose(){if(closed)return;closed=true;trialDisposals++;supportGraph.dispose?.();commands.length=0;radCache.clear();pendingHeat.clear();samplesCache=null;sampleGeometry.clear();sampleBoundaryIds.clear();cellGeometry=new WeakMap();},get tick(){return tick;},get worldTime(){return tick*dt;}};
 }
 
 export function createClock(trial,{speed=1,maxSteps=RULES.maxStepsPerAdvance,worldScale=1,playerScale=1}={}) {

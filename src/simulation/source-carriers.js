@@ -1,8 +1,9 @@
+import {regionalStockRow} from './regional-source-pilot.js';
 const EPS=1e-7;
 // Canonical static stock exists before thermal activation. Visual section
 // residency cannot create, refill or discard it. The trial retains combustion.
-export function createSourceCarrierLedger(records){
-  const carriers=new Map();let nativeStaticBirths=0,activeInitial=0,activeCarriers=0,closed=false;const allowance={positive:0,negative:0,roundoffBound:0};
+export function createSourceCarrierLedger(records,{modes={}}={}){
+  const carriers=new Map();let nativeStaticBirths=0,activeInitial=0,activeCarriers=0,closed=false,stockRevision=0;const allowance={positive:0,negative:0,roundoffBound:0};
   for(const input of records){
     const quantity=input.fuelAmount+(input.finish?.amount||0);
     if(typeof input.id!=='string'||!input.id||carriers.has(input.id)||!Number.isFinite(input.fuelAmount)||input.fuelAmount<0||!Number.isFinite(quantity)||quantity<0)throw Error('Invalid canonical source quantity');
@@ -10,10 +11,12 @@ export function createSourceCarrierLedger(records){
     if(input.fuelAmount>0&&!input.fuelClass||input.finish?.amount>0&&!input.finish.fuelClass)throw Error('Finite source fuel needs an explicit accepted profile');
     carriers.set(input.id,{id:input.id,quantity,active:false,initialInTrial:false});
   }
+  for(const[id,mode]of Object.entries(modes))if(!carriers.has(id)||!['whole','regional'].includes(mode))throw Error('Explicit known source owner mode required');
   const total=[...carriers.values()].reduce((n,c)=>n+c.quantity,0);let coldReserve=total;
   function prepareActivations(records,{initialInTrial=false,nativeBirthQuantity}={}){
     if(closed)throw Error('Source carrier ledger disposed');const ids=new Set(),pending=records.map(record=>{
       const c=carriers.get(record.id);if(!c||ids.has(record.id))throw Error('Unknown/duplicate source carrier '+record.id);ids.add(record.id);
+      if(modes[c.id]==='regional')throw Error('Regional owner cannot use whole activation');
       const nativeQuantity=record.nativeQuantity??c.quantity;
       let positive=1e-6*Math.max(1,c.quantity),negative=positive,roundoffBound=0;
       if(record.partitionError){
@@ -27,7 +30,15 @@ export function createSourceCarrierLedger(records){
     });const groupedQuantity=pending.reduce((n,p)=>n+p.nativeQuantity,0),batchQuantity=nativeBirthQuantity??groupedQuantity;
     if(!Number.isFinite(batchQuantity)||batchQuantity<0||Math.abs(batchQuantity-groupedQuantity)>64*Number.EPSILON*Math.max(1,groupedQuantity)*Math.max(1,pending.length))throw Error('Native source batch differs from its local carrier quantities');let committed=false;
     function validate(){if(closed)throw Error('Source carrier ledger disposed');if(committed)throw Error('Source transfer already committed');for(const {c}of pending)if(c.active)throw Error('Source already active '+c.id);}
-    validate();return {validate,commit(){validate();for(const {c,nativeQuantity,positive,negative,roundoffBound}of pending){c.active=true;c.initialInTrial=initialInTrial;c.nativeQuantity=nativeQuantity;c.partitionAllowance={positive,negative,roundoffBound};allowance.positive+=positive;allowance.negative+=negative;allowance.roundoffBound+=roundoffBound;activeInitial+=c.quantity;activeCarriers++;}if(!initialInTrial)nativeStaticBirths+=batchQuantity;coldReserve=[...carriers.values()].filter(c=>!c.active).reduce((n,c)=>n+c.quantity,0);committed=true;}};
+    validate();return {validate,commit(){validate();for(const {c,nativeQuantity,positive,negative,roundoffBound}of pending){c.active=true;c.initialInTrial=initialInTrial;c.nativeQuantity=nativeQuantity;c.partitionAllowance={positive,negative,roundoffBound};allowance.positive+=positive;allowance.negative+=negative;allowance.roundoffBound+=roundoffBound;activeInitial+=c.quantity;activeCarriers++;}if(!initialInTrial)nativeStaticBirths+=batchQuantity;coldReserve=[...carriers.values()].reduce((n,c)=>n+(c.regional?c.regional.row.coldReserve:c.active?0:c.quantity),0);committed=true;stockRevision++;}};
+  }
+  function prepareHybridActivations(whole,regional,nativeBirthQuantity){
+    if(closed)throw Error('Source carrier ledger disposed');const revision=stockRevision,next=new Map(),wholeQuantity=whole.reduce((n,r)=>n+r.nativeQuantity,0),wholePlan=prepareActivations(whole,{nativeBirthQuantity:wholeQuantity});
+    for(const r of regional){const c=carriers.get(r.id);if(!c||modes[r.id]!=='regional'||r.q!==c.quantity||!Number.isSafeInteger(r.totalRegions)||r.totalRegions<1||r.totalRegions>320)throw Error('Regional canonical owner/mode mismatch');let value=next.get(r.id);if(!value){value={spec:{id:r.id,q:c.quantity,inputRoundoff:r.inputRoundoff,totalRegions:r.totalRegions},claims:new Map(c.regional?.claims||[])};next.set(r.id,value);}if(value.claims.has(r.key))throw Error('Duplicate/overlapping regional stock claim');value.claims.set(r.key,r.claim);value.row=regionalStockRow(value.spec,[...value.claims.values()]);}
+    const regionalNative=regional.reduce((n,r)=>n+r.claim.native,0);if(Math.abs(nativeBirthQuantity-wholeQuantity-regionalNative)>64*Number.EPSILON*Math.max(1,nativeBirthQuantity)*Math.max(1,whole.length+regional.length))throw Error('Hybrid native batch quantity mismatch');let done=false;
+    const validate=()=>{if(done||closed||revision!==stockRevision)throw Error('Stale hybrid stock stage');wholePlan.validate();};
+    function commit(){validate();wholePlan.commit();for(const[id,value]of next){const c=carriers.get(id);c.regional=value;c.active=value.row.state==='full';}activeInitial=0;activeCarriers=0;coldReserve=0;nativeStaticBirths=0;allowance.positive=allowance.negative=allowance.roundoffBound=0;for(const c of carriers.values()){if(c.regional){const r=c.regional.row;activeInitial+=r.canonicalTransferred;nativeStaticBirths+=r.nativeBorn;coldReserve+=r.coldReserve;activeCarriers++;allowance.positive+=r.partitionError.positive;allowance.negative+=r.partitionError.negative;allowance.roundoffBound+=r.provedRemainderBound;}else if(c.active){activeInitial+=c.quantity;activeCarriers++;if(!c.initialInTrial)nativeStaticBirths+=c.nativeQuantity;for(const k of Object.keys(allowance))allowance[k]+=c.partitionAllowance[k];}else coldReserve+=c.quantity;}done=true;}
+    validate();return {validate,commit,dispose(){done=true;next.clear();}};
   }
   function activate(id,install,{initialInTrial=false,nativeQuantity}={}){
     if(closed)throw Error('Source carrier ledger disposed');const c=carriers.get(id);if(!c)throw Error('Unknown source carrier '+id);if(c.active)return false;
@@ -47,5 +58,5 @@ export function createSourceCarrierLedger(records){
       Object.assign(result,{nativeClippingDelta:delta,nativePartitionError:{signedDelta:delta,...allowance},world:{initial:total,added:Math.max(0,added),remaining,airborne,burned,escaped,error}});
     }return result;
   }
-  return {activate,prepareActivations,isActive:id=>!closed&&!!carriers.get(id)?.active,metrics,snapshot:()=>[...carriers.values()].map(c=>({...c})),dispose(){closed=true;carriers.clear();}};
+  return {activate,prepareActivations,prepareHybridActivations,isRegional:id=>modes[id]==='regional',isActive:id=>!closed&&!!carriers.get(id)?.active,metrics,snapshot:()=>structuredClone([...carriers.values()]),dispose(){closed=true;carriers.clear();}};
 }

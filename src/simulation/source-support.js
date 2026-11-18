@@ -1,11 +1,13 @@
 import {createSourceSupportCalculations,sourceSupportRelation,createSourceEdgeCapture,recordSourceEdge,SOURCE_SUPPORT_TOLERANCE as TOLERANCE} from './source-support-calculations.js';
 import {claimPreparedSourceProvider,readPreparedSourceCalculation,releasePreparedSourceProvider} from './prepared-source-support.js';
+import {createHybridSourceSupport} from './hybrid-source-support.js';
 export {visitSourceContinuityCandidates} from './source-support-calculations.js';
 
 // The full metadata graph is cold; only activated sources have local native
 // patch nodes. Exact approved links replace cold identities as each source is
 // installed. Render section residency never enters this graph.
-export function createSourceSupportGraph({scene,model,querySource,preparedProvider=null,sourceIdentity=null}){
+export function createSourceSupportGraph({scene,model,querySource,preparedProvider=null,sourceIdentity=null,internalHybrid=null}){
+  if(internalHybrid){if(scene.data.internalHybrid!==true)throw Error('Internal hybrid support mode required');return createHybridSourceSupport({scene,querySource,definition:internalHybrid});}
   const {index}=scene,carriers=model.carrierById,active=new Map(),nodes=new Map(),links=new Map(),anchors=new Set(),relations=[],adjacency=[],metadataLinks=new Map(model.carriers.map(c=>[c.id,new Set()]));
   const exceptions=new Set();let structureDirty=true,graphVersion=0,lastRevision=-1,reachVersion=-1,reachCache,pendingReach,pendingCache=[],checks=0,initiallySupported,missingLocalLinks=0;
   // One current edge block per calculation; never retain transformed cold

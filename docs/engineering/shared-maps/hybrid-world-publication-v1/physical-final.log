@@ -1,0 +1,149 @@
+PHYSICAL_RESOURCES {"compiler":{"calls":0},"trial":{"created":0,"steps":0,"disposed":0},"actualNewYorkCalls":0,"fullNewYorkDiagnostics":0,"rendererCalls":0,"builds":0}
+TAP version 13
+# Subtest: architect repro: surviving original ports cannot bridge the removed strict embed
+ok 1 - architect repro: surviving original ports cannot bridge the removed strict embed
+  ---
+  duration_ms: 10.6419
+  type: 'test'
+  ...
+# Subtest: losing child material at the common witness also breaks the embed
+ok 2 - losing child material at the common witness also breaks the embed
+  ---
+  duration_ms: 2.1693
+  type: 'test'
+  ...
+# Subtest: open exterior facets fail closed without current closed material authority
+ok 3 - open exterior facets fail closed without current closed material authority
+  ---
+  duration_ms: 0.7157
+  type: 'test'
+  ...
+# Subtest: authoritative closed material can prove an embed for an exterior-only face view
+ok 4 - authoritative closed material can prove an embed for an exterior-only face view
+  ---
+  duration_ms: 1.8636
+  type: 'test'
+  ...
+# Subtest: a real closed void at the original witness defeats unchanged exterior ports
+ok 5 - a real closed void at the original witness defeats unchanged exterior ports
+  ---
+  duration_ms: 1.2881
+  type: 'test'
+  ...
+# Subtest: multiple closed boundary surfaces need authoritative material connectivity proof
+ok 6 - multiple closed boundary surfaces need authoritative material connectivity proof
+  ---
+  duration_ms: 2.2621
+  type: 'test'
+  ...
+# Subtest: different current closed components cannot share one original embed path
+ok 7 - different current closed components cannot share one original embed path
+  ---
+  duration_ms: 0.9547
+  type: 'test'
+  ...
+# Subtest: a common witness on the current material boundary is not a strict interior proof
+ok 8 - a common witness on the current material boundary is not a strict interior proof
+  ---
+  duration_ms: 0.8364
+  type: 'test'
+  ...
+# Subtest: an explicitly supplied open solid cannot fall back to the original closed parent
+ok 9 - an explicitly supplied open solid cannot fall back to the original closed parent
+  ---
+  duration_ms: 0.9115
+  type: 'test'
+  ...
+# Subtest: a real surviving joint stays live after its arbitrary exterior proxy is retired
+ok 10 - a real surviving joint stays live after its arbitrary exterior proxy is retired
+  ---
+  duration_ms: 2.1723
+  type: 'test'
+  ...
+# Subtest: an authoritative current closed slab still rejects a removed common witness
+ok 11 - an authoritative current closed slab still rejects a removed common witness
+  ---
+  duration_ms: 1.5544
+  type: 'test'
+  ...
+# Subtest: surviving common material cannot substitute a different fixed native record or cell
+ok 12 - surviving common material cannot substitute a different fixed native record or cell
+  ---
+  duration_ms: 1.1461
+  type: 'test'
+  ...
+# Subtest: both fixed lower ports and directed top give equal cold and native support
+ok 13 - both fixed lower ports and directed top give equal cold and native support
+  ---
+  duration_ms: 2.9328
+  type: 'test'
+  ...
+# Subtest: loss of either original lower port leaves the fitting and its upper unrooted
+ok 14 - loss of either original lower port leaves the fitting and its upper unrooted
+  ---
+  duration_ms: 1.6762
+  type: 'test'
+  ...
+# Subtest: upper and descendants cannot manufacture independently rooted roof support
+ok 15 - upper and descendants cannot manufacture independently rooted roof support
+  ---
+  duration_ms: 1.5329
+  type: 'test'
+  ...
+# Subtest: same-cell sibling cannot replace a retired fixed native owner
+ok 16 - same-cell sibling cannot replace a retired fixed native owner
+  ---
+  duration_ms: 0.9799
+  type: 'test'
+  ...
+# Subtest: both lower ports cannot root a fitting after its own material path separates
+ok 17 - both lower ports cannot root a fitting after its own material path separates
+  ---
+  duration_ms: 1.1484
+  type: 'test'
+  ...
+# Subtest: actual surviving material connects cold and native fragments and cannot bridge a retired gap
+ok 18 - actual surviving material connects cold and native fragments and cannot bridge a retired gap
+  ---
+  duration_ms: 0.8844
+  type: 'test'
+  ...
+# Subtest: fixed jambs support headers, moving leaves do not brace them, and reset invalidates generations
+ok 19 - fixed jambs support headers, moving leaves do not brace them, and reset invalidates generations
+  ---
+  duration_ms: 0.8166
+  type: 'test'
+  ...
+# Subtest: UI repro: unrelated valid ALL requirements can independently carry another fitting
+ok 20 - UI repro: unrelated valid ALL requirements can independently carry another fitting
+  ---
+  duration_ms: 4.9171
+  type: 'test'
+  ...
+# Subtest: removing independent lower grounding still leaves both dependent ALL fittings unrooted
+ok 21 - removing independent lower grounding still leaves both dependent ALL fittings unrooted
+  ---
+  duration_ms: 0.9657
+  type: 'test'
+  ...
+# Subtest: UI repro: caller mutation cannot relocate captured original grounding
+ok 22 - UI repro: caller mutation cannot relocate captured original grounding
+  ---
+  duration_ms: 0.4077
+  type: 'test'
+  ...
+# Subtest: original anchors require a named original part, finite elevation and valid component
+ok 23 - original anchors require a named original part, finite elevation and valid component
+  ---
+  duration_ms: 0.5965
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 124.7749

@@ -15,6 +15,7 @@ const reasons={
   'src/art/world.js':'Apply native elevation to existing NPC presentation.',
   'src/runtime/application.js':'Publish authoritative factory capabilities in active visit state.',
   'src/runtime/camera.js':'Keep source-map overview at original world bounds independently of player elevation.',
+  'src/runtime/collision.js':'Delegate an explicitly supplied source-domain sweep to the existing effective-query kernel; preserve ordinary triangle collision.',
   'src/runtime/index.js':'Forward frozen capabilities and the shared map/picker to one gameplay/presentation core; dispose the compiled owner and callbacks.',
   'src/runtime/navigation.js':'Extract pure native movement/support/door queries; preserve diagnostic exploration clocks.',
   'src/runtime/sections.js':'Prepare owned source-section views before residency, preserve late-load cleanup and opt into bounded source overview.',
@@ -22,9 +23,9 @@ const reasons={
   'src/simulation/config.js':'Resolve validated visit defaults once so New York camera and input share its front-side orientation; preserve global defaults.',
   'src/simulation/catalogue-thermal.js':'Compatibility entry delegates to the single scene-thermal provider; Catalogue remains the control.',
   'src/ui/index.js':'Accepted UI capability intake 2c866a6b and queued tool-intent correction 8f0cd574; immediate use follows the ordered input request while presentation remains snapshot-owned.',
-  'workbenches/furnished-house/geometry.js':'Extract the unchanged native gravity step and prevalidate atomic physical-index batches; return reference-counted unsubscribe handles for owned boundary watches.',
-  'workbenches/furnished-house/scene.js':'Stage sparse sources with the unchanged compiler/clipper/profiles, derive a separate local quantity envelope and preserve exact rigid door hardware; isolate the opt-in bounded compiler pilot and reject its partial outputs at the ordinary installer.',
-  'workbenches/furnished-house/simulation.js':'Commit native source batches without resetting heat/time; reuse native local support, inert falls, real rubble and pane retirement without fuel creation; dispose owned source-support memoization with the trial.',
+  'workbenches/furnished-house/geometry.js':'Extract the unchanged native gravity step, prevalidate physical batches and defer observers during an internal publication lease; keep owned boundary watches and effective cold crossings.',
+  'workbenches/furnished-house/scene.js':'Stage sparse sources with unchanged compiler/clipper/profiles and local quantity envelopes; preserve rigid doors, reject arbitrary partial outputs and admit authenticated regional receipts only in the disabled internal mode.',
+  'workbenches/furnished-house/simulation.js':'Install whole sources or authenticated regional receipts in the same trial without resetting heat/time; preserve native falls, support and fuel accounting; expose bounded diagnostic counters and an opt-in child step ceiling.',
   'workbenches/furnished-house/support.js':'Recognize shared-scene instance scope for the existing explicit native stair/support graph.',
   'tools/review/catalogue-browser.mjs':'Record task identity/deadline/server port before launch and verify cleanup even when browser launch fails; QA tooling only.'
 };

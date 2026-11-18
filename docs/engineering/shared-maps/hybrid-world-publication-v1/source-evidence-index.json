@@ -1,0 +1,1641 @@
+[
+  {
+    "receipt": "attempt-01.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08",
+        "bytes": 3811,
+        "rawSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08",
+        "snapshot": "source-evidence/4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c",
+        "bytes": 7662,
+        "rawSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c",
+        "snapshot": "source-evidence/f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "bytes": 25034,
+        "rawSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "snapshot": "source-evidence/cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda.txt",
+        "method": "Reverse later admission-context ownership gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5",
+        "bytes": 13999,
+        "rawSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5",
+        "snapshot": "source-evidence/107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a",
+        "bytes": 19296,
+        "rawSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a",
+        "snapshot": "source-evidence/8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "f7662a138ef4f981dffbfc085e4b9120219116218efbad0d8542cb606f332434",
+        "bytes": 61682,
+        "rawSha256": "05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70",
+        "snapshot": "source-evidence/05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70.txt",
+        "method": "Reverse later QA ceiling; exact observed LF pin required"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d",
+        "bytes": 8302,
+        "rawSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d",
+        "snapshot": "source-evidence/cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "8149683f442c361dfb0c6afebd910ad1da5b4f8925bb9398e21dfbb7952ba2be",
+        "bytes": 5676,
+        "rawSha256": "8149683f442c361dfb0c6afebd910ad1da5b4f8925bb9398e21dfbb7952ba2be",
+        "snapshot": "source-evidence/8149683f442c361dfb0c6afebd910ad1da5b4f8925bb9398e21dfbb7952ba2be.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "d838ac8666a7ec201531fda1b5e941354250413844bdc4327a8a2cbdcb09e954",
+        "bytes": 6017,
+        "rawSha256": "d838ac8666a7ec201531fda1b5e941354250413844bdc4327a8a2cbdcb09e954",
+        "snapshot": "source-evidence/d838ac8666a7ec201531fda1b5e941354250413844bdc4327a8a2cbdcb09e954.txt",
+        "method": "Saved observed source"
+      }
+    ]
+  },
+  {
+    "receipt": "attempt-02.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08",
+        "bytes": 3811,
+        "rawSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08",
+        "snapshot": "source-evidence/4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c",
+        "bytes": 7662,
+        "rawSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c",
+        "snapshot": "source-evidence/f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "bytes": 25034,
+        "rawSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "snapshot": "source-evidence/cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda.txt",
+        "method": "Reverse later admission-context ownership gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5",
+        "bytes": 13999,
+        "rawSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5",
+        "snapshot": "source-evidence/107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a",
+        "bytes": 19296,
+        "rawSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a",
+        "snapshot": "source-evidence/8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "f7662a138ef4f981dffbfc085e4b9120219116218efbad0d8542cb606f332434",
+        "bytes": 61682,
+        "rawSha256": "05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70",
+        "snapshot": "source-evidence/05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70.txt",
+        "method": "Reverse later QA ceiling; exact observed LF pin required"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d",
+        "bytes": 8302,
+        "rawSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d",
+        "snapshot": "source-evidence/cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "f902e2f3d1be3e23302a1653b52662729a5df666e42076642622365b9af52dee",
+        "bytes": 5713,
+        "rawSha256": "f902e2f3d1be3e23302a1653b52662729a5df666e42076642622365b9af52dee",
+        "snapshot": "source-evidence/f902e2f3d1be3e23302a1653b52662729a5df666e42076642622365b9af52dee.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "d838ac8666a7ec201531fda1b5e941354250413844bdc4327a8a2cbdcb09e954",
+        "bytes": 6017,
+        "rawSha256": "d838ac8666a7ec201531fda1b5e941354250413844bdc4327a8a2cbdcb09e954",
+        "snapshot": "source-evidence/d838ac8666a7ec201531fda1b5e941354250413844bdc4327a8a2cbdcb09e954.txt",
+        "method": "Saved observed source"
+      }
+    ]
+  },
+  {
+    "receipt": "attempt-03.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08",
+        "bytes": 3811,
+        "rawSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08",
+        "snapshot": "source-evidence/4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c",
+        "bytes": 7662,
+        "rawSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c",
+        "snapshot": "source-evidence/f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "bytes": 25034,
+        "rawSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "snapshot": "source-evidence/cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda.txt",
+        "method": "Reverse later admission-context ownership gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5",
+        "bytes": 13999,
+        "rawSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5",
+        "snapshot": "source-evidence/107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a",
+        "bytes": 19296,
+        "rawSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a",
+        "snapshot": "source-evidence/8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "f7662a138ef4f981dffbfc085e4b9120219116218efbad0d8542cb606f332434",
+        "bytes": 61682,
+        "rawSha256": "05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70",
+        "snapshot": "source-evidence/05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70.txt",
+        "method": "Reverse later QA ceiling; exact observed LF pin required"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d",
+        "bytes": 8302,
+        "rawSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d",
+        "snapshot": "source-evidence/cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "bytes": 5753,
+        "rawSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "snapshot": "source-evidence/f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0.txt",
+        "method": "Reverse later fixture revision metadata; exact observed LF pin required"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "d838ac8666a7ec201531fda1b5e941354250413844bdc4327a8a2cbdcb09e954",
+        "bytes": 6017,
+        "rawSha256": "d838ac8666a7ec201531fda1b5e941354250413844bdc4327a8a2cbdcb09e954",
+        "snapshot": "source-evidence/d838ac8666a7ec201531fda1b5e941354250413844bdc4327a8a2cbdcb09e954.txt",
+        "method": "Saved observed source"
+      }
+    ]
+  },
+  {
+    "receipt": "attempt-04.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08",
+        "bytes": 3811,
+        "rawSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08",
+        "snapshot": "source-evidence/4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c",
+        "bytes": 7662,
+        "rawSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c",
+        "snapshot": "source-evidence/f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "bytes": 25034,
+        "rawSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "snapshot": "source-evidence/cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda.txt",
+        "method": "Reverse later admission-context ownership gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5",
+        "bytes": 13999,
+        "rawSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5",
+        "snapshot": "source-evidence/107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a",
+        "bytes": 19296,
+        "rawSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a",
+        "snapshot": "source-evidence/8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "f7662a138ef4f981dffbfc085e4b9120219116218efbad0d8542cb606f332434",
+        "bytes": 61682,
+        "rawSha256": "05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70",
+        "snapshot": "source-evidence/05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70.txt",
+        "method": "Reverse later QA ceiling; exact observed LF pin required"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d",
+        "bytes": 8302,
+        "rawSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d",
+        "snapshot": "source-evidence/cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "bytes": 5753,
+        "rawSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "snapshot": "source-evidence/f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0.txt",
+        "method": "Reverse later fixture revision metadata; exact observed LF pin required"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "61180eed40e0d0e833740ddf2bd14a7aa242532bc403e485c9a5f127b3befd2c",
+        "bytes": 6075,
+        "rawSha256": "61180eed40e0d0e833740ddf2bd14a7aa242532bc403e485c9a5f127b3befd2c",
+        "snapshot": "source-evidence/61180eed40e0d0e833740ddf2bd14a7aa242532bc403e485c9a5f127b3befd2c.txt",
+        "method": "Saved observed source"
+      }
+    ]
+  },
+  {
+    "receipt": "attempt-05.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08",
+        "bytes": 3811,
+        "rawSha256": "4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08",
+        "snapshot": "source-evidence/4d1df490f56652414db37aff90d7bdbfbf7c04235b8aceebf2a5deec797d1c08.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c",
+        "bytes": 7662,
+        "rawSha256": "f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c",
+        "snapshot": "source-evidence/f399129a0483cd5671e7042bf13ae2092d77a1c02b850cf251fa76f5c8cb611c.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "bytes": 25034,
+        "rawSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "snapshot": "source-evidence/cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda.txt",
+        "method": "Reverse later admission-context ownership gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5",
+        "bytes": 13999,
+        "rawSha256": "107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5",
+        "snapshot": "source-evidence/107dcf0edb2241c452dbc3d70f17a4678463d4185049b7424832f6440f11f4c5.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a",
+        "bytes": 19296,
+        "rawSha256": "8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a",
+        "snapshot": "source-evidence/8da56aa438f66d891e8ed974b48631d2a57f7b84982d5525e74da9b67cf3915a.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "f7662a138ef4f981dffbfc085e4b9120219116218efbad0d8542cb606f332434",
+        "bytes": 61682,
+        "rawSha256": "05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70",
+        "snapshot": "source-evidence/05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70.txt",
+        "method": "Reverse later QA ceiling; exact observed LF pin required"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d",
+        "bytes": 8302,
+        "rawSha256": "cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d",
+        "snapshot": "source-evidence/cea5d919cd8826a6439defdcfd07c7807c1d3c2d2c0edf78cd05582fb797a90d.txt",
+        "method": "Saved observed source"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "bytes": 5753,
+        "rawSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "snapshot": "source-evidence/f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0.txt",
+        "method": "Reverse later fixture revision metadata; exact observed LF pin required"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "faa7c6d0b60eece9e02d30c84563d9f4ef0751bbc6be8c96a3d4a46d433f0ca6",
+        "bytes": 9190,
+        "rawSha256": "faa7c6d0b60eece9e02d30c84563d9f4ef0751bbc6be8c96a3d4a46d433f0ca6",
+        "snapshot": "source-evidence/faa7c6d0b60eece9e02d30c84563d9f4ef0751bbc6be8c96a3d4a46d433f0ca6.txt",
+        "method": "Reverse later fixture-only final append/import and diagnostic guard; exact observed LF pin required"
+      }
+    ]
+  },
+  {
+    "receipt": "attempt-06.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "6a439dd67f850c62ec1290bbc329ba0d2e24a3f15108224c1e725d98cf601be0",
+        "bytes": 4073,
+        "rawSha256": "6a439dd67f850c62ec1290bbc329ba0d2e24a3f15108224c1e725d98cf601be0",
+        "snapshot": "source-evidence/6a439dd67f850c62ec1290bbc329ba0d2e24a3f15108224c1e725d98cf601be0.txt",
+        "method": "Reverse later coupled source-revision gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "826f0f56cd3701017aab6fc740eaf0762d14cbdc9e0834a2036851933937488d",
+        "bytes": 7733,
+        "rawSha256": "826f0f56cd3701017aab6fc740eaf0762d14cbdc9e0834a2036851933937488d",
+        "snapshot": "source-evidence/826f0f56cd3701017aab6fc740eaf0762d14cbdc9e0834a2036851933937488d.txt",
+        "method": "Reverse later original-query identity gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "bytes": 25034,
+        "rawSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "snapshot": "source-evidence/cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda.txt",
+        "method": "Reverse later admission-context ownership gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "bytes": 14042,
+        "rawSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "snapshot": "source-evidence/a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "87c5bce00f0e42acdbd659241a02b1ed19cbe9e271131c5df8474e73c1f17b3b",
+        "bytes": 19442,
+        "rawSha256": "87c5bce00f0e42acdbd659241a02b1ed19cbe9e271131c5df8474e73c1f17b3b",
+        "snapshot": "source-evidence/87c5bce00f0e42acdbd659241a02b1ed19cbe9e271131c5df8474e73c1f17b3b.txt",
+        "method": "Reverse later admission revision/grid gate; exact observed LF pin required"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "f7662a138ef4f981dffbfc085e4b9120219116218efbad0d8542cb606f332434",
+        "bytes": 61682,
+        "rawSha256": "05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70",
+        "snapshot": "source-evidence/05bdf60797c7503ad641666d8cd72e5d72358b0202e2c51bd869ff0147294f70.txt",
+        "method": "Reverse later QA ceiling; exact observed LF pin required"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "bytes": 9049,
+        "rawSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "snapshot": "source-evidence/803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "bytes": 5753,
+        "rawSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "snapshot": "source-evidence/f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0.txt",
+        "method": "Reverse later fixture revision metadata; exact observed LF pin required"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "4fb6d32eb688c3b2380bd988ea96231456966be115e25dab02a070747be74215",
+        "bytes": 10508,
+        "rawSha256": "4fb6d32eb688c3b2380bd988ea96231456966be115e25dab02a070747be74215",
+        "snapshot": "source-evidence/4fb6d32eb688c3b2380bd988ea96231456966be115e25dab02a070747be74215.txt",
+        "method": "Reverse later diagnostic guard; exact observed LF pin required"
+      }
+    ]
+  },
+  {
+    "receipt": "attempt-07.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "6a439dd67f850c62ec1290bbc329ba0d2e24a3f15108224c1e725d98cf601be0",
+        "bytes": 4073,
+        "rawSha256": "6a439dd67f850c62ec1290bbc329ba0d2e24a3f15108224c1e725d98cf601be0",
+        "snapshot": "source-evidence/6a439dd67f850c62ec1290bbc329ba0d2e24a3f15108224c1e725d98cf601be0.txt",
+        "method": "Reverse later coupled source-revision gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "826f0f56cd3701017aab6fc740eaf0762d14cbdc9e0834a2036851933937488d",
+        "bytes": 7733,
+        "rawSha256": "826f0f56cd3701017aab6fc740eaf0762d14cbdc9e0834a2036851933937488d",
+        "snapshot": "source-evidence/826f0f56cd3701017aab6fc740eaf0762d14cbdc9e0834a2036851933937488d.txt",
+        "method": "Reverse later original-query identity gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "bytes": 25034,
+        "rawSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "snapshot": "source-evidence/cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda.txt",
+        "method": "Reverse later admission-context ownership gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "bytes": 14042,
+        "rawSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "snapshot": "source-evidence/a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "87c5bce00f0e42acdbd659241a02b1ed19cbe9e271131c5df8474e73c1f17b3b",
+        "bytes": 19442,
+        "rawSha256": "87c5bce00f0e42acdbd659241a02b1ed19cbe9e271131c5df8474e73c1f17b3b",
+        "snapshot": "source-evidence/87c5bce00f0e42acdbd659241a02b1ed19cbe9e271131c5df8474e73c1f17b3b.txt",
+        "method": "Reverse later admission revision/grid gate; exact observed LF pin required"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "8665bb22e688d21dadd9f51138608b73b1331c3d1616a40668400596840f8d4f",
+        "bytes": 61993,
+        "rawSha256": "646ce5eb78c30e3fc5f427b8a53fdeadf8888c6464d06bedd5686164d8a3fd22",
+        "snapshot": "source-evidence/646ce5eb78c30e3fc5f427b8a53fdeadf8888c6464d06bedd5686164d8a3fd22.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "bytes": 9049,
+        "rawSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "snapshot": "source-evidence/803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "bytes": 5753,
+        "rawSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "snapshot": "source-evidence/f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0.txt",
+        "method": "Reverse later fixture revision metadata; exact observed LF pin required"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "a374d4994f6605ba5fff1943afa531a21ee501ced3acb674e8740c560cb97b96",
+        "bytes": 10565,
+        "rawSha256": "a374d4994f6605ba5fff1943afa531a21ee501ced3acb674e8740c560cb97b96",
+        "snapshot": "source-evidence/a374d4994f6605ba5fff1943afa531a21ee501ced3acb674e8740c560cb97b96.txt",
+        "method": "Current source matches exact observed LF pin"
+      }
+    ]
+  },
+  {
+    "receipt": "final-coupled.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "434582e44477245026f93d113dfcade3af4bb34b80c36158d71e1568d25cfbe7",
+        "bytes": 4124,
+        "rawSha256": "434582e44477245026f93d113dfcade3af4bb34b80c36158d71e1568d25cfbe7",
+        "snapshot": "source-evidence/434582e44477245026f93d113dfcade3af4bb34b80c36158d71e1568d25cfbe7.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560",
+        "bytes": 8288,
+        "rawSha256": "6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560",
+        "snapshot": "source-evidence/6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "3220acf92551eb6af231654c445dd16535ebd490819ca5d710d495d432e02af4",
+        "bytes": 25141,
+        "rawSha256": "3220acf92551eb6af231654c445dd16535ebd490819ca5d710d495d432e02af4",
+        "snapshot": "source-evidence/3220acf92551eb6af231654c445dd16535ebd490819ca5d710d495d432e02af4.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "bytes": 14042,
+        "rawSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "snapshot": "source-evidence/a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e",
+        "bytes": 19844,
+        "rawSha256": "6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e",
+        "snapshot": "source-evidence/6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "8665bb22e688d21dadd9f51138608b73b1331c3d1616a40668400596840f8d4f",
+        "bytes": 61993,
+        "rawSha256": "646ce5eb78c30e3fc5f427b8a53fdeadf8888c6464d06bedd5686164d8a3fd22",
+        "snapshot": "source-evidence/646ce5eb78c30e3fc5f427b8a53fdeadf8888c6464d06bedd5686164d8a3fd22.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "bytes": 9049,
+        "rawSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "snapshot": "source-evidence/803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "0c701197a12f33ae9ab296b34e12d1b3e4709d1182f67f9645212953ef0b6f6b",
+        "bytes": 5789,
+        "rawSha256": "0c701197a12f33ae9ab296b34e12d1b3e4709d1182f67f9645212953ef0b6f6b",
+        "snapshot": "source-evidence/0c701197a12f33ae9ab296b34e12d1b3e4709d1182f67f9645212953ef0b6f6b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8",
+        "bytes": 12124,
+        "rawSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8",
+        "snapshot": "source-evidence/4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8.txt",
+        "method": "Current source matches exact observed LF pin"
+      }
+    ]
+  },
+  {
+    "receipt": "final-vetted.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "434582e44477245026f93d113dfcade3af4bb34b80c36158d71e1568d25cfbe7",
+        "bytes": 4124,
+        "rawSha256": "434582e44477245026f93d113dfcade3af4bb34b80c36158d71e1568d25cfbe7",
+        "snapshot": "source-evidence/434582e44477245026f93d113dfcade3af4bb34b80c36158d71e1568d25cfbe7.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560",
+        "bytes": 8288,
+        "rawSha256": "6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560",
+        "snapshot": "source-evidence/6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "3220acf92551eb6af231654c445dd16535ebd490819ca5d710d495d432e02af4",
+        "bytes": 25141,
+        "rawSha256": "3220acf92551eb6af231654c445dd16535ebd490819ca5d710d495d432e02af4",
+        "snapshot": "source-evidence/3220acf92551eb6af231654c445dd16535ebd490819ca5d710d495d432e02af4.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "bytes": 14042,
+        "rawSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "snapshot": "source-evidence/a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e",
+        "bytes": 19844,
+        "rawSha256": "6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e",
+        "snapshot": "source-evidence/6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "8665bb22e688d21dadd9f51138608b73b1331c3d1616a40668400596840f8d4f",
+        "bytes": 61993,
+        "rawSha256": "646ce5eb78c30e3fc5f427b8a53fdeadf8888c6464d06bedd5686164d8a3fd22",
+        "snapshot": "source-evidence/646ce5eb78c30e3fc5f427b8a53fdeadf8888c6464d06bedd5686164d8a3fd22.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "bytes": 9049,
+        "rawSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "snapshot": "source-evidence/803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "0c701197a12f33ae9ab296b34e12d1b3e4709d1182f67f9645212953ef0b6f6b",
+        "bytes": 5789,
+        "rawSha256": "0c701197a12f33ae9ab296b34e12d1b3e4709d1182f67f9645212953ef0b6f6b",
+        "snapshot": "source-evidence/0c701197a12f33ae9ab296b34e12d1b3e4709d1182f67f9645212953ef0b6f6b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8",
+        "bytes": 12124,
+        "rawSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8",
+        "snapshot": "source-evidence/4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8.txt",
+        "method": "Current source matches exact observed LF pin"
+      }
+    ]
+  },
+  {
+    "receipt": "legacy-final.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "6a439dd67f850c62ec1290bbc329ba0d2e24a3f15108224c1e725d98cf601be0",
+        "bytes": 4073,
+        "rawSha256": "6a439dd67f850c62ec1290bbc329ba0d2e24a3f15108224c1e725d98cf601be0",
+        "snapshot": "source-evidence/6a439dd67f850c62ec1290bbc329ba0d2e24a3f15108224c1e725d98cf601be0.txt",
+        "method": "Reverse later coupled source-revision gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "826f0f56cd3701017aab6fc740eaf0762d14cbdc9e0834a2036851933937488d",
+        "bytes": 7733,
+        "rawSha256": "826f0f56cd3701017aab6fc740eaf0762d14cbdc9e0834a2036851933937488d",
+        "snapshot": "source-evidence/826f0f56cd3701017aab6fc740eaf0762d14cbdc9e0834a2036851933937488d.txt",
+        "method": "Reverse later original-query identity gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "bytes": 25034,
+        "rawSha256": "cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda",
+        "snapshot": "source-evidence/cb398f726cabe3eb861d4d395b64040a2c9884eb7b922c96813001a2d2028fda.txt",
+        "method": "Reverse later admission-context ownership gate; exact observed LF pin required"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "bytes": 14042,
+        "rawSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "snapshot": "source-evidence/a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "87c5bce00f0e42acdbd659241a02b1ed19cbe9e271131c5df8474e73c1f17b3b",
+        "bytes": 19442,
+        "rawSha256": "87c5bce00f0e42acdbd659241a02b1ed19cbe9e271131c5df8474e73c1f17b3b",
+        "snapshot": "source-evidence/87c5bce00f0e42acdbd659241a02b1ed19cbe9e271131c5df8474e73c1f17b3b.txt",
+        "method": "Reverse later admission revision/grid gate; exact observed LF pin required"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "8665bb22e688d21dadd9f51138608b73b1331c3d1616a40668400596840f8d4f",
+        "bytes": 61993,
+        "rawSha256": "646ce5eb78c30e3fc5f427b8a53fdeadf8888c6464d06bedd5686164d8a3fd22",
+        "snapshot": "source-evidence/646ce5eb78c30e3fc5f427b8a53fdeadf8888c6464d06bedd5686164d8a3fd22.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "bytes": 9049,
+        "rawSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "snapshot": "source-evidence/803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "bytes": 5753,
+        "rawSha256": "f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0",
+        "snapshot": "source-evidence/f0acb1854d29eb3a2b3c263a53aa40c931a0db52ee084cbb2234f6b7e9c3fbf0.txt",
+        "method": "Reverse later fixture revision metadata; exact observed LF pin required"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "a374d4994f6605ba5fff1943afa531a21ee501ced3acb674e8740c560cb97b96",
+        "bytes": 10565,
+        "rawSha256": "a374d4994f6605ba5fff1943afa531a21ee501ced3acb674e8740c560cb97b96",
+        "snapshot": "source-evidence/a374d4994f6605ba5fff1943afa531a21ee501ced3acb674e8740c560cb97b96.txt",
+        "method": "Current source matches exact observed LF pin"
+      }
+    ]
+  },
+  {
+    "receipt": "physical-final.json",
+    "entries": [
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "434582e44477245026f93d113dfcade3af4bb34b80c36158d71e1568d25cfbe7",
+        "bytes": 4124,
+        "rawSha256": "434582e44477245026f93d113dfcade3af4bb34b80c36158d71e1568d25cfbe7",
+        "snapshot": "source-evidence/434582e44477245026f93d113dfcade3af4bb34b80c36158d71e1568d25cfbe7.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/collision.js",
+        "lfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+        "bytes": 5623,
+        "rawSha256": "b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb",
+        "snapshot": "source-evidence/b3fd88a2dbf14fd607ac2bad737c6509b2b19f604d9f0b4af9975e8635760ceb.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/source-query-registry.js",
+        "lfSha256": "6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560",
+        "bytes": 8288,
+        "rawSha256": "6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560",
+        "snapshot": "source-evidence/6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/map-navigation.js",
+        "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322",
+        "bytes": 5816,
+        "rawSha256": "4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6",
+        "snapshot": "source-evidence/4224508f08e295bf83306d090b21365c26773336dc87272fd843ab0c7ba1ccb6.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/original-support-ports.js",
+        "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "bytes": 15462,
+        "rawSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f",
+        "snapshot": "source-evidence/6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/regional-source-pilot.js",
+        "lfSha256": "3220acf92551eb6af231654c445dd16535ebd490819ca5d710d495d432e02af4",
+        "bytes": 25141,
+        "rawSha256": "3220acf92551eb6af231654c445dd16535ebd490819ca5d710d495d432e02af4",
+        "snapshot": "source-evidence/3220acf92551eb6af231654c445dd16535ebd490819ca5d710d495d432e02af4.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/scene-thermal.js",
+        "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652",
+        "bytes": 38670,
+        "rawSha256": "67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc",
+        "snapshot": "source-evidence/67acd945224434d3faa50dffcc89cefffed7428242caeb03f9df6e27c3c8d9dc.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-activation.js",
+        "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "bytes": 3488,
+        "rawSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d",
+        "snapshot": "source-evidence/146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-carriers.js",
+        "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b",
+        "bytes": 8538,
+        "rawSha256": "72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b",
+        "snapshot": "source-evidence/72972b745e5e30be64fb964b795f7bb4ab1417967a1abf35a71c3c859a1ef72b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/source-support.js",
+        "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "bytes": 10053,
+        "rawSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d",
+        "snapshot": "source-evidence/7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/geometry.js",
+        "lfSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "bytes": 14042,
+        "rawSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+        "snapshot": "source-evidence/a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e",
+        "bytes": 19844,
+        "rawSha256": "6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e",
+        "snapshot": "source-evidence/6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "workbenches/furnished-house/simulation.js",
+        "lfSha256": "8665bb22e688d21dadd9f51138608b73b1331c3d1616a40668400596840f8d4f",
+        "bytes": 61993,
+        "rawSha256": "646ce5eb78c30e3fc5f427b8a53fdeadf8888c6464d06bedd5686164d8a3fd22",
+        "snapshot": "source-evidence/646ce5eb78c30e3fc5f427b8a53fdeadf8888c6464d06bedd5686164d8a3fd22.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/runtime/hybrid-source-queries.js",
+        "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "bytes": 2972,
+        "rawSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0",
+        "snapshot": "source-evidence/4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "bytes": 5714,
+        "rawSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452",
+        "snapshot": "source-evidence/81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "bytes": 9049,
+        "rawSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f",
+        "snapshot": "source-evidence/803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "tests/fixtures/hybrid-world-data.mjs",
+        "lfSha256": "0c701197a12f33ae9ab296b34e12d1b3e4709d1182f67f9645212953ef0b6f6b",
+        "bytes": 5789,
+        "rawSha256": "0c701197a12f33ae9ab296b34e12d1b3e4709d1182f67f9645212953ef0b6f6b",
+        "snapshot": "source-evidence/0c701197a12f33ae9ab296b34e12d1b3e4709d1182f67f9645212953ef0b6f6b.txt",
+        "method": "Current source matches exact observed LF pin"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8",
+        "bytes": 12124,
+        "rawSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8",
+        "snapshot": "source-evidence/4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8.txt",
+        "method": "Current source matches exact observed LF pin"
+      }
+    ]
+  }
+]

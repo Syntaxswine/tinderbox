@@ -87,7 +87,9 @@ function segmentBox(from,to,b) {
 }
 
 export function createBoundaryIndex(records,binSize=1) {
-  const surfaces=new Map(),bins=new Map(),listeners=new Map(),pathListeners=new Map();let revision=0,membershipRevision=0;
+  const surfaces=new Map(),bins=new Map(),listeners=new Map(),pathListeners=new Map(),deferred=new Set(),mutationListeners=new Set();let revision=0,membershipRevision=0,publication=null,internalRead=false;
+  const readable=()=>{if(publication&&!internalRead)throw Error('Physical publication in progress');};
+  const notify=fn=>{if(publication)deferred.add(fn);else fn();};
   const binKey=(i,j,k)=>`${i},${j},${k}`;
   function visit(box,fn) { for(let k=Math.floor((box.min[2]-EPS)/binSize);k<=Math.floor((box.max[2]+EPS)/binSize);k++)for(let j=Math.floor((box.min[1]-EPS)/binSize);j<=Math.floor((box.max[1]+EPS)/binSize);j++)for(let i=Math.floor((box.min[0]-EPS)/binSize);i<=Math.floor((box.max[0]+EPS)/binSize);i++)fn(binKey(i,j,k)); }
   function put(record) {
@@ -96,7 +98,7 @@ export function createBoundaryIndex(records,binSize=1) {
     visit(s.bounds,key=>{if(!bins.has(key))bins.set(key,new Set());bins.get(key).add(s);});return s;
   }
   records.forEach(put);
-  function candidates(box) { const result=new Set();visit(box,key=>{for(const s of bins.get(key)||[])if(overlaps(box,s.bounds,(s.thickness||0)/2))result.add(s);});return [...result].sort((a,b)=>a.id.localeCompare(b.id)); }
+  function candidates(box) { readable();const result=new Set();visit(box,key=>{for(const s of bins.get(key)||[])if(overlaps(box,s.bounds,(s.thickness||0)/2))result.add(s);});return [...result].sort((a,b)=>a.id.localeCompare(b.id)); }
   function segmentCandidates(from,to,onBin=null) {
     const result=new Set(),delta=sub(to,from),c=from.map(v=>Math.floor(v/binSize)),end=to.map(v=>Math.floor(v/binSize)),step=delta.map(Math.sign),next=c.map((v,i)=>step[i]?(((v+(step[i]>0?1:0))*binSize-from[i])/delta[i]):Infinity),increment=delta.map(v=>v?binSize/Math.abs(v):Infinity);
     const include=cell=>{const key=binKey(...cell);onBin?.(key);for(const s of bins.get(key)||[])result.add(s);};include(c);
@@ -111,9 +113,10 @@ export function createBoundaryIndex(records,binSize=1) {
     return [...result].sort((a,b)=>a.id.localeCompare(b.id));
   }
   function crossings(from,to,{ignore=[],includeEndpoints=false}={}) {
-    const skip=new Set(ignore),hits=[];
+    readable();const skip=new Set(ignore),hits=[];
     for(const s of segmentCandidates(from,to)) {
       if(skip.has(s.id)||!segmentBox(from,to,s.bounds))continue;
+      if(s.queryCrossings){for(const h of s.queryCrossings(from,to,{includeEndpoints}))hits.push({...h,surface:s});continue;}
       let first=Infinity,normal=null;
       for(const t of s.solidTriangles||s.triangles) {const hit=segmentTriangle(from,to,t,s.thickness||0);if(hit!==null&&((includeEndpoints)||hit>EPS&&hit<1-EPS)&&hit<first){first=hit;const p=prepareTriangle(t);normal=[p.nx,p.ny,p.nz];}}
       if(first<Infinity)hits.push({surface:s,t:first,normal});
@@ -134,8 +137,9 @@ export function createBoundaryIndex(records,binSize=1) {
     if(Object.hasOwn(patch,'openingId')&&patch.openingId!==s.openingId)membershipRevision++;
     Object.assign(s,patch);revision++;
     if(moved)visit(s.bounds,key=>{if(!bins.has(key))bins.set(key,new Set());bins.get(key).add(s);for(const fn of pathListeners.get(key)||[])affected.add(fn);});
-    for(const fn of affected)fn();
-    for(const invalidate of listeners.get(id)?.keys()||[])invalidate();return s;
+    for(const fn of mutationListeners)notify(()=>fn(s));
+    for(const fn of affected)notify(fn);
+    for(const invalidate of listeners.get(id)?.keys()||[])notify(invalidate);return s;
   }
   function watch(ids,invalidate) {
     const owned=[...new Set(ids)];let subscribed=true;
@@ -148,12 +152,17 @@ export function createBoundaryIndex(records,binSize=1) {
   function addBatch(records){
     const ids=new Set();for(const record of records){if(!record.id||surfaces.has(record.id)||ids.has(record.id))throw Error('Duplicate new physical boundary '+record.id);ids.add(record.id);}
     const added=records.map(put),affected=new Set();
-    if(added.length){revision++;for(const s of added)visit(s.bounds,key=>{for(const fn of pathListeners.get(key)||[])affected.add(fn);});for(const fn of affected)fn();}
+    if(added.length){revision++;for(const s of added)visit(s.bounds,key=>{for(const fn of pathListeners.get(key)||[])affected.add(fn);});for(const fn of affected)notify(fn);}
     return added;
   }
   function supportAt(x,z,fromY,toY=-10) {
     const hits=crossings([x,fromY,z],[x,toY,z],{includeEndpoints:true});
     return hits.find(h=>h.surface.intact&&(h.surface.openFraction<1||h.surface.supportFromMesh&&h.surface.actualDoorPose)&&Math.abs((h.surface.supportFromMesh?h.normal:h.surface.normal)?.[1]??0)>.2&&h.surface.supports);
   }
-  return {surfaces,bins,put,addBatch,candidates,crossings,trace,change,watch,watchPath,supportAt,pass,get revision(){return revision;},get membershipRevision(){return membershipRevision;}};
+  return {surfaces,bins,put,addBatch,candidates,crossings,trace,change,watch,watchPath,supportAt,pass,
+    assertReadable:readable,isPublication:lease=>publication===lease&&lease!==null,
+    readDuringPublication(lease,fn){if(publication!==lease||!lease)throw Error('Physical publication lease required');internalRead=true;try{return fn();}finally{internalRead=false;}},
+    publish(fn){if(publication)throw Error('Reentrant physical publication');const lease=Object.freeze({});publication=lease;let result;try{result=fn(lease);}catch(error){deferred.clear();throw error;}finally{publication=null;}const callbacks=[...deferred];deferred.clear();for(const callback of callbacks)callback();return result;},
+    observeMutation(fn){mutationListeners.add(fn);return ()=>mutationListeners.delete(fn);},
+    get revision(){return revision;},get membershipRevision(){return membershipRevision;}};
 }

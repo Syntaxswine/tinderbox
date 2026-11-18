@@ -1,0 +1,1487 @@
+{
+  "baseline": "228d5e3c0761a470f243d02de8b5ac4a3cb27c41",
+  "method": "Parsed existing raw logs only; no compiler, trial, renderer or repeated test run.",
+  "acceptedRuns": [
+    "final-vetted",
+    "legacy-final",
+    "physical-final"
+  ],
+  "acceptedGroups": 36,
+  "overrun": {
+    "run": "attempt-06",
+    "steps": 96,
+    "originalLimit": 64,
+    "accepted": false,
+    "disclosed": true,
+    "acknowledged": true,
+    "authority": "authority.md#existing-comparison-allowance"
+  },
+  "actualNewYorkCalls": 0,
+  "fullNewYorkDiagnostics": 0,
+  "rendererCalls": 0,
+  "benchmarks": 0,
+  "builds": 0,
+  "pages": 0,
+  "defaultEnablement": 0,
+  "runs": [
+    {
+      "name": "attempt-01",
+      "receipt": "attempt-01.json",
+      "receiptSha256": "6e31931e0394bd3a3a41f15002560faf8d19103634592984f2d5ab67b98b132b",
+      "log": "attempt-01.log",
+      "logSha256": "3c5983560a10afccbe9d11aaec0962c59a6cd1e5d6d010e084a85d8f752048cd",
+      "observedPass": false,
+      "exitCode": 1,
+      "stats": {
+        "tests": 3,
+        "pass": 0,
+        "fail": 3,
+        "skipped": 0
+      },
+      "notOk": [
+        "coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port",
+        "stale, forged or changed stages cannot register partial physical/stock/query state",
+        "world index retirement synchronizes domains before observers; reset recreates one clean trial generation"
+      ],
+      "failure": "Fixture roof owner differed from the actual producer owner; no compilation or trial occurred.",
+      "wallMs": 216,
+      "resourceType": "HYBRID",
+      "resources": {
+        "compiler": {
+          "calls": 0
+        },
+        "trial": {
+          "created": 0,
+          "steps": 0,
+          "disposed": 0
+        },
+        "fixtures": [],
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    },
+    {
+      "name": "attempt-02",
+      "receipt": "attempt-02.json",
+      "receiptSha256": "3ca6fadee2de405dd11ca08db802a82d3b7b4c56d28bdf3266b67eb740b5d501",
+      "log": "attempt-02.log",
+      "logSha256": "bde1748e00a93072aa9bd1b0a23a3eac83c6cd8e7aa98a7b7f341427754349cd",
+      "observedPass": false,
+      "exitCode": 1,
+      "stats": {
+        "tests": 3,
+        "pass": 0,
+        "fail": 3,
+        "skipped": 0
+      },
+      "notOk": [
+        "coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port",
+        "stale, forged or changed stages cannot register partial physical/stock/query state",
+        "world index retirement synchronizes domains before observers; reset recreates one clean trial generation"
+      ],
+      "failure": "Fixture open sheets lacked closedShape:false; unchanged effective-query source guard rejected them.",
+      "wallMs": 237,
+      "resourceType": "HYBRID",
+      "resources": {
+        "compiler": {
+          "calls": 9
+        },
+        "trial": {
+          "created": 3,
+          "steps": 0,
+          "disposed": 3
+        },
+        "fixtures": [
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          }
+        ],
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    },
+    {
+      "name": "attempt-03",
+      "receipt": "attempt-03.json",
+      "receiptSha256": "27990693950be6fa8f04db2ab5e735054b71bdfed56c2bb2c2588359c89d8229",
+      "log": "attempt-03.log",
+      "logSha256": "64327382bf9673843387bb96f28bf5bdf54cc3086afc55b1e0b5964e88d2d685",
+      "observedPass": false,
+      "exitCode": 1,
+      "stats": {
+        "tests": 3,
+        "pass": 1,
+        "fail": 2,
+        "skipped": 0
+      },
+      "notOk": [
+        "coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port",
+        "world index retirement synchronizes domains before observers; reset recreates one clean trial generation"
+      ],
+      "failure": "Assertion incorrectly expected all support at a retired roof position to vanish while the unsupported fitting still awaited its normal fall.",
+      "wallMs": 312,
+      "resourceType": "HYBRID",
+      "resources": {
+        "compiler": {
+          "calls": 10
+        },
+        "trial": {
+          "created": 3,
+          "steps": 0,
+          "disposed": 3
+        },
+        "fixtures": [
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          }
+        ],
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    },
+    {
+      "name": "attempt-04",
+      "receipt": "attempt-04.json",
+      "receiptSha256": "499e1e61f9a88b0ecf254e608e0a13febd8a1ebb35729f01a969f009a6b96fa6",
+      "log": "attempt-04.log",
+      "logSha256": "4f5c3d57cdd5da3a884a460606efbaac009a1146872216424552b4ec535750a3",
+      "observedPass": false,
+      "exitCode": 1,
+      "stats": {
+        "tests": 3,
+        "pass": 2,
+        "fail": 1,
+        "skipped": 0
+      },
+      "notOk": [
+        "world index retirement synchronizes domains before observers; reset recreates one clean trial generation"
+      ],
+      "failure": "Fixture expected decimal 1.7 instead of the exact sum .5+.3+.9; the numerical assertion was corrected.",
+      "wallMs": 315,
+      "resourceType": "HYBRID",
+      "resources": {
+        "compiler": {
+          "calls": 12
+        },
+        "trial": {
+          "created": 4,
+          "steps": 1,
+          "disposed": 4
+        },
+        "fixtures": [
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          }
+        ],
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    },
+    {
+      "name": "attempt-05",
+      "receipt": "attempt-05.json",
+      "receiptSha256": "a0723ec483c1fb470331803cce695f22e132af483bc40f59af21389fac39a949",
+      "log": "attempt-05.log",
+      "logSha256": "e83a06b4a9c4de1680f345ba63413f66b806b0c3ce31c1fe77e5c6d36e839565",
+      "observedPass": true,
+      "exitCode": 0,
+      "stats": {
+        "tests": 5,
+        "pass": 5,
+        "fail": 0,
+        "skipped": 0
+      },
+      "notOk": [],
+      "failure": null,
+      "wallMs": 329,
+      "resourceType": "HYBRID",
+      "resources": {
+        "compiler": {
+          "calls": 18
+        },
+        "trial": {
+          "created": 6,
+          "steps": 1,
+          "disposed": 6
+        },
+        "fixtures": [
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 22,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 0,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          }
+        ],
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    },
+    {
+      "name": "attempt-06",
+      "receipt": "attempt-06.json",
+      "receiptSha256": "7ea15ae59e996e9ad5e51cd069be777ad416ca7d350d1ba2e98adec3e6009883",
+      "log": "attempt-06.log",
+      "logSha256": "288a8d443ee9e35c796979aea062340945d44f0f4fab1350d221b71aa93c8b61",
+      "observedPass": false,
+      "exitCode": 0,
+      "stats": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0
+      },
+      "notOk": [
+        "C:\\\\Users\\\\baals\\\\.codex\\\\worktrees\\\\coding-9200\\\\tinderbox\\\\tests\\\\integration\\\\hybrid-world-publication.test.mjs"
+      ],
+      "failure": "96 steps exceeded the original 64 limit because the affected-name filter included the unchanged legacy 2x45-step comparison. The after-hook failed despite Node exiting 0. Disclosed and acknowledged; never accepted as passing.",
+      "wallMs": 410,
+      "resourceType": "HYBRID",
+      "resources": {
+        "compiler": {
+          "calls": 30
+        },
+        "trial": {
+          "created": 11,
+          "steps": 96,
+          "disposed": 11
+        },
+        "fixtures": [
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 22,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 0,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          }
+        ],
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    },
+    {
+      "name": "attempt-07",
+      "receipt": "attempt-07.json",
+      "receiptSha256": "e00c2f12b4b9fed2ec026721986317359fc4c19c14f53ac5d283487d3e063523",
+      "log": "attempt-07.log",
+      "logSha256": "166cd7bf63a494d12e4621b1a25912e7ccac38a704aa6d879a23150a5a5c40bb",
+      "observedPass": true,
+      "exitCode": 0,
+      "stats": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "skipped": 0
+      },
+      "notOk": [],
+      "failure": null,
+      "wallMs": 397,
+      "resourceType": "HYBRID",
+      "resources": {
+        "compiler": {
+          "calls": 26
+        },
+        "trial": {
+          "created": 9,
+          "steps": 6,
+          "disposed": 9
+        },
+        "fixtures": [
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 22,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 0,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          }
+        ],
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    },
+    {
+      "name": "final-coupled",
+      "receipt": "final-coupled.json",
+      "receiptSha256": "ff7889dcf554b535e055ce612bcc239940a4624a32f9254d4c0f6304165f4672",
+      "log": "final-coupled.log",
+      "logSha256": "a3d551d941312c26b9569378cfa13d6f7a778f200767e5727bcd0b438c8a84f2",
+      "observedPass": false,
+      "exitCode": 1,
+      "stats": {
+        "tests": 13,
+        "pass": 12,
+        "fail": 1,
+        "skipped": 0
+      },
+      "notOk": [
+        "thermal-frontier activation preserves finite clocks and ignores distant unrelated cold stock"
+      ],
+      "failure": "Misplaced skip flag selected the legacy comparison in the 64-step child. The explicit hard guard stopped work at 64, failing that test. Flag moved before positional test paths.",
+      "wallMs": 419,
+      "resourceType": "HYBRID",
+      "resources": {
+        "compiler": {
+          "calls": 32
+        },
+        "trial": {
+          "created": 12,
+          "steps": 64,
+          "disposed": 12
+        },
+        "fixtures": [
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 22,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 0,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          }
+        ],
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    },
+    {
+      "name": "final-vetted",
+      "receipt": "final-vetted.json",
+      "receiptSha256": "ca5ff1d1e218eae73b73174a1973c871b6f114c5aff1c0a3710c638d8fc82669",
+      "log": "final-vetted.log",
+      "logSha256": "8370deea6fb8b175aac3d04c4a983fb911717c76ff29b3729ec2511a46706742",
+      "observedPass": true,
+      "exitCode": 0,
+      "stats": {
+        "tests": 12,
+        "pass": 12,
+        "fail": 0,
+        "skipped": 0
+      },
+      "notOk": [],
+      "failure": null,
+      "wallMs": 396,
+      "resourceType": "HYBRID",
+      "resources": {
+        "compiler": {
+          "calls": 28
+        },
+        "trial": {
+          "created": 10,
+          "steps": 6,
+          "disposed": 10
+        },
+        "fixtures": [
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 22,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 15,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 0,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 2,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 2,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          },
+          {
+            "compiler": 1,
+            "retainedReceipts": 0,
+            "logicalCells": 13,
+            "sourceTriangles": 18,
+            "query": {
+              "querySurfaces": 5,
+              "sourceParts": 4,
+              "sourceCarriers": 3,
+              "claimedCarriers": 0,
+              "cachedShapes": 0,
+              "cachedTriangles": 0,
+              "peakShapes": 6,
+              "peakTriangles": 32,
+              "peakWorkingTriangles": 0,
+              "shapeBuilds": 4,
+              "maxSingleQueryTriangles": 12,
+              "maxShapes": 192,
+              "maxTriangles": 65536,
+              "thermalCellsAllocated": 0,
+              "fuelAllocated": 0
+            }
+          }
+        ],
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    },
+    {
+      "name": "legacy-final",
+      "receipt": "legacy-final.json",
+      "receiptSha256": "e9607d6fe05615e8abb62e1548075d71d6cbbb94d4bf4e3ce713841fcabaec3d",
+      "log": "legacy-final.log",
+      "logSha256": "06ef38cdf9dd6723b65ba8c4f7a19101ff3a780901a9ef3114b01e56af1647d3",
+      "observedPass": true,
+      "exitCode": 0,
+      "stats": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "skipped": 0
+      },
+      "notOk": [],
+      "failure": null,
+      "wallMs": 229,
+      "resourceType": "LEGACY",
+      "resources": {
+        "compiler": {
+          "calls": 4
+        },
+        "trial": {
+          "created": 2,
+          "steps": 90,
+          "disposed": 2
+        },
+        "allowedAggregateSteps": 128,
+        "sourceCellsPerActivatedOwner": 4,
+        "activatedOwnersPerFixture": 2,
+        "sourceTrianglesPerFixture": 4,
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    },
+    {
+      "name": "physical-final",
+      "receipt": "physical-final.json",
+      "receiptSha256": "03a76d85ba11252038baddc3f4b2eac84bc22a55096b32c65b21a032235edeb1",
+      "log": "physical-final.log",
+      "logSha256": "7c63f0b3b212a9ad41cd86c9904303d25e88bf6336f3be3070e5e3d1df604399",
+      "observedPass": true,
+      "exitCode": 0,
+      "stats": {
+        "tests": 23,
+        "pass": 23,
+        "fail": 0,
+        "skipped": 0
+      },
+      "notOk": [],
+      "failure": null,
+      "wallMs": 335,
+      "resourceType": "PHYSICAL",
+      "resources": {
+        "compiler": {
+          "calls": 0
+        },
+        "trial": {
+          "created": 0,
+          "steps": 0,
+          "disposed": 0
+        },
+        "actualNewYorkCalls": 0,
+        "fullNewYorkDiagnostics": 0,
+        "rendererCalls": 0,
+        "builds": 0
+      }
+    }
+  ]
+}

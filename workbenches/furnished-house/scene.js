@@ -2,6 +2,9 @@ import {bounds,centre,triangleArea,clipTriangle,unit,cross,sub,createBoundaryInd
 import {prepareFurnishedData} from './prepare-data.js';
 import {sourcePartitionAllowance} from './partition-error.js';
 import {readRegionalCompileDomain} from './regional-domain.js';
+import {readRegionalWorldAdmission} from '../../src/simulation/regional-source-pilot.js';
+let compileCalls=0;
+export const sceneCompileDiagnostics=()=>({calls:compileCalls});
 
 export const CELL=[.5,1.06,.5], STEP=1/30;
 export const DEFAULT_PROFILES=Object.freeze({
@@ -28,9 +31,11 @@ export function doorGeometry(b,fraction){
   return {solidTriangles,bounds:bounds(solidTriangles.flat()),position:centre(plane.flat()),normal};
 }
 export function compileScene(data,{profiles={},onLoadPhase,querySource,regionalPilot=null}={}) {
+  compileCalls++;
   const region=regionalPilot?readRegionalCompileDomain(regionalPilot,data):null;
   if(data.partialCompilation&&!region||region&&querySource)throw Error('Isolated partial compilation is unavailable to world installation');
   data=prepareFurnishedData(data);
+  if(data.internalHybrid===true&&!/^[a-f0-9]{64}$/.test(data.hybridSourceRevision))throw Error('Pinned internal hybrid source revision required');
   if(data.version!==1||!Array.isArray(data.surfaces))throw Error('Expected version-1 artist house data');
   const origin=data.gridOrigin||[0,.48,0],pitch=data.thermalCell||CELL,cells=new Map(),fuels=new Map(),items=new Map(),parts=new Map(),boundaries=[];
   const profile={...DEFAULT_PROFILES,...profiles};let fuelTotal=0;
@@ -65,7 +70,7 @@ export function compileScene(data,{profiles={},onLoadPhase,querySource,regionalP
       const c=[x,y,z],clipBox={min:c.map((v,i)=>origin[i]+v*pitch[i]-EPS),max:c.map((v,i)=>origin[i]+(v+1)*pitch[i]+EPS)},clipped=triangles.flatMap(t=>clipTriangle(t,clipBox)),area=clipped.reduce((a,t)=>a+triangleArea(t),0);
       if(area<EPS)continue;
       const p=centre(clipped.flat()),single=[0,1,2].every(i=>lo[i]===hi[i]),id=single?s.id:`${s.id}@${key(c)}`,mat=typeof s.material==='string'?s.material:s.material?.physical||s.material?.id||'timber';
-      const b={...s,id,sourceSurfaceId:s.id,triangles:clipped,normal,area,position:p,bounds:bounds(clipped.flat()),intact:true,openFraction:0,transmission:materialTransmission(mat),supports:s.kind==='floor'||s.kind==='roof'||s.kind==='ground'||s.kind==='plinth'&&normal[1]>.2||s.supports===true};
+      const b={...s,id,sourceSurfaceId:s.id,triangles:clipped,normal,area,position:p,bounds:bounds(clipped.flat()),intact:true,openFraction:0,transmission:materialTransmission(mat),supports:s.kind==='floor'||s.kind==='roof'||s.kind==='ground'||s.kind==='plinth'&&normal[1]>.2||s.supports===true,...(data.internalHybrid===true?{sourceCell:[...c]}:{})};
       if(s.kind==='floor') {
         const offset=[0,-(s.thickness||.12),0],edges=new Map();
         for(const triangle of clipped)for(let i=0;i<3;i++){const a=triangle[i],end=triangle[(i+1)%3],key=[a.join(','),end.join(',')].sort().join('|');if(edges.has(key))edges.delete(key);else edges.set(key,[a,end]);}
@@ -145,15 +150,25 @@ export function compileScene(data,{profiles={},onLoadPhase,querySource,regionalP
     for(const s of sources.surfaces)if(s.sourceCarrierId){const id=s.sourceCarrierId;let p=proofs.get(id);if(!p){p={sourceQuantity:0,sourceCount:0,partitionError:{epsilon:EPS,positive:0,negative:0,roundoffBound:0,surfaces:[]}};proofs.set(id,p);}p.sourceQuantity+=s.fuelAmount+(s.finish?.amount||0);p.sourceCount++;if(s.fuelAmount>0||s.finish?.amount>0){const bound=sourcePartitionAllowance(s,{origin,pitch});p.partitionError.positive+=bound.positive;p.partitionError.negative+=bound.negative;p.partitionError.roundoffBound+=bound.roundoffBound;p.partitionError.surfaces.push({id:s.id,...bound});}}
     for(const f of fuelRecords){const source=definitions.get(f.sourceSurfaceId),id=source.sourceCarrierId||source.id;quantities.set(id,quantities.get(id)+f.amount);}
     function validate(){if(committed)throw Error('Native source addition already committed');for(const s of sources.surfaces)if(sourceDefinitions.has(s.id))throw Error('Native source appeared during staging '+s.id);for(const b of boundaries)if(index.surfaces.has(b.id))throw Error('Native boundary appeared during staging '+b.id);for(const f of fuelRecords)if(fuels.has(f.id))throw Error('Native fuel appeared during staging '+f.id);}
-    return {quantity:fragment.initialFuel,quantities:[...quantities].map(([id,nativeQuantity])=>({id,nativeQuantity,...proofs.get(id)})),boundaries:boundaries.length,fuels:fuelRecords.length,validate,commit(){
-      validate();const newCellIds=[...fragment.cells.keys()].filter(id=>!cells.has(id)),remap=c=>cell(c.c);
+    function install(){const newCellIds=[...fragment.cells.keys()].filter(id=>!cells.has(id)),remap=c=>cell(c.c);
       for(const c of fragment.cells.values())remap(c);
       for(const f of fuelRecords)addFuel({...f,cells:f.cells.map(remap)});
       const added=index.addBatch(boundaries.map(b=>({...b,heatCells:b.heatCells?.map(remap)})));
       for(const s of sources.surfaces)sourceDefinitions.set(s.id,s);committed=true;
       return {quantity:fragment.initialFuel,boundaries:added,fuelIds:fuelRecords.map(f=>f.id),sourceIds:[...ids],newCellIds};
-    }};
+    }
+    return {quantity:fragment.initialFuel,quantities:[...quantities].map(([id,nativeQuantity])=>({id,nativeQuantity,...proofs.get(id)})),records:boundaries,boundaries:boundaries.length,fuels:fuelRecords.length,validate,
+      seal(lease){if(!index.isPublication(lease))throw Error('Physical publication lease required');validate();return ()=>{if(committed||!index.isPublication(lease))throw Error('Stale physical stage');return install();};},
+      commit(){validate();return install();},dispose(){fragment.index.surfaces.clear();fragment.cells.clear();fragment.fuels.clear();fragment.sourceDefinitions.clear();boundaries.length=0;fuelRecords.length=0;definitions.clear();proofs.clear();committed=true;}};
   }
-  return {data,origin,pitch,profile,cells,fuels,items,parts,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor,sourceDefinitions,prepareSources,...(region?{partialCompilation:true,regionalTrace:region.trace}:{})};
+  function prepareRegionalSources(token){
+    if(data.internalHybrid!==true||region)throw Error('Internal hybrid world required');const admission=readRegionalWorldAdmission(token),context=admission.context,records=[],fuelRecords=[],definitions=new Map(),localCells=new Map(),ids=new Set();if(context.sourceRevision!==data.hybridSourceRevision||JSON.stringify(context.grid.origin)!==JSON.stringify(origin)||JSON.stringify(context.grid.pitch)!==JSON.stringify(pitch))throw Error('Regional world revision/grid mismatch');let done=false,bundles=admission.bundles;
+    for(const b of bundles){for(const e of b.entries){if(ids.has(e.record.id))throw Error('Duplicate staged regional boundary');ids.add(e.record.id);records.push({...b.scene.index.surfaces.get(e.record.id),sourceCell:[...e.cell]});}for(const f of b.scene.fuels.values())fuelRecords.push(f);for(const[id,s]of b.scene.sourceDefinitions)definitions.set(id,s);for(const[id,c]of b.scene.cells)localCells.set(id,c);}
+    const quantity=fuelRecords.reduce((n,f)=>n+f.amount,0);
+    function validate(){if(done)throw Error('Regional stage disposed/committed');admission.validate();for(const b of records)if(index.surfaces.has(b.id))throw Error('Duplicate regional native boundary');for(const f of fuelRecords)if(fuels.has(f.id)||!profile[f.cls])throw Error('Duplicate/unknown regional native fuel');for(const[id,s]of definitions)if(sourceDefinitions.has(id)&&sourceDefinitions.get(id)!==s)throw Error('Regional source definition changed');}
+    function install(){const newCellIds=[...localCells.keys()].filter(id=>!cells.has(id)),remap=c=>cell(c.c);for(const c of localCells.values())remap(c);for(const f of fuelRecords)addFuel({...f,cells:f.cells.map(remap)});const added=index.addBatch(records.map(b=>({...b,heatCells:b.heatCells?.map(remap)})));for(const[id,s]of definitions)sourceDefinitions.set(id,s);done=true;admission.dispose();return {quantity,boundaries:added,fuelIds:fuelRecords.map(f=>f.id),sourceIds:[...definitions.keys()],newCellIds};}
+    validate();return {quantity,quantities:[],records,boundaries:records.length,fuels:fuelRecords.length,validate,seal(lease){if(!index.isPublication(lease))throw Error('Physical publication lease required');validate();return ()=>{if(done||!index.isPublication(lease))throw Error('Stale regional physical stage');return install();};},commit(){validate();return install();},dispose(){if(!done){done=true;admission.dispose();}records.length=0;fuelRecords.length=0;definitions.clear();localCells.clear();bundles=null;}};
+  }
+  return {data,origin,pitch,profile,cells,fuels,items,parts,index,coords,position,cell,cellAt,key,initialFuel:fuelTotal,groundY,houseBox,addFuel,poseDoor,sourceDefinitions,prepareSources,prepareRegionalSources,...(region?{partialCompilation:true,regionalTrace:region.trace}:{})};
 }
 const dotPlane=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];

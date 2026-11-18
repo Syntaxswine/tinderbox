@@ -1,0 +1,54 @@
+import {createRegionalWorldSource,readRegionalWorldAdmission} from './regional-source-pilot.js';
+
+// Disabled internal coordinator. One existing trial/index/ledger; no new clock.
+export function createHybridWorldPublication({trial,querySource,ledger,sources,onActivated=()=>{},internalHybrid}){
+  if(internalHybrid?.mode!=='hybrid-world-v1'||trial.scene.data.internalHybrid!==true)throw Error('Disabled internal hybrid mode must be explicit');
+  const index=trial.scene.index,reader=createRegionalWorldSource(internalHybrid.producer),pending=new Set(),held=new Set(),wholeClaims=new Set(),retired=new Set(),nativeIds=new Set(),activeCarriers=new Map(),sourcePins=[];let closed=false,publishing=false,regional,unsubscribe,current,sequence=0;
+  const live=()=>{if(closed)throw Error('Hybrid publication disposed');reader.context();};
+  const visible=()=>{live();index.assertReadable();return current;};
+  try{
+    const context=reader.context();for(const o of context.owners)if(!ledger.isRegional(o.id))throw Error('Regional mode must be selected before birth');
+    for(const s of context.surfaces){sourcePins.push(querySource.reserveSourceGeometry('producer/'+s.id,s.triangles));if(s.solidTriangles&&s.solidTriangles!==s.triangles)sourcePins.push(querySource.reserveSourceGeometry('producer-solid/'+s.id,s.solidTriangles));}
+    const querySources=typeof internalHybrid.querySources==='function'?internalHybrid.querySources(context):internalHybrid.querySources;regional=querySource.configureRegional(reader,querySources);
+    const support=trial.supportGraph;if(!support.prepare||!support.configure)throw Error('Original hybrid support participant required');
+    support.configure(()=>({records:[...index.surfaces.values()],regional,wholeClaims}));
+    current=Object.freeze({generation:context.generation,revision:0,indexRevision:index.revision});held.add(current);
+    function prepare({whole=[],receipts=[],retireRecords=[],expected=current}={}){
+      live();if(expected!==current||held.size>=16)throw Error('Stale publication or release held hybrid views');const original=current,indexRevision=index.revision,wholeIds=[...new Set(whole)],kills=[...retireRecords];
+      if(wholeIds.length!==whole.length||new Set(kills).size!==kills.length||kills.some(id=>!nativeIds.has(id)||retired.has(id)))throw Error('Unknown/duplicate hybrid owner or retirement');for(const id of wholeIds)if(ledger.isRegional(id)||ledger.isActive(id))throw Error('Owner mode/whole source already claimed');
+      let admission,wholePhysical,regionalPhysical,queryStage,claim,stock,supportStage,done=false,plan;const physical=[];
+      function dispose(){if(done)return;done=true;for(const p of physical)p.dispose?.();queryStage?.dispose();stock?.dispose();supportStage?.dispose();if(admission)try{readRegionalWorldAdmission(admission).dispose();}catch{}pending.delete(plan);}
+      try{
+        const bundles=wholeIds.map(id=>sources.sourcesForCarrier(id,querySource.portalStates()));if(bundles.length){wholePhysical=trial.prepareSources({surfaces:bundles.flatMap(b=>b.surfaces),openings:bundles.flatMap(b=>b.openings||[])});physical.push(wholePhysical);}
+        let regionalRows=[];const slices=receipts.map(r=>reader.slice(r));if(receipts.length){admission=reader.admission(receipts);regionalRows=readRegionalWorldAdmission(admission).bundles.map(b=>b.stock);regionalPhysical=trial.prepareSources(null,{regionalAdmission:admission});physical.push(regionalPhysical);}
+        const nativeKills=kills.filter(id=>index.surfaces.get(id)&&regional.has(index.surfaces.get(id).nativePartId));queryStage=regional.prepare(slices,nativeKills);claim=querySource.prepareClaim(wholeIds);
+        const amount=physical.reduce((n,p)=>n+p.quantity,0);stock=ledger.prepareHybridActivations(wholePhysical?.quantities||[],regionalRows,amount);
+        const records=[...index.surfaces.values()].filter(b=>!kills.includes(b.id)),seen=new Set(records.map(b=>b.id));for(const p of physical)for(const b of p.records){if(seen.has(b.id))throw Error('Duplicate hybrid physical native ID');seen.add(b.id);records.push(b);}const nextWhole=new Set([...wholeClaims,...wholeIds]);supportStage=support.prepare(records,queryStage,nextWhole);
+        function unchanged(){if(done||closed||current!==original||index.revision!==indexRevision)throw Error('Stale hybrid publication');}
+        function validate(){live();unchanged();for(const p of physical)p.validate();queryStage.validate();claim.validate();stock.validate();supportStage.validate();live();unchanged();}
+        validate();
+        plan=Object.freeze({validate,publish(){validate();let next;const publishedSources=physical.flatMap(p=>p.records.map(b=>b.sourceSurfaceId));
+          index.publish(lease=>{publishing=true;try{
+            const installs=physical.map(p=>p.seal(lease)),installQueries=queryStage.seal();validate();
+            const results=installs.map(install=>install());claim.commit();installQueries();stock.commit();for(const id of kills){retired.add(id);if(index.surfaces.get(id).intact)index.change(id,{intact:false,openFraction:1});}supportStage.commit();
+            for(const r of results)for(const b of r.boundaries)nativeIds.add(b.id);for(const id of wholeIds)wholeClaims.add(id);for(let i=0;i<wholeIds.length;i++)activeCarriers.set(wholeIds[i],bundles[i]);for(const r of receipts){const owner=r.descriptor.ownerId;claimedRegions.add(owner+'@'+r.descriptor.cellMin.join(','));activeCarriers.set(owner,{surfaces:context.surfaces.filter(s=>s.sourceCarrierId===owner),openings:[]});}
+            next=Object.freeze({generation:original.generation,revision:++sequence,indexRevision:index.revision});current=next;held.add(next);done=true;pending.delete(plan);
+            index.readDuringPublication(lease,()=>trial.replaceSupportReferences(claim.proxyIds));
+            for(const p of physical)p.dispose();
+          }finally{publishing=false;}});
+          onActivated({carrierIds:[...new Set([...wholeIds,...receipts.map(r=>r.descriptor.ownerId)])],sourceIds:publishedSources,reason:'internal-hybrid',nativeTick:trial.tick,quantity:amount});return next;
+        },dispose});pending.add(plan);return plan;
+      }catch(error){dispose();throw error;}
+    }
+    function ensure(ids,reason='frontier',point=null){live();const whole=ids.filter(id=>!ledger.isRegional(id)&&!ledger.isActive(id)),receipts=[];try{for(const id of ids.filter(id=>ledger.isRegional(id))){if(!Array.isArray(point)||point.length!==3||!point.every(Number.isFinite))throw Error('Regional owner requires an explicit point/region; whole fallback forbidden');for(const descriptor of internalHybrid.producer.regions(id)){const key=id+'@'+descriptor.cellMin.join(',');if(claimedRegions.has(key))continue;const min=descriptor.cellMin.map((v,i)=>context.grid.origin[i]+v*context.grid.pitch[i]),max=descriptor.cellMaxExclusive.map((v,i)=>context.grid.origin[i]+v*context.grid.pitch[i]);if(Math.hypot(...point.map((v,i)=>Math.max(min[i]-v,v-max[i],0)))<=trial.rules.radiantRange)receipts.push(internalHybrid.producer.compile(descriptor));}}
+      if(!whole.length&&!receipts.length)return false;const before=current,p=prepare({whole,receipts});try{p.publish();held.delete(before);return true;}catch(error){p.dispose();throw error;}}finally{for(const r of receipts)r.dispose();}}
+    const claimedRegions=new Set();
+    unsubscribe=index.observeMutation(b=>{if(!closed&&!publishing&&!b.intact&&nativeIds.has(b.id)&&!retired.has(b.id)){const old=current;prepare({retireRecords:[b.id]}).publish();if(held.has(old))held.delete(old);}});
+    const api={prepare,state:visible,release(view){visible();if(view===current||!held.delete(view))throw Error('Unknown/current hybrid view');},
+      ensure,ensurePoint(point,reason='frontier'){return ensure(sources.near(point,trial.rules.radiantRange),reason,point);},beforeStep(){for(const site of trial.hotSites())api.ensurePoint(site.position,'thermal-frontier');},ensurePortal(id){const ids=sources.portalCarriers?.(id)||[];ensure(ids,'door');return ids.flatMap(owner=>(activeCarriers.get(owner)?.openings||[]).filter(o=>o.portalId===id).map(o=>o.id));},
+      isActive:ledger.isActive,sourceForCarrier:id=>activeCarriers.get(id),sourceIdsForPart:id=>[...index.surfaces.values()].filter(b=>!b.queryOnly&&b.nativePartId===id).map(b=>b.sourceSurfaceId),
+      metrics:()=>({internalDisabledMode:true,publication:current,heldViews:held.size,pendingStages:pending.size,nativeRecords:nativeIds.size,retiredRecords:retired.size,queries:querySource.metrics(),regional:regional.diagnostics(),stock:ledger.metrics(trial.metrics().fuel),support:support.diagnostics()}),
+      dispose(){if(closed)return;for(const p of [...pending])p.dispose();unsubscribe?.();regional?.dispose();for(const p of sourcePins)p.release();sourcePins.length=0;reader.dispose();closed=true;held.clear();nativeIds.clear();retired.clear();wholeClaims.clear();activeCarriers.clear();current=null;}
+    };return api;
+  }catch(error){unsubscribe?.();regional?.dispose();for(const p of sourcePins)p.release();reader.dispose({advance:false});throw error;}
+}

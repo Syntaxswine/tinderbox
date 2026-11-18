@@ -1,0 +1,57 @@
+import test,{after} from 'node:test';
+import assert from 'node:assert/strict';
+import {world,newProducer} from '../fixtures/hybrid-world-data.mjs';
+import {sceneCompileDiagnostics} from '../../workbenches/furnished-house/scene.js';
+import {trialDiagnostics,limitDiagnosticTrialSteps} from '../../workbenches/furnished-house/simulation.js';
+import {sweptCylinderClear} from '../../src/runtime/collision.js';
+import {createOriginalSupportPorts} from '../../src/simulation/original-support-ports.js';
+import {boxTriangles} from '../fixtures/regional-query-data.mjs';
+import {createSourceQueryRegistry} from '../../src/runtime/source-query-registry.js';
+const resources=[];
+limitDiagnosticTrialSteps(64);
+const dispose=f=>{const p=f.producer;f.dispose();resources.push({compiler:p.diagnostics().nativeCalls,retainedReceipts:p.diagnostics().retainedReceipts,logicalCells:f.logicalCells,sourceTriangles:f.sourceTriangles,query:f.queries.metrics()});};
+const balanced=f=>{const m=f.ledger.metrics(f.trial.metrics().fuel);assert.ok(Math.abs(m.world.error+m.nativeClippingDelta)<1e-10);assert.ok(m.nativeClippingDelta<=m.nativePartitionError.positive&&m.nativeClippingDelta>=-m.nativePartitionError.negative);return m;};
+const roofAt=(f,x)=>f.trial.scene.index.crossings([x,.2,.2],[x,-.1,.2],{includeEndpoints:true}).filter(h=>h.surface.intact&&h.surface.nativePartId==='roof-a');
+after(()=>{const trial=trialDiagnostics();console.log('HYBRID_RESOURCES '+JSON.stringify({compiler:sceneCompileDiagnostics(),trial,fixtures:resources,actualNewYorkCalls:0,fullNewYorkDiagnostics:0,rendererCalls:0,builds:0}));assert.ok(trial.steps<=64);assert.ok(resources.every(r=>r.logicalCells<=64&&r.sourceTriangles<=256&&r.retainedReceipts===0&&r.query.cachedTriangles===0&&r.query.cachedShapes===0));});
+
+test('coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port',()=>{
+  let callbacks=0;const f=world({onActivated(){callbacks++;assert.ok(f.activation.state().revision>0);balanced(f);}});try{
+    const initial=f.activation.state();assert.equal(sweptCylinderClear({x:1.3,y:.2},{x:1.3,y:.2},.05,-.01,.01,f.queries.shape('roof-a')),false);const r=f.receipt([0,0,0]),plan=f.activation.prepare({whole:['floor-owner','fit-owner'],receipts:[r]});assert.equal(f.trial.scene.fuels.size,0);assert.equal(f.activation.state(),initial);plan.validate();const first=plan.publish();assert.equal(callbacks,1);assert.equal(first.revision,1);assert.ok(f.trial.scene.fuels.size>0);assert.ok(f.queries.isClaimedPart('floor'));assert.equal(f.queries.shape('floor').triangles.length,0);assert.ok(f.trial.scene.index.supportAt(3.2,.2,.2,-.1),'unactivated roof stays cold');
+    assert.ok(f.trial.supportGraph.snapshot().ports.every(p=>p.live));assert.deepEqual(f.trial.supportGraph.unsupported(),[]);const lower=f.trial.supportGraph.snapshot().ports.find(p=>p.id==='roof-bearing').parent;assert.ok(f.trial.scene.index.surfaces.has(lower));const before=balanced(f),fuel=f.trial.metrics().fuel.added;
+    f.activation.prepare({retireRecords:[lower]}).publish();assert.equal(f.trial.scene.index.surfaces.get(lower).intact,false);assert.deepEqual(roofAt(f,1.3),[]);assert.equal(sweptCylinderClear({x:1.3,y:.2},{x:1.3,y:.2},.05,-.01,.01,f.queries.shape('roof-a')),true);const unsupported=f.trial.supportGraph.unsupported();assert.ok(unsupported.some(b=>b.nativePartId==='fit'));assert.ok(unsupported.some(b=>b.nativePartId==='roof-b'));assert.equal(f.trial.supportGraph.snapshot().ports.find(p=>p.id==='roof-bearing').live,false);assert.equal(balanced(f).coldReserve,before.coldReserve);
+    const next=f.receipt([4,0,0]);f.activation.prepare({receipts:[next]}).publish();assert.equal(balanced(f).coldReserve,0);assert.ok(f.trial.metrics().fuel.added>fuel);assert.deepEqual(roofAt(f,1.3),[]);assert.ok(f.trial.scene.index.supportAt(3.2,.2,.2,-.1));assert.throws(()=>f.activation.prepare({receipts:[r]}),/overlapping|Duplicate/);assert.equal(f.activation.ensure(['floor-owner']),false);assert.throws(()=>f.activation.ensure(['roof-owner']),/explicit point/);assert.equal(f.trial.tick,0);f.trial.step(1);balanced(f);
+    const q=f.queries.metrics();assert.ok(q.cachedShapes<=192&&q.cachedTriangles+q.peakWorkingTriangles<=65536);f.activation.release(initial);f.activation.release(first);
+  }finally{dispose(f);}
+});
+
+test('stale, forged or changed stages cannot register partial physical/stock/query state',()=>{
+  const f=world();try{
+    const cold=f.activation.state(),r=f.receipt([0,0,0]);assert.throws(()=>f.activation.prepare({receipts:[{...r}]}),/Unknown|stale/);assert.equal(f.activation.state(),cold);assert.equal(f.trial.scene.fuels.size,0);
+    const a=f.activation.prepare({whole:['floor-owner']}),z=f.activation.prepare({receipts:[r]});z.publish();const keep=f.activation.state(),quantity=f.trial.metrics().fuel.added;assert.throws(()=>a.publish(),/Stale/);a.dispose();assert.equal(f.activation.state(),keep);assert.equal(f.trial.metrics().fuel.added,quantity);assert.equal(f.queries.isClaimedPart('floor'),false);
+    const other=f.receipt([4,0,0]),pending=f.activation.prepare({receipts:[other]});other.dispose();assert.throws(()=>pending.publish(),/stale|changed|disposed/);pending.dispose();assert.equal(f.activation.state(),keep);assert.equal(f.trial.metrics().fuel.added,quantity);balanced(f);
+  }finally{dispose(f);}
+});
+
+test('world index retirement synchronizes domains before observers; reset recreates one clean trial generation',()=>{
+  const producer=newProducer(),f=world({producer});let newer;try{
+    const r=f.receipt([0,0,0]),descriptor=producer.region('roof-owner',[4,0,0]);f.activation.prepare({whole:['floor-owner','fit-owner'],receipts:[r]}).publish();const id=f.trial.supportGraph.snapshot().ports.find(p=>p.id==='roof-bearing').parent;let watched=0;f.trial.scene.index.watch([id],()=>{watched++;assert.deepEqual(roofAt(f,1.3),[]);assert.equal(f.trial.supportGraph.snapshot().ports.find(p=>p.id==='roof-bearing').live,false);});f.trial.scene.index.change(id,{intact:false});assert.equal(watched,1);balanced(f);const old=f.activation.state(),pending=f.activation.prepare();dispose(f);
+    assert.throws(()=>pending.publish(),/disposed|Stale/);assert.throws(()=>f.activation.state(),/disposed/);assert.throws(()=>producer.compile(descriptor),/stale/);newer=world({producer});assert.ok(newer.activation.state().generation>old.generation);assert.equal(newer.trial.scene.fuels.size,0);assert.equal(newer.ledger.metrics().coldReserve,.5+.3+.9);assert.throws(()=>newer.activation.prepare({receipts:[r]}),/stale/);
+  }finally{if(newer)dispose(newer);else if(f.queries.metrics().cachedShapes)dispose(f);producer.dispose();}
+});
+
+test('final receipt liveness rejects reentrant publication and a bad whole quantity before any partial birth',()=>{
+  const f=world();try{const aReceipt=f.receipt([0,0,0]),zReceipt=f.receipt([4,0,0]),a=f.activation.prepare({whole:['floor-owner','fit-owner'],receipts:[aReceipt]}),z=f.activation.prepare({receipts:[zReceipt]}),descriptor=Object.getOwnPropertyDescriptor(aReceipt.scene,'index');Object.defineProperty(aReceipt.scene,'index',{configurable:true,get(){Object.defineProperty(aReceipt.scene,'index',descriptor);z.publish();return descriptor.value;}});assert.throws(()=>a.publish(),/Stale|stale/);a.dispose();assert.equal(f.activation.state().revision,1);assert.equal(f.queries.isClaimedPart('floor'),false);assert.ok([...f.trial.scene.fuels.values()].every(x=>x.sourceSurfaceId==='roof-a-face'));balanced(f);
+  }finally{dispose(f);}
+  const bad=world({installedAmount:2});try{const before=bad.activation.state(),stock=bad.ledger.snapshot();assert.throws(()=>bad.activation.prepare({whole:['floor-owner']}),/canonical stock/);assert.equal(bad.activation.state(),before);assert.deepEqual(bad.ledger.snapshot(),stock);assert.equal(bad.trial.scene.cells.size,0);assert.equal(bad.trial.scene.fuels.size,0);assert.equal(bad.queries.isClaimedPart('floor'),false);}finally{dispose(bad);}
+});
+
+test('only an exact explicitly supplied mechanical mount may keep its original real gap and direction',()=>{
+  const a={id:'a',ownerId:'a',triangles:boxTriangles([0,0,0],[.2,.2,.2])},b={id:'b',ownerId:'b',triangles:boxTriangles([.22,0,0],[.42,.2,.2])},parent={partId:'a',point:[.2,.1,.1],primitives:[10,11]},child={partId:'b',point:[.22,.1,.1],primitives:[8,9]},mount={id:'synthetic-explicit-mount',kind:'fixed-assembly-mount',direction:'parent-to-child',sourceSha256:'a'.repeat(64),parent,child},bond={...mount},input={parts:[a,b],bonds:[bond],anchors:[{partId:'a',elevation:0}],approvedMounts:[mount]};
+  assert.throws(()=>createOriginalSupportPorts({...input,approvedMounts:[]}),/Unapproved/);assert.throws(()=>createOriginalSupportPorts({...input,bonds:[{...bond,kind:'bearing-face'}]}),/Separated/);const core=createOriginalSupportPorts(input);try{const fragment=p=>({id:p.id,partId:p.id,ownerId:p.ownerId,component:0,mode:'cold',triangles:p.triangles,primitives:p.triangles.map((_,i)=>i)});assert.deepEqual(core.evaluate({revision:0,fragments:[fragment(a),fragment(b)]}).unrootedIds,[]);assert.deepEqual(core.evaluate({revision:1,fragments:[fragment(b)]}).unrootedIds,['b']);assert.equal(core.bindings()[0].direction,'parent-to-child');assert.equal(core.bindings()[0].parent.point[0],.2);assert.equal(core.bindings()[0].child.point[0],.22);}finally{core.dispose();}
+});
+
+test('thermal frontier uses eligible regions from nearby air without whole fallback, duplicate birth or cache escape',()=>{
+  const f=world();try{assert.equal(f.activation.ensurePoint([1.3,-.53,.2]),true);const q=balanced(f),calls=f.producer.diagnostics().nativeCalls;assert.equal(calls,2);assert.equal(q.coldReserve,0);assert.equal(f.activation.ensurePoint([1.3,.53,.2]),false);assert.equal(f.producer.diagnostics().nativeCalls,calls);f.trial.command({type:'match',position:[1.3,.01,.2]});f.activation.beforeStep();f.trial.step(2);f.activation.beforeStep();assert.equal(f.trial.tick,2);balanced(f);assert.equal(f.activation.metrics().pendingStages,0);
+  }finally{dispose(f);}
+  const ts=[[[0,0,0],[1,0,0],[1,0,1]],[[0,0,0],[1,0,1],[0,0,1]]],bounds={min:[0,0,0],max:[1,0,1]},queries=createSourceQueryRegistry({navigation:{placeId:'limit',surfaces:[{id:'ground',terrain:true,height:0,polygons:[[[0,0],[1,0],[1,1],[0,1]]]}],blockers:[],portals:[]},parts:[{id:'p',carrierId:'c',bounds,physical:true}],shapeForPart:()=>({triangles:ts,closed:false}),limits:{shapes:2,triangles:2}});try{assert.throws(()=>queries.pinOriginal('p'),/exceeds source cache/);assert.equal(queries.metrics().cachedTriangles,0);}finally{queries.dispose();}
+});

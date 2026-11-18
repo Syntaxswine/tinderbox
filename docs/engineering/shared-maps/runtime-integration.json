@@ -78,6 +78,12 @@
       "reason": "Keep source-map overview at original world bounds independently of player elevation."
     },
     {
+      "path": "src/runtime/collision.js",
+      "beforeLfSha256": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "afterLfSha256": "9093a07d6c4efe81f27855f20d1db3ea96df71a5be6e35a165698732de5ab755",
+      "reason": "Delegate an explicitly supplied source-domain sweep to the existing effective-query kernel; preserve ordinary triangle collision."
+    },
+    {
       "path": "src/runtime/index.js",
       "beforeLfSha256": "6b7e1823979c04de7b98bfab9e3e57f8200369f108b3020d8ebd5fb74c2d1a34",
       "afterLfSha256": "695d16ea8bbc3de73f6873e2cfafc46b2b6cca487fce56bcc5a2f2a59e61fd2c",
@@ -140,20 +146,20 @@
     {
       "path": "workbenches/furnished-house/geometry.js",
       "beforeLfSha256": "04b9019305d6cfe8eb5843cbd05506f6698999400d92857c41afbd2d2098c847",
-      "afterLfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
-      "reason": "Extract the unchanged native gravity step and prevalidate atomic physical-index batches; return reference-counted unsubscribe handles for owned boundary watches."
+      "afterLfSha256": "a7875bad644adc5836345af5a4e9bd0607e4f4e0c887db21f105db673b9483df",
+      "reason": "Extract the unchanged native gravity step, prevalidate physical batches and defer observers during an internal publication lease; keep owned boundary watches and effective cold crossings."
     },
     {
       "path": "workbenches/furnished-house/scene.js",
       "beforeLfSha256": "5629ace39f09b407b6c2ef0567ea5b4cfba2e90916f4820dd65d821bf07ab859",
-      "afterLfSha256": "8acefb0429d03033ecb81d8fa76fc3d56d6bba3ef910dbe104aa75ed5411d21b",
-      "reason": "Stage sparse sources with the unchanged compiler/clipper/profiles, derive a separate local quantity envelope and preserve exact rigid door hardware; isolate the opt-in bounded compiler pilot and reject its partial outputs at the ordinary installer."
+      "afterLfSha256": "6b395fdfda6d149e393db0cf04c366b9c19b47267b3629bb56ddefe0bce3e14e",
+      "reason": "Stage sparse sources with unchanged compiler/clipper/profiles and local quantity envelopes; preserve rigid doors, reject arbitrary partial outputs and admit authenticated regional receipts only in the disabled internal mode."
     },
     {
       "path": "workbenches/furnished-house/simulation.js",
       "beforeLfSha256": "1accf6d27f27d78dd019f24e10f15354fd79b81b6cb8c87ee63ab90fdd98f1b5",
-      "afterLfSha256": "54842b18146ee6f4d8353e4844d741d2dd86138015f83c2f22729dae698525f9",
-      "reason": "Commit native source batches without resetting heat/time; reuse native local support, inert falls, real rubble and pane retirement without fuel creation; dispose owned source-support memoization with the trial."
+      "afterLfSha256": "8665bb22e688d21dadd9f51138608b73b1331c3d1616a40668400596840f8d4f",
+      "reason": "Install whole sources or authenticated regional receipts in the same trial without resetting heat/time; preserve native falls, support and fuel accounting; expose bounded diagnostic counters and an opt-in child step ceiling."
     },
     {
       "path": "workbenches/furnished-house/support.js",
@@ -213,11 +219,15 @@
     },
     {
       "path": "src/content/shared-map.js",
-      "lfSha256": "95c1e1d57b69b0318dfb9a8f62729545e6fd0dadf75779acaec6503885db34a2"
+      "lfSha256": "434582e44477245026f93d113dfcade3af4bb34b80c36158d71e1568d25cfbe7"
     },
     {
       "path": "src/content/visit-capabilities.js",
       "lfSha256": "28b54e84cbf8ece1aeef3774fc4fe510db37e6c2a83f03680442ddc5e0802986"
+    },
+    {
+      "path": "src/runtime/hybrid-source-queries.js",
+      "lfSha256": "4ee24a45cf17bb6d0df8acf8d87ce8b067a3b5348b82b5e195c4bbcc18e4cdf0"
     },
     {
       "path": "src/runtime/native-query-registry.js",
@@ -249,19 +259,27 @@
     },
     {
       "path": "src/runtime/source-query-registry.js",
-      "lfSha256": "0baff57a303fb5eb9779dbbb5d816088d222e8f4af49e80586a1e17e8db363e8"
+      "lfSha256": "6a9efbcc6954516611fe16a8e44d00c603ac79c72adaaf2a4070292867d13560"
     },
     {
       "path": "src/simulation/actor-support.js",
       "lfSha256": "f61f55d982e41504671c79f12e84041b6b919266df38dbf94c102e9015ebaa37"
     },
     {
+      "path": "src/simulation/hybrid-source-support.js",
+      "lfSha256": "81d131af49b70ae6af75f7f305608c2f9f07870bdc84f019fdbe8b58b6557452"
+    },
+    {
+      "path": "src/simulation/hybrid-world-publication.js",
+      "lfSha256": "803eedf5fbcfe8989c3a40ac2c9987edcbc3aae98fc3473bbca51b9fac04777f"
+    },
+    {
       "path": "src/simulation/map-navigation.js",
-      "lfSha256": "9453c05262b1dbf0f2274e0e82b2ed3a56441507fa7c627b2bfafaaf215eb8f3"
+      "lfSha256": "2e75014b5db5240cabca3bc594835758e7a68de4509445e66f0d00ac1441f322"
     },
     {
       "path": "src/simulation/original-support-ports.js",
-      "lfSha256": "5fd1b729132c74099cd42f9f2647c52721b44a53468bab3b69d23a5f4ba7d02d"
+      "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f"
     },
     {
       "path": "src/simulation/prepared-source-support.js",
@@ -269,19 +287,19 @@
     },
     {
       "path": "src/simulation/regional-source-pilot.js",
-      "lfSha256": "1e133e4f919fdf577e0cc448befea9d8255d3718a277108d45ceb3a59fe118ff"
+      "lfSha256": "3220acf92551eb6af231654c445dd16535ebd490819ca5d710d495d432e02af4"
     },
     {
       "path": "src/simulation/scene-thermal.js",
-      "lfSha256": "99e9a1ef618d8cc62bda54352d5042fcffb1578a6f15daabda3bf17362b7a478"
+      "lfSha256": "e1c10b34b21f614df4bc97719c402afc1e247514bbe4bec1d69cfc86e2f75652"
     },
     {
       "path": "src/simulation/source-activation.js",
-      "lfSha256": "2b612431c691fec709087130217e98925bab42ed40d2de268e8b6fafb9cbf358"
+      "lfSha256": "146e500fe30cb43b548fe9d21aeaadbada2b68813ff7c568e29f7ebafbab4a0d"
     },
     {
       "path": "src/simulation/source-carriers.js",
-      "lfSha256": "1cf234cc401a7ea7fac01c459a34dfaae7735e2db7937156041d859630189cb6"
+      "lfSha256": "2c436394ad632cb353e495b62f960857c2f9d16a20966f49d3c54414e3c62d3b"
     },
     {
       "path": "src/simulation/source-follow.js",
@@ -293,7 +311,7 @@
     },
     {
       "path": "src/simulation/source-support.js",
-      "lfSha256": "2c557d8b03a55f8bba3d95d31bd0b3528557a3a020599062f818fb2ad733d589"
+      "lfSha256": "7676eaf84aee7893d574a8aca209db08d352d30e812f665371cebdeeb445141d"
     },
     {
       "path": "src/ui/menu-navigation.js",
@@ -313,7 +331,7 @@
     },
     {
       "path": "tools/record-shared-map-runtime.mjs",
-      "lfSha256": "8394c9b2626855049376cfae7092f5fae5fef68b670b8e90848ac950d7b386b2"
+      "lfSha256": "d6b234a2dda841bb9ad1a405838537169f579506d6de0c6664d3afdd340de9dd"
     },
     {
       "path": "tools/review/check-shared-map-integrated.mjs",
