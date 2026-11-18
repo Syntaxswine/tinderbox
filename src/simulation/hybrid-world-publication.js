@@ -34,7 +34,7 @@ export function createHybridWorldPublication({trial,querySource,ledger,sources,o
             const results=installs.map(install=>install());for(const r of results)r.register();claim.commit();installQueries();stock.commit();for(const id of kills){retired.add(id);if(index.surfaces.get(id).intact)index.change(id,{intact:false,openFraction:1});}supportStage.commit();
             for(const r of results)for(const b of r.boundaries)nativeIds.add(b.id);for(const id of wholeIds)wholeClaims.add(id);for(let i=0;i<wholeIds.length;i++)activeCarriers.set(wholeIds[i],bundles[i]);for(const r of regionalRows){claimedRegions.add(r.id+'@'+r.key);activeCarriers.set(r.id,{surfaces:context.surfaces.filter(s=>s.sourceCarrierId===r.id),openings:[]});}
             next=Object.freeze({generation:original.generation,revision:++sequence,indexRevision:index.revision});current=next;held.add(next);done=true;pending.delete(plan);
-            index.readDuringPublication(lease,()=>trial.replaceSupportReferences(claim.proxyIds));
+            notifications.push(()=>trial.replaceSupportReferences(claim.proxyIds));
             for(const r of results)notifications.push(r.notifySupport);notifications.push(()=>onActivated(activationNotice));
             for(const p of physical)p.dispose();registration.dispose();
           }finally{publishing=false;}},{afterCommit:notifications,onObserverError:error=>notificationErrors.push(error)});

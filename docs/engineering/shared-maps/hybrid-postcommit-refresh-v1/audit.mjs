@@ -1,0 +1,30 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+const dir='docs/engineering/shared-maps/hybrid-postcommit-refresh-v1/',base='aaf7a0f8015418bcef341b9c0cd1a81de93ec903',write=process.argv.includes('--write');
+const read=p=>fs.readFileSync(p),json=p=>JSON.parse(read(p).toString().replace(/^\uFEFF/,'')),sha=b=>createHash('sha256').update(b).digest('hex'),lf=b=>b.toString().replace(/\r\n/g,'\n');
+const git=(...args)=>execFileSync('git',args,{windowsHide:true,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
+const changedInputs=new Set(['src/simulation/hybrid-world-publication.js','tests/integration/hybrid-postcommit-refresh.test.mjs',dir+'run.mjs']);
+const failedPath=dir+'focused-final-failed-inputs.json';let failed=json(failedPath);
+if(Array.isArray(failed)){
+  assert.ok(write);failed={method:'Exact changed input text; unchanged controls deduplicated to immutable Git base',inputs:failed.map(p=>changedInputs.has(p.path)?p:{path:p.path,gitCommit:base,lfSha256:sha(lf(p.text))})};
+  for(const p of failed.inputs)if(p.gitCommit)assert.equal(sha(lf(git('show',base+':'+p.path)+'\n')),p.lfSha256);
+  fs.writeFileSync(failedPath,JSON.stringify(failed,null,2)+'\n');
+}
+const runs=['focused-final','corrected-final'].map(name=>{
+  const receipt=json(dir+name+'.json'),log=read(dir+name+'.log').toString(),hooks=[...log.matchAll(/^(?:# )?([A-Z_]+)_RESOURCES (.+)$/gm)].map(m=>({kind:m[1],value:JSON.parse(m[2])})),resource=hooks.find(h=>h.kind==='REFRESH').value;
+  const passed=receipt.exitCode===0&&!/^not ok |^# fail [1-9]/m.test(log);assert.equal(passed,receipt.observedPass);assert.equal(passed,name==='corrected-final');assert.equal(resource.trial.created,resource.trial.disposed);assert.ok(resource.trial.steps<=64);assert.ok(new Date(receipt.endedAt)-new Date(receipt.startedAt)<=30000);
+  for(const h of hooks){assert.deepEqual(h.value.trial,resource.trial);assert.deepEqual(h.value.compiler,resource.compiler);for(const k of ['actualNewYorkCalls','fullNewYorkDiagnostics','rendererCalls','builds'])assert.equal(h.value[k],0);for(const f of h.value.fixtures){const q=f.queries||f.query;assert.ok(f.logicalCells<=64&&f.sourceTriangles<=256);assert.equal(f.retainedReceipts,0);for(const k of ['cachedShapes','cachedTriangles','workingLeases','workingTriangles','workingShapes'])assert.equal(q[k],0);}}
+  for(const pin of receipt.sourcePins){const bytes=name==='corrected-final'?read(pin.path):(()=>{const p=failed.inputs.find(p=>p.path===pin.path);assert.ok(p);return p.text===undefined?git('show',p.gitCommit+':'+p.path)+'\n':p.text;})();assert.equal(sha(lf(bytes)),pin.lfSha256);}
+  return {name,passed,tests:Number(log.match(/^# tests (\d+)$/m)[1]),passedGroups:Number(log.match(/^# pass (\d+)$/m)[1]),compiler:resource.compiler,trial:resource.trial,receiptSha256:sha(read(dir+name+'.json')),logSha256:sha(read(dir+name+'.log'))};
+});
+assert.equal(runs[1].passedGroups,6);assert.equal(runs[1].compiler.calls,16);assert.equal(runs[1].trial.created,6);assert.equal(runs[1].trial.steps,3);
+const protectedPath='docs/engineering/shared-maps/support-regions-proposal.md';assert.equal(sha(read(protectedPath)),'56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f');assert.equal(git('diff','--cached','--name-only','--',protectedPath),'');
+git('diff','--quiet',base,'--','assets','art','vendor','src/main.js','src/content/shared-map.js','src/runtime/shared-map.js','workbenches','docs/source-baseline.json','docs/engineering/shared-maps/hybrid-world-publication-v1','docs/engineering/shared-maps/hybrid-world-corrections-v1','tests/integration/hybrid-world-corrections.test.mjs','tests/integration/hybrid-world-publication.test.mjs','tests/fixtures/hybrid-world-data.mjs');
+const declaration=json('docs/engineering/shared-maps/runtime-integration.json'),previous=JSON.parse(git('show',base+':docs/engineering/shared-maps/runtime-integration.json'));const file=declaration.addedFiles.find(p=>p.path==='src/simulation/hybrid-world-publication.js');assert.equal(file.lfSha256,sha(lf(read(file.path))));file.lfSha256=previous.addedFiles.find(p=>p.path===file.path).lfSha256;assert.deepEqual(declaration,previous);
+const cleanup=json(dir+'cleanup.json');assert.equal(cleanup.helpers.length,2);assert.equal(cleanup.unresolved.length,0);assert.equal(cleanup.ports.length,0);assert.equal(cleanup.retainedHelpers.length,0);assert.ok(cleanup.helpers.every(h=>h.state==='exited-pid-absent'||h.state==='pid-reused-original-exited'));
+const owned=[...changedInputs,'docs/engineering/shared-maps/runtime-integration.json'],lines=s=>s.split(/\r?\n/).filter(Boolean);for(const p of new Set([...lines(git('diff','--name-only',base)),...lines(git('ls-files','--others','--exclude-standard'))]))assert.ok(owned.includes(p)||p.startsWith(dir)||p===protectedPath,'Unexpected delta '+p);
+const resources={base,method:'Saved scalar logs only; no test replay',runs,actualNewYorkCalls:0,rendererCalls:0,builds:0,legacyRuns:0};if(write)fs.writeFileSync(dir+'resources.json',JSON.stringify(resources,null,2)+'\n');else assert.deepEqual(json(dir+'resources.json'),resources);
+const files=[...new Set([...owned,...fs.readdirSync(dir).filter(p=>fs.statSync(dir+p).isFile()&&!['manifest.json','verification.json'].includes(p)).map(p=>dir+p)])].sort(),manifest={base,files:files.map(path=>{const raw=read(path),keep=path.startsWith(dir),bytes=keep?raw:Buffer.from(lf(raw));return {path,hashMode:keep?'raw':'LF-normalized',bytes:bytes.length,sha256:sha(bytes)};})};if(write)fs.writeFileSync(dir+'manifest.json',JSON.stringify(manifest,null,2)+'\n');else assert.deepEqual(json(dir+'manifest.json'),manifest);
+const result={passed:true,scope:'One runtime-line post-commit refresh delta',ownedFiles:files.length,groups:6,compilerCalls:16,disposedTrials:6,steps:3,helpersClosed:2,failedControlPreserved:true,oldArchivesUnchanged:true,protectedWipExcluded:true,actualNewYorkCalls:0,rendererCalls:0,builds:0,legacyRuns:0};fs.writeFileSync(dir+'verification.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));
