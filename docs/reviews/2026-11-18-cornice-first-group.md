@@ -41,3 +41,24 @@ There were no native compilations, world/stock changes, full-New-York diagnostic
 renderer or build. This accepts source facts and finite-runner behavior only;
 generic input conversion, actual native bindings, live hybrid publication and
 map acceptance remain separate. Master and Pages are unchanged.
+
+## Generic source-input checkpoint
+
+Accept coder `228d5e3c0761a470f243d02de8b5ac4a3cb27c41`, root intake
+`9c927aee`, for cached conversion of this page into the existing generic API.
+Root passes all 15 affected groups and exact 18-path / 17-pin scope. No runtime
+or declaration file changes. The owned dictionary has 50 original parts, 55
+source definitions, 600 original triangles and 96 immutable proofs / 192 ports.
+All 48 references match and all 96 complete histories remain intact.
+
+Only the 25 additional owners were expanded/transformed once; cached 25 owners
+and 30 definitions were reused exactly. The source preparation before the
+fragment correction remains preserved; resumed checks use the accepted current
+API with identical proof hashes. No expansion is replayed for verification.
+Both rotated ends use their actual wall-plane source projection/cells rather
+than the physical-point cell; generated caps, wrong cells, stale or serialized
+proof authority reject in the synthetic controls. Original native IDs remain
+unbound; tests supply opaque synthetic entry IDs. Root's ignored audit is
+`review-cornice-mapping.mjs`. Recorded preparation/test PIDs 15536 and 30412
+are absent. Declaration remains 22 modified / 52 added. No native/world/renderer
+or full-New-York diagnostic runs; this is not playable-map acceptance.
