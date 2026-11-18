@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "base": "f45f0c4eac03059634d164ce5941211c5ee32e3a",
+  "status": "Three bounded core corrections; source adapter and actual New York diagnostic remain incomplete",
+  "focusedTests": 44,
+  "embedGroups": 12,
+  "rootingGroups": 4,
+  "priorPhysicalGroups": 8,
+  "unchangedQueryControls": 20,
+  "archives": [
+    {
+      "folder": "bounded-source-compiler-v1",
+      "rawFilesIncludingManifest": 33,
+      "historicalSourcePins": 8,
+      "preserved": true
+    },
+    {
+      "folder": "bounded-source-compiler-guards-v1",
+      "rawFilesIncludingManifest": 13,
+      "historicalSourcePins": 5,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-kernel-v1",
+      "rawFilesIncludingManifest": 46,
+      "historicalSourcePins": 4,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-boundaries-v1",
+      "rawFilesIncludingManifest": 21,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-witness-v1",
+      "rawFilesIncludingManifest": 27,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-receipt-bridge-v1",
+      "rawFilesIncludingManifest": 45,
+      "historicalSourcePins": 6,
+      "preserved": true
+    },
+    {
+      "folder": "support-port-birth-v1",
+      "rawFilesIncludingManifest": 30,
+      "historicalSourcePins": 3,
+      "preserved": true
+    }
+  ],
+  "unchangedFiles": [
+    "workbenches/furnished-house/geometry.js",
+    "workbenches/furnished-house/support.js",
+    "workbenches/furnished-house/scene.js",
+    "workbenches/furnished-house/regional-domain.js",
+    "workbenches/furnished-house/partition-error.js",
+    "src/runtime/collision.js",
+    "src/runtime/regional-effective-query.js",
+    "src/runtime/regional-receipt-bridge.js",
+    "src/simulation/regional-source-pilot.js",
+    "src/simulation/source-support.js",
+    "src/simulation/source-support-calculations.js",
+    "src/content/map-source-support-data.js",
+    "src/content/map-source-support-overrides.js",
+    "tests/integration/regional-effective-query.test.mjs",
+    "tests/integration/regional-query-boundaries.test.mjs",
+    "tests/integration/regional-query-witness.test.mjs",
+    "tests/integration/regional-receipt-bridge.test.mjs",
+    "tests/fixtures/regional-query-data.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "cf0d78893da17af650a634c5e8d1d957c560de1f042294e003eb9dab93beb510"
+    },
+    {
+      "path": "tests/integration/original-support-ports.test.mjs",
+      "lfSha256": "fbb9cb09ba4f36674d13df26fcdda6981a44d13f91895e43ce2ba0e784b4caf7"
+    },
+    {
+      "path": "tests/integration/original-support-embed.test.mjs",
+      "lfSha256": "89ddd9938e0a54aef9a57b7c46aea20e9b370f3f9636c749bdc403e81d96639b"
+    },
+    {
+      "path": "tests/integration/original-support-rooting.test.mjs",
+      "lfSha256": "68bb6e173ec2d804fc9f8d9eeaaac217befdcd8a87510d150af948fd664de90b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "lfSha256": "551a27b6b5a374b08e8b7b1ba16f8776640eef4d20105618e2539360dbea095e"
+    }
+  ],
+  "runtimeDeclaration": {
+    "modified": 22,
+    "added": 50
+  },
+  "preservedAdapterWip": true,
+  "protectedProposalWip": true,
+  "closedTestChildren": 4,
+  "helpers": [],
+  "ports": [],
+  "nativeCompilerCalls": 0,
+  "originalRoofCompilations": 0,
+  "actualNewYorkDiagnostics": 0,
+  "actualDiagnosticAllowanceConsumed": false,
+  "sourceCatalogueBound": false,
+  "productionEnabled": false
+}

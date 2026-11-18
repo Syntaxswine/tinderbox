@@ -1,0 +1,31 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Bounded strict-embed surviving-material regression and existing small controls",
+  "args": [
+    "--test",
+    "tests/integration/original-support-embed.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "cb407fcc75ca2a532cc46591bd8f9a90542d440a97bdc2e98050d92d3d94d0bf"
+    },
+    {
+      "path": "tests/integration/original-support-embed.test.mjs",
+      "lfSha256": "b9db37856976678228913cd0a50a6d77b3e48385b3b810f48ae1621b3d097303"
+    }
+  ],
+  "pid": 61852,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-17T23:46:33.119Z",
+  "endedAt": "2026-11-17T23:46:33.371Z",
+  "exitCode": 1,
+  "signal": null,
+  "timeoutMs": 20000,
+  "originalRoofCompilations": 0,
+  "actualNewYorkDiagnostics": 0,
+  "worldTrials": 0,
+  "worldSteps": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

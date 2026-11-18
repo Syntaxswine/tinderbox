@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-11-17T23:57:39.8740307Z",
+  "owner": "Coder Tinderbox",
+  "processes": [
+    {
+      "receipt": "baseline.json",
+      "pid": 61852,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T23:46:33.119Z",
+      "endedAt": "2026-11-17T23:46:33.371Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "rooting-baseline.json",
+      "pid": 35144,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T23:48:32.019Z",
+      "endedAt": "2026-11-17T23:48:32.263Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "corrected.json",
+      "pid": 4264,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T23:49:47.544Z",
+      "endedAt": "2026-11-17T23:49:47.987Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "joint-witness.json",
+      "pid": 51460,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-17T23:56:13.701Z",
+      "endedAt": "2026-11-17T23:56:14.224Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    }
+  ],
+  "retainedHelpers": [],
+  "portsAllocated": [],
+  "stopMethod": "Finite hidden foreground children exited; no termination required"
+}

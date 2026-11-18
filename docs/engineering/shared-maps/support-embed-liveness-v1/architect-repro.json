@@ -1,0 +1,81 @@
+{
+  "candidate": "f45f0c4e",
+  "fullSupported": [
+    "cold/child",
+    "cold/parent"
+  ],
+  "remainingParentY": [
+    0,
+    0.1
+  ],
+  "childY": [
+    0.2,
+    0.8
+  ],
+  "actualContact": false,
+  "binding": [
+    {
+      "id": "embed",
+      "kind": "fixed-embed",
+      "direction": "parent-to-child",
+      "parent": {
+        "partId": "parent",
+        "ownerId": "parent",
+        "component": 0,
+        "primitive": 4,
+        "point": [
+          1,
+          0,
+          0.5
+        ],
+        "distance": 0.5,
+        "originalWitness": [
+          1,
+          0.5,
+          0.5
+        ],
+        "nativeRecordId": null
+      },
+      "child": {
+        "partId": "child",
+        "ownerId": "child",
+        "component": 0,
+        "primitive": 4,
+        "point": [
+          1,
+          0.2,
+          0.5
+        ],
+        "distance": 0.3,
+        "originalWitness": [
+          1,
+          0.5,
+          0.5
+        ],
+        "nativeRecordId": null
+      }
+    }
+  ],
+  "result": {
+    "generation": 0,
+    "revision": 1,
+    "supportedIds": [
+      "cold/child",
+      "cold/parent"
+    ],
+    "unrootedIds": [],
+    "births": [],
+    "ports": [
+      {
+        "id": "embed",
+        "parent": "cold/parent",
+        "child": "cold/child",
+        "live": true
+      }
+    ],
+    "unresolvedBindings": [],
+    "oldEdgeConflicts": []
+  },
+  "expected": "cold/child unrooted after all material at the common embed witness is removed",
+  "nativeCompilerCalls": 0
+}
