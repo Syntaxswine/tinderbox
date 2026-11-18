@@ -1,0 +1,61 @@
+{
+  "method": "Readiness projection of the saved synthetic-initial run; no additional execution",
+  "receipt": "docs/engineering/shared-maps/new-york-source-preparation-v1/synthetic-initial.json",
+  "receiptSha256": "0fb6aa3d4e5b3a87e3508cf39f9474f005cd098a2c42888e0e585f3aa7ab2110",
+  "passed": true,
+  "groups": 30,
+  "sourcePins": [
+    {
+      "path": "src/content/shared-map-source-preparation.js",
+      "lfSha256": "2b390ac57be2c28f830ca2bdfa5db20833d43c7cce51fd6bcb130e88a831991d"
+    },
+    {
+      "path": "src/content/shared-map-inputs.js",
+      "lfSha256": "7d5e9f697027d082489e3df8ed5082cc23238310b66361283bdca706871814bc"
+    },
+    {
+      "path": "src/content/shared-map.js",
+      "lfSha256": "4d3ba37b937afe858c88a4311f28222c652c96bc2cc35c49a47e90882349a812"
+    },
+    {
+      "path": "src/content/map-source-geometry.js",
+      "lfSha256": "ac6f691e8745506afce7bac2e00c09fa40d7d4263444c1d9a0e4ab07d1a0bf7c"
+    },
+    {
+      "path": "src/content/shared-map-admission.js",
+      "lfSha256": "bf973ae9b83d7ca1d337a4c12382225a2d66a6dcc131111c92ae50e904914e27"
+    },
+    {
+      "path": "tests/integration/shared-map-source-preparation.test.mjs",
+      "lfSha256": "7633460618bf4f6aa72f4b304d1a372b326fcdfec3c648ce917f6a55542adb07"
+    },
+    {
+      "path": "tests/integration/shared-map-inputs.test.mjs",
+      "lfSha256": "f1c0f245f26050685ed2d0824e0e86da93ea452b6c8bd93e9da9db5e562239a5"
+    },
+    {
+      "path": "tests/integration/map-source-geometry.test.mjs",
+      "lfSha256": "39a30f917abf23f2266e135a0d4ea06a37aa0b4b562c52b6b4ff66a82c2dfd40"
+    },
+    {
+      "path": "tests/integration/hybrid-world-publication.test.mjs",
+      "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8"
+    },
+    {
+      "path": "tests/fixtures/shared-map-input-data.mjs",
+      "lfSha256": "6a2a1c406f05e9b443f7eb60b86692cb32586b12b30e0606c59276b632e46584"
+    },
+    {
+      "path": "tests/fixtures/hybrid-world-data.mjs",
+      "lfSha256": "f93182dbad50827074a735e690a2e4edd6c3d4fcb841e23e8d43c3390001b6c5"
+    },
+    {
+      "path": "tools/prepare-new-york-source-inputs.mjs",
+      "lfSha256": "1d89defec9ca72f9ad7d94860d7d77add27f82eac60bc158536fc035b5709907"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/run-synthetic.mjs",
+      "lfSha256": "9f43584310a8bf507a2981e819d5f18977e9481c3000126e479f1034602ea634"
+    }
+  ]
+}

@@ -29,6 +29,21 @@ function checkProjection(projection,physical,render,mapping){
   }
 }
 
+// Shared by the disabled host factory and the separately authorized source-only
+// preparation phase. Its caller must first admit the exact projection metadata.
+export async function prepareSharedMapProjections({model,sources,projections,loadProjection=loadMapInputJSON,signal,assertLive=()=>signal?.throwIfAborted()}){
+  assertLive();const loaded=[];
+  for(const p of projections){const buffers=await Promise.all([p.physical,p.render,p.mapping].map(ref=>loadProjection(ref,signal)));assertLive();checkProjection(p,...buffers);loaded.push({p,buffers});}
+  assertLive();
+  // No mutation until every pinned resource/mapping and abort check passes.
+  model.library={...model.library,geometries:{...model.library.geometries}};
+  for(const {p,buffers:[physical,render]}of loaded){
+    if(model.parts.length!==p.part.globalIndex||model.carriers.length!==p.owner.globalIndex)throw Error('Projection append revision changed');
+    const owner={...structuredClone(p.owner),id:qualifyInputOwner(model.placeId,p.owner.id),parts:[p.part.globalIndex],supports:[],adjacency:[],supportEvidence:[],attachments:[],anchors:[]},part={...structuredClone(p.part),carrier:p.owner.globalIndex,carrierId:owner.id,material:owner.material,physical:true};
+    model.library.geometries[part.physicalGeometry]=physical;model.library.geometries[part.geometry]=render;model.carriers.push(owner);model.carrierById.set(owner.id,owner);model.parts.push(part);model.partById.set(part.id,part);sources.registerProjectionCarrier(owner.id);
+  }
+}
+
 // Factory is explicit and reusable. No destination/menu calls it by default.
 // Its single owned session is attached AFTER the host decode/source owner.
 export function createSharedMapInputFactory({descriptor,policy,loadProjection=loadMapInputJSON}){
@@ -40,18 +55,7 @@ export function createSharedMapInputFactory({descriptor,policy,loadProjection=lo
     const plan=report.plan,qualify=id=>qualifyInputOwner(model.placeId,id),ownerModes=Object.freeze(Object.fromEntries(report.status==='READY'?plan.owners.map(o=>[o.id,o.mode]):[]));
     async function prepare(){
       ready();if(prepared)return;if(preparing)return preparing;
-      preparing=(async()=>{
-        const loaded=[];for(const p of plan.projections){const buffers=await Promise.all([p.physical,p.render,p.mapping].map(ref=>loadProjection(ref,signal)));live();checkProjection(p,...buffers);loaded.push({p,buffers});}
-        live();
-        // No mutation until all resources/pins/mappings and abort checks pass.
-        model.library={...model.library,geometries:{...model.library.geometries}};
-        for(const {p,buffers:[physical,render]}of loaded){
-          if(model.parts.length!==p.part.globalIndex||model.carriers.length!==p.owner.globalIndex)throw Error('Projection append revision changed');
-          const owner={...structuredClone(p.owner),id:qualify(p.owner.id),parts:[p.part.globalIndex],supports:[],adjacency:[],supportEvidence:[],attachments:[],anchors:[]},part={...structuredClone(p.part),carrier:p.owner.globalIndex,carrierId:owner.id,material:owner.material,physical:true};
-          model.library.geometries[part.physicalGeometry]=physical;model.library.geometries[part.geometry]=render;model.carriers.push(owner);model.carrierById.set(owner.id,owner);model.parts.push(part);model.partById.set(part.id,part);sources.registerProjectionCarrier(owner.id);
-        }
-        prepared=true;
-      })();try{await preparing;}finally{preparing=null;}
+      preparing=prepareSharedMapProjections({model,sources,projections:plan.projections,loadProjection,signal,assertLive:live}).then(()=>{prepared=true;});try{await preparing;}finally{preparing=null;}
     }
     function bindRegistry(registry){
       ready();if(!prepared)throw Error('Prepare map inputs before creating the world');if(binding)throw Error('Previous map input binding must be disposed before reset');
