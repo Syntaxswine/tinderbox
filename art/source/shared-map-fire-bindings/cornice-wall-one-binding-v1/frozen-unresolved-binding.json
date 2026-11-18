@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "status": "Exact original metadata example; no computed New York binding or support evaluation",
+  "sourceRef": "e6801efc759f57b519e08555f6ea397b21c2aa1a",
+  "sources": [
+    {
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/relationships.json",
+      "rawSha256": "34b25f91d457fb65e611b89f182c0e05bb946d7506a0581b53e945a2d9731e06"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/geometry-bindings.json",
+      "rawSha256": "4cd550cf603008e76819877f5c32bf1f731e496b05a95a66927b32cde41bcada"
+    }
+  ],
+  "selectedLocalRegionId": "19428b0ef95337ce4e9f64a6",
+  "originalRelationship": {
+    "accepted": false,
+    "action": "add-exact-local-dependency",
+    "applied": false,
+    "beforeRelation": null,
+    "childCarrierId": "carrier/edge-0/cornice-1",
+    "childRole": "timber-fitting",
+    "direction": "parent-to-child",
+    "family": "cornice-full-local-coverage",
+    "groundAnchor": false,
+    "id": "fa9dc4a25193e94ce7b5793e",
+    "localRegions": [
+      {
+        "actualGeometryCertificate": {
+          "geometricBearing": false,
+          "proof": {
+            "childMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.10000000149011612
+            },
+            "groundAnchor": false,
+            "kind": "actual-common-strict-solid-interior",
+            "localOverlapBounds": {
+              "max": [
+                34,
+                8.330000001490117,
+                26
+              ],
+              "min": [
+                33,
+                8.129999998509884,
+                25.92000000178814
+              ]
+            },
+            "parentMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.03999999910593033
+            },
+            "sourceFace": null,
+            "witnessConstruction": "local-overlap-centre",
+            "worldWitness": [
+              33.5,
+              8.23,
+              25.96000000089407
+            ]
+          },
+          "proposedKind": "fixed-embed"
+        },
+        "childBounds": {
+          "max": [
+            34,
+            8.330000001490117,
+            26
+          ],
+          "min": [
+            33,
+            8.129999998509884,
+            25.92000000178814
+          ]
+        },
+        "childWitness": [
+          33.5,
+          8.23,
+          25.96000000089407
+        ],
+        "frame": "emitted-world",
+        "id": "19428b0ef95337ce4e9f64a6",
+        "meaning": "Finite selectors over original physical geometry, never substitute solids or forced local breaks.",
+        "parentBounds": {
+          "max": [
+            34,
+            8.330000001490117,
+            26
+          ],
+          "min": [
+            33,
+            8.129999998509884,
+            25.92000000178814
+          ]
+        },
+        "parentWitness": [
+          33.5,
+          8.23,
+          25.96000000089407
+        ],
+        "selector": {
+          "max": [
+            34,
+            8.330000001490117,
+            26
+          ],
+          "min": [
+            33,
+            8.129999998509884,
+            25
+          ]
+        }
+      },
+      {
+        "actualGeometryCertificate": {
+          "geometricBearing": false,
+          "proof": {
+            "childMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.10000000149011612
+            },
+            "groundAnchor": false,
+            "kind": "actual-common-strict-solid-interior",
+            "localOverlapBounds": {
+              "max": [
+                34,
+                8.330000001490117,
+                26.07999999821186
+              ],
+              "min": [
+                33,
+                8.129999998509884,
+                26
+              ]
+            },
+            "parentMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.03999999910593033
+            },
+            "sourceFace": null,
+            "witnessConstruction": "local-overlap-centre",
+            "worldWitness": [
+              33.5,
+              8.23,
+              26.03999999910593
+            ]
+          },
+          "proposedKind": "fixed-embed"
+        },
+        "childBounds": {
+          "max": [
+            34,
+            8.330000001490117,
+            26.07999999821186
+          ],
+          "min": [
+            33,
+            8.129999998509884,
+            26
+          ]
+        },
+        "childWitness": [
+          33.5,
+          8.23,
+          26.03999999910593
+        ],
+        "frame": "emitted-world",
+        "id": "4a520de25677539d97a968b6",
+        "meaning": "Finite selectors over original physical geometry, never substitute solids or forced local breaks.",
+        "parentBounds": {
+          "max": [
+            34,
+            8.330000001490117,
+            26.07999999821186
+          ],
+          "min": [
+            33,
+            8.129999998509884,
+            26
+          ]
+        },
+        "parentWitness": [
+          33.5,
+          8.23,
+          26.03999999910593
+        ],
+        "selector": {
+          "max": [
+            34,
+            8.330000001490117,
+            27
+          ],
+          "min": [
+            33,
+            8.129999998509884,
+            26
+          ]
+        }
+      }
+    ],
+    "parentCarrierId": "carrier/main/0/cell-3-1/1",
+    "parentRole": "exterior-wall",
+    "proposedKind": "fixed-embed",
+    "wholeCarrierRetirement": false
+  },
+  "parentGeometryBindings": [
+    {
+      "geometryId": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "geometryPath": "assets/art/place-scenes/new-york/geometry/a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6.json",
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        33.5,
+        7.360000133514404,
+        26,
+        1
+      ],
+      "partId": "main/0/cell-3-1/1",
+      "sha256": "8e41da9353b574e2c14542773a2a39cf52953b99e5086f37a5e3dda92bd23a25",
+      "sourcePartId": "main/0/cell-3-1/1",
+      "sourceRange": null
+    }
+  ],
+  "childGeometryBindings": [
+    {
+      "geometryId": "eb00a03d406e98ba1052101ff72273da5ff8148d0b95af94f85a998962bc16bf",
+      "geometryPath": "assets/art/place-scenes/new-york/geometry/eb00a03d406e98ba1052101ff72273da5ff8148d0b95af94f85a998962bc16bf.json",
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        8.23,
+        26,
+        1
+      ],
+      "partId": "edge-0/cornice-1",
+      "sha256": "f00c8671237ad62a2161af34446c8504face74759d1b59d4abb901006e50a71d",
+      "sourcePartId": "edge-0/cornice-1",
+      "sourceRange": null
+    }
+  ],
+  "unfinishedCoreBinding": [
+    "Resolve each original witness/selector to fixed original component and triangle, retaining named part and original provenance",
+    "Select and freeze original native record ID and cell; no survivor substitution",
+    "Map authoritative surviving native faces to original exterior triangles/components without assigning generated caps an original exterior identity"
+  ],
+  "unrepresentableShapeDemonstrated": false,
+  "actualNewYorkDiagnostics": 0
+}

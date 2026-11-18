@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "status": "SOURCE_ONLY_ONE_BINDING_CANDIDATE",
+  "artistParent": "cd10ebafc006a1105775db3822cdf2be7dcaa976",
+  "authorityCommit": "916b3e44c807fff34446a3c35e5adc438e9b28c6",
+  "coderInputCommit": "f45f0c4eac03059634d164ce5941211c5ee32e3a",
+  "scope": [
+    "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/"
+  ],
+  "files": [
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/.gitattributes",
+      "bytes": 47,
+      "sha256": "78c21412a32fe7f52bd098532b6c8647d96accc6175da639305233b229cb42bf"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/README.md",
+      "bytes": 2391,
+      "sha256": "e6c67219673fb86326a295706f4c4a0a01958d6d2705bac6c25cf9d0b7b2cda0"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/authority-916b3e44.md",
+      "bytes": 2245,
+      "sha256": "a4849799081beabbeab6dc4959e4ce53a3dbd835403acdb7f18ce09600a18737"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/frozen-unresolved-binding.json",
+      "bytes": 7461,
+      "sha256": "7082631c2b40ceabf642165450b2a8a0a250245cabc1a1ff2ec04dca0fc48de8"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/predicate-context.json",
+      "bytes": 9418,
+      "sha256": "e960fee270a638bf06fdfe53871c421adee41a8ec37e19d1094974c50d0f73ae"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/input-pins.json",
+      "bytes": 6259,
+      "sha256": "40cc0f35da2b6c76823574b071d2efc96dc87dc5212fd3f64d55229af8682470"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/check.py",
+      "bytes": 17012,
+      "sha256": "a5d2c3418b8ed874389be3055a5be6634ba5ef19d0920a52db309708fcf8ff0d"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/check-interior.mjs",
+      "bytes": 2693,
+      "sha256": "dd279ecbab2dfea4032b7b3b342b270bdb4b2a36b21d1c708f7ed0dcfe3a3790"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/source-record.json",
+      "bytes": 26615,
+      "sha256": "6f5646c7f1b17b9336b3256a35c04352648b59bf25c6fa07f0c6eaab62ee10b0"
+    }
+  ],
+  "nativeOrRuntimeInstallation": false,
+  "remaining": [
+    "Canonical native record ID and native cell remain null; derive them from the original source-to-native adapter, never a guessed suffix or surviving sibling.",
+    "Authoritative native fragment/face/component lineage to these fixed original primitives is not supplied. Generated cell-plane caps cannot become original exterior faces.",
+    "The fixed volume witness is not an exterior-face hit. Original sourceFace/sourceRange nulls stay null; any core boundary-port selection must be a separate reviewed derivation.",
+    "Corrected core admission, native birth/liveness and runtime installation require coder/architect review."
+  ],
+  "helpersRetained": false,
+  "scopeVerification": "Validate this candidate's commit against its own parent; do not compare an architect's combined tree against the old artist parent.",
+  "verification": "python -B art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/check.py"
+}
