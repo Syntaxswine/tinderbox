@@ -12,6 +12,24 @@ physical check. Return this compact checked first page and stop for review.
 This checkpoint refinement supersedes full-family execution in the first turn;
 no new solver or broad speculative design is required.
 
+The first checkpoint now passes architect source/runner review at
+`6c13bc5e` plus `b93dcee2`. Artist may execute the remaining **95 children /
+1,645 pairs / 4,340 regions** as a separate derived package, preserving that
+first page unchanged. Reuse the corrected finite runner, pinned caches and
+current checked method; no new supervisor or solver. First validate an existing
+authored surface/bearing witness where provided, then use the proved bounded
+coordinate constructions where applicable. Keep existing certificates unchanged.
+Unsupported geometry/membership becomes named unproved data, not invented joins.
+
+Partition by original child into pages of at most 256 regions, each finite
+child at most 60 seconds; use a finite foreground coordinator with an overall
+ten-minute ceiling and durable page progress. Stop unexpected failed pages,
+preserve results/receipts and leave unexecuted pages explicitly unattempted.
+Successful pages may contain named unproved regions. Do not search beyond the
+existing method to make counts pass. No native/compiler/graph/world/renderer
+run follows from this larger source batch. Deliver compact dictionaries,
+per-page records and an aggregate reason/count summary, not per-region prose.
+
 ## Source method and later inventory
 
 The architect's independent default checker reproduces artist `0e9ffa76`:
