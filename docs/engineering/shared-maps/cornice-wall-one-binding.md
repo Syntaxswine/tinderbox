@@ -1,5 +1,28 @@
 # One source binding: wall and cornice
 
+## Source facts accepted
+
+Artist `65c0a52e069d3e4d9bd09c3d87975e2413d22edf`, intaken as `93a67e5a`,
+passes the documented finite Python checker in root and exact ten-path/nine-pin
+package scope. Both original parts are watertight component 0, primitives 0–11,
+with eight exact vertices/eighteen edges/twelve triangles each. Checked parity
+and independent outward halfspaces put the original witness strictly inside
+both; four outside/double-offset controls reject. Neither part uses a repair
+overlay. Geometry, matrices and original ordering are unchanged.
+
+Accept those original physical facts only. Native ownership and current-volume
+semantics remain unbound. The documented Python entry point supplies JSON to
+its Node interior helper; invoking that helper alone without stdin is not its
+supported verification command.
+
+The native preflight subsequently finds the cornice represented by open facets
+and the wall's interior witness on an ownership cut. The separate
+[contact pilot](cornice-wall-contact-pilot.md) investigates a real original
+surface intersection within the same selector. It preserves this volume proof
+and null face/range fields; no new contact interpretation is accepted here.
+
+## Original assignment
+
 While coder corrects the three partial-core defects, reuse the existing artist
 checkout for one source-only binding investigation. This does not accept the
 core, bind the full catalogue or consume the unused New York diagnostic.
