@@ -1,0 +1,912 @@
+{
+  "version": 1,
+  "authority": "d899d73fe4d79cf62e344832f132d911253a52ef",
+  "inputSha256": "73351984911afc329903b862fe81e09140b13a9be6b5458402a01eca42622446",
+  "startedAt": "2026-11-18T00:46:03.066Z",
+  "status": "passed",
+  "phase": "authenticated-contact-controls",
+  "pairValidationSessions": 1,
+  "nativeCompilerCalls": 2,
+  "originalNonRoofRegionalCompilations": 2,
+  "originalRoofCompilations": 0,
+  "fullNewYorkDiagnostics": 0,
+  "worldTrials": 0,
+  "worldSteps": 0,
+  "stockPublications": 0,
+  "rendererRuns": 0,
+  "builds": 0,
+  "sourceExpansionsThisSession": 0,
+  "regions": [
+    {
+      "side": "parent",
+      "descriptor": {
+        "version": 1,
+        "sourceRevision": "dcc3a17e39cdc07578b4fba5308d6c21817a6ccdd9ca98a908fb1e5a292eccea",
+        "ownerId": "new-york::carrier/main/0/cell-3-1/1",
+        "epoch": 0,
+        "cellMin": [
+          64,
+          7,
+          52
+        ],
+        "cellMaxExclusive": [
+          68,
+          8,
+          56
+        ],
+        "span": [
+          4,
+          1,
+          4
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "pitch": [
+          0.5,
+          1.06,
+          0.5
+        ]
+      },
+      "trace": {
+        "visitedCells": 2,
+        "sources": [
+          {
+            "sourceId": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane",
+            "full": {
+              "min": [
+                66,
+                6,
+                52
+              ],
+              "max": [
+                67,
+                7,
+                52
+              ]
+            },
+            "restricted": {
+              "min": [
+                66,
+                7,
+                52
+              ],
+              "max": [
+                67,
+                7,
+                52
+              ]
+            },
+            "cells": 2
+          }
+        ]
+      },
+      "nativeQuantity": 0.9400004215144535,
+      "certificate": {
+        "epsilon": 1e-7,
+        "canonicalQuantity": 0.9400001335144044,
+        "canonicalRoundoff": 1.143468371652656e-10,
+        "positive": 5.763060729274815e-7,
+        "negative": 0.00000415230589087504,
+        "roundoffBound": 3.0593556300742465e-10,
+        "sourceInputRoundoff": 2.842170943040401e-14,
+        "rows": [
+          {
+            "sourceId": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane",
+            "epsilon": 1e-7,
+            "sourceArea": 2,
+            "canonicalArea": 0.9400001335144044,
+            "canonicalQuantity": 0.9400001335144044,
+            "canonicalRoundoff": 1.143468371652656e-10,
+            "candidateTriangleCells": 4,
+            "lowerArea": 0.9399991815144491,
+            "upperArea": 0.9400007095145417,
+            "areaDiscardBound": 0.0000028,
+            "coordinateScale": 34,
+            "minCrossingDelta": 0.49999979999999766,
+            "positive": 5.763060729274815e-7,
+            "negative": 0.00000415230589087504,
+            "roundoffBound": 3.0593556300742465e-10
+          }
+        ]
+      },
+      "boundaryIds": [
+        "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@66,7,52",
+        "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@67,7,52"
+      ]
+    },
+    {
+      "side": "child",
+      "descriptor": {
+        "version": 1,
+        "sourceRevision": "dcc3a17e39cdc07578b4fba5308d6c21817a6ccdd9ca98a908fb1e5a292eccea",
+        "ownerId": "new-york::carrier/edge-0/cornice-1",
+        "epoch": 0,
+        "cellMin": [
+          64,
+          7,
+          48
+        ],
+        "cellMaxExclusive": [
+          68,
+          8,
+          52
+        ],
+        "span": [
+          4,
+          1,
+          4
+        ],
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "pitch": [
+          0.5,
+          1.06,
+          0.5
+        ]
+      },
+      "trace": {
+        "visitedCells": 13,
+        "sources": [
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+            "full": {
+              "min": [
+                63,
+                7,
+                51
+              ],
+              "max": [
+                160,
+                7,
+                52
+              ]
+            },
+            "restricted": {
+              "min": [
+                64,
+                7,
+                51
+              ],
+              "max": [
+                67,
+                7,
+                51
+              ]
+            },
+            "cells": 4
+          },
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/1",
+            "full": {
+              "min": [
+                63,
+                7,
+                51
+              ],
+              "max": [
+                160,
+                7,
+                52
+              ]
+            },
+            "restricted": {
+              "min": [
+                64,
+                7,
+                51
+              ],
+              "max": [
+                67,
+                7,
+                51
+              ]
+            },
+            "cells": 4
+          },
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/2",
+            "full": {
+              "min": [
+                64,
+                7,
+                52
+              ],
+              "max": [
+                159,
+                7,
+                52
+              ]
+            },
+            "restricted": {
+              "min": [
+                64,
+                7,
+                52
+              ],
+              "max": [
+                67,
+                7,
+                51
+              ]
+            },
+            "cells": 0
+          },
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/3",
+            "full": {
+              "min": [
+                159,
+                7,
+                51
+              ],
+              "max": [
+                160,
+                7,
+                52
+              ]
+            },
+            "restricted": {
+              "min": [
+                159,
+                7,
+                51
+              ],
+              "max": [
+                67,
+                7,
+                51
+              ]
+            },
+            "cells": 0
+          },
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/4",
+            "full": {
+              "min": [
+                63,
+                7,
+                51
+              ],
+              "max": [
+                160,
+                7,
+                51
+              ]
+            },
+            "restricted": {
+              "min": [
+                64,
+                7,
+                51
+              ],
+              "max": [
+                67,
+                7,
+                51
+              ]
+            },
+            "cells": 4
+          },
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/5",
+            "full": {
+              "min": [
+                63,
+                7,
+                51
+              ],
+              "max": [
+                64,
+                7,
+                52
+              ]
+            },
+            "restricted": {
+              "min": [
+                64,
+                7,
+                51
+              ],
+              "max": [
+                64,
+                7,
+                51
+              ]
+            },
+            "cells": 1
+          }
+        ]
+      },
+      "nativeQuantity": 0.597736180584101,
+      "certificate": {
+        "epsilon": 1e-7,
+        "canonicalQuantity": 0.5977357735659962,
+        "canonicalRoundoff": 2.4388877721773154e-9,
+        "positive": 9.727300212306633e-7,
+        "negative": 0.000013225555014909766,
+        "roundoffBound": 7.2066032005330556e-9,
+        "sourceInputRoundoff": 2.4556358653171626e-12,
+        "rows": [
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+            "epsilon": 1e-7,
+            "sourceArea": 17.280000686645508,
+            "canonicalArea": 0.36000001430511475,
+            "canonicalQuantity": 0.19212935749320734,
+            "canonicalRoundoff": 8.097926370141283e-10,
+            "candidateTriangleCells": 8,
+            "lowerArea": 0.35999932630542236,
+            "upperArea": 0.3600007023053668,
+            "areaDiscardBound": 0.0000056,
+            "coordinateScale": 80.18000030517578,
+            "minCrossingDelta": 0.17865020330976833,
+            "positive": 3.6957749257108e-7,
+            "negative": 0.000004158255969462185,
+            "roundoffBound": 2.3968227699494247e-9
+          },
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/1",
+            "epsilon": 1e-7,
+            "sourceArea": 17.280000686645508,
+            "canonicalArea": 0.36000001430511475,
+            "canonicalQuantity": 0.19212935749320734,
+            "canonicalRoundoff": 8.097878218021256e-10,
+            "candidateTriangleCells": 8,
+            "lowerArea": 0.35999932630542236,
+            "upperArea": 0.36000070230536646,
+            "areaDiscardBound": 0.0000056,
+            "coordinateScale": 80.18000030517578,
+            "minCrossingDelta": 0.17865020330976833,
+            "positive": 3.695774626170419e-7,
+            "negative": 0.000004158255939685903,
+            "roundoffBound": 2.3967929936667442e-9
+          },
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/2",
+            "epsilon": 1e-7,
+            "sourceArea": 9.52800001990795,
+            "canonicalArea": 0,
+            "canonicalQuantity": 0,
+            "canonicalRoundoff": 7.226252975865467e-14,
+            "candidateTriangleCells": 0,
+            "lowerArea": 0,
+            "upperArea": 0,
+            "areaDiscardBound": 0,
+            "coordinateScale": 79.81999969482422,
+            "minCrossingDelta": null,
+            "positive": 7.226252975865467e-14,
+            "negative": 7.226252975865467e-14,
+            "roundoffBound": 7.226252975865467e-14
+          },
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/3",
+            "epsilon": 1e-7,
+            "sourceArea": 0.10182346634798008,
+            "canonicalArea": 0,
+            "canonicalQuantity": 0,
+            "canonicalRoundoff": 1.4210854715202004e-14,
+            "candidateTriangleCells": 0,
+            "lowerArea": 0,
+            "upperArea": 0,
+            "areaDiscardBound": 0,
+            "coordinateScale": 80.18000030517578,
+            "minCrossingDelta": null,
+            "positive": 1.4210854715202004e-14,
+            "negative": 1.4210854715202004e-14,
+            "roundoffBound": 1.4210854715202004e-14
+          },
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/4",
+            "epsilon": 1e-7,
+            "sourceArea": 9.672000266194345,
+            "canonicalArea": 0.4000000059604645,
+            "canonicalQuantity": 0.21347705857958146,
+            "canonicalRoundoff": 7.877600730527879e-10,
+            "candidateTriangleCells": 8,
+            "lowerArea": 0.399999685960456,
+            "upperArea": 0.40000032596047264,
+            "areaDiscardBound": 0.0000056,
+            "coordinateScale": 80.18000030517578,
+            "minCrossingDelta": 46.68000010517578,
+            "positive": 1.7313165652410753e-7,
+            "negative": 0.000003961810432281219,
+            "roundoffBound": 2.3500078512951923e-9
+          },
+          {
+            "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/5",
+            "epsilon": 1e-7,
+            "sourceArea": 0.10182346634798008,
+            "canonicalArea": 0,
+            "canonicalQuantity": 0,
+            "canonicalRoundoff": 3.14607669237993e-11,
+            "candidateTriangleCells": 2,
+            "lowerArea": 0,
+            "upperArea": 1.1313708598817278e-7,
+            "areaDiscardBound": 0.0000014,
+            "coordinateScale": 32.18000030517578,
+            "minCrossingDelta": 0.18000000715255737,
+            "positive": 6.044332304504945e-8,
+            "negative": 9.472325870070762e-7,
+            "roundoffBound": 6.289311223722037e-11
+          }
+        ]
+      },
+      "boundaryIds": [
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/0@64,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/0@65,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/0@66,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/0@67,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/1@64,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/1@65,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/1@66,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/1@67,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/4@64,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/4@65,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/4@66,7,51",
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/4@67,7,51"
+      ]
+    }
+  ],
+  "controls": {
+    "intact": {
+      "live": true,
+      "retireRecords": [],
+      "core": {
+        "generation": 0,
+        "revision": 0,
+        "supportedIds": [],
+        "unrootedIds": [
+          "new-york::carrier/edge-0/cornice-1/part/2406/face/0@67,7,51/original-contact",
+          "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@67,7,52/original-contact"
+        ],
+        "births": [],
+        "ports": [
+          {
+            "id": "fa9dc4a25193e94ce7b5793e/contact-alternative",
+            "parent": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@67,7,52/original-contact",
+            "child": "new-york::carrier/edge-0/cornice-1/part/2406/face/0@67,7,51/original-contact",
+            "live": true
+          }
+        ],
+        "unresolvedBindings": [],
+        "oldEdgeConflicts": []
+      }
+    },
+    "parentRetired": {
+      "live": false,
+      "retireRecords": [
+        "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@67,7,52"
+      ],
+      "core": {
+        "generation": 0,
+        "revision": 1,
+        "supportedIds": [],
+        "unrootedIds": [
+          "new-york::carrier/edge-0/cornice-1/part/2406/face/0@67,7,51/original-contact"
+        ],
+        "births": [],
+        "ports": [
+          {
+            "id": "fa9dc4a25193e94ce7b5793e/contact-alternative",
+            "parent": null,
+            "child": "new-york::carrier/edge-0/cornice-1/part/2406/face/0@67,7,51/original-contact",
+            "live": false
+          }
+        ],
+        "unresolvedBindings": [],
+        "oldEdgeConflicts": []
+      }
+    },
+    "childRetired": {
+      "live": false,
+      "retireRecords": [
+        "new-york::carrier/edge-0/cornice-1/part/2406/face/0@67,7,51"
+      ],
+      "core": {
+        "generation": 0,
+        "revision": 1,
+        "supportedIds": [],
+        "unrootedIds": [
+          "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@67,7,52/original-contact"
+        ],
+        "births": [],
+        "ports": [
+          {
+            "id": "fa9dc4a25193e94ce7b5793e/contact-alternative",
+            "parent": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@67,7,52/original-contact",
+            "child": null,
+            "live": false
+          }
+        ],
+        "unresolvedBindings": [],
+        "oldEdgeConflicts": []
+      }
+    },
+    "unrelatedRetired": {
+      "live": true,
+      "retireRecords": [
+        "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@66,7,52"
+      ],
+      "core": {
+        "generation": 0,
+        "revision": 1,
+        "supportedIds": [],
+        "unrootedIds": [
+          "new-york::carrier/edge-0/cornice-1/part/2406/face/0@67,7,51/original-contact",
+          "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@67,7,52/original-contact"
+        ],
+        "births": [],
+        "ports": [
+          {
+            "id": "fa9dc4a25193e94ce7b5793e/contact-alternative",
+            "parent": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@67,7,52/original-contact",
+            "child": "new-york::carrier/edge-0/cornice-1/part/2406/face/0@67,7,51/original-contact",
+            "live": true
+          }
+        ],
+        "unresolvedBindings": [],
+        "oldEdgeConflicts": []
+      }
+    },
+    "unrelatedRecordId": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@66,7,52",
+    "nearbySurvivorExistsAfterBoundRetirement": true,
+    "frozenBindingUnchanged": true,
+    "forgedSliceRejected": true,
+    "unknownRetirementRejected": true,
+    "generatedCutCapNativePrimitives": [
+      8,
+      9
+    ],
+    "selectedOriginalFaceNativePrimitives": [
+      3,
+      4,
+      5
+    ],
+    "generatedCutCapsRejected": true,
+    "noGroundingClaim": true
+  },
+  "cleanup": {
+    "producer": {
+      "productionEnabled": false,
+      "closed": true,
+      "epoch": 1,
+      "nativeCalls": 2,
+      "visitedCells": 15,
+      "certificateBuilds": 2,
+      "retainedReceipts": 0,
+      "owners": []
+    },
+    "reader": {
+      "generation": 0,
+      "closed": true,
+      "retainedStockStates": 0
+    },
+    "receiptsDisposed": 2,
+    "helpers": [],
+    "ports": []
+  },
+  "binding": {
+    "generation": 0,
+    "sourceRevision": "dcc3a17e39cdc07578b4fba5308d6c21817a6ccdd9ca98a908fb1e5a292eccea",
+    "point": [
+      33.5,
+      8.330000001490117,
+      25.92000000178814
+    ],
+    "direction": "parent-to-child",
+    "anchors": [],
+    "parent": {
+      "partId": "main/0/cell-3-1/1",
+      "ownerId": "new-york::carrier/main/0/cell-3-1/1",
+      "component": 0,
+      "primitive": 10,
+      "channel": "solid",
+      "sourceSurfaceId": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane",
+      "nativeRecordId": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@67,7,52",
+      "cell": [
+        67,
+        7,
+        52
+      ],
+      "nativePrimitives": [
+        3,
+        4,
+        5
+      ]
+    },
+    "child": {
+      "partId": "edge-0/cornice-1",
+      "ownerId": "new-york::carrier/edge-0/cornice-1",
+      "component": 0,
+      "primitive": 0,
+      "channel": "surface",
+      "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+      "nativeRecordId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0@67,7,51",
+      "cell": [
+        67,
+        7,
+        51
+      ],
+      "nativePrimitives": [
+        0,
+        1
+      ]
+    }
+  },
+  "receiptEntries": [
+    {
+      "ownerId": "new-york::carrier/main/0/cell-3-1/1",
+      "parts": [
+        {
+          "partId": "main/0/cell-3-1/1",
+          "min": [
+            66,
+            6,
+            52
+          ],
+          "max": [
+            67,
+            7,
+            52
+          ],
+          "cells": [
+            [
+              66,
+              7,
+              52
+            ],
+            [
+              67,
+              7,
+              52
+            ]
+          ],
+          "sourceIds": [
+            "new-york::carrier/main/0/cell-3-1/1/part/6304/plane"
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "cell": [
+            66,
+            7,
+            52
+          ],
+          "id": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@66,7,52",
+          "sourceSurfaceId": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane",
+          "nativePartId": "main/0/cell-3-1/1",
+          "closedShape": null,
+          "trianglesSha256": "5ee4f55f1e65896db5f9b7610db10b101ee5b66678cec85c412da14f3a85ef78",
+          "solidTrianglesSha256": "205a50f55363acf04befa2fd16c95027e1deb6af302f064e1bc452f5e710dbfc"
+        },
+        {
+          "cell": [
+            67,
+            7,
+            52
+          ],
+          "id": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane@67,7,52",
+          "sourceSurfaceId": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane",
+          "nativePartId": "main/0/cell-3-1/1",
+          "closedShape": null,
+          "trianglesSha256": "37f5e895c67905e9928f091969dc6643e886892a63ec327cb246a42df0a341de",
+          "solidTrianglesSha256": "52694d133c45616485dceee22b80301036fe49b804fcfa1d28a22a3529346eef"
+        }
+      ]
+    },
+    {
+      "ownerId": "new-york::carrier/edge-0/cornice-1",
+      "parts": [
+        {
+          "partId": "edge-0/cornice-1",
+          "min": [
+            63,
+            7,
+            51
+          ],
+          "max": [
+            160,
+            7,
+            52
+          ],
+          "cells": [
+            [
+              64,
+              7,
+              51
+            ],
+            [
+              65,
+              7,
+              51
+            ],
+            [
+              66,
+              7,
+              51
+            ],
+            [
+              67,
+              7,
+              51
+            ]
+          ],
+          "sourceIds": [
+            "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+            "new-york::carrier/edge-0/cornice-1/part/2406/face/1",
+            "new-york::carrier/edge-0/cornice-1/part/2406/face/2",
+            "new-york::carrier/edge-0/cornice-1/part/2406/face/3",
+            "new-york::carrier/edge-0/cornice-1/part/2406/face/4",
+            "new-york::carrier/edge-0/cornice-1/part/2406/face/5"
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "cell": [
+            64,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/0@64,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "54933261fbbe11306f310d6931c39a803c0e137b6389ef7be75235bfe295fe0c",
+          "solidTrianglesSha256": "54933261fbbe11306f310d6931c39a803c0e137b6389ef7be75235bfe295fe0c"
+        },
+        {
+          "cell": [
+            65,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/0@65,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "a6465fb2175a33858019d9d7f667043fa900b1342b4d0f24f74ef1bbe5a043cf",
+          "solidTrianglesSha256": "a6465fb2175a33858019d9d7f667043fa900b1342b4d0f24f74ef1bbe5a043cf"
+        },
+        {
+          "cell": [
+            66,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/0@66,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "75b8ef88aca2ef087e0cc40b86b327d9acc9d3d2c7a34f52d91c15d3bee6868b",
+          "solidTrianglesSha256": "75b8ef88aca2ef087e0cc40b86b327d9acc9d3d2c7a34f52d91c15d3bee6868b"
+        },
+        {
+          "cell": [
+            67,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/0@67,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "69f75c9b7967cf2828b0047457cd796e040ff87f4be01e5541d5e66a61c55288",
+          "solidTrianglesSha256": "69f75c9b7967cf2828b0047457cd796e040ff87f4be01e5541d5e66a61c55288"
+        },
+        {
+          "cell": [
+            64,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/1@64,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/1",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "d4edcb0f066926f37cf5bdbdb8792d1c7ede08d6425cfd3faf659a536d86e230",
+          "solidTrianglesSha256": "d4edcb0f066926f37cf5bdbdb8792d1c7ede08d6425cfd3faf659a536d86e230"
+        },
+        {
+          "cell": [
+            65,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/1@65,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/1",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "310d1787efe5f909331bee55e28816b2b7651b620b83206241e017d64ad10630",
+          "solidTrianglesSha256": "310d1787efe5f909331bee55e28816b2b7651b620b83206241e017d64ad10630"
+        },
+        {
+          "cell": [
+            66,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/1@66,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/1",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "bf30c42309acffc3e52ec9178544c912eaa494045f0f525f27411a1b40678f65",
+          "solidTrianglesSha256": "bf30c42309acffc3e52ec9178544c912eaa494045f0f525f27411a1b40678f65"
+        },
+        {
+          "cell": [
+            67,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/1@67,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/1",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "72fec0dfde5b828934c93dbbda652d6d1ee999af0f6401f61f4906e7efa17848",
+          "solidTrianglesSha256": "72fec0dfde5b828934c93dbbda652d6d1ee999af0f6401f61f4906e7efa17848"
+        },
+        {
+          "cell": [
+            64,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/4@64,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/4",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "8c43f280581313e7bdf9db023041b4a9303a75845f6045f507385884d5812d88",
+          "solidTrianglesSha256": "8c43f280581313e7bdf9db023041b4a9303a75845f6045f507385884d5812d88"
+        },
+        {
+          "cell": [
+            65,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/4@65,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/4",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "d1b7ca3512942ed1438cc9f17709c0153ad62f43bb0390c746dfaf3d03e376d8",
+          "solidTrianglesSha256": "d1b7ca3512942ed1438cc9f17709c0153ad62f43bb0390c746dfaf3d03e376d8"
+        },
+        {
+          "cell": [
+            66,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/4@66,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/4",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "451788ea1d4d0657dc4f4f3e92d5c785a8bf6654502f247f0066286e1f3bb2d4",
+          "solidTrianglesSha256": "451788ea1d4d0657dc4f4f3e92d5c785a8bf6654502f247f0066286e1f3bb2d4"
+        },
+        {
+          "cell": [
+            67,
+            7,
+            51
+          ],
+          "id": "new-york::carrier/edge-0/cornice-1/part/2406/face/4@67,7,51",
+          "sourceSurfaceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/4",
+          "nativePartId": "edge-0/cornice-1",
+          "closedShape": false,
+          "trianglesSha256": "2012acab53c05f69e07751ba53763616267f172800061300467b37e002bdd99c",
+          "solidTrianglesSha256": "2012acab53c05f69e07751ba53763616267f172800061300467b37e002bdd99c"
+        }
+      ]
+    }
+  ],
+  "endedAt": "2026-11-18T00:46:03.092Z"
+}

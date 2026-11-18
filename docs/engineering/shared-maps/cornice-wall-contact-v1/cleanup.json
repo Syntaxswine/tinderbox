@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-11-18T00:46:57.7927211Z",
+  "owner": "Coder Tinderbox",
+  "processes": [
+    {
+      "receipt": "focused.json",
+      "pid": 17384,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-18T00:45:10.855Z",
+      "endedAt": "2026-11-18T00:45:11.294Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "focused-passed.json",
+      "pid": 37448,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-18T00:45:53.727Z",
+      "endedAt": "2026-11-18T00:45:54.207Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "native-launch.json",
+      "pid": 59184,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-18T00:46:02.919Z",
+      "endedAt": "2026-11-18T00:46:03.104Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    }
+  ],
+  "retainedHelpers": [],
+  "portsAllocated": [],
+  "stopMethod": "Finite hidden foreground children exited; no termination required"
+}

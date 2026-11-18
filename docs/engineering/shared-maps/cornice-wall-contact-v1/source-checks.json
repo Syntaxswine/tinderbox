@@ -1,0 +1,160 @@
+{
+  "passed": true,
+  "inputSha256": "73351984911afc329903b862fe81e09140b13a9be6b5458402a01eca42622446",
+  "proof": {
+    "version": 1,
+    "interpretation": "proposed-fixed-original-contact",
+    "relationshipId": "fa9dc4a25193e94ce7b5793e",
+    "regionId": "19428b0ef95337ce4e9f64a6",
+    "point": [
+      33.5,
+      8.330000001490117,
+      25.92000000178814
+    ],
+    "direction": "parent-to-child",
+    "kind": "bearing-face",
+    "grid": {
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "pitch": [
+        0.5,
+        1.06,
+        0.5
+      ]
+    },
+    "ends": {
+      "parent": {
+        "partId": "main/0/cell-3-1/1",
+        "ownerId": "new-york::carrier/main/0/cell-3-1/1",
+        "globalPartIndex": 6304,
+        "primitive": 10,
+        "component": 0,
+        "channel": "solid",
+        "role": "exterior-wall",
+        "sourceId": "new-york::carrier/main/0/cell-3-1/1/part/6304/plane",
+        "projection": [
+          33.5,
+          8.330000001490117,
+          26
+        ],
+        "sourceCell": [
+          67,
+          7,
+          52
+        ],
+        "regionMin": [
+          64,
+          7,
+          52
+        ],
+        "sourceSpan": {
+          "min": [
+            66,
+            6,
+            52
+          ],
+          "max": [
+            67,
+            7,
+            52
+          ]
+        },
+        "selector": {
+          "max": [
+            34,
+            8.330000001490117,
+            26
+          ],
+          "min": [
+            33,
+            8.129999998509884,
+            25.92000000178814
+          ]
+        },
+        "originalNormal": [
+          0,
+          0,
+          -1
+        ]
+      },
+      "child": {
+        "partId": "edge-0/cornice-1",
+        "ownerId": "new-york::carrier/edge-0/cornice-1",
+        "globalPartIndex": 2406,
+        "primitive": 0,
+        "component": 0,
+        "channel": "surface",
+        "role": "timber-fitting",
+        "sourceId": "new-york::carrier/edge-0/cornice-1/part/2406/face/0",
+        "projection": [
+          33.5,
+          8.330000001490117,
+          25.92000000178814
+        ],
+        "sourceCell": [
+          67,
+          7,
+          51
+        ],
+        "regionMin": [
+          64,
+          7,
+          48
+        ],
+        "sourceSpan": {
+          "min": [
+            63,
+            7,
+            51
+          ],
+          "max": [
+            160,
+            7,
+            52
+          ]
+        },
+        "selector": {
+          "max": [
+            34,
+            8.330000001490117,
+            26
+          ],
+          "min": [
+            33,
+            8.129999998509884,
+            25.92000000178814
+          ]
+        },
+        "originalNormal": [
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    "sourceChecks": {
+      "originalContact": true,
+      "selectorClippedContact": true
+    },
+    "historicalVolumeEvidenceChanged": false
+  },
+  "metrics": {
+    "selectedOwners": 2,
+    "selectedParts": 2,
+    "decodedAttributeGeometries": 0,
+    "transformedQueries": 0,
+    "renderExpansions": 0,
+    "nativeSourceExpansions": 2,
+    "nativePartTransforms": 2,
+    "presentationBlueprints": 0,
+    "presentationPartTransforms": 0,
+    "staticIndexBins": 9
+  },
+  "originalPartTransforms": 2,
+  "nativeCompilerCalls": 0,
+  "originalRoofCompilations": 0,
+  "fullNewYorkDiagnostics": 0
+}
