@@ -1,4 +1,42 @@
-# Partial support-port core: held for three corrections
+# Partial support-port core: corrected prototype accepted
+
+## Current decision: bounded partial-core acceptance
+
+Accept successor `e83ff7af6312fccb6d97b0923b8b46f48bbee871`, intaken as
+`0e2c8d7d`, as the corrected disabled **partial physical core**. All three
+reproduced findings below are resolved. Root independently passes 67 focused
+controls, declaration 22/50, 29 manifest pins/30-path scope, 215 preserved raw
+files/thirty-two historical source pins/eighteen unchanged helpers, the
+read-only source audit and the original ghost-embed repro. The full initial
+joint stays supported; removed joint material leaves the child unrooted and
+the bond nonlive. All four successor child PIDs are absent. No source archive
+is rewritten and no original roof/New York/world/renderer run occurs.
+
+The UI specialist independently passes all 44 delivered controls once and all
+three preserved repros with expected outcomes. It adds no new crafted case.
+Independent ALL-required fittings compose while cycle controls still reject;
+caller mutation cannot move captured anchors. A surviving interior joint can
+remain supported when its unrelated exterior proxy retires. Its prior QA and
+train candidate stay unchanged, with no tracked edits or retained helper.
+
+Strict embeds now use their common interior witness and require authoritative
+current material for the fixed original part/component/native record/cell.
+Optional `solidTriangles` supplies that current closed component, separate
+from the exterior view. The core checks finite nondegenerate triangles,
+exact-edge watertightness, a single boundary component and the existing
+interior/contact predicates. It never manufactures caps. Surface-only or
+ambiguous multiple-boundary inputs fail closed. The caller must not supply a
+stale original-parent solid, guessed envelope or geometry from another view.
+This trusted material/identity input is not an authenticated source adapter.
+
+This clears the review-branch push hold. It does **not** accept full contact
+footprints, all New York material components, catalogue normalization, source
+volume/domain queries, actual asset installation, the live hybrid dispatcher,
+performance, rendered maps or Pages. The actual New York diagnostic remains
+unrun and its allowance unused. Source lineage/binding follows as a separate
+bounded task; the earlier holds and failures remain below as history.
+
+## Original partial checkpoint and returned findings
 
 Coder `f45f0c4eac03059634d164ce5941211c5ee32e3a` is intaken locally as
 `64042223`. It is a disabled physical core, not the completed New York support
