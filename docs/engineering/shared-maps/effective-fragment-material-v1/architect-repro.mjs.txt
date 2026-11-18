@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import {createOriginalSupportPorts,originalMaterialComponents} from '../../../src/simulation/original-support-ports.js';
+import {boxTriangles} from '../../../tests/fixtures/regional-query-data.mjs';
+import {clipTriangle,triangleArea} from '../../../workbenches/furnished-house/geometry.js';
+const empty=[[0,0,0],[0,0,0],[1,0,0]],part={id:'post',ownerId:'post',triangles:[empty,...boxTriangles([0,0,0],[1,2,1])]},component=originalMaterialComponents(part.triangles)[0];
+const primitives=[],upper=[];
+for(const i of component.primitives){const ts=clipTriangle(part.triangles[i],{min:[-1,1,-1],max:[2,3,2]}).filter(t=>triangleArea(t)>0);if(ts.length){primitives.push(i);upper.push(...ts);}}
+const core=createOriginalSupportPorts({parts:[part],bonds:[],anchors:[{partId:part.id,elevation:0}]});
+try{
+ const fragment={id:'surviving-upper',partId:part.id,ownerId:part.ownerId,component:0,mode:'cold',primitives,triangles:upper};
+ const clean=core.evaluate({revision:1,fragments:[fragment]}),withRawEmpty=core.evaluate({revision:1,fragments:[{...fragment,triangles:[...upper,empty]}]});
+ const out={candidate:'0ce79739c8b45a249395253f361964f343c2e576',originalAnchorTouchesRealOriginalBox:true,groundMaterialRemoved:true,retainedPositiveMinimumY:Math.min(...upper.flat().map(p=>p[1])),originalEmptyPrimitiveExcluded:!primitives.includes(0),cleanSupported:clean.supportedIds,withRawEmptySupported:withRawEmpty.supportedIds,nativeCalls:0,worldSteps:0};
+ fs.writeFileSync('artifacts/qa/m29-architect-intake/duplicate-face-grounding-repro.json',JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify(out));
+}finally{core.dispose();}

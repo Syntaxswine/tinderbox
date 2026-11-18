@@ -1,0 +1,6 @@
+{
+  "scope": "Cleanup receipt packaging only; no test or source expansion rerun",
+  "failure": "PowerShell concatenation/comma precedence combined three receipt paths into one Get-Content path",
+  "correction": "Parenthesize each concatenated array item before reading the existing receipts",
+  "cleanupReceiptWrittenByFailedAttempt": false
+}

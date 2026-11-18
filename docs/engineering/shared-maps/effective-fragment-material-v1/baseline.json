@@ -1,0 +1,37 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Exact lost-foundation regression, fragment admission and affected source/strict physics",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "tests/integration/effective-fragment-material.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "77e6437965507e12efa81e6892434760eacc422248bdd2f6be34ebb0ba366c38"
+    },
+    {
+      "path": "src/content/original-contact-adapter.js",
+      "lfSha256": "ee683a7793135591ab0592fcb687a944f47d59dce2aad3a8c8e9a79315f74434"
+    },
+    {
+      "path": "tests/integration/effective-fragment-material.test.mjs",
+      "lfSha256": "5e1c8a22e0073a58cd56f5d2abd7cb89cb64528b41f8312535b5262be805bc2b"
+    }
+  ],
+  "pid": 35728,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-18T02:52:03.223Z",
+  "endedAt": "2026-11-18T02:52:03.475Z",
+  "exitCode": 1,
+  "signal": null,
+  "timeoutMs": 20000,
+  "actualNativeCompilerCalls": 0,
+  "sourceOwnerExpansions": 0,
+  "fullNewYorkDiagnostics": 0,
+  "worldSteps": 0,
+  "rendererCalls": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

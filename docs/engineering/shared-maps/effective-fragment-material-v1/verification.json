@@ -1,0 +1,127 @@
+{
+  "status": "passed",
+  "baseCommit": "0ce79739c8b45a249395253f361964f343c2e576",
+  "changedRuntime": "src/simulation/original-support-ports.js",
+  "scope": "Finite positive-area fragment admission only; all other source/physical rules preserved",
+  "baseline": {
+    "tests": 3,
+    "pass": 1,
+    "fail": 2
+  },
+  "affected": {
+    "tests": 44,
+    "pass": 44,
+    "fail": 0
+  },
+  "originalFailurePreserved": true,
+  "originalEnumerationAndConstructorUnchanged": true,
+  "effectiveClosedSolidAndGraphLogicUnchanged": true,
+  "triangleCeiling": 400000,
+  "sourcePageWorkPaused": {
+    "path": "docs/engineering/shared-maps/cornice-page-mapping-v1/",
+    "committedInThisCandidate": false,
+    "expandedAgain": false
+  },
+  "scopeCounts": {
+    "actualNativeCompilerCalls": 0,
+    "newSourceOwnerExpansions": 0,
+    "fullNewYorkDiagnostics": 0,
+    "worldSteps": 0,
+    "rendererCalls": 0,
+    "builds": 0,
+    "benchmarks": 0
+  },
+  "protectedUnrelated": {
+    "path": "docs/engineering/shared-maps/support-regions-proposal.md",
+    "sha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f",
+    "staged": false
+  },
+  "retainedHelpers": [],
+  "files": [
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/.gitattributes",
+      "bytes": 90,
+      "lfSha256": "40c83f13b27522cfe6d2924150d57b102c73c24d4ee889775af78958da3b1fda"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/README.md",
+      "bytes": 2700,
+      "lfSha256": "daa23a5acd098ea27be8c7be073012128b7233daad919543e989fc6666be527c"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/affected.json",
+      "bytes": 2495,
+      "lfSha256": "effc03eb889d9c6589a0060dc2eb0d3746efd5ee860dc3ed441bba7f527450ae"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/affected.log",
+      "bytes": 10589,
+      "lfSha256": "cc42b5f9501affee7e53d0b8a9a3e239196755f484c17402270d160d9092c38b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/architect-repro.json",
+      "bytes": 337,
+      "lfSha256": "0775123ffdfb4de51af0ab0d1ae219d86f32e1ab2b84c204b1472ff7e3c6ccbc"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/architect-repro.mjs.txt",
+      "bytes": 1653,
+      "lfSha256": "33c362ba366e6f9dc6b9c31d145a1173558177a2cda13feac3ee05075b9800e9"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/authority.md",
+      "bytes": 1324,
+      "lfSha256": "1f7842c087c1787ef36431c1bc49050bd9756d3ffbb27588aa0e84004cb9cd98"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/baseline.json",
+      "bytes": 1147,
+      "lfSha256": "c589a4794564152592db313471cf50f5d7cee7f1f254309bb3f5eb82cf390b80"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/baseline.log",
+      "bytes": 2444,
+      "lfSha256": "4785ec26d5d6d3484a5cc37b68669ff6beef8e687dd4021c59f12be0e80532c7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/cleanup.json",
+      "bytes": 730,
+      "lfSha256": "cdc648efed6fb5ea64aa7619e54b5a05682afbc543c6f4875e580e128c9eb779"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/packaging-first-failure.json",
+      "bytes": 343,
+      "lfSha256": "5498c1f51980fb6c5f86a6c3e4d04b6955445c4c59fd432b0f38d1770adb8cdc"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/run-focused.mjs",
+      "bytes": 1824,
+      "lfSha256": "f3473050692d54cbfe9dfbf3f33c8a5b372034ce31b8ad0343e4f4b7b361b1c9"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/source-pins.json",
+      "bytes": 873,
+      "lfSha256": "699254a5af8cf43f1081137a07f1ac4931195cfc8a1e85257ca4224cf23b217d"
+    },
+    {
+      "path": "docs/engineering/shared-maps/effective-fragment-material-v1/verify.mjs",
+      "bytes": 5009,
+      "lfSha256": "dcd5dc884dbf48b7b554d2d14b7658221b3f142c7c36daeeb8aae6e84b5dc393"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "bytes": 17585,
+      "lfSha256": "1fedd66880a5b171dcf919eb5625a08dd410e92a81a8c4f00c4a89592a858414"
+    },
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "bytes": 14766,
+      "lfSha256": "5fd1b729132c74099cd42f9f2647c52721b44a53468bab3b69d23a5f4ba7d02d"
+    },
+    {
+      "path": "tests/integration/effective-fragment-material.test.mjs",
+      "bytes": 3667,
+      "lfSha256": "5e1c8a22e0073a58cd56f5d2abd7cb89cb64528b41f8312535b5262be805bc2b"
+    }
+  ]
+}
