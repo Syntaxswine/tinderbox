@@ -1,0 +1,179 @@
+{
+  "status": "passed",
+  "baseCommit": "11bf4636c0b1beacdb2fdb91b95a1fb54c367b04",
+  "scope": "Optional shared-selector delta, four new and seven existing synthetic groups, one committed source example; no runtime rerun for packaging",
+  "passingGroups": {
+    "new": 4,
+    "existing": 7,
+    "committedUiSourceExamples": 1
+  },
+  "preservedRuns": {
+    "baseline": {
+      "tests": 4,
+      "pass": 1,
+      "fail": 3,
+      "reason": "Old deliberate shared-selector rejection"
+    },
+    "affected": {
+      "tests": 11,
+      "pass": 10,
+      "fail": 1,
+      "reason": "Flattened test points passed to bounds; runtime unchanged by fixture correction"
+    },
+    "corrected": {
+      "tests": 4,
+      "pass": 4,
+      "fail": 0
+    }
+  },
+  "sourceOnly": {
+    "uiCommit": "e67235b6e9d87760b1b36d802833de44456b1bd8",
+    "regionId": "715ed699e0b9c5185bf38ab4",
+    "prepared": 1,
+    "nativeRecordsBound": 0,
+    "ownerExpansions": 2,
+    "originalPartTransforms": 2
+  },
+  "scopeCounts": {
+    "actualNativeCompilerCalls": 0,
+    "pairValidationSessions": 0,
+    "fullNewYorkDiagnostics": 0,
+    "worldSteps": 0,
+    "rendererCalls": 0,
+    "benchmarks": 0,
+    "builds": 0
+  },
+  "protectedUnrelated": {
+    "path": "docs/engineering/shared-maps/support-regions-proposal.md",
+    "sha256": "56c5e514ec7c0ba59ff10772345d3f16eb0f11f53924146738ef3811ed07fc5f",
+    "staged": false
+  },
+  "retainedHelpers": [],
+  "files": [
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/.gitattributes",
+      "bytes": 90,
+      "lfSha256": "40c83f13b27522cfe6d2924150d57b102c73c24d4ee889775af78958da3b1fda"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/README.md",
+      "bytes": 3588,
+      "lfSha256": "bd98c554ce004c38b1f321ffa45c3246fb2fbfce575f48a9d9fa5a62b5b769b8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/affected.json",
+      "bytes": 1385,
+      "lfSha256": "fc44f5c1443c235be3e088b2f9b3e450ed3018ff0fa30d3610fdc451b0a2da4f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/affected.log",
+      "bytes": 2208,
+      "lfSha256": "a679485e60581e8ff55bffe99e4bbb302493d5ccd4cae4f5b10a03688f54e7d3"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/authority.md",
+      "bytes": 1842,
+      "lfSha256": "ae0562a13d1566d6418feb9144c9efa1cc7085b99b4e945194a4e5d932ee5779"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/baseline.json",
+      "bytes": 1159,
+      "lfSha256": "72f74bf7dd95b6c57a6423d45a86472ea645b49d965402710004047a9a6af0e0"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/baseline.log",
+      "bytes": 4159,
+      "lfSha256": "8fdf4e13fdf1935bbcd306a8cf629bda315bec71e41fa277f1eff5bf9b942db8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/cleanup.json",
+      "bytes": 674,
+      "lfSha256": "8f25259031f96dfc30a09a3455e50a34d4fd9b882a1477870cdbf5b4b634e164"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/corrected.json",
+      "bytes": 1159,
+      "lfSha256": "c145ddab629557648013badac19a368eff4d7337ef8522c95f44b3d825c90273"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/corrected.log",
+      "bytes": 524,
+      "lfSha256": "dd2afb639b722108d91c31c0fa336da321dd07e1e6e78c3a03c1d6d8a95050b4"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/first-endpoint-test.mjs.txt",
+      "bytes": 5109,
+      "lfSha256": "da8e93e1270daac426b87003b42e97a756959e7e7fcddf4f5b5a673209611521"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/fixture-first-failure.json",
+      "bytes": 1946,
+      "lfSha256": "5a0ada821f69433173124a7e6137ad0351f2bb3e3fc397b628ad7af1dfd6076f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/reconcile-ui-example.mjs",
+      "bytes": 8283,
+      "lfSha256": "b4afbd4b63770497c13e7c5936034081060f7c47a261131071e6fbcf35f57e56"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/run-small.mjs",
+      "bytes": 1590,
+      "lfSha256": "22054d9dd527b15f1d1760b3e3917fac007763875e8e2410c15f521a57cded4a"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/run-ui.mjs",
+      "bytes": 1257,
+      "lfSha256": "76ebe9dc1782b7fb9d404f88b2996f228bdc9531942a4679d894c2c586271824"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/ui-example.json",
+      "bytes": 13116,
+      "lfSha256": "5390e8477a2d7f997a3d2f9dd21b597f8fb5d50a474b05ea312f3999d9d6130b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/ui-result.json",
+      "bytes": 4826,
+      "lfSha256": "589b67fcee4c9949c4e9d5eb8db432ee2d4ba5e2efc33cc335f22622d43dc429"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/ui-run.json",
+      "bytes": 1145,
+      "lfSha256": "aba06c4372074a29cb0c1d63543870c897f3811e233cfc09a88c70786db3a250"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/ui-run.log",
+      "bytes": 321,
+      "lfSha256": "3b2ffb30d9cd4a7a0abbbd47b89b9e1e09833fa300c2852b18f16e568989ce8d"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/verification-first-failure.json",
+      "bytes": 553,
+      "lfSha256": "f7cb6546e7deecc4ce6786efa2de2251899e16d014aff0a5dd76407c127c649c"
+    },
+    {
+      "path": "docs/engineering/shared-maps/contact-endpoint-bounds-v1/verify.mjs",
+      "bytes": 5536,
+      "lfSha256": "5e41b2998bdbf5578b8e1cdb054f9f9f68d278027eb06a5c47aa22ac58a6c764"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "bytes": 17585,
+      "lfSha256": "2c7fac5d3f4c8e35625cfc19e9cdbb380a2e73fb31c2fcfb427b302317d3ab93"
+    },
+    {
+      "path": "src/content/original-contact-adapter.js",
+      "bytes": 11690,
+      "lfSha256": "ee683a7793135591ab0592fcb687a944f47d59dce2aad3a8c8e9a79315f74434"
+    },
+    {
+      "path": "tests/integration/contact-endpoint-bounds.test.mjs",
+      "bytes": 5102,
+      "lfSha256": "e389343612a0548db1811742e0711b74583d1c17407f6b288550a03dc952da3b"
+    },
+    {
+      "path": "tests/integration/original-contact-adapter.test.mjs",
+      "bytes": 6893,
+      "lfSha256": "1bb1d5b2fc1205200272ec7185b39e7924bcea7964f16b81e2f29f5fb22b41f1"
+    }
+  ]
+}

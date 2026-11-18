@@ -5,6 +5,7 @@ import {EPS,bounds,clipTriangle,cross,sub,dot,segmentTriangle} from '../../workb
 import {supportSurfacesTouch} from '../../workbenches/furnished-house/support.js';
 const issued=new WeakMap(),freeze=v=>{if(v&&typeof v==='object'&&!Object.isFrozen(v)){for(const x of Object.values(v))freeze(x);Object.freeze(v);}return v;},same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const vector=v=>Array.isArray(v)&&v.length===3&&v.every(Number.isFinite),within=(p,b)=>b&&vector(b.min)&&vector(b.max)&&p.every((v,i)=>v>=b.min[i]&&v<=b.max[i]),on=(p,t)=>segmentTriangle(p,p,t)!==null;
+const endpointPatches=(triangles,own,shared)=>triangles.flatMap(t=>clipTriangle(t,own)).flatMap(t=>shared==null?[t]:clipTriangle(t,shared));
 // Same original-normal operation order as the core and independent source proof.
 const normal=t=>{const n=cross(sub(t[1],t[0]),sub(t[2],t[0])),l=Math.hypot(...n);return n.map(v=>v/l);},shape=ts=>({triangles:ts,solidTriangles:ts,bounds:bounds(ts.flat()),normal:normal(ts[0]),kind:'wall',thickness:0});
 function reject(id,stage,reason,detail={}){const e=Error('Original contact '+id+': '+reason);e.diagnostic=freeze({selectorId:id,stage,reason,...detail});throw e;}
@@ -18,7 +19,7 @@ export function prepareOriginalContacts(input){
   for(const record of contacts){
     if(!record.id||ids.has(record.id))throw Error('Unique original selector IDs required');ids.add(record.id);
     try{
-      const id=record.id,p=record.point;if(!record.selector)reject(id,'source','shared-selector-required');if(!vector(p)||record.direction!=='parent-to-child'||!within(p,record.selector)||!record.parent||!record.child||record.parent.partId===record.child.partId)reject(id,'source','invalid-original-contact');
+      const id=record.id,p=record.point;if(!vector(p)||record.direction!=='parent-to-child'||record.selector!=null&&!within(p,record.selector)||!record.parent||!record.child||record.parent.partId===record.child.partId)reject(id,'source','invalid-original-contact');
       const ends={};
       for(const side of ['parent','child']){const end=record[side],part=data.parts.get(end.partId),t=part?.triangles[end.primitive];
         if(!part||part.ownerId!==end.ownerId||part.globalPartIndex!==end.globalPartIndex||part.role!==end.role||!data.components.get(part.id)[end.component]?.primitives.includes(end.primitive))reject(id,'source','original-endpoint-identity',{side});
@@ -37,9 +38,9 @@ export function prepareOriginalContacts(input){
         if(cell.some((v,i)=>v<lo[i]||v>hi[i]))reject(id,'source','source-projection-outside-original-loop',{side});
         ends[side]={...end,sourceId:s.id,channel,projection,sourceCell:cell,sourceSpan:{min:lo,max:hi}};
       }
-      const originals=['parent','child'].map(side=>data.parts.get(ends[side].partId).triangles[ends[side].primitive]),patches=originals.map((t,i)=>clipTriangle(t,ends[i===0?'parent':'child'].selector).flatMap(t=>clipTriangle(t,record.selector)));
+      const originals=['parent','child'].map(side=>data.parts.get(ends[side].partId).triangles[ends[side].primitive]),patches=originals.map((t,i)=>endpointPatches([t],ends[i===0?'parent':'child'].selector,record.selector));
       if(patches.some(ts=>!ts.length)||!supportSurfacesTouch(...originals.map(t=>shape([t])))||!supportSurfacesTouch(...patches.map(shape)))reject(id,'source','original-contact-predicate-rejected');
-      const proof=freeze({version:1,id,relationshipId:record.relationshipId,kind:'proposed-original-contact',point:[...p],direction:record.direction,selector:record.selector,historicalVolume:record.historicalVolume??null,sourceRevision,grid,ends});
+      const proof=freeze({version:1,id,relationshipId:record.relationshipId,kind:'proposed-original-contact',point:[...p],direction:record.direction,...Object.hasOwn(record,'selector')?{selector:record.selector}:{},historicalVolume:record.historicalVolume??null,sourceRevision,grid,ends});
       issued.set(proof,{data,proof});data.proofs.set(id,proof);
     }catch(e){if(!e.diagnostic)throw e;rejected.push(e.diagnostic);}
   }
@@ -64,7 +65,7 @@ export function bindOriginalContact({proof,reader,slices}){
   for(const side of ['parent','child']){const end=proof.ends[side],matches=[...entries.values()].filter(e=>e.ownerId===end.ownerId&&e.record.sourceCarrierId===end.ownerId&&e.record.nativePartId===end.partId&&e.record.sourceSurfaceId===end.sourceId&&same(e.cell,end.sourceCell));
     if(matches.length!==1)reject(proof.id,'binding','exact-original-record-missing-or-ambiguous',{side,ownerId:end.ownerId,partId:end.partId,sourceSurfaceId:end.sourceId,sourceCell:end.sourceCell});
     const entry=matches[0],ts=end.channel==='solid'?entry.record.solidTriangles:entry.record.triangles,original=data.parts.get(end.partId).triangles[end.primitive];if(!ts?.length)reject(proof.id,'binding','original-physical-channel-missing',{side});
-    const mapped=originalContactPatches(ts,original).flatMap(p=>clipTriangle(p.triangle,end.selector).flatMap(t=>clipTriangle(t,proof.selector)).map(triangle=>({nativePrimitive:p.nativePrimitive,triangle}))),triangles=mapped.map(p=>p.triangle);
+    const mapped=originalContactPatches(ts,original).flatMap(p=>endpointPatches([p.triangle],end.selector,proof.selector).map(triangle=>({nativePrimitive:p.nativePrimitive,triangle}))),triangles=mapped.map(p=>p.triangle);
     if(!triangles.length||!triangles.some(t=>on(proof.point,t)))reject(proof.id,'binding','original-contact-face-missing',{side});
     ends[side]={...end,nativeRecordId:entry.record.id,cell:[...entry.cell],nativePrimitives:[...new Set(mapped.map(p=>p.nativePrimitive))]};
     fragments.push({id:entry.record.id+'/'+proof.id+'/'+side,recordId:entry.record.id,partId:end.partId,ownerId:end.ownerId,component:end.component,mode:'native',cell:[...entry.cell],primitives:[end.primitive],triangles});

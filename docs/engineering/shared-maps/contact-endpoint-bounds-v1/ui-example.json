@@ -1,0 +1,442 @@
+{
+  "uiCommit": "e67235b6e9d87760b1b36d802833de44456b1bd8",
+  "sourcePins": [
+    {
+      "commit": "e67235b6e9d87760b1b36d802833de44456b1bd8",
+      "path": "docs/engineering/shared-maps/other-contact-source-v1/contacts-proposal.json",
+      "bytes": 3932013,
+      "sha256": "e1182bec6bb4693a3f169f4986085a357334926f35ac9e71441173504d632361"
+    },
+    {
+      "commit": "e67235b6e9d87760b1b36d802833de44456b1bd8",
+      "path": "docs/engineering/shared-maps/other-contact-source-v1/input-pins.json",
+      "bytes": 10741,
+      "sha256": "bb63874834e74fe158f408c2dfc29cef54eecee657effb9a6731f884ef1eb0a5"
+    },
+    {
+      "commit": "0e9ffa764610f7ab047e3d4cdebd05342273463f",
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/relationships.json",
+      "bytes": 8661963,
+      "sha256": "34b25f91d457fb65e611b89f182c0e05bb946d7506a0581b53e945a2d9731e06"
+    },
+    {
+      "commit": "0e9ffa764610f7ab047e3d4cdebd05342273463f",
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/geometry-bindings.json",
+      "bytes": 2132070,
+      "sha256": "4cd550cf603008e76819877f5c32bf1f731e496b05a95a66927b32cde41bcada"
+    },
+    {
+      "path": "assets/runtime/map-sources/new-york/index.json",
+      "bytes": 8021251,
+      "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab"
+    },
+    {
+      "path": "assets/runtime/map-sources/new-york/library.json",
+      "bytes": 3150020,
+      "sha256": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+    },
+    {
+      "commit": "0e9ffa764610f7ab047e3d4cdebd05342273463f",
+      "path": "assets/art/place-scenes/new-york/geometry/d168eebb90ea390827cfa6785d025dfd86bf6a6eb0e19dd0548be6b7c2f450ee.json",
+      "bytes": 4853,
+      "sha256": "5549f91eec82c70f11f00c7bb7fb0f46eab58a3d4f30ebe80ed419c87febc16a"
+    },
+    {
+      "commit": "0e9ffa764610f7ab047e3d4cdebd05342273463f",
+      "path": "assets/art/place-scenes/new-york/geometry/ec74ddcbf2d1f04f2a6da5d53b7ea00eb7c70eddbb5fdb64b9891133440abca6.json",
+      "bytes": 2562,
+      "sha256": "d00fc2b63d183e51f265b6498178166ff063754a0cf78ec1af50d89a86f44a38"
+    }
+  ],
+  "region": {
+    "calculationStats": {
+      "ambiguous": 1,
+      "candidates": 5,
+      "facePairs": 3,
+      "nativeRejected": 0
+    },
+    "checks": {
+      "contact": [
+        true,
+        true,
+        true
+      ],
+      "endpointFacetCounts": [
+        6,
+        11
+      ],
+      "legacyWitnessNegatives": 2,
+      "outsideSelectorNegatives": 2,
+      "planeResidualMetres": [
+        0,
+        0
+      ],
+      "sharedFacetCounts": [
+        6,
+        11
+      ],
+      "wrongPrimitiveNegatives": 2
+    },
+    "child": 95,
+    "contact": {
+      "components": [
+        0,
+        0
+      ],
+      "derivation": "original-facet-intersection-interior",
+      "membership": "unchanged-original-segmentTriangle",
+      "normals": [
+        [
+          0,
+          -1,
+          0
+        ],
+        [
+          -1,
+          0,
+          0
+        ]
+      ],
+      "point": [
+        32.304999619722366,
+        16.655,
+        25.710565546252955
+      ],
+      "primitives": [
+        1,
+        2
+      ],
+      "rangeLocalPrimitives": [
+        1,
+        2
+      ]
+    },
+    "endpointBounds": [
+      {
+        "max": [
+          32.49499961733818,
+          16.71500015258789,
+          25.799999982118607
+        ],
+        "min": [
+          32.304999619722366,
+          16.655,
+          25.67500001192093
+        ]
+      },
+      {
+        "max": [
+          32.49499961733818,
+          16.71500015258789,
+          25.799999982118607
+        ],
+        "min": [
+          32.304999619722366,
+          16.655,
+          25.67500001192093
+        ]
+      }
+    ],
+    "family": "dentil-to-own-cornice",
+    "historical": {
+      "childWitness": [
+        32.39999961853027,
+        16.685000076293946,
+        25.737499997019768
+      ],
+      "geometricBearing": false,
+      "kind": "actual-common-strict-solid-interior",
+      "parentWitness": [
+        32.39999961853027,
+        16.685000076293946,
+        25.737499997019768
+      ],
+      "sourceFace": null,
+      "worldWitness": [
+        32.39999961853027,
+        16.685000076293946,
+        25.737499997019768
+      ]
+    },
+    "id": "715ed699e0b9c5185bf38ab4",
+    "originalRegionCanonicalSha256": "ad2ff1014496e6ccedb27c3b24b13ba9447dfe87e14c651e370f2464275c6259",
+    "parent": 94,
+    "relationship": "ee839ee6ab768cb524257edd",
+    "selector": null,
+    "sourcePointer": "/relationships/1694/localRegions/0",
+    "status": "source-contact-proposed"
+  },
+  "relationship": {
+    "accepted": false,
+    "applied": false,
+    "child": 95,
+    "childRole": "timber-fitting",
+    "direction": "parent-to-child",
+    "family": "dentil-to-own-cornice",
+    "groundAnchor": false,
+    "id": "ee839ee6ab768cb524257edd",
+    "originalAction": "add-exact-local-dependency",
+    "originalKind": "fixed-embed",
+    "originalRegionIds": [
+      "715ed699e0b9c5185bf38ab4"
+    ],
+    "parent": 94,
+    "parentRole": "timber-fitting",
+    "sourceRelationshipCanonicalSha256": "321eddbef6706920b22f9a0f0148be37870d867e6c5f1b69536479b074096885",
+    "sourceRelationshipOrdinal": 1694,
+    "wholeCarrierRetirement": false
+  },
+  "originalRegion": {
+    "actualGeometryCertificate": {
+      "geometricBearing": false,
+      "proof": {
+        "childMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.030000076293944744
+        },
+        "groundAnchor": false,
+        "kind": "actual-common-strict-solid-interior",
+        "localOverlapBounds": {
+          "max": [
+            32.49499961733818,
+            16.71500015258789,
+            25.799999982118607
+          ],
+          "min": [
+            32.304999619722366,
+            16.655,
+            25.67500001192093
+          ]
+        },
+        "parentMembership": {
+          "method": "actual-closed-convex-halfspaces",
+          "minimumInteriorMarginMetres": 0.030000076293944744
+        },
+        "sourceFace": null,
+        "witnessConstruction": "local-overlap-centre",
+        "worldWitness": [
+          32.39999961853027,
+          16.685000076293946,
+          25.737499997019768
+        ]
+      },
+      "proposedKind": "fixed-embed"
+    },
+    "childBounds": {
+      "max": [
+        32.49499961733818,
+        16.71500015258789,
+        25.799999982118607
+      ],
+      "min": [
+        32.304999619722366,
+        16.655,
+        25.67500001192093
+      ]
+    },
+    "childWitness": [
+      32.39999961853027,
+      16.685000076293946,
+      25.737499997019768
+    ],
+    "frame": "emitted-world",
+    "id": "715ed699e0b9c5185bf38ab4",
+    "meaning": "Finite selectors over original physical geometry, never substitute solids or forced local breaks.",
+    "parentBounds": {
+      "max": [
+        32.49499961733818,
+        16.71500015258789,
+        25.799999982118607
+      ],
+      "min": [
+        32.304999619722366,
+        16.655,
+        25.67500001192093
+      ]
+    },
+    "parentWitness": [
+      32.39999961853027,
+      16.685000076293946,
+      25.737499997019768
+    ],
+    "selector": null
+  },
+  "selected": [
+    {
+      "side": "parent",
+      "instance": {
+        "canonicalRecipe": {
+          "area": 86.859618,
+          "finish": null,
+          "fuelAmount": 64.999998,
+          "fuelClass": "frame",
+          "material": "timber",
+          "quantityRule": "closed-volume",
+          "thickness": null
+        },
+        "componentFailure": null,
+        "emittedWorldMatrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          56,
+          16.78,
+          26,
+          1
+        ],
+        "geometry": 11,
+        "globalCarrierIndex": 2411,
+        "globalSourcePartId": "edge-0/cornice-6",
+        "globalSourcePartIndex": 2411,
+        "id": 94,
+        "nativeCell": null,
+        "nativeRecordId": null,
+        "orderedWorldTrianglesFloat64LittleEndianSha256": "e13ee16aad0d343d756acce64e9059dec13e08f827927396c047562a74a02d7c",
+        "originalGeometryStatus": "representative-evaluated",
+        "originalPartWorldTrianglesFloat64LittleEndianSha256": "e13ee16aad0d343d756acce64e9059dec13e08f827927396c047562a74a02d7c",
+        "ownerId": "carrier/edge-0/cornice-6",
+        "partId": "edge-0/cornice-6",
+        "primitiveBase": 0,
+        "role": "timber-fitting",
+        "sourceBindingPointer": "/carriers/carrier~1edge-0~1cornice-6/0",
+        "sourceCarrierCanonicalSha256": "6f92d85aae3c214e007486852e3d6d5a3a05673e8b6898c57159f0b18ca2ae22",
+        "sourcePartId": "edge-0/cornice-6",
+        "sourceRange": null,
+        "topology": 0
+      },
+      "geometry": {
+        "commit": "0e9ffa764610f7ab047e3d4cdebd05342273463f",
+        "id": "d168eebb90ea390827cfa6785d025dfd86bf6a6eb0e19dd0548be6b7c2f450ee",
+        "originalTriangles": 12,
+        "path": "assets/art/place-scenes/new-york/geometry/d168eebb90ea390827cfa6785d025dfd86bf6a6eb0e19dd0548be6b7c2f450ee.json",
+        "positionType": "Float32Array",
+        "rawSha256": "5549f91eec82c70f11f00c7bb7fb0f46eab58a3d4f30ebe80ed419c87febc16a",
+        "status": "pinned-representative-buffer"
+      },
+      "originalBinding": {
+        "geometryId": "d168eebb90ea390827cfa6785d025dfd86bf6a6eb0e19dd0548be6b7c2f450ee",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/d168eebb90ea390827cfa6785d025dfd86bf6a6eb0e19dd0548be6b7c2f450ee.json",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          56,
+          16.78,
+          26,
+          1
+        ],
+        "partId": "edge-0/cornice-6",
+        "sha256": "5549f91eec82c70f11f00c7bb7fb0f46eab58a3d4f30ebe80ed419c87febc16a",
+        "sourcePartId": "edge-0/cornice-6",
+        "sourceRange": null
+      },
+      "verifiedWorldTrianglesSha256": "e13ee16aad0d343d756acce64e9059dec13e08f827927396c047562a74a02d7c"
+    },
+    {
+      "side": "child",
+      "instance": {
+        "canonicalRecipe": {
+          "area": 0.3238,
+          "finish": null,
+          "fuelAmount": 0.102917,
+          "fuelClass": "frame",
+          "material": "timber",
+          "quantityRule": "closed-volume",
+          "thickness": null
+        },
+        "componentFailure": null,
+        "emittedWorldMatrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          32.39999961853027,
+          16.59000015258789,
+          25.669999986886978,
+          1
+        ],
+        "geometry": 12,
+        "globalCarrierIndex": 2413,
+        "globalSourcePartId": "edge-0/dentil-0",
+        "globalSourcePartIndex": 2413,
+        "id": 95,
+        "nativeCell": null,
+        "nativeRecordId": null,
+        "orderedWorldTrianglesFloat64LittleEndianSha256": "b263a61aec475dcdc1bbebe1ad892e08c8f1f9a8099f1baccb9e693d27c4d9da",
+        "originalGeometryStatus": "representative-evaluated",
+        "originalPartWorldTrianglesFloat64LittleEndianSha256": "b263a61aec475dcdc1bbebe1ad892e08c8f1f9a8099f1baccb9e693d27c4d9da",
+        "ownerId": "carrier/edge-0/dentil-0",
+        "partId": "edge-0/dentil-0",
+        "primitiveBase": 0,
+        "role": "timber-fitting",
+        "sourceBindingPointer": "/carriers/carrier~1edge-0~1dentil-0/0",
+        "sourceCarrierCanonicalSha256": "26e5a2558d9e78823291f5d084ee598019bedf6da879a745dad72322e7e8c6c9",
+        "sourcePartId": "edge-0/dentil-0",
+        "sourceRange": null,
+        "topology": 0
+      },
+      "geometry": {
+        "commit": "0e9ffa764610f7ab047e3d4cdebd05342273463f",
+        "id": "ec74ddcbf2d1f04f2a6da5d53b7ea00eb7c70eddbb5fdb64b9891133440abca6",
+        "originalTriangles": 12,
+        "path": "assets/art/place-scenes/new-york/geometry/ec74ddcbf2d1f04f2a6da5d53b7ea00eb7c70eddbb5fdb64b9891133440abca6.json",
+        "positionType": "Float32Array",
+        "rawSha256": "d00fc2b63d183e51f265b6498178166ff063754a0cf78ec1af50d89a86f44a38",
+        "status": "pinned-representative-buffer"
+      },
+      "originalBinding": {
+        "geometryId": "ec74ddcbf2d1f04f2a6da5d53b7ea00eb7c70eddbb5fdb64b9891133440abca6",
+        "geometryPath": "assets/art/place-scenes/new-york/geometry/ec74ddcbf2d1f04f2a6da5d53b7ea00eb7c70eddbb5fdb64b9891133440abca6.json",
+        "matrix": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          32.39999961853027,
+          16.59000015258789,
+          25.669999986886978,
+          1
+        ],
+        "partId": "edge-0/dentil-0",
+        "sha256": "d00fc2b63d183e51f265b6498178166ff063754a0cf78ec1af50d89a86f44a38",
+        "sourcePartId": "edge-0/dentil-0",
+        "sourceRange": null
+      },
+      "verifiedWorldTrianglesSha256": "b263a61aec475dcdc1bbebe1ad892e08c8f1f9a8099f1baccb9e693d27c4d9da"
+    }
+  ]
+}

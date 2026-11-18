@@ -1,0 +1,7 @@
+{
+  "scope": "Packaging verifier only; no runtime test or geometry expansion rerun",
+  "observedFailure": "Expected /^# tests 4$/m; the retained Node spec reporter uses 'ℹ tests 4'",
+  "correction": "Accept the actual spec reporter prefix as well as TAP; retain the existing test logs and counts",
+  "cleanupInspectionFailure": "Get-CimInstance: Access to a CIM resource was not available to the client.",
+  "cleanupCorrection": "Verify each recorded PID with System.Diagnostics.Process.GetProcessById; do not infer absence from a failed CIM query"
+}
