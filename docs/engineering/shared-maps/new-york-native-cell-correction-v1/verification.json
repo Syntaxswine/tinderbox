@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "scope": "Native clipping and unchanged fixed-point membership correction; actual New York native authority unproved",
+  "runs": [
+    {
+      "name": "original-failure",
+      "passed": false,
+      "groups": 1,
+      "compiler": 4,
+      "disposedTrials": 0,
+      "steps": 0,
+      "receiptSha256": "93db39f6e98700804b99a7217fa267a75b446ae332eb2d7a1ee01bc2fa2817df",
+      "logSha256": "b538d0df6b2dfdb961203fe0b3fedce5408b0d15c89db957703c0dbd973db457"
+    },
+    {
+      "name": "synthetic-ready",
+      "passed": false,
+      "groups": 38,
+      "compiler": 59,
+      "disposedTrials": 17,
+      "steps": 4,
+      "receiptSha256": "be831617ce2aeb272a22e505c6053a59f6abfbcfb37701ae011c132c3d62bfbc",
+      "logSha256": "a48a9f932406b0fdefa3ac0451215a51083106ab61499b2f9d61e1b913c3c279"
+    },
+    {
+      "name": "synthetic-corrected",
+      "passed": true,
+      "groups": 38,
+      "compiler": 78,
+      "disposedTrials": 20,
+      "steps": 4,
+      "receiptSha256": "1e780d37268958129564bc97a7ac104809b166ec0275748fda97c8b29aa78759",
+      "logSha256": "5cff7edb30f7fcfc2482a7e51a11a085e0c96737bbf7bd17962c76ee8f4d3f9d"
+    }
+  ],
+  "correctedGroups": 38,
+  "syntheticCompilerCalls": 141,
+  "syntheticDisposedTrials": 37,
+  "syntheticSteps": 8,
+  "savedValidations": 1,
+  "savedInspectedEndpoints": 74,
+  "savedCandidates": 152,
+  "maxCandidatesPerEndpoint": 4,
+  "mapped": 72,
+  "unbound": [
+    "legacy-pair-008/child",
+    "legacy-pair-026/child"
+  ],
+  "fourReturnedCasesMapped": 4,
+  "otherSeventyUnchangedPlans": 68,
+  "otherSeventyDifferences": [
+    {
+      "endpoint": "legacy-pair-008/child",
+      "previousStatus": "DERIVED_SOURCE_PLAN_UNREVIEWED",
+      "status": "UNBOUND",
+      "previousCell": [
+        128,
+        7,
+        119
+      ],
+      "cell": null,
+      "reason": "FIXED_POINT_NOT_IN_RETAINED_NATIVE_PATCH",
+      "originalWitnessUnchanged": true
+    },
+    {
+      "endpoint": "legacy-pair-026/child",
+      "previousStatus": "DERIVED_SOURCE_PLAN_UNREVIEWED",
+      "status": "UNBOUND",
+      "previousCell": [
+        110,
+        7,
+        120
+      ],
+      "cell": null,
+      "reason": "FIXED_POINT_NOT_IN_RETAINED_NATIVE_PATCH",
+      "originalWitnessUnchanged": true
+    }
+  ],
+  "readiness": "NOT_READY",
+  "findings": {
+    "SURFACE_PLAN_UNBOUND": 38,
+    "ORDINARY_ALTERNATIVES_NOT_READY": 32,
+    "ORDINARY_BINDINGS_NOT_READY": 32,
+    "BIRTH_DERIVATION_PLAN_UNBOUND": 74
+  },
+  "sourcePolicyTuples": 37,
+  "sourcePolicyProposalUnchanged": true,
+  "ordinaryAlternatives": 179,
+  "outsideCohortAlternatives": 141,
+  "helpersClosed": 4,
+  "actualSourceTransforms": 0,
+  "actualNativeCompiles": 0,
+  "actualTrials": 0,
+  "actualClockSteps": 0,
+  "supportEvaluations": 0,
+  "renderers": 0,
+  "builds": 0,
+  "oldSeventyFourRunUnchanged": true,
+  "productionInputsUnchanged": true,
+  "protectedWipExcluded": true
+}

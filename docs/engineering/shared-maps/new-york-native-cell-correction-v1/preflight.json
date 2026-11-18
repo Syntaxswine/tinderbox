@@ -1,0 +1,62 @@
+{
+  "grant": {
+    "commit": "9a07b6169a6882053cca7e4abaf4ee6e6d91ae42",
+    "path": "docs/engineering/shared-maps/new-york-saved-endpoint-completion.md",
+    "sha256": "d57ecc1db293c27d285c2b86131d3111657d2434972c7575856e4c4807c594e7"
+  },
+  "base": "1f857eac5f2140becf707a6f02f49626cf8c6289",
+  "sourcePins": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-world.json",
+      "sha256": "5353b5f6d6ccae1d13931bfa93f4bbdcfd498994f33a5eff49db82c2ece5c8fd"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-blueprints.json",
+      "sha256": "1685e0afc81e21b16f8db3fa00e81bc326a9b1ca24453c759abcf55df28ebbf2"
+    }
+  ],
+  "previousPins": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/mapped-plan-proposal.json",
+      "sha256": "77a5516d4385af86218871e9674bbc080cfbd157fd0037a49afc3b984bc362f8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/source-policy-proposal.json",
+      "sha256": "26dae672f43a51064a67e57089a7dfc33e13e57a964c52661520dcb70f6d97e2"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/endpoint-results.json",
+      "sha256": "59e400e9af6e372b38dbe154a3a1db6178004079fb2079045429056b1965e936"
+    }
+  ],
+  "approvedProofs": [
+    {
+      "commit": "6c8e7198040395978ba1f7f786a089efea8f687d",
+      "path": "art/source/shared-map-fire-bindings/new-york-saddle-three-source-witnesses-v1/proof-cornice.json",
+      "sha256": "7dd4355d4573e519f9e7bddb749d66b0586124d978a34aff4b416732a84c8b84",
+      "localPath": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/source-intake/proof-cornice.json"
+    },
+    {
+      "commit": "6c8e7198040395978ba1f7f786a089efea8f687d",
+      "path": "art/source/shared-map-fire-bindings/new-york-saddle-three-source-witnesses-v1/proof-roof-seat.json",
+      "sha256": "77f22a667ef528ba5db22d4fd9fb544f2655791399ca5320ecb596a409828737",
+      "localPath": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/source-intake/proof-roof-seat.json"
+    },
+    {
+      "commit": "6c8e7198040395978ba1f7f786a089efea8f687d",
+      "path": "art/source/shared-map-fire-bindings/new-york-saddle-three-source-witnesses-v1/proof-top.json",
+      "sha256": "b1a93f795b9ffa417376e3f4c230755331fde588d521af3042303f26954c1807",
+      "localPath": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/source-intake/proof-top.json"
+    }
+  ],
+  "parts": 38,
+  "originalTriangles": 456,
+  "blueprints": 78,
+  "thermalInputTriangles": 156,
+  "fixedEndpoints": 74,
+  "maxCandidatesPerEndpoint": 8,
+  "maxCandidateCount": 592,
+  "oldAllowance": "SPENT_IMMUTABLE",
+  "sourceTransforms": 0,
+  "nativeAllowance": 0
+}

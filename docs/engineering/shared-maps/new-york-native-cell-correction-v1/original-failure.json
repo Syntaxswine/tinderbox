@@ -1,0 +1,453 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Reproduce native Float32 cell-ownership mismatch against1f857eac",
+  "pid": 32940,
+  "creationTime": "2026-11-18T09:25:17.487Z",
+  "startedAt": "2026-11-18T09:25:17.487Z",
+  "endedAt": "2026-11-18T09:25:17.702Z",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "--test-name-pattern=^native Float32 retained patches",
+    "tests/integration/source-fixed-cell-native-clipping.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/source-fixed-cell.js",
+      "lfSha256": "6a1c92f0d85dc7d77f307dea86632d86269d1dcb81435ba635b93503a6571003"
+    },
+    {
+      "path": "src/content/shared-map-source-preparation.js",
+      "lfSha256": "f59b55c736ede3640adf1398184e0d1903c929359e25a68fc59efff4213daf02"
+    },
+    {
+      "path": "src/content/shared-map-inputs.js",
+      "lfSha256": "271698650792cabe2ad77f31f7e5b07e3380f292ccceb7975b63c49be18078d9"
+    },
+    {
+      "path": "src/content/shared-map.js",
+      "lfSha256": "9f96cfa30e2e8d38936ee109dfb06ad5304c007057fa63ded32e3e6e206b9ace"
+    },
+    {
+      "path": "tests/integration/source-fixed-cell-native-clipping.test.mjs",
+      "lfSha256": "52dfb78292f3e79cbaabf2051747c9c8020e1741277d134cdc9e807158eb5dae"
+    },
+    {
+      "path": "tests/fixtures/source-fixed-cell-wall-data.mjs",
+      "lfSha256": "0aaf5712fdccb3a88ebfda0d926de4316e8cf4889cda6bc64bbba5503e16a568"
+    },
+    {
+      "path": "tests/integration/source-fixed-cell.test.mjs",
+      "lfSha256": "f08aa78301bc2428f966cde1969da2f58519cb97c6cce3c4ac9b535adb8204e8"
+    },
+    {
+      "path": "tests/integration/shared-map-source-preparation.test.mjs",
+      "lfSha256": "08d5e2ece4b9d06e0936294a333e98d3888817dc4315c0325445a9319e3c5a0b"
+    },
+    {
+      "path": "tests/integration/shared-map-inputs.test.mjs",
+      "lfSha256": "f1c0f245f26050685ed2d0824e0e86da93ea452b6c8bd93e9da9db5e562239a5"
+    },
+    {
+      "path": "tests/integration/map-source-geometry.test.mjs",
+      "lfSha256": "39a30f917abf23f2266e135a0d4ea06a37aa0b4b562c52b6b4ff66a82c2dfd40"
+    },
+    {
+      "path": "tests/integration/hybrid-world-publication.test.mjs",
+      "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8"
+    },
+    {
+      "path": "tests/fixtures/shared-map-input-data.mjs",
+      "lfSha256": "26e8c42b9210c77dbd70d5d3eab1561cf4e2ff11c257ed2ea676891651b3e64e"
+    },
+    {
+      "path": "tests/fixtures/hybrid-world-data.mjs",
+      "lfSha256": "f93182dbad50827074a735e690a2e4edd6c3d4fcb841e23e8d43c3390001b6c5"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/run-synthetic.mjs",
+      "lfSha256": "c768718676453220d9ccf95851db429b3ae4e1577c00e89d800bc380abd5ae91"
+    }
+  ],
+  "passed": false,
+  "exitCode": 1,
+  "groups": 1,
+  "resources": {
+    "evidence": [
+      {
+        "height": 2.12,
+        "axis": "x",
+        "point": [
+          0.5,
+          2.119999885559082,
+          0.5
+        ],
+        "bottom": 2.119999885559082,
+        "nativeCell": [
+          1,
+          2,
+          1
+        ],
+        "nativeTriangles": 4,
+        "nativePointMember": true,
+        "oldSingleExpandedLowerBound": 2.1199999000000003,
+        "mapped": {
+          "status": "UNBOUND",
+          "reason": "NO_POSITIVE_INCIDENT_SOURCE_PATCH",
+          "cell": null,
+          "candidates": [
+            {
+              "cell": [
+                1,
+                1,
+                0
+              ],
+              "clipBounds": {
+                "min": [
+                  0.4999999,
+                  1.0599999,
+                  -1e-7
+                ],
+                "max": [
+                  1.0000001,
+                  2.1200001,
+                  0.5000001
+                ]
+              },
+              "containsPoint": true,
+              "clippedTriangleCount": 0,
+              "clippedArea": 0,
+              "valid": false
+            },
+            {
+              "cell": [
+                1,
+                1,
+                1
+              ],
+              "clipBounds": {
+                "min": [
+                  0.4999999,
+                  1.0599999,
+                  0.4999999
+                ],
+                "max": [
+                  1.0000001,
+                  2.1200001,
+                  1.0000001
+                ]
+              },
+              "containsPoint": true,
+              "clippedTriangleCount": 0,
+              "clippedArea": 0,
+              "valid": false
+            }
+          ],
+          "sourceSpan": {
+            "min": [
+              1,
+              1,
+              0
+            ],
+            "max": [
+              1,
+              3,
+              1
+            ]
+          },
+          "floorCell": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "height": 2.12,
+        "axis": "z",
+        "point": [
+          0.5,
+          2.119999885559082,
+          0.5
+        ],
+        "bottom": 2.119999885559082,
+        "nativeCell": [
+          1,
+          2,
+          1
+        ],
+        "nativeTriangles": 4,
+        "nativePointMember": true,
+        "oldSingleExpandedLowerBound": 2.1199999000000003,
+        "mapped": {
+          "status": "UNBOUND",
+          "reason": "NO_POSITIVE_INCIDENT_SOURCE_PATCH",
+          "cell": null,
+          "candidates": [
+            {
+              "cell": [
+                0,
+                1,
+                1
+              ],
+              "clipBounds": {
+                "min": [
+                  -1e-7,
+                  1.0599999,
+                  0.4999999
+                ],
+                "max": [
+                  0.5000001,
+                  2.1200001,
+                  1.0000001
+                ]
+              },
+              "containsPoint": true,
+              "clippedTriangleCount": 0,
+              "clippedArea": 0,
+              "valid": false
+            },
+            {
+              "cell": [
+                1,
+                1,
+                1
+              ],
+              "clipBounds": {
+                "min": [
+                  0.4999999,
+                  1.0599999,
+                  0.4999999
+                ],
+                "max": [
+                  1.0000001,
+                  2.1200001,
+                  1.0000001
+                ]
+              },
+              "containsPoint": true,
+              "clippedTriangleCount": 0,
+              "clippedArea": 0,
+              "valid": false
+            }
+          ],
+          "sourceSpan": {
+            "min": [
+              0,
+              1,
+              1
+            ],
+            "max": [
+              1,
+              3,
+              1
+            ]
+          },
+          "floorCell": [
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      {
+        "height": 4.24,
+        "axis": "x",
+        "point": [
+          0.5,
+          4.239999808371067,
+          0.5
+        ],
+        "bottom": 4.239999771118164,
+        "nativeCell": [
+          1,
+          4,
+          1
+        ],
+        "nativeTriangles": 4,
+        "nativePointMember": true,
+        "oldSingleExpandedLowerBound": 4.2399999,
+        "mapped": {
+          "status": "UNBOUND",
+          "reason": "NO_POSITIVE_INCIDENT_SOURCE_PATCH",
+          "cell": null,
+          "candidates": [
+            {
+              "cell": [
+                1,
+                3,
+                0
+              ],
+              "clipBounds": {
+                "min": [
+                  0.4999999,
+                  3.1799999000000003,
+                  -1e-7
+                ],
+                "max": [
+                  1.0000001,
+                  4.2400001000000005,
+                  0.5000001
+                ]
+              },
+              "containsPoint": true,
+              "clippedTriangleCount": 0,
+              "clippedArea": 0,
+              "valid": false
+            },
+            {
+              "cell": [
+                1,
+                3,
+                1
+              ],
+              "clipBounds": {
+                "min": [
+                  0.4999999,
+                  3.1799999000000003,
+                  0.4999999
+                ],
+                "max": [
+                  1.0000001,
+                  4.2400001000000005,
+                  1.0000001
+                ]
+              },
+              "containsPoint": true,
+              "clippedTriangleCount": 0,
+              "clippedArea": 0,
+              "valid": false
+            }
+          ],
+          "sourceSpan": {
+            "min": [
+              1,
+              3,
+              0
+            ],
+            "max": [
+              1,
+              5,
+              1
+            ]
+          },
+          "floorCell": [
+            1,
+            3,
+            1
+          ]
+        }
+      },
+      {
+        "height": 4.24,
+        "axis": "z",
+        "point": [
+          0.5,
+          4.239999808371067,
+          0.5
+        ],
+        "bottom": 4.239999771118164,
+        "nativeCell": [
+          1,
+          4,
+          1
+        ],
+        "nativeTriangles": 4,
+        "nativePointMember": true,
+        "oldSingleExpandedLowerBound": 4.2399999,
+        "mapped": {
+          "status": "UNBOUND",
+          "reason": "NO_POSITIVE_INCIDENT_SOURCE_PATCH",
+          "cell": null,
+          "candidates": [
+            {
+              "cell": [
+                0,
+                3,
+                1
+              ],
+              "clipBounds": {
+                "min": [
+                  -1e-7,
+                  3.1799999000000003,
+                  0.4999999
+                ],
+                "max": [
+                  0.5000001,
+                  4.2400001000000005,
+                  1.0000001
+                ]
+              },
+              "containsPoint": true,
+              "clippedTriangleCount": 0,
+              "clippedArea": 0,
+              "valid": false
+            },
+            {
+              "cell": [
+                1,
+                3,
+                1
+              ],
+              "clipBounds": {
+                "min": [
+                  0.4999999,
+                  3.1799999000000003,
+                  0.4999999
+                ],
+                "max": [
+                  1.0000001,
+                  4.2400001000000005,
+                  1.0000001
+                ]
+              },
+              "containsPoint": true,
+              "clippedTriangleCount": 0,
+              "clippedArea": 0,
+              "valid": false
+            }
+          ],
+          "sourceSpan": {
+            "min": [
+              0,
+              3,
+              1
+            ],
+            "max": [
+              1,
+              5,
+              1
+            ]
+          },
+          "floorCell": [
+            1,
+            3,
+            1
+          ]
+        }
+      }
+    ],
+    "resources": [],
+    "compiler": {
+      "calls": 4
+    },
+    "trial": {
+      "created": 0,
+      "steps": 0,
+      "disposed": 0
+    },
+    "actualSavedValidations": 0,
+    "actualSourceTransforms": 0
+  },
+  "timeoutMs": 30000,
+  "maxSteps": 64,
+  "maxSourceCells": 64,
+  "maxSourceTriangles": 256,
+  "actualSavedValidations": 0,
+  "actualSourceTransforms": 0,
+  "ports": [],
+  "retainedHelpers": []
+}
