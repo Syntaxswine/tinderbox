@@ -1,0 +1,46 @@
+function boxes(row){return [...(row.selector?[row.selector]:[]),...row.endpointBounds];}
+function intersectBoxes(bs){const min=[0,1,2].map(i=>Math.max(...bs.map(b=>b.min[i]))),max=[0,1,2].map(i=>Math.min(...bs.map(b=>b.max[i])));return {min,max};}
+function clipped(p,b){return p.indices.flatMap(i=>G.clipTriangle(p.world.ts[i],b).map(triangle=>({primitive:i,triangle})));}
+function overlapPolygon(a,b){
+ const o=b[0],u=G.sub(b[1],o),v=G.sub(b[2],o),n=G.unit(G.cross(u,v));if(a.some(p=>Math.abs(G.dot(G.sub(p,o),n))>G.EPS))return [];
+ const uu=G.dot(u,u),uv=G.dot(u,v),vv=G.dot(v,v),den=uu*vv-uv*uv;if(!(den>0))return [];
+ let poly=a.map(p=>{const s=G.sub(p,o),x=(G.dot(s,u)*vv-G.dot(s,v)*uv)/den,y=(G.dot(s,v)*uu-G.dot(s,u)*uv)/den;return [x,y,x+y,...p];});
+ poly=G.clipPolygon(poly,0,0,true);poly=G.clipPolygon(poly,1,0,true);poly=G.clipPolygon(poly,2,1,false);return poly.map(p=>p.slice(3));
+}
+function pairPoints(a,b){
+ const points=[],seen=new Set(),add=p=>{if(finite(p)&&!seen.has(key(p))){seen.add(key(p));points.push(p);}};
+ const poly=overlapPolygon(a,b);if(poly.length>=3)add(G.centre(poly));
+ const hits=[];for(const [x,y]of [[a,b],[b,a]]){for(const p of x)if(on(p,y))hits.push(p);for(let i=0;i<3;i++){const t=G.segmentTriangle(x[i],x[(i+1)%3],y);if(t!==null)hits.push(x[i].map((v,j)=>v+(x[(i+1)%3][j]-v)*t));}}
+ const unique=[...new Map(hits.map(p=>[key(p),p])).values()];if(unique.length){add(G.centre(unique));let pair=null,max=-1;for(let i=0;i<unique.length;i++)for(let j=i+1;j<unique.length;j++){const d=G.sub(unique[i],unique[j]),n=G.dot(d,d);if(n>max){max=n;pair=[unique[i],unique[j]];}}if(pair&&max>0)for(const f of [.5,1/3,2/3])add(pair[0].map((v,i)=>v+(pair[1][i]-v)*f));}for(const p of unique)add(p);return points;
+}
+function analyzePoint(row,p,ends,stats){
+ if(!finite(p)||!boxes(row).every(b=>within(p,b)))return null;const hit=ends.map(part=>part.indices.filter(i=>on(p,part.world.ts[i])));stats.candidates++;
+ if(hit.some(a=>a.length!==1)){if(hit.every(a=>a.length))stats.ambiguous++;return null;}
+ return {point:p,primitives:hit.map(a=>a[0]),components:hit.map((a,i)=>ends[i].world.comp.get(a[0])),normals:hit.map((a,i)=>normal(ends[i].world.ts[a[0]]))};
+}
+function validate(row,contact,ends){
+ guard();assert.ok(finite(contact.point)&&boxes(row).every(b=>within(contact.point,b)));
+ const selected=ends.map((p,side)=>{const hits=p.indices.filter(i=>on(contact.point,p.world.ts[i]));assert.deepEqual(hits,[contact.primitives[side]]);assert.equal(p.world.comp.get(hits[0]),contact.components[side]);assert.ok(same(normal(p.world.ts[hits[0]]),contact.normals[side]));return p.world.ts[hits[0]];});
+ const shared=intersectBoxes(boxes(row)),sharedFacets=ends.map(p=>clipped(p,shared)),endpointFacets=ends.map((p,i)=>clipped(p,row.endpointBounds[i]));if(sharedFacets.some(a=>!a.length)||endpointFacets.some(a=>!a.length))return null;
+ for(const views of [sharedFacets,endpointFacets])for(let i=0;i<2;i++)if(!views[i].some(t=>t.primitive===contact.primitives[i]&&on(contact.point,t.triangle)))return null;
+ const tests=[touching(...selected.map(t=>shape([t]))),touching(...sharedFacets.map(a=>shape(a.map(v=>v.triangle)))),touching(...endpointFacets.map(a=>shape(a.map(v=>v.triangle))))];
+ if(plan.relationships.find(r=>r.id===row.relationship).direction==='symmetric-structural')tests.push(touching(...selected.map(t=>shape([t])).reverse()),touching(...sharedFacets.map(a=>shape(a.map(v=>v.triangle))).reverse()),touching(...endpointFacets.map(a=>shape(a.map(v=>v.triangle))).reverse()));
+ if(!tests.every(Boolean))return null;
+ let wrongPrimitiveNegatives=0,outsideSelectorNegatives=0,legacyWitnessNegatives=0;
+ for(let i=0;i<2;i++){
+  const wrong=ends[i].indices.find(j=>j!==contact.primitives[i]&&!on(contact.point,ends[i].world.ts[j]));if(wrong!==undefined){assert.equal(G.segmentTriangle(contact.point,contact.point,ends[i].world.ts[wrong]),null);wrongPrimitiveNegatives++;}
+  const outside=selected[i].find(v=>!boxes(row).every(b=>within(v,b)));if(outside){assert.equal(boxes(row).every(b=>within(outside,b)),false);outsideSelectorNegatives++;}
+  const old=row.historical.worldWitness;if(old&&!on(old,selected[i])){assert.equal(G.segmentTriangle(old,old,selected[i]),null);legacyWitnessNegatives++;}
+ }
+ return {contact:tests,sharedFacetCounts:sharedFacets.map(a=>a.length),endpointFacetCounts:endpointFacets.map(a=>a.length),wrongPrimitiveNegatives,outsideSelectorNegatives,legacyWitnessNegatives,planeResidualMetres:selected.map(t=>Math.abs(G.dot(G.sub(contact.point,t[0]),normal(t))))};
+}
+function calculate(row){
+ const ends=[part(row.parent),part(row.child)],stats={candidates:0,ambiguous:0,facePairs:0,nativeRejected:0};if(ends.some(p=>p.world.failure))return {id:row.id,status:'unproved',reason:'original-component-unresolved',stats};
+ const common=intersectBoxes(boxes(row));if(common.min.some((v,i)=>v>common.max[i]))return {id:row.id,status:'unproved',reason:'empty-selector-intersection',stats};
+ const tryPoint=(p,derivation)=>{const contact=analyzePoint(row,p,ends,stats);if(!contact)return null;const checks=validate(row,contact,ends);if(!checks){stats.nativeRejected++;return null;}return {id:row.id,status:'source-contact-proposed',contact:{...contact,derivation,membership:'unchanged-original-segmentTriangle'},checks,stats};};
+ const h=row.historical,seeds=[h.sourceFace?.actualSurfacePoint,...h.actualSurfaceWitness||[],h.parentWitness,h.childWitness,h.worldWitness].filter(finite);
+ for(const p of seeds){const result=tryPoint(p,'existing-original-witness');if(result)return result;}
+ const facets=ends.map(p=>clipped(p,common));if(facets.some(a=>!a.length))return {id:row.id,status:'unproved',reason:'no-original-facets-in-selector',stats};
+ for(const a of facets[0])for(const b of facets[1]){guard();if(!G.overlaps(G.bounds(a.triangle),G.bounds(b.triangle)))continue;stats.facePairs++;for(const p of pairPoints(a.triangle,b.triangle)){const result=tryPoint(p,'original-facet-intersection-interior');if(result)return result;}}
+ return {id:row.id,status:'unproved',reason:stats.nativeRejected?'native-contact-rejected':stats.ambiguous?'ambiguous-original-point-membership':'no-unambiguous-original-contact',stats};
+}

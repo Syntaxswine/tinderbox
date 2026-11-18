@@ -1,0 +1,1943 @@
+{
+  "version": 1,
+  "regions": [
+    {
+      "id": "175e6960699ae52e3bd1eefe",
+      "parent": 236,
+      "child": 0,
+      "relationship": "15c256b79df90f2c573ad75c",
+      "selector": {
+        "max": [
+          33,
+          8.630000005960465,
+          26
+        ],
+        "min": [
+          32,
+          8.329999994039536,
+          25
+        ]
+      },
+      "endpointBounds": [
+        {
+          "max": [
+            33.0,
+            8.360000133514404,
+            26
+          ],
+          "min": [
+            32.0,
+            8.329999994039536,
+            25.92000000178814
+          ]
+        },
+        {
+          "max": [
+            33.0,
+            8.360000133514404,
+            26
+          ],
+          "min": [
+            32.0,
+            8.329999994039536,
+            25.92000000178814
+          ]
+        }
+      ],
+      "historical": {
+        "worldWitness": [
+          32.5,
+          8.34500006377697,
+          25.96000000089407
+        ],
+        "sourceFace": null,
+        "actualSurfaceWitness": null,
+        "parentWitness": [
+          32.5,
+          8.34500006377697,
+          25.96000000089407
+        ],
+        "childWitness": [
+          32.5,
+          8.34500006377697,
+          25.96000000089407
+        ]
+      },
+      "originalRegion": {
+        "actualGeometryCertificate": {
+          "geometricBearing": false,
+          "proof": {
+            "childMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.015000069737434174
+            },
+            "groundAnchor": false,
+            "kind": "actual-common-strict-solid-interior",
+            "localOverlapBounds": {
+              "max": [
+                33.0,
+                8.360000133514404,
+                26
+              ],
+              "min": [
+                32.0,
+                8.329999994039536,
+                25.92000000178814
+              ]
+            },
+            "parentMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.015000069737434174
+            },
+            "sourceFace": null,
+            "witnessConstruction": "local-overlap-centre",
+            "worldWitness": [
+              32.5,
+              8.34500006377697,
+              25.96000000089407
+            ]
+          },
+          "proposedKind": "fixed-embed"
+        },
+        "childBounds": {
+          "max": [
+            33.0,
+            8.360000133514404,
+            26
+          ],
+          "min": [
+            32.0,
+            8.329999994039536,
+            25.92000000178814
+          ]
+        },
+        "childWitness": [
+          32.5,
+          8.34500006377697,
+          25.96000000089407
+        ],
+        "frame": "emitted-world",
+        "id": "175e6960699ae52e3bd1eefe",
+        "meaning": "Finite selectors over original physical geometry, never substitute solids or forced local breaks.",
+        "parentBounds": {
+          "max": [
+            33.0,
+            8.360000133514404,
+            26
+          ],
+          "min": [
+            32.0,
+            8.329999994039536,
+            25.92000000178814
+          ]
+        },
+        "parentWitness": [
+          32.5,
+          8.34500006377697,
+          25.96000000089407
+        ],
+        "selector": {
+          "max": [
+            33,
+            8.630000005960465,
+            26
+          ],
+          "min": [
+            32,
+            8.329999994039536,
+            25
+          ]
+        }
+      },
+      "priorResult": {
+        "candidateTests": [
+          {
+            "method": "selector-midpoint",
+            "points": [
+              [
+                32.5,
+                8.630000005960465,
+                25.92000000178814
+              ],
+              [
+                32.5,
+                8.630000005960465,
+                25.92000000178814
+              ]
+            ],
+            "result": "REJECTED_ORIGINAL_LOCAL_BOUNDS"
+          }
+        ],
+        "certificateCanonicalSha256": "7f8f8fe254c4ccd0315493646221fad436d6c315e0708b57805d33c332b0321d",
+        "child": 0,
+        "historicalGeometricBearing": false,
+        "historicalKind": "fixed-embed",
+        "id": "175e6960699ae52e3bd1eefe",
+        "parent": 236,
+        "reason": "BOUNDED_COORDINATE_METHOD_UNPROVED",
+        "regionIndex": 0,
+        "sourceCanonicalSha256": "946f9d2c9471d8c99cbe5aa46e047e37139b67955812044169e0a108c2b912da",
+        "sourcePointer": "/relationships/49/localRegions/0",
+        "stage": "exact-source-points",
+        "status": "UNPROVED"
+      },
+      "selection": {
+        "selectionIndex": 0,
+        "priorUnprovedReason": "BOUNDED_COORDINATE_METHOD_UNPROVED",
+        "classRegions": 1612,
+        "regionId": "175e6960699ae52e3bd1eefe",
+        "originalRegionOrdinal": 96,
+        "sourceRelationshipOrdinal": 49,
+        "sourceLocalRegionOrdinal": 0,
+        "remainingRegionIndex": 0,
+        "priorPage": "art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/pages/child-000-page-00.json",
+        "priorPageSha256": "33598da3f7f571c3f1c05dbf0ec30791d106810e3b1fa197f91adeb4dab3c4dd"
+      },
+      "sourceCanonicalSha256": "946f9d2c9471d8c99cbe5aa46e047e37139b67955812044169e0a108c2b912da"
+    },
+    {
+      "id": "fa64fb5db7a3bddc69a598f3",
+      "parent": 1049,
+      "child": 0,
+      "relationship": "7e31348c15c730ddba7545ed",
+      "selector": {
+        "max": [
+          56,
+          8.630000005960465,
+          27
+        ],
+        "min": [
+          55,
+          8.329999994039536,
+          26
+        ]
+      },
+      "endpointBounds": [
+        {
+          "max": [
+            56.0,
+            8.48000007495284,
+            26.25
+          ],
+          "min": [
+            55.0,
+            8.36000007763505,
+            26.0
+          ]
+        },
+        {
+          "max": [
+            56.0,
+            8.48000007495284,
+            26.25
+          ],
+          "min": [
+            55.0,
+            8.36000007763505,
+            26.0
+          ]
+        }
+      ],
+      "historical": {
+        "worldWitness": [
+          55.5,
+          8.420000076293945,
+          26.125
+        ],
+        "sourceFace": null,
+        "actualSurfaceWitness": null,
+        "parentWitness": [
+          55.5,
+          8.420000076293945,
+          26.125
+        ],
+        "childWitness": [
+          55.5,
+          8.420000076293945,
+          26.125
+        ]
+      },
+      "originalRegion": {
+        "actualGeometryCertificate": {
+          "geometricBearing": false,
+          "proof": {
+            "childMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.09000008225440936
+            },
+            "groundAnchor": false,
+            "kind": "actual-common-strict-solid-interior",
+            "localOverlapBounds": {
+              "max": [
+                56.0,
+                8.48000007495284,
+                26.25
+              ],
+              "min": [
+                55.0,
+                8.36000007763505,
+                26.0
+              ]
+            },
+            "parentMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.05999999865889549
+            },
+            "sourceFace": null,
+            "witnessConstruction": "local-overlap-centre",
+            "worldWitness": [
+              55.5,
+              8.420000076293945,
+              26.125
+            ]
+          },
+          "proposedKind": "fixed-embed"
+        },
+        "childBounds": {
+          "max": [
+            56.0,
+            8.48000007495284,
+            26.25
+          ],
+          "min": [
+            55.0,
+            8.36000007763505,
+            26.0
+          ]
+        },
+        "childWitness": [
+          55.5,
+          8.420000076293945,
+          26.125
+        ],
+        "frame": "emitted-world",
+        "id": "fa64fb5db7a3bddc69a598f3",
+        "meaning": "Finite selectors over original physical geometry, never substitute solids or forced local breaks.",
+        "parentBounds": {
+          "max": [
+            56.0,
+            8.48000007495284,
+            26.25
+          ],
+          "min": [
+            55.0,
+            8.36000007763505,
+            26.0
+          ]
+        },
+        "parentWitness": [
+          55.5,
+          8.420000076293945,
+          26.125
+        ],
+        "selector": {
+          "max": [
+            56,
+            8.630000005960465,
+            27
+          ],
+          "min": [
+            55,
+            8.329999994039536,
+            26
+          ]
+        }
+      },
+      "priorResult": {
+        "candidateTests": [],
+        "certificateCanonicalSha256": "cd1d736f48a795ec9d992f22570fd778e9a781080e532ee71c9f39707d3c98a0",
+        "child": 0,
+        "historicalGeometricBearing": false,
+        "historicalKind": "fixed-embed",
+        "id": "fa64fb5db7a3bddc69a598f3",
+        "parent": 1049,
+        "reason": "PRIMARY_FACE_OR_FREE_INTERVAL_NOT_UNIQUE",
+        "regionIndex": 294,
+        "sourceCanonicalSha256": "f5d0ea9ebd99a399c5e8b92db650ac7d033ff78da6e3d0fe637bb0eddc196bde",
+        "sourcePointer": "/relationships/199/localRegions/0",
+        "stage": "exact-source-points",
+        "status": "UNPROVED"
+      },
+      "selection": {
+        "selectionIndex": 1,
+        "priorUnprovedReason": "PRIMARY_FACE_OR_FREE_INTERVAL_NOT_UNIQUE",
+        "classRegions": 382,
+        "regionId": "fa64fb5db7a3bddc69a598f3",
+        "originalRegionOrdinal": 390,
+        "sourceRelationshipOrdinal": 199,
+        "sourceLocalRegionOrdinal": 0,
+        "remainingRegionIndex": 294,
+        "priorPage": "art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/pages/child-000-page-04.json",
+        "priorPageSha256": "10aeb43b6b5c509709902035633bd645b203850faa942ab530cb914cc27f19b3"
+      },
+      "sourceCanonicalSha256": "f5d0ea9ebd99a399c5e8b92db650ac7d033ff78da6e3d0fe637bb0eddc196bde"
+    },
+    {
+      "id": "ad40da91187f7135f43f690a",
+      "parent": 880,
+      "child": 40,
+      "relationship": "5235d23ff557af0737f7a778",
+      "selector": {
+        "max": [
+          65,
+          8.330000001490117,
+          59
+        ],
+        "min": [
+          64,
+          8.129999998509884,
+          58
+        ]
+      },
+      "endpointBounds": [
+        {
+          "max": [
+            64.07999999821186,
+            8.330000001490117,
+            59.0
+          ],
+          "min": [
+            64,
+            8.129999998509884,
+            58.0
+          ]
+        },
+        {
+          "max": [
+            64.07999999821186,
+            8.330000001490117,
+            59.0
+          ],
+          "min": [
+            64,
+            8.129999998509884,
+            58.0
+          ]
+        }
+      ],
+      "historical": {
+        "worldWitness": [
+          64.03999999910593,
+          8.23,
+          58.5
+        ],
+        "sourceFace": null,
+        "actualSurfaceWitness": null,
+        "parentWitness": [
+          64.03999999910593,
+          8.23,
+          58.5
+        ],
+        "childWitness": [
+          64.03999999910593,
+          8.23,
+          58.5
+        ]
+      },
+      "originalRegion": {
+        "actualGeometryCertificate": {
+          "geometricBearing": false,
+          "proof": {
+            "childMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.10000000149011612
+            },
+            "groundAnchor": false,
+            "kind": "actual-common-strict-solid-interior",
+            "localOverlapBounds": {
+              "max": [
+                64.07999999821186,
+                8.330000001490117,
+                59.0
+              ],
+              "min": [
+                64,
+                8.129999998509884,
+                58.0
+              ]
+            },
+            "parentMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.03999999910593033
+            },
+            "sourceFace": null,
+            "witnessConstruction": "local-overlap-centre",
+            "worldWitness": [
+              64.03999999910593,
+              8.23,
+              58.5
+            ]
+          },
+          "proposedKind": "fixed-embed"
+        },
+        "childBounds": {
+          "max": [
+            64.07999999821186,
+            8.330000001490117,
+            59.0
+          ],
+          "min": [
+            64,
+            8.129999998509884,
+            58.0
+          ]
+        },
+        "childWitness": [
+          64.03999999910593,
+          8.23,
+          58.5
+        ],
+        "frame": "emitted-world",
+        "id": "ad40da91187f7135f43f690a",
+        "meaning": "Finite selectors over original physical geometry, never substitute solids or forced local breaks.",
+        "parentBounds": {
+          "max": [
+            64.07999999821186,
+            8.330000001490117,
+            59.0
+          ],
+          "min": [
+            64,
+            8.129999998509884,
+            58.0
+          ]
+        },
+        "parentWitness": [
+          64.03999999910593,
+          8.23,
+          58.5
+        ],
+        "selector": {
+          "max": [
+            65,
+            8.330000001490117,
+            59
+          ],
+          "min": [
+            64,
+            8.129999998509884,
+            58
+          ]
+        }
+      },
+      "priorResult": {
+        "candidateTests": [
+          {
+            "method": "selector-midpoint",
+            "points": [
+              [
+                64.07999999821186,
+                8.330000001490117,
+                58.5
+              ],
+              [
+                64.07999999821186,
+                8.330000001490117,
+                58.5
+              ]
+            ],
+            "primitiveCandidates": [
+              [
+                10
+              ],
+              [
+                0
+              ]
+            ],
+            "result": "EXACT_ORIGINAL_FACE_POINTS"
+          }
+        ],
+        "certificateCanonicalSha256": "8de7ce30c074781aba65cfe9c811d1ff0d215cf73f8f4d35e3aec7123b60abdb",
+        "child": 40,
+        "contact": {
+          "exactBarycentricWeights": [
+            [
+              [
+                "273030690247803",
+                "562949953421312"
+              ],
+              [
+                "8444286462853",
+                "562949953421312"
+              ],
+              [
+                "1",
+                "2"
+              ]
+            ],
+            [
+              [
+                "664985091651",
+                "3166594662400"
+              ],
+              [
+                "17448293",
+                "24159200"
+              ],
+              [
+                "9331604811",
+                "137678028800"
+              ]
+            ]
+          ],
+          "exactPlaneResiduals": [
+            0,
+            0
+          ],
+          "method": "selector-midpoint",
+          "normals": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "points": [
+            [
+              64.07999999821186,
+              8.330000001490117,
+              58.5
+            ],
+            [
+              64.07999999821186,
+              8.330000001490117,
+              58.5
+            ]
+          ],
+          "primitives": [
+            10,
+            0
+          ]
+        },
+        "detail": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   false,\n    true,\n    true,\n-   true\n  ]\n",
+        "historicalGeometricBearing": false,
+        "historicalKind": "fixed-embed",
+        "id": "ad40da91187f7135f43f690a",
+        "parent": 880,
+        "reason": "EXISTING_CONTACT_PREDICATE_UNPROVED",
+        "regionIndex": 1773,
+        "sourceCanonicalSha256": "85a47a7a667738cf758c9cfe3beba2d3dbfd8aaccbe2b1f4da4b2420be92e58e",
+        "sourcePointer": "/relationships/763/localRegions/1",
+        "stage": "EXISTING_CONTACT_PREDICATE",
+        "status": "UNPROVED"
+      },
+      "selection": {
+        "selectionIndex": 2,
+        "priorUnprovedReason": "EXISTING_CONTACT_PREDICATE_UNPROVED",
+        "classRegions": 6,
+        "regionId": "ad40da91187f7135f43f690a",
+        "originalRegionOrdinal": 1869,
+        "sourceRelationshipOrdinal": 763,
+        "sourceLocalRegionOrdinal": 1,
+        "remainingRegionIndex": 1773,
+        "priorPage": "art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/pages/child-040-page-00.json",
+        "priorPageSha256": "3ac153e2df201ed7be4d477351fda2048cfb1b97656c753982dba2c4542968c7"
+      },
+      "sourceCanonicalSha256": "85a47a7a667738cf758c9cfe3beba2d3dbfd8aaccbe2b1f4da4b2420be92e58e"
+    },
+    {
+      "id": "2c80a924a3a080cac910eb30",
+      "parent": 380,
+      "child": 1201,
+      "relationship": "241611b91af13862cf159af5",
+      "selector": {
+        "max": [
+          34,
+          2.119999885559082,
+          26
+        ],
+        "min": [
+          33,
+          2,
+          25
+        ]
+      },
+      "endpointBounds": [
+        {
+          "max": [
+            34.0,
+            2.119999885559082,
+            26
+          ],
+          "min": [
+            33.0,
+            2,
+            25.92000000178814
+          ]
+        },
+        {
+          "max": [
+            34.0,
+            2.119999885559082,
+            26
+          ],
+          "min": [
+            33.0,
+            2,
+            25.92000000178814
+          ]
+        }
+      ],
+      "historical": {
+        "worldWitness": [
+          33.5,
+          2.059999942779541,
+          25.96000000089407
+        ],
+        "sourceFace": null,
+        "actualSurfaceWitness": null,
+        "parentWitness": [
+          33.5,
+          2.059999942779541,
+          25.96000000089407
+        ],
+        "childWitness": [
+          33.5,
+          2.059999942779541,
+          25.96000000089407
+        ]
+      },
+      "originalRegion": {
+        "actualGeometryCertificate": {
+          "geometricBearing": false,
+          "proof": {
+            "childMembership": {
+              "method": "actual-closed-triangle-solid-angle-winding",
+              "minimumSurfaceDistanceMetres": 0.059999942779541016,
+              "windingAbsoluteTurns": 1.0000000000000064
+            },
+            "groundAnchor": false,
+            "kind": "actual-common-strict-solid-interior",
+            "localOverlapBounds": {
+              "max": [
+                34.0,
+                2.119999885559082,
+                26
+              ],
+              "min": [
+                33.0,
+                2,
+                25.92000000178814
+              ]
+            },
+            "parentMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.03999999910593033
+            },
+            "sourceFace": null,
+            "witnessConstruction": "local-overlap-centre",
+            "worldWitness": [
+              33.5,
+              2.059999942779541,
+              25.96000000089407
+            ]
+          },
+          "proposedKind": "fixed-embed"
+        },
+        "childBounds": {
+          "max": [
+            34.0,
+            2.119999885559082,
+            26
+          ],
+          "min": [
+            33.0,
+            2,
+            25.92000000178814
+          ]
+        },
+        "childWitness": [
+          33.5,
+          2.059999942779541,
+          25.96000000089407
+        ],
+        "frame": "emitted-world",
+        "id": "2c80a924a3a080cac910eb30",
+        "meaning": "Finite selectors over original physical geometry, never substitute solids or forced local breaks.",
+        "parentBounds": {
+          "max": [
+            34.0,
+            2.119999885559082,
+            26
+          ],
+          "min": [
+            33.0,
+            2,
+            25.92000000178814
+          ]
+        },
+        "parentWitness": [
+          33.5,
+          2.059999942779541,
+          25.96000000089407
+        ],
+        "selector": {
+          "max": [
+            34,
+            2.119999885559082,
+            26
+          ],
+          "min": [
+            33,
+            2,
+            25
+          ]
+        }
+      },
+      "priorResult": {
+        "candidateTests": [
+          {
+            "method": "selector-midpoint",
+            "points": [
+              [
+                33.5,
+                2.119999885559082,
+                25.92000000178814
+              ],
+              [
+                33.5,
+                2.119999885559082,
+                25.92000000178814
+              ]
+            ],
+            "primitiveCandidates": [
+              [
+                10
+              ],
+              [
+                1
+              ]
+            ],
+            "result": "EXACT_ORIGINAL_FACE_POINTS"
+          }
+        ],
+        "certificateCanonicalSha256": "740da6870fd24d841d96176825a0c2d0d156a3256acbc9382b4d848b73004a4a",
+        "child": 1201,
+        "contact": {
+          "exactBarycentricWeights": [
+            [
+              [
+                "2684352",
+                "5368709"
+              ],
+              [
+                "5",
+                "10737418"
+              ],
+              [
+                "1",
+                "2"
+              ]
+            ],
+            [
+              [
+                "56332532621456",
+                "820259050405177"
+              ],
+              [
+                "3322192573126139",
+                "4921554302431062"
+              ],
+              [
+                "1261366533576187",
+                "4921554302431062"
+              ]
+            ]
+          ],
+          "exactPlaneResiduals": [
+            0,
+            0
+          ],
+          "method": "selector-midpoint",
+          "normals": [
+            [
+              0,
+              0,
+              -1
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "points": [
+            [
+              33.5,
+              2.119999885559082,
+              25.92000000178814
+            ],
+            [
+              33.5,
+              2.119999885559082,
+              25.92000000178814
+            ]
+          ],
+          "primitives": [
+            10,
+            1
+          ]
+        },
+        "detail": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n+   4,\n    10\n  ]\n",
+        "historicalGeometricBearing": false,
+        "historicalKind": "fixed-embed",
+        "id": "2c80a924a3a080cac910eb30",
+        "parent": 380,
+        "reason": "ORIGINAL_FACE_MEMBERSHIP_UNPROVED",
+        "regionIndex": 2546,
+        "sourceCanonicalSha256": "60b8b0513df852f2022274dbcb25ea8c89f89bd64cc61f9a222922af482d907d",
+        "sourcePointer": "/relationships/1199/localRegions/0",
+        "stage": "ORIGINAL_FACE_MEMBERSHIP",
+        "status": "UNPROVED"
+      },
+      "selection": {
+        "selectionIndex": 3,
+        "priorUnprovedReason": "ORIGINAL_FACE_MEMBERSHIP_UNPROVED",
+        "classRegions": 228,
+        "regionId": "2c80a924a3a080cac910eb30",
+        "originalRegionOrdinal": 2642,
+        "sourceRelationshipOrdinal": 1199,
+        "sourceLocalRegionOrdinal": 0,
+        "remainingRegionIndex": 2546,
+        "priorPage": "art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/pages/child-076-page-00.json",
+        "priorPageSha256": "ef8b80b80e777d9e7ae853e68c3d0ed171b70b194237b14347be9efd4e64c6cc"
+      },
+      "sourceCanonicalSha256": "60b8b0513df852f2022274dbcb25ea8c89f89bd64cc61f9a222922af482d907d"
+    },
+    {
+      "id": "5de9f0afde080bd3be421ef1",
+      "parent": 1036,
+      "child": 1201,
+      "relationship": "641df2e6d14c924f1859f7c5",
+      "selector": {
+        "max": [
+          44,
+          2.119999885559082,
+          26
+        ],
+        "min": [
+          43,
+          2,
+          25
+        ]
+      },
+      "endpointBounds": [
+        {
+          "max": [
+            44,
+            2,
+            26
+          ],
+          "min": [
+            43,
+            2,
+            25.810000002384186
+          ]
+        },
+        {
+          "max": [
+            44,
+            2,
+            26
+          ],
+          "min": [
+            43,
+            2,
+            25.810000002384186
+          ]
+        }
+      ],
+      "historical": {
+        "worldWitness": null,
+        "sourceFace": null,
+        "actualSurfaceWitness": [
+          [
+            43.01299492314786,
+            2,
+            25.995788621902463
+          ],
+          [
+            43.01299492314786,
+            2,
+            25.995788621902463
+          ]
+        ],
+        "parentWitness": [
+          43.01299492314786,
+          2,
+          25.995788621902463
+        ],
+        "childWitness": [
+          43.01299492314786,
+          2,
+          25.995788621902463
+        ]
+      },
+      "originalRegion": {
+        "actualGeometryCertificate": {
+          "geometricBearing": true,
+          "proof": {
+            "actualFaceAreaMetresSquared": 0.1899999976159279,
+            "actualSurfaceWitness": [
+              [
+                43.01299492314786,
+                2,
+                25.995788621902463
+              ],
+              [
+                43.01299492314786,
+                2,
+                25.995788621902463
+              ]
+            ],
+            "axis": 1,
+            "childFace": "min",
+            "geometricHorizontalBearing": true,
+            "groundAnchor": false,
+            "kind": "actual-coplanar-source-face-area",
+            "nativePrecisionToleranceMetres": 1e-05,
+            "parentFace": "max",
+            "witnessSeparationMetres": 0.0
+          },
+          "proposedKind": "bearing-face"
+        },
+        "childBounds": {
+          "max": [
+            44,
+            2,
+            26
+          ],
+          "min": [
+            43,
+            2,
+            25.810000002384186
+          ]
+        },
+        "childWitness": [
+          43.01299492314786,
+          2,
+          25.995788621902463
+        ],
+        "frame": "emitted-world",
+        "id": "5de9f0afde080bd3be421ef1",
+        "meaning": "Finite selectors over original physical geometry, never substitute solids or forced local breaks.",
+        "parentBounds": {
+          "max": [
+            44,
+            2,
+            26
+          ],
+          "min": [
+            43,
+            2,
+            25.810000002384186
+          ]
+        },
+        "parentWitness": [
+          43.01299492314786,
+          2,
+          25.995788621902463
+        ],
+        "selector": {
+          "max": [
+            44,
+            2.119999885559082,
+            26
+          ],
+          "min": [
+            43,
+            2,
+            25
+          ]
+        }
+      },
+      "priorResult": {
+        "candidateTests": [
+          {
+            "method": "authored-bearing-witness",
+            "points": [
+              [
+                43.01299492314786,
+                2,
+                25.995788621902463
+              ],
+              [
+                43.01299492314786,
+                2,
+                25.995788621902463
+              ]
+            ],
+            "primitiveCandidates": [
+              [
+                14
+              ],
+              [
+                4
+              ]
+            ],
+            "result": "EXACT_ORIGINAL_FACE_POINTS"
+          }
+        ],
+        "certificateCanonicalSha256": "c8784423bab586ce1738deb5667fdf3b6563e721e77d9cef9859bbdbcdfc6c2d",
+        "child": 1201,
+        "contact": {
+          "exactBarycentricWeights": [
+            [
+              [
+                "636591144661907401",
+                "172661514502374686720"
+              ],
+              [
+                "41924898796339",
+                "42221248184320"
+              ],
+              [
+                "114304552825",
+                "34304759431168"
+              ]
+            ],
+            [
+              [
+                "102970668575828634361",
+                "213190243376124919808"
+              ],
+              [
+                "1261756446894311657",
+                "213190243376124919808"
+              ],
+              [
+                "4555470204655",
+                "8913374150656"
+              ]
+            ]
+          ],
+          "exactPlaneResiduals": [
+            0,
+            0
+          ],
+          "method": "authored-bearing-witness",
+          "normals": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              -1,
+              0
+            ]
+          ],
+          "points": [
+            [
+              43.01299492314786,
+              2,
+              25.995788621902463
+            ],
+            [
+              43.01299492314786,
+              2,
+              25.995788621902463
+            ]
+          ],
+          "primitives": [
+            14,
+            4
+          ]
+        },
+        "detail": "Expected values to be strictly equal:\n\nfalse !== true\n",
+        "historicalGeometricBearing": true,
+        "historicalKind": "bearing-face",
+        "id": "5de9f0afde080bd3be421ef1",
+        "parent": 1036,
+        "reason": "ORIGINAL_COMPONENT_MEMBERSHIP_UNPROVED",
+        "regionIndex": 2634,
+        "sourceCanonicalSha256": "f9a2ce1bcd640f50c31af273e05f399aba6b27f8ca968f7ed11e47641b7a6569",
+        "sourcePointer": "/relationships/1243/localRegions/0",
+        "stage": "ORIGINAL_COMPONENT_MEMBERSHIP",
+        "status": "UNPROVED"
+      },
+      "selection": {
+        "selectionIndex": 4,
+        "priorUnprovedReason": "ORIGINAL_COMPONENT_MEMBERSHIP_UNPROVED",
+        "classRegions": 52,
+        "regionId": "5de9f0afde080bd3be421ef1",
+        "originalRegionOrdinal": 2730,
+        "sourceRelationshipOrdinal": 1243,
+        "sourceLocalRegionOrdinal": 0,
+        "remainingRegionIndex": 2634,
+        "priorPage": "art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/pages/child-076-page-02.json",
+        "priorPageSha256": "f0f6ee0ed2723d690743651b4d88a9efcbef8249ff3ec019c40ade2f6dc21549"
+      },
+      "sourceCanonicalSha256": "f9a2ce1bcd640f50c31af273e05f399aba6b27f8ca968f7ed11e47641b7a6569"
+    },
+    {
+      "id": "5220d64869d2ebaac898df7b",
+      "parent": 473,
+      "child": 1203,
+      "relationship": "1e3167f54f836d0bf86c45d7",
+      "selector": {
+        "max": [
+          80,
+          8.329999923706055,
+          28
+        ],
+        "min": [
+          79,
+          8.130000114440918,
+          27
+        ]
+      },
+      "endpointBounds": [
+        {
+          "max": [
+            80,
+            8.329999923706055,
+            28.0
+          ],
+          "min": [
+            79.92000000178814,
+            8.130000114440918,
+            27.0
+          ]
+        },
+        {
+          "max": [
+            80,
+            8.329999923706055,
+            28.0
+          ],
+          "min": [
+            79.92000000178814,
+            8.130000114440918,
+            27.0
+          ]
+        }
+      ],
+      "historical": {
+        "worldWitness": [
+          79.96000000089407,
+          8.230000019073486,
+          27.5
+        ],
+        "sourceFace": null,
+        "actualSurfaceWitness": null,
+        "parentWitness": [
+          79.96000000089407,
+          8.230000019073486,
+          27.5
+        ],
+        "childWitness": [
+          79.96000000089407,
+          8.230000019073486,
+          27.5
+        ]
+      },
+      "originalRegion": {
+        "actualGeometryCertificate": {
+          "geometricBearing": false,
+          "proof": {
+            "childMembership": {
+              "method": "actual-closed-triangle-solid-angle-winding",
+              "minimumSurfaceDistanceMetres": 0.09999990463256836,
+              "windingAbsoluteTurns": 0.9999999999999973
+            },
+            "groundAnchor": false,
+            "kind": "actual-common-strict-solid-interior",
+            "localOverlapBounds": {
+              "max": [
+                80,
+                8.329999923706055,
+                28.0
+              ],
+              "min": [
+                79.92000000178814,
+                8.130000114440918,
+                27.0
+              ]
+            },
+            "parentMembership": {
+              "method": "actual-closed-convex-halfspaces",
+              "minimumInteriorMarginMetres": 0.03999999910593033
+            },
+            "sourceFace": null,
+            "witnessConstruction": "local-overlap-centre",
+            "worldWitness": [
+              79.96000000089407,
+              8.230000019073486,
+              27.5
+            ]
+          },
+          "proposedKind": "fixed-embed"
+        },
+        "childBounds": {
+          "max": [
+            80,
+            8.329999923706055,
+            28.0
+          ],
+          "min": [
+            79.92000000178814,
+            8.130000114440918,
+            27.0
+          ]
+        },
+        "childWitness": [
+          79.96000000089407,
+          8.230000019073486,
+          27.5
+        ],
+        "frame": "emitted-world",
+        "id": "5220d64869d2ebaac898df7b",
+        "meaning": "Finite selectors over original physical geometry, never substitute solids or forced local breaks.",
+        "parentBounds": {
+          "max": [
+            80,
+            8.329999923706055,
+            28.0
+          ],
+          "min": [
+            79.92000000178814,
+            8.130000114440918,
+            27.0
+          ]
+        },
+        "parentWitness": [
+          79.96000000089407,
+          8.230000019073486,
+          27.5
+        ],
+        "selector": {
+          "max": [
+            80,
+            8.329999923706055,
+            28
+          ],
+          "min": [
+            79,
+            8.130000114440918,
+            27
+          ]
+        }
+      },
+      "priorResult": {
+        "candidateTests": [],
+        "certificateCanonicalSha256": "beb9d78c25f3de0bc167f5caae93859616193705ca5423d542473d9536e43df5",
+        "child": 1203,
+        "historicalGeometricBearing": false,
+        "historicalKind": "fixed-embed",
+        "id": "5220d64869d2ebaac898df7b",
+        "parent": 473,
+        "reason": "PRIMARY_VERTICAL_FACE_OR_TOP_PLANE_NOT_UNIQUE",
+        "regionIndex": 2754,
+        "sourceCanonicalSha256": "ae9a80c279f67c22c0b0fb07dff33b606752bfc702a3952f2221a7f010bcd10d",
+        "sourcePointer": "/relationships/1290/localRegions/0",
+        "stage": "exact-source-points",
+        "status": "UNPROVED"
+      },
+      "selection": {
+        "selectionIndex": 5,
+        "priorUnprovedReason": "PRIMARY_VERTICAL_FACE_OR_TOP_PLANE_NOT_UNIQUE",
+        "classRegions": 672,
+        "regionId": "5220d64869d2ebaac898df7b",
+        "originalRegionOrdinal": 2850,
+        "sourceRelationshipOrdinal": 1290,
+        "sourceLocalRegionOrdinal": 0,
+        "remainingRegionIndex": 2754,
+        "priorPage": "art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/pages/child-078-page-00.json",
+        "priorPageSha256": "7d2f667ef34b7a82350576465b9c291c99c5f9491c2d9851873207a90282f130"
+      },
+      "sourceCanonicalSha256": "ae9a80c279f67c22c0b0fb07dff33b606752bfc702a3952f2221a7f010bcd10d"
+    }
+  ],
+  "instances": [
+    {
+      "acceptedEffectiveOverlay": null,
+      "fuelAmount": 60.000002,
+      "fuelClass": "frame",
+      "geometry": 0,
+      "globalCarrierIndex": 2407,
+      "globalSourcePartIndex": 2407,
+      "id": 0,
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        8.48,
+        26,
+        1
+      ],
+      "nativeCell": null,
+      "nativeRecordId": null,
+      "originalDescriptor": {
+        "path": "assets/art/place-scenes/new-york/sections/3_1_3.json",
+        "pointer": "/parts/2"
+      },
+      "ownerId": "carrier/edge-0/cornice-2",
+      "partId": "edge-0/cornice-2",
+      "role": "timber-fitting",
+      "sourcePartId": "edge-0/cornice-2",
+      "sourceRange": null,
+      "triangleCount": 12
+    },
+    {
+      "acceptedEffectiveOverlay": null,
+      "fuelAmount": 1.2,
+      "fuelClass": "frame",
+      "geometry": 40,
+      "globalCarrierIndex": 2620,
+      "globalSourcePartIndex": 2620,
+      "id": 40,
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        8.23,
+        26,
+        1
+      ],
+      "nativeCell": null,
+      "nativeRecordId": null,
+      "originalDescriptor": {
+        "path": "assets/art/place-scenes/new-york/sections/4_3_3.json",
+        "pointer": "/parts/6"
+      },
+      "ownerId": "carrier/edge-5/cornice-1",
+      "partId": "edge-5/cornice-1",
+      "role": "timber-fitting",
+      "sourcePartId": "edge-5/cornice-1",
+      "sourceRange": null,
+      "triangleCount": 12
+    },
+    {
+      "acceptedEffectiveOverlay": null,
+      "fuelAmount": 2.0,
+      "fuelClass": "clapboard",
+      "geometry": 78,
+      "globalCarrierIndex": 6303,
+      "globalSourcePartIndex": 6303,
+      "id": 236,
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        32.5,
+        7.360000133514404,
+        26,
+        1
+      ],
+      "nativeCell": null,
+      "nativeRecordId": null,
+      "originalDescriptor": {
+        "path": "assets/art/place-scenes/new-york/sections/2_1_3.json",
+        "pointer": "/parts/0"
+      },
+      "ownerId": "carrier/main/0/cell-3-0/1",
+      "partId": "main/0/cell-3-0/1",
+      "role": "exterior-wall",
+      "sourcePartId": "main/0/cell-3-0/1",
+      "sourceRange": null,
+      "triangleCount": 12
+    },
+    {
+      "acceptedEffectiveOverlay": null,
+      "fuelAmount": 0,
+      "fuelClass": null,
+      "geometry": 88,
+      "globalCarrierIndex": 6742,
+      "globalSourcePartIndex": 6798,
+      "id": 380,
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        33.5,
+        2.059999942779541,
+        26,
+        1
+      ],
+      "nativeCell": null,
+      "nativeRecordId": null,
+      "originalDescriptor": {
+        "path": "assets/art/place-scenes/new-york/sections/2_1_0.json",
+        "pointer": "/parts/33"
+      },
+      "ownerId": "carrier/main/0/seam-0-1/1",
+      "partId": "main/0/seam-0-1/1",
+      "role": "raised-base",
+      "sourcePartId": "main/0/seam-0-1/1",
+      "sourceRange": null,
+      "triangleCount": 12
+    },
+    {
+      "acceptedEffectiveOverlay": null,
+      "fuelAmount": 2.0,
+      "fuelClass": "clapboard",
+      "geometry": 79,
+      "globalCarrierIndex": 7250,
+      "globalSourcePartIndex": 7348,
+      "id": 473,
+      "matrix": [
+        2.220446049250313e-16,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        2.220446049250313e-16,
+        0,
+        80,
+        7.360000133514404,
+        27.5,
+        1
+      ],
+      "nativeCell": null,
+      "nativeRecordId": null,
+      "originalDescriptor": {
+        "path": "assets/art/place-scenes/new-york/sections/5_1_3.json",
+        "pointer": "/parts/6"
+      },
+      "ownerId": "carrier/main/1/cell-3-1/1",
+      "partId": "main/1/cell-3-1/1",
+      "role": "exterior-wall",
+      "sourcePartId": "main/1/cell-3-1/1",
+      "sourceRange": null,
+      "triangleCount": 12
+    },
+    {
+      "acceptedEffectiveOverlay": null,
+      "fuelAmount": 2.0,
+      "fuelClass": "clapboard",
+      "geometry": 79,
+      "globalCarrierIndex": 8895,
+      "globalSourcePartIndex": 9175,
+      "id": 880,
+      "matrix": [
+        2.220446049250313e-16,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        2.220446049250313e-16,
+        0,
+        64,
+        7.360000133514404,
+        58.5,
+        1
+      ],
+      "nativeCell": null,
+      "nativeRecordId": null,
+      "originalDescriptor": {
+        "path": "assets/art/place-scenes/new-york/sections/4_3_3.json",
+        "pointer": "/parts/40"
+      },
+      "ownerId": "carrier/main/5/cell-3-0/1",
+      "partId": "main/5/cell-3-0/1",
+      "role": "exterior-wall",
+      "sourcePartId": "main/5/cell-3-0/1",
+      "sourceRange": null,
+      "triangleCount": 12
+    },
+    {
+      "acceptedEffectiveOverlay": null,
+      "fuelAmount": 0,
+      "fuelClass": null,
+      "geometry": 95,
+      "globalCarrierIndex": 10014,
+      "globalSourcePartIndex": 10374,
+      "id": 1036,
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "nativeCell": null,
+      "nativeRecordId": null,
+      "originalDescriptor": {
+        "path": "assets/art/place-scenes/new-york/sections/3_1_0.json",
+        "pointer": "/parts/213"
+      },
+      "ownerId": "carrier/replacement/landing/fascia",
+      "partId": "replacement/landing/fascia",
+      "role": "raised-base",
+      "sourcePartId": "replacement/landing/fascia",
+      "sourceRange": null,
+      "triangleCount": 42
+    },
+    {
+      "acceptedEffectiveOverlay": null,
+      "fuelAmount": 1.0,
+      "fuelClass": "frame",
+      "geometry": 100,
+      "globalCarrierIndex": 10723,
+      "globalSourcePartIndex": 11123,
+      "id": 1049,
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        55.5,
+        8.420000076293945,
+        26.5,
+        1
+      ],
+      "nativeCell": null,
+      "nativeRecordId": null,
+      "originalDescriptor": {
+        "path": "assets/art/place-scenes/new-york/sections/3_1_3.json",
+        "pointer": "/parts/84"
+      },
+      "ownerId": "carrier/upper-floor/tile--1-0",
+      "partId": "upper-floor/tile--1-0",
+      "role": "building-deck",
+      "sourcePartId": "upper-floor/tile--1-0",
+      "sourceRange": null,
+      "triangleCount": 12
+    },
+    {
+      "acceptedEffectiveOverlay": {
+        "afterGeometryId": "8b785f054dcafec332a98cdd527c972922d09d4a84ffc4d6289f4143c73df587",
+        "beforeGeometryId": "d4178633a72c3ad37bb470e599956ce02b793b7ff0ddf2ee52e91a8d98feb909",
+        "operation": "append-cut-plane-caps",
+        "path": "assets/art/shared-map-derived-geometry/new-york/v1/index.json",
+        "pointer": "/replacements/0",
+        "primitiveFrame": "accepted-effective-buffer, not unmodified pre-repair triangle IDs"
+      },
+      "fuelAmount": 17.479983,
+      "fuelClass": "frame",
+      "geometry": 104,
+      "globalCarrierIndex": 12405,
+      "globalSourcePartIndex": 12805,
+      "id": 1201,
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "nativeCell": null,
+      "nativeRecordId": null,
+      "originalDescriptor": {
+        "path": "assets/art/place-scenes/new-york/sections/3_1_0.json",
+        "pointer": "/parts/212"
+      },
+      "ownerId": "carrier/replacement/edge-0/cornice-0",
+      "partId": "replacement/edge-0/cornice-0",
+      "role": "timber-fitting",
+      "sourcePartId": "replacement/edge-0/cornice-0",
+      "sourceRange": null,
+      "triangleCount": 44
+    },
+    {
+      "acceptedEffectiveOverlay": {
+        "afterGeometryId": "4dc4871026554e9358a8684c72412c703007dc425e129a2f7d9bd9096083a766",
+        "beforeGeometryId": "bf9aa1295699eec3ba38e076afda5e95b1fe7ae3446b47da8212c3cc8547165d",
+        "operation": "append-cut-plane-caps",
+        "path": "assets/art/shared-map-derived-geometry/new-york/v1/index.json",
+        "pointer": "/replacements/2",
+        "primitiveFrame": "accepted-effective-buffer, not unmodified pre-repair triangle IDs"
+      },
+      "fuelAmount": 16.740011,
+      "fuelClass": "frame",
+      "geometry": 106,
+      "globalCarrierIndex": 12407,
+      "globalSourcePartIndex": 12807,
+      "id": 1203,
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        0,
+        26,
+        1
+      ],
+      "nativeCell": null,
+      "nativeRecordId": null,
+      "originalDescriptor": {
+        "path": "assets/art/place-scenes/new-york/sections/5_2_3.json",
+        "pointer": "/parts/74"
+      },
+      "ownerId": "carrier/replacement/edge-1/cornice-1",
+      "partId": "replacement/edge-1/cornice-1",
+      "role": "timber-fitting",
+      "sourcePartId": "replacement/edge-1/cornice-1",
+      "sourceRange": null,
+      "triangleCount": 66
+    }
+  ],
+  "geometries": {
+    "0": {
+      "id": "6c9c8406944726b443b9e3018d41991ae49802ec05f96bd80276066c310d45c8",
+      "path": "assets/art/place-scenes/new-york/geometry/6c9c8406944726b443b9e3018d41991ae49802ec05f96bd80276066c310d45c8.json",
+      "sha256": "0574d64b7d2ef0a9b4c03e96c24e6653a22e97333d3126547e6add2dd0311ca2",
+      "sourceRange": null,
+      "triangles": 12
+    },
+    "40": {
+      "id": "77947f43f55d67f79796ffcc93e196ed3d42ef84449588d2854e76bc683c72c1",
+      "path": "assets/art/place-scenes/new-york/geometry/77947f43f55d67f79796ffcc93e196ed3d42ef84449588d2854e76bc683c72c1.json",
+      "sha256": "7a516be247e749bd847094909a75de4231b9c0eb6397bdbd4ba9246c05f63e0f",
+      "sourceRange": null,
+      "triangles": 12
+    },
+    "78": {
+      "id": "13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5",
+      "path": "assets/art/place-scenes/new-york/geometry/13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5.json",
+      "sha256": "28812fc6e40de990eaa12b0d392b4b58e91d8b4e352bcd55652e32f4c583bb10",
+      "sourceRange": null,
+      "triangles": 12
+    },
+    "79": {
+      "id": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+      "path": "assets/art/place-scenes/new-york/geometry/a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6.json",
+      "sha256": "8e41da9353b574e2c14542773a2a39cf52953b99e5086f37a5e3dda92bd23a25",
+      "sourceRange": null,
+      "triangles": 12
+    },
+    "88": {
+      "id": "4fb58c849c8bfbeab50afeb4bac7e7cb14dd92ba476f0eb37041ef5260428b77",
+      "path": "assets/art/place-scenes/new-york/geometry/4fb58c849c8bfbeab50afeb4bac7e7cb14dd92ba476f0eb37041ef5260428b77.json",
+      "sha256": "7b9b870bcfa43211d4e2057f1e88ae6ad1e07570ebc1af385ca1b97cedde705e",
+      "sourceRange": null,
+      "triangles": 12
+    },
+    "95": {
+      "id": "5a7f1f9eb13090eea26a269092be3c5758c1e4dd56e7ae0e4384f084fb794740",
+      "path": "assets/art/place-scenes/new-york/geometry/5a7f1f9eb13090eea26a269092be3c5758c1e4dd56e7ae0e4384f084fb794740.json",
+      "sha256": "748bbaec01da79ff9d2ec50ead136874e50fe5fb6b18940b93fe0d709d7480f6",
+      "sourceRange": null,
+      "triangles": 42
+    },
+    "100": {
+      "id": "359ae7cbcc4dd992f73c2ba16ec6a04980c7078fc6172e78e31b94ce13fde10a",
+      "path": "assets/art/place-scenes/new-york/geometry/359ae7cbcc4dd992f73c2ba16ec6a04980c7078fc6172e78e31b94ce13fde10a.json",
+      "sha256": "bea17e62694a9b994d08bc9b07d96dcdc194aaa0d5dbee8d8fd6482a66f8799b",
+      "sourceRange": null,
+      "triangles": 12
+    },
+    "104": {
+      "id": "8b785f054dcafec332a98cdd527c972922d09d4a84ffc4d6289f4143c73df587",
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/8b785f054dcafec332a98cdd527c972922d09d4a84ffc4d6289f4143c73df587.json",
+      "sha256": "f3ad299af8f87a202a0b741a4830fb6c91e621f15638f64cd835e1912532a21b",
+      "sourceRange": null,
+      "triangles": 44
+    },
+    "106": {
+      "id": "4dc4871026554e9358a8684c72412c703007dc425e129a2f7d9bd9096083a766",
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/4dc4871026554e9358a8684c72412c703007dc425e129a2f7d9bd9096083a766.json",
+      "sha256": "0b370e274b4446e69386050ed47e2b03d31f5f4d1ef544e975c9702f731f16cc",
+      "sourceRange": null,
+      "triangles": 66
+    }
+  },
+  "relationships": [
+    {
+      "child": 0,
+      "childRole": "timber-fitting",
+      "direction": "parent-to-child",
+      "id": "15c256b79df90f2c573ad75c",
+      "parent": 236,
+      "parentRole": "exterior-wall",
+      "proposedKind": "fixed-embed",
+      "regionIds": [
+        "175e6960699ae52e3bd1eefe",
+        "76fa890a5dc70719834b59e0"
+      ],
+      "sourceCanonicalSha256": "dd57b67da54b29abe99022ecc044aa88a8ea1ce496296ba6ccc69cd08adbaa81",
+      "sourceOrdinal": 49
+    },
+    {
+      "child": 0,
+      "childRole": "timber-fitting",
+      "direction": "parent-to-child",
+      "id": "7e31348c15c730ddba7545ed",
+      "parent": 1049,
+      "parentRole": "building-deck",
+      "proposedKind": "fixed-embed",
+      "regionIds": [
+        "fa64fb5db7a3bddc69a598f3"
+      ],
+      "sourceCanonicalSha256": "e74260c6ce4e501ea414a4bfb73a333f090598f184cfcd7c89401434f16d931c",
+      "sourceOrdinal": 199
+    },
+    {
+      "child": 40,
+      "childRole": "timber-fitting",
+      "direction": "parent-to-child",
+      "id": "5235d23ff557af0737f7a778",
+      "parent": 880,
+      "parentRole": "exterior-wall",
+      "proposedKind": "fixed-embed",
+      "regionIds": [
+        "843b06f52fd5ad35f553a0ca",
+        "ad40da91187f7135f43f690a"
+      ],
+      "sourceCanonicalSha256": "bff7413d05f3d96f1259ad13115d240a1b3305eb74a5084dd0d2499df92f8531",
+      "sourceOrdinal": 763
+    },
+    {
+      "child": 1201,
+      "childRole": "timber-fitting",
+      "direction": "parent-to-child",
+      "id": "241611b91af13862cf159af5",
+      "parent": 380,
+      "parentRole": "raised-base",
+      "proposedKind": "fixed-embed",
+      "regionIds": [
+        "2c80a924a3a080cac910eb30",
+        "c60561dd36ddfded1213bbcf"
+      ],
+      "sourceCanonicalSha256": "8d3546d9d30aa6388f0f66af814b8c982b5045ca81c50059d07b32ef583f5283",
+      "sourceOrdinal": 1199
+    },
+    {
+      "child": 1201,
+      "childRole": "timber-fitting",
+      "direction": "parent-to-child",
+      "id": "641df2e6d14c924f1859f7c5",
+      "parent": 1036,
+      "parentRole": "raised-base",
+      "proposedKind": "bearing-face",
+      "regionIds": [
+        "5de9f0afde080bd3be421ef1",
+        "f7eaaf0e56f584b34496488b",
+        "924fb4c8020496973baa7ed2",
+        "b688a2df4f4195f4b13518a5",
+        "84593065ca0d7b3da1b11c45",
+        "58af9b65b6127115b1477718",
+        "d132b90a0fcbb91b09fde51f",
+        "5d3fdbbde26a7468ec85b1bb",
+        "721c4f141ee3b92fc7d83c12",
+        "b4d6752d0c20c1f3eeaad65a",
+        "b9190ab04132a2ecbc2b2c89",
+        "cf417bf134d868a22e8bf0a3",
+        "6237f898880bfc9d2c8a9adf",
+        "ab1b430a2d1563da0a22a9e2",
+        "72654900c3ba6a5f74ee26f1",
+        "4a73fc16bafea8f64662cd0e",
+        "7b8ed9ba09533e1fe53b5088",
+        "d34e883e27faa0f6c8206f16",
+        "093593504db22be676955a54",
+        "deb7e5e2dcaad509e21ba6a8",
+        "6a420fd243b815359a61e996",
+        "d2d1f242a66c56ec41b79e6a",
+        "0936e9d7fddda657ae84b0c6",
+        "84b02701af8a4c6ddde08962"
+      ],
+      "sourceCanonicalSha256": "937f494f00abad10808ad9cb36bf05c2fbbf2a8a19163d07f02ae2850afd4dde",
+      "sourceOrdinal": 1243
+    },
+    {
+      "child": 1203,
+      "childRole": "timber-fitting",
+      "direction": "parent-to-child",
+      "id": "1e3167f54f836d0bf86c45d7",
+      "parent": 473,
+      "parentRole": "exterior-wall",
+      "proposedKind": "fixed-embed",
+      "regionIds": [
+        "5220d64869d2ebaac898df7b",
+        "94786ca84c34ceda08480aca"
+      ],
+      "sourceCanonicalSha256": "e1de750c1b9e431830a670568b081457bce3b20b8070f856952c9efb3f7344d0",
+      "sourceOrdinal": 1290
+    }
+  ],
+  "nativeLineage": "UNBOUND"
+}

@@ -1,0 +1,9 @@
+Initial metadata-only preparation stopped at raw equality across donor excerpts.
+Traceback (most recent call last):
+  File "<stdin>", line 15, in <module>
+AssertionError
+
+The e67235b6 Git source has CRLF; 6f5d8981/aeb6e169 use LF. The method
+blocks match exactly after LF normalization. The copied method is the exact LF
+excerpt from aeb6e169. Provenance records raw and LF excerpt hashes separately.
+No geometry calculation, representative worker, or original proof had started.
