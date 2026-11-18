@@ -1,0 +1,43 @@
+{
+  "kind": "Historical raw nonmaterial face identity; not a new source contact or classification acceptance",
+  "commit": "0ce79739c8b45a249395253f361964f343c2e576",
+  "path": "docs/engineering/shared-maps/duplicate-vertex-material-v1/ui-result.json",
+  "rawFileSha256": "2d1a9e6d1d6a6434daff5ede449394822726c6c589f9d56b3ebff4afef85b8a2",
+  "pointer": "/raw/exactBinaryZeroAreaPrimitives",
+  "geometryId": "8bab8c76f9be09b30411af10f745a5555a5c475b9e20f2d84a3dd979cc40cfa3",
+  "geometryRawSha256": "f127db015f33b5b1a7532c3c6fc3b2410564f7ecd6e21330c3f4bb29f68a7e77",
+  "rawOrderedFloat64Sha256": "c039a9b9bc626d7ac45e8d60760230b331501a600f5eada95a68c67af5678a75",
+  "rawOriginalPrimitiveOrdinals": [
+    0,
+    19,
+    20,
+    39,
+    40,
+    59,
+    60,
+    79,
+    80,
+    99,
+    100,
+    119,
+    120,
+    139,
+    140,
+    159,
+    160,
+    179,
+    180,
+    199
+  ],
+  "rawDiagnosisCounts": {
+    "nonfiniteCoordinates": 0,
+    "nonfiniteArea": 0,
+    "exactZeroArea": 20,
+    "helperZeroArea": 20,
+    "positiveEpsSmall": 0,
+    "existingHelperRejects": 20
+  },
+  "sourceDiagnosisNotRerun": true,
+  "contactProof": false,
+  "useInV2": "Retain known empty raw source identities for the buffer even where a current transformed component classification is explicitly unproved; never use the diagnosis to add a contact."
+}

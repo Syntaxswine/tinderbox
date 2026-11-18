@@ -1,0 +1,62 @@
+{
+  "result": "INJECTED_JOURNAL_FAILURE_CLEANED",
+  "child": {
+    "executable": "C:\\Users\\baals\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "arguments": [
+      "-B",
+      "-c",
+      "import time; time.sleep(10)"
+    ],
+    "ownerTask": "01a17ea0-1362-7d13-a42d-f4a5fcff8902",
+    "project": "Tinderbox",
+    "purpose": "one injected journal-write-failure cleanup control",
+    "regions": 1,
+    "cwd": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox",
+    "startedAt": "2026-11-18T02:42:47.960341+00:00",
+    "deadlineSeconds": 15,
+    "intendedExpiry": "2026-11-18T02:43:02.960341+00:00",
+    "identity": "the immutable Popen object/owned process handle returned by this exact launch",
+    "port": null,
+    "retained": false,
+    "foreground": true,
+    "hiddenOnWindows": true,
+    "endCondition": "finite source page completes or deadline expires",
+    "stopMethod": "owning Popen handle on timeout or exception; never reopen a PID or terminate by executable name",
+    "pid": 46748,
+    "terminationRequested": true,
+    "failurePhase": "journal-started",
+    "exitCode": 1,
+    "timedOut": false,
+    "exited": true,
+    "endedAt": "2026-11-18T02:42:47.971998+00:00",
+    "elapsedMs": 11.641900055110455,
+    "releasedPorts": [],
+    "cleanup": "finite foreground child exited; no port or retained process",
+    "exitEvidence": "wait/returncode from this exact owned Popen object",
+    "cpuAccounting": "calculation workers report their own actual process CPU; no post-exit executable query",
+    "finalJournalError": {
+      "type": "PermissionError",
+      "message": "[Errno 13] injected exit journal creation failure: '<injected>/process-events.jsonl'"
+    }
+  },
+  "checks": {
+    "exactOriginalExceptionPreserved": true,
+    "childAliveAtInitialJournalFailure": true,
+    "bothJournalWritesFailed": true,
+    "pidAndExitEvidenceSurviveWithoutJournal": true,
+    "ownedHandleExitConfirmed": true,
+    "stdioClosed": true,
+    "stoppedBeforeOwnFiniteExpiry": true
+  },
+  "exception": {
+    "type": "PermissionError",
+    "message": "[Errno 13] injected launch journal creation failure: '<injected>/process-events.jsonl'"
+  },
+  "events": [
+    "started",
+    "exited"
+  ],
+  "sourceCalculationRuns": 0,
+  "nativeCompilations": 0,
+  "retainedHelpers": false
+}

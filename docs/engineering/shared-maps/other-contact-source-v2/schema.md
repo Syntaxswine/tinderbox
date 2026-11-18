@@ -1,0 +1,13 @@
+# Derived source input schema, version 2
+
+This package keeps the v1 dictionary / instance / relationship / region layout. It is an offline proposal with `runtimeConsumable:false`, never a native mapping or support/grounding acceptance. All source IDs, pointers, global indices, original ranges, matrices, quantities, historical fields and original directions are preserved.
+
+- `geometries`: the same 92 immutable geometry references, now with pinned buffer metadata; no positions/indices are exported.
+- `topologies`: content-addressed references to shared `dictionaries/*.json`. Each dictionary contains the exact accepted helper's component IDs, absolute original primitive IDs and closed flags, plus proven nonmaterial raw primitive ordinals and per-face Float64 hashes. Empty faces cannot enter contact membership. No renumbering or volume solver is introduced.
+- `instances`: the same 1,703 source identities and recipes, plus an exact `priorInstance` reference. New geometry proofs carry raw/positive/full/range counts and distinct geometry hashes, nonmaterial original IDs/world hash, topology dictionary and any named failure. Instances used only by retained v1 contacts keep their historical geometry proof reference.
+- `relationships`: every v1 record is retained unchanged, including authored kinds, directions, flags and full original-record hash.
+- `regions`: original metadata is unchanged. Seven old positives keep their entire payload and gain an exact `priorProof` reference. The original unproved baluster record has a `priorHistoricalResult` reference alongside its separate new result. New proved results carry the unchanged witness/contact/negative fields plus distinct absolute and range-local primitive IDs and a page reference. Named unproved results contain no contact; unexecuted regions remain `UNATTEMPTED`.
+
+The actual source check, not the material diagnosis, determines the baluster's new result. Positive raw/world component classifications must agree; a discrepancy remains unproved. Nonmaterial faces retain their raw source geometry hash and ordinals in a shared dictionary; original raw arrays and ordered full/range hashes are preserved separately from positive-material views.
+
+`pageEvidence` references one calculation and one verification receipt per completed page. Page 0 contains only the original baluster; subsequent pages contain at most 256 regions. Verification tests saved positive points with the existing predicates and never searches for a replacement. The machine schema gives structural constraints; `check.py` checks all identity, provenance, recipe/history/null/range, saved proof, finite process and count invariants without source geometry calculation.

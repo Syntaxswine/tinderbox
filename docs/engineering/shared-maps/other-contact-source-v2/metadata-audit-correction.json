@@ -1,0 +1,15 @@
+{
+  "scope": "Metadata audit correction only; no worker, coordinator, source inputs, page/check outputs or proposal changed",
+  "originalCheckerPath": "provenance/check-first-audit.py.txt",
+  "originalCheckerRawSha256": "6ef8e6f14845b95ef0c476b7fb8943e41dabdceddb8ea2f5f38662a5c485efc9",
+  "correctedCheckerRawSha256": "7d1c1c688044062518aabc523b88427144e95246a57b1038e044a1868b95203b",
+  "failurePath": "failure.txt",
+  "failureRawSha256": "7ffabe154f815d08eb040e6a143be4c9ce374fa884455d009ee43e0593f92d9f",
+  "batchPath": "batch.json",
+  "originalBatchRawSha256": "e6569e43b5a156aa25e91d0ce6a3dedbee269f9926472f6a5c8d3a473077fe54",
+  "cause": "The audit assumed every rechecked baluster had an admitted component classification. The saved worker explicitly retained raw/world classification mismatches as unproved and therefore exported no admitted positive/nonmaterial view for those failed instances.",
+  "correction": "Check original raw/world hashes unconditionally; enforce 180/20 only for admitted classification, otherwise require the saved explicit unproved state. Preserve all source results and failure history.",
+  "sourcePagesRerun": 0,
+  "sourceVerificationPagesRerun": 0,
+  "newGeometryCalculation": false
+}
