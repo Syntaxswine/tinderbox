@@ -1,5 +1,10 @@
 # New York: complete fixed endpoint mappings from saved data
 
+Current amendment: candidate `1f857eac` was returned for a native-clipping
+precision mismatch. The final section below supersedes the first pass's
+single-expanded-AABB interpretation. Prior outputs and spent allowances remain
+immutable; the new validation is explicit and separate.
+
 Following accepted source-preparation/lifecycle correction `ba9f0a77`, the
 existing coder owns this bounded next task. Keep default visits, production
 runtime input files, source archives and all existing evidence unchanged. No
@@ -72,3 +77,41 @@ old allowance replay is implicitly granted. No retained helper or port.
 Commit/push task-only code, tests and the new evidence packet; preserve protected
 WIP. Deliver exact SHA, pins, results, remaining boundaries and cleanup, then
 stop for architect review before any actual native lineage test.
+
+## Correction: native clipping and membership are authoritative
+
+Source review found that the candidate's one-EPS containment/broad phase can
+exclude an upper cell whose patch survives the unchanged native clipper's
+EPS-expanded bounds and additional polygon comparisons. See the
+[returned review](../../reviews/2026-11-18-saved-endpoint-completion.md).
+
+The coder must preserve a synthetic reproduction against `1f857eac`, then
+reconcile candidate selection with genuine retained native geometry and its
+existing point-membership predicates. A conservative candidate broad phase may
+consider a neighboring cell; acceptance requires an actual positive retained
+patch and the unchanged projected point's native-compatible membership. Do not
+turn two comparisons into a new global tolerance, move a source witness,
+extend canonical source loops, accept empty space or substitute after retirement.
+Keep the same floor preference /lexicographic tie rule and maximum eight cell
+candidates. Factory and mapper must use the same corrected predicate.
+
+Cover both Float32 lower elevations around 2.12 and 4.24, the relevant wall
+orientations, positive and truly absent/empty cases, and a genuine small native
+birth with exact-record retirement. Existing bounded synthetics remain allowed
+(64 logical cells /256 thermal input triangles, 30 seconds /64 aggregate steps
+per child). Record failures and successful checks against exact source versions.
+
+After the corrected synthetics pass, this amendment grants **one new 30-second
+saved-data validation child for the corrected rule**, at most 74 unchanged fixed
+endpoints /eight cell candidates each. This is a separate correction validation,
+not permission to replay the old child or overwrite its 70/4 result. Verify the
+four reported cases and disclose any changes to the other seventy mappings.
+Use the frozen selected world/blueprints and already approved artist source
+proofs only; keep all source tuples, quantities and alternatives unchanged.
+Generated new results remain proposals with null native IDs/approval refs.
+
+Run zero actual source decode/expansion/transform, native producer/compiler/
+trial/support solve/clock/renderer/build calls. Preserve the old packets and
+the new attempt, stop without retry after a failure, retain no helper or port,
+and deliver exact scoped commit/push, evidence and limitations for review.
+Production input/policy and gameplay remain unchanged.
