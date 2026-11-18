@@ -38,6 +38,8 @@ def check(deadline=None):
     assert component['function'] == core_text[core_text.index('export function originalMaterialComponents('):core_text.index('\nexport function createOriginalSupportPorts(')]
     proposal, summary = derive()
     assert proposal == read(HERE / 'contacts-proposal.json') and summary == read(HERE / 'checks-summary.json')
+    from normal_check import check_normals
+    check_normals(proposal, deadline)
     old = cached(plan['oldProposal'])
     original = cached(plan['sourceRelationships'])['relationships']
     bindings = cached(plan['sourceGeometryBindings'])['carriers']
@@ -180,4 +182,12 @@ if __name__ == '__main__':
     if '--hydrate' in sys.argv:
         from prepare import prepare
         prepare(deadline, hydrate=True)
+        normal_inputs = read(HERE / 'normal-metadata/input-pins.json')
+        for key in ['sourceProposal', 'canonicalCore', 'canonicalGeometry', 'canonicalAdapter']:
+            pin = normal_inputs[key]
+            data = git_bytes(pin['commit'], pin['path'], deadline)
+            assert sha(data) == pin['sha256']
+            target = HERE / pin['cache']
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(data)
     print(json.dumps(check(deadline)))

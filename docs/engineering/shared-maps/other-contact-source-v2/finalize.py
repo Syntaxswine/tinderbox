@@ -7,6 +7,8 @@ def derive():
     plan = read(CACHE / 'plan.json')
     assert sha((CACHE / 'plan.json').read_bytes()) == pins['planSha256']
     old = cached(plan['oldProposal'])
+    normal_document = read(HERE / 'normal-conventions.json')
+    normal_entries = {entry['region']: (i, entry) for i, entry in enumerate(normal_document['entries'])}
     old_region_index = {r['id']: i for i, r in enumerate(old['regions'])}
     reports, proofs, page_refs = {}, {}, []
     for descriptor in plan['pages']:
@@ -75,6 +77,10 @@ def derive():
                 if item['status'] == 'source-contact-proposed':
                     contact = copy.deepcopy(report['contact'])
                     contact['rangeLocalPrimitives'] = [contact['primitives'][side] - plan['instances'][item[key]]['primitiveBase'] for side, key in enumerate(['parent', 'child'])]
+                    normal_index, normal_entry = normal_entries[item['id']]
+                    assert normal_entry['appliedToProposal'] and normal_entry['historicalNormals'] == contact['normals']
+                    contact['normals'] = copy.deepcopy(normal_entry['canonicalNormals'])
+                    item['normalMetadata'] = {'convention': normal_document['canonicalConvention']['id'], 'path': 'normal-conventions.json', 'pointer': '/entries/' + str(normal_index)}
                     item['contact'], item['checks'] = contact, report['checks']
                 else:
                     assert item['status'] == 'unproved'
@@ -122,6 +128,7 @@ def derive():
         'authority': ['authority.md'], 'sourceRef': SOURCE, 'componentCore': CORE,
         'inputPinsSha256': sha((HERE / 'input-pins.json').read_bytes()),
         'priorCheckpoint': plan['oldProposal'],
+        'normalConventions': {'path': 'normal-conventions.json', 'rawSha256': sha((HERE / 'normal-conventions.json').read_bytes()), 'newV2Convention': normal_document['canonicalConvention']['id'], 'priorReferenceConvention': normal_document['historicalConvention']['id'], 'priorReferencePayloadsPreserved': True},
         'coordinateFrame': old['coordinateFrame'], 'derivation': old['derivation'],
         'pointMembership': old['pointMembership'], 'primitiveConvention': old['primitiveConvention'],
         'selectionPolicy': 'Preserve seven exact v1 positive references; recheck only the original unproved baluster representative first, then all 1574 previously UNATTEMPTED regions in original order. No replacement or retry.',
