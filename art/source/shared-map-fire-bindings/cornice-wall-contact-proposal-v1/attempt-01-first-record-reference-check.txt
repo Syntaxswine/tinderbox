@@ -1,0 +1,18 @@
+Command:
+python -B art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/check.py --record
+
+First recording attempt: source derivation, exact face/selector tests, three
+contact checks and eight negatives completed before the packaging link review.
+The link review ran before its first contact-record.json output was written.
+
+Traceback (most recent call last):
+  File "C:\Users\baals\.codex\worktrees\art-assets\tinderbox\art\source\shared-map-fire-bindings\cornice-wall-contact-proposal-v1\check.py", line 212, in <module>
+    if __name__ == "__main__":main()
+  File "C:\Users\baals\.codex\worktrees\art-assets\tinderbox\art\source\shared-map-fire-bindings\cornice-wall-contact-proposal-v1\check.py", line 188, in main
+    assert (HERE/link).resolve().is_file(),link
+AssertionError: contact-record.json
+
+Correction:
+Write the verified source record before reviewing its README link on --record.
+Keep the full link check for both recording and verification. No source,
+predicate, geometry, selector, tolerance, native allowance or test was changed.

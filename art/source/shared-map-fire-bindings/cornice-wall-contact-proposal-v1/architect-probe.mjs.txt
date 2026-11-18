@@ -1,0 +1,18 @@
+import fs from 'node:fs';
+import {sourceGeometryTriangles} from '../../../src/content/map-source-shapes.js';
+import {bounds,cross,sub,segmentTriangle,clipTriangle} from '../../../workbenches/furnished-house/geometry.js';
+import {supportSurfacesTouch} from '../../../workbenches/furnished-house/support.js';
+const json=p=>JSON.parse(fs.readFileSync(p));
+const source=json('art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/source-record.json');
+const original=json('docs/engineering/shared-maps/support-port-birth-v1/unresolved-binding.json');
+const region=original.originalRelationship.localRegions.find(r=>r.id===source.localRegionId);
+const parts=source.parts.map(p=>({...p,ts:sourceGeometryTriangles({matrix:p.emittedWorldMatrix,triangleCount:12},json(p.geometry.path))}));
+const [parent,child]=parts,point=[source.worldWitness[0],child.worldBounds.max[1],parent.worldBounds.min[2]];
+const primitives=p=>p.ts.flatMap((t,i)=>segmentTriangle(point,point,t)!==null?[i]:[]);
+const shape=ts=>{const n=cross(sub(ts[0][1],ts[0][0]),sub(ts[0][2],ts[0][0])),l=Math.hypot(...n);return {triangles:ts,solidTriangles:ts,bounds:bounds(ts.flat()),normal:n.map(v=>v/l),kind:'wall',thickness:0};};
+const selected=parts.map(p=>primitives(p).map(i=>p.ts[i]));
+const clipped=parts.map(p=>p.ts.flatMap(t=>clipTriangle(t,region.selector)));
+const inside=(p,b)=>p.every((v,i)=>v>=b.min[i]-1e-7&&v<=b.max[i]+1e-7);
+const result={status:'Geometry-only alternative probe; not an accepted source adaptation',relationship:source.relationshipId,region:source.localRegionId,originalVolumeWitness:source.worldWitness,candidateActualSurfacePoint:point,pointWithinOriginalSelectors:[inside(point,region.parentBounds),inside(point,region.childBounds)],originalPrimitives:parts.map(primitives),selectedTriangleContact:selected.every(ts=>ts.length)?supportSurfacesTouch(...selected.map(shape)):false,selectorClippedContact:clipped.every(ts=>ts.length)?supportSurfacesTouch(...clipped.map(shape)):false,originalCertificateGeometricBearing:region.actualGeometryCertificate.geometricBearing,nativeCompilerCalls:0,supportFactoryOrGraphCalls:0,sourceGeometryChanged:false};
+fs.writeFileSync('artifacts/qa/m29-architect-intake/one-binding-contact-probe.json',JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify(result));

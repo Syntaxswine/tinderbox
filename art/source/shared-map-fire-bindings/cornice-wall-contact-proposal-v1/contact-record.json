@@ -1,0 +1,476 @@
+{
+  "version": 1,
+  "status": "UNACCEPTED_ONE_CONTACT_SOURCE_INTERPRETATION",
+  "runtimeConsumable": false,
+  "authorityCommit": "d899d73fe4d79cf62e344832f132d911253a52ef",
+  "artistParent": "65c0a52e069d3e4d9bd09c3d87975e2413d22edf",
+  "relationshipId": "fa9dc4a25193e94ce7b5793e",
+  "localRegionId": "19428b0ef95337ce4e9f64a6",
+  "interpretation": "proposed-fixed-original-surface-contact",
+  "runtimeKind": null,
+  "direction": "parent-to-child",
+  "geometricBearing": false,
+  "groundAnchor": false,
+  "candidatePoint": [
+    33.5,
+    8.330000001490117,
+    25.92000000178814
+  ],
+  "frame": "emitted-world",
+  "units": "metres",
+  "sourceOffsetAlreadyApplied": true,
+  "additionalOffsetApplied": false,
+  "parts": [
+    {
+      "endpoint": "parent",
+      "partId": "main/0/cell-3-1/1",
+      "ownerId": "carrier/main/0/cell-3-1/1",
+      "placeId": "new-york",
+      "role": "exterior-wall",
+      "originalPhysicalBindingsPointer": "/carriers/6304",
+      "globalSourcePartIndexRequiredByContract": 6304,
+      "component": 0,
+      "selectedOriginalPrimitive": 10,
+      "originalVertexRecords": [
+        20,
+        22,
+        21
+      ],
+      "geometry": {
+        "id": "a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6",
+        "path": "assets/art/place-scenes/new-york/geometry/a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6.json",
+        "rawSha256": "8e41da9353b574e2c14542773a2a39cf52953b99e5086f37a5e3dda92bd23a25",
+        "sourceRange": null,
+        "positionStorage": "Float32Array",
+        "indexStorage": "Uint16Array",
+        "fullOriginalTriangleCount": 12
+      },
+      "emittedWorldMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        33.5,
+        7.360000133514404,
+        26,
+        1
+      ],
+      "matrixFloat64LittleEndianSha256": "fc06c767fe1be37852749d83f60a00fc0cbcc1fedc12885ad7cfe94a04ba975a",
+      "originalOrderedWorldTrianglesFloat64LittleEndianSha256": "5e2d5213391aecaa958ad220256894572856c02d62c95d83cd9b1e8bed47a530",
+      "contactFaceProof": {
+        "barycentricWeightsExact": [
+          {
+            "numerator": "273030690247803",
+            "denominator": "562949953421312"
+          },
+          {
+            "numerator": "8444286462853",
+            "denominator": "562949953421312"
+          },
+          {
+            "numerator": "1",
+            "denominator": "2"
+          }
+        ],
+        "allWeightsStrictlyPositive": true,
+        "exactPlaneResidual": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "unitOutwardNormalExact": [
+          0,
+          0,
+          -1
+        ],
+        "normalCrossProductExact": [
+          {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          {
+            "numerator": "-2",
+            "denominator": "1"
+          }
+        ],
+        "unitPlaneDotWorldEqualsExact": {
+          "numerator": "-1739461755",
+          "denominator": "67108864"
+        },
+        "pointMembershipNeedsNoTolerance": true
+      },
+      "originalEndpointBounds": {
+        "max": [
+          34,
+          8.330000001490117,
+          26
+        ],
+        "min": [
+          33,
+          8.129999998509884,
+          25.92000000178814
+        ]
+      },
+      "contactOnEndpointBoundary": [
+        {
+          "axis": 1,
+          "side": "max"
+        },
+        {
+          "axis": 2,
+          "side": "min"
+        }
+      ],
+      "historicalVolumeWitnessSignedPlaneDistanceExact": {
+        "numerator": "-5368709",
+        "denominator": "134217728"
+      },
+      "originalSourceRange": null,
+      "nativeRecordId": null,
+      "nativeCell": null,
+      "nativeFaceLineage": null
+    },
+    {
+      "endpoint": "child",
+      "partId": "edge-0/cornice-1",
+      "ownerId": "carrier/edge-0/cornice-1",
+      "placeId": "new-york",
+      "role": "timber-fitting",
+      "originalPhysicalBindingsPointer": "/carriers/2406",
+      "globalSourcePartIndexRequiredByContract": 2406,
+      "component": 0,
+      "selectedOriginalPrimitive": 0,
+      "originalVertexRecords": [
+        0,
+        1,
+        2
+      ],
+      "geometry": {
+        "id": "eb00a03d406e98ba1052101ff72273da5ff8148d0b95af94f85a998962bc16bf",
+        "path": "assets/art/place-scenes/new-york/geometry/eb00a03d406e98ba1052101ff72273da5ff8148d0b95af94f85a998962bc16bf.json",
+        "rawSha256": "f00c8671237ad62a2161af34446c8504face74759d1b59d4abb901006e50a71d",
+        "sourceRange": null,
+        "positionStorage": "Float32Array",
+        "indexStorage": null,
+        "fullOriginalTriangleCount": 12
+      },
+      "emittedWorldMatrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        56,
+        8.23,
+        26,
+        1
+      ],
+      "matrixFloat64LittleEndianSha256": "b2b83715319381dd13c28cdeb88da691c9d36568d230fad281b75266884da3c4",
+      "originalOrderedWorldTrianglesFloat64LittleEndianSha256": "59fb5409e64201f3ea9195d2daefef1f3510a447cbfb46a06afb445bb403ca1a",
+      "contactFaceProof": {
+        "barycentricWeightsExact": [
+          {
+            "numerator": "500321832361",
+            "denominator": "15085651782984"
+          },
+          {
+            "numerator": "17448305",
+            "denominator": "24159192"
+          },
+          {
+            "numerator": "307511433699",
+            "denominator": "1257137648582"
+          }
+        ],
+        "allWeightsStrictlyPositive": true,
+        "exactPlaneResidual": {
+          "numerator": "0",
+          "denominator": "1"
+        },
+        "unitOutwardNormalExact": [
+          0,
+          1,
+          0
+        ],
+        "normalCrossProductExact": [
+          {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          {
+            "numerator": "9428532364365",
+            "denominator": "549755813888"
+          },
+          {
+            "numerator": "0",
+            "denominator": "1"
+          }
+        ],
+        "unitPlaneDotWorldEqualsExact": {
+          "numerator": "2344686556419195",
+          "denominator": "281474976710656"
+        },
+        "pointMembershipNeedsNoTolerance": true
+      },
+      "originalEndpointBounds": {
+        "max": [
+          34,
+          8.330000001490117,
+          26
+        ],
+        "min": [
+          33,
+          8.129999998509884,
+          25.92000000178814
+        ]
+      },
+      "contactOnEndpointBoundary": [
+        {
+          "axis": 1,
+          "side": "max"
+        },
+        {
+          "axis": 2,
+          "side": "min"
+        }
+      ],
+      "historicalVolumeWitnessSignedPlaneDistanceExact": {
+        "numerator": "-13421773",
+        "denominator": "134217728"
+      },
+      "originalSourceRange": null,
+      "nativeRecordId": null,
+      "nativeCell": null,
+      "nativeFaceLineage": null
+    }
+  ],
+  "originalSharedSelector": {
+    "max": [
+      34,
+      8.330000001490117,
+      26
+    ],
+    "min": [
+      33,
+      8.129999998509884,
+      25
+    ]
+  },
+  "preservedVolumeEvidence": {
+    "sourceRecordPath": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/source-record.json",
+    "sourceRecordSha256": "6f5646c7f1b17b9336b3256a35c04352648b59bf25c6fa07f0c6eaab62ee10b0",
+    "sourceRelationshipInputPath": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/frozen-unresolved-binding.json",
+    "selectedRegionPointer": "/originalRelationship/localRegions/0",
+    "worldWitness": [
+      33.5,
+      8.23,
+      25.96000000089407
+    ],
+    "sourceFace": null,
+    "sourceRange": null,
+    "geometricBearing": false,
+    "recordReplacedOrJittered": false,
+    "allNineAcceptedPayloadFilesAndPackageUnchanged": true
+  },
+  "nativeContactGeometryVerification": {
+    "scope": "one-source-contact-alternative-only",
+    "point": [
+      33.5,
+      8.330000001490117,
+      25.92000000178814
+    ],
+    "parts": [
+      {
+        "partId": "main/0/cell-3-1/1",
+        "originalPrimitive": 10,
+        "matchingOriginalPrimitives": [
+          10
+        ],
+        "exactPointWithinSharedSelector": true,
+        "exactPointWithinEndpointBounds": true,
+        "pointOnSelectedPrimitiveAfterBothClips": true,
+        "originalUnitNormal": [
+          0,
+          0,
+          -1
+        ],
+        "sharedSelectorFacets": {
+          "triangleCount": 10,
+          "originalPrimitives": [
+            0,
+            1,
+            2,
+            10,
+            11
+          ],
+          "orderedFloat64LittleEndianSha256": "1869552cf67152e27423f46c681c0e55fe22c818ef9afb3ed71e34d38300ebba"
+        },
+        "endpointBoundFacets": {
+          "triangleCount": 10,
+          "originalPrimitives": [
+            0,
+            1,
+            2,
+            10,
+            11
+          ],
+          "orderedFloat64LittleEndianSha256": "1869552cf67152e27423f46c681c0e55fe22c818ef9afb3ed71e34d38300ebba"
+        }
+      },
+      {
+        "partId": "edge-0/cornice-1",
+        "originalPrimitive": 0,
+        "matchingOriginalPrimitives": [
+          0
+        ],
+        "exactPointWithinSharedSelector": true,
+        "exactPointWithinEndpointBounds": true,
+        "pointOnSelectedPrimitiveAfterBothClips": true,
+        "originalUnitNormal": [
+          0,
+          1,
+          0
+        ],
+        "sharedSelectorFacets": {
+          "triangleCount": 12,
+          "originalPrimitives": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9
+          ],
+          "orderedFloat64LittleEndianSha256": "d2a14e36c792916ec02f58d3cc492e090a29fd3a97b182df729cf7658ed4e9d1"
+        },
+        "endpointBoundFacets": {
+          "triangleCount": 4,
+          "originalPrimitives": [
+            0,
+            1
+          ],
+          "orderedFloat64LittleEndianSha256": "237efc6b06d7b60034f2524819543c24bcca2d0b4e0f9fd8e229667e80aedd88"
+        }
+      }
+    ],
+    "contact": {
+      "selectedOriginalTriangles": true,
+      "sharedSelectorClippedOriginalFacets": true,
+      "endpointBoundClippedOriginalFacets": true
+    },
+    "negativeControls": [
+      {
+        "id": "main/0/cell-3-1/1::old-volume-witness-is-not-selected-contact-face",
+        "rejected": true
+      },
+      {
+        "id": "main/0/cell-3-1/1::wrong-original-primitive",
+        "primitive": 0,
+        "rejected": true
+      },
+      {
+        "id": "main/0/cell-3-1/1::actual-original-vertex-outside-selector",
+        "point": [
+          34,
+          8.360000133514404,
+          25.92000000178814
+        ],
+        "rejected": true
+      },
+      {
+        "id": "edge-0/cornice-1::old-volume-witness-is-not-selected-contact-face",
+        "rejected": true
+      },
+      {
+        "id": "edge-0/cornice-1::wrong-original-primitive",
+        "primitive": 1,
+        "rejected": true
+      },
+      {
+        "id": "edge-0/cornice-1::actual-original-vertex-outside-selector",
+        "point": [
+          79.81999969482422,
+          8.330000001490117,
+          26.180000007152557
+        ],
+        "rejected": true
+      },
+      {
+        "id": "actual-separated-top-faces",
+        "parentPrimitive": 4,
+        "childPrimitive": 0,
+        "rejected": true
+      },
+      {
+        "id": "opposite-wall-face-excluded-by-original-selector",
+        "parentPrimitive": 8,
+        "rejected": true
+      }
+    ],
+    "helperContext": {
+      "sourceCommit": "d899d73fe4d79cf62e344832f132d911253a52ef",
+      "geometrySha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+      "supportModuleSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372",
+      "supportClosureSha256": "d7848cda7427732bbed413717af886bb77f8a7a7cf38a02104b40aa57c6c526f",
+      "geometryEPS": 1e-07,
+      "nativeContactToleranceMetres": 1e-05,
+      "shapeConvention": "Unchanged original facet arrays; solidTriangles aliases them; kind wall, thickness 0; normal from first actual facet."
+    },
+    "clippedFacetsExported": false,
+    "supportFactoryOrGraphCalls": 0,
+    "nativeCompilerCalls": 0,
+    "nativePairAllowanceConsumed": false,
+    "worldRendererOrRetainedHelper": false
+  },
+  "approximation": {
+    "meaning": "For this one source proposal, use the existing binary non-volume contact path at a real fixed original surface intersection, instead of claiming a strict single-native-record volume embed.",
+    "geometry": "The selected vertical rear wall face and horizontal cornice top face meet transversely. The exact point is strictly inside both original triangles and inside the closed original selectors.",
+    "bearing": "Perpendicular normals and geometricBearing false remain explicit. Surface contact alone establishes no mechanical fastener, load capacity or assembly grounding.",
+    "direction": "The contact predicate is geometric; its symmetric answer does not authorize a symmetric support edge or reverse brace. The proposed dependency remains parent-to-child.",
+    "clipping": "Selector-clipped facets are temporary subsets of the original surfaces, with original primitive provenance; no generated closing cap or new geometry asset is used.",
+    "scope": "No global volume rule is changed. The original source volume embed remains valid and preserved; the candidate is an alternative interpretation pending review."
+  },
+  "remaining": [
+    "Architect acceptance of this one contact interpretation and runtime kind is separate from source contact truth.",
+    "Coder must derive fixed native owner record/cell and face lineage from actual source projection/loop and authenticated receipts, not centroid, witness cell, guessed suffix or survivor.",
+    "Wall selected physical face must map through its actual solid channel, and the cornice selected face through its original surface channel; the separately authorized one-pair native validation is not run by this artist check.",
+    "Intact/bound-owner/unrelated-retirement liveness and corrected core admission are untested here.",
+    "No full catalogue, native/world/support-graph, live adapter, grounding or production acceptance is claimed."
+  ],
+  "checks": {
+    "originalParts": 2,
+    "originalTriangles": 24,
+    "selectedOriginalPrimitives": [
+      10,
+      0
+    ],
+    "exactBarycentricAndPlaneChecks": true,
+    "exactClosedSelectorChecks": true,
+    "unchangedNativeContactOnSelectedAndClippedFacets": true,
+    "negativeControls": 8,
+    "priorVolumeProofPreserved": true,
+    "originalGeometryUvMatricesRolesQuantitiesIdsUnchanged": true,
+    "newAnchorsReverseBracesOrMountGeometry": false,
+    "artistNativeCompilerCalls": 0,
+    "artistNativePairAllowanceConsumed": false,
+    "supportFactoryWorldGraphRendererBuildBenchmarkOrRetainedHelper": false
+  }
+}
