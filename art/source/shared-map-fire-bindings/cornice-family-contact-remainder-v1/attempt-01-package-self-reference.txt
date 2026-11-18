@@ -1,0 +1,21 @@
+Command:
+python -B art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/run.py --package
+
+Source calculation and saved-page verification had both completed successfully:
+127 pages / 4340 regions, 1388 proposed contacts, 2952 named unproved cases.
+The first packaging attempt checked a README link to its own not-yet-created
+manifest before writing that manifest. No source calculation or verification
+page failed, and no original source calculation was repeated.
+
+Traceback (most recent call last):
+  File "C:/Users/baals/.codex/worktrees/art-assets/tinderbox/art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/run.py", line 168, in <module>
+    if __name__=='__main__':main()
+  File "C:/Users/baals/.codex/worktrees/art-assets/tinderbox/art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/run.py", line 166, in main
+    elif args.package:package()
+  File "C:/Users/baals/.codex/worktrees/art-assets/tinderbox/art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/run.py", line 151, in package
+    for link in re.findall(r'\]\(([^)]+)\)',(HERE/'README.md').read_text()):assert (HERE/link).resolve().is_file(),link
+AssertionError: review-package.json
+
+Correction: reference the manifest by filename in README rather than requiring
+it as a preexisting link on first creation. Retain all other path checks.
+No executable source file or source-result byte changed after calculation.

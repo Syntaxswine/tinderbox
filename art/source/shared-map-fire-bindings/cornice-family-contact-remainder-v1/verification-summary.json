@@ -1,0 +1,642 @@
+{
+  "version": 1,
+  "mode": "verify",
+  "status": "SOURCE_BATCH_COMPLETE",
+  "remainingScope": {
+    "children": 95,
+    "pairs": 1645,
+    "regions": 4340
+  },
+  "pagesPlanned": 127,
+  "pagesCompleted": 127,
+  "failedPages": [],
+  "unattemptedPages": [],
+  "completedPairs": 1645,
+  "unattemptedRegions": 0,
+  "counts": {
+    "regions": 4340,
+    "proved": 1388,
+    "unproved": 2952,
+    "contactChecks": 4164,
+    "attemptedContactChecks": 4182,
+    "negativeChecks": 11838,
+    "pilotCopyRejected": 1387,
+    "candidateNegativeTests": 2075,
+    "authoredBearingRegions": 268
+  },
+  "unprovedReasons": {
+    "BOUNDED_COORDINATE_METHOD_UNPROVED": 1612,
+    "PRIMARY_FACE_OR_FREE_INTERVAL_NOT_UNIQUE": 382,
+    "EXISTING_CONTACT_PREDICATE_UNPROVED": 6,
+    "ORIGINAL_FACE_MEMBERSHIP_UNPROVED": 228,
+    "ORIGINAL_COMPONENT_MEMBERSHIP_UNPROVED": 52,
+    "PRIMARY_VERTICAL_FACE_OR_TOP_PLANE_NOT_UNIQUE": 672
+  },
+  "provedMethods": {
+    "selector-midpoint": 1082,
+    "original-witness-free-coordinate": 90,
+    "authored-bearing-witness": 216
+  },
+  "negativeCounts": {
+    "wrongPrimitive": 2776,
+    "historicalInteriorPointNotOnFace": 2344,
+    "outsideLocalOriginalVertex": 2776,
+    "separatedExistingTopFace": 1280,
+    "oppositeOriginalFaceClipsEmpty": 1388,
+    "siblingSelector": 1274
+  },
+  "children": [
+    {
+      "childOwnerId": "carrier/edge-0/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 6,
+      "plannedPages": 6
+    },
+    {
+      "childOwnerId": "carrier/edge-0/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/edge-0/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/edge-0/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/edge-0/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/edge-1/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-1/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-1/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-10/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-10/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-10/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/edge-10/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-10/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-10/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-10/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-11/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-11/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-11/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-2/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-2/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-2/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/edge-2/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-2/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-2/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-2/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-3/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-3/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-3/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-3/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-3/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-3/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-3/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-4/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-4/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-4/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-4/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-4/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-4/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-4/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-5/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-5/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-5/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-5/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-5/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-5/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-5/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-6/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-6/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-6/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/edge-6/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-6/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-6/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-6/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-7/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-7/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-7/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-7/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-7/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-7/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-7/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-8/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-8/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-8/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-8/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-8/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-8/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-8/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-9/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-9/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-9/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-9/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-9/cornice-5",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-9/cornice-6",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/edge-9/cornice-7",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/porch-east/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/porch-west/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/replacement/edge-0/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 3,
+      "plannedPages": 3
+    },
+    {
+      "childOwnerId": "carrier/replacement/edge-1/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/replacement/edge-1/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/replacement/edge-1/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 4,
+      "plannedPages": 4
+    },
+    {
+      "childOwnerId": "carrier/replacement/edge-1/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/replacement/edge-11/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/replacement/edge-11/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/replacement/edge-11/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 4,
+      "plannedPages": 4
+    },
+    {
+      "childOwnerId": "carrier/replacement/edge-11/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 2,
+      "plannedPages": 2
+    },
+    {
+      "childOwnerId": "carrier/replacement/porch-east/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 5,
+      "plannedPages": 5
+    },
+    {
+      "childOwnerId": "carrier/replacement/porch-west/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 5,
+      "plannedPages": 5
+    },
+    {
+      "childOwnerId": "carrier/tower-east/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/tower-east/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/tower-east/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/tower-east/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/tower-west/cornice-0",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/tower-west/cornice-1",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/tower-west/cornice-2",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    },
+    {
+      "childOwnerId": "carrier/tower-west/cornice-3",
+      "status": "COMPLETE",
+      "completedPages": 1,
+      "plannedPages": 1
+    }
+  ],
+  "firstPage": {
+    "unchanged": true,
+    "pairs": 49,
+    "regions": 96,
+    "repeated": false
+  },
+  "uniqueSourceParts": 1216,
+  "uniqueGeometryBuffers": 119,
+  "cost": {
+    "coordinatorWallMs": 58858.375100418925,
+    "coordinatorCpuMs": 4031.25,
+    "pythonPageCpuMs": 21437.5,
+    "nodeCpuMs": 12842.0,
+    "longestOwnedPythonMs": 731.0021999292076,
+    "longestOwnedNodeMs": 279.52799992635846,
+    "rendererBenchmark": false
+  },
+  "allLaunchedChildrenExited": true,
+  "ports": [],
+  "retainedHelpers": false,
+  "nativeCompilations": 0,
+  "runtimeNativeLineage": "UNBOUND"
+}
