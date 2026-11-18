@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "status": "REPEAT_SOURCE_PROPOSAL_ONLY",
+  "artistParent": "420ee0098e843e6daf6e70a4f5fb50c0ffa3eb37",
+  "scope": [
+    "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/"
+  ],
+  "files": [
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/.gitattributes",
+      "bytes": 59,
+      "sha256": "2d09af651bd2811327fd0da6512dfeca728740f6146ac243c4838bb1ef728ed1"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/README.md",
+      "bytes": 2326,
+      "sha256": "68a8713a38e10544bf298b5d179edec38a4a754f15ae521a795153f6cec26e1e"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/authority-message.md",
+      "bytes": 2301,
+      "sha256": "ce5f17708783ec3fd8d318dea54d05a14fb1114a553a0ad02115987bf23ff2ad"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/input-pins.json",
+      "bytes": 10649,
+      "sha256": "8bafc3a01c0097f328ab4ab507c664d58b7eb48fbbea2d8a8ef26b477299e9df"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/check.py",
+      "bytes": 19891,
+      "sha256": "c2d1870cb26b2ac2a1a39edfbacf07a1a72b1211441f8f774634529107f8b1d0"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/check-batch.mjs",
+      "bytes": 5677,
+      "sha256": "e2c0998aa224e9cc35b3757001d25b5b049b88510a51a27fb44cdd27de19c89a"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/contacts-proposal.json",
+      "bytes": 76982,
+      "sha256": "b1f2f0d8fe26ff5846544ac0dac1d54c3875a2963676188e7c46a9f60f99dd24"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/checks-summary.json",
+      "bytes": 1615,
+      "sha256": "37e10487aeae6775902137774aa833a4c021884ba16bed0c28671753ffb049e3"
+    }
+  ],
+  "checks": {
+    "result": "source-evidence-reproduced",
+    "pairs": 24,
+    "regions": 48,
+    "instances": 25,
+    "uniqueGeometryBuffers": 2,
+    "originalTrianglesChecked": 300,
+    "exactComponentsChecked": 25,
+    "proved": 48,
+    "unproved": 0,
+    "selectorCounts": {
+      "25-26": 24,
+      "26-27": 24
+    },
+    "parentOriginalPrimitiveCounts": {
+      "10": 24,
+      "8": 24
+    },
+    "childOriginalPrimitiveCounts": {
+      "0": 23,
+      "2": 25
+    },
+    "contactChecks": 144,
+    "regionalNegativeChecks": 432,
+    "pilotCopyRejections": 47,
+    "totalGeometryPointNegativeChecks": 479,
+    "scopeNegativeGroups": 2,
+    "excludedPairs": 25,
+    "excludedOtherGeometry": 24,
+    "excludedRotatedEnd": 1,
+    "pilotReferenceReproduced": true,
+    "nativeCompilerCalls": 0,
+    "runtimeBindingsExported": false,
+    "supportGraphWorldRendererOrRetainedHelper": false,
+    "immutableContactPayloadPinsVerified": 11,
+    "immutableVolumePayloadPinsVerified": 9,
+    "physicalSourcePinsVerified": 13,
+    "additionalSectionPinsVerified": 1,
+    "globalSourceIndexGitSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+    "predicateContext": {
+      "sourceCommit": "d899d73fe4d79cf62e344832f132d911253a52ef",
+      "geometrySha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+      "supportModuleSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372",
+      "supportClosureSha256": "d7848cda7427732bbed413717af886bb77f8a7a7cf38a02104b40aa57c6c526f",
+      "componentSourceCommit": "f45f0c4eac03059634d164ce5941211c5ee32e3a",
+      "geometryEPS": 1e-07,
+      "nativeContactToleranceMetres": 1e-05
+    },
+    "failureRegionIds": []
+  },
+  "remaining": [
+    "Architect review of this repeat-source interpretation; no family acceptance.",
+    "Native liveness/lineage of these repeats is untested. The earlier coder ONE session/TWO calls is SPENT and is not replayed.",
+    "Any unproved/ambiguous selector is retained explicitly, not replaced by a fabricated contact.",
+    "No other geometry/orientation, support graph, world, runtime adapter or production acceptance follows."
+  ],
+  "scopeReview": "This source candidate against its own parent; no historic artist-parent check on a combined architect tree.",
+  "verification": "python -B art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/check.py",
+  "retainedHelpers": false
+}
