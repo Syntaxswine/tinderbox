@@ -26,6 +26,20 @@ independent lower traces, with fitting/upper/descendants excluded, or a named
 unproved/capacity boundary. Native lineage remains UNBOUND. No larger cohort is
 authorized without review.
 
+For the already admitted source cohort's sub-micrometre roof/deck gaps, a
+separate derived endpoint check is authorized. The old common-point method's
+1e-7 m membership result is preserved. The existing core already binds two
+individual source-surface witnesses, accepts their distance only within its
+unchanged 2e-5 m port limit and requires the unchanged native contact predicate
+(whose prism/overlap tolerance is 1e-5 m). Verify each own-surface witness,
+positive projected bearing footprint, original identity and the native result;
+record actual gap/direction and negative controls. Keep endpoint selectors
+separate rather than manufacturing a common selector through air. No new
+geometry, tolerance, mount or generic gap fallback is approved. Add no parts;
+reuse the source world table or record one refresh of the same admitted cohort
+if its prior helper exited without retaining that table. A failed native test
+remains unproved. This does not grant a native compiler or trial run.
+
 ## Result to make reviewable
 
 Supply the missing original-source inputs to the existing New York visit, using
@@ -42,6 +56,20 @@ exactly which are installed by any later probe. Preserve their exact quantities
 and historical source IDs, including `proposed-blocking` IDs.
 
 ## First deliverable: metadata admission
+
+Architect-selected prototype modes are regional for `carrier/roof/rear-tail`,
+and whole for `carrier/edge-6/cornice-7`, `carrier/main-parapet-6/base` and the
+final saddle 6/01. Selected ordinary static wall/floor ancestors use whole mode
+under the existing eligibility and resource policy. These are runtime choices,
+not historical source facts; capture them before birth. Unknown or out-of-cohort
+owners are not silently admitted.
+
+Actual native record IDs are expected to be null before birth. Admission must
+require a validated source/primitive/cell derivation and genuine-birth binding
+plan, not invented IDs or already born records. Unknown derivation is NOT_READY;
+genuine receipt authority and exact record identity arise later. Unproved roots
+or geometry still block actual readiness. Keep schema admission, source validation
+and native installation as distinct reported phases.
 
 Coder owns a finite admission tool/result on the existing code branch. Read
 pinned catalogues, source text and existing evidence; expand/transform no source
@@ -100,6 +128,19 @@ geometry without increasing the original source-ID count. Binary full-owner
 activation and source-count stamps cannot establish that refresh.
 
 ## Later finite probe, not yet granted
+
+With the corrected bounded kernel accepted in architect `89df5eb9`, coder is
+authorized to implement the reusable existing-host factory seam and metadata
+admission described above. The checked `b8b8e0e` inventory is input evidence;
+artist's lower-root traces are separate and must be reviewed. Missing roots or
+unknown mappings return a named NOT_READY result before actual expansion/birth.
+Use one decoded model/source owner, the same registry/cache/trial and exact
+approved saddle projection. Keep other additions explicitly pending and default
+visits unchanged. No partial-follow/render or broad scaling work is granted in
+this adapter checkpoint. Synthetic positive/rejection/ownership/disposal controls
+may run with at most 64 logical cells /256 thermal input triangles per source,
+30 seconds /64 aggregate steps per owned child. This permits concrete adapter
+implementation, not execution against actual New York geometry or a new scene.
 
 After metadata admission and input implementation review, the architect can grant
 one explicitly sized CPU-only composition: one whole batch plus a genuine roof
