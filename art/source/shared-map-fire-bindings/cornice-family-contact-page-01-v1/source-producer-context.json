@@ -1,0 +1,8 @@
+{
+  "sourceCommit": "f7a25711567deb95bc14db01776c4893df3ef5e2",
+  "path": "src/content/map-source-shapes.js",
+  "moduleSha256": "a2b8c075973e973650d9a4cc90673a85549cf19887cd212e4ffa810f27a24b9e",
+  "functionText": "function sourceTriangles(binding,geometry){\n  const p=geometry?.attributes?.position,m=binding.matrix,index=geometry?.index?.array;\n  if(!p||p.itemSize!==3||m?.length!==16||!m.every(Number.isFinite))throw Error('Missing exact emitted source geometry');\n  const count=index?.length??p.array.length/3,range=binding.sourceRange;\n  const start=range?.start??0,end=range?start+range.count:count;\n  if(start%3||end%3||start<0||end>count)throw Error('Invalid source triangle range');\n  const out=[];\n  for(let i=start;i<end;i+=3)out.push([0,1,2].map(k=>{const j=(index?index[i+k]:i+k)*3,x=p.array[j],y=p.array[j+1],z=p.array[j+2];return [m[0]*x+m[4]*y+m[8]*z+m[12],m[1]*x+m[5]*y+m[9]*z+m[13],m[2]*x+m[6]*y+m[10]*z+m[14]];}));\n  if(out.length!==binding.triangleCount||out.some(t=>t.flat().some(n=>!Number.isFinite(n))))throw Error('Source triangle count/coordinates changed');\n  return out;\n}",
+  "functionSha256": "74a4927101edb32410fdd445cf9860f7e1ceae234e60808e549bf329f9004d4b",
+  "scope": "Only the unchanged pure sourceTriangles function is reused. nativePanel and all factories are excluded."
+}

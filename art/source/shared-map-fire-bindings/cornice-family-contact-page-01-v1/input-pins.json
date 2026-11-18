@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "artistParent": "0e9ffa764610f7ab047e3d4cdebd05342273463f",
+  "family": "cornice-full-local-coverage",
+  "selectedChild": "carrier/edge-0/cornice-1",
+  "expectedFamily": {
+    "pairs": 1694,
+    "regions": 4436,
+    "children": 96
+  },
+  "expectedPage": {
+    "pairs": 49,
+    "regions": 96,
+    "referencePairs": 24,
+    "referenceRegions": 48,
+    "additionalPairs": 25,
+    "additionalRegions": 48
+  },
+  "workerLimits": {
+    "regions": 256,
+    "deadlineSeconds": 60
+  },
+  "authorityDraft": {
+    "path": "art/source/shared-map-fire-bindings/cornice-family-contact-page-01-v1/authority-family-draft.md",
+    "bytes": 3406,
+    "sha256": "dd4348234acee037cac8dae48fb6b7bad472110926abda2a2d081a7768cd5286",
+    "source": "Read-only working draft in architect checkout; not falsely assigned a Git commit."
+  },
+  "checkpoint": {
+    "path": "art/source/shared-map-fire-bindings/cornice-family-contact-page-01-v1/checkpoint-refinement.md",
+    "bytes": 1089,
+    "sha256": "b35c7a03797784fd4a45e7cda84742671a134422dde4091a2424539cff90f494"
+  },
+  "reference48": {
+    "package": {
+      "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/review-package.json",
+      "bytes": 4418,
+      "sha256": "550c717c4572df7f73c8ee53920b8f8cb8b16bd5b73fd55f40af015dc78d5e70"
+    },
+    "payloadPins": [
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/.gitattributes",
+        "bytes": 59,
+        "sha256": "2d09af651bd2811327fd0da6512dfeca728740f6146ac243c4838bb1ef728ed1"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/README.md",
+        "bytes": 2326,
+        "sha256": "68a8713a38e10544bf298b5d179edec38a4a754f15ae521a795153f6cec26e1e"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/authority-message.md",
+        "bytes": 2301,
+        "sha256": "ce5f17708783ec3fd8d318dea54d05a14fb1114a553a0ad02115987bf23ff2ad"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/input-pins.json",
+        "bytes": 10649,
+        "sha256": "8bafc3a01c0097f328ab4ab507c664d58b7eb48fbbea2d8a8ef26b477299e9df"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/check.py",
+        "bytes": 19891,
+        "sha256": "c2d1870cb26b2ac2a1a39edfbacf07a1a72b1211441f8f774634529107f8b1d0"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/check-batch.mjs",
+        "bytes": 5677,
+        "sha256": "e2c0998aa224e9cc35b3757001d25b5b049b88510a51a27fb44cdd27de19c89a"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/contacts-proposal.json",
+        "bytes": 76982,
+        "sha256": "b1f2f0d8fe26ff5846544ac0dac1d54c3875a2963676188e7c46a9f60f99dd24"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/checks-summary.json",
+        "bytes": 1615,
+        "sha256": "37e10487aeae6775902137774aa833a4c021884ba16bed0c28671753ffb049e3"
+      }
+    ]
+  },
+  "contactPilot": {
+    "package": {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/review-package.json",
+      "bytes": 3838,
+      "sha256": "59b202edd09473552965c6431f858d6492085063f6c708335ba518780d5e9759"
+    },
+    "payloadPins": [
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/.gitattributes",
+        "bytes": 59,
+        "sha256": "2d09af651bd2811327fd0da6512dfeca728740f6146ac243c4838bb1ef728ed1"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/README.md",
+        "bytes": 2337,
+        "sha256": "2530a82351fc44ca980b5362f0b1018af10b81bd2b39c6b542a99fb3fcbc9a9d"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/authority-d899d73f.md",
+        "bytes": 3732,
+        "sha256": "11db5cec300b48973b1bec6c27d1a4d696eb58e1eab67554bd7e2998c01e635a"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/architect-probe.json",
+        "bytes": 689,
+        "sha256": "7e972aadabd94309b4d0c53db63f4adfa3d4b9925a209a2e4ce7464b227d3a6a"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/architect-probe.mjs.txt",
+        "bytes": 2308,
+        "sha256": "771f944d120b6b7ebd870a93d47a41cade808bee40186a45c196acb24b413be1"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/predicate-context.json",
+        "bytes": 14583,
+        "sha256": "ba353e64a208d152fb5dbaf5fce66381d18df757ef9404e5f7df9203cff09a5a"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/input-pins.json",
+        "bytes": 8141,
+        "sha256": "8ccc6df5864ddbf20bec0829abc77b5e8709ed80705061105cf6ffdf06dd9279"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/check.py",
+        "bytes": 14129,
+        "sha256": "2537eba9b89c213aa75cacff33ca6bfc363d9d6f9a192d4352b9018acace883d"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/check-contact.mjs",
+        "bytes": 5536,
+        "sha256": "1bf9736079077717088fc090d98ab52dfa08bbb010235400019598ed303cae23"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/contact-record.json",
+        "bytes": 14898,
+        "sha256": "c6890d1c477264deb2d5f259b29d719ce9812b8c371462fb27519bf55dae6411"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/attempt-01-first-record-reference-check.txt",
+        "bytes": 1064,
+        "sha256": "a22358f29dac75796ac79b01c9189c3c07c3b8108605451c9804a07e8503ee27"
+      }
+    ]
+  },
+  "volumeProof": {
+    "package": {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/review-package.json",
+      "bytes": 3300,
+      "sha256": "b1d9a0da357b8403ec6f3a71d37d94645ad5413469e96fb319e4f55ac560b0d6"
+    },
+    "payloadPins": [
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/.gitattributes",
+        "bytes": 47,
+        "sha256": "78c21412a32fe7f52bd098532b6c8647d96accc6175da639305233b229cb42bf"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/README.md",
+        "bytes": 2391,
+        "sha256": "e6c67219673fb86326a295706f4c4a0a01958d6d2705bac6c25cf9d0b7b2cda0"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/authority-916b3e44.md",
+        "bytes": 2245,
+        "sha256": "a4849799081beabbeab6dc4959e4ce53a3dbd835403acdb7f18ce09600a18737"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/frozen-unresolved-binding.json",
+        "bytes": 7461,
+        "sha256": "7082631c2b40ceabf642165450b2a8a0a250245cabc1a1ff2ec04dca0fc48de8"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/predicate-context.json",
+        "bytes": 9418,
+        "sha256": "e960fee270a638bf06fdfe53871c421adee41a8ec37e19d1094974c50d0f73ae"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/input-pins.json",
+        "bytes": 6259,
+        "sha256": "40cc0f35da2b6c76823574b071d2efc96dc87dc5212fd3f64d55229af8682470"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/check.py",
+        "bytes": 17012,
+        "sha256": "a5d2c3418b8ed874389be3055a5be6634ba5ef19d0920a52db309708fcf8ff0d"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/check-interior.mjs",
+        "bytes": 2693,
+        "sha256": "dd279ecbab2dfea4032b7b3b342b270bdb4b2a36b21d1c708f7ed0dcfe3a3790"
+      },
+      {
+        "path": "art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/source-record.json",
+        "bytes": 26615,
+        "sha256": "6f5646c7f1b17b9336b3256a35c04352648b59bf25c6fa07f0c6eaab62ee10b0"
+      }
+    ]
+  },
+  "physicalSourcePins": [
+    {
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/relationships.json",
+      "bytes": 8661963,
+      "sha256": "34b25f91d457fb65e611b89f182c0e05bb946d7506a0581b53e945a2d9731e06",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/geometry-bindings.json",
+      "bytes": 2132070,
+      "sha256": "4cd550cf603008e76819877f5c32bf1f731e496b05a95a66927b32cde41bcada",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "assets/art/shared-map-fire-bindings/new-york-complete-v1.json",
+      "bytes": 40518109,
+      "sha256": "407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/index.json",
+      "bytes": 92869,
+      "sha256": "f1252c7364adfeb025f573fc4650020e71915a3e17e71bcf2e725e56c3f1c941",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/index.json",
+      "bytes": 94235,
+      "sha256": "1025e434bea1724b0212100cb92687faf95650d3c39c71734bf1b56fbf9713ad",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/sections/2_1_3.json",
+      "bytes": 55738,
+      "sha256": "d1007522f4573bdd481e28f65bda72802c11aaa9ac1d4ce2936f3ee60ea08c55",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/sections/3_1_3.json",
+      "bytes": 49527,
+      "sha256": "764ff286adde2319f013bb2cbb6f2363b4b702232ee0298d439c03697b2669fa",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6.json",
+      "bytes": 2026,
+      "sha256": "8e41da9353b574e2c14542773a2a39cf52953b99e5086f37a5e3dda92bd23a25",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/eb00a03d406e98ba1052101ff72273da5ff8148d0b95af94f85a998962bc16bf.json",
+      "bytes": 5957,
+      "sha256": "f00c8671237ad62a2161af34446c8504face74759d1b59d4abb901006e50a71d",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/export.py",
+      "bytes": 37327,
+      "sha256": "ae42ec633ab21e8d065ee0b3e3779292591c20cceb9d0f1dd3cd76b1600327aa",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/propose-new-york-coverage.py",
+      "bytes": 25917,
+      "sha256": "c9ccb5f44898b5d8476220ddef024ea20ca955e79c6b8a57a6448a81e58ffec4",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/reachability-review-v1/review.py",
+      "bytes": 16217,
+      "sha256": "c87c1d2587aa620131e7915e61e63a864c5d8b57fec2d258cb7f6c84ba0e2a96",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/geometry.py",
+      "bytes": 11338,
+      "sha256": "4c88d74fb5701a4fe9ae5b4873ef4a8ff52ceae4742626774a9050299db857d5",
+      "commit": "cd10ebafc006a1105775db3822cdf2be7dcaa976"
+    }
+  ],
+  "additionalPagePins": [
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5.json",
+      "bytes": 2026,
+      "sha256": "28812fc6e40de990eaa12b0d392b4b58e91d8b4e352bcd55652e32f4c583bb10"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/sections/4_1_3.json",
+      "bytes": 50400,
+      "sha256": "7ae34b75f41b8f108a95a8324bccf84266d3f21b2b4fee0924a97c7b8bbc40eb"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/sections/5_1_3.json",
+      "bytes": 5244,
+      "sha256": "2f6a11fe9a682d5870922beba0b3d314ca47990ac80dd01f7746452dc3a3b4e9"
+    }
+  ],
+  "globalIndexGitPin": {
+    "commit": "2b350309d9116812a1d3988af090614bdaefbc25",
+    "path": "assets/runtime/map-sources/new-york/index.json",
+    "bytes": 8021251,
+    "sha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+    "purpose": "Read original tuple metadata only to preserve global source indices; no decoder, geometry library, compiler or runtime is executed.",
+    "unchangedAtObservedArchitectContext": true
+  },
+  "producerContext": {
+    "path": "art/source/shared-map-fire-bindings/cornice-family-contact-page-01-v1/source-producer-context.json",
+    "bytes": 1319,
+    "sha256": "bff029ca234be8ce7aa726062f5fa7783bfe2c4283df4ad5bc5696f7214adcfa"
+  },
+  "nativeAllowance": "Earlier ONE session/TWO calls is SPENT; zero native compilations are authorized here.",
+  "provenance": "Original physical source/UVs/IDs/matrices/quantities and all earlier proof bytes remain unchanged."
+}

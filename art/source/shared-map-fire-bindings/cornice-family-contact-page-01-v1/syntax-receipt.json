@@ -1,0 +1,33 @@
+{
+  "pid": 63604,
+  "creationFileTime": "134394416928176891",
+  "creationTimeUtc": "2026-11-18T02:14:52.817689+00:00",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "executableEvidence": "queried-from-owned-handle",
+  "kernelCpuMs": 31.25,
+  "userCpuMs": 31.25,
+  "ownerTask": "01a17ea0-1362-7d13-a42d-f4a5fcff8902",
+  "project": "Tinderbox",
+  "purpose": "source page checker syntax only",
+  "regions": 96,
+  "cwd": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox",
+  "arguments": [
+    "--check",
+    "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\art\\source\\shared-map-fire-bindings\\cornice-family-contact-page-01-v1\\check-contact-page.mjs"
+  ],
+  "startedAt": "2026-11-18T02:14:52.815054+00:00",
+  "deadlineSeconds": 10,
+  "intendedExpiry": "2026-11-18T02:15:02.815054+00:00",
+  "port": null,
+  "retained": false,
+  "endCondition": "finite source page completes or its deadline expires",
+  "stopMethod": "exact owned Popen process handle; verify captured PID/creation time before timeout termination",
+  "exitCode": 0,
+  "timedOut": false,
+  "exited": true,
+  "endedAt": "2026-11-18T02:14:52.894228+00:00",
+  "elapsedMs": 79.8225998878479,
+  "releasedPorts": [],
+  "postExitExecutableEvidence": "captured-while-live; same exited handle/creation time",
+  "cleanup": "owned finite child exited; no port was opened"
+}
