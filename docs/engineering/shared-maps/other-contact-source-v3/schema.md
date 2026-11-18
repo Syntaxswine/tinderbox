@@ -1,0 +1,11 @@
+# Source delta schema, version 3
+
+The packet is an offline overlay with runtimeConsumable:false. baseProposal identifies the exact immutable v2 proposal. It remains the authority for all original dictionaries, source identities, matrices/ranges, recipes/quantities, relationship kinds/directions and historical field presence. No base record is rewritten.
+
+regions contains exactly the 419 previously original-component-unresolved region IDs, in first-baluster-then-original-order. Each record contains its original parent/child/family/relationship, exact sourceRegion pointer and canonical hash, old status/reason, a source-result pointer, eligibility and one new status. A positive requires contact, checks and normalMetadata; unproved records contain no contact. Eligibility requires exact positive primitive partitions and nonmaterial ordinals, a closed-flags-only discrepancy and explicit prior blocked identity. Noneligible cases do not enter witness/facet search.
+
+Contact primitive IDs are absolute original buffer ordinals; rangeLocalPrimitives separately subtract the original source range base. Actual world component IDs supply membership. Exported normals use the accepted componentwise division order; historical source-predicate normals and selected-face hashes are retained separately. Checks retain the unchanged source contact predicates, selector/endpoint facet counts, negatives and plane residuals.
+
+frameInstances records each evaluated source instance and original global part index, raw/positive/range counts, complete ordered raw/world hashes, nonmaterial ordinals, raw/world closed flags, admission/failure and dictionary references. Shared dictionaries contain either positive topology or both raw/emitted-world component records, partitions, nonmaterial IDs/hashes and the exact comparison result. These are surface-membership records and explicitly make no volume, bearing, closed-solid or support claim.
+
+pageEvidence ties each result to a bounded verification. summary separates preserved positives/other failures from newly calculated cases and combined overlay totals. No existing positive or other failure is recalculated; no native IDs/cells or new geometry arrays are introduced. The checker enforces hashes, source identities, strict eligibility, preserved geometry hashes and finite process receipts without searching contacts.

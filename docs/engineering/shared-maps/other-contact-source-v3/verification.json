@@ -1,0 +1,452 @@
+{
+  "status": "passed-scoped-source-delta",
+  "baseCommit": "aeb6e169b85c805ea97d642fbff5a1951a0e7be1",
+  "sourceMethodPriorCheckpoint": "6f5d89813156cf064aa2174f0ec673a646ea15d1",
+  "componentCore": "25c74d2d2b9ae749a721e2ff71e6c116023c2379",
+  "sourcePinsVerified": 16,
+  "originalWitnessContactFunctionBlockUnchanged": true,
+  "strictAdmission": "same positive component primitive partitions and nonmaterial ordinals; only closed flags differ; instance explicitly previously blocked",
+  "actualEmittedWorldComponentsUsedForSurfaceMembership": true,
+  "volumeBearingClosedSolidClaim": false,
+  "summary": {
+    "UNATTEMPTED": 0,
+    "candidateRegions": 419,
+    "closedFlagsOnlyInstances": 415,
+    "combinedProposed": 1438,
+    "combinedUnproved": 144,
+    "conditionNotMet": 0,
+    "contactPredicateChecks": 1257,
+    "deltaUnproved": 0,
+    "eligible": 419,
+    "endpointInstancesClassified": 502,
+    "existingPositiveRegionsReexecuted": 0,
+    "families": {
+      "porch-rail-and-neck-frame": {
+        "candidateRegions": 80,
+        "eligible": 80,
+        "newProposed": 80,
+        "unproved": 0
+      },
+      "railing-cap-to-real-members": {
+        "candidateRegions": 339,
+        "eligible": 339,
+        "newProposed": 339,
+        "unproved": 0
+      }
+    },
+    "graphWorldRendererBuildPagesRuns": 0,
+    "nativeCompilerCalls": 0,
+    "negativeChecks": {
+      "legacyWitnessNegatives": 838,
+      "outsideSelectorNegatives": 836,
+      "wrongPrimitiveNegatives": 838
+    },
+    "newProposed": 419,
+    "originalBaluster": {
+      "eligible": true,
+      "point": [
+        42.35027960488854,
+        22.26000015437603,
+        34.11713533817962
+      ],
+      "primitives": [
+        16,
+        6
+      ],
+      "region": "5b1da7c755e4d73f34574c7e",
+      "status": "source-contact-proposed",
+      "unprovedCode": null
+    },
+    "otherFailureRegionsReexecuted": 0,
+    "preservedOtherFailures": 144,
+    "preservedPositives": 1019,
+    "runtimeDecoderCalls": 0,
+    "sharedDictionaries": 24,
+    "sourceBlueprintExpansions": 0,
+    "unprovedReasons": {},
+    "volumeBearingClosedSolidClaim": false
+  },
+  "originalBalusterSourceContactProved": true,
+  "originalBalusterProofMethod": "actual original-facet intersection, unique primitive membership and three unchanged predicates; diagnosis not treated as proof",
+  "priorV2PayloadsByteIdentical": 210,
+  "priorV2SourceReceiptsAndFailedGatesUnchanged": true,
+  "existingPositiveRegionCalculations": 0,
+  "otherFailureRegionCalculations": 0,
+  "sourcePages": {
+    "calculation": 3,
+    "verification": 3,
+    "regionCounts": [
+      1,
+      256,
+      162
+    ],
+    "maximumChildSeconds": 60,
+    "internalPageSeconds": 55,
+    "coordinatorMaximumSeconds": 600,
+    "coordinatorElapsedSeconds": 7.32799999974668,
+    "sourceRetries": 0
+  },
+  "checks": [
+    "Python AST / Node syntax",
+    "Immutable cache plan determinism and portable cache hydration/audit",
+    "16 exact raw source pins and original diagnostic artifact pins",
+    "Raw/world primitive partitions, nonmaterial ordinals and closed-only discrepancy for every admitted blocked instance",
+    "Actual baluster first; 419 positive proofs rechecked without candidate searches",
+    "Base source IDs, complete raw/world geometry hashes, primitive/range identities and canonical normal metadata",
+    "210 prior packet files byte-identical; exact staged scope/pins",
+    "Eight source/coordinator/metadata PIDs absent; no ports or retained helpers"
+  ],
+  "nativeCompilerCalls": 0,
+  "runtimeDecoderCalls": 0,
+  "sourceBlueprintExpansions": 0,
+  "liveWorldGraphRenderingBuildPagesRuns": 0,
+  "retainedHelpers": [],
+  "portsOpened": [],
+  "limitations": [
+    "Surface source contact proposals only; no volume, bearing capacity, closed solid, grounding, live gameplay or native mapping acceptance.",
+    "The 144 previously separate failures remain unproved and unexecuted.",
+    "Architect promotion and coder consumer mapping remain separate."
+  ],
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 21,
+      "sha256": "046032151fe6113c18a8d7d9971c557e81129ca1ba244e5263d54b7e0e6f9643"
+    },
+    {
+      "path": "audit.json",
+      "bytes": 513,
+      "sha256": "ffd515079848ba36a00241ba3b21fbdbca6bca2c68198918d7fc4e5059668ff9"
+    },
+    {
+      "path": "audits/cache-audit.json",
+      "bytes": 1971,
+      "sha256": "8db55faa784a7d621becf19dcfee09b8d50999568101ba2d3b6d4c02356f88a2"
+    },
+    {
+      "path": "audits/cache-audit.log",
+      "bytes": 553,
+      "sha256": "d57772ad1984ae6bd68760fbd8430718b84561cb9e17e19f1d3533d417e54a4d"
+    },
+    {
+      "path": "audits/process-events.jsonl",
+      "bytes": 2530,
+      "sha256": "31fd24cd5cb8dc44da8324409981c96034aedd1eaf1ff5a705c68f16e57a0776"
+    },
+    {
+      "path": "authority.md",
+      "bytes": 1554,
+      "sha256": "b4392857257eb55fc8825eb67de5c9ca8a9caf6050fd8217386604ba4ec23faa"
+    },
+    {
+      "path": "batch.json",
+      "bytes": 2161,
+      "sha256": "7a10e68b5472b756730c9d0db7ffee74f75300275aa677722d7d7ae351f8c503"
+    },
+    {
+      "path": "check.py",
+      "bytes": 9044,
+      "sha256": "6ab99063a29527c019e908049bfd5702bb5892ef6eba9bd3c3fe0e44696a036a"
+    },
+    {
+      "path": "checks/page-000.json",
+      "bytes": 442,
+      "sha256": "20cb05bcbb79322ab1f413f03d7d9eeeb2697e7d66a922d6009f82a922e80025"
+    },
+    {
+      "path": "checks/page-001.json",
+      "bytes": 455,
+      "sha256": "bd620ec4b023bd6c8b30272d2fee767e76d429a687f378636f7f55dcfda96e01"
+    },
+    {
+      "path": "checks/page-002.json",
+      "bytes": 455,
+      "sha256": "4ba05127c6efd6700632c62464b3a1f050bafbc9b4ed0c5c28310cd5e8a35f87"
+    },
+    {
+      "path": "checks-summary.json",
+      "bytes": 1110,
+      "sha256": "8b806fb9eb7dc1c593400009c624808cf608c55c366fd3b387741c514900f0e5"
+    },
+    {
+      "path": "cleanup.json",
+      "bytes": 648,
+      "sha256": "2c9ffbe7dcb354ab4416e6940ebbae25164fca2de0796b94cf52f2c8c007427a"
+    },
+    {
+      "path": "common.py",
+      "bytes": 1513,
+      "sha256": "d2868249de7cec6ab8505a6974d4bd0e70a412d26830876169bdc131b5b11ce9"
+    },
+    {
+      "path": "contacts-delta.json",
+      "bytes": 1561963,
+      "sha256": "9cdcfcf65ac0643bc40d7dde2b70f01eb1894450e527cb326ddbfbc9ee8cba27"
+    },
+    {
+      "path": "dictionaries/0679ae0bd6fca5d863f842df7c0ca3c89d23d9ff37422857f88a237550c77aab.json",
+      "bytes": 283,
+      "sha256": "0679ae0bd6fca5d863f842df7c0ca3c89d23d9ff37422857f88a237550c77aab"
+    },
+    {
+      "path": "dictionaries/088654c853bb451aa656da17b20b1884e9197a2b595400250bd4031fdfd25de1.json",
+      "bytes": 283,
+      "sha256": "088654c853bb451aa656da17b20b1884e9197a2b595400250bd4031fdfd25de1"
+    },
+    {
+      "path": "dictionaries/0be7035623cb298805bc05bd29ab371dfd271797cf617fe8035fe0e56601b385.json",
+      "bytes": 713,
+      "sha256": "0be7035623cb298805bc05bd29ab371dfd271797cf617fe8035fe0e56601b385"
+    },
+    {
+      "path": "dictionaries/154fe9e727ec2446c601b05b7811529b265eb53da1d39251fb37aa0c8eecc4cf.json",
+      "bytes": 3266,
+      "sha256": "154fe9e727ec2446c601b05b7811529b265eb53da1d39251fb37aa0c8eecc4cf"
+    },
+    {
+      "path": "dictionaries/1e7bf864fbd83c3c0f18d03142ebcecf735bf5ca61002c26d30a5da43ac596c3.json",
+      "bytes": 713,
+      "sha256": "1e7bf864fbd83c3c0f18d03142ebcecf735bf5ca61002c26d30a5da43ac596c3"
+    },
+    {
+      "path": "dictionaries/234a0d7673fa2fbc61af6a2207537389cd534c321527bb8ac55a3cd2d20c8368.json",
+      "bytes": 283,
+      "sha256": "234a0d7673fa2fbc61af6a2207537389cd534c321527bb8ac55a3cd2d20c8368"
+    },
+    {
+      "path": "dictionaries/2f51c2cd07b819bf4c8916790466f1df09baa682f015ae671364956c1feb1063.json",
+      "bytes": 283,
+      "sha256": "2f51c2cd07b819bf4c8916790466f1df09baa682f015ae671364956c1feb1063"
+    },
+    {
+      "path": "dictionaries/3325c16e9e06cbe0f71ab80a8d623101bf1721feddf60182683f0be52b1880a1.json",
+      "bytes": 713,
+      "sha256": "3325c16e9e06cbe0f71ab80a8d623101bf1721feddf60182683f0be52b1880a1"
+    },
+    {
+      "path": "dictionaries/337e96e57233e60d4626eac5ace6f5eb19fb66589cdfb58ae92a9b6dc0930954.json",
+      "bytes": 713,
+      "sha256": "337e96e57233e60d4626eac5ace6f5eb19fb66589cdfb58ae92a9b6dc0930954"
+    },
+    {
+      "path": "dictionaries/4e4236a6d1de95c6517d90907e4b8266e596d8ae3d89b73f6b32b0799ecad30a.json",
+      "bytes": 713,
+      "sha256": "4e4236a6d1de95c6517d90907e4b8266e596d8ae3d89b73f6b32b0799ecad30a"
+    },
+    {
+      "path": "dictionaries/513359c856042c5fd1c81db7b0229c379733b2c3c1ad6379731b2fb43e8236fa.json",
+      "bytes": 1443,
+      "sha256": "513359c856042c5fd1c81db7b0229c379733b2c3c1ad6379731b2fb43e8236fa"
+    },
+    {
+      "path": "dictionaries/5cc710f7caccfa3c511130a04716ef78f3ed6efe5446c016cb25351ea0ac556c.json",
+      "bytes": 283,
+      "sha256": "5cc710f7caccfa3c511130a04716ef78f3ed6efe5446c016cb25351ea0ac556c"
+    },
+    {
+      "path": "dictionaries/69667fed28558a834c402a06150081ac2695bcf98cc5f403842740127a3c8115.json",
+      "bytes": 283,
+      "sha256": "69667fed28558a834c402a06150081ac2695bcf98cc5f403842740127a3c8115"
+    },
+    {
+      "path": "dictionaries/6c7ff90605f6a8048606bd654ef03eb5c3534461a7bde768b9e24425818cca43.json",
+      "bytes": 713,
+      "sha256": "6c7ff90605f6a8048606bd654ef03eb5c3534461a7bde768b9e24425818cca43"
+    },
+    {
+      "path": "dictionaries/6d3e68b87d20bab73c923b28b5184597f62a444447692ef48f81cf1fb4940db1.json",
+      "bytes": 713,
+      "sha256": "6d3e68b87d20bab73c923b28b5184597f62a444447692ef48f81cf1fb4940db1"
+    },
+    {
+      "path": "dictionaries/6fde02c8e2f07354d1da1bd5cfb74a24b4f1562857ee47d35b7c3fb051e41a37.json",
+      "bytes": 713,
+      "sha256": "6fde02c8e2f07354d1da1bd5cfb74a24b4f1562857ee47d35b7c3fb051e41a37"
+    },
+    {
+      "path": "dictionaries/a78aaae4b335a6821b790711096f4748485e8079a453ae92ab3d7e2c2b527662.json",
+      "bytes": 4428,
+      "sha256": "a78aaae4b335a6821b790711096f4748485e8079a453ae92ab3d7e2c2b527662"
+    },
+    {
+      "path": "dictionaries/addb2dd31d6fc24121cbcefeb86c05a306b615ba2bd348acb9c57f4bef18937a.json",
+      "bytes": 283,
+      "sha256": "addb2dd31d6fc24121cbcefeb86c05a306b615ba2bd348acb9c57f4bef18937a"
+    },
+    {
+      "path": "dictionaries/af33a4455105134b289bf8981c081222292b39821267908dcf2db56d797ecaf3.json",
+      "bytes": 713,
+      "sha256": "af33a4455105134b289bf8981c081222292b39821267908dcf2db56d797ecaf3"
+    },
+    {
+      "path": "dictionaries/b634f197aeb2808772b8def415a77b0dbbce2f79dd950fddead9e2a92e002237.json",
+      "bytes": 283,
+      "sha256": "b634f197aeb2808772b8def415a77b0dbbce2f79dd950fddead9e2a92e002237"
+    },
+    {
+      "path": "dictionaries/b81dfbffa06b9fbaf396276e629751a59a977c74a301366c193a8a4015eaaf6b.json",
+      "bytes": 283,
+      "sha256": "b81dfbffa06b9fbaf396276e629751a59a977c74a301366c193a8a4015eaaf6b"
+    },
+    {
+      "path": "dictionaries/cb8d06875f3a9e5b3c906dfdbc31f87b5a36b6df0ea754f83b174d52b0438054.json",
+      "bytes": 713,
+      "sha256": "cb8d06875f3a9e5b3c906dfdbc31f87b5a36b6df0ea754f83b174d52b0438054"
+    },
+    {
+      "path": "dictionaries/dc28e56172bd47d8937aa9c1877aa09895c9349f6f4f0707a87d9799edab3273.json",
+      "bytes": 3033,
+      "sha256": "dc28e56172bd47d8937aa9c1877aa09895c9349f6f4f0707a87d9799edab3273"
+    },
+    {
+      "path": "dictionaries/f7b36593087dc53231d0675ff3910abef0449e9e10ce6b907d1e209135b47a53.json",
+      "bytes": 283,
+      "sha256": "f7b36593087dc53231d0675ff3910abef0449e9e10ce6b907d1e209135b47a53"
+    },
+    {
+      "path": "finalize.py",
+      "bytes": 6923,
+      "sha256": "45beb5ff49552b0a7227705b1eb2deb3e6f45139f2ef7c9be82adcba234de37c"
+    },
+    {
+      "path": "hydrate.py",
+      "bytes": 4043,
+      "sha256": "d7cb179acaa0a5a1acd718374397dc5397d19431b13aede034619afff2898c5b"
+    },
+    {
+      "path": "input-pins.json",
+      "bytes": 23746,
+      "sha256": "da795221193b5cbcf4b65da08ec70dd4089279e254775e84c701c4eada9c06d2"
+    },
+    {
+      "path": "lifecycle.py",
+      "bytes": 4343,
+      "sha256": "4019e839fc8fda10f35eb09aba4b1dc0cae9e63b7cd2921fcedf9cb383d2a59d"
+    },
+    {
+      "path": "page.mjs",
+      "bytes": 19430,
+      "sha256": "db71d66ace933b0fea7cb917f0083e76c8bc60ba651479b5453353af55163afd"
+    },
+    {
+      "path": "pages/page-000.json",
+      "bytes": 4207,
+      "sha256": "71597dd9d19808f9fbf77c6db1fac6ff3330ff39fe79d054af808930310e7d01"
+    },
+    {
+      "path": "pages/page-001.json",
+      "bytes": 758507,
+      "sha256": "26f7486bee0e3d1d5ba578cb43789cd701951c148dd7c1619da49d81fea643a2"
+    },
+    {
+      "path": "pages/page-002.json",
+      "bytes": 496192,
+      "sha256": "b1b40045253725fd6df455dbdad05c1e5e89015534ac5fa0d90bb8d4a9ed1206"
+    },
+    {
+      "path": "provenance/baluster-frame-topology-diagnostic.json",
+      "bytes": 473,
+      "sha256": "3d3082136436504d3704d9f03731c1efff47f6040024939f6d70d346e76eb5ec"
+    },
+    {
+      "path": "provenance/baluster-frame-topology-diagnostic.mjs.txt",
+      "bytes": 1447,
+      "sha256": "8b58f60bf40a27668c7a299bcce5414ae80ea61947c1406e231506c3a5f0a08f"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 738,
+      "sha256": "29d87ed3cdfe7518948c539feb0926fe625bd4e12cf82e5e116bbad6b4d8d6b9"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5947,
+      "sha256": "7b821c8297f5074d121836d1296c32ecf20cf971604cb015c79fa0fd779d9304"
+    },
+    {
+      "path": "run.py",
+      "bytes": 3902,
+      "sha256": "d43393ca73941fee11aaf03d09a2fa8c2f235bd528211c1d623f994d40294abd"
+    },
+    {
+      "path": "runs/page-000.json",
+      "bytes": 1781,
+      "sha256": "ce0e3f2cbf76e442c789d2348647ee02c70342aa291619a695e4844cdb232e69"
+    },
+    {
+      "path": "runs/page-000.log",
+      "bytes": 98,
+      "sha256": "4d6a467f24e8e61ee594e342f1111f5f70a2e38845776ec7c0b7229599e42fdf"
+    },
+    {
+      "path": "runs/page-001.json",
+      "bytes": 1782,
+      "sha256": "ccaecc5d7256d5da6746c64d3fcccca7d6c4d3bfe7d3057489ca01c1757a0fda"
+    },
+    {
+      "path": "runs/page-001.log",
+      "bytes": 104,
+      "sha256": "7b1b3a620fa822e9deef0b77227aaabdae9adab5d94a6e0b19a3ae473f3c03ba"
+    },
+    {
+      "path": "runs/page-002.json",
+      "bytes": 1782,
+      "sha256": "535e6951e8bb9e412d6d7359b5065c1f6c26810946441da650c38969866c3565"
+    },
+    {
+      "path": "runs/page-002.log",
+      "bytes": 104,
+      "sha256": "6bbf25dd8f1534f84a799e1c3ea821f95ca36d4945b099570d78d074f09520b3"
+    },
+    {
+      "path": "runs/process-events.jsonl",
+      "bytes": 14069,
+      "sha256": "e631f1e0eaa9aee0456491060adbaccdf73616a1f187d46c665bebf4014ca7cb"
+    },
+    {
+      "path": "runs/verify-000.json",
+      "bytes": 1786,
+      "sha256": "9284e06c13e6f757bd0f537c2fc0cb271b58ca4302b0cca597247f12f47b0181"
+    },
+    {
+      "path": "runs/verify-000.log",
+      "bytes": 100,
+      "sha256": "ff252e304d21c0e5d94954b3016a83034f4bc8276d42024f131fd16af9ba3488"
+    },
+    {
+      "path": "runs/verify-001.json",
+      "bytes": 1788,
+      "sha256": "0d579717dd11227a0f404f69f8e2e0e61721a3d4b35364a9e9e7ed41d26406e6"
+    },
+    {
+      "path": "runs/verify-001.log",
+      "bytes": 106,
+      "sha256": "ee9b9de8c2fca57f78fad9d400b5e07e27b70550fa9a486cebeab7c53d0456f1"
+    },
+    {
+      "path": "runs/verify-002.json",
+      "bytes": 1788,
+      "sha256": "1b9bdc7de63bb901215abbf4b3021bb5e05aa3ab2f46cc46a0a99585c187e3dc"
+    },
+    {
+      "path": "runs/verify-002.log",
+      "bytes": 106,
+      "sha256": "d1c850c73c81723245d07de9d5457bd6085a7aa99b655d706acd80ce2c61c13c"
+    },
+    {
+      "path": "schema.json",
+      "bytes": 3301,
+      "sha256": "6aea05b6d1fe524cc1d77505f083de47b8d7bcf564a3524a69302fc600810498"
+    },
+    {
+      "path": "schema.md",
+      "bytes": 2366,
+      "sha256": "3de9fdbe8a15e56c1a384d95e530ded528390fb952a9863a78b59d85ecf28477"
+    }
+  ]
+}

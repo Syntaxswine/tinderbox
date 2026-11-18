@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Closed-flag-only original contact source delta",
+  "type": "object",
+  "required": [
+    "version",
+    "runtimeConsumable",
+    "baseProposal",
+    "frameInstances",
+    "dictionaries",
+    "regions",
+    "pageEvidence",
+    "summary"
+  ],
+  "properties": {
+    "version": {
+      "const": 3
+    },
+    "runtimeConsumable": {
+      "const": false
+    },
+    "baseProposal": {
+      "type": "object",
+      "required": [
+        "commit",
+        "path",
+        "sha256"
+      ]
+    },
+    "frameInstances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "globalSourcePartIndex",
+          "rawClosedFlags",
+          "worldClosedFlags",
+          "admission",
+          "frameDictionary",
+          "rawOriginalTrianglesFloat64LittleEndianSha256",
+          "originalPartWorldTrianglesFloat64LittleEndianSha256"
+        ]
+      }
+    },
+    "dictionaries": {
+      "type": "array"
+    },
+    "regions": {
+      "type": "array",
+      "minItems": 419,
+      "maxItems": 419,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "relationship",
+          "family",
+          "parent",
+          "child",
+          "sourceRegion",
+          "priorStatus",
+          "priorUnprovedCode",
+          "eligibility",
+          "status",
+          "sourceResult"
+        ],
+        "properties": {
+          "priorStatus": {
+            "const": "unproved"
+          },
+          "priorUnprovedCode": {
+            "const": "original-component-unresolved"
+          },
+          "status": {
+            "enum": [
+              "source-contact-proposed",
+              "unproved"
+            ]
+          },
+          "eligibility": {
+            "type": "object",
+            "required": [
+              "allowed",
+              "previouslyBlockedInstances",
+              "positivePartitionsAndNonmaterialOrdinalsMatch",
+              "soleDiscrepancyClosedFlags",
+              "actualWorldComponentsUsedForSurfaceMembership",
+              "volumeBearingClosedSolidClaim"
+            ],
+            "properties": {
+              "volumeBearingClosedSolidClaim": {
+                "const": false
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "source-contact-proposed"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "contact",
+                "checks",
+                "normalMetadata"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "unproved"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "unprovedCode"
+              ],
+              "not": {
+                "required": [
+                  "contact"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "pageEvidence": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "summary": {
+      "type": "object"
+    }
+  }
+}
