@@ -133,3 +133,29 @@ map acceptance remain separate. No compiler/native/world/graph/render/build
 run or retained helper/port was created. Root receipts are
 `other-v3-scope-audit.json`, `other-v3-root-verify.log` and
 `other-v3-root-recheck.json` in the same ignored architect QA directory.
+
+## Remaining cornice facet delta
+
+Accept artist `cc5629e08cea64010ee3817e703b5300a8b4c61c`, architect intake
+`527834c0`, as the final source-method delta. Root verifies exact 277-path /
+276-payload scope and reproduces all 125 saved verification pages: 2,249 new
+proofs, 697 named unresolved cases, 6,747 contact checks and 13,392 negatives.
+Every verification child exited; no port or helper remains. Earlier 1,490
+accepted cornice references and their archived histories remain unchanged and
+are not physically rechecked by this delta.
+
+The [facet delta](../../art/source/shared-map-fire-bindings/cornice-facet-delta-v1/README.md)
+references the accepted method and existing geometry/dictionary instead of
+exporting geometry copies. Maximum retained plane residual is
+5.7220459037665705e-8 m, within the unchanged 1e-7 m predicate. The 697 unresolved
+cases comprise 288 with no original facets in the selector, 67 predicate
+rejections, 14 ambiguous memberships and 328 without an unambiguous contact.
+No result is silently repaired or promoted to structural support.
+
+The complete source-method inventory now has **5,177 proposed contacts and 841
+unresolved regions**: cornice 3,739 / 697 and other contacts 1,438 / 144, totalling
+6,018 regions. Native record/cell/face bindings remain a separate runtime gate;
+the counts are not live joint acceptance. No native/compiler/world/graph,
+renderer, build or full-map diagnostic was run by this source review. Root
+receipts are `cornice-facet-scope-audit.json` and
+`cornice-facet-root-verify.log` in the same ignored architect QA directory.
