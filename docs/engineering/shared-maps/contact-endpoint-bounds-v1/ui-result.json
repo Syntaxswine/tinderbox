@@ -1,0 +1,186 @@
+{
+  "status": "source-proof-prepared-native-unbound",
+  "uiCommit": "e67235b6e9d87760b1b36d802833de44456b1bd8",
+  "regionId": "715ed699e0b9c5185bf38ab4",
+  "report": {
+    "sourceRevision": "dcc3a17e39cdc07578b4fba5308d6c21817a6ccdd9ca98a908fb1e5a292eccea",
+    "prepared": [
+      {
+        "version": 1,
+        "id": "715ed699e0b9c5185bf38ab4",
+        "relationshipId": "ee839ee6ab768cb524257edd",
+        "kind": "proposed-original-contact",
+        "point": [
+          32.304999619722366,
+          16.655,
+          25.710565546252955
+        ],
+        "direction": "parent-to-child",
+        "selector": null,
+        "historicalVolume": {
+          "childWitness": [
+            32.39999961853027,
+            16.685000076293946,
+            25.737499997019768
+          ],
+          "geometricBearing": false,
+          "kind": "actual-common-strict-solid-interior",
+          "parentWitness": [
+            32.39999961853027,
+            16.685000076293946,
+            25.737499997019768
+          ],
+          "sourceFace": null,
+          "worldWitness": [
+            32.39999961853027,
+            16.685000076293946,
+            25.737499997019768
+          ]
+        },
+        "sourceRevision": "dcc3a17e39cdc07578b4fba5308d6c21817a6ccdd9ca98a908fb1e5a292eccea",
+        "grid": {
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "pitch": [
+            0.5,
+            1.06,
+            0.5
+          ]
+        },
+        "ends": {
+          "parent": {
+            "partId": "edge-0/cornice-6",
+            "ownerId": "new-york::carrier/edge-0/cornice-6",
+            "globalPartIndex": 2411,
+            "role": "timber-fitting",
+            "component": 0,
+            "primitive": 1,
+            "normal": [
+              0,
+              -1,
+              0
+            ],
+            "selector": {
+              "max": [
+                32.49499961733818,
+                16.71500015258789,
+                25.799999982118607
+              ],
+              "min": [
+                32.304999619722366,
+                16.655,
+                25.67500001192093
+              ]
+            },
+            "sourceId": "new-york::carrier/edge-0/cornice-6/part/2411/face/1",
+            "channel": "surface",
+            "projection": [
+              32.304999619722366,
+              16.655,
+              25.710565546252955
+            ],
+            "sourceCell": [
+              64,
+              15,
+              51
+            ],
+            "sourceSpan": {
+              "min": [
+                63,
+                15,
+                51
+              ],
+              "max": [
+                160,
+                15,
+                52
+              ]
+            }
+          },
+          "child": {
+            "partId": "edge-0/dentil-0",
+            "ownerId": "new-york::carrier/edge-0/dentil-0",
+            "globalPartIndex": 2413,
+            "role": "timber-fitting",
+            "component": 0,
+            "primitive": 2,
+            "normal": [
+              -1,
+              0,
+              0
+            ],
+            "selector": {
+              "max": [
+                32.49499961733818,
+                16.71500015258789,
+                25.799999982118607
+              ],
+              "min": [
+                32.304999619722366,
+                16.655,
+                25.67500001192093
+              ]
+            },
+            "sourceId": "new-york::carrier/edge-0/dentil-0/part/2413/face/1",
+            "channel": "surface",
+            "projection": [
+              32.304999619722366,
+              16.655,
+              25.710565546252955
+            ],
+            "sourceCell": [
+              64,
+              15,
+              51
+            ],
+            "sourceSpan": {
+              "min": [
+                64,
+                15,
+                51
+              ],
+              "max": [
+                64,
+                15,
+                51
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "rejected": [],
+    "nativeRecordsBound": 0,
+    "counts": {
+      "uniqueParts": 2,
+      "uniqueSourceDefinitions": 12,
+      "selectorProofs": 1,
+      "fixedPorts": 2,
+      "ownedDictionaryCopies": 1,
+      "perProofGeometryCopies": 0,
+      "originalTriangles": 24
+    }
+  },
+  "metrics": {
+    "selectedOwners": 2,
+    "selectedParts": 2,
+    "decodedAttributeGeometries": 0,
+    "transformedQueries": 0,
+    "renderExpansions": 0,
+    "nativeSourceExpansions": 2,
+    "nativePartTransforms": 2,
+    "presentationBlueprints": 0,
+    "presentationPartTransforms": 0,
+    "staticIndexBins": 8
+  },
+  "originalPartTransforms": 2,
+  "nativeCompilerCalls": 0,
+  "pairValidationSessions": 0,
+  "fullNewYorkDiagnostics": 0,
+  "worldSteps": 0,
+  "rendererCalls": 0,
+  "retainedHelpers": []
+}

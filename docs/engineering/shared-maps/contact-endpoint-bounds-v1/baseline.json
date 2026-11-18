@@ -1,0 +1,37 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Null shared-selector extension and affected synthetic mapper checks only",
+  "args": [
+    "--test",
+    "tests/integration/contact-endpoint-bounds.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/original-contact-adapter.js",
+      "lfSha256": "72970f487bcbcf38e8b6bc28e6c148514e769f18382f37732a6b20dcf3e8bb76"
+    },
+    {
+      "path": "tests/fixtures/original-contact-seam.mjs",
+      "lfSha256": "5110154d24a3f3f678e54d41cf0e26eab5386b15d03f064fb83cf442656ffa20"
+    },
+    {
+      "path": "tests/integration/contact-endpoint-bounds.test.mjs",
+      "lfSha256": "da8e93e1270daac426b87003b42e97a756959e7e7fcddf4f5b5a673209611521"
+    }
+  ],
+  "pid": 62620,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-18T02:10:13.283Z",
+  "endedAt": "2026-11-18T02:10:13.613Z",
+  "exitCode": 1,
+  "signal": null,
+  "timeoutMs": 20000,
+  "newNativeCompilerCalls": 0,
+  "newPairValidationSessions": 0,
+  "fullNewYorkDiagnostics": 0,
+  "sourceCarrierExpansions": 0,
+  "worldSteps": 0,
+  "privateProducerAuthenticationExercised": false,
+  "ports": [],
+  "retainedHelpers": []
+}

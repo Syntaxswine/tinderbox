@@ -1,0 +1,71 @@
+✖ null and absent shared selectors preserve original endpoint bounds and history (4.5856ms)
+✔ both original endpoint bounds remain mandatory, finite, ordered and containing the fixed point (7.4684ms)
+✖ native patches clip by each endpoint and additionally by any supplied shared selector (0.9415ms)
+✖ null shared selector keeps exact retirement/proof guards and still rejects explicit ranges (0.7255ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 235.0617
+
+✖ failing tests:
+
+test at tests\integration\contact-endpoint-bounds.test.mjs:11:1
+✖ null and absent shared selectors preserve original endpoint bounds and history (4.5856ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   {
+  +     reason: 'shared-selector-required',
+  +     selectorId: '19428b0ef95337ce4e9f64a6',
+  +     stage: 'source'
+  +   }
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/contact-endpoint-bounds.test.mjs:12:153)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { selectorId: '19428b0ef95337ce4e9f64a6', stage: 'source', reason: 'shared-selector-required' } ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\integration\contact-endpoint-bounds.test.mjs:19:1
+✖ native patches clip by each endpoint and additionally by any supplied shared selector (0.9415ms)
+  Error: Original contact 19428b0ef95337ce4e9f64a6: selector-unsupported
+      at reject (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/content/original-contact-adapter.js:10:52)
+      at Object.proof (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/content/original-contact-adapter.js:47:142)
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/contact-endpoint-bounds.test.mjs:20:170)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    diagnostic: { selectorId: '19428b0ef95337ce4e9f64a6', stage: 'source', reason: 'selector-unsupported', rejection: { selectorId: '19428b0ef95337ce4e9f64a6', stage: 'source', reason: 'shared-selector-required' } }
+  }
+
+test at tests\integration\contact-endpoint-bounds.test.mjs:27:1
+✖ null shared selector keeps exact retirement/proof guards and still rejects explicit ranges (0.7255ms)
+  Error: Original contact 19428b0ef95337ce4e9f64a6: selector-unsupported
+      at reject (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/content/original-contact-adapter.js:10:52)
+      at Object.proof (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/src/content/original-contact-adapter.js:47:142)
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/contact-endpoint-bounds.test.mjs:28:86)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    diagnostic: { selectorId: '19428b0ef95337ce4e9f64a6', stage: 'source', reason: 'selector-unsupported', rejection: { selectorId: '19428b0ef95337ce4e9f64a6', stage: 'source', reason: 'shared-selector-required' } }
+  }
