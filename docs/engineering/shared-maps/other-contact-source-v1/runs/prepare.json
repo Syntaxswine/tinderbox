@@ -1,0 +1,26 @@
+{
+  "owner": "Set up Tinderbox UI worktree",
+  "project": "Tinderbox",
+  "purpose": "Offline non-cornice source normalization prepare",
+  "executable": "C:\\Users\\baals\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "arguments": [
+    "-B",
+    "C:\\Users\\baals\\.codex\\worktrees\\fire-ui-reconcile\\tinderbox\\docs\\engineering\\shared-maps\\other-contact-source-v1\\prepare.py"
+  ],
+  "cwd": "C:\\Users\\baals\\.codex\\worktrees\\fire-ui-reconcile\\tinderbox",
+  "startedAt": "2026-11-18T01:52:36.655356+00:00",
+  "timeoutSeconds": 60,
+  "maximumRegions": 0,
+  "background": false,
+  "ports": [],
+  "endCondition": "Finite child exits; parent waits and enforces deadline.",
+  "sourcePins": {
+    "prepare.py": "1efc362933b1fbc471dc4fa8e7433fb3f9c0b1235a12abd459fbf2182969851c",
+    "page.mjs": "7db6988f2b6efa5709c07136dd7a8b9c590248856ea788c19cc86f2f2237c82a"
+  },
+  "pid": 32744,
+  "endedAt": "2026-11-18T01:52:39.748778+00:00",
+  "exitCode": 0,
+  "foregroundCompleted": true,
+  "logSha256": "c19d383ae68d46d32317e572a04336353c0628f573ce4bf38d3433095158514b"
+}

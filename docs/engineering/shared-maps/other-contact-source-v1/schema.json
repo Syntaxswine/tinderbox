@@ -1,0 +1,334 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Other original contacts, first-page source proposal",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "runtimeConsumable",
+    "geometries",
+    "topologies",
+    "instances",
+    "relationships",
+    "regions",
+    "representatives",
+    "summary"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "runtimeConsumable": {
+      "const": false
+    },
+    "geometries": {
+      "type": "array",
+      "minItems": 92,
+      "maxItems": 92,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "path",
+          "rawSha256",
+          "commit",
+          "status"
+        ]
+      }
+    },
+    "topologies": {
+      "type": "array"
+    },
+    "instances": {
+      "type": "array",
+      "minItems": 1703,
+      "maxItems": 1703,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "ownerId",
+          "partId",
+          "sourcePartId",
+          "globalSourcePartIndex",
+          "globalCarrierIndex",
+          "geometry",
+          "sourceRange",
+          "primitiveBase",
+          "emittedWorldMatrix",
+          "role",
+          "canonicalRecipe",
+          "nativeRecordId",
+          "nativeCell"
+        ],
+        "properties": {
+          "emittedWorldMatrix": {
+            "type": "array",
+            "minItems": 16,
+            "maxItems": 16,
+            "items": {
+              "type": "number"
+            }
+          },
+          "nativeRecordId": {
+            "type": "null"
+          },
+          "nativeCell": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "minItems": 1582,
+      "maxItems": 1582
+    },
+    "regions": {
+      "type": "array",
+      "minItems": 1582,
+      "maxItems": 1582,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "relationship",
+          "family",
+          "parent",
+          "child",
+          "sourcePointer",
+          "originalRegionCanonicalSha256",
+          "selector",
+          "endpointBounds",
+          "historical",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string"
+          },
+          "parent": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "child": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "selector": {
+            "anyOf": [
+              {
+                "type": "object",
+                "required": [
+                  "min",
+                  "max"
+                ],
+                "properties": {
+                  "min": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "max": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "endpointBounds": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "object",
+              "required": [
+                "min",
+                "max"
+              ],
+              "properties": {
+                "min": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "max": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          },
+          "status": {
+            "enum": [
+              "source-contact-proposed",
+              "unproved",
+              "UNATTEMPTED"
+            ]
+          },
+          "contact": {
+            "type": "object",
+            "required": [
+              "point",
+              "primitives",
+              "rangeLocalPrimitives",
+              "components",
+              "normals",
+              "derivation",
+              "membership"
+            ],
+            "properties": {
+              "point": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 3,
+                "items": {
+                  "type": "number"
+                }
+              },
+              "primitives": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "rangeLocalPrimitives": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "components": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "normals": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "membership": {
+                "const": "unchanged-original-segmentTriangle"
+              }
+            }
+          },
+          "historical": {
+            "type": "object",
+            "required": [
+              "geometricBearing",
+              "parentWitness",
+              "childWitness"
+            ],
+            "properties": {
+              "geometricBearing": {
+                "const": false
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "source-contact-proposed"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "contact",
+                "checks"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "unproved"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "unprovedCode",
+                "unprovedInstances"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "UNATTEMPTED"
+                }
+              }
+            },
+            "then": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "contact"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "checks"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "representatives": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8
+    }
+  }
+}
