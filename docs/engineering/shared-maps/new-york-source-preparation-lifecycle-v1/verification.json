@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "scope": "Owning host disposal during deferred source-projection load",
+  "runs": [
+    {
+      "name": "original-failure",
+      "passed": false,
+      "groups": 1,
+      "compiler": 0,
+      "trials": 0,
+      "steps": 0,
+      "receiptSha256": "2f3b57e85b93933daa8c689dd2aa9344c7ef05c7bf0128622ccea5190d009d5c",
+      "logSha256": "54b346fb28c772b13a61ee6663194b17101120514e1d70ff844903a8929bed61"
+    },
+    {
+      "name": "corrected",
+      "passed": true,
+      "groups": 31,
+      "compiler": 50,
+      "trials": 15,
+      "steps": 4,
+      "receiptSha256": "f0614077661e5bc85bba9e29a68b48c70af935f7ea972f174653c0095f420790",
+      "logSha256": "b339efdcd4821580de7135c2c06a5599c9824bdc62e8302820e0889417830b5e"
+    }
+  ],
+  "correctedGroups": 31,
+  "syntheticCompilerCalls": 50,
+  "syntheticDisposedTrials": 15,
+  "syntheticSteps": 4,
+  "lateAppends": 0,
+  "lateQueryAttempts": 0,
+  "retainedProjectionBuffers": 0,
+  "helpersClosed": 2,
+  "actualNewYorkPreparations": 0,
+  "actualNewYorkTransforms": 0,
+  "actualNativeCompiles": 0,
+  "actualTrials": 0,
+  "actualClockSteps": 0,
+  "supportEvaluations": 0,
+  "renderers": 0,
+  "builds": 0,
+  "priorPacketsUnchanged": true,
+  "protectedWipExcluded": true
+}

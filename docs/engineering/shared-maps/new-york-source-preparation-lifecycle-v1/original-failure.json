@@ -1,0 +1,104 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Deferred source-preparation host-disposal P2 reproduction/correction",
+  "pid": 17456,
+  "creationTime": "2026-11-18T08:28:29.147Z",
+  "startedAt": "2026-11-18T08:28:29.147Z",
+  "endedAt": "2026-11-18T08:28:29.370Z",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "--test-name-pattern=^P2 owning host",
+    "tests/integration/shared-map-source-preparation.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/shared-map.js",
+      "lfSha256": "4d3ba37b937afe858c88a4311f28222c652c96bc2cc35c49a47e90882349a812"
+    },
+    {
+      "path": "src/content/shared-map-source-preparation.js",
+      "lfSha256": "f90e6224aa25a0a439b95ede6e9fd4f0bb0b5d5903f8047cbfd99ebc9e01846d"
+    },
+    {
+      "path": "src/content/shared-map-inputs.js",
+      "lfSha256": "7d5e9f697027d082489e3df8ed5082cc23238310b66361283bdca706871814bc"
+    },
+    {
+      "path": "tests/integration/shared-map-source-preparation.test.mjs",
+      "lfSha256": "08d5e2ece4b9d06e0936294a333e98d3888817dc4315c0325445a9319e3c5a0b"
+    },
+    {
+      "path": "tests/fixtures/shared-map-input-data.mjs",
+      "lfSha256": "6a2a1c406f05e9b443f7eb60b86692cb32586b12b30e0606c59276b632e46584"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-lifecycle-v1/run.mjs",
+      "lfSha256": "72a73418954f467ea708cb78b6ea39e30e4e8d51e2e136d10a19eb291a11bc18"
+    }
+  ],
+  "passed": false,
+  "exitCode": 1,
+  "groups": 1,
+  "resources": {
+    "evidence": [],
+    "lifecycleEvidence": [
+      {
+        "sameLibrary": false,
+        "parts": 4,
+        "owners": 4,
+        "partIds": 4,
+        "ownerIds": 4,
+        "geometryIds": [
+          "floor",
+          "fit",
+          "roof",
+          "upper-physical",
+          "upper-render"
+        ],
+        "queryAttempts": 1,
+        "worldWrites": 0,
+        "blueprintWrites": 0,
+        "geometry": {
+          "canonicalCarriers": 4,
+          "sourceParts": 4,
+          "decodedUniqueGeometries": 3,
+          "appearanceMaterials": 1,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "nativeBlueprints": 0,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 0,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 0,
+          "nativePartTransforms": 0,
+          "borrowedNativeParts": 0,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 1
+        },
+        "query": null
+      }
+    ],
+    "compiler": {
+      "calls": 0
+    },
+    "trial": {
+      "created": 0,
+      "steps": 0,
+      "disposed": 0
+    },
+    "actualNewYorkSourcePreparations": 0
+  },
+  "timeoutMs": 30000,
+  "maxSteps": 64,
+  "maxSourceCells": 64,
+  "maxSourceTriangles": 256,
+  "actualNewYorkPreparations": 0,
+  "actualNewYorkTransforms": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

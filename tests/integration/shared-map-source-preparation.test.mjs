@@ -6,10 +6,10 @@ import {preflightSharedMapSourcePreparation,prepareSharedMapSourceInputs} from '
 import {sharedMapInputInventory} from '../../src/content/shared-map-inputs.js';
 import {sceneCompileDiagnostics} from '../../workbenches/furnished-house/scene.js';
 import {trialDiagnostics,limitDiagnosticTrialSteps} from '../../workbenches/furnished-house/simulation.js';
-limitDiagnosticTrialSteps(64);const evidence=[];
+limitDiagnosticTrialSteps(64);const evidence=[],lifecycleEvidence=[];
 const compile=f=>compileSharedMap(f.index,f.library,f.navigation),budget={owners:4,parts:4,physicalTriangles:28};
 const prepare=(f,c,options={})=>prepareSharedMapSourceInputs({compiled:c,descriptor:f.descriptor,policy:f.policy,budget,loadProjection:f.loadProjection,...options});
-after(()=>console.log('SOURCE_PREPARATION_SYNTHETIC '+JSON.stringify({evidence,compiler:sceneCompileDiagnostics(),trial:trialDiagnostics(),actualNewYorkSourcePreparations:0})));
+after(()=>console.log('SOURCE_PREPARATION_SYNTHETIC '+JSON.stringify({evidence,lifecycleEvidence,compiler:sceneCompileDiagnostics(),trial:trialDiagnostics(),actualNewYorkSourcePreparations:0})));
 
 test('source-only preparation borrows originals once, derives unchanged own witnesses and preserves full finish allocation',async()=>{
   const f=inputFixture({dualUpper:true});f.index.carriers[0].finish={fuelClass:'lacquer',amount:.025};f.descriptor.owners[0].finish={fuelClass:'lacquer',amount:.025};const c=compile(f),before=sceneCompileDiagnostics().calls,original=structuredClone(f.descriptor);let table,blueprints;
@@ -36,4 +36,14 @@ test('source boundary preserves produced world evidence and disposes its registr
 
 test('source cancellation during projection loading appends nothing and transforms no source',async()=>{
   const f=inputFixture(),c=compile(f),controller=new AbortController();let resume;const gate=new Promise(resolve=>resume=resolve);try{const p=prepare(f,c,{signal:controller.signal,loadProjection:async ref=>{await gate;return f.loadProjection(ref);}});controller.abort();resume();await assert.rejects(p,/abort/i);assert.equal(c.model.parts.length,3);assert.equal(c.sources.metrics().transformedQueries,0);}finally{c.dispose();}
+});
+
+test('P2 owning host disposal during deferred projection loads prevents late append and retained buffers',async()=>{
+  const f=inputFixture(),c=compile(f),library=c.model.library,geometryIds=Object.keys(library.geometries),partCount=c.model.parts.length,ownerCount=c.model.carriers.length;let releaseLoads,loadsStarted,started=0,queryAttempts=0,worldWrites=0,blueprintWrites=0;
+  const gate=new Promise(resolve=>releaseLoads=resolve),loading=new Promise(resolve=>loadsStarted=resolve),originalCreate=c.createQuerySource;c.createQuerySource=()=>{queryAttempts++;return originalCreate();};
+  const pending=prepare(f,c,{loadProjection:async ref=>{if(++started===3)loadsStarted();await gate;return f.loadProjection(ref);},onWorldTable:()=>{worldWrites++;},onBlueprints:()=>{blueprintWrites++;}});
+  try{await loading;c.dispose();assert.equal(c.sources.metrics().staticIndexBins,0);releaseLoads();await assert.rejects(pending,/Compiled map disposed/);
+    const observed={sameLibrary:c.model.library===library,parts:c.model.parts.length,owners:c.model.carriers.length,partIds:c.model.partById.size,ownerIds:c.model.carrierById.size,geometryIds:Object.keys(c.model.library.geometries),queryAttempts,worldWrites,blueprintWrites,geometry:c.sources.metrics(),query:c.metrics().query??null};lifecycleEvidence.push(observed);
+    assert.equal(observed.sameLibrary,true);assert.equal(observed.parts,partCount);assert.equal(observed.owners,ownerCount);assert.equal(observed.partIds,partCount);assert.equal(observed.ownerIds,ownerCount);assert.deepEqual(observed.geometryIds,geometryIds);assert.equal(queryAttempts,0);assert.equal(worldWrites,0);assert.equal(blueprintWrites,0);assert.equal(observed.geometry.transformedQueries,0);assert.equal(observed.geometry.nativeSourceExpansions,0);assert.equal(observed.geometry.nativeBlueprints,0);assert.equal(observed.geometry.decodedAttributeGeometries,0);assert.equal(observed.geometry.staticIndexBins,0);assert.equal(observed.query,null);assert.equal(c.sources.order('fixture::upper'),undefined);assert.deepEqual(c.sources.near([.5,.125,.25],1),[]);c.dispose();assert.equal(c.sources.metrics().staticIndexBins,0);
+  }finally{releaseLoads();await pending.catch(()=>{});c.dispose();}
 });
