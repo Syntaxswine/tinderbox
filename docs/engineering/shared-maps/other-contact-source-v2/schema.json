@@ -13,7 +13,8 @@
     "regions",
     "summary",
     "priorCheckpoint",
-    "pageEvidence"
+    "pageEvidence",
+    "normalConventions"
   ],
   "properties": {
     "version": {
@@ -276,6 +277,25 @@
                 "const": false
               }
             }
+          },
+          "normalMetadata": {
+            "type": "object",
+            "required": [
+              "convention",
+              "path",
+              "pointer"
+            ],
+            "properties": {
+              "convention": {
+                "const": "core-componentwise-division"
+              },
+              "path": {
+                "const": "normal-conventions.json"
+              },
+              "pointer": {
+                "type": "string"
+              }
+            }
           }
         },
         "allOf": [
@@ -333,6 +353,23 @@
                 ]
               }
             }
+          },
+          {
+            "if": {
+              "required": [
+                "proofOrigin"
+              ],
+              "properties": {
+                "status": {
+                  "const": "source-contact-proposed"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "normalMetadata"
+              ]
+            }
           }
         ]
       }
@@ -348,6 +385,16 @@
     "pageEvidence": {
       "type": "array",
       "maxItems": 8
+    },
+    "normalConventions": {
+      "type": "object",
+      "required": [
+        "path",
+        "rawSha256",
+        "newV2Convention",
+        "priorReferenceConvention",
+        "priorReferencePayloadsPreserved"
+      ]
     }
   }
 }
