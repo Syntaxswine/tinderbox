@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {world} from '../../../tests/fixtures/hybrid-world-data.mjs';
+import {trialDiagnostics,limitDiagnosticTrialSteps} from '../../../workbenches/furnished-house/simulation.js';
+import {sceneCompileDiagnostics} from '../../../workbenches/furnished-house/scene.js';
+limitDiagnosticTrialSteps(0);
+let notices=0;const f=world({onActivated(){notices++;}});let plan;
+try{
+  const before=f.activation.state();plan=f.activation.prepare({whole:['floor-owner']});
+  f.trial.replaceSupportReferences=()=>{throw Error('Injected post-commit support-reference failure');};
+  let failure;try{plan.publish();}catch(error){failure=error;}
+  const result={failure:failure?.message,committedErrorFlag:failure?.committed===true,
+    publicationAdvanced:f.activation.state()!==before,activationNotices:notices,
+    floorClaimed:f.queries.isClaimedPart('floor'),fuelAdded:f.trial.metrics().fuel.added,
+    coldReserve:f.ledger.metrics().coldReserve,compiler:sceneCompileDiagnostics(),
+    trialBeforeCleanup:trialDiagnostics(),actualNewYorkCalls:0};
+  assert.equal(result.publicationAdvanced,true);assert.equal(result.committedErrorFlag,false);
+  assert.equal(result.activationNotices,0);assert.equal(result.floorClaimed,true);
+  fs.writeFileSync('artifacts/qa/m29-architect-intake/hybrid-postcommit-repro.json',JSON.stringify(result,null,2)+'\n');
+  console.log(JSON.stringify(result));
+}finally{plan?.dispose();f.dispose();}
+assert.equal(trialDiagnostics().created,trialDiagnostics().disposed);

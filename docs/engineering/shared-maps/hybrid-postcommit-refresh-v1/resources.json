@@ -1,0 +1,42 @@
+{
+  "base": "aaf7a0f8015418bcef341b9c0cd1a81de93ec903",
+  "method": "Saved scalar logs only; no test replay",
+  "runs": [
+    {
+      "name": "focused-final",
+      "passed": false,
+      "tests": 6,
+      "passedGroups": 5,
+      "compiler": {
+        "calls": 15
+      },
+      "trial": {
+        "created": 6,
+        "steps": 3,
+        "disposed": 6
+      },
+      "receiptSha256": "5c388536e608ddf24c66c10e2a447b037cf88f8139a090141b8dca34125ca783",
+      "logSha256": "10e2f72a371632a32eca69ff5de57ae6804a438608be7ee554abbf40e18911ed"
+    },
+    {
+      "name": "corrected-final",
+      "passed": true,
+      "tests": 6,
+      "passedGroups": 6,
+      "compiler": {
+        "calls": 16
+      },
+      "trial": {
+        "created": 6,
+        "steps": 3,
+        "disposed": 6
+      },
+      "receiptSha256": "3ca42ba037dd76601f5e38d88cf5bf85d443e61df21c76855d0646c9df73d1aa",
+      "logSha256": "59022414217e648a175af88f9492d37f668901a2927d404109caee672b0c93c3"
+    }
+  ],
+  "actualNewYorkCalls": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "legacyRuns": 0
+}

@@ -1,0 +1,58 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Focused post-commit support-reference exception/drain/cleanup and readable oil refresh",
+  "baseline": "aaf7a0f8015418bcef341b9c0cd1a81de93ec903",
+  "sourcePins": [
+    {
+      "path": "src/simulation/hybrid-world-publication.js",
+      "lfSha256": "bcc37c468a11066123b2be0b7f21d28a68e1c40b4bcc206b1055c28323dbb508"
+    },
+    {
+      "path": "tests/integration/hybrid-postcommit-refresh.test.mjs",
+      "lfSha256": "4d4b7cbe1b8c65bb96c24b9b593dad6faff196359626f3d21e4e00036cb1a318"
+    },
+    {
+      "path": "tests/fixtures/hybrid-world-data.mjs",
+      "lfSha256": "f93182dbad50827074a735e690a2e4edd6c3d4fcb841e23e8d43c3390001b6c5"
+    },
+    {
+      "path": "tests/integration/hybrid-world-corrections.test.mjs",
+      "lfSha256": "f97c30f6a16539fd30a2a6bb4a63db477a5470860ab93d95087f80e6a54c3c2e"
+    },
+    {
+      "path": "tests/integration/hybrid-world-publication.test.mjs",
+      "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8"
+    },
+    {
+      "path": "docs/engineering/shared-maps/hybrid-postcommit-refresh-v1/run.mjs",
+      "lfSha256": "f173a3e00fd8b367d405492b3d2599a0381ce09b8593ef26dbc61a84cc8fcabc"
+    }
+  ],
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "--test-name-pattern=post-commit support-reference|the architect support-notification fault|post-commit notifications permit|activation and index observer failures|coupled whole floor/fitting",
+    "tests/integration/hybrid-postcommit-refresh.test.mjs",
+    "tests/integration/hybrid-world-corrections.test.mjs",
+    "tests/integration/hybrid-world-publication.test.mjs"
+  ],
+  "pid": 12468,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-18T06:02:39.158Z",
+  "endedAt": "2026-11-18T06:02:39.536Z",
+  "exitCode": 0,
+  "observedPass": true,
+  "timeoutMs": 30000,
+  "maxTrialSteps": 64,
+  "maxSourceCells": 64,
+  "maxSourceThermalTriangles": 256,
+  "actualNewYorkCalls": 0,
+  "fullNewYorkDiagnostics": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "benchmarks": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

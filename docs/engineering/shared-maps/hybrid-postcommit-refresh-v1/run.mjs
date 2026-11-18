@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+const dir='docs/engineering/shared-maps/hybrid-postcommit-refresh-v1/',name=process.argv[2];
+if(!/^[a-z0-9-]+$/.test(name||'')||fs.existsSync(dir+name+'.json'))throw Error('Fresh named bounded child required');
+const sha=b=>createHash('sha256').update(b).digest('hex'),paths=['src/simulation/hybrid-world-publication.js','tests/integration/hybrid-postcommit-refresh.test.mjs','tests/fixtures/hybrid-world-data.mjs','tests/integration/hybrid-world-corrections.test.mjs','tests/integration/hybrid-world-publication.test.mjs',dir+'run.mjs'];
+const sourcePins=paths.map(path=>({path,lfSha256:sha(fs.readFileSync(path,'utf8').replace(/\r\n/g,'\n'))}));
+const args=['--test','--test-reporter=tap','--experimental-test-isolation=none','--test-concurrency=1','--test-name-pattern=post-commit support-reference|the architect support-notification fault|post-commit notifications permit|activation and index observer failures|coupled whole floor/fitting','tests/integration/hybrid-postcommit-refresh.test.mjs','tests/integration/hybrid-world-corrections.test.mjs','tests/integration/hybrid-world-publication.test.mjs'];
+const startedAt=new Date().toISOString(),child=spawnSync(process.execPath,args,{windowsHide:true,timeout:30000,encoding:'utf8',maxBuffer:1024*1024}),log=(child.stdout||'')+(child.stderr||'');
+fs.writeFileSync(dir+name+'.log',log);const passed=child.status===0&&!/^not ok |^# fail [1-9]/m.test(log);
+if(!passed)fs.writeFileSync(dir+name+'-failed-inputs.json',JSON.stringify(paths.map(path=>({path,text:fs.readFileSync(path,'utf8')})),null,2)+'\n');
+fs.writeFileSync(dir+name+'.json',JSON.stringify({owner:'Coder Tinderbox',purpose:'Focused post-commit support-reference exception/drain/cleanup and readable oil refresh',baseline:'aaf7a0f8015418bcef341b9c0cd1a81de93ec903',sourcePins,args,pid:child.pid,executable:process.execPath,startedAt,endedAt:new Date().toISOString(),exitCode:child.status,observedPass:passed,timeoutMs:30000,maxTrialSteps:64,maxSourceCells:64,maxSourceThermalTriangles:256,actualNewYorkCalls:0,fullNewYorkDiagnostics:0,rendererCalls:0,builds:0,benchmarks:0,ports:[],retainedHelpers:[]},null,2)+'\n');
+const hook=log.match(/^(?:# )?REFRESH_RESOURCES (.+)$/m),resource=hook?JSON.parse(hook[1]):null;console.log(JSON.stringify({name,passed,tests:Number(log.match(/^# tests (\d+)$/m)?.[1]),compiler:resource?.compiler,trial:resource?.trial,log:dir+name+'.log'}));process.exitCode=passed?0:(child.status||1);
