@@ -1,0 +1,81 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Synthetic existing-host factory admission, ownership, birth and lifecycle controls",
+  "sourcePins": [
+    {
+      "path": "src/content/shared-map-admission.js",
+      "lfSha256": "ba8b38cc6b9eec0cf2a521febca09ed02e8ecbc610cf0032aa2f3439e249ec32"
+    },
+    {
+      "path": "src/content/shared-map-inputs.js",
+      "lfSha256": "1247950f4bc4167b8643e75731d302db65d572a93d31ac13424bd7eeea61293d"
+    },
+    {
+      "path": "src/content/map-source-geometry.js",
+      "lfSha256": "ac6f691e8745506afce7bac2e00c09fa40d7d4263444c1d9a0e4ab07d1a0bf7c"
+    },
+    {
+      "path": "src/content/shared-map.js",
+      "lfSha256": "5deee358bfb1fa949b596ee3e168f3d0b4dfe1ace72df58c2519dfb255e13821"
+    },
+    {
+      "path": "src/runtime/shared-map.js",
+      "lfSha256": "9668582d43300011d5dfb7cd046a7e1a7a3b85d714b6e7b8605d5750a0e5ad13"
+    },
+    {
+      "path": "src/simulation/hybrid-world-publication.js",
+      "lfSha256": "c6aab29d8003a5f1c71b63a3147b65c8526d80999fdc20692bc92abcf69089b0"
+    },
+    {
+      "path": "tests/fixtures/shared-map-input-data.mjs",
+      "lfSha256": "5ad3efe198172fa96e5ac073deb8e4708ba87e04f690366cf18f07a9bf2f7270"
+    },
+    {
+      "path": "tests/integration/shared-map-inputs.test.mjs",
+      "lfSha256": "3f965efa2595fc9a0bbdbfb6303d7f383f7bbc92a0ae43d19191c0559d15aaee"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-inputs-v1/run.mjs",
+      "lfSha256": "5d92609dc5ad6c1bd90f3183bd7b3f05a7bd65350b9520f6a98a216b2800ff5b"
+    },
+    {
+      "path": "tests/integration/map-source-geometry.test.mjs",
+      "lfSha256": "39a30f917abf23f2266e135a0d4ea06a37aa0b4b562c52b6b4ff66a82c2dfd40"
+    },
+    {
+      "path": "tests/integration/hybrid-world-publication.test.mjs",
+      "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8"
+    },
+    {
+      "path": "tests/fixtures/hybrid-world-data.mjs",
+      "lfSha256": "f93182dbad50827074a735e690a2e4edd6c3d4fcb841e23e8d43c3390001b6c5"
+    }
+  ],
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "tests/integration/shared-map-inputs.test.mjs",
+    "tests/integration/map-source-geometry.test.mjs",
+    "tests/integration/hybrid-world-publication.test.mjs"
+  ],
+  "pid": 992,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "creationTime": "2026-11-18T07:10:38.776Z",
+  "startedAt": "2026-11-18T07:10:38.776Z",
+  "endedAt": "2026-11-18T07:10:39.640Z",
+  "exitCode": 0,
+  "observedPass": true,
+  "timeoutMs": 30000,
+  "maxTrialSteps": 64,
+  "maxSourceCells": 64,
+  "maxSourceThermalTriangles": 256,
+  "actualNewYorkExpansions": 0,
+  "actualNewYorkCompilerCalls": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "benchmarks": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

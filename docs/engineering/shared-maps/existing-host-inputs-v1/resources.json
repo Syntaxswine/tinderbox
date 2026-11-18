@@ -1,0 +1,96 @@
+{
+  "method": "Saved logs/metadata/pins only; no execution replay",
+  "runs": [
+    {
+      "name": "initial",
+      "passed": false,
+      "groups": 7,
+      "compiler": 0,
+      "trials": 0,
+      "steps": 0,
+      "logSha256": "53b048f6780898d25a95af0838435f88253618de06ab9451d631b825f7af7172",
+      "receiptSha256": "007d74e18138d1bff6f19bc4de735b4aa7e05458ddcd006c39b9e5646902038e"
+    },
+    {
+      "name": "corrected-witness",
+      "passed": false,
+      "groups": 7,
+      "compiler": 8,
+      "trials": 2,
+      "steps": 0,
+      "logSha256": "97db5eb91e88084fa143f589d9a1ea2c2708bd83b3739491bda52d3a7854a491",
+      "receiptSha256": "2e5160823eb2173b8f19561bfe2bd54e25070539de6d6758b5c39b1c66883c07"
+    },
+    {
+      "name": "cleanup-corrected",
+      "passed": true,
+      "groups": 7,
+      "compiler": 12,
+      "trials": 3,
+      "steps": 0,
+      "logSha256": "6f0a53a88eeec62e0259307b63639699c21de76cc7cd716745387145949991da",
+      "receiptSha256": "241ed59423987f970f7ce536e9bfd5ba3d2f155778866287844f2a9bee8531d0"
+    },
+    {
+      "name": "admission-and-dual-endpoints",
+      "passed": true,
+      "groups": 9,
+      "compiler": 16,
+      "trials": 4,
+      "steps": 0,
+      "logSha256": "9e6f7773c1c26937afa2e702e7f00540f065e59c4172e0e573563c4759006428",
+      "receiptSha256": "08d5c8e877f4eb4251f53fdd6911528ab7df7931bdf883f3e9061cd2edc8a048"
+    },
+    {
+      "name": "final-controls",
+      "passed": true,
+      "groups": 21,
+      "compiler": 46,
+      "trials": 14,
+      "steps": 4,
+      "logSha256": "5e8c285de759fbbce8f1dd485bf82fb242ecc2ccbef7bb1b10536dd5e4825cf9",
+      "receiptSha256": "245c359c3c5b2e12dd1fb3ee9236f029ebabf60a782dddf480a84fb36c524cbb"
+    },
+    {
+      "name": "delivery",
+      "passed": true,
+      "groups": 21,
+      "compiler": 46,
+      "trials": 14,
+      "steps": 4,
+      "logSha256": "87cbc765a799324aaf098c1f0a29c489473b7935cbb1c6215227803a3bab5b2b",
+      "receiptSha256": "42ba7b783faa2f86204895faa97a75632d5e3d44ce8174b1f451577445f80dab"
+    },
+    {
+      "name": "delivery-material",
+      "passed": false,
+      "groups": 21,
+      "compiler": 43,
+      "trials": 14,
+      "steps": 4,
+      "logSha256": "5d5e22a80cc9bc51d747fcc78be508571a5785fe78a2a38da0c05b59044b36a9",
+      "receiptSha256": "e1645bc51d57bbde58b2f12e1eeeb00ad6462e0130cf406937792345d251eb5c"
+    },
+    {
+      "name": "final-stock",
+      "passed": true,
+      "groups": 21,
+      "compiler": 46,
+      "trials": 14,
+      "steps": 4,
+      "logSha256": "c5de38fec9f9d224abf7e21bba45a9e3cdff4908ed44cce278fd54455228f86c",
+      "receiptSha256": "dea2897e27ca652fdbe020d6787b8f2423171e80cc92aa92af992da19c89f76c"
+    }
+  ],
+  "totals": {
+    "compiler": 217,
+    "trials": 65,
+    "steps": 16
+  },
+  "actualNewYorkExpansions": 0,
+  "actualNewYorkCompilerCalls": 0,
+  "fullNewYorkDiagnostics": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "benchmarks": 0
+}

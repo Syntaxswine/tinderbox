@@ -1,0 +1,53 @@
+TAP version 13
+# Subtest: existing host prepares one projection, shares original transforms and binds genuine births with full Q
+ok 1 - existing host prepares one projection, shares original transforms and binds genuine births with full Q
+  ---
+  duration_ms: 59.3493
+  type: 'test'
+  ...
+# Subtest: metadata missing roots, ranges, canonical Q/mode, caps, mapping, cache and unknown paired proof reject before expansion
+ok 2 - metadata missing roots, ranges, canonical Q/mode, caps, mapping, cache and unknown paired proof reject before expansion
+  ---
+  duration_ms: 6.5516
+  type: 'test'
+  ...
+# Subtest: unborn native IDs are expected; unknown projection or source plans cannot masquerade as proof
+ok 3 - unborn native IDs are expected; unknown projection or source plans cannot masquerade as proof
+  ---
+  duration_ms: 0.7943
+  type: 'test'
+  ...
+# Subtest: reset disposes each binding and reuses the same decoded owner; old disposal cannot release new pins
+ok 4 - reset disposes each binding and reuses the same decoded owner; old disposal cannot release new pins
+  ---
+  duration_ms: 45.464
+  type: 'test'
+  ...
+# Subtest: late abort, disposal and bad projection mapping prevent installation and the runtime hook
+ok 5 - late abort, disposal and bad projection mapping prevent installation and the runtime hook
+  ---
+  duration_ms: 2.225
+  type: 'test'
+  ...
+# Subtest: existing runtime hook routes one source decode and preparation, disposes failed setup and keeps rejection visible
+ok 6 - existing runtime hook routes one source decode and preparation, disposes failed setup and keeps rejection visible
+  ---
+  duration_ms: 1.4334
+  type: 'test'
+  ...
+INPUT_RESOURCES {"compiler":{"calls":12},"trial":{"created":3,"steps":0,"disposed":3},"resources":[{"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":1,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":2,"visitedCells":6,"certificateBuilds":2,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2}},{"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":1,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":2,"visitedCells":6,"certificateBuilds":2,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2}},{"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":2,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":2,"visitedCells":6,"certificateBuilds":2,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"decodedAttributeGeometries":0,"transformedQueries":8,"renderExpansions":0,"nativeSourceExpansions":8,"nativePartTransforms":0,"borrowedNativeParts":8,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2}}],"actualNewYorkExpansions":0,"actualNewYorkCompilerCalls":0,"rendererCalls":0,"builds":0}
+# Subtest: projection fetch verifies pinned bytes and abort before interpreting geometry
+ok 7 - projection fetch verifies pinned bytes and abort before interpreting geometry
+  ---
+  duration_ms: 6.4442
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 420.6023

@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "scope": "Small unchanged approved projection; staged but not admitted or installed",
+  "source": {
+    "commit": "c1ed407aedfc5ffec8b473dc7b88c697e140c054",
+    "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/index.json",
+    "sha256": "0d1469e541657fa6f3ed537ff2f4ba7fe01f3952c273e0eba2720c224a436bcd"
+  },
+  "files": [
+    {
+      "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/physical.json",
+      "source": {
+        "commit": "c1ed407aedfc5ffec8b473dc7b88c697e140c054",
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/geometry/physical.json",
+        "sha256": "85b98cb5b08f53573e7f3e96655908fb38d6eca431d052fa31869c7e2910a908"
+      },
+      "bytes": 1116
+    },
+    {
+      "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/render.json",
+      "source": {
+        "commit": "c1ed407aedfc5ffec8b473dc7b88c697e140c054",
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/geometry/render.json",
+        "sha256": "f8ab8db6a18654e691580f2de3beb283a8675750e247aece503fd9080b697243"
+      },
+      "bytes": 9479
+    },
+    {
+      "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/vertex-mapping.json",
+      "source": {
+        "commit": "c1ed407aedfc5ffec8b473dc7b88c697e140c054",
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/geometry/vertex-mapping.json",
+        "sha256": "72bc95fe33f77c80d863edba9ab4f1695dd2755026c368ebe5b823af0cacca8c"
+      },
+      "bytes": 3228
+    },
+    {
+      "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/quantity-certificate.json",
+      "source": {
+        "commit": "c1ed407aedfc5ffec8b473dc7b88c697e140c054",
+        "path": "art/source/shared-map-fire-bindings/roof-saddle-native-buffer-v1/quantity-certificate.json",
+        "sha256": "d1f71899b0f213341cb57582c05bb4cb0dc924f186e055b94c8476d50b2636fa"
+      },
+      "bytes": 1480
+    }
+  ],
+  "adaptation": "New stable appended runtime owner/part and geometry keys; original matrix/Q/physical-render vertex mapping preserved. No authoring archive fetch.",
+  "rights": "Original provenance is preserved; no new license grant is inferred."
+}

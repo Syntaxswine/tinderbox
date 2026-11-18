@@ -1,0 +1,154 @@
+{
+  "sourceRevision": "e733ed1050828f50b405f9927dd340acf3eba4d201eda79e939dcd5bf2af8a5b",
+  "reviewedRefs": [
+    {
+      "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+      "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/final-source-certificate.json",
+      "sha256": "7bca471f9157c098b0b6d4b980cb735b228fafd781d1c81bee2adec53d1958fa"
+    },
+    {
+      "commit": "4a99019690124b36c9afd026ed18ee2fda3b218d",
+      "path": "art/source/shared-map-fire-bindings/new-york-lower-root-dual-endpoint-v1/result.json",
+      "sha256": "cb24cb3370682bf945a66ad61b9d2baf7799dcbcd1d6907841a4009141a9dec9"
+    }
+  ],
+  "approvedProjections": [
+    {
+      "approval": {
+        "commit": "c1ed407aedfc5ffec8b473dc7b88c697e140c054",
+        "path": "assets/art/shared-map-support-additions/new-york-roof-saddle-native-v1/index.json",
+        "sha256": "0d1469e541657fa6f3ed537ff2f4ba7fe01f3952c273e0eba2720c224a436bcd"
+      },
+      "canonicalOwnerCount": 1,
+      "newAnchor": false,
+      "owner": {
+        "id": "carrier/roof-saddle-native/main-parapet-6/bay-01",
+        "globalIndex": 12446,
+        "parts": [
+          "roof-saddle-native/main-parapet-6/bay-01"
+        ],
+        "fuelAmount": 0.04011965567822286,
+        "fuelClass": "frame",
+        "finish": null,
+        "material": "timber",
+        "quantityRule": "declared-canonical",
+        "role": "timber-fitting",
+        "bounds": {
+          "max": [
+            49.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            49.42,
+            17.05000000357628,
+            59.92
+          ]
+        }
+      },
+      "part": {
+        "id": "roof-saddle-native/main-parapet-6/bay-01",
+        "globalIndex": 12858,
+        "geometry": "runtime/saddle6-01/render/f8ab8db6a18654e691580f2de3beb283a8675750e247aece503fd9080b697243",
+        "physicalGeometry": "runtime/saddle6-01/physical/85b98cb5b08f53573e7f3e96655908fb38d6eca431d052fa31869c7e2910a908",
+        "physicalTriangles": 16,
+        "bounds": {
+          "max": [
+            49.58,
+            17.260000001788136,
+            60.08
+          ],
+          "min": [
+            49.42,
+            17.05000000357628,
+            59.92
+          ]
+        },
+        "static": true,
+        "sourceRange": null,
+        "appearance": "1889c49c58682807c8a86350feff6f3d04caab236cdd480952cdb1ce56996490",
+        "closed": true,
+        "matrix": [
+          0.16,
+          0,
+          0,
+          0,
+          0,
+          0.20999999821185966,
+          0,
+          0,
+          0,
+          0,
+          0.16,
+          0,
+          49.5,
+          17.155000002682208,
+          60,
+          1
+        ]
+      },
+      "physical": {
+        "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/physical.json",
+        "sha256": "85b98cb5b08f53573e7f3e96655908fb38d6eca431d052fa31869c7e2910a908",
+        "vertices": 10,
+        "triangles": 16
+      },
+      "render": {
+        "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/render.json",
+        "sha256": "f8ab8db6a18654e691580f2de3beb283a8675750e247aece503fd9080b697243",
+        "vertices": 48,
+        "triangles": 16
+      },
+      "mapping": {
+        "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/vertex-mapping.json",
+        "sha256": "72bc95fe33f77c80d863edba9ab4f1695dd2755026c368ebe5b823af0cacca8c"
+      }
+    }
+  ],
+  "proofKinds": [
+    "bearing-face-v1",
+    "fixed-embed-v1",
+    "fixed-assembly-mount-v1",
+    "dual-endpoint-bearing-source-proposal"
+  ],
+  "requiredModes": {
+    "new-york::carrier/edge-6/cornice-7": "whole",
+    "new-york::carrier/roof/rear-tail": "regional",
+    "new-york::carrier/main-parapet-6/base": "whole",
+    "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01": "whole",
+    "new-york::carrier/main/5/seam-7-1/1": "whole",
+    "new-york::carrier/main/5/cell-7-1/1": "whole",
+    "new-york::carrier/attic-floor/tile-7-33": "whole",
+    "new-york::carrier/main/5/cell-6-1/1": "whole",
+    "new-york::carrier/main/5/seam-5-1/1": "whole",
+    "new-york::carrier/main/5/cell-5-1/1": "whole",
+    "new-york::carrier/main/5/seam-4-1/1": "whole",
+    "new-york::carrier/main/5/cell-4-1/1": "whole",
+    "new-york::carrier/main/5/seam-3-1/1": "whole",
+    "new-york::carrier/main/5/cell-3-1/1": "whole",
+    "new-york::carrier/main/5/seam-2-1/1": "whole",
+    "new-york::carrier/main/5/cell-2-1/1": "whole",
+    "new-york::carrier/main/5/seam-1-1/1": "whole",
+    "new-york::carrier/main/5/cell-1-1/1": "whole",
+    "new-york::carrier/edge-5/cornice-0": "whole",
+    "new-york::carrier/main/4/cell-0-5/1": "whole",
+    "new-york::carrier/main-roof-deck/tile--1-31": "whole",
+    "new-york::carrier/main-roof-deck/tile--1-32": "whole",
+    "new-york::carrier/main-roof-deck/tile--1-33": "whole",
+    "new-york::carrier/main/6/cell-7-8/1": "whole",
+    "new-york::carrier/attic-floor/tile--1-33": "whole",
+    "new-york::carrier/main/6/cell-6-8/1": "whole",
+    "new-york::carrier/main/6/seam-5-8/1": "whole",
+    "new-york::carrier/main/6/cell-5-8/1": "whole",
+    "new-york::carrier/main/6/seam-4-8/1": "whole",
+    "new-york::carrier/main/6/cell-4-8/1": "whole",
+    "new-york::carrier/main/6/seam-3-8/1": "whole",
+    "new-york::carrier/main/6/cell-3-8/1": "whole",
+    "new-york::carrier/main/6/seam-2-8/1": "whole",
+    "new-york::carrier/main/6/cell-2-8/1": "whole",
+    "new-york::carrier/main/6/seam-1-8/1": "whole",
+    "new-york::carrier/main/6/cell-1-8/1": "whole",
+    "new-york::carrier/edge-6/cornice-0": "whole",
+    "new-york::carrier/main/5/cell-0-1/1": "whole"
+  }
+}
