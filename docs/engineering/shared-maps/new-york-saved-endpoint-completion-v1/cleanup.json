@@ -1,0 +1,89 @@
+{
+  "checkedAt": "2026-11-18T09:04:15.5562344Z",
+  "helpers": [
+    {
+      "owner": "Coder Tinderbox",
+      "project": "Tinderbox saved endpoint completion",
+      "purpose": "Shared fixed-cell ownership, true boundary birth/retirement and existing bounded controls",
+      "run": "synthetic-initial",
+      "pid": 37304,
+      "creationTime": "2026-11-18T08:57:20.694Z",
+      "creationTimeBasis": "owned finite spawn interval; child synchronously reaped",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-18T08:57:20.694Z",
+      "endedAt": "2026-11-18T08:57:21.47Z",
+      "expiry": "30-second deadline, exit on completion",
+      "stopMethod": "owned spawnSync handle with timeout and synchronous reap",
+      "state": "exited-pid-absent",
+      "currentPidCreationTime": null,
+      "port": null,
+      "restart": {
+        "source": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/run-synthetic.mjs",
+        "permission": "Fresh bounded synthetic execution only for new justified work",
+        "runtime": "Node24.15.0, repository ESM and vendored dependencies",
+        "checkpoint": "Receipts, logs, source pins and outputs persisted; no in-memory state retained",
+        "inputs": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/synthetic-initial-inputs.json",
+        "arguments": "FRESH_NAME",
+        "outputs": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/synthetic-initial.json/.log",
+        "workdir": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox"
+      }
+    },
+    {
+      "owner": "Coder Tinderbox",
+      "project": "Tinderbox saved endpoint completion",
+      "purpose": "Shared fixed-cell ownership, true boundary birth/retirement and existing bounded controls",
+      "run": "synthetic-ready",
+      "pid": 58384,
+      "creationTime": "2026-11-18T08:59:43.174Z",
+      "creationTimeBasis": "owned finite spawn interval; child synchronously reaped",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-18T08:59:43.174Z",
+      "endedAt": "2026-11-18T08:59:43.936Z",
+      "expiry": "30-second deadline, exit on completion",
+      "stopMethod": "owned spawnSync handle with timeout and synchronous reap",
+      "state": "exited-pid-absent",
+      "currentPidCreationTime": null,
+      "port": null,
+      "restart": {
+        "source": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/run-synthetic.mjs",
+        "permission": "Fresh bounded synthetic execution only for new justified work",
+        "runtime": "Node24.15.0, repository ESM and vendored dependencies",
+        "checkpoint": "Receipts, logs, source pins and outputs persisted; no in-memory state retained",
+        "inputs": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/synthetic-ready-inputs.json",
+        "arguments": "FRESH_NAME",
+        "outputs": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/synthetic-ready.json/.log",
+        "workdir": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox"
+      }
+    },
+    {
+      "owner": "Coder Tinderbox",
+      "project": "Tinderbox saved endpoint completion",
+      "purpose": "Single74-endpoint saved-data numeric completion; no retry",
+      "run": "saved",
+      "pid": 13796,
+      "creationTime": "2026-11-18T09:02:14.904Z",
+      "creationTimeBasis": "owned finite spawn interval; child synchronously reaped",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-18T09:02:14.904Z",
+      "endedAt": "2026-11-18T09:02:15.378Z",
+      "expiry": "30-second deadline, exit on completion",
+      "stopMethod": "owned spawnSync handle with timeout and synchronous reap",
+      "state": "exited-pid-absent",
+      "currentPidCreationTime": null,
+      "port": null,
+      "restart": {
+        "source": "tools/complete-saved-new-york-endpoints.mjs",
+        "permission": "Single saved-data allowance consumed; no restart or retry authorized",
+        "runtime": "Node24.15.0, repository ESM and vendored dependencies",
+        "checkpoint": "Receipts, logs, source pins and outputs persisted; no in-memory state retained",
+        "inputs": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/preflight.json and source-intake/; two frozen selected source tables",
+        "arguments": "--saved-once (SPENT; never replay)",
+        "outputs": "docs/engineering/shared-maps/new-york-saved-endpoint-completion-v1/saved.json/.log",
+        "workdir": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox"
+      }
+    }
+  ],
+  "unresolved": [],
+  "ports": [],
+  "retainedHelpers": []
+}
