@@ -1,0 +1,14 @@
+// Opaque-token synthetic seam, not private native authentication or a replay.
+export function contactSeam(input,proofs){
+  const byPart=new Map(input.parts.map(p=>[p.id,p])),records=new Map(),fixtureIds=new Map(),capIndices=new Map();let next=0;
+  for(const proof of proofs)for(const side of ['parent','child']){const end=proof.ends[side],key=end.sourceId+'|'+end.sourceCell.join(','),part=byPart.get(end.partId),triangle=part.triangles[end.primitive];
+    if(!records.has(key)){const source=input.surfaces.find(s=>s.id===end.sourceId);records.set(key,{cell:[...end.sourceCell],record:{id:'synthetic/native/'+next++,sourceCarrierId:end.ownerId,nativePartId:end.partId,sourceSurfaceId:end.sourceId,triangles:end.channel==='solid'?structuredClone(source.triangles):[],solidTriangles:[]}});}
+    const entry=records.get(key),ts=end.channel==='solid'?entry.record.solidTriangles:entry.record.triangles;if(!ts.some(t=>JSON.stringify(t)===JSON.stringify(triangle)))ts.push(structuredClone(triangle));fixtureIds.set(proof.id+'/'+side,entry.record.id);
+  }
+  const first=proofs[0],parent=records.get(first.ends.parent.sourceId+'|'+first.ends.parent.sourceCell.join(',')),cell=[...parent.cell];cell[0]--;const neighbor={cell,record:structuredClone(parent.record)};neighbor.record.id='synthetic/neighbor';records.set('neighbor',neighbor);
+  const p=first.point,cap=[[p[0],p[1]-.05,p[2]],[p[0],p[1]+.02,p[2]+.16],[p[0],p[1]-.05,p[2]+.16]];capIndices.set(parent.record.id,parent.record.solidTriangles.length);parent.record.solidTriangles.push(cap);
+  let tokens=[],payloads=new WeakMap(),contextError=false,inspectError=false;const state={generation:0,sourceRevision:input.sourceRevision,grid:structuredClone(input.grid)};
+  function rebuild(){tokens=[];payloads=new WeakMap();const groups=new Map();for(const e of records.values()){if(!groups.has(e.record.sourceCarrierId))groups.set(e.record.sourceCarrierId,[]);groups.get(e.record.sourceCarrierId).push(e);}for(const [ownerId,entries]of groups){const token=Object.freeze({fixture:tokens.length,generation:state.generation});tokens.push(token);payloads.set(token,{epoch:state.generation,sourceRevision:state.sourceRevision,ownerId,entries});}}
+  rebuild();const reader=Object.freeze({context(){if(contextError)throw Error('Synthetic context expired');return state;},inspect(token){if(inspectError||!payloads.has(token))throw Error('Foreign or stale synthetic token');return payloads.get(token);}});
+  return {reader,args:()=>({reader,slices:[...tokens]}),id:(proof,side)=>fixtureIds.get(proof.id+'/'+side),neighborId:neighbor.record.id,capIndices,entry:id=>[...records.values()].find(e=>e.record.id===id),advance(){state.generation++;rebuild();},changeRevision(revision){state.sourceRevision=revision;rebuild();},expireContext(){contextError=true;},expireInspect(){inspectError=true;},records:[...records.values()]};
+}

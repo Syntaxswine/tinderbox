@@ -1,0 +1,50 @@
+{
+  "result": "source-evidence-reproduced",
+  "pairs": 24,
+  "regions": 48,
+  "instances": 25,
+  "uniqueGeometryBuffers": 2,
+  "originalTrianglesChecked": 300,
+  "exactComponentsChecked": 25,
+  "proved": 48,
+  "unproved": 0,
+  "selectorCounts": {
+    "25-26": 24,
+    "26-27": 24
+  },
+  "parentOriginalPrimitiveCounts": {
+    "10": 24,
+    "8": 24
+  },
+  "childOriginalPrimitiveCounts": {
+    "0": 23,
+    "2": 25
+  },
+  "contactChecks": 144,
+  "regionalNegativeChecks": 432,
+  "pilotCopyRejections": 47,
+  "totalGeometryPointNegativeChecks": 479,
+  "scopeNegativeGroups": 2,
+  "excludedPairs": 25,
+  "excludedOtherGeometry": 24,
+  "excludedRotatedEnd": 1,
+  "pilotReferenceReproduced": true,
+  "nativeCompilerCalls": 0,
+  "runtimeBindingsExported": false,
+  "supportGraphWorldRendererOrRetainedHelper": false,
+  "immutableContactPayloadPinsVerified": 11,
+  "immutableVolumePayloadPinsVerified": 9,
+  "physicalSourcePinsVerified": 13,
+  "additionalSectionPinsVerified": 1,
+  "globalSourceIndexGitSha256": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+  "predicateContext": {
+    "sourceCommit": "d899d73fe4d79cf62e344832f132d911253a52ef",
+    "geometrySha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+    "supportModuleSha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372",
+    "supportClosureSha256": "d7848cda7427732bbed413717af886bb77f8a7a7cf38a02104b40aa57c6c526f",
+    "componentSourceCommit": "f45f0c4eac03059634d164ce5941211c5ee32e3a",
+    "geometryEPS": 1e-07,
+    "nativeContactToleranceMetres": 1e-05
+  },
+  "failureRegionIds": []
+}

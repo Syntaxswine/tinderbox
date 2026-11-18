@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "base": "2143d37b09e3cbba12a14fa8a465a2f8e78060bb",
+  "status": "Isolated generic source/receipt mapper; 24/48 source scope; native repeat binding remains unrun",
+  "artistCommit": "0e9ffa764610f7ab047e3d4cdebd05342273463f",
+  "focusedTests": 60,
+  "newGenericGroups": 7,
+  "unchangedFocusedControls": 53,
+  "sourcePreparedSelectors": 48,
+  "unsupportedInCurrentBatch": 0,
+  "counts": {
+    "uniqueParts": 25,
+    "uniqueSourceDefinitions": 30,
+    "selectorProofs": 48,
+    "fixedPorts": 96,
+    "ownedDictionaryCopies": 1,
+    "perProofGeometryCopies": 0,
+    "originalTriangles": 300
+  },
+  "initialSourceOwnerExpansions": 25,
+  "initialOriginalPartTransforms": 25,
+  "newActualNativeCompilerCalls": 0,
+  "newPairValidationSessions": 0,
+  "fullNewYorkDiagnostics": 0,
+  "fullNewYorkDiagnosticAllowanceConsumed": false,
+  "privateProducerAuthenticationExercised": false,
+  "archives": [
+    {
+      "folder": "bounded-source-compiler-v1",
+      "rawFilesIncludingManifest": 33,
+      "historicalSourcePins": 8,
+      "preserved": true
+    },
+    {
+      "folder": "bounded-source-compiler-guards-v1",
+      "rawFilesIncludingManifest": 13,
+      "historicalSourcePins": 5,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-kernel-v1",
+      "rawFilesIncludingManifest": 46,
+      "historicalSourcePins": 4,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-boundaries-v1",
+      "rawFilesIncludingManifest": 21,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-witness-v1",
+      "rawFilesIncludingManifest": 27,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-receipt-bridge-v1",
+      "rawFilesIncludingManifest": 45,
+      "historicalSourcePins": 6,
+      "preserved": true
+    },
+    {
+      "folder": "support-port-birth-v1",
+      "rawFilesIncludingManifest": 30,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "support-embed-liveness-v1",
+      "rawFilesIncludingManifest": 25,
+      "historicalSourcePins": 5,
+      "preserved": true
+    },
+    {
+      "folder": "cornice-wall-contact-v1",
+      "rawFilesIncludingManifest": 22,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "cornice-wall-proof-validation-v1",
+      "rawFilesIncludingManifest": 26,
+      "historicalSourcePins": 3,
+      "preserved": true
+    }
+  ],
+  "unchangedFiles": [
+    "workbenches/furnished-house/geometry.js",
+    "workbenches/furnished-house/support.js",
+    "workbenches/furnished-house/scene.js",
+    "workbenches/furnished-house/regional-domain.js",
+    "workbenches/furnished-house/partition-error.js",
+    "src/runtime/collision.js",
+    "src/runtime/regional-effective-query.js",
+    "src/runtime/regional-receipt-bridge.js",
+    "src/simulation/regional-source-pilot.js",
+    "src/simulation/source-support.js",
+    "src/simulation/source-support-calculations.js",
+    "src/content/map-source-support-data.js",
+    "src/content/map-source-support-overrides.js",
+    "tests/integration/regional-effective-query.test.mjs",
+    "tests/integration/regional-query-boundaries.test.mjs",
+    "tests/integration/regional-query-witness.test.mjs",
+    "tests/integration/regional-receipt-bridge.test.mjs",
+    "tests/fixtures/regional-query-data.mjs",
+    "src/simulation/original-support-ports.js",
+    "tests/integration/original-support-ports.test.mjs",
+    "tests/integration/original-support-embed.test.mjs",
+    "tests/integration/original-support-rooting.test.mjs",
+    "tests/integration/cornice-wall-contact-pilot.test.mjs",
+    "src/content/cornice-wall-contact-pilot.js",
+    "tests/integration/cornice-wall-proof-validation.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/original-contact-adapter.js",
+      "lfSha256": "72970f487bcbcf38e8b6bc28e6c148514e769f18382f37732a6b20dcf3e8bb76"
+    },
+    {
+      "path": "tests/fixtures/original-contact-seam.mjs",
+      "lfSha256": "5110154d24a3f3f678e54d41cf0e26eab5386b15d03f064fb83cf442656ffa20"
+    },
+    {
+      "path": "tests/integration/original-contact-adapter.test.mjs",
+      "lfSha256": "d0340be7ab2f3a6e62cc9798fa8a231faaf74e5842f347e1a900a3826521b383"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "lfSha256": "61f113e17d0e0d5bf7c39eda62cbcbb715210036a4d7f0b2bbb38481f36d4098"
+    }
+  ],
+  "runtimeDeclaration": {
+    "modified": 22,
+    "added": 52
+  },
+  "sourceHistoryAndWipPreserved": true,
+  "closedTestChildren": 1,
+  "helpers": [],
+  "ports": [],
+  "productionEnabled": false
+}
