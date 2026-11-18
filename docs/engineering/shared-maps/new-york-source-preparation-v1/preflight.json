@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "status": "PREFLIGHT_READY",
+  "phase": "SOURCE_PREPARATION_PREFLIGHT",
+  "counts": {
+    "owners": 38,
+    "parts": 38,
+    "physicalTriangles": 456
+  },
+  "problems": [],
+  "pendingBondIds": [
+    "carrier/roof-saddle-native/main-parapet-6/bay-01/port-cornice",
+    "carrier/roof-saddle-native/main-parapet-6/bay-01/port-roof-seat",
+    "carrier/roof-saddle-native/main-parapet-6/bay-01/port-top"
+  ],
+  "limits": {
+    "regionalParts": 2,
+    "descriptors": 320,
+    "cellsPerPart": 4096,
+    "shapes": 192,
+    "triangles": 65536,
+    "fallbackShapes": 24,
+    "fallbackTriangles": 8192
+  },
+  "geometryFit": "Originals fit; derived arrays must acquire the same bounded registry reserve before use.",
+  "maxMetadataCells": 288,
+  "pins": {
+    "plan": "6c343fc882ce2b1f7b1b4225249519f9539c504cfeef3c7725dddad7df08448f",
+    "policy": "04106ad387ed05cced8cdbcc18204e4ca940c76b1a8131071824b3788cbd1a4b",
+    "index": "e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab",
+    "library": "1e93eb730de7a978b01069df5401ea80d4ddebcff7d101010714e8b4643fc296"
+  },
+  "grant": {
+    "commit": "b7958c76",
+    "path": "docs/engineering/shared-maps/new-york-source-preparation.md",
+    "sha256": "3e78e151208c823a71abbbe37bba72e419d5f759bd394d9d5c34eb4aa687abcd"
+  },
+  "nativeCompiles": 0,
+  "sourceTransforms": 0
+}

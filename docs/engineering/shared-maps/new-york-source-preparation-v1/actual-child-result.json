@@ -1,0 +1,90 @@
+{
+  "phase": "ACTUAL_SOURCE_ONLY",
+  "finished": true,
+  "status": "NOT_READY",
+  "failure": null,
+  "compiler": {
+    "calls": 0
+  },
+  "trial": {
+    "created": 0,
+    "steps": 0,
+    "disposed": 0
+  },
+  "geometry": {
+    "canonicalCarriers": 12447,
+    "sourceParts": 12859,
+    "decodedUniqueGeometries": 434,
+    "appearanceMaterials": 9,
+    "startupWorldShapesExpanded": 0,
+    "startupThermalCellsAllocated": 0,
+    "nativeBlueprints": 0,
+    "decodedAttributeGeometries": 0,
+    "transformedQueries": 38,
+    "renderExpansions": 0,
+    "nativeSourceExpansions": 38,
+    "nativePartTransforms": 0,
+    "borrowedNativeParts": 38,
+    "presentationBlueprints": 0,
+    "presentationPartTransforms": 0,
+    "staticIndexBins": 0
+  },
+  "query": {
+    "querySurfaces": 12860,
+    "sourceParts": 12859,
+    "sourceCarriers": 12447,
+    "claimedCarriers": 0,
+    "cachedShapes": 0,
+    "cachedTriangles": 0,
+    "peakShapes": 116,
+    "peakTriangles": 612,
+    "workingShapes": 0,
+    "workingTriangles": 0,
+    "workingLeases": 0,
+    "peakWorkingShapes": 0,
+    "peakWorkingTriangles": 0,
+    "shapeBuilds": 38,
+    "maxSingleQueryTriangles": 16,
+    "maxShapes": 192,
+    "maxTriangles": 65536,
+    "thermalCellsAllocated": 0,
+    "fuelAllocated": 0
+  },
+  "outputs": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-world.json",
+      "bytes": 181888,
+      "sha256": "5353b5f6d6ccae1d13931bfa93f4bbdcfd498994f33a5eff49db82c2ece5c8fd"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-blueprints.json",
+      "bytes": 168975,
+      "sha256": "1685e0afc81e21b16f8db3fa00e81bc326a9b1ca24453c759abcf55df28ebbf2"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/proposed-plan.json",
+      "bytes": 180648,
+      "sha256": "e5801cddc0ac08ffc5ad06b8591204037fd8d04446822bab7f823b1e0c582719"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/admission.json",
+      "bytes": 53954,
+      "sha256": "3813b193835e7011a9a80d3b41d66c2273d9aebaba0d9e5bd3d4fa7d2f3f57a0"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/mapping.json",
+      "bytes": 201217,
+      "sha256": "7f746927383788986e0813ffe8263cc5ba592f38bbb756dc5b0357c0818361a2"
+    }
+  ],
+  "actualSourceTransforms": 38,
+  "maxTransforms": 38,
+  "maxOriginalPhysicalTriangles": 456,
+  "producers": 0,
+  "supportEvaluations": 0,
+  "clockSteps": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "ports": [],
+  "retainedHelpers": []
+}
