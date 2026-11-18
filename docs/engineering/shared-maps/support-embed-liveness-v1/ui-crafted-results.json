@@ -1,0 +1,105 @@
+{
+  "commit": "f45f0c4eac03059634d164ce5941211c5ee32e3a",
+  "casesExecuted": 2,
+  "compilerCalls": 0,
+  "originalRoofCompilations": 0,
+  "worldTrials": 0,
+  "results": [
+    {
+      "case": "1 independent earlier ALL requirement is disabled",
+      "expectedUnrooted": [],
+      "actual": {
+        "generation": 0,
+        "revision": 0,
+        "supportedIds": [
+          "cold/a-post",
+          "cold/a-upper-column",
+          "cold/b-post",
+          "cold/fit-a",
+          "cold/z-post"
+        ],
+        "unrootedIds": [
+          "cold/b-upper",
+          "cold/fit-b"
+        ],
+        "births": [],
+        "ports": [
+          {
+            "id": "a-left",
+            "parent": "cold/a-post",
+            "child": "cold/fit-a",
+            "live": true
+          },
+          {
+            "id": "a-right",
+            "parent": "cold/z-post",
+            "child": "cold/fit-a",
+            "live": true
+          },
+          {
+            "id": "a-top",
+            "parent": "cold/fit-a",
+            "child": "cold/a-upper-column",
+            "live": true
+          },
+          {
+            "id": "b-left",
+            "parent": "cold/a-upper-column",
+            "child": "cold/fit-b",
+            "live": true
+          },
+          {
+            "id": "b-right",
+            "parent": "cold/b-post",
+            "child": "cold/fit-b",
+            "live": true
+          },
+          {
+            "id": "b-top",
+            "parent": "cold/fit-b",
+            "child": "cold/b-upper",
+            "live": true
+          }
+        ],
+        "unresolvedBindings": [],
+        "oldEdgeConflicts": []
+      },
+      "bugReproduced": true
+    },
+    {
+      "case": "2 original anchor remains mutable",
+      "expected": "original grounded part remains the only root, or mutation rejects",
+      "anchorFrozen": false,
+      "mutationError": null,
+      "before": {
+        "generation": 0,
+        "revision": 0,
+        "supportedIds": [
+          "cold/ground"
+        ],
+        "unrootedIds": [
+          "cold/floating"
+        ],
+        "births": [],
+        "ports": [],
+        "unresolvedBindings": [],
+        "oldEdgeConflicts": []
+      },
+      "after": {
+        "generation": 0,
+        "revision": 0,
+        "supportedIds": [
+          "cold/floating"
+        ],
+        "unrootedIds": [
+          "cold/ground"
+        ],
+        "births": [],
+        "ports": [],
+        "unresolvedBindings": [],
+        "oldEdgeConflicts": []
+      },
+      "bugReproduced": true
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+✖ architect repro: surviving original ports cannot bridge the removed strict embed (6.7098ms)
+✖ losing child material at the common witness also breaks the embed (1.2149ms)
+✖ open exterior facets fail closed without current closed material authority (1.3416ms)
+✔ authoritative closed material can prove an embed for an exterior-only face view (1.3348ms)
+✖ a real closed void at the original witness defeats unchanged exterior ports (1.0298ms)
+✖ surviving witness material cannot jump a void on its fixed original path (0.7236ms)
+✖ different current closed components cannot share one original embed path (0.6684ms)
+✖ a common witness on the current material boundary is not a strict interior proof (0.5928ms)
+✖ an explicitly supplied open solid cannot fall back to the original closed parent (0.9063ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 1
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 157.646
+
+✖ failing tests:
+
+test at tests\integration\original-support-embed.test.mjs:22:1
+✖ architect repro: surviving original ports cannot bridge the removed strict embed (6.7098ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'cold/child',
+      'cold/parent'
+    ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/original-support-embed.test.mjs:27:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'cold/child', 'cold/parent' ],
+    expected: [ 'cold/parent' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\integration\original-support-embed.test.mjs:34:1
+✖ losing child material at the common witness also breaks the embed (1.2149ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'cold/child'
+  - ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/original-support-embed.test.mjs:37:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'cold/child' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\integration\original-support-embed.test.mjs:41:1
+✖ open exterior facets fail closed without current closed material authority (1.3416ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'cold/child'
+  - ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/original-support-embed.test.mjs:45:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'cold/child' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\integration\original-support-embed.test.mjs:58:1
+✖ a real closed void at the original witness defeats unchanged exterior ports (1.0298ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'native/child'
+  - ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/original-support-embed.test.mjs:64:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'native/child' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\integration\original-support-embed.test.mjs:69:1
+✖ surviving witness material cannot jump a void on its fixed original path (0.7236ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'native/child'
+  - ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/original-support-embed.test.mjs:74:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'native/child' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\integration\original-support-embed.test.mjs:79:1
+✖ different current closed components cannot share one original embed path (0.6684ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'native/child'
+  - ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/original-support-embed.test.mjs:84:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'native/child' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\integration\original-support-embed.test.mjs:88:1
+✖ a common witness on the current material boundary is not a strict interior proof (0.5928ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'native/child'
+  - ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/original-support-embed.test.mjs:92:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'native/child' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\integration\original-support-embed.test.mjs:97:1
+✖ an explicitly supplied open solid cannot fall back to the original closed parent (0.9063ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + []
+  - [
+  -   'cold/child'
+  - ]
+  
+      at TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/original-support-embed.test.mjs:100:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [],
+    expected: [ 'cold/child' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

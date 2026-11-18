@@ -1,0 +1,21 @@
+import fs from 'node:fs';
+import {createOriginalSupportPorts} from '../../../src/simulation/original-support-ports.js';
+import {boxTriangles} from '../../../tests/fixtures/regional-query-data.mjs';
+import {clipTriangle,bounds} from '../../../workbenches/furnished-house/geometry.js';
+import {supportSurfacesTouch} from '../../../workbenches/furnished-house/support.js';
+const parent={id:'parent',ownerId:'parent',triangles:boxTriangles([0,0,0],[2,1,1])};
+const child={id:'child',ownerId:'child',triangles:boxTriangles([.8,.2,.2],[1.2,.8,.8])};
+const bottom=(p,y)=>p.triangles.flatMap((t,i)=>t.every(v=>v[1]===y)?[i]:[]);
+const point=[1,.5,.5];
+const core=createOriginalSupportPorts({parts:[parent,child],bonds:[{id:'embed',kind:'fixed-embed',direction:'parent-to-child',parent:{partId:'parent',point,primitives:bottom(parent,0)},child:{partId:'child',point,primitives:bottom(child,.2)}}],anchors:[{partId:'parent',elevation:0}]});
+const fragment=(p,triangles=p.triangles,primitives=p.triangles.map((_,i)=>i))=>({id:'cold/'+p.id,partId:p.id,ownerId:p.ownerId,component:0,mode:'cold',triangles,primitives});
+try{
+  const full=core.evaluate({revision:0,fragments:[fragment(parent),fragment(child)]});
+  const clipped=parent.triangles.map(t=>clipTriangle(t,{min:[0,0,0],max:[2,.1,1]}));
+  const a=fragment(parent,clipped.flat(),clipped.flatMap((ts,i)=>ts.length?[i]:[])),b=fragment(child);
+  const result=core.evaluate({revision:1,fragments:[a,b]});
+  const shape=f=>({triangles:f.triangles,solidTriangles:f.triangles,bounds:bounds(f.triangles.flat()),normal:[0,1,0],kind:'wall',thickness:0});
+  const report={candidate:'f45f0c4e',fullSupported:full.supportedIds,remainingParentY:[0,.1],childY:[.2,.8],actualContact:supportSurfacesTouch(shape(a),shape(b)),binding:core.bindings(),result,expected:'cold/child unrooted after all material at the common embed witness is removed',nativeCompilerCalls:0};
+  fs.writeFileSync('artifacts/qa/m29-architect-intake/support-embed-repro.json',JSON.stringify(report,null,2)+'\n');
+  console.log(JSON.stringify(report));
+}finally{core.dispose();}

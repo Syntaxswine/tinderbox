@@ -31,7 +31,9 @@ test('same-cell sibling cannot replace a retired fixed native owner',()=>{
 
 test('both lower ports cannot root a fitting after its own material path separates',()=>{
   const input=saddle();input.bonds[0].child.nativeRecordId='fitting-left';input.bonds[1].child.nativeRecordId='fitting-right';input.bonds[2].parent.nativeRecordId='fitting-left';const p=create(input);try{
-    const f=input.parts[2],cut=(id,min,max)=>({...fragment(f,'native',id),id,triangles:f.triangles.flatMap(t=>clipTriangle(t,{min,max}))}),left=cut('fitting-left',[0,1,0],[.5,1.1,1]),right=cut('fitting-right',[.75,1,0],[1,1.1,1]),fragments=[fragment(input.parts[0],'native'),fragment(input.parts[1],'native'),left,right,fragment(input.parts[3],'native')],result=p.evaluate({revision:2,fragments,bornRecordIds:['fitting-left','fitting-right']});
+    // Explicit closed physical fixture bodies accompany the clipped exterior
+    // views. The core adds no closing faces or material to either remnant.
+    const f=input.parts[2],cut=(id,min,max)=>({...fragment(f,'native',id),id,triangles:f.triangles.flatMap(t=>clipTriangle(t,{min,max})),solidTriangles:boxTriangles(min,max)}),left=cut('fitting-left',[0,1,0],[.5,1.1,1]),right=cut('fitting-right',[.75,1,0],[1,1.1,1]),fragments=[fragment(input.parts[0],'native'),fragment(input.parts[1],'native'),left,right,fragment(input.parts[3],'native')],result=p.evaluate({revision:2,fragments,bornRecordIds:['fitting-left','fitting-right']});
     assert.ok(result.ports.find(p=>p.id==='bottom-cornice').live&&result.ports.find(p=>p.id==='bottom-roof').live);assert.ok(result.births.every(b=>b.state==='unrooted'));assert.ok(result.unrootedIds.includes('native/upper'));
   }finally{p.dispose();}
 });

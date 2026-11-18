@@ -1,0 +1,26 @@
+import {writeFileSync} from 'node:fs';
+import {createOriginalSupportPorts as create} from './src/simulation/original-support-ports.js';
+import {boxTriangles} from './tests/fixtures/regional-query-data.mjs';
+const part=(id,min,max)=>({id,ownerId:id,triangles:boxTriangles(min,max)});
+const fragment=p=>({id:'cold/'+p.id,partId:p.id,ownerId:p.ownerId,component:0,mode:'cold',recordId:'native/'+p.id,primitives:p.triangles.map((_,i)=>i),triangles:p.triangles});
+const endpoint=(p,point)=>({partId:p.id,point,nativeRecordId:'native/'+p.id});
+const bearing=(id,a,b,point)=>({id,kind:'bearing-face',direction:'parent-to-child',parent:endpoint(a,point),child:endpoint(b,point)});
+const results=[];
+// Case 1: A fully rooted lower fitting carries the first parent of a second
+// fitting. There is no reverse dependency, and every original port is live.
+{
+ const a=part('a-post',[0,0,0],[.4,1,1]),z=part('z-post',[.6,0,0],[1,1,1]),fa=part('fit-a',[0,1,0],[1,1.1,1]),column=part('a-upper-column',[0,1.1,0],[.4,2,1]),post=part('b-post',[.6,0,0],[1,2,1]),fb=part('fit-b',[0,2,0],[1,2.1,1]),upper=part('b-upper',[0,2.1,0],[1,2.2,1]);
+ const parts=[a,z,fa,column,post,fb,upper],bonds=[bearing('a-left',a,fa,[.2,1,.5]),bearing('a-right',z,fa,[.8,1,.5]),bearing('a-top',fa,column,[.2,1.1,.5]),bearing('b-left',column,fb,[.2,2,.5]),bearing('b-right',post,fb,[.8,2,.5]),bearing('b-top',fb,upper,[.2,2.1,.5])];
+ const requirements=[{id:'a-all',ownerId:fa.id,portIds:['a-left','a-right'],upperBondId:'a-top'},{id:'b-all',ownerId:fb.id,portIds:['b-left','b-right'],upperBondId:'b-top'}],anchors=[a,z,post].map(p=>({partId:p.id,elevation:0}));
+ const api=create({parts,bonds,requirements,anchors});
+ try{const value=api.evaluate({expectedGeneration:0,revision:0,fragments:parts.map(fragment)});results.push({case:'1 independent earlier ALL requirement is disabled',expectedUnrooted:[],actual:value,bugReproduced:value.ports.every(p=>p.live)&&value.oldEdgeConflicts.length===0&&value.supportedIds.includes('cold/fit-a')&&value.supportedIds.includes('cold/a-upper-column')&&value.unrootedIds.includes('cold/fit-b')&&value.unrootedIds.includes('cold/b-upper')});}finally{api.dispose();}
+}
+// Case 2: Mutating a caller-owned anchor after construction moves support to a
+// disconnected floating part without changing generation, revision or geometry.
+{
+ const ground=part('ground',[0,0,0],[1,1,1]),floating=part('floating',[0,2,0],[1,3,1]),anchor={partId:ground.id,elevation:0},parts=[ground,floating],api=create({parts,bonds:[],anchors:[anchor]});
+ try{const options={expectedGeneration:0,revision:0,fragments:parts.map(fragment)},before=api.evaluate(options);let mutationError=null;try{anchor.partId=floating.id;anchor.elevation=2;}catch(error){mutationError=error.message;}const after=api.evaluate(options);results.push({case:'2 original anchor remains mutable',expected:'original grounded part remains the only root, or mutation rejects',anchorFrozen:Object.isFrozen(anchor),mutationError,before,after,bugReproduced:before.supportedIds.includes('cold/ground')&&before.unrootedIds.includes('cold/floating')&&after.supportedIds.includes('cold/floating')&&after.unrootedIds.includes('cold/ground')&&before.generation===after.generation&&before.revision===after.revision});}finally{api.dispose();}
+}
+if(results.length!==2)throw Error('Exactly two crafted cases');
+writeFileSync('crafted-results.json',JSON.stringify({commit:'f45f0c4eac03059634d164ce5941211c5ee32e3a',casesExecuted:2,compilerCalls:0,originalRoofCompilations:0,worldTrials:0,results},null,2)+'\n');
+for(const result of results)console.log(JSON.stringify(result));

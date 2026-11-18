@@ -1,0 +1,85 @@
+{
+  "candidate": "f45f0c4eac03059634d164ce5941211c5ee32e3a",
+  "coreSha256": "cb407fcc75ca2a532cc46591bd8f9a90542d440a97bdc2e98050d92d3d94d0bf",
+  "sourcePinsVerified": 18,
+  "focusedBaseline": {
+    "runs": 1,
+    "tests": 28,
+    "passed": 28,
+    "failed": 0
+  },
+  "additionalCraftedCases": {
+    "runs": 1,
+    "cases": 2,
+    "bugsReproduced": 2,
+    "thirdCaseNotExecuted": true
+  },
+  "findings": [
+    {
+      "id": "strict-embed-survival",
+      "source": "Architect-executed repro; this review read the saved driver/result and confirmed the source path only.",
+      "line": 54,
+      "issue": "Runtime endpoint liveness checks the chosen original outer point but not survival of the strict common interior witness/path. Parent y0..0.1 can keep a child y0.2..0.8 supported after common embed material is removed.",
+      "additionalExecutions": 0
+    },
+    {
+      "id": "independent-all-group",
+      "source": "Crafted case 1 executed once",
+      "line": 61,
+      "issue": "The independent pass disables all ALL-port groups, so a valid independent first fitting cannot root a parent of a second fitting. All six ports are live, there are no old-edge conflicts, but fit-b and b-upper remain unrooted."
+    },
+    {
+      "id": "mutable-anchor",
+      "source": "Crafted case 2 executed once",
+      "line": 25,
+      "issue": "Caller anchor objects remain mutable references. Changing partId/elevation after construction moves the root from the ground part to a disconnected floating part at the same generation and revision."
+    }
+  ],
+  "architectEmbedEvidence": [
+    {
+      "path": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\m29-architect-intake\\support-embed-repro.mjs",
+      "sha256": "7e9a084943ceb6835334da336fb119aa03bd9dd1cfa372cc60ee3e4f8b46ac3c",
+      "independentlyExecutedByThisReview": false
+    },
+    {
+      "path": "C:\\Users\\baals\\Documents\\ChatGPT\\tinderbox\\artifacts\\qa\\m29-architect-intake\\support-embed-repro.json",
+      "sha256": "103447901249fd18fb239da7c518f4669ac59306401759068ad981054e634b30",
+      "independentlyExecutedByThisReview": false
+    }
+  ],
+  "limits": "Partial disabled core consumes caller-supplied fixed original point/primitive/component/native-record/cell identities and authoritative surviving fragment triangles. No full footprint/catalogue/asset binding or live integration established. WIP .txt adapters were not restored or run.",
+  "originalRoofCompilations": 0,
+  "nativeCompilerCalls": 0,
+  "worldTrials": 0,
+  "worldSteps": 0,
+  "actualMapDiagnostics": 0,
+  "rendererRuns": 0,
+  "builds": 0,
+  "benchmarks": 0,
+  "priorSnapshots": {
+    "regional-query-c9b02eb": {
+      "files": 11,
+      "unchanged": true
+    },
+    "regional-query-68b6e399": {
+      "files": 16,
+      "unchanged": true
+    },
+    "regional-query-e84ed22c": {
+      "files": 18,
+      "unchanged": true
+    },
+    "regional-bridge-4eae509b": {
+      "files": 28,
+      "unchanged": true
+    }
+  },
+  "trackedCheckoutClean": true,
+  "uiHead": "2999e51bdd0fdc0002c9b8df2054296b6b3e3569",
+  "trainCandidate": "fb0628605c274550ff8abad50b151843f08747d1",
+  "foregroundRunsCompleted": true,
+  "backgroundHelpersStarted": 0,
+  "portsStarted": [],
+  "commits": 0,
+  "pushes": 0
+}
