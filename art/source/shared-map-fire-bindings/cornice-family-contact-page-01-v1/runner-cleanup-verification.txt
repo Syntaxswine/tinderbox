@@ -1,0 +1,20 @@
+Saved-page verification after the owned-runner journal-failure correction.
+The original calculation is not repeated.
+Command: import check.py; set process-local tempfile.tempdir to a task-owned workspace scratch; check.verify().
+This file is packaged before verification; actual output is appended only after the default checker returns successfully, then package pins are refreshed.
+
+{"result":"verified","pairs":49,"regions":96,"proved":96,"unproved":0,"referenceRegions":48,"unattemptedChildren":95,"nativeCompilations":0,"elapsedMs":1391.3932000286877,"allChildrenExited":true}
+{
+  "sourceCheckpoint": "6c13bc5e58c07f09d5b1ffc1a78fb31b8dabdc2c",
+  "coordinatorPid": 65688,
+  "taskWorkspaceScratch": "C:\\Users\\baals\\.codex\\worktrees\\art-assets\\tinderbox\\artifacts\\cornice-runner-cleanup-verification-6dba5b34ed6d4585a52578a53711a32d",
+  "processLocalTempdirOnly": true,
+  "globalEnvironmentChanged": false,
+  "elapsedMs": 1424.5303999632597,
+  "coordinatorCpuMs": 953.125,
+  "originalSourceCalculationRuns": 0,
+  "nativeCompilations": 0,
+  "allChildrenExited": true,
+  "retainedHelpers": false,
+  "ports": []
+}

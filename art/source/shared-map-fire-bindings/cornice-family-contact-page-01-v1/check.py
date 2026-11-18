@@ -23,7 +23,9 @@ EXPECTED=[".gitattributes","README.md","authority-family-draft.md","checkpoint-r
  "syntax-events.jsonl","attempt-01-syntax-receipt-identity.txt",
  "preserved-win32-receipt-wrapper.py.txt","attempt-02-package-reference-check.txt",
  "attempt-03-raw-stdout-whitespace.txt",
- "calculation/source-page.json"]
+ "calculation/source-page.json",
+ "historical-lifecycle-6c13bc5e.py.txt","check-runner-cleanup.py",
+ "runner-cleanup-control.json","runner-cleanup-verification.txt"]
 def verify_pin(p,pathkey="path"):
  b=(ROOT/p[pathkey]).read_bytes();assert len(b)==p["bytes"] and sha(b)==p["sha256"],p[pathkey]
 def prepare():

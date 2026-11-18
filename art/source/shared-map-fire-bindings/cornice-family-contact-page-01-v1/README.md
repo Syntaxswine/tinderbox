@@ -38,3 +38,32 @@ is preserved; it was corrected without retrying the source calculation.
 
 The [raw stdout whitespace finding](attempt-03-raw-stdout-whitespace.txt) records
 the file-specific CRLF rule; the original stdout bytes remain unchanged.
+
+## Journal-failure cleanup correction
+
+Architect intake of 6c13bc5e exposed a launch journal write outside the cleanup
+block. A denied Temp journal could raise after Python launch and bypass cleanup.
+The [original runner](historical-lifecycle-6c13bc5e.py.txt) remains byte-for-byte
+identical to the original calculation marker's lifecycleSha256. Original source
+results, calculation receipts and verification receipts remain unchanged.
+
+The active runner now prepares metadata before launch and protects every
+post-launch operation. Cleanup waits on the exact launched handle and closes its
+pipes before the exit journal. The original exception receives the PID/exit
+receipt and a traceback note; a second journal failure cannot replace it.
+
+The [single failure control](check-runner-cleanup.py) injects denied launch and
+exit journal writes for one harmless ten-second child, checks that it was alive
+at the first failure, and verifies forced exit before its own expiry. The
+[control receipt](runner-cleanup-control.json) retains the original PermissionError
+and owned-handle exit evidence. Run the control with:
+
+~~~powershell
+python -B art/source/shared-map-fire-bindings/cornice-family-contact-page-01-v1/check-runner-cleanup.py
+~~~
+
+The [saved-page verification](runner-cleanup-verification.txt) uses task-owned
+workspace scratch through process-local tempfile.tempdir. Global environment
+settings stay unchanged. Package pins include the active runner and historical
+runner separately; the old calculation marker still names its historical bytes.
+No original source calculation is repeated and all other children remain UNATTEMPTED.
