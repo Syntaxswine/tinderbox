@@ -1,0 +1,71 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Duplicate-coordinate empty original faces and affected physical/strict regressions only",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "tests/integration/duplicate-vertex-material.test.mjs",
+    "tests/integration/original-support-ports.test.mjs",
+    "tests/integration/original-support-embed.test.mjs",
+    "tests/integration/original-support-rooting.test.mjs",
+    "tests/integration/original-contact-adapter.test.mjs",
+    "tests/integration/contact-endpoint-bounds.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "77e6437965507e12efa81e6892434760eacc422248bdd2f6be34ebb0ba366c38"
+    },
+    {
+      "path": "src/content/original-contact-adapter.js",
+      "lfSha256": "ee683a7793135591ab0592fcb687a944f47d59dce2aad3a8c8e9a79315f74434"
+    },
+    {
+      "path": "src/content/map-source-shapes.js",
+      "lfSha256": "a2b8c075973e973650d9a4cc90673a85549cf19887cd212e4ffa810f27a24b9e"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "lfSha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+    },
+    {
+      "path": "tests/integration/duplicate-vertex-material.test.mjs",
+      "lfSha256": "b706399fd1c253336d25455f95097f6e9bb58608cc7476930e356b7bff924f71"
+    },
+    {
+      "path": "tests/integration/original-support-ports.test.mjs",
+      "lfSha256": "fbb9cb09ba4f36674d13df26fcdda6981a44d13f91895e43ce2ba0e784b4caf7"
+    },
+    {
+      "path": "tests/integration/original-support-embed.test.mjs",
+      "lfSha256": "89ddd9938e0a54aef9a57b7c46aea20e9b370f3f9636c749bdc403e81d96639b"
+    },
+    {
+      "path": "tests/integration/original-support-rooting.test.mjs",
+      "lfSha256": "68bb6e173ec2d804fc9f8d9eeaaac217befdcd8a87510d150af948fd664de90b"
+    },
+    {
+      "path": "tests/integration/original-contact-adapter.test.mjs",
+      "lfSha256": "1bb1d5b2fc1205200272ec7185b39e7924bcea7964f16b81e2f29f5fb22b41f1"
+    },
+    {
+      "path": "tests/integration/contact-endpoint-bounds.test.mjs",
+      "lfSha256": "e389343612a0548db1811742e0711b74583d1c17407f6b288550a03dc952da3b"
+    }
+  ],
+  "pid": 27684,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-18T02:30:03.528Z",
+  "endedAt": "2026-11-18T02:30:03.975Z",
+  "exitCode": 0,
+  "signal": null,
+  "timeoutMs": 20000,
+  "nativeCompilerCalls": 0,
+  "sourceCarrierExpansions": 0,
+  "fullNewYorkDiagnostics": 0,
+  "contactSearches": 0,
+  "worldSteps": 0,
+  "rendererCalls": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

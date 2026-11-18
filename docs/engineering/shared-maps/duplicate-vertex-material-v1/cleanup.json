@@ -1,0 +1,21 @@
+{
+  "owner": "Coder Tinderbox",
+  "checkedAt": "2026-11-18T02:32:29.8944557Z",
+  "method": "System.Diagnostics.Process.GetProcessById for each exact recorded PID",
+  "checkedPids": [
+    32536,
+    27684
+  ],
+  "absentPids": [
+    32536,
+    27684
+  ],
+  "liveRecordedHelpers": [],
+  "retainedHelpers": [],
+  "portsOpened": [],
+  "stopMethod": "Both bounded synchronous children exited through their owning process handles",
+  "sourceReceipts": [
+    "baseline.json",
+    "affected.json"
+  ]
+}
