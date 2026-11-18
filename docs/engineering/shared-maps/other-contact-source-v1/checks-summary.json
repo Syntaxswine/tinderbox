@@ -1,0 +1,101 @@
+{
+  "scope": "Eight deterministic source representatives only",
+  "pairs": 1582,
+  "regions": 1582,
+  "attempted": 8,
+  "proposed": 7,
+  "unproved": 1,
+  "UNATTEMPTED": 1574,
+  "families": {
+    "dentil-to-own-cornice": {
+      "pairs": 202,
+      "regions": 202,
+      "attempted": 1,
+      "proposed": 1,
+      "unproved": 0,
+      "UNATTEMPTED": 201
+    },
+    "fixed-portal-frame": {
+      "pairs": 26,
+      "regions": 26,
+      "attempted": 1,
+      "proposed": 1,
+      "unproved": 0,
+      "UNATTEMPTED": 25
+    },
+    "fixed-window-frame": {
+      "pairs": 649,
+      "regions": 649,
+      "attempted": 1,
+      "proposed": 1,
+      "unproved": 0,
+      "UNATTEMPTED": 648
+    },
+    "native-rail-to-real-posts": {
+      "pairs": 34,
+      "regions": 34,
+      "attempted": 1,
+      "proposed": 1,
+      "unproved": 0,
+      "UNATTEMPTED": 33
+    },
+    "native-source-paving-seams": {
+      "pairs": 16,
+      "regions": 16,
+      "attempted": 1,
+      "proposed": 1,
+      "unproved": 0,
+      "UNATTEMPTED": 15
+    },
+    "porch-rail-and-neck-frame": {
+      "pairs": 92,
+      "regions": 92,
+      "attempted": 1,
+      "proposed": 1,
+      "unproved": 0,
+      "UNATTEMPTED": 91
+    },
+    "railing-cap-to-real-members": {
+      "pairs": 479,
+      "regions": 479,
+      "attempted": 1,
+      "proposed": 0,
+      "unproved": 1,
+      "UNATTEMPTED": 478
+    },
+    "railing-pier-to-base": {
+      "pairs": 84,
+      "regions": 84,
+      "attempted": 1,
+      "proposed": 1,
+      "unproved": 0,
+      "UNATTEMPTED": 83
+    }
+  },
+  "geometryBuffersReferenced": 92,
+  "geometryBuffersRead": 16,
+  "instances": 1703,
+  "instanceGeometriesEvaluated": 16,
+  "surfaceTopologyDictionaries": 3,
+  "sourceRangeInstances": 16,
+  "contactPredicateChecks": 24,
+  "negativeChecks": {
+    "wrongPrimitiveNegatives": 14,
+    "outsideSelectorNegatives": 12,
+    "legacyWitnessNegatives": 12
+  },
+  "unprovedCases": [
+    {
+      "relationship": "9a9e1c714d76faaec8377e9c",
+      "region": "5b1da7c755e4d73f34574c7e",
+      "code": "original-component-unresolved",
+      "instances": [
+        40
+      ]
+    }
+  ],
+  "nativeCompilerCalls": 0,
+  "runtimeSourceDecoderCalls": 0,
+  "sourceBlueprintExpansions": 0,
+  "graphWorldRendererBuildBenchmarkRuns": 0
+}

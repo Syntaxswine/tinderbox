@@ -1,0 +1,71 @@
+"""Pinned metadata/cache preparation only; no runtime decoder or compiler."""
+from pathlib import Path
+import subprocess,json,hashlib,collections,sys
+HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[3];CACHE=HERE/'.cache';REF='0e9ffa764610f7ab047e3d4cdebd05342273463f';INDEX_REF='2b350309d9116812a1d3988af090614bdaefbc25'
+FAMILIES={'dentil-to-own-cornice':202,'fixed-portal-frame':26,'fixed-window-frame':649,'native-rail-to-real-posts':34,'native-source-paving-seams':16,'porch-rail-and-neck-frame':92,'railing-cap-to-real-members':479,'railing-pier-to-base':84}
+PREFIX='art/source/shared-map-fire-bindings/coverage-family-proposal-v1/'
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def canonical(x):return json.dumps(x,sort_keys=True,separators=(',',':'),allow_nan=False)
+def dump(path,x):path.write_text(json.dumps(x,sort_keys=True,separators=(',',':'),allow_nan=False)+'\n',encoding='utf-8')
+def main():
+ CACHE.mkdir(exist_ok=True);(CACHE/'objects').mkdir(exist_ok=True);pins=[]
+ def source(path,ref=REF,expected=None,parse=True,cache=True):
+  data=subprocess.check_output(['git','show',ref+':'+path],cwd=ROOT);digest=sha(data)
+  if expected:assert digest==expected,path
+  cp=CACHE/'objects'/(digest+'.json')
+  if cache:
+   if cp.exists():assert cp.read_bytes()==data
+   else:cp.write_bytes(data)
+  pin={'commit':ref,'path':path,'bytes':len(data),'sha256':digest}
+  if cache:pin['cache']=cp.relative_to(HERE).as_posix()
+  pins.append(pin);return (json.loads(data) if parse else data),pin
+ relationships,rpin=source(PREFIX+'relationships.json',expected='34b25f91d457fb65e611b89f182c0e05bb946d7506a0581b53e945a2d9731e06')
+ refs,bpin=source(PREFIX+'geometry-bindings.json',expected='4cd550cf603008e76819877f5c32bf1f731e496b05a95a66927b32cde41bcada')
+ index,ipin=source('assets/runtime/map-sources/new-york/index.json',INDEX_REF,'e9bee63a5a4afb0f8513d083b7e5f1ce83f25c0441ea543e14901b70e4e0cdab')
+ assert index['encoding']=='tuples-v1' and index['sourceOffsetApplied'] is True
+ source('assets/art/shared-map-fire-bindings/new-york-complete-v1.json',expected='407c0f8bd582f8d95b9ade1471cd51892ac7b9a40fd2c005696bcc5485991eba',parse=False,cache=False)
+ schema,spin=source('art/source/shared-map-fire-bindings/cornice-front-contact-repeat-v1/contacts-proposal.json',expected='b1f2f0d8fe26ff5846544ac0dac1d54c3875a2963676188e7c46a9f60f99dd24')
+ context,cpin=source('art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/predicate-context.json',expected=None)
+ componentContext,tpin=source('art/source/shared-map-fire-bindings/cornice-wall-one-binding-v1/predicate-context.json',expected='e960fee270a638bf06fdfe53871c421adee41a8ec37e19d1094974c50d0f73ae')
+ source('art/source/shared-map-fire-bindings/export.py',expected='ae42ec633ab21e8d065ee0b3e3779292591c20cceb9d0f1dd3cd76b1600327aa',parse=False,cache=False)
+ assert sha(context['geometry']['moduleText'].encode())==context['geometry']['sourceSha256']
+ assert sha(context['support']['closureText'].encode())==context['support']['closureSha256']
+ blocks=componentContext['support']['blocks']
+ for name in ['vectorKeyDeclaration','componentFunction']:assert sha(blocks[name]['text'].encode())==blocks[name]['sha256']
+ selected=[(i,r) for i,r in enumerate(relationships['relationships']) if r['family'] in FAMILIES];excluded=[r for r in relationships['relationships'] if r['family'] not in FAMILIES]
+ assert len(selected)==1582 and len(excluded)==1694 and all(r['family'].startswith('cornice') for r in excluded)
+ assert dict(collections.Counter(r['family'] for _,r in selected))==FAMILIES
+ assert all(len(r['localRegions'])==1 for _,r in selected)
+ bindings=refs['carriers'];partIndex={row[0]:(i,row) for i,row in enumerate(index['parts'])};owners=sorted({r[s+'CarrierId'] for _,r in selected for s in ['parent','child']})
+ geometries=[];geomBy={};instances=[];instanceBy={};ranges=0
+ for owner in owners:
+  assert len(bindings[owner])==1,owner
+  b=bindings[owner][0];key=(b['geometryId'],b['geometryPath'],b['sha256'])
+  if key not in geomBy:
+   g,gpin=source(b['geometryPath'],expected=b['sha256']);position=g['attributes']['position'];ind=g.get('index');count=len(ind['array']) if isinstance(ind,dict) else len(ind) if ind else len(position['array'])//position['itemSize'];assert position['itemSize']==3 and count%3==0
+   geomBy[key]=len(geometries);geometries.append({'id':b['geometryId'],'path':b['geometryPath'],'rawSha256':gpin['sha256'],'commit':REF,'cache':gpin['cache'],'positionType':position['type'],'originalTriangles':count//3})
+  globalIndex,row=partIndex.get(b['sourcePartId'],partIndex.get(b['partId'],(None,None)));assert row is not None,owner
+  ci=row[2];carrier=index['carriers'][ci];assert carrier[0]==owner
+  ran=b['sourceRange'];runtimeGeometry=b['geometryId']+(('/range/'+str(ran['start'])+'/'+str(ran['count'])) if ran else '')
+  assert index['tables']['geometries'][row[3]]==runtimeGeometry
+  matrix=([1,0,0,0,0,1,0,0,0,0,1,0]+row[5]+[1]) if len(row[5])==3 else row[5]
+  assert matrix==b['matrix'] and row[12]==([ran['start'],ran['count']] if ran else None)
+  if ran:ranges+=1
+  number=len(instances);instanceBy[owner]=number
+  instances.append({'id':number,'ownerId':owner,'partId':b['partId'],'sourcePartId':b['sourcePartId'],'globalSourcePartId':row[0],'globalSourcePartIndex':globalIndex,'globalCarrierIndex':ci,'geometry':geomBy[key],'sourceRange':ran,'primitiveBase':ran['start']//3 if ran else 0,'emittedWorldMatrix':b['matrix'],'role':carrier[7],'sourceBindingPointer':'/carriers/'+owner.replace('~','~0').replace('/','~1')+'/0','sourceCarrierCanonicalSha256':sha(canonical(carrier).encode()),'canonicalRecipe':{'material':carrier[1],'fuelClass':carrier[2],'fuelAmount':carrier[3],'area':carrier[4],'thickness':carrier[5],'quantityRule':carrier[6],'finish':carrier[17] if len(carrier)>17 else None},'nativeRecordId':None,'nativeCell':None})
+ relrows=[];regions=[]
+ for ordinal,row in selected:
+  parent=instanceBy[row['parentCarrierId']];child=instanceBy[row['childCarrierId']];assert row['parentRole']==instances[parent]['role'] and row['childRole']==instances[child]['role'];assert row['groundAnchor'] is False and row['wholeCarrierRetirement'] is False
+  relrows.append({'id':row['id'],'sourceRelationshipOrdinal':ordinal,'family':row['family'],'parent':parent,'child':child,'parentRole':row['parentRole'],'childRole':row['childRole'],'direction':row['direction'],'originalKind':row['proposedKind'],'originalAction':row['action'],'accepted':row['accepted'],'applied':row['applied'],'originalRegionIds':[r['id'] for r in row['localRegions']]})
+  for localIndex,region in enumerate(row['localRegions']):
+   certificate=region['actualGeometryCertificate'];proof=certificate.get('proof',{});assert certificate['geometricBearing'] is False
+   historical={k:proof[k] for k in ['kind','worldWitness','sourceFace','sourceRange','actualSurfaceWitness'] if k in proof};historical.update({'geometricBearing':certificate['geometricBearing'],'parentWitness':region['parentWitness'],'childWitness':region['childWitness']})
+   regions.append({'id':region['id'],'relationship':row['id'],'family':row['family'],'parent':parent,'child':child,'sourcePointer':'/relationships/'+str(ordinal)+'/localRegions/'+str(localIndex),'originalRegionCanonicalSha256':sha(canonical(region).encode()),'selector':region['selector'],'endpointBounds':[region['parentBounds'],region['childBounds']],'historical':historical})
+ assert len(instances)==1703 and len(geometries)==92 and ranges==16 and len({r['id'] for r in regions})==1582
+ plan={'version':1,'sourceRef':REF,'families':FAMILIES,'geometries':geometries,'instances':instances,'relationships':relrows,'regions':regions,'helpers':{'contact':cpin,'components':tpin},'pageSize':128,'globalIndex':ipin,'sourceRelationships':rpin,'sourceGeometryBindings':bpin,'schemaReference':spin,'scopeInventory':{'pairs':1582,'regions':1582,'excludedCornicePairs':1694,'owners':1703,'physicalPartIds':len({i['partId'] for i in instances}),'geometryBuffers':92,'sourceRangeInstances':ranges,'relationshipIdSetSha256':sha(('\n'.join(sorted(r['id'] for r in relrows))+'\n').encode()),'regionIdSetSha256':sha(('\n'.join(sorted(r['id'] for r in regions))+'\n').encode())}}
+ dump(CACHE/'plan.json',plan);output={'version':1,'sourceRef':REF,'globalIndexRef':INDEX_REF,'authoritySha256':sha((HERE/'authority.md').read_bytes()),'schemaReference':spin,'sourcePins':sorted(pins,key=lambda p:(p['commit'],p['path'])),'planSha256':sha((CACHE/'plan.json').read_bytes()),'scope':plan['scopeInventory'],'families':FAMILIES,'pageSize':128,'pageCount':(len(regions)+127)//128,'runtimeDecoderCalls':0,'nativeCompilerCalls':0}
+ path=HERE/'input-pins.json'
+ if path.exists():assert json.loads(path.read_bytes())==output,'Pinned preparation changed'
+ else:dump(path,output)
+ print(json.dumps({'prepared':True,**plan['scopeInventory'],'pageCount':output['pageCount']}))
+if __name__=='__main__':main()

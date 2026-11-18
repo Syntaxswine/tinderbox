@@ -1,0 +1,28 @@
+{
+  "owner": "Set up Tinderbox UI worktree",
+  "project": "Tinderbox",
+  "purpose": "Offline non-cornice source normalization audit",
+  "executable": "C:\\Users\\baals\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "arguments": [
+    "-B",
+    "C:\\Users\\baals\\.codex\\worktrees\\fire-ui-reconcile\\tinderbox\\docs\\engineering\\shared-maps\\other-contact-source-v1\\check.py"
+  ],
+  "cwd": "C:\\Users\\baals\\.codex\\worktrees\\fire-ui-reconcile\\tinderbox",
+  "startedAt": "2026-11-18T02:03:51.592242+00:00",
+  "timeoutSeconds": 60,
+  "maximumRegions": 0,
+  "background": false,
+  "ports": [],
+  "endCondition": "Finite child exits; parent waits and enforces deadline.",
+  "sourcePins": {
+    "prepare.py": "1efc362933b1fbc471dc4fa8e7433fb3f9c0b1235a12abd459fbf2182969851c",
+    "page.mjs": "7db6988f2b6efa5709c07136dd7a8b9c590248856ea788c19cc86f2f2237c82a",
+    "finalize.py": "52fab2062c42f2d8fd90e494b1d42b3d88d1c87f1a0143d0c7827d6c1974464c",
+    "check.py": "9766524d84c937805cfb3b74c3e773b8057581a718e3e3fb92ca02b9b6d55922"
+  },
+  "pid": 34556,
+  "endedAt": "2026-11-18T02:03:55.190488+00:00",
+  "exitCode": 0,
+  "foregroundCompleted": true,
+  "logSha256": "a3f55b806f6c9b95be0c7816d948c5c05513e8a8872f5a829d71d4a027259eb5"
+}

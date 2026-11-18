@@ -1,0 +1,3 @@
+# Architect checkpoint refinement
+
+Retain the complete 1,582-pair/region inventory, but implement and run only eight deterministic source representatives, one per non-cornice family. Select the first original relationship ordinal in each of the eight named families and record its existing IDs. Preserve actual original triangles, components, primitives, source ranges and global indices. Mark every other region UNATTEMPTED. Stop after one checked first-page candidate; no expansion, native/compiler/decoder/graph/world/render/build run or retained helper. The earlier broad preparation draft is preserved under drafts/ and was never executed.

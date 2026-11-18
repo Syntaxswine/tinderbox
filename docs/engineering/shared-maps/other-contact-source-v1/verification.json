@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "status": "Checked first-page source proposal; architect/artist review pending",
+  "baseUiCommit": "2999e51bdd0fdc0002c9b8df2054296b6b3e3569",
+  "sourceRef": "0e9ffa764610f7ab047e3d4cdebd05342273463f",
+  "globalIndexRef": "2b350309d9116812a1d3988af090614bdaefbc25",
+  "scope": [
+    "docs/engineering/shared-maps/other-contact-source-v1/"
+  ],
+  "summary": {
+    "scope": "Eight deterministic source representatives only",
+    "pairs": 1582,
+    "regions": 1582,
+    "attempted": 8,
+    "proposed": 7,
+    "unproved": 1,
+    "UNATTEMPTED": 1574,
+    "families": {
+      "dentil-to-own-cornice": {
+        "pairs": 202,
+        "regions": 202,
+        "attempted": 1,
+        "proposed": 1,
+        "unproved": 0,
+        "UNATTEMPTED": 201
+      },
+      "fixed-portal-frame": {
+        "pairs": 26,
+        "regions": 26,
+        "attempted": 1,
+        "proposed": 1,
+        "unproved": 0,
+        "UNATTEMPTED": 25
+      },
+      "fixed-window-frame": {
+        "pairs": 649,
+        "regions": 649,
+        "attempted": 1,
+        "proposed": 1,
+        "unproved": 0,
+        "UNATTEMPTED": 648
+      },
+      "native-rail-to-real-posts": {
+        "pairs": 34,
+        "regions": 34,
+        "attempted": 1,
+        "proposed": 1,
+        "unproved": 0,
+        "UNATTEMPTED": 33
+      },
+      "native-source-paving-seams": {
+        "pairs": 16,
+        "regions": 16,
+        "attempted": 1,
+        "proposed": 1,
+        "unproved": 0,
+        "UNATTEMPTED": 15
+      },
+      "porch-rail-and-neck-frame": {
+        "pairs": 92,
+        "regions": 92,
+        "attempted": 1,
+        "proposed": 1,
+        "unproved": 0,
+        "UNATTEMPTED": 91
+      },
+      "railing-cap-to-real-members": {
+        "pairs": 479,
+        "regions": 479,
+        "attempted": 1,
+        "proposed": 0,
+        "unproved": 1,
+        "UNATTEMPTED": 478
+      },
+      "railing-pier-to-base": {
+        "pairs": 84,
+        "regions": 84,
+        "attempted": 1,
+        "proposed": 1,
+        "unproved": 0,
+        "UNATTEMPTED": 83
+      }
+    },
+    "geometryBuffersReferenced": 92,
+    "geometryBuffersRead": 16,
+    "instances": 1703,
+    "instanceGeometriesEvaluated": 16,
+    "surfaceTopologyDictionaries": 3,
+    "sourceRangeInstances": 16,
+    "contactPredicateChecks": 24,
+    "negativeChecks": {
+      "wrongPrimitiveNegatives": 14,
+      "outsideSelectorNegatives": 12,
+      "legacyWitnessNegatives": 12
+    },
+    "unprovedCases": [
+      {
+        "relationship": "9a9e1c714d76faaec8377e9c",
+        "region": "5b1da7c755e4d73f34574c7e",
+        "code": "original-component-unresolved",
+        "instances": [
+          40
+        ]
+      }
+    ],
+    "nativeCompilerCalls": 0,
+    "runtimeSourceDecoderCalls": 0,
+    "sourceBlueprintExpansions": 0,
+    "graphWorldRendererBuildBenchmarkRuns": 0
+  },
+  "sourcePinsVerified": 24,
+  "pointValidation": "Eight original representatives only. Seven positive proofs separately rechecked with the unchanged native contact/component helpers. No geometry arrays exported.",
+  "geometryBuffersRead": 16,
+  "geometryBuffersReferencedUnattempted": 76,
+  "inputPinsSha256": "bb63874834e74fe158f408c2dfc29cef54eecee657effb9a6731f884ef1eb0a5",
+  "proposalSha256": "e1182bec6bb4693a3f169f4986085a357334926f35ac9e71441173504d632361",
+  "calculationSha256": "6c88dec4f05c486ba1080853953028039424e2c80ee7e747e6381e2ebb3fee01",
+  "verificationPageSha256": "3b9d748145878ae3271f156e1d08ba7f239c52ad276103e5dbdb381cd2765955",
+  "protectedQa": [
+    {
+      "snapshot": "regional-query-c9b02eb",
+      "files": 11,
+      "treeSha256": "b606ffe9b8532860567c019d05711fa8955e31954cd0662f6d95bb756dc5b566",
+      "matchesPriorGuardReceipt": true
+    },
+    {
+      "snapshot": "regional-query-68b6e399",
+      "files": 16,
+      "treeSha256": "af6e1c16403ed2eb88feb506158377d26d107d9727e7ffdc466d45bbc4809dcb",
+      "matchesPriorGuardReceipt": true
+    },
+    {
+      "snapshot": "regional-query-e84ed22c",
+      "files": 18,
+      "treeSha256": "ce6553ee18d464a65b4c0e9401fd4e7c042f0c7f142db8f93dfd0ed10f06e948",
+      "matchesPriorGuardReceipt": true
+    },
+    {
+      "snapshot": "regional-bridge-4eae509b",
+      "files": 28,
+      "treeSha256": "1833f5988f28d69ea29b6497341dceba8d9d10859e506b381fcb8aea8fead3b4",
+      "matchesPriorGuardReceipt": true
+    },
+    {
+      "snapshot": "support-ports-f45f0c4e",
+      "files": 27,
+      "treeSha256": "94aac3cbae1d7c4418d119b79af0669b741bcdf0afb91f745de6e9cda60a8223",
+      "matchesPriorGuardReceipt": true
+    },
+    {
+      "snapshot": "support-ports-e83ff7af",
+      "files": 32,
+      "treeSha256": "45bbfa5c4f2ae7287e0d8332df9d6ada454f080dedaa5c34efe0357999e0cafa",
+      "matchesPriorGuardReceipt": true
+    },
+    {
+      "snapshot": "cornice-contact-f7a25711",
+      "files": 23,
+      "treeSha256": "cf7f2e38ac8ba20e7c8797327f9050ab3b5db6108b5670031343b522047e45e2",
+      "matchesPriorGuardReceipt": true
+    },
+    {
+      "snapshot": "cornice-contact-2143d37b",
+      "files": 28,
+      "treeSha256": "1d8adaf68af8cbd435f48c758214c80ce6e932f9b9e3cb2224ccb2e8a9b12f83",
+      "sourceAndDriverPinsMatchPriorReceipt": true
+    }
+  ],
+  "trainCandidate": "fb0628605c274550ff8abad50b151843f08747d1",
+  "children": [
+    {
+      "attempt": "prepare",
+      "pid": 32744,
+      "startedAt": "2026-11-18T01:52:36.655356+00:00",
+      "endedAt": "2026-11-18T01:52:39.748778+00:00",
+      "completed": true,
+      "exitCode": 0,
+      "ports": []
+    },
+    {
+      "attempt": "page-000",
+      "pid": 53932,
+      "startedAt": "2026-11-18T01:53:14.370716+00:00",
+      "endedAt": "2026-11-18T01:53:14.506283+00:00",
+      "completed": true,
+      "exitCode": 0,
+      "ports": []
+    },
+    {
+      "attempt": "verify-000",
+      "pid": 73520,
+      "startedAt": "2026-11-18T01:56:35.953010+00:00",
+      "endedAt": "2026-11-18T01:56:36.202787+00:00",
+      "completed": true,
+      "exitCode": 0,
+      "ports": []
+    },
+    {
+      "attempt": "assemble",
+      "pid": 37072,
+      "startedAt": "2026-11-18T02:03:26.374624+00:00",
+      "endedAt": "2026-11-18T02:03:26.834715+00:00",
+      "completed": true,
+      "exitCode": 0,
+      "ports": []
+    },
+    {
+      "attempt": "audit",
+      "pid": 34556,
+      "startedAt": "2026-11-18T02:03:51.592242+00:00",
+      "endedAt": "2026-11-18T02:03:55.190488+00:00",
+      "completed": true,
+      "exitCode": 0,
+      "ports": []
+    }
+  ],
+  "childrenClosure": "All five recorded task child PIDs were checked absent after their completed exits. No process was terminated by PID/name.",
+  "retainedHelpers": [],
+  "ports": [],
+  "newNativeCompilerCalls": 0,
+  "runtimeSourceDecoderCalls": 0,
+  "sourceBlueprintExpansions": 0,
+  "graphWorldRendererBuildBenchmarkRuns": 0,
+  "wholeNewYorkDiagnostic": "UNRUN; allowance unused",
+  "nativeAllowances": "All prior actual-native/roof/proof allowances remain spent",
+  "lineEndings": "Scoped -text attributes preserve exact checked raw bytes, including historical CRLF source/run evidence.",
+  "limitations": [
+    "Proposed fixed physical contacts only. Original relationship kinds, roles, direction, recipes and historical witnesses/null/false fields are preserved; no new bearing strength, fastening, anchor or grounding claim.",
+    "Exact-edge connected surface components are the existing helper result, not a general material-volume solver. One original baluster mesh remains unproved; no repair or fallback was used.",
+    "Native IDs/cells/faces remain unbound. No native/compiler/source decoder/graph/world/publication/render/build or whole-map check was run.",
+    "The other 1574 regions and 76 unread geometry buffers remain unattempted. The disjoint 1694 cornice pairs remain the artist scope."
+  ]
+}
