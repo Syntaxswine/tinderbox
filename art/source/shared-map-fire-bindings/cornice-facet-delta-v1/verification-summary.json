@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "mode": "verify",
+  "scope": {
+    "targets": 2946,
+    "children": 62,
+    "pages": 125
+  },
+  "completedPages": 125,
+  "failedPages": [],
+  "unattemptedPages": [],
+  "counts": {
+    "regions": 2946,
+    "proved": 2249,
+    "unproved": 697,
+    "contactChecks": 6747,
+    "negativeChecks": 13392
+  },
+  "remainingReasons": {
+    "no-original-facets-in-selector": 288,
+    "native-contact-rejected": 67,
+    "ambiguous-original-point-membership": 14,
+    "no-unambiguous-original-contact": 328
+  },
+  "byPriorReason": {
+    "BOUNDED_COORDINATE_METHOD_UNPROVED": {
+      "regions": 1611,
+      "proved": 1296,
+      "unproved": 315
+    },
+    "PRIMARY_FACE_OR_FREE_INTERVAL_NOT_UNIQUE": {
+      "regions": 381,
+      "proved": 331,
+      "unproved": 50
+    },
+    "EXISTING_CONTACT_PREDICATE_UNPROVED": {
+      "regions": 5,
+      "proved": 5,
+      "unproved": 0
+    },
+    "ORIGINAL_FACE_MEMBERSHIP_UNPROVED": {
+      "regions": 227,
+      "proved": 227,
+      "unproved": 0
+    },
+    "ORIGINAL_COMPONENT_MEMBERSHIP_UNPROVED": {
+      "regions": 51,
+      "proved": 51,
+      "unproved": 0
+    },
+    "PRIMARY_VERTICAL_FACE_OR_TOP_PLANE_NOT_UNIQUE": {
+      "regions": 671,
+      "proved": 339,
+      "unproved": 332
+    }
+  },
+  "maxPlaneResidualMetres": 5.7220459037665705e-08,
+  "preserved": {
+    "firstPageRegions": 96,
+    "previousPositiveRegions": 1388,
+    "acceptedSixReferences": 6,
+    "rerunAcceptedReferences": 0,
+    "originalUnprovedReportRegions": 2952
+  },
+  "combinedSourceContacts": 3739,
+  "allLaunchedChildrenExited": true,
+  "coordinatorWallMs": 27884.550699964166,
+  "coordinatorCpuMs": 3125.0,
+  "longestOwnedChildMs": 334.5904001034796,
+  "nativeCompilations": 0,
+  "nativeLineage": "UNBOUND",
+  "geometryPayloadsCopied": 0,
+  "originalDictionaryCopies": 0,
+  "ports": [],
+  "retainedHelpers": false
+}
