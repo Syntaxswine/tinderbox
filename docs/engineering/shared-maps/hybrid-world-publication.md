@@ -95,3 +95,14 @@ use compact evidence/provenance and scoped checked commits/pushes. Return exact
 SHA, functional seams still missing, stock/query/support parity, resource counts
 and helper closure. Architect reviews this coupled result before granting the
 next finite real-map investigation.
+
+### Existing comparison allowance
+
+The first affected-test filter also selected the existing 90-step comparison,
+producing 96 aggregate tiny-fixture steps in that child. Preserve this exceeded
+attempt and add an explicit QA step guard. The architect authorizes that named
+legacy comparison in a separate child with at most 128 aggregate steps and the
+same 30-second and per-source size limits. New coupled checks retain their
+64-step child limit. This amendment allows the original meaningful sequence;
+do not shorten it or weaken assertions to satisfy a harness limit. It grants no
+actual New York/native proof, production diagnostic or rendering work.

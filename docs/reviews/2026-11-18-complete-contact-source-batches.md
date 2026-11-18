@@ -77,3 +77,31 @@ Independent receipts are in the ignored architect QA directory:
 `normal-addendum-scope-audit.json`, `normal-root-recheck.json` and
 `baluster-frame-topology-diagnostic.json` under
 `artifacts/qa/m29-architect-intake/`.
+
+## Six cornice follow-up representatives
+
+Accept artist `45c966efc64210402ef24c0c1d7849a397bb871c`, architect intake
+`8269e9b4`, as six additional source contacts. The exact scope is 34 paths /
+33 payload pins; all candidate bytes and current files match. Root reproduced
+all six saved-record verifications, 18 contact checks and 34 negatives, without
+new candidate searches. All six owned children exited; no helper or port remains.
+
+The [six-region packet](../../art/source/shared-map-fire-bindings/cornice-six-source-representatives-v1/README.md)
+pins the existing UI facet method, accepted positive-material component helper
+and canonical normal order. Original flattened ordinals are 96, 390, 1869,
+2642, 2730 and 2850, the earliest of each prior reason class. Five contacts have
+zero plane residual; the sixth retains 5.587935447692871e-8 m within the
+unchanged 1e-7 m membership tolerance. Open fascia remains open: this proves
+surface membership, not closed volume, support or grounding. Original histories,
+selectors, bounds, absolute primitive IDs and prior failed-method records remain
+unchanged. Source-only totals are now 2,509 proposed / 3,509 unproved.
+
+Artist is authorized a separate derived delta for the remaining 2,946 formerly
+unproved cornice regions using this same pinned method, with exact references
+to the six completed cases. Preserve all earlier positives and failures without
+rerunning them. Pages have at most 256 regions, hidden owned children at most
+60 seconds and a foreground coordinator at most ten minutes; stop on unexpected
+failure and name any unattempted tail. No geometry changes, new solver, widened
+tolerance, native compilation, live support/world work or rendering is granted.
+Independent receipts are `six-representative-scope-audit.json` and
+`six-representative-root-verify.log` in the same ignored architect QA directory.
