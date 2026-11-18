@@ -1,0 +1,863 @@
+{
+  "version": 2,
+  "status": "checked-candidate-awaiting-architect-review",
+  "scopePath": "docs/engineering/shared-maps/other-contact-source-v2",
+  "baseCommit": "e67235b6e9d87760b1b36d802833de44456b1bd8",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 8,
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 21,
+      "sha256": "046032151fe6113c18a8d7d9971c557e81129ca1ba244e5263d54b7e0e6f9643"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6602,
+      "sha256": "bece571dc052f8eb94ae303093cd86a41b80a75e6e53e488bb10e341a9079d01"
+    },
+    {
+      "path": "audits/cache-hydration.json",
+      "bytes": 1949,
+      "sha256": "43593bf65e2e92bda52a2eb664bdce665cb0d470b1f861ad43d6a9c35339fd94"
+    },
+    {
+      "path": "audits/cache-hydration.log",
+      "bytes": 403,
+      "sha256": "c49bded4a4f6a6e9cc4ae7c045b1d52af4b39eaa4b5b5d753da4a91189a962f4"
+    },
+    {
+      "path": "audits/process-events.jsonl",
+      "bytes": 2528,
+      "sha256": "52917868decf7b55d09328d41e7651c7cc3e409cbd292bb07dbdc229061c86fc"
+    },
+    {
+      "path": "authority.md",
+      "bytes": 4901,
+      "sha256": "4acbd0b859b2bf606379d4e9a152ca8d16c5474b84d6bbe344e940a9ff6fb755"
+    },
+    {
+      "path": "batch.json",
+      "bytes": 1290,
+      "sha256": "e6569e43b5a156aa25e91d0ce6a3dedbee269f9926472f6a5c8d3a473077fe54"
+    },
+    {
+      "path": "check.py",
+      "bytes": 14093,
+      "sha256": "7d1c1c688044062518aabc523b88427144e95246a57b1038e044a1868b95203b"
+    },
+    {
+      "path": "checks-summary-audit.json",
+      "bytes": 432,
+      "sha256": "ebc1e00f4762f6da4f81f7d003f3a57115f98b799c4cebe716df142d8dad0f59"
+    },
+    {
+      "path": "checks-summary.json",
+      "bytes": 2063,
+      "sha256": "2bce9ea6937ef0a53d4d4bbdb85252b6e85c12413fe0d38d0b704385494876b3"
+    },
+    {
+      "path": "checks/page-000.json",
+      "bytes": 424,
+      "sha256": "845674a990942b0104a9bca7b93d06b6452deb9912095778b4e4adaa970a0249"
+    },
+    {
+      "path": "checks/page-001.json",
+      "bytes": 439,
+      "sha256": "a5510121466704a66048a3386dd2bdcd11860bd86ef7fb26ace0579a345d4a4d"
+    },
+    {
+      "path": "checks/page-002.json",
+      "bytes": 440,
+      "sha256": "b41f8e2ef00e97b8c6369cd9b349f529d374e2b8200f74a537701d59d781447b"
+    },
+    {
+      "path": "checks/page-003.json",
+      "bytes": 440,
+      "sha256": "d2837cc3b7c58cb097c7bc7662f405f62c56b866c93597739761c93803556c6d"
+    },
+    {
+      "path": "checks/page-004.json",
+      "bytes": 441,
+      "sha256": "a6ebcf0ae70a825c92d06984e0ff6c75fc3dba91e15461dc4bf0ba1aabcfc21d"
+    },
+    {
+      "path": "checks/page-005.json",
+      "bytes": 432,
+      "sha256": "b070df0142cfb9b6f034c6f7117e81360a2c5aaeb315f8770c66c2703ee1b124"
+    },
+    {
+      "path": "checks/page-006.json",
+      "bytes": 438,
+      "sha256": "83547805456e31b0cd64885ee2f13585843dca66cecb430e46a51fbc2dd2ae09"
+    },
+    {
+      "path": "checks/page-007.json",
+      "bytes": 436,
+      "sha256": "409e02b541da948f746f3d77a3a81d2e7d2df78cfbee3cf3c05cb14acff22ded"
+    },
+    {
+      "path": "cleanup.json",
+      "bytes": 1046,
+      "sha256": "05d63b62ba92df181a547d9b9bbea3ff2d065f46d291d0c3ff18c7b87a910cb3"
+    },
+    {
+      "path": "common.py",
+      "bytes": 1513,
+      "sha256": "cac36798751fceba6bb2363c5c957005875f23c53590d2f65c5445ca14c363ba"
+    },
+    {
+      "path": "contacts-proposal.json",
+      "bytes": 7140342,
+      "sha256": "4e6b7ae3c4bbc6a34efc930db271b1d6822246825a7f25e5428979de87a26979"
+    },
+    {
+      "path": "dictionaries/032e00e6a3aa3a50097766208a3f9a39fcfe679f85dd1743b727483901b1fe59.json",
+      "bytes": 283,
+      "sha256": "032e00e6a3aa3a50097766208a3f9a39fcfe679f85dd1743b727483901b1fe59"
+    },
+    {
+      "path": "dictionaries/043bc3ee3352eaf0d9b01c052bfb89d1c417637d70851b64014b9945956bb419.json",
+      "bytes": 283,
+      "sha256": "043bc3ee3352eaf0d9b01c052bfb89d1c417637d70851b64014b9945956bb419"
+    },
+    {
+      "path": "dictionaries/0679ae0bd6fca5d863f842df7c0ca3c89d23d9ff37422857f88a237550c77aab.json",
+      "bytes": 283,
+      "sha256": "0679ae0bd6fca5d863f842df7c0ca3c89d23d9ff37422857f88a237550c77aab"
+    },
+    {
+      "path": "dictionaries/0703ff0f9313dc06ac48f481cdc1b3792e4a2ac6cd4d805d6141a72864925913.json",
+      "bytes": 283,
+      "sha256": "0703ff0f9313dc06ac48f481cdc1b3792e4a2ac6cd4d805d6141a72864925913"
+    },
+    {
+      "path": "dictionaries/088654c853bb451aa656da17b20b1884e9197a2b595400250bd4031fdfd25de1.json",
+      "bytes": 283,
+      "sha256": "088654c853bb451aa656da17b20b1884e9197a2b595400250bd4031fdfd25de1"
+    },
+    {
+      "path": "dictionaries/0c85c73f93ca60559f36aea7bedd6a5d692de6bf6aae099ddb3fd3c547c7d688.json",
+      "bytes": 283,
+      "sha256": "0c85c73f93ca60559f36aea7bedd6a5d692de6bf6aae099ddb3fd3c547c7d688"
+    },
+    {
+      "path": "dictionaries/0f35e41ccdd40a94ab120b5f808103d8379261b850e19776209e784a1aba972b.json",
+      "bytes": 283,
+      "sha256": "0f35e41ccdd40a94ab120b5f808103d8379261b850e19776209e784a1aba972b"
+    },
+    {
+      "path": "dictionaries/1b47588880aa56d33c81488f3aec8bfc5f7f2453844d0933bcb339253e1b80ec.json",
+      "bytes": 283,
+      "sha256": "1b47588880aa56d33c81488f3aec8bfc5f7f2453844d0933bcb339253e1b80ec"
+    },
+    {
+      "path": "dictionaries/1be8a521d192642530ba384f0301f0a6ef95610a864732ffc27aafce9b912928.json",
+      "bytes": 283,
+      "sha256": "1be8a521d192642530ba384f0301f0a6ef95610a864732ffc27aafce9b912928"
+    },
+    {
+      "path": "dictionaries/1c4a3312d45478d7c709dc85dc59af9239a66bf6c3ad77ec19f5f26e3f66afbb.json",
+      "bytes": 283,
+      "sha256": "1c4a3312d45478d7c709dc85dc59af9239a66bf6c3ad77ec19f5f26e3f66afbb"
+    },
+    {
+      "path": "dictionaries/1ce9c6bab73693bf3403cf1a5d92cd631c1cb17cdb5df62bf75bcec2ea085779.json",
+      "bytes": 283,
+      "sha256": "1ce9c6bab73693bf3403cf1a5d92cd631c1cb17cdb5df62bf75bcec2ea085779"
+    },
+    {
+      "path": "dictionaries/1f54218bb64c4874a340bc089b73ee78a23aa227ea855eedcc53aa7a8c92a422.json",
+      "bytes": 283,
+      "sha256": "1f54218bb64c4874a340bc089b73ee78a23aa227ea855eedcc53aa7a8c92a422"
+    },
+    {
+      "path": "dictionaries/20c3c051f5ddb8c1564b589c843cc07e90583396c452cc00aeea56c9d90556c7.json",
+      "bytes": 283,
+      "sha256": "20c3c051f5ddb8c1564b589c843cc07e90583396c452cc00aeea56c9d90556c7"
+    },
+    {
+      "path": "dictionaries/234a0d7673fa2fbc61af6a2207537389cd534c321527bb8ac55a3cd2d20c8368.json",
+      "bytes": 283,
+      "sha256": "234a0d7673fa2fbc61af6a2207537389cd534c321527bb8ac55a3cd2d20c8368"
+    },
+    {
+      "path": "dictionaries/246a03a2aef2b971ae1e4573585c39f838a071ef1444aa4df13d0dc04ecacf2d.json",
+      "bytes": 283,
+      "sha256": "246a03a2aef2b971ae1e4573585c39f838a071ef1444aa4df13d0dc04ecacf2d"
+    },
+    {
+      "path": "dictionaries/27600e64acbfc08385ad9acdd7abb4d50d33b78b1a13fe7be33fc5268151fbca.json",
+      "bytes": 283,
+      "sha256": "27600e64acbfc08385ad9acdd7abb4d50d33b78b1a13fe7be33fc5268151fbca"
+    },
+    {
+      "path": "dictionaries/2f51874517cde60baa1adde738ca1761dee1045f747e9a04923547e9a9c4438a.json",
+      "bytes": 283,
+      "sha256": "2f51874517cde60baa1adde738ca1761dee1045f747e9a04923547e9a9c4438a"
+    },
+    {
+      "path": "dictionaries/2f51c2cd07b819bf4c8916790466f1df09baa682f015ae671364956c1feb1063.json",
+      "bytes": 283,
+      "sha256": "2f51c2cd07b819bf4c8916790466f1df09baa682f015ae671364956c1feb1063"
+    },
+    {
+      "path": "dictionaries/37072b934003eb070694159e793e7aa2d426e406a2faaa29281f2aedad4f5956.json",
+      "bytes": 283,
+      "sha256": "37072b934003eb070694159e793e7aa2d426e406a2faaa29281f2aedad4f5956"
+    },
+    {
+      "path": "dictionaries/379fb3f01e9322d1bcc780d19bf88e1df3c0693eda5911cb7b460f11e13c3ffd.json",
+      "bytes": 283,
+      "sha256": "379fb3f01e9322d1bcc780d19bf88e1df3c0693eda5911cb7b460f11e13c3ffd"
+    },
+    {
+      "path": "dictionaries/37dfc09afd7225ca99a88db3e92fbb484a143c928b5822d631bd4077946bd5d1.json",
+      "bytes": 283,
+      "sha256": "37dfc09afd7225ca99a88db3e92fbb484a143c928b5822d631bd4077946bd5d1"
+    },
+    {
+      "path": "dictionaries/3a10a38c29f2f7778224437b3b753d0549466ad6fcd1ba18cbfac3212ab4df40.json",
+      "bytes": 283,
+      "sha256": "3a10a38c29f2f7778224437b3b753d0549466ad6fcd1ba18cbfac3212ab4df40"
+    },
+    {
+      "path": "dictionaries/3bda5aa8091981a58324e2093cb2d2158f2d34a7fcf537b4ad187db27895c2fa.json",
+      "bytes": 283,
+      "sha256": "3bda5aa8091981a58324e2093cb2d2158f2d34a7fcf537b4ad187db27895c2fa"
+    },
+    {
+      "path": "dictionaries/3c9d7b22c3c998694554bd6c34c12a7824b95922671f92b402fbd6447c44f475.json",
+      "bytes": 283,
+      "sha256": "3c9d7b22c3c998694554bd6c34c12a7824b95922671f92b402fbd6447c44f475"
+    },
+    {
+      "path": "dictionaries/3d8a718718f23a7f4287ab0150000bb228f2647f8bc7efc30acf080e1c64d7c2.json",
+      "bytes": 283,
+      "sha256": "3d8a718718f23a7f4287ab0150000bb228f2647f8bc7efc30acf080e1c64d7c2"
+    },
+    {
+      "path": "dictionaries/3fec8ad56307092ab48dac624b92751492a0cf36d019caec727024f680c70b76.json",
+      "bytes": 819,
+      "sha256": "3fec8ad56307092ab48dac624b92751492a0cf36d019caec727024f680c70b76"
+    },
+    {
+      "path": "dictionaries/4704ac8f12a084d5826437d4ad7b8a87f386c70a6146c1fd8e223e842b6fea3a.json",
+      "bytes": 283,
+      "sha256": "4704ac8f12a084d5826437d4ad7b8a87f386c70a6146c1fd8e223e842b6fea3a"
+    },
+    {
+      "path": "dictionaries/4b9811279b2a9511c6c27bd85a824e38a3c93f5773a756a921287f950df8a8ca.json",
+      "bytes": 283,
+      "sha256": "4b9811279b2a9511c6c27bd85a824e38a3c93f5773a756a921287f950df8a8ca"
+    },
+    {
+      "path": "dictionaries/4c694a48234afe20444d7de13e923912ee0aaf6d39d5f19335cdc72faba57f89.json",
+      "bytes": 512,
+      "sha256": "4c694a48234afe20444d7de13e923912ee0aaf6d39d5f19335cdc72faba57f89"
+    },
+    {
+      "path": "dictionaries/4e9cda648e6d42948f7d0b145bb7798289cd8e8541d72a0a4ff633955f4a3db3.json",
+      "bytes": 283,
+      "sha256": "4e9cda648e6d42948f7d0b145bb7798289cd8e8541d72a0a4ff633955f4a3db3"
+    },
+    {
+      "path": "dictionaries/513359c856042c5fd1c81db7b0229c379733b2c3c1ad6379731b2fb43e8236fa.json",
+      "bytes": 1443,
+      "sha256": "513359c856042c5fd1c81db7b0229c379733b2c3c1ad6379731b2fb43e8236fa"
+    },
+    {
+      "path": "dictionaries/590ad754b08faf840154d742e2ef9912b749e36496e848e679e325283d630775.json",
+      "bytes": 283,
+      "sha256": "590ad754b08faf840154d742e2ef9912b749e36496e848e679e325283d630775"
+    },
+    {
+      "path": "dictionaries/5cc710f7caccfa3c511130a04716ef78f3ed6efe5446c016cb25351ea0ac556c.json",
+      "bytes": 283,
+      "sha256": "5cc710f7caccfa3c511130a04716ef78f3ed6efe5446c016cb25351ea0ac556c"
+    },
+    {
+      "path": "dictionaries/628acdb109f33851d65b749eb47e0320249eada9563bbf20d13657d448c5469b.json",
+      "bytes": 283,
+      "sha256": "628acdb109f33851d65b749eb47e0320249eada9563bbf20d13657d448c5469b"
+    },
+    {
+      "path": "dictionaries/69667fed28558a834c402a06150081ac2695bcf98cc5f403842740127a3c8115.json",
+      "bytes": 283,
+      "sha256": "69667fed28558a834c402a06150081ac2695bcf98cc5f403842740127a3c8115"
+    },
+    {
+      "path": "dictionaries/6e1df37fba6003ae38955055ab2cdf040e12e52a1a1d79b1dae08e2bdf132ad4.json",
+      "bytes": 283,
+      "sha256": "6e1df37fba6003ae38955055ab2cdf040e12e52a1a1d79b1dae08e2bdf132ad4"
+    },
+    {
+      "path": "dictionaries/72887911cd11aa439c0660ae889c7e76b488efe0351d91297996bf8939bacc66.json",
+      "bytes": 283,
+      "sha256": "72887911cd11aa439c0660ae889c7e76b488efe0351d91297996bf8939bacc66"
+    },
+    {
+      "path": "dictionaries/732647b418e7a2e5975544fd7ec59fcb3cb613fbc71294ff798c881c07f254f7.json",
+      "bytes": 283,
+      "sha256": "732647b418e7a2e5975544fd7ec59fcb3cb613fbc71294ff798c881c07f254f7"
+    },
+    {
+      "path": "dictionaries/75705606a32116c8563cbe8acbe37ca85e0ce2d43e758531c32d8f9ca050939c.json",
+      "bytes": 283,
+      "sha256": "75705606a32116c8563cbe8acbe37ca85e0ce2d43e758531c32d8f9ca050939c"
+    },
+    {
+      "path": "dictionaries/77c02b3b9d096baec216886a8d8c0b56ddffcfc8615b49dbd0311c0af13a9471.json",
+      "bytes": 283,
+      "sha256": "77c02b3b9d096baec216886a8d8c0b56ddffcfc8615b49dbd0311c0af13a9471"
+    },
+    {
+      "path": "dictionaries/83b81fac3f9300ab18f4b323045bf03bbed8d61fda30821666c6da3e2b753257.json",
+      "bytes": 283,
+      "sha256": "83b81fac3f9300ab18f4b323045bf03bbed8d61fda30821666c6da3e2b753257"
+    },
+    {
+      "path": "dictionaries/844386db9ade93c79095214bbc69eeb052eb231961527ef153dbd91e2311c99a.json",
+      "bytes": 283,
+      "sha256": "844386db9ade93c79095214bbc69eeb052eb231961527ef153dbd91e2311c99a"
+    },
+    {
+      "path": "dictionaries/84bd7e004cf8cd8b40bd78cfb72ebd26c2620756e27635f047aaa6c6c3cd12b0.json",
+      "bytes": 819,
+      "sha256": "84bd7e004cf8cd8b40bd78cfb72ebd26c2620756e27635f047aaa6c6c3cd12b0"
+    },
+    {
+      "path": "dictionaries/88b032dace1e132f1fa9892e2f0887926660983669c058887a0ade07328f9503.json",
+      "bytes": 283,
+      "sha256": "88b032dace1e132f1fa9892e2f0887926660983669c058887a0ade07328f9503"
+    },
+    {
+      "path": "dictionaries/88d1bf50cf335d3e544a73fc9b2a5266b463cf6e1ecb3b2e7fe4a70cb627c692.json",
+      "bytes": 283,
+      "sha256": "88d1bf50cf335d3e544a73fc9b2a5266b463cf6e1ecb3b2e7fe4a70cb627c692"
+    },
+    {
+      "path": "dictionaries/8b9fc1e467824c23a025fa67b3c9e74a6f1b0f38bcc7821e4e928052f9ae3bc9.json",
+      "bytes": 283,
+      "sha256": "8b9fc1e467824c23a025fa67b3c9e74a6f1b0f38bcc7821e4e928052f9ae3bc9"
+    },
+    {
+      "path": "dictionaries/8f0ecce2dbf2442c1cbc2c50389df55cc4ba0d1bf6bfc184652bb293b9558df9.json",
+      "bytes": 283,
+      "sha256": "8f0ecce2dbf2442c1cbc2c50389df55cc4ba0d1bf6bfc184652bb293b9558df9"
+    },
+    {
+      "path": "dictionaries/8feeefc484ff375ddb5bbbc9e30aa7fabacf747e48ec51563d227f920420afcc.json",
+      "bytes": 283,
+      "sha256": "8feeefc484ff375ddb5bbbc9e30aa7fabacf747e48ec51563d227f920420afcc"
+    },
+    {
+      "path": "dictionaries/9245ca64033f6ff70b5a900a0ff9375a5f58309d688319474e3bf4a9796315ab.json",
+      "bytes": 283,
+      "sha256": "9245ca64033f6ff70b5a900a0ff9375a5f58309d688319474e3bf4a9796315ab"
+    },
+    {
+      "path": "dictionaries/99c45ee250c977f8fb1b152d8905162eddde775fd306e5b0a08d998c5416b803.json",
+      "bytes": 283,
+      "sha256": "99c45ee250c977f8fb1b152d8905162eddde775fd306e5b0a08d998c5416b803"
+    },
+    {
+      "path": "dictionaries/9a742ac5db5cb9c13f1640e326a496cd0dc4604f2b29a5f0d9560e4fd18c09d4.json",
+      "bytes": 283,
+      "sha256": "9a742ac5db5cb9c13f1640e326a496cd0dc4604f2b29a5f0d9560e4fd18c09d4"
+    },
+    {
+      "path": "dictionaries/a0a036fd52f1ecc58e6f44efccf0dfb3c76d4d369172d709533b2bbc495eb63e.json",
+      "bytes": 283,
+      "sha256": "a0a036fd52f1ecc58e6f44efccf0dfb3c76d4d369172d709533b2bbc495eb63e"
+    },
+    {
+      "path": "dictionaries/a839947c80ad1b7e83a7718face21ea43be7793b959b7a5452d4eef2e14ae640.json",
+      "bytes": 283,
+      "sha256": "a839947c80ad1b7e83a7718face21ea43be7793b959b7a5452d4eef2e14ae640"
+    },
+    {
+      "path": "dictionaries/a8736c6f3fff6ba0fbd6d2d0c2c90caaf0203eaab31ebfce031a020dc69739b6.json",
+      "bytes": 283,
+      "sha256": "a8736c6f3fff6ba0fbd6d2d0c2c90caaf0203eaab31ebfce031a020dc69739b6"
+    },
+    {
+      "path": "dictionaries/ab2442a2b43995ebdc5b1a7306a2018b7eba5e736d8ae8539164fd88840802d4.json",
+      "bytes": 283,
+      "sha256": "ab2442a2b43995ebdc5b1a7306a2018b7eba5e736d8ae8539164fd88840802d4"
+    },
+    {
+      "path": "dictionaries/ad45c6c0ca1f9844a11b8e403c9b77362548fd6776a5fbf4ce449dc5788b6374.json",
+      "bytes": 283,
+      "sha256": "ad45c6c0ca1f9844a11b8e403c9b77362548fd6776a5fbf4ce449dc5788b6374"
+    },
+    {
+      "path": "dictionaries/addb2dd31d6fc24121cbcefeb86c05a306b615ba2bd348acb9c57f4bef18937a.json",
+      "bytes": 283,
+      "sha256": "addb2dd31d6fc24121cbcefeb86c05a306b615ba2bd348acb9c57f4bef18937a"
+    },
+    {
+      "path": "dictionaries/aefcfdb36af1d5002e8eeff290dce99ed856879ad96825bb386724aebb87f4d1.json",
+      "bytes": 283,
+      "sha256": "aefcfdb36af1d5002e8eeff290dce99ed856879ad96825bb386724aebb87f4d1"
+    },
+    {
+      "path": "dictionaries/af46839ed5f13b952dc707a03d3f1dfb1b033d6302f5c1ccbe0276bb9b2d1104.json",
+      "bytes": 283,
+      "sha256": "af46839ed5f13b952dc707a03d3f1dfb1b033d6302f5c1ccbe0276bb9b2d1104"
+    },
+    {
+      "path": "dictionaries/b15631e78b29f80ab0e98f01aaee3ece9229755b16718efdea14c7ee546d1bf4.json",
+      "bytes": 283,
+      "sha256": "b15631e78b29f80ab0e98f01aaee3ece9229755b16718efdea14c7ee546d1bf4"
+    },
+    {
+      "path": "dictionaries/b3a71bceb94214f9323261393d54fd5c7cbfe48f2f33828ccc9ec13a55a4440c.json",
+      "bytes": 283,
+      "sha256": "b3a71bceb94214f9323261393d54fd5c7cbfe48f2f33828ccc9ec13a55a4440c"
+    },
+    {
+      "path": "dictionaries/b634f197aeb2808772b8def415a77b0dbbce2f79dd950fddead9e2a92e002237.json",
+      "bytes": 283,
+      "sha256": "b634f197aeb2808772b8def415a77b0dbbce2f79dd950fddead9e2a92e002237"
+    },
+    {
+      "path": "dictionaries/b647ee13a068d9ee1ccd9adf5ee77a57546786b7007e0ef82d8184918422d4f7.json",
+      "bytes": 283,
+      "sha256": "b647ee13a068d9ee1ccd9adf5ee77a57546786b7007e0ef82d8184918422d4f7"
+    },
+    {
+      "path": "dictionaries/b6626a213877df03cd2c6ac94120efd1fb121aa301803a5c1a763af16f34a3d1.json",
+      "bytes": 283,
+      "sha256": "b6626a213877df03cd2c6ac94120efd1fb121aa301803a5c1a763af16f34a3d1"
+    },
+    {
+      "path": "dictionaries/b7a535eb83bc6944c75d0a73cd63d1181e0fb1f70ebb058d8670e63d58ecd370.json",
+      "bytes": 283,
+      "sha256": "b7a535eb83bc6944c75d0a73cd63d1181e0fb1f70ebb058d8670e63d58ecd370"
+    },
+    {
+      "path": "dictionaries/b81dfbffa06b9fbaf396276e629751a59a977c74a301366c193a8a4015eaaf6b.json",
+      "bytes": 283,
+      "sha256": "b81dfbffa06b9fbaf396276e629751a59a977c74a301366c193a8a4015eaaf6b"
+    },
+    {
+      "path": "dictionaries/b867d1de5ad610882a4452609017b7887739b98d7436d384c961acaba2d0dd74.json",
+      "bytes": 283,
+      "sha256": "b867d1de5ad610882a4452609017b7887739b98d7436d384c961acaba2d0dd74"
+    },
+    {
+      "path": "dictionaries/ba40c45a8965e3eab584af74d3c218f02f789898e97a8ab1fb000d684426555a.json",
+      "bytes": 512,
+      "sha256": "ba40c45a8965e3eab584af74d3c218f02f789898e97a8ab1fb000d684426555a"
+    },
+    {
+      "path": "dictionaries/c2d64c880ab66c68cb86f1e6e0d3ca1ae7753670936b71e8b31703be08d5a303.json",
+      "bytes": 283,
+      "sha256": "c2d64c880ab66c68cb86f1e6e0d3ca1ae7753670936b71e8b31703be08d5a303"
+    },
+    {
+      "path": "dictionaries/c33eda5c7cb2381ef45f3ee635c84e57b2f57c0bd9e6c6c86b8e9121ea29bb3d.json",
+      "bytes": 283,
+      "sha256": "c33eda5c7cb2381ef45f3ee635c84e57b2f57c0bd9e6c6c86b8e9121ea29bb3d"
+    },
+    {
+      "path": "dictionaries/c3654a32a8eb3de5c560531fabdfc26e360d3e0c6b82da9d9c0d0e7bea192665.json",
+      "bytes": 283,
+      "sha256": "c3654a32a8eb3de5c560531fabdfc26e360d3e0c6b82da9d9c0d0e7bea192665"
+    },
+    {
+      "path": "dictionaries/c48d3899a4c53561c9d203210cdea19326a0299dfe68f3f85442be537c794380.json",
+      "bytes": 283,
+      "sha256": "c48d3899a4c53561c9d203210cdea19326a0299dfe68f3f85442be537c794380"
+    },
+    {
+      "path": "dictionaries/c5db5df0998c5667690e07a713a726cc568fa902f96a525a62c59d695451ceae.json",
+      "bytes": 283,
+      "sha256": "c5db5df0998c5667690e07a713a726cc568fa902f96a525a62c59d695451ceae"
+    },
+    {
+      "path": "dictionaries/c71f99bbbe736dfa31ec6e4e8b05d65a2a2fcaf2ce62ad7eba4d3398e9e0e422.json",
+      "bytes": 283,
+      "sha256": "c71f99bbbe736dfa31ec6e4e8b05d65a2a2fcaf2ce62ad7eba4d3398e9e0e422"
+    },
+    {
+      "path": "dictionaries/c7eb78982bbac5ade474b9fc496991d850b5fbd53a430cddd585dcddbc88ac0c.json",
+      "bytes": 283,
+      "sha256": "c7eb78982bbac5ade474b9fc496991d850b5fbd53a430cddd585dcddbc88ac0c"
+    },
+    {
+      "path": "dictionaries/c88b1d25fcde9c83fe3570a46e98a0e09eb3d1d979f476b844b6c11d732e5f8a.json",
+      "bytes": 283,
+      "sha256": "c88b1d25fcde9c83fe3570a46e98a0e09eb3d1d979f476b844b6c11d732e5f8a"
+    },
+    {
+      "path": "dictionaries/cd81ca78191ceab6e5b7ba19af9eccaf367199fa47058a2fd430165869da7aae.json",
+      "bytes": 283,
+      "sha256": "cd81ca78191ceab6e5b7ba19af9eccaf367199fa47058a2fd430165869da7aae"
+    },
+    {
+      "path": "dictionaries/d549e1e453b6c41d4b52be2b1ba8b2ef3d8dc04e3e473df368ad6a2defd595ee.json",
+      "bytes": 283,
+      "sha256": "d549e1e453b6c41d4b52be2b1ba8b2ef3d8dc04e3e473df368ad6a2defd595ee"
+    },
+    {
+      "path": "dictionaries/d6c29a8fce021490cb0b26527c8c72d10ea84c6ffcbca54758c39073cf7ccce4.json",
+      "bytes": 283,
+      "sha256": "d6c29a8fce021490cb0b26527c8c72d10ea84c6ffcbca54758c39073cf7ccce4"
+    },
+    {
+      "path": "dictionaries/d87209a98a06aece479d9f91dfe4ab4bfb87ce711bc9af3b4f3db52b0bda9460.json",
+      "bytes": 283,
+      "sha256": "d87209a98a06aece479d9f91dfe4ab4bfb87ce711bc9af3b4f3db52b0bda9460"
+    },
+    {
+      "path": "dictionaries/da3cb20389ef444f66690453c372537f15d79ae6a362c1155976c3b068f637c4.json",
+      "bytes": 283,
+      "sha256": "da3cb20389ef444f66690453c372537f15d79ae6a362c1155976c3b068f637c4"
+    },
+    {
+      "path": "dictionaries/de17ae717df6f278f7d0c6527b45d12415a8f422389d1c215e414f41b247c044.json",
+      "bytes": 283,
+      "sha256": "de17ae717df6f278f7d0c6527b45d12415a8f422389d1c215e414f41b247c044"
+    },
+    {
+      "path": "dictionaries/edd189b1404a94b50cad9328d3df91fb256371fac3a5a397c083fab82e2a9373.json",
+      "bytes": 283,
+      "sha256": "edd189b1404a94b50cad9328d3df91fb256371fac3a5a397c083fab82e2a9373"
+    },
+    {
+      "path": "dictionaries/ee9eee8b48b1ade945fbb7ccb9c69852fba50ba10a58e3f4837085859e4ff6c1.json",
+      "bytes": 283,
+      "sha256": "ee9eee8b48b1ade945fbb7ccb9c69852fba50ba10a58e3f4837085859e4ff6c1"
+    },
+    {
+      "path": "dictionaries/ef64e2a8299f9aa35b235d05c8fa658f101f424d113f519127bcaeea54ea4b6e.json",
+      "bytes": 283,
+      "sha256": "ef64e2a8299f9aa35b235d05c8fa658f101f424d113f519127bcaeea54ea4b6e"
+    },
+    {
+      "path": "dictionaries/f13fe95118cb20205cd04067826f4948cab5c19f300747b3dab4239fa4806aff.json",
+      "bytes": 283,
+      "sha256": "f13fe95118cb20205cd04067826f4948cab5c19f300747b3dab4239fa4806aff"
+    },
+    {
+      "path": "dictionaries/f142997ccda3c1b813848681616ae06d46f7f791a656b7e5e7649fe38d5617c4.json",
+      "bytes": 283,
+      "sha256": "f142997ccda3c1b813848681616ae06d46f7f791a656b7e5e7649fe38d5617c4"
+    },
+    {
+      "path": "dictionaries/f3813ec1dd64f75ac57a715e90824fc01a891cbbe2e1ce3c1ac9f97e108ade9b.json",
+      "bytes": 283,
+      "sha256": "f3813ec1dd64f75ac57a715e90824fc01a891cbbe2e1ce3c1ac9f97e108ade9b"
+    },
+    {
+      "path": "dictionaries/f40802bf8eb8cc09c5fc5158358ebefed7da938af825cb95860fb6a12b74e591.json",
+      "bytes": 283,
+      "sha256": "f40802bf8eb8cc09c5fc5158358ebefed7da938af825cb95860fb6a12b74e591"
+    },
+    {
+      "path": "dictionaries/f7b36593087dc53231d0675ff3910abef0449e9e10ce6b907d1e209135b47a53.json",
+      "bytes": 283,
+      "sha256": "f7b36593087dc53231d0675ff3910abef0449e9e10ce6b907d1e209135b47a53"
+    },
+    {
+      "path": "dictionaries/fd55906da6bb45b05a9d9ac7d16a8de7eee3b3de9935860cf86506f85224e59a.json",
+      "bytes": 283,
+      "sha256": "fd55906da6bb45b05a9d9ac7d16a8de7eee3b3de9935860cf86506f85224e59a"
+    },
+    {
+      "path": "failure.txt",
+      "bytes": 600,
+      "sha256": "7ffabe154f815d08eb040e6a143be4c9ce374fa884455d009ee43e0593f92d9f"
+    },
+    {
+      "path": "finalize.py",
+      "bytes": 10110,
+      "sha256": "eb85e9e93f8e181262658ae3ed9440a9e64d4ee72a476856dc295d4e45bc9532"
+    },
+    {
+      "path": "input-pins.json",
+      "bytes": 80822,
+      "sha256": "787ba9918bf335dfd5ffd30e45dabf7225da9fa49d7841b75b46087e76627527"
+    },
+    {
+      "path": "lifecycle.py",
+      "bytes": 4343,
+      "sha256": "4019e839fc8fda10f35eb09aba4b1dc0cae9e63b7cd2921fcedf9cb383d2a59d"
+    },
+    {
+      "path": "metadata-audit-correction.json",
+      "bytes": 1224,
+      "sha256": "885251fe82eb9173d6832b97d8c44962a629d7d656a584f23a0d6f6c163c73b1"
+    },
+    {
+      "path": "metadata-audit-run.json",
+      "bytes": 787,
+      "sha256": "0252d56b716adb868ac231a01db376b1366fb6bc2b0d63d330f1ab560db9d292"
+    },
+    {
+      "path": "page.mjs",
+      "bytes": 14942,
+      "sha256": "5cd160167af3c39718ecf80effca82d56e9e9eefee820a3032960cdc5bd14457"
+    },
+    {
+      "path": "pages/page-000.json",
+      "bytes": 2334,
+      "sha256": "1db612bef707a0d4c3543a4f598a72bd1c9415c59bfaf958bb095cd24fe76815"
+    },
+    {
+      "path": "pages/page-001.json",
+      "bytes": 387776,
+      "sha256": "d8dfbb67d338a40c857619579cba8cc53e779180f43f9f814fd3f733e4402a2f"
+    },
+    {
+      "path": "pages/page-002.json",
+      "bytes": 417157,
+      "sha256": "d2609caf49a5f3e689dd6ef72eb51ebc398549d39b94716a9e51ae408b099bab"
+    },
+    {
+      "path": "pages/page-003.json",
+      "bytes": 411196,
+      "sha256": "8ed79cfa3a67a47b4c1685387917f30fbc2dea4b50923f16a134735887c87e9b"
+    },
+    {
+      "path": "pages/page-004.json",
+      "bytes": 360288,
+      "sha256": "cfb61b5f3d8d0412bd152ad89ccf237099f3d480a6701465dbdc7235af3b0969"
+    },
+    {
+      "path": "pages/page-005.json",
+      "bytes": 283874,
+      "sha256": "cc25782fd424df746ced8350877f6647640298229f5d6fcd443bd4c788cb24ba"
+    },
+    {
+      "path": "pages/page-006.json",
+      "bytes": 316082,
+      "sha256": "a1eb7c23c9c04ac586c10ab9595cf356b2cf57882476e0a0cb077d36e2149b9c"
+    },
+    {
+      "path": "pages/page-007.json",
+      "bytes": 69598,
+      "sha256": "aa7818a53d6c2252c987656b056c150ec304978aa8f8528e1b71ee75a3138628"
+    },
+    {
+      "path": "prepare.py",
+      "bytes": 7093,
+      "sha256": "ba7f36dac03773f036a74bfd7f4fbfcc0b5a0b84b0c8b24d814b5fbd61c24e8b"
+    },
+    {
+      "path": "provenance.json",
+      "bytes": 2109,
+      "sha256": "87ea9066a2d70a59787b5a7fe8d60e9ca0a9221974f4cb75bf0b538cb6c80d56"
+    },
+    {
+      "path": "provenance/check-first-audit.py.txt",
+      "bytes": 12710,
+      "sha256": "6ef8e6f14845b95ef0c476b7fb8943e41dabdceddb8ea2f5f38662a5c485efc9"
+    },
+    {
+      "path": "provenance/known-nonmaterial-faces.json",
+      "bytes": 1325,
+      "sha256": "4273232cd4213b1d1f02001eb3d2be197a1697a76423aa49e5871831a89ff2b5"
+    },
+    {
+      "path": "provenance/lifecycle-b93dcee2.py.txt",
+      "bytes": 4329,
+      "sha256": "597ccb69966f85733afe8f3b235b463d1c80172af3ac767ae0565d8b47d1574e"
+    },
+    {
+      "path": "provenance/runner-cleanup-control-b93dcee2.json",
+      "bytes": 2306,
+      "sha256": "7a1cb5c16997a066324567e81cf21cc9722238fb091b787c820a289a99a49881"
+    },
+    {
+      "path": "run.py",
+      "bytes": 5136,
+      "sha256": "62a7151f32fc15994c7de3d125c03be84c986f5c457e27021bafab22138b7971"
+    },
+    {
+      "path": "runs/page-000.json",
+      "bytes": 1784,
+      "sha256": "724e3bb1c5f2d9e9aa57f280b29b3d1f7de8066840d911b3480d558bdcb69b31"
+    },
+    {
+      "path": "runs/page-000.log",
+      "bytes": 85,
+      "sha256": "53a01dd5b12b6e775c0546a96ad16678c3cd96cfd08814d003576d461c532ae9"
+    },
+    {
+      "path": "runs/page-001.json",
+      "bytes": 1785,
+      "sha256": "dd438c54249804de2cb908c8f035241276a1e9fde8ef0c1ea8270c9f96600c10"
+    },
+    {
+      "path": "runs/page-001.log",
+      "bytes": 89,
+      "sha256": "8558bd469a0c525d710584220414972f9ff05371be9ba19186592c3ec86e691f"
+    },
+    {
+      "path": "runs/page-002.json",
+      "bytes": 1785,
+      "sha256": "acf997144c6a694b64e5e627265ca65cddf654441bbbb0e0c2d5a1fad278321f"
+    },
+    {
+      "path": "runs/page-002.log",
+      "bytes": 89,
+      "sha256": "27a321c5fc7da32983d0191ad4eef09d99565ff9c882da578b13704654b21a33"
+    },
+    {
+      "path": "runs/page-003.json",
+      "bytes": 1786,
+      "sha256": "22f1393e62bd0df28c418a93e42c1d65770e8d125d1abae00f758c15bf3495ba"
+    },
+    {
+      "path": "runs/page-003.log",
+      "bytes": 89,
+      "sha256": "5cda096d280cca6ca05c70916172e154d0b2025252a40ab6fa9c5d608256b55f"
+    },
+    {
+      "path": "runs/page-004.json",
+      "bytes": 1786,
+      "sha256": "b79f8c297ee5b423f780a2fef09e42e256122fb7c0c82e6358f2a5c037424885"
+    },
+    {
+      "path": "runs/page-004.log",
+      "bytes": 90,
+      "sha256": "844ee5cd7a19229edb8b8bca6be0837d4a656dfcb09c85d0727e15da478a47be"
+    },
+    {
+      "path": "runs/page-005.json",
+      "bytes": 1785,
+      "sha256": "fa11220c6e3c282798a0884b6eb2c4a68018ef3567b6c92ee5fd94201c179cc7"
+    },
+    {
+      "path": "runs/page-005.log",
+      "bytes": 89,
+      "sha256": "ddc09663ed1cdadc0095d6bc579f986925a288b51c1afbda9abbf712debc4275"
+    },
+    {
+      "path": "runs/page-006.json",
+      "bytes": 1785,
+      "sha256": "7f9cafeef1c56ad702ac3b7726e896a31156d8fea020280fd787ac59bda6fca8"
+    },
+    {
+      "path": "runs/page-006.log",
+      "bytes": 90,
+      "sha256": "4531b61cba5bdb8f56797fdb803ee5759fb0d55b35c01aa249dc859518137a13"
+    },
+    {
+      "path": "runs/page-007.json",
+      "bytes": 1785,
+      "sha256": "b699647024f5446a1a603e8c669a2f5a559fbcfbb3feacb8c64b93ffe1592845"
+    },
+    {
+      "path": "runs/page-007.log",
+      "bytes": 87,
+      "sha256": "cb23703e105c5f479778bfaddd2f6262f2f248ad556ccbe924a692f21dc92a4a"
+    },
+    {
+      "path": "runs/process-events.jsonl",
+      "bytes": 37628,
+      "sha256": "7b654a210f4af04ef72d8ff3902f115832ec08739b5d8ee175760a410c29a63a"
+    },
+    {
+      "path": "runs/verify-000.json",
+      "bytes": 1790,
+      "sha256": "d787f70c37fc636d1e624167fef50c62e32dc0792d2c317727385ebdf767f357"
+    },
+    {
+      "path": "runs/verify-000.log",
+      "bytes": 87,
+      "sha256": "03c60055cc4a203e84046d7bbc00be4d6126159807aaead2d2b32952dbdfb14e"
+    },
+    {
+      "path": "runs/verify-001.json",
+      "bytes": 1792,
+      "sha256": "b2b222e57db6dbc327a92fa4c1d403467ff796786f4432a6dfe80c202f7b2d2c"
+    },
+    {
+      "path": "runs/verify-001.log",
+      "bytes": 91,
+      "sha256": "a9efba8d0582792a6d9ba252f926a8e58009a9f085b0fb0ac92197e44392b008"
+    },
+    {
+      "path": "runs/verify-002.json",
+      "bytes": 1791,
+      "sha256": "cf0bc626cacdeeb4d3cc74464dfc2973f76d6b3a0c68414440896f249ffe330c"
+    },
+    {
+      "path": "runs/verify-002.log",
+      "bytes": 91,
+      "sha256": "57271c1a6fbd3e0deb52d12f5e3c015c0fa21f7f9fcc7cdfb31764fce3a18808"
+    },
+    {
+      "path": "runs/verify-003.json",
+      "bytes": 1791,
+      "sha256": "44b9885566baafc10f6fe9f7c0635e3dfe9bb8e530ff19850e5974d12771641f"
+    },
+    {
+      "path": "runs/verify-003.log",
+      "bytes": 91,
+      "sha256": "28516116fc243a63b2e43664e477f174069e2c697edd60774db339c32d624083"
+    },
+    {
+      "path": "runs/verify-004.json",
+      "bytes": 1791,
+      "sha256": "ff5f566df00536aa295c76425a9197d9e1600c28c7b40678a4605dadb117ed1b"
+    },
+    {
+      "path": "runs/verify-004.log",
+      "bytes": 92,
+      "sha256": "fe229bab7581732e5a62beb42172fe79dacccd8620b08484662d1d82d66d8da0"
+    },
+    {
+      "path": "runs/verify-005.json",
+      "bytes": 1791,
+      "sha256": "c6fe6520b03c2ed16bcf0ec4506e70e766de5c76346b91ebb430d3fa9d862ee9"
+    },
+    {
+      "path": "runs/verify-005.log",
+      "bytes": 91,
+      "sha256": "21d2ee9991df3a36a0115c212f6ef353ffa09528f566a143589283344281d952"
+    },
+    {
+      "path": "runs/verify-006.json",
+      "bytes": 1792,
+      "sha256": "5520dca12ca7bfadf2ad6f2c439a67f7ca7d184f26513075cd370793007863f4"
+    },
+    {
+      "path": "runs/verify-006.log",
+      "bytes": 92,
+      "sha256": "6305b044d9f65ce51a33f2d5e7d3106681d5d51060080e72601e72a9c3ef2d6e"
+    },
+    {
+      "path": "runs/verify-007.json",
+      "bytes": 1791,
+      "sha256": "f7a439a8b408f8a15442c800a201b2d145805a21df96580b2979acda56841cf6"
+    },
+    {
+      "path": "runs/verify-007.log",
+      "bytes": 89,
+      "sha256": "380269f10b2688f6418116b227e910223a198d57fac7933d58c36eddfd5031f4"
+    },
+    {
+      "path": "schema.json",
+      "bytes": 8265,
+      "sha256": "afd17056ebc777b0a1f8dc51a34e2463cdcf85e6ff1a68d0eb937d3bd717c21f"
+    },
+    {
+      "path": "schema.md",
+      "bytes": 2711,
+      "sha256": "694193eaf1ec78b44fee4e7bb2c4601b213741471d09d90a49af26da662ebe64"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 36888,
+      "sha256": "65bc504a3aee45e1b3afbec91d95df2aaecd4de24db2843beb28814fed442ac2"
+    }
+  ]
+}

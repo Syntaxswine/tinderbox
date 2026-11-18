@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\other-contact-source-v2\run.py", line 75, in main
+    audit = check(deadline)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\baals\.codex\worktrees\fire-ui-reconcile\tinderbox\docs\engineering\shared-maps\other-contact-source-v2\check.py", line 115, in check
+    assert proof['rawOriginalTriangles'] == 200 and proof['positiveMaterialTriangles'] == 180
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
