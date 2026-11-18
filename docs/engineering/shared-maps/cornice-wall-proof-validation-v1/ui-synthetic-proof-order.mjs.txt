@@ -1,0 +1,21 @@
+import fs from 'node:fs';
+import {bindCorniceWallContact,CORNICE_WALL_CONTACT as fixed} from './src/content/cornice-wall-contact-pilot.js';
+const input=JSON.parse(fs.readFileSync('fixture.json'));
+// Isolated binder validation test: the reader is an opaque-token fixture, not
+// the real producer. No producer, native compiler, source expansion or world runs.
+const tokens=[Object.freeze({fixture:0}),Object.freeze({fixture:1})],payloads=new WeakMap();
+for(const [i,side] of ['parent','child'].entries()){
+ const end=input.proof.ends[side],part=input.parts.find(p=>p.id===end.partId),face=[part.triangles[end.primitive]],record={id:end.sourceId+'@'+end.sourceCell.join(','),sourceSurfaceId:end.sourceId,nativePartId:end.partId,sourceCarrierId:end.ownerId,triangles:face,solidTriangles:face};
+ payloads.set(tokens[i],{epoch:0,sourceRevision:input.sourceRevision,ownerId:end.ownerId,entries:[{cell:end.sourceCell,record}]});
+}
+const reader=Object.freeze({context:()=>({generation:0,sourceRevision:input.sourceRevision,grid:input.grid}),inspect(token){if(!payloads.has(token))throw Error('Foreign synthetic token');return payloads.get(token);}});
+const baseline=bindCorniceWallContact({parts:structuredClone(input.parts),proof:structuredClone(input.proof),reader,slices:tokens});
+let report;
+try{
+ const original=baseline.binding(),baselineLive=baseline.evaluate({revision:0}).live,proof=structuredClone(input.proof);
+ [proof.ends.parent,proof.ends.child]=[proof.ends.child,proof.ends.parent];
+ let forged,error=null;
+ try{forged=bindCorniceWallContact({parts:structuredClone(input.parts),proof,reader,slices:tokens});}catch(e){error=e.message;}
+ try{const changed=forged?.binding(),changedLive=forged?.evaluate({revision:0}).live;report={candidate:'f7a25711567deb95bc14db01776c4893df3ef5e2',control:'Swap only proof.ends.parent and proof.ends.child',syntheticCases:1,privateProducerAuthenticationExercised:false,reader:'opaque-token synthetic fixture; metadata and two original facet channels only',originalNativeCompilerCalls:0,worldTrials:0,baselineLive,originalParent:original.parent.partId,originalChild:original.child.partId,expected:'Reject swapped fixed endpoint roles',error,accepted:!!forged,changedLive,changedParent:changed?.parent.partId,changedChild:changed?.child.partId,claimedDirection:changed?.direction,bugReproduced:baselineLive===true&&changedLive===true&&changed.parent.partId===fixed.child.partId&&changed.child.partId===fixed.parent.partId};}finally{forged?.dispose();}
+}finally{baseline.dispose();}
+fs.writeFileSync('synthetic-proof-order-results.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

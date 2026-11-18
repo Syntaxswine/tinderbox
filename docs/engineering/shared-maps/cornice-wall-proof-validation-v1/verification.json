@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "base": "f7a25711567deb95bc14db01776c4893df3ef5e2",
+  "status": "Validation-only guard correction; saved real native run preserved as historical evidence",
+  "focusedTests": 53,
+  "newValidationGroups": 5,
+  "unchangedFocusedControls": 48,
+  "archives": [
+    {
+      "folder": "bounded-source-compiler-v1",
+      "rawFilesIncludingManifest": 33,
+      "historicalSourcePins": 8,
+      "preserved": true
+    },
+    {
+      "folder": "bounded-source-compiler-guards-v1",
+      "rawFilesIncludingManifest": 13,
+      "historicalSourcePins": 5,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-kernel-v1",
+      "rawFilesIncludingManifest": 46,
+      "historicalSourcePins": 4,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-boundaries-v1",
+      "rawFilesIncludingManifest": 21,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-query-witness-v1",
+      "rawFilesIncludingManifest": 27,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "regional-receipt-bridge-v1",
+      "rawFilesIncludingManifest": 45,
+      "historicalSourcePins": 6,
+      "preserved": true
+    },
+    {
+      "folder": "support-port-birth-v1",
+      "rawFilesIncludingManifest": 30,
+      "historicalSourcePins": 3,
+      "preserved": true
+    },
+    {
+      "folder": "support-embed-liveness-v1",
+      "rawFilesIncludingManifest": 25,
+      "historicalSourcePins": 5,
+      "preserved": true
+    },
+    {
+      "folder": "cornice-wall-contact-v1",
+      "rawFilesIncludingManifest": 22,
+      "historicalSourcePins": 3,
+      "preserved": true
+    }
+  ],
+  "unchangedFiles": [
+    "workbenches/furnished-house/geometry.js",
+    "workbenches/furnished-house/support.js",
+    "workbenches/furnished-house/scene.js",
+    "workbenches/furnished-house/regional-domain.js",
+    "workbenches/furnished-house/partition-error.js",
+    "src/runtime/collision.js",
+    "src/runtime/regional-effective-query.js",
+    "src/runtime/regional-receipt-bridge.js",
+    "src/simulation/regional-source-pilot.js",
+    "src/simulation/source-support.js",
+    "src/simulation/source-support-calculations.js",
+    "src/content/map-source-support-data.js",
+    "src/content/map-source-support-overrides.js",
+    "tests/integration/regional-effective-query.test.mjs",
+    "tests/integration/regional-query-boundaries.test.mjs",
+    "tests/integration/regional-query-witness.test.mjs",
+    "tests/integration/regional-receipt-bridge.test.mjs",
+    "tests/fixtures/regional-query-data.mjs",
+    "src/simulation/original-support-ports.js",
+    "tests/integration/original-support-ports.test.mjs",
+    "tests/integration/original-support-embed.test.mjs",
+    "tests/integration/original-support-rooting.test.mjs",
+    "tests/integration/cornice-wall-contact-pilot.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/cornice-wall-contact-pilot.js",
+      "lfSha256": "920933e0eeb85ef61824a3be4780a736b981510b247f838b2aa97d5143bf7b21"
+    },
+    {
+      "path": "tests/integration/cornice-wall-proof-validation.test.mjs",
+      "lfSha256": "03b0338fd6e4c6d52978de4a15c33eaa1305e2313394c3794cf1b669101874b1"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "lfSha256": "9a0066a0c9099a39a81b745fb17bf477f009bc44a217f02a250beedd97923392"
+    }
+  ],
+  "validationOnlyDelta": {
+    "originalLfSha256": "a7e15e55e869b3239499b31b686574f44cedfcb2b3c6d9cb8ed09ec451253069",
+    "currentLfSha256": "920933e0eeb85ef61824a3be4780a736b981510b247f838b2aa97d5143bf7b21",
+    "patchRawSha256": "cafc9a0e4e416240e81ce1b3cd0424347fb137b420f76791a1e3ad26f04b862a",
+    "rollbackEqualsOriginal": true
+  },
+  "historicalNativeRun": {
+    "inputSha256": "73351984911afc329903b862fe81e09140b13a9be6b5458402a01eca42622446",
+    "adapterLfSha256": "a7e15e55e869b3239499b31b686574f44cedfcb2b3c6d9cb8ed09ec451253069",
+    "actualNativeCompilerCalls": 2,
+    "pairValidationSessions": 1,
+    "rerun": false
+  },
+  "newNativeCompilerCalls": 0,
+  "newPairValidationSessions": 0,
+  "fullNewYorkDiagnostics": 0,
+  "fullNewYorkDiagnosticAllowanceConsumed": false,
+  "privateProducerAuthenticationExercised": false,
+  "sourceCarrierExpansions": 0,
+  "runtimeDeclaration": {
+    "modified": 22,
+    "added": 51
+  },
+  "closedTestChildren": 2,
+  "helpers": [],
+  "ports": [],
+  "sourceHistoryAndWipPreserved": true,
+  "productionEnabled": false
+}

@@ -1,0 +1,33 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Validation-only opaque-token synthetic binder seam and unchanged focused controls",
+  "args": [
+    "--test",
+    "tests/integration/cornice-wall-proof-validation.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/cornice-wall-contact-pilot.js",
+      "lfSha256": "a7e15e55e869b3239499b31b686574f44cedfcb2b3c6d9cb8ed09ec451253069"
+    },
+    {
+      "path": "tests/integration/cornice-wall-proof-validation.test.mjs",
+      "lfSha256": "03b0338fd6e4c6d52978de4a15c33eaa1305e2313394c3794cf1b669101874b1"
+    }
+  ],
+  "pid": 37944,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "startedAt": "2026-11-18T01:19:12.565Z",
+  "endedAt": "2026-11-18T01:19:12.826Z",
+  "exitCode": 1,
+  "signal": null,
+  "timeoutMs": 20000,
+  "nativeCompilerCalls": 0,
+  "pairValidationSessions": 0,
+  "fullNewYorkDiagnostics": 0,
+  "worldTrials": 0,
+  "worldSteps": 0,
+  "ports": [],
+  "retainedHelpers": [],
+  "privateProducerAuthenticationExercised": false
+}

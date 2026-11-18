@@ -1,0 +1,200 @@
+{
+  "candidate": "f7a25711567deb95bc14db01776c4893df3ef5e2",
+  "sourceFiles": [
+    {
+      "path": "src/content/cornice-wall-contact-pilot.js",
+      "sha256": "a7e15e55e869b3239499b31b686574f44cedfcb2b3c6d9cb8ed09ec451253069"
+    },
+    {
+      "path": "src/content/map-source-shapes.js",
+      "sha256": "a2b8c075973e973650d9a4cc90673a85549cf19887cd212e4ffa810f27a24b9e"
+    },
+    {
+      "path": "src/content/map-source-support-data.js",
+      "sha256": "2dbd12836903500db136f262e72d8ea924e4cddb0393c87e19a0241d5ee7c54c"
+    },
+    {
+      "path": "src/runtime/collision.js",
+      "sha256": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3"
+    },
+    {
+      "path": "src/runtime/three.js",
+      "sha256": "88fd0a63e9d80a3b179b8329b6f06fd794e433caa445937b067ffdbd89f747c4"
+    },
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "sha256": "cf0d78893da17af650a634c5e8d1d957c560de1f042294e003eb9dab93beb510"
+    },
+    {
+      "path": "src/simulation/source-support-calculations.js",
+      "sha256": "d4c6832ae5550bade0fb4eb946bfe87e91d14840e7d88fb128694f6976f1a136"
+    },
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.core.js",
+      "sha256": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093"
+    },
+    {
+      "path": "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.module.js",
+      "sha256": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c"
+    },
+    {
+      "path": "workbenches/furnished-house/geometry.js",
+      "sha256": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+    },
+    {
+      "path": "workbenches/furnished-house/support.js",
+      "sha256": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372"
+    }
+  ],
+  "originalInputSha256": "73351984911afc329903b862fe81e09140b13a9be6b5458402a01eca42622446",
+  "syntheticFixtureSha256": "13aa352a1e58030c49773095eb22aeeec9654ab3658f3ee9d6f0a9a5915daa78",
+  "driverSha256": "899e4e4c893ed1ac920a7fb9901ce3c46a0818d9f890c6d5d2e128a45cbc6edd",
+  "sourceConcern": "bindCorniceWallContact does not validate proof.ends against the fixed parent/child definition.",
+  "previousSnapshotsBefore": {
+    "regional-query-c9b02eb": {
+      "crafted-results.json": "9a7a2e6c42ddb0ee6bbc81a5156be7897daf5dbcc0c3059e4b1f64c8a2e0b8db",
+      "crafted.log": "3fe568ef486b4c0fd13dccef2d4aadc5557fdcb48b392db9ef9e21b551fdd24a",
+      "crafted.mjs": "0042beb9924b366a0815ad1c02161b2051624c1d5080ddf9a908febdaebf7787",
+      "manual-baseline.log": "321b0d60958ae40f3aa3f683729b89f453e4e8451af9ef539776cbc5ed9122d1",
+      "package.json": "a90fc33418afa2b9cbf4768524b021135b965ecdf993457505bfae3ac44a8428",
+      "source-pins.json": "aff330c8dbd1f266c08d2eee4d165bbdb52d5456701a5069946bb8fc6683dd2a",
+      "src/runtime/collision.js": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "src/runtime/regional-effective-query.js": "9e835c21039e60105248d6000e349ee03ba6102bb125e8b2d8979a9ec547b458",
+      "tests/fixtures/regional-query-data.mjs": "2aa19c52220d19582a82c7118783b11aa79988c38c768599aa1ff8d25d9d44a4",
+      "tests/integration/regional-effective-query.test.mjs": "f03439ce0f87e57e111256250e1e8a3a2e2d563a4239729a2f7bc0c5b3b5c280",
+      "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+    },
+    "regional-query-68b6e399": {
+      "additional-results.json": "1f02c3eba92426fe0aa077c4d78bc78fd6151a57be6c062bd1a3aa2a694c7f20",
+      "additional.log": "e9f4174caa67efe401500882f70e4429679a047ff793c8f4c0ec4398a43c7811",
+      "additional.mjs": "e2725d4ede399985532123170108a7db42efe4706732b0d98608fc4569c341d3",
+      "crafted-results.json": "eab84c56665c6e93d728fe0a55f575f781f45059c39aa459439b6d435ab2d920",
+      "crafted.log": "dbced3aa9e82c2d936b5a7356e1915995c2743bdda1e0c90b783fa413bd40dcb",
+      "crafted.mjs": "0042beb9924b366a0815ad1c02161b2051624c1d5080ddf9a908febdaebf7787",
+      "manual-baseline.log": "b3c08a3c5532ac8e7e714e0032e470ab6fae7e1213faaf748f049c8463d07b9a",
+      "manual-boundaries.log": "f89ca5694d314a98d7af0024377bac42622e4cd67adc01af1d9b60dc3eb4e562",
+      "package.json": "a90fc33418afa2b9cbf4768524b021135b965ecdf993457505bfae3ac44a8428",
+      "source-pins.json": "236122048eeda2b62aa84286c8fbfd605eb6948e9e4056ff642a2c909fbd06cc",
+      "src/runtime/collision.js": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "src/runtime/regional-effective-query.js": "d329946d6e916b232a534d8e9524fb004015cf7bd2a58e5f125a026fe2d4b3e9",
+      "tests/fixtures/regional-query-data.mjs": "2aa19c52220d19582a82c7118783b11aa79988c38c768599aa1ff8d25d9d44a4",
+      "tests/integration/regional-effective-query.test.mjs": "f03439ce0f87e57e111256250e1e8a3a2e2d563a4239729a2f7bc0c5b3b5c280",
+      "tests/integration/regional-query-boundaries.test.mjs": "205a29dc89a6b64a7dd5919828f7cd33148cd2475c44011c8055e2af65bfea95",
+      "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+    },
+    "regional-query-e84ed22c": {
+      "additional-results.json": "78ac0700fa8c2f6e67cce1105072db8eecc3fc69b085e0ff85225a4ad6f9d48b",
+      "additional.log": "1d624f2863c2da7cc6ec09bfd8bde58d62dd008de4625fa0dbd95f79f89eaed0",
+      "additional.mjs": "e2725d4ede399985532123170108a7db42efe4706732b0d98608fc4569c341d3",
+      "crafted-results.json": "eab84c56665c6e93d728fe0a55f575f781f45059c39aa459439b6d435ab2d920",
+      "crafted.log": "1ad605c499e98dce7d90ed1d3dc333c693b74da3a3c4b97fea88cd985d042b43",
+      "crafted.mjs": "0042beb9924b366a0815ad1c02161b2051624c1d5080ddf9a908febdaebf7787",
+      "focused-baseline.log": "346196b9f3f7015145100c8f4f4014135ec2b7e0230262d11f2b1673ed25d67d",
+      "package.json": "a90fc33418afa2b9cbf4768524b021135b965ecdf993457505bfae3ac44a8428",
+      "source-pins.json": "8630c0d28f89dee724d6c5abfb0582cc697cb1bc0f3a5963d3ed1f8f20baf2dd",
+      "src/runtime/collision.js": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "src/runtime/regional-effective-query.js": "48b1b6c7bdedd6f12214ce70d56c1366e841445c57a3a86b31eaabb148eca8fc",
+      "test-launches.json": "ed59f1e3de0ecf6afe275179e089e9b462b476cfdba27b930ef3cdbe534ce414",
+      "tests/fixtures/regional-query-data.mjs": "2aa19c52220d19582a82c7118783b11aa79988c38c768599aa1ff8d25d9d44a4",
+      "tests/integration/regional-effective-query.test.mjs": "f03439ce0f87e57e111256250e1e8a3a2e2d563a4239729a2f7bc0c5b3b5c280",
+      "tests/integration/regional-query-boundaries.test.mjs": "205a29dc89a6b64a7dd5919828f7cd33148cd2475c44011c8055e2af65bfea95",
+      "tests/integration/regional-query-witness.test.mjs": "16638503a5a28344c6db71eace78671b189efb439e6cbaf53378c417a34d05e1",
+      "verification.json": "beaa7f71b8756f3a6206fb3d96748ed11c6930737cdcaacbb9f6185c54f47a3c",
+      "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c"
+    },
+    "regional-bridge-4eae509b": {
+      "baseline-launch.json": "0d863740a910c37d37c70e7c928e79ea8ff6b019985b1a838672b319d7fa64c8",
+      "focused-baseline.log": "64ede7de4a63a63a16ec41dc2b881e136afacbe22bea4041a724ea75b77fe41f",
+      "package.json": "fa3ac709eef338aac9353079681f7636474fc8b05f2d750fdfa796b834510e2b",
+      "source-pins.json": "be81499fbe5c0f19d6478e55021a85a2d717d8f6a5a3eafdd388780252b81861",
+      "src/runtime/collision.js": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "src/runtime/native-query-registry.js": "42dfe59ab9c07e8b37a5c59c02f28378ca84f8fdc437746b41570889487be858",
+      "src/runtime/polygons.js": "15d8259b6a7939272465f3809d65de261a1dc10322475a6e98291487050000ec",
+      "src/runtime/regional-effective-query.js": "94b83c8a166b4ad589a43ab33c9e556aee25c9f8dba9eea708c7fc6c51dbce0a",
+      "src/runtime/regional-receipt-bridge.js": "6c3049cd6152fd5bcc6d997fd263e32bfb939deb867f440e30e565c20263b4c7",
+      "src/runtime/three.js": "88fd0a63e9d80a3b179b8329b6f06fd794e433caa445937b067ffdbd89f747c4",
+      "src/simulation/regional-source-pilot.js": "1e133e4f919fdf577e0cc448befea9d8255d3718a277108d45ceb3a59fe118ff",
+      "tests/fixtures/regional-bridge-data.mjs": "99bcc38c9b53cfdb4cfe6cae3c06bf3c1eb31369ed68e20167683a8c4fa0a94b",
+      "tests/fixtures/regional-query-data.mjs": "2aa19c52220d19582a82c7118783b11aa79988c38c768599aa1ff8d25d9d44a4",
+      "tests/fixtures/regional-source-data.mjs": "9b3e9cf6d15b970f261ccef9d896ab32f83ed7ebde4dc278c286aa05ba5b9ea0",
+      "tests/integration/regional-effective-query.test.mjs": "f03439ce0f87e57e111256250e1e8a3a2e2d563a4239729a2f7bc0c5b3b5c280",
+      "tests/integration/regional-query-boundaries.test.mjs": "205a29dc89a6b64a7dd5919828f7cd33148cd2475c44011c8055e2af65bfea95",
+      "tests/integration/regional-query-witness.test.mjs": "16638503a5a28344c6db71eace78671b189efb439e6cbaf53378c417a34d05e1",
+      "tests/integration/regional-receipt-bridge.test.mjs": "5213e7e8d484eaca572696652743d11f91210caff54cd7d47c031220f9a12709",
+      "tests/integration/regional-source-compiler.test.mjs": "5aa15e02eaf79938bf0f884a2dd386f4a31b05ce75d448d5b3e5accf0dc0c548",
+      "tests/integration/regional-source-guards.test.mjs": "a3c444f5660cb2c769041c66c744940acd0e69012a31dbd39ed941593539583c",
+      "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.core.js": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+      "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.module.js": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+      "verification.json": "a6de0ed972d4e0b8fe76a0bb74224038c87244886b3a5d918a52b2cb565469db",
+      "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+      "workbenches/furnished-house/partition-error.js": "418dfed7111863c5519ac258c97227a61adf96fe5aa103c0086980654a2faab1",
+      "workbenches/furnished-house/prepare-data.js": "f43d0fbc4472c478f849d44abc4a5dff0cf5e460903cc389e069e1d231dafe94",
+      "workbenches/furnished-house/regional-domain.js": "0868d2097af01a128cdfa61a3b88bbf54483bcc986023291dc03eddcf512a2cc",
+      "workbenches/furnished-house/scene.js": "8acefb0429d03033ecb81d8fa76fc3d56d6bba3ef910dbe104aa75ed5411d21b"
+    },
+    "support-ports-f45f0c4e": {
+      "crafted-driver-pin.json": "b6116ce977dafdf46d4b32dee005ecf88041445102efbd13c550e19920916c15",
+      "crafted-results.json": "5b57eba2a8fe197753a025391c9e1bc586b6d2ca1aa0ffd3c5cbdc2b22ef529c",
+      "crafted.log": "a511dd3ebfa65fe276e3daab099d0d2eee18d4078a5a7e3bc07eba9f2b8c8e02",
+      "crafted.mjs": "9a475bcb3c24ab4dd73675280d03f0b6c2f22f0b8f787ad4a75e1adf46054708",
+      "docs/engineering/shared-maps/support-port-birth-v1/boundary.json": "582669c10ee52eefdae2373257d236e43680a1c4af6a045637da37b9b2aceb5d",
+      "docs/engineering/shared-maps/support-port-birth-v1/README.md": "8a08d68abdbe6c2f50966549d9c4895e07ca2e893234e4cfc1565cd85398660f",
+      "focused-baseline.log": "438f4cd3d543c2de9698e80abd7bb0d1879fe7554670eb5dfa7c7d2f4e982bbb",
+      "launches.json": "89e8e185a7457d2486a46dab8f5f4ff0316c5338b72fdd934cb28ea2475d41b6",
+      "package.json": "fa3ac709eef338aac9353079681f7636474fc8b05f2d750fdfa796b834510e2b",
+      "source-pins.json": "11f594011e71eb58c75e3e4e473dc9d8827a5a7845cfa7cc017e5045f74dfdf5",
+      "src/content/map-source-shapes.js": "a2b8c075973e973650d9a4cc90673a85549cf19887cd212e4ffa810f27a24b9e",
+      "src/content/map-source-support-data.js": "2dbd12836903500db136f262e72d8ea924e4cddb0393c87e19a0241d5ee7c54c",
+      "src/runtime/collision.js": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "src/runtime/regional-effective-query.js": "94b83c8a166b4ad589a43ab33c9e556aee25c9f8dba9eea708c7fc6c51dbce0a",
+      "src/runtime/three.js": "88fd0a63e9d80a3b179b8329b6f06fd794e433caa445937b067ffdbd89f747c4",
+      "src/simulation/original-support-ports.js": "cb407fcc75ca2a532cc46591bd8f9a90542d440a97bdc2e98050d92d3d94d0bf",
+      "src/simulation/source-support-calculations.js": "d4c6832ae5550bade0fb4eb946bfe87e91d14840e7d88fb128694f6976f1a136",
+      "tests/fixtures/regional-query-data.mjs": "2aa19c52220d19582a82c7118783b11aa79988c38c768599aa1ff8d25d9d44a4",
+      "tests/integration/original-support-ports.test.mjs": "5bd815233366e957c8a28ea7d26b159c869f3b9778f1274012e783b22d07488e",
+      "tests/integration/regional-effective-query.test.mjs": "f03439ce0f87e57e111256250e1e8a3a2e2d563a4239729a2f7bc0c5b3b5c280",
+      "tests/integration/regional-query-boundaries.test.mjs": "205a29dc89a6b64a7dd5919828f7cd33148cd2475c44011c8055e2af65bfea95",
+      "tests/integration/regional-query-witness.test.mjs": "16638503a5a28344c6db71eace78671b189efb439e6cbaf53378c417a34d05e1",
+      "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.core.js": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+      "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.module.js": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+      "verification.json": "29b34d9913090069b2a0c9cc5939233891f960ecbf169c42e2810b33661a6548",
+      "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+      "workbenches/furnished-house/support.js": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372"
+    },
+    "support-ports-e83ff7af": {
+      "crafted-results.json": "14f11b051e6d7521528ba10008a6ff69d10778e2107416a6122bcd7200fa1a74",
+      "crafted.mjs": "9a475bcb3c24ab4dd73675280d03f0b6c2f22f0b8f787ad4a75e1adf46054708",
+      "docs/engineering/shared-maps/support-embed-liveness-v1/architect-repro.mjs.txt": "7e9a084943ceb6835334da336fb119aa03bd9dd1cfa372cc60ee3e4f8b46ac3c",
+      "docs/engineering/shared-maps/support-embed-liveness-v1/boundary.json": "c1ad83b762c32493512f772351e048c1a553101e3ca5589b680d8e10ca567b9e",
+      "docs/engineering/shared-maps/support-embed-liveness-v1/README.md": "df0a0799c970903ab24af467e7fed00f5e1b471426b52be6563edb24e220567a",
+      "focused-baseline.log": "61360226a1391c83e24bfb0862593a79533fcf70681e0363af8056bae4df01a9",
+      "launches.json": "0010564564721013e09941a3b1c0a9a5ce03b433eb7395ef2b0b51182300b69a",
+      "package.json": "fa3ac709eef338aac9353079681f7636474fc8b05f2d750fdfa796b834510e2b",
+      "preserved-root-embed.log": "33dad3640706921d69fb8807bcf4f5e0a30c3fd668512be4ebad8049410ccb45",
+      "preserved-ui-repros.log": "23d3c73407e8f768c9b66b429bd58e3048f1dbff58b213e27e36af2c8a8f8385",
+      "root-embed-repro-results.json": "377eb2c06357bd52ee3d6e3bfe74252119e1feac6b9de50c39ed57aa845c4a96",
+      "root-embed-repro.mjs": "fffe1827465ce14feb23abcf313ba947f7598437cea376a0cc5d551f36128937",
+      "source-pins.json": "0672ef2d1fc8d242b4560e460f0ab5b7f5a46b5eef26115f4ece1480c89d99f1",
+      "src/content/map-source-shapes.js": "a2b8c075973e973650d9a4cc90673a85549cf19887cd212e4ffa810f27a24b9e",
+      "src/content/map-source-support-data.js": "2dbd12836903500db136f262e72d8ea924e4cddb0393c87e19a0241d5ee7c54c",
+      "src/runtime/collision.js": "db0a046d940464e1d2ab97e3c390e1a0b3a16741010ccff5a2eb04d21fd3edf3",
+      "src/runtime/regional-effective-query.js": "94b83c8a166b4ad589a43ab33c9e556aee25c9f8dba9eea708c7fc6c51dbce0a",
+      "src/runtime/three.js": "88fd0a63e9d80a3b179b8329b6f06fd794e433caa445937b067ffdbd89f747c4",
+      "src/simulation/original-support-ports.js": "cf0d78893da17af650a634c5e8d1d957c560de1f042294e003eb9dab93beb510",
+      "src/simulation/source-support-calculations.js": "d4c6832ae5550bade0fb4eb946bfe87e91d14840e7d88fb128694f6976f1a136",
+      "tests/fixtures/regional-query-data.mjs": "2aa19c52220d19582a82c7118783b11aa79988c38c768599aa1ff8d25d9d44a4",
+      "tests/integration/original-support-embed.test.mjs": "89ddd9938e0a54aef9a57b7c46aea20e9b370f3f9636c749bdc403e81d96639b",
+      "tests/integration/original-support-ports.test.mjs": "fbb9cb09ba4f36674d13df26fcdda6981a44d13f91895e43ce2ba0e784b4caf7",
+      "tests/integration/original-support-rooting.test.mjs": "68bb6e173ec2d804fc9f8d9eeaaac217befdcd8a87510d150af948fd664de90b",
+      "tests/integration/regional-effective-query.test.mjs": "f03439ce0f87e57e111256250e1e8a3a2e2d563a4239729a2f7bc0c5b3b5c280",
+      "tests/integration/regional-query-boundaries.test.mjs": "205a29dc89a6b64a7dd5919828f7cd33148cd2475c44011c8055e2af65bfea95",
+      "tests/integration/regional-query-witness.test.mjs": "16638503a5a28344c6db71eace78671b189efb439e6cbaf53378c417a34d05e1",
+      "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.core.js": "496aa42d1d47b9a40d16eab2864177cb94368a165a7c3e79345c43ad0109e093",
+      "vendor/farmyard-commando/30a3b8cae5f36bb0c1df3685b7fba16f701c2083/sites/tactical-animal/dist/aft/tactics/vendor/three.module.js": "96cc39e18fde90e5a3896252775a71e8f3d3e946da0035ee27f3ecce09c60e8c",
+      "verification.json": "e971a4adbe0e122e33309f0915789a778aad5c342cfd28f2a1b7c6a9659df857",
+      "workbenches/furnished-house/geometry.js": "b58a40073a4047cb00383409c67d971d94dbda94e3bcdc9e6fff386a7df0834c",
+      "workbenches/furnished-house/support.js": "7de66c0954bfa606c74f659209867d6d2cb08236e327e7fc8265a334b14fe372"
+    }
+  },
+  "scope": "One synthetic binder-only endpoint-order negative control; no real producer authentication or native/compiler calls. No suite or actual geometry diagnostic."
+}

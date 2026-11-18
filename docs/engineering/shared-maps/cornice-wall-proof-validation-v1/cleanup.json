@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-11-18T01:21:29.5107288Z",
+  "owner": "Coder Tinderbox",
+  "processes": [
+    {
+      "receipt": "baseline.json",
+      "pid": 37944,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-18T01:19:12.565Z",
+      "endedAt": "2026-11-18T01:19:12.826Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    },
+    {
+      "receipt": "corrected.json",
+      "pid": 27256,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-18T01:19:37.149Z",
+      "endedAt": "2026-11-18T01:19:37.631Z",
+      "pidAbsent": true,
+      "verificationMethod": "Get-Process exact recorded PID; only NoProcessFoundForGivenId establishes absence"
+    }
+  ],
+  "retainedHelpers": [],
+  "portsAllocated": [],
+  "stopMethod": "Finite hidden foreground children exited; no termination required"
+}
