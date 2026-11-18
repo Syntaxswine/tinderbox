@@ -1,0 +1,20 @@
+Packaging audit finding (no source calculation or child failed):
+The one-off static audit asserted 254 unique numeric PIDs in each 254-launch
+run. Windows legitimately reused short-lived PIDs after their owning child had
+exited. The last assertion failed:
+
+Traceback (most recent call last):
+  File "<stdin>", line 24, in <module>
+AssertionError
+
+Calculation: 254 starts, 254 exits, 249 unique numeric PIDs.
+Reused numeric PIDs: 50584, 32896, 15724, 9288, 26056 (twice each).
+Verification: 254 starts, 254 exits, 250 unique numeric PIDs.
+Reused numeric PIDs: 45704, 24392, 40988, 48744 (twice each).
+
+Correction to the static audit: match each receipt's (pid, startedAt, purpose),
+which is copied from the exact owned Popen launch into its exit receipt. All 254
+launch identities match in each run and all exit codes are zero. Runtime cleanup
+already uses the exact Popen handle; it never reopens a numeric PID. No helper,
+source code, witness, result, calculation marker or tolerance changed, and no
+source calculation, page verification or helper control was repeated.
