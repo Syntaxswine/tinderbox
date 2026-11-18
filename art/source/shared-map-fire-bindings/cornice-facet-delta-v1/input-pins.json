@@ -1,0 +1,566 @@
+{
+  "version": 1,
+  "references": [
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/dictionary.json",
+      "bytes": 4936643,
+      "sha256": "5786fb63ebcda861d2373ace7fe7e20f655b7cbc46fbf9d7a99dd52114f695a9"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/coverage-family-proposal-v1/relationships.json",
+      "bytes": 8661963,
+      "sha256": "34b25f91d457fb65e611b89f182c0e05bb946d7506a0581b53e945a2d9731e06"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-six-source-representatives-v1/donor-facet-method.mjs.txt",
+      "bytes": 6164,
+      "sha256": "5524fa0bb40139e90d5f8377ee8c3a681d5d95aa45b9b1f05a2b17ca8eb17ae2"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-six-source-representatives-v1/component-context.json",
+      "bytes": 2388,
+      "sha256": "6fd4e2feef4b0dd16dd5dd1e29715dcd949cc094b2afc06af73e8bf9e6348a8a"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-six-source-representatives-v1/representative.mjs",
+      "bytes": 9281,
+      "sha256": "7eea3b8a45361d7eb71470e3ebb3886d98ffbf0ae05e2740a1aecbc39dffc999"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-wall-contact-proposal-v1/predicate-context.json",
+      "bytes": 14583,
+      "sha256": "ba353e64a208d152fb5dbaf5fce66381d18df757ef9404e5f7df9203cff09a5a"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-family-contact-page-01-v1/source-producer-context.json",
+      "bytes": 1319,
+      "sha256": "bff029ca234be8ce7aa726062f5fa7783bfe2c4283df4ad5bc5696f7214adcfa"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-family-contact-page-01-v1/lifecycle.py",
+      "bytes": 4329,
+      "sha256": "597ccb69966f85733afe8f3b235b463d1c80172af3ac767ae0565d8b47d1574e"
+    }
+  ],
+  "preservedPackages": [
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-family-contact-page-01-v1/review-package.json",
+      "bytes": 8374,
+      "sha256": "6e7655cb853b7a70cd98462e26db44ed1f7a3218f3609a3438ab4a8387d34a1e"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-family-contact-remainder-v1/review-package.json",
+      "bytes": 35269,
+      "sha256": "43b9c11d2851ed86a2aed604fd2a89089a20763ccf3c1d7d092ab4a792b2107c"
+    },
+    {
+      "path": "art/source/shared-map-fire-bindings/cornice-six-source-representatives-v1/review-package.json",
+      "bytes": 8021,
+      "sha256": "2909979e7c64105047d098bfacbd6ebbb8245a20fc4403a4d9dbd2cfb21a3aa9"
+    }
+  ],
+  "geometryPins": [
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/6c9c8406944726b443b9e3018d41991ae49802ec05f96bd80276066c310d45c8.json",
+      "bytes": 4049,
+      "sha256": "0574d64b7d2ef0a9b4c03e96c24e6653a22e97333d3126547e6add2dd0311ca2"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/2896b9b866dabdb6463f9f151bc18ac997adcb75f40dc70d4efc2ad099d52853.json",
+      "bytes": 6017,
+      "sha256": "da190f1edff8eddfa4e4a90f0e3f0f1a30c341b77ec3754859ae07fe9a20f1ed"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/d168eebb90ea390827cfa6785d025dfd86bf6a6eb0e19dd0548be6b7c2f450ee.json",
+      "bytes": 4853,
+      "sha256": "5549f91eec82c70f11f00c7bb7fb0f46eab58a3d4f30ebe80ed419c87febc16a"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/0c70b9c343031b3b7dddbf444ee52e77a2a1fbb04152f4ce60a6c34f3be79db7.json",
+      "bytes": 5981,
+      "sha256": "82444db24ca4d09bf79127f34d4dbd98e710c6018dcc0c55d624b261c5ef2f2f"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/7af4d1e367230de3514eb5cb130894569c11c33eafc3bcb68cd07c5a8485b675.json",
+      "bytes": 5951,
+      "sha256": "1fc3d8c4dc45296b672b95b5bc85d981f2d68ebc40ee2866aed3afd7539070d1"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/980599f2f291064dab8af7cd24adf6e5fbd60eb72cef6b032f71a4ea91d443b4.json",
+      "bytes": 4787,
+      "sha256": "1ae53be09a777f02d30335bdd4440f32960680c578bbb4506f7a93b9149e4ee5"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/3b9ffb12e25e2a7d9e6fa2f8836c4c1a4f2992c2dada36d85f9b991064a35c1e.json",
+      "bytes": 5927,
+      "sha256": "3b101257dbcf4e4ca1ee0a08f8d37614a97b6d90949a903ca9dbfe47ef73259f"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/9c7d0c66a1368928cdf53533d09f06d4ad236a09884669f83654d2cea2563cf5.json",
+      "bytes": 5867,
+      "sha256": "255c72f77d8d8988fc475ecf6de86dbeeb3a2fa3f63a29813eb9ea8b5cad40f5"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/00a44cf9a2816ad52bb56376e40f1bf912cc274a48891f569e11914d4820aabc.json",
+      "bytes": 4091,
+      "sha256": "79fa815b0dd05b30d8c383e6430e9846abfd4a51842d98cfdafc0bf5986273c9"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/4ae64b34a4b04d404a24c7bcaa7fe8959aea317b952d818fb851e64153c96f93.json",
+      "bytes": 5963,
+      "sha256": "6c710e7e7741d70a381d03e97040994f32a1e88d6e7ba426f9008b8f34cede5d"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/24c15bd9210ce17b475031ce7975545b5e446cb1ab182c4b5c0308572a485d61.json",
+      "bytes": 4787,
+      "sha256": "debb2ee78bab27d09d1d612782cb0ac57a2051932f47e9b09719504317e87591"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/29f80658cd9daa4b39b2b98bdcf064d427ce16dbf97f81b2b9a1e688ac07873a.json",
+      "bytes": 5969,
+      "sha256": "fd1be3fc1fcc4f9a97db22cda2133d3ca26fa76d0ff0f9b5f65c9495af4d68b5"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/3f6a51184d384c7441d7f4bff308664115c432d885c7ac5b549ae3e2677d11a9.json",
+      "bytes": 5993,
+      "sha256": "e2035d477e755151d6df1bb486fa2ac8b5419de579b6baef25f3fe41280e9dd5"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/51b6f2db39c1a057e1596c05751bd3cdda9c14c7be24501add8a91c700ee12dc.json",
+      "bytes": 4829,
+      "sha256": "e5faeacf32e73bf5e86e3d70eec031eee3247adecad7ff0788500a269ac9a9ec"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/3c7ffa519bbe4865ac18f677383447330f370ed71601f4a1c5f2bade9c40f552.json",
+      "bytes": 5969,
+      "sha256": "d2719d7867acdb8e3b089fa9de31f51979b41435d0d6166eaac378dc709a0d30"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/f9dcf7f295aac0fe6e4ca6a90457a530126d9c3582c399756d1968afadff2357.json",
+      "bytes": 5783,
+      "sha256": "5532f54fd2f6415574f45988c5c1712b309a60aa82941552eb9eb8c486570da1"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/220ae325c2f656541c63357c24a1d9c8337675b202548137afe68dd2637272bf.json",
+      "bytes": 4007,
+      "sha256": "a191b209356460f6b3ee3c4a74c871751f398ea7773ff9dc37a7d36c0611d911"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/01512550b2cd0da6889c94b85dabae914768124f07ae298d5357d11cbaa290bc.json",
+      "bytes": 5879,
+      "sha256": "a31bae7e2202e42deca7d0f36720cd2b14dc0dec53acca6bd8efa80064935003"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/828d1247f67e10395869b730cd09ddea931728955933e89dc05f29d70b2a85ce.json",
+      "bytes": 4703,
+      "sha256": "421f6006bf428b202a7eb2785196d36b13d3bc02213b7dd1d82905fb320f4dc1"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/6b4e1a5bd8c88063803cf69fb9709403944aeeb759309b176f9eb7eb3ae4d5c8.json",
+      "bytes": 5885,
+      "sha256": "59f17749a220ef95975265d6eb8c086ab67975b01762bf1026d6a08b19efdbd4"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/6719607bc130083af0e04ce9c6518dcb6289ea130bbeb5255ea28d6ff791a627.json",
+      "bytes": 5741,
+      "sha256": "3fc9a85b6ff3314c6b05f8f68d80429c97afc20f08572b6fa8ed375be514803a"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/862975dce40bfca70f38642f7778dc0cb22110b957e37e153254491098b1eef9.json",
+      "bytes": 4007,
+      "sha256": "aa94e90f6660dba579a519acc2ed90d8dbca213b4c7a82b5f282420231b7a31c"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/28b03cc9ca856b968a9bb8e4786adc40f1d882911169b6f50217c8080291747a.json",
+      "bytes": 5867,
+      "sha256": "3535cc4aa4aecfd0c0958489def110fd6ad4e654bbee548016cdaad1dcd5c14b"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/e1ac5e7c62690f8f380c486b33ad67516fcb5996cad3e2142a7b9a6673c2707d.json",
+      "bytes": 4685,
+      "sha256": "7be98b7ae7a699a0d0f36a8516104f7c42bd50b566f7b840727e49c0d8771605"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/6632e05ced7403737f8bdc69833befa3455e57b418dca96a518e5493b42c556b.json",
+      "bytes": 5837,
+      "sha256": "696b4d5d0167da5371a1ae2056bfdc0add63ed2a8e2b91f183352fb3475d25f2"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/1426a0bf2d3246c92c70ea327c812da846e840f24d7c676d564c4d2c2eeb58f4.json",
+      "bytes": 5717,
+      "sha256": "5c85a7083e9837c740635c98f5fec5dabb21679d9cdd75e1841f1c5a6d48d1f8"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/e953bd743c76b7aa628a29dc24d61181809436a91b16f376e69d410622511da2.json",
+      "bytes": 3953,
+      "sha256": "cd66d49c019d0024ade8be2d7591f78bd981d13863fd02ffb7f159c153311468"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/cd19b7ec35e02eeffd1ee65b1131c5873d29559350fb3048be26f333b68838a0.json",
+      "bytes": 5813,
+      "sha256": "d16ffbd06cd5d3824af8c260f2c82e9f6fd3ff1edbce88eb54e8e3a0324353c4"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/8f119403a86fd719c926006f18b35150bc47ce2eac9c5fce4e47039a21d0a380.json",
+      "bytes": 4637,
+      "sha256": "5b1c0ed054dee1555140ba888597a43575102b9bb6387b0e5b85c009529adc3b"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/9f3b11e0c44fcf0dd578c637866fe9e1a9ea4a4d46d089115e1897c51888f93a.json",
+      "bytes": 5765,
+      "sha256": "6fbd0b270080cda7ac1c04b3226c8b289de498592df347f8f453bef4e929d348"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/1238990da208b1069d3ac94a26cf4fb9c1cf5f5d81396b334316f735b3ea55ec.json",
+      "bytes": 5771,
+      "sha256": "c76f52c2bff23a24c5140ab50fb277f54be01a629e91078208f638edfc73b590"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/77947f43f55d67f79796ffcc93e196ed3d42ef84449588d2854e76bc683c72c1.json",
+      "bytes": 5735,
+      "sha256": "7a516be247e749bd847094909a75de4231b9c0eb6397bdbd4ba9246c05f63e0f"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/dfc9d5b43a159ea0dbafb53e3165d35d2d578d86726642d9871e0f16344f547a.json",
+      "bytes": 3947,
+      "sha256": "cd1322cf5b2dec2bbf5754d384c32cf641e7ee4e21ae5b4fd6e7d1aa2868c80a"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/864da5058431fbe1ffdf6e7a01706d0c0f4219a02d53812b0240c16ad9c2495c.json",
+      "bytes": 5747,
+      "sha256": "0b0134de38589df49bddd4f927b7df71f32a5d9975479d3b0d0a71067f48adcc"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/2c06dc86055103c0c3fa5e4f368357ae98628b7c366067a5a4a0807ca2deb552.json",
+      "bytes": 5765,
+      "sha256": "479d7fdcf20d0b9e5bfd751fb60ab8397e3d44b2d6e545e73b62980839c7a694"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/567e28004d4b6b45fce94c626e41302418058013d31adb993bb46c0f8d333c51.json",
+      "bytes": 4577,
+      "sha256": "4ca0d079a0a7f37b30817bc9c2389420a37b19a3a7ed0ea4c9b32e06ee4976bc"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/173ccd17e7af08836a98a45bb4bb5a9e15400c5c9ec32ecbf0a1f819e0ce21f1.json",
+      "bytes": 5687,
+      "sha256": "22ebe605c349f02dc14befe1d18e3b31448cfe2c02d4e9a46b0c4ff84962dd0a"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/174c6cf4335ae647c6ee41041c9e358072c8e70bbcfa0e751654698f623eb85c.json",
+      "bytes": 5771,
+      "sha256": "0e29521e204d0b1ebba731aa5e0e5f1c2e39208a08e02f5be290b3602ad5c419"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/a22e8528fd00f730e89e45161c56ff5178f03612ff6ebc02a584fa35b8ff42b7.json",
+      "bytes": 3983,
+      "sha256": "fb2c18c7e7282dee82fcc9b380f2977bbdff51527c2af16a84f4eb88f664d790"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/38df29652e74dc7f6a1d00e6691f5444872d6f0b0a8b75e0925be30067ca36f2.json",
+      "bytes": 5795,
+      "sha256": "957314409bbf344fb584198533f11f2e968b73a1b476ea3cd497d8b641d84bd3"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/4db1e6c2d78b045d1163990499d8937721f570f4b1bb7e7fce7ab0ca4a34a250.json",
+      "bytes": 4595,
+      "sha256": "79c4cc6cd514e50b9a5cdfd1afc055da36ba1554c3827238d686ed602b4c768d"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/ac3b92e541c9b27f1a64549e37d88d8d48a143cfb2132118928cc81c541db4c2.json",
+      "bytes": 5723,
+      "sha256": "d3f70276fdae9c7b2b86de21728a684fb9df84f74552d8112af380a9cd9af07d"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/c1a0e1a58968b2b6237de2c8e021f3a497ae040e6b7feba201aca38d8862a861.json",
+      "bytes": 5831,
+      "sha256": "65dd8e33c9d51dd950f00fb209da0dba4d4c24fbdcfdb33f700e608b34edcafc"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/34b515312dcc2faa4e3801bcfed47d49a65f2be70ac0f347dac70096ebd8afb7.json",
+      "bytes": 4007,
+      "sha256": "893a860638a6cd01a7d16a93162952824382254c4aef6d4e9f7e3035929295d5"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/283cd7c8754145adc2eeb2ec1525b2a56820a931d718137ece8e85e1f4409478.json",
+      "bytes": 5831,
+      "sha256": "d5107d05bc540d7dab9e19fdfdec3710ca9f592144aa8e1ee9b9d9dfb7e49433"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/b518ecce39bf56d86b718aa656aa02f0773c064128a9bf734f1175703298e35b.json",
+      "bytes": 4643,
+      "sha256": "4f4e476efb4bcad067391bb54272c383f210322e6303615f49e33efc322aefa3"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/e339e210d1f2be437b39805b2a9d806094db7f4844b115ad91e4251a726bcdf6.json",
+      "bytes": 5759,
+      "sha256": "9faeaf62d9844e196faf29a16a141e88c066c0085682e2258d7dbade9082acb0"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/6423fcb9f2addaf03ae07299d5a855ab14a6841c2195061756f6d4d6ee57b077.json",
+      "bytes": 5789,
+      "sha256": "52c8fe4aa598e5ecb39b48b3b58c3fa600b5bc5b74dfad56165681d4aaa215c5"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/db1c29815b475c0fdbb15e2d00008ab32d689d25485de68fb6c9ab8bb52d9c2c.json",
+      "bytes": 4037,
+      "sha256": "2997f55c0a99ed60187b14ff17b630d7087d58ae573b591535248813219b1992"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/ad5492a559b22637bc34ab059567878b265ccc62ed4135ac141a70847a2dd240.json",
+      "bytes": 5897,
+      "sha256": "c3840489d067c08fdb88b583fc24dce994f32d2768ba031fb8b44b45695dce76"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/171072135342e9ceb849e2ada7f38e2fab29d87df386631a527a955e8248b654.json",
+      "bytes": 4721,
+      "sha256": "f5723dbb3ef74653a874ca89ca0945b1f11920b255fe7a40a7ced039a0d048ea"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/50cb64d9821f4fc574e6477f94cb48b02d23c4f133874a46511f167fec5c6f3d.json",
+      "bytes": 5849,
+      "sha256": "30da0befb14a33717e8e1cf29fb454f827671f4e5d443dd2bd5e1dbf7d74bcf4"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/769da5292381041eafd76bbb8f0a0f6da4189f43814a6475c96cb82db204b4af.json",
+      "bytes": 5801,
+      "sha256": "da1a2f8c559bffbf421a520e8f1100804ff95497161980dd60b454f6b93f55ef"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/eda855190f2312cf2227821c0fca38d24d5a69a0af9fdbf443127ceffb4f669a.json",
+      "bytes": 4067,
+      "sha256": "0f09e338881a42b25e447f7ce5aacd7e6aa7ae6dfd01d9d8bf39ea50d31204f4"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/c809f577545950b9e7b1392512f3e2078370787ae62d642a931c1e31a850f4a4.json",
+      "bytes": 5921,
+      "sha256": "93e62b4815b1970ceb35949249d04bfc42e8339f408ddb0281efc0a4406217d9"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/e7efefb865bc00e6b028d687a82cb29523e73921fb5c20edffb494276347ddf7.json",
+      "bytes": 4739,
+      "sha256": "9ca59e6de4425008860304c923fd933e056cd81292caa5851a5bbfd6bbacd77c"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/0f67dd6742ccde26740872937f94c8f98a40a1bce81b19e5fa6270547fc21af4.json",
+      "bytes": 5885,
+      "sha256": "eb89c13a5133fd5e40b08faf186f0af09d1ceed0e77507e79594dc84ee7cddcc"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/865a1c3d222ab17789676b3a502e75008b3f81dcf22833980d2e230aba7f719c.json",
+      "bytes": 1810,
+      "sha256": "041810446f828124be796d271c2406c95c7a792732563c18d796da87bbb630bb"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/7bc023b1c1df1bde8200dc36eb7176d8755510600597dcd11bb0fc57860373e1.json",
+      "bytes": 1810,
+      "sha256": "89d70d0b465ef1110354f7e8c7f5bec6907fed59c58e4e624c5bee8e76474844"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/036610addb5a16f27643255ba33b9bfe1b127c447b54da531b512c462c94acc1.json",
+      "bytes": 1810,
+      "sha256": "b8f32bfe9c53f3067761f28e789f031f17cf1345857949c923137dae98ebb6ec"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/ddf15092edaeb8580ad3d8c94c4c1817d4772042ea142ff315ae4fe4c7fec7ed.json",
+      "bytes": 1810,
+      "sha256": "d194f47f45da2ca7b55b39589c3ab2ba9697ae6c48fedb18f2a0015059ad1ab6"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/13617395fe604f1ccbd2597ec38c6f2617f42aa57794db4db1e007dfae3ca4d5.json",
+      "bytes": 2026,
+      "sha256": "28812fc6e40de990eaa12b0d392b4b58e91d8b4e352bcd55652e32f4c583bb10"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/a596220e3df51f1318d5869a9e20594d443d13c76f2de555bfc2ebdbef57ffe6.json",
+      "bytes": 2026,
+      "sha256": "8e41da9353b574e2c14542773a2a39cf52953b99e5086f37a5e3dda92bd23a25"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/96412d3b60ee647c605f9d28e052a23527cfd374d8639abe147d00366b65b793.json",
+      "bytes": 2034,
+      "sha256": "6eedff421e354a81e159282d73b58f70ca0f56acf6c7d140bbbd96219f5afdda"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/93903028a66e9c1edb2393a49c411042d963c9752eb16924de2310eaeb0d0857.json",
+      "bytes": 2034,
+      "sha256": "a4d1a9bf82262291d9e419bacab83e62a873bebc4582b90eeabdd09c0794377f"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/4fb58c849c8bfbeab50afeb4bac7e7cb14dd92ba476f0eb37041ef5260428b77.json",
+      "bytes": 2490,
+      "sha256": "7b9b870bcfa43211d4e2057f1e88ae6ad1e07570ebc1af385ca1b97cedde705e"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/879b13f4169060edf7819c68fb2482275d5de014717101b2f843a8c2bb67d571.json",
+      "bytes": 2490,
+      "sha256": "414d04d3133fe0b3de0119bb5514e78e0f1cdc070beb797df26d8edd1b2481f2"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/576f8a9fd04a988fd383879adfb3a92b0d0961294b39ad0dde903a5962f20ff0.json",
+      "bytes": 2474,
+      "sha256": "ae6dcf361cb90a410ebe4dfc56df438cdc09b0185f672cc2d27f999435a0500f"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/d80aff6b0f54d2ff0fbbae5a5e074aa57fd3cd73d731b78cafb27a7f3197ccb2.json",
+      "bytes": 2474,
+      "sha256": "4fabbc6c0337ca9a509718640b90e4b6e4677c134c058c8be9733e66acd4590a"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/776cb92be2acbd03930fd25afa6a98fce5aaf7b5a7a289ea02d7cb36a9003628.json",
+      "bytes": 75944,
+      "sha256": "394a55c981d5e5fc3be8436efe37d98f9ffb6a13cd894b0fc17c209130e86ee5"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/9e622f920bb3b45be3dfc4a9f40c2cf10ee1b9fc5d31f9bbdba27452e6b06bc5.json",
+      "bytes": 77780,
+      "sha256": "dc948dba3e5116039cf777a55a3ec134169a27472edbc543f80fd55fba1ffe07"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/4b68f0640de81e32e36d2e28b1cddebffba655d888fb5e3743d0b9e6f4cb710d.json",
+      "bytes": 77354,
+      "sha256": "fa5cf12b7268d70a5147e51ff793676299521c0568a6658f487809ab77617294"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/5a7f1f9eb13090eea26a269092be3c5758c1e4dd56e7ae0e4384f084fb794740.json",
+      "bytes": 8046,
+      "sha256": "748bbaec01da79ff9d2ec50ead136874e50fe5fb6b18940b93fe0d709d7480f6"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/fcf5021d52dc2f00093cdca00b246ed0bb7c5f0a7540f7b004bc5512e9de4690.json",
+      "bytes": 68445,
+      "sha256": "7c4a4575625f28e415a3f62e4bc7be4a994e8da101f3bd250e9844ff03e1474f"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/92141c6e56da911e6c13580f4cd939e6459a5a8266973e27bf770e74b05797cd.json",
+      "bytes": 70714,
+      "sha256": "81be58137b2df8a90daf142f50d7a21b17a1c635f1a20843e393e410ba178e2d"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/a183ac96491775523aae407f65e926beac383caf57c90c3272002b21e51c4692.json",
+      "bytes": 3082,
+      "sha256": "5991315a5d0017d24e9ba013059da050a330ea0ab3de4814f7e830028a3868e6"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/4646eb6775b10fa0d5d8a145954e8b3f8aede3535cb1bf5d529c36df4a1605d3.json",
+      "bytes": 3082,
+      "sha256": "a35af702aaf8aeb31f1ba81c5cb248d6a3d4a374af77a78ede86352f40470d83"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/359ae7cbcc4dd992f73c2ba16ec6a04980c7078fc6172e78e31b94ce13fde10a.json",
+      "bytes": 1794,
+      "sha256": "bea17e62694a9b994d08bc9b07d96dcdc194aaa0d5dbee8d8fd6482a66f8799b"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/9ad4f24d9a17af058aa95503c097119305fb5c8a670d8d09ddb59b561b4a54a1.json",
+      "bytes": 1794,
+      "sha256": "2a79ff7f327c41550453870469cbd0018f943aca912dc90bec735df3d6e5e63d"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/54d958210c796fc51c1404a68e0bb7727a77eb58ef8b998857cf1075840f2812.json",
+      "bytes": 1794,
+      "sha256": "2c31c62f877fe92e3e5c35de9c7e32ce6cab07eaa189add7153d07ef7a5a49ce"
+    },
+    {
+      "path": "assets/art/place-scenes/new-york/geometry/85deab61b8537bb793a8289cca3df770f47493d8f78aae3c4609520626de22ff.json",
+      "bytes": 1794,
+      "sha256": "87dc071dd251fc5376c7570369ac3bec697afbb79dce25a1ae42a9c76cecb4e8"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/8b785f054dcafec332a98cdd527c972922d09d4a84ffc4d6289f4143c73df587.json",
+      "bytes": 15484,
+      "sha256": "f3ad299af8f87a202a0b741a4830fb6c91e621f15638f64cd835e1912532a21b"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/c3a069ac8268b4c22fc50e1452f35c86bced82b19cb142907a57ff5129b1015e.json",
+      "bytes": 15269,
+      "sha256": "66a5e48bbfed8c7f2cc17658bb177557b6607bb19ef07d5b322cd6c18c722b8c"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/4dc4871026554e9358a8684c72412c703007dc425e129a2f7d9bd9096083a766.json",
+      "bytes": 19907,
+      "sha256": "0b370e274b4446e69386050ed47e2b03d31f5f4d1ef544e975c9702f731f16cc"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/d7c17a84a127ccdf74e87c2f798ad30a5c99ba6bd839215841c2b4edcf3fe5f4.json",
+      "bytes": 12346,
+      "sha256": "7a6da114325b0df6ea78bab2b26bfbe8b8d0bd8a26d5d90ebd4d4ec0ea76f350"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/38132d0309fbc93591688470c1e2e58136f64cd22fb32aa0952671afcc8062bf.json",
+      "bytes": 15455,
+      "sha256": "6d50a4b6da87d33ce87cad5f428cf6a8a058a48ca6b28b860b30183a672da725"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/e313cc8c2218520c2b1aee3bc87d75ac3a822a4d765e6650c04efa823e132de1.json",
+      "bytes": 20183,
+      "sha256": "bd9f2c6dc3fb74a09447088c565a85cc2db9687e8f30e4b54a83eedbc67ed7d1"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/5ff83f26642d7d7e6dcab5722c907702a9897de34942a36c68c3b249dbad80d7.json",
+      "bytes": 12532,
+      "sha256": "e9f57f8a17c592a8783d9ad33c0f45defc53c8c44f41f0fdeb6474966066cd45"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/18c08ec93f988838d0c259ffa1ac933f3b4bed29256be46c456756db310bc4cb.json",
+      "bytes": 7103,
+      "sha256": "158e1dde89f0157f5137f65a00cde4824cbbc8f66ac986aea950484f14aaa8e4"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/ad3953d802e5e531817ebd13f47c57149d280fc789beac88ee0ec3156b08c2a5.json",
+      "bytes": 7107,
+      "sha256": "2ac83eeab81e8b85393103a283d6152a6d8a09050f9400f90dd19d9e639171a2"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/dadf312cb34dc95e80f846a611cd0e29769c9f36654965733bde2fe7ca8f65b0.json",
+      "bytes": 7217,
+      "sha256": "357374a556b172c1bdb3a427d3df5535ffc80c6803b193b1d4d9cd69d10c836b"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/b8fce2ee830893b1f681f5577a2b0dc0c019df9923710396729ae653b5d903e4.json",
+      "bytes": 7221,
+      "sha256": "fa0251a4f84773ca868fa5d7dfc6798d52fd1fc7b4bd18760a4ae6c7a72ed2aa"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/ae67eb2f149be2ce0cf72d493e28e3b8df7b884b97b324e71017bad7df8bbe53.json",
+      "bytes": 99514,
+      "sha256": "5f177dcc4b4400008fdfe897119423fc8051cfec39e2aeb9f9fab40b55091c49"
+    },
+    {
+      "path": "assets/art/shared-map-derived-geometry/new-york/v1/geometry/438a80bbcd5a6be1b571c3dc3baff7ad05ba72728e5327c59b49d281cd85efd3.json",
+      "bytes": 102039,
+      "sha256": "a57dd9b525f2e6b5aae1e19b8c888fd7bf6886a57d65178b0138022828a0cc02"
+    }
+  ],
+  "local": [
+    {
+      "name": "metadata.py",
+      "bytes": 6316,
+      "sha256": "75f4af3e7b2ad964162ece1d5b103301520f6766d80674d86e9c181e38911ca5"
+    },
+    {
+      "name": "page.mjs",
+      "bytes": 10246,
+      "sha256": "df685762880d5e5f48548026eef9cdbd20230ef49390c7b9e3590076ffa2c019"
+    },
+    {
+      "name": "run.py",
+      "bytes": 10362,
+      "sha256": "5e99179f2dbda6d825049b03c913520f99ad41423aafa0d9838d98fd9175bfd3"
+    },
+    {
+      "name": "authority.md",
+      "bytes": 1267,
+      "sha256": "b2252d2b24f82820bd50552b737190ca6398c2f560340166416f8f8522f3c51b"
+    },
+    {
+      "name": "plan.json",
+      "bytes": 393143,
+      "sha256": "20ded044e7e7b539cb722579ea1e7d798090e66259d6f2c08ec315c3717b6beb"
+    },
+    {
+      "name": "provenance.json",
+      "bytes": 1428,
+      "sha256": "2ea88c2a5801b2053dad77231ac64538490933b2df99d4d21cf44bfeb1053db4"
+    }
+  ]
+}
