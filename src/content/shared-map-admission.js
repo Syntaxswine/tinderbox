@@ -7,7 +7,13 @@ export function qualifyInputOwner(place,id){if(typeof id!=='string'||!id)throw E
 export class MapInputNotReadyError extends Error{constructor(report){super('Shared map inputs are NOT_READY: '+report.findings.map(f=>f.code).join(', '));this.name='MapInputNotReadyError';this.code='MAP_INPUT_NOT_READY';this.report=report;}}
 export const sameInput=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const same=sameInput,refKey=r=>r&&[r.commit,r.path,r.sha256].join('|');
-export function inspectSharedMapInputs(descriptor,inventory,{reviewedRefs=[],approvedProjections=[],approvedMounts=[],requiredModes={},sourceRevision,proofKinds=['bearing-face-v1','fixed-embed-v1','fixed-assembly-mount-v1']}={}){
+// Source authority is the independently reviewed tuple. Blueprint projections,
+// cells and unborn native bindings are derived later and cannot replace it.
+const sourceEnd=e=>({partId:e?.partId,ownerId:e?.ownerId??null,primitive:e?.primitive,component:e?.component,point:e?.point,selector:e?.selector??null});
+const sourceBond=b=>({id:b.id,kind:b.kind,direction:b.direction,proofKind:b.proofKind,proof:refKey(b.proofRef),proofPointer:b.proofPointer??null,parent:sourceEnd(b.parent),child:sourceEnd(b.child)});
+const sourceAnchor=a=>({partId:a.partId,component:a.component,elevation:a.elevation,proof:refKey(a.proofRef),proofPointer:a.proofPointer??null});
+function exactSource(a,b){if(Object.is(a,b))return true;if(!a||!b||typeof a!=='object'||typeof b!=='object'||Array.isArray(a)!==Array.isArray(b)||Array.isArray(a)&&a.length!==b.length)return false;const keys=Object.keys(a);return keys.length===Object.keys(b).length&&keys.every(k=>Object.hasOwn(b,k)&&exactSource(a[k],b[k]));}
+export function inspectSharedMapInputs(descriptor,inventory,{reviewedRefs=[],approvedBonds=[],approvedAnchors=[],approvedProjections=[],approvedMounts=[],requiredModes={},sourceRevision,proofKinds=['bearing-face-v1','fixed-embed-v1','fixed-assembly-mount-v1']}={}){
   const p=structuredClone(descriptor||{}),findings=[],add=(code,id,detail)=>findings.push({code,id,detail}),partById=new Map(inventory.parts.map(v=>[v.id,v])),ownerById=new Map(inventory.owners.map(v=>[v.id,v]));
   const qualify=id=>{try{return qualifyInputOwner(p.placeId,id);}catch{return null;}},list=(object,key)=>{if(object[key]===undefined)object[key]=[];if(!Array.isArray(object[key])){add('MALFORMED_COLLECTION',key,'Expected an array.');object[key]=[];}return object[key];};
   for(const key of ['owners','parts','projections'])list(p,key);
@@ -16,6 +22,7 @@ export function inspectSharedMapInputs(descriptor,inventory,{reviewedRefs=[],app
   // exception which could accidentally continue into a default host path.
   if([...p.owners,...p.parts,...p.projections,...p.support.bonds,...p.support.anchors,...p.support.requirements,...p.support.rootTraces,...p.support.ordinaryAlternatives].some(v=>!v||typeof v!=='object'))return freezeInput({version:1,phase:'METADATA_ADMISSION',status:'NOT_READY',findings:[{code:'MALFORMED_RECORD',id:p.placeId}],plan:p});
   const trusted=new Set(reviewedRefs.map(refKey)),approved=r=>!!r&&sha(r.sha256)&&trusted.has(refKey(r));
+  const sourceBonds=approvedBonds.map(sourceBond),sourceAnchors=approvedAnchors.map(sourceAnchor);
   if(p.version!==1||p.placeId!==inventory.placeId||!sha(p.sourceRevision))add('SOURCE_REVISION_OR_PLACE',p.placeId,'Pinned version-1 source metadata is required.');
   if(!sha(sourceRevision)||p.sourceRevision!==sourceRevision)add('SOURCE_REVISION_NOT_REVIEWED',p.placeId,'Capture the exact reviewed input revision before birth.');
   if(!same(p.grid,{origin:[0,0,0],pitch:[.5,1.06,.5]}))add('GRID_IDENTITY',p.placeId,'Preserve the existing native grid.');
@@ -87,6 +94,7 @@ export function inspectSharedMapInputs(descriptor,inventory,{reviewedRefs=[],app
     if(bonds.has(b.id))add('DUPLICATE_BOND',b.id,'Preserve unique source relationships.');bonds.set(b.id,b);if(!approved(b.proofRef))add('CONTACT_PROOF_NOT_REVIEWED',b.id,'Source proposals are not approved live bindings.');
     if(!['bearing-face','fixed-embed','fixed-assembly-mount'].includes(b.kind)||!['parent-to-child','symmetric-structural'].includes(b.direction))add('BOND_SEMANTICS_UNBOUND',b.id,'Keep explicit original contact kind/direction.');
     if(!proofKinds.includes(b.proofKind))add('PROOF_KIND_NOT_READY',b.id,b.proofKind);
+    if(!sourceBonds.some(a=>exactSource(a,sourceBond(b))))add('SOURCE_BOND_WITNESS_NOT_APPROVED',b.id,'Exact independently reviewed bond semantics and own original witnesses are required; file/revision identity alone is not authority.');
     if(b.kind==='fixed-assembly-mount'&&!approvedMounts.some(m=>same(m,b)))add('MOUNT_TUPLE_NOT_APPROVED',b.id,'A provenance reference alone cannot approve a changed mechanical mount.');
     for(const side of ['parent','child']){const e=b[side],part=parts.get(e?.partId);if(!part||!vector(e.point)||!Number.isSafeInteger(e.primitive)||e.primitive<0||e.primitive>=part.physicalTriangles||!Number.isSafeInteger(e.component)||e.component<0)add('SOURCE_ENDPOINT_UNBOUND',b.id+'/'+side,'Own original face/component/point is required.');
       if(b.proofKind==='dual-endpoint-bearing-source-proposal'&&(!vector(e?.selector?.min)||!vector(e?.selector?.max)||!vector(e?.point)||e.point.some((v,i)=>v<e.selector.min[i]-1e-7||v>e.selector.max[i]+1e-7)))add('OWN_SOURCE_SELECTOR_UNBOUND',b.id+'/'+side,'Preserve each reviewed endpoint selector separately.');
@@ -95,7 +103,10 @@ export function inspectSharedMapInputs(descriptor,inventory,{reviewedRefs=[],app
       if(e?.nativeRecordId!=null||e?.nativeCellId!=null||e?.bindingPlan?.nativeRecordId!=null||e?.bindingPlan?.nativeCellId!=null)add('PREMATURE_NATIVE_ID',b.id+'/'+side,'Unborn IDs stay null; only genuine receipts may bind them.');
     }
   }
-  for(const a of support.anchors||[]){if(typeof a.id!=='string'||!a.id||anchors.has(a.id))add('ANCHOR_ID_UNBOUND',a.id,'Unique reviewed original anchor identity required.');anchors.set(a.id,a);if(!parts.has(a.partId)||!Number.isSafeInteger(a.component)||a.component<0||!Number.isFinite(a.elevation)||!approved(a.proofRef))add('ANCHOR_MATERIAL_PROOF_UNBOUND',a.id,'Use reviewed existing original-material/component evidence, never bounds.');}
+  for(const a of support.anchors||[]){if(typeof a.id!=='string'||!a.id||anchors.has(a.id))add('ANCHOR_ID_UNBOUND',a.id,'Unique reviewed original anchor identity required.');anchors.set(a.id,a);if(!parts.has(a.partId)||!Number.isSafeInteger(a.component)||a.component<0||!Number.isFinite(a.elevation)||!approved(a.proofRef))add('ANCHOR_MATERIAL_PROOF_UNBOUND',a.id,'Use reviewed existing original-material/component evidence, never bounds.');
+    if(added.has(a.partId))add('PROJECTION_ANCHOR_FORBIDDEN',a.id,'The approved appended projection has no new anchor, regardless of a trusted reference.');
+    else if(!sourceAnchors.some(original=>exactSource(original,sourceAnchor(a))))add('ORIGINAL_ANCHOR_NOT_APPROVED',a.id,'Original part/component/elevation/proof must match an independently approved anchor tuple.');
+  }
   for(const g of support.requirements||[]){
     const lower=Array.isArray(g.portIds)?g.portIds.map(id=>bonds.get(id)):null,upper=bonds.get(g.upperBondId);if(lower?.length!==2||lower.some(v=>!v)||!upper){add('ALL_FIXED_PORTS_UNBOUND',g.id,'Both fixed lowers and directed upper are required.');continue;}
     const fitting=parts.get(lower[0].child?.partId)?.ownerId,excluded=new Set([fitting,parts.get(upper.child?.partId)?.ownerId,...(Array.isArray(g.excludedDescendantOwners)?g.excludedDescendantOwners.map(qualify):[])]);

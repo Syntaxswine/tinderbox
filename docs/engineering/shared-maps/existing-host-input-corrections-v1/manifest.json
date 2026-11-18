@@ -1,0 +1,125 @@
+{
+  "base": "22dc88de91a4af05df837ce97cd6ffe3c467811d",
+  "files": [
+    {
+      "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/admission-policy.json",
+      "hashMode": "raw",
+      "bytes": 58569,
+      "sha256": "04106ad387ed05cced8cdbcc18204e4ca940c76b1a8131071824b3788cbd1a4b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/.gitattributes",
+      "hashMode": "raw",
+      "bytes": 20,
+      "sha256": "e97602ab9cac70102245345c5ab0fc9830df8b17f1072b188265a662a3a547ae"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/README.md",
+      "hashMode": "raw",
+      "bytes": 5530,
+      "sha256": "a01ea76ce0d7655a06fda8b663023accd897b4658d22dc7afa405976323bf275"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/admission.json",
+      "hashMode": "raw",
+      "bytes": 46436,
+      "sha256": "6268a6232497cea9ab672343bc8d6c2f716fbb871fdb1f3a91cd8c55654a2edc"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/audit.mjs",
+      "hashMode": "raw",
+      "bytes": 8389,
+      "sha256": "1d37993e15ca0553d156c5278e6d0b11efd7247c1ba7b32c911e2537335d970f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/cleanup.json",
+      "hashMode": "raw",
+      "bytes": 3071,
+      "sha256": "aa1a457d93b26f195bd2a1f41f735ac063576020a9d16c89ff1f98045f0c8d99"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/corrected-inputs.json",
+      "hashMode": "raw",
+      "bytes": 89775,
+      "sha256": "38c5862c099efabd094d23b57087238628b33cbc5b7b9f11a2f4cc3f48a6eda2"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/corrected.json",
+      "hashMode": "raw",
+      "bytes": 13298,
+      "sha256": "af397f92343dddf6ae71ad7a5334b924ef1ccdf4fa8894a2a2902e8140077b24"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/corrected.log",
+      "hashMode": "raw",
+      "bytes": 16923,
+      "sha256": "7881b6ec2901050769b76ee1f22ec25ecc70722c628fec296d484944574e9cb1"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/original-findings-inputs.json",
+      "hashMode": "raw",
+      "bytes": 63536,
+      "sha256": "dff44ec5fcaa679ee95c593d378761d48c9945ebbfa0437ed03de9a4635ec70b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/original-findings.json",
+      "hashMode": "raw",
+      "bytes": 2170,
+      "sha256": "2cb9058c617e8e5993fa73635bc59ff58fa8dcd93613b40a3467e06238ce1607"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/original-findings.log",
+      "hashMode": "raw",
+      "bytes": 3787,
+      "sha256": "b2683669562ad06a2a4c748de3535c2607cad15fcf68b15fb59e0fc405f6a1c7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/existing-host-input-corrections-v1/run.mjs",
+      "hashMode": "raw",
+      "bytes": 2662,
+      "sha256": "ec41c2b21a049384eaeedfc9ca70f1023a37b9a9ba9ae436b96e71aef1bfeadc"
+    },
+    {
+      "path": "docs/engineering/shared-maps/runtime-integration.json",
+      "hashMode": "LF",
+      "bytes": 18907,
+      "sha256": "0317070c06649494d89e668f3264ce05beceb3cb9b57944a6612e44051eb6f6c"
+    },
+    {
+      "path": "src/content/shared-map-admission.js",
+      "hashMode": "LF",
+      "bytes": 19234,
+      "sha256": "bf973ae9b83d7ca1d337a4c12382225a2d66a6dcc131111c92ae50e904914e27"
+    },
+    {
+      "path": "src/content/shared-map-inputs.js",
+      "hashMode": "LF",
+      "bytes": 12934,
+      "sha256": "7586c11d4120e334582540b89adedb99c1ce27c44d02b53441318e66a65845e1"
+    },
+    {
+      "path": "src/content/shared-map.js",
+      "hashMode": "LF",
+      "bytes": 5251,
+      "sha256": "4d3ba37b937afe858c88a4311f28222c652c96bc2cc35c49a47e90882349a812"
+    },
+    {
+      "path": "tests/fixtures/shared-map-input-data.mjs",
+      "hashMode": "LF",
+      "bytes": 7156,
+      "sha256": "6a2a1c406f05e9b443f7eb60b86692cb32586b12b30e0606c59276b632e46584"
+    },
+    {
+      "path": "tests/integration/shared-map-inputs.test.mjs",
+      "hashMode": "LF",
+      "bytes": 17205,
+      "sha256": "f1c0f245f26050685ed2d0824e0e86da93ea452b6c8bd93e9da9db5e562239a5"
+    },
+    {
+      "path": "tools/admit-new-york-inputs.mjs",
+      "hashMode": "LF",
+      "bytes": 16242,
+      "sha256": "65a55a779dbd4d1f17d64e056bae244a90b2a8b7c719f605ad06ccdfb3351724"
+    }
+  ]
+}
