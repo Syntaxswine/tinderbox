@@ -1,0 +1,285 @@
+{
+  "status": "COMBINED_SAVED_COMPATIBILITY_PASS",
+  "artist": "72434b06d260b3721a5a9188f5d144e31c79c47d",
+  "coder": "2c1eaaeb94c0530d5a340c647a1dfae4f1de4656",
+  "inputPins": [
+    {
+      "commit": "72434b06d260b3721a5a9188f5d144e31c79c47d",
+      "path": "art/source/shared-map-fire-bindings/new-york-prebirth-witness-alternatives-v1/proposal-legacy-pair-008.json",
+      "bytes": 8808,
+      "sha256": "837110b85ad35c7b82960eebcd42e7a8966cab025a843337bb89b52c247be2c5"
+    },
+    {
+      "commit": "72434b06d260b3721a5a9188f5d144e31c79c47d",
+      "path": "art/source/shared-map-fire-bindings/new-york-prebirth-witness-alternatives-v1/proposal-legacy-pair-026.json",
+      "bytes": 8927,
+      "sha256": "c62eaa4ff4e59a6939435435535c1ef140a1d7f84545e47ff09ec2fb5333844b"
+    },
+    {
+      "commit": "adb902d2a7a06108261b7b48c5c3df739cefed57",
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-world.json",
+      "bytes": 181888,
+      "sha256": "5353b5f6d6ccae1d13931bfa93f4bbdcfd498994f33a5eff49db82c2ece5c8fd"
+    },
+    {
+      "commit": "adb902d2a7a06108261b7b48c5c3df739cefed57",
+      "path": "docs/engineering/shared-maps/new-york-source-preparation-v1/selected-blueprints.json",
+      "bytes": 168975,
+      "sha256": "1685e0afc81e21b16f8db3fa00e81bc326a9b1ca24453c759abcf55df28ebbf2"
+    },
+    {
+      "commit": "faacbf1d97ed5cb05ffb4e619fb55523b736d2fc",
+      "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/endpoint-results.json",
+      "bytes": 314516,
+      "sha256": "f74498b407419af012c998d1ff505b8bd72f584dbfaa8406a2ef3cf96b5139b7"
+    },
+    {
+      "commit": "faacbf1d97ed5cb05ffb4e619fb55523b736d2fc",
+      "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/mapped-plan-proposal.json",
+      "bytes": 194338,
+      "sha256": "3dffa5a07e9a1e6a60ab8c879248cc799c3137f854b6a7871f75842aabf60cf1"
+    },
+    {
+      "commit": "beafca54b7f6c18058a4a56f700e7303acede7aa",
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/native-legacy-pair-008.json",
+      "bytes": 41757,
+      "sha256": "56d257a1552f829d6ae01c4b27b395812f9afa5cab8b953a26ce785bffb4919b"
+    },
+    {
+      "commit": "beafca54b7f6c18058a4a56f700e7303acede7aa",
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/native-legacy-pair-026.json",
+      "bytes": 41805,
+      "sha256": "ba81cb1db257fef1e8a57eaa860d780d1791f16109bc383185b8d5855e01e582"
+    },
+    {
+      "commit": "2c1eaaeb94c0530d5a340c647a1dfae4f1de4656",
+      "path": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/certificates.json",
+      "bytes": 6630,
+      "sha256": "2c19c2c0d18852440798f1c7492fe5a929da317d89eef886e9458fa08da09676"
+    },
+    {
+      "commit": "2c1eaaeb94c0530d5a340c647a1dfae4f1de4656",
+      "path": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/native-stock-inputs.json",
+      "bytes": 870,
+      "sha256": "486990b00b4cf39ad9343a57d4ab84b998f51c4eeff429725a965182fcc42091"
+    }
+  ],
+  "changedEndpointsDerived": 4,
+  "incidentCandidates": 8,
+  "unchangedPositiveMappingsReused": 70,
+  "consolidatedMappedEndpoints": 74,
+  "mappings": [
+    {
+      "bondId": "legacy-pair-008",
+      "side": "parent",
+      "status": "DERIVED_SOURCE_PLAN_UNREVIEWED",
+      "sourceSurfaceId": "new-york::carrier/main/5/seam-3-1/1/part/9192/plane",
+      "bindingPlan": {
+        "kind": "source-blueprint-original-face-v1",
+        "channel": "solid",
+        "suffix": "plane",
+        "surfacePoint": [
+          64.07999999110896,
+          8.420000076293945,
+          59
+        ],
+        "cell": [
+          128,
+          7,
+          118
+        ],
+        "nativeRecordId": null,
+        "nativeCellId": null,
+        "proofRef": null
+      },
+      "reason": "CURRENT_FLOOR_CELL_VALID"
+    },
+    {
+      "bondId": "legacy-pair-008",
+      "side": "child",
+      "status": "DERIVED_SOURCE_PLAN_UNREVIEWED",
+      "sourceSurfaceId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+      "bindingPlan": {
+        "kind": "source-blueprint-original-face-v1",
+        "channel": "solid",
+        "suffix": "plane",
+        "surfacePoint": [
+          64,
+          8.479999986166755,
+          59
+        ],
+        "cell": [
+          128,
+          8,
+          118
+        ],
+        "nativeRecordId": null,
+        "nativeCellId": null,
+        "proofRef": null
+      },
+      "reason": "CURRENT_FLOOR_CELL_VALID"
+    },
+    {
+      "bondId": "legacy-pair-026",
+      "side": "parent",
+      "status": "DERIVED_SOURCE_PLAN_UNREVIEWED",
+      "sourceSurfaceId": "new-york::carrier/main/6/seam-3-8/1/part/9455/plane",
+      "bindingPlan": {
+        "kind": "source-blueprint-original-face-v1",
+        "channel": "solid",
+        "suffix": "plane",
+        "surfacePoint": [
+          55.875,
+          8.420000076293945,
+          59.980000000447035
+        ],
+        "cell": [
+          111,
+          7,
+          119
+        ],
+        "nativeRecordId": null,
+        "nativeCellId": null,
+        "proofRef": null
+      },
+      "reason": "CURRENT_FLOOR_CELL_VALID"
+    },
+    {
+      "bondId": "legacy-pair-026",
+      "side": "child",
+      "status": "DERIVED_SOURCE_PLAN_UNREVIEWED",
+      "sourceSurfaceId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+      "bindingPlan": {
+        "kind": "source-blueprint-original-face-v1",
+        "channel": "solid",
+        "suffix": "plane",
+        "surfacePoint": [
+          55.875,
+          8.479999542236328,
+          60
+        ],
+        "cell": [
+          111,
+          7,
+          120
+        ],
+        "nativeRecordId": null,
+        "nativeCellId": null,
+        "proofRef": null
+      },
+      "reason": "CURRENT_FLOOR_CELL_VALID"
+    }
+  ],
+  "physical": [
+    {
+      "bondId": "legacy-pair-008",
+      "component": 0,
+      "originalPrimitive": 2,
+      "diagnosticRecordId": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane@128,8,118",
+      "sourceCell": [
+        128,
+        8,
+        118
+      ],
+      "physicalPointMember": true,
+      "originalPrimitiveLineage": true,
+      "futureProductionNativeId": null
+    },
+    {
+      "bondId": "legacy-pair-026",
+      "component": 0,
+      "originalPrimitive": 6,
+      "diagnosticRecordId": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane@111,7,120",
+      "sourceCell": [
+        111,
+        7,
+        120
+      ],
+      "physicalPointMember": true,
+      "originalPrimitiveLineage": true,
+      "futureProductionNativeId": null
+    }
+  ],
+  "restoration": {
+    "facetedSurfaces": 0,
+    "derivedPlanes": 4,
+    "restoredTriangleReferences": 0,
+    "restoredDerivedPlaneReferences": 0,
+    "sourceTransforms": 0
+  },
+  "sourceGeometry": {
+    "parts": 4,
+    "originalTriangles": 48,
+    "thermalSurfaces": 4,
+    "thermalTriangles": 8
+  },
+  "resourcePhases": {
+    "lookup": {
+      "live": {
+        "shapes": 164,
+        "triangles": 708
+      },
+      "working": {
+        "shapes": 0,
+        "triangles": 0
+      },
+      "fallback": {
+        "shapes": 24,
+        "triangles": 8192
+      },
+      "combined": {
+        "shapes": 188,
+        "triangles": 8900
+      }
+    },
+    "selectedWorking": {
+      "live": {
+        "shapes": 32,
+        "triangles": 264
+      },
+      "working": {
+        "shapes": 16,
+        "triangles": 4096
+      },
+      "fallback": {
+        "shapes": 24,
+        "triangles": 8192
+      },
+      "combined": {
+        "shapes": 72,
+        "triangles": 12552
+      }
+    }
+  },
+  "stock": {
+    "certificateRows": 2,
+    "numericalGate": "NUMERICAL_GATE_PASS",
+    "canonicalQuantity": 4,
+    "rawNativeQuantity": 4.000001410385229,
+    "clippingDelta": 0.0000014103852290503482,
+    "positiveAllowance": 0.0000032040695314099267,
+    "committed": false,
+    "stockCosts": {
+      "certificateCalculations": 2,
+      "thermalInputTriangles": 4,
+      "canonicalCells": 12,
+      "ledgerValidations": 1,
+      "ledgersCreated": 1,
+      "ledgersDisposed": 1
+    }
+  },
+  "actualSourceTransforms": 0,
+  "actualCompilerCalls": 0,
+  "trials": 0,
+  "clockSteps": 0,
+  "supportEvaluations": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "productionPolicyChanged": false,
+  "productionReadiness": "NOT_READY",
+  "prospectiveRevision": "UNASSIGNED",
+  "receiptAuthority": "NOT_ESTABLISHED",
+  "coupledInstallation": "NOT_RUN",
+  "ordinaryParentReferences": 179,
+  "outsideCohortUnresolved": 141
+}

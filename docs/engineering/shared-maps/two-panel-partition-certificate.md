@@ -44,3 +44,18 @@ check's concrete bounds after inspecting the deliveries; do not replay spent
 native experiments, generate new receipt authority or publish Pages by implication.
 Report source mapping, numerical stock acceptance, missing production authority
 and unresolved ordinary alternatives separately.
+
+The combined saved-data check is limited to four changed endpoints from the
+two artist proposals, at most eight incident cell candidates each; four original
+parts /48 triangles and their four existing blueprints /eight thermal triangles;
+the twelve saved child records /176 physical and 32 thermal triangles; and the
+two whole-source partition certificates. Verify hashes and reuse the other
+seventy unchanged positive mappings rather than replaying a spent 74-point run.
+Derive both changed parent plans from the full saved blueprint table; a null
+authoring plan is not itself a geometric refusal. Check the new child point,
+primitive/component lineage and selected cell against the saved physical output.
+Use zero source transforms, native compiler, core evaluation, world, trial,
+clock, renderer or build calls. One 30-second numeric child; report any failure.
+Account lookup buffers separately from the selected working set and retain the
+existing combined cache/fallback bounds. The independent combined synthetic
+suite may exercise genuine tiny births under the existing synthetic limits.
