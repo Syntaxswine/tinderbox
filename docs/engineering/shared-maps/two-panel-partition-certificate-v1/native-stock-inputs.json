@@ -1,0 +1,33 @@
+{
+  "canonical": [
+    {
+      "id": "new-york::carrier/main/5/cell-4-1/1",
+      "fuelAmount": 2,
+      "fuelClass": "clapboard",
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-4-8/1",
+      "fuelAmount": 2,
+      "fuelClass": "clapboard",
+      "finish": null
+    }
+  ],
+  "native": [
+    {
+      "id": "new-york::carrier/main/5/cell-4-1/1",
+      "nativeQuantity": 2.0000007051926145,
+      "sourceBondId": "legacy-pair-008"
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-4-8/1",
+      "nativeQuantity": 2.0000007051926145,
+      "sourceBondId": "legacy-pair-026"
+    }
+  ],
+  "sourceEvidence": {
+    "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/diagnostic-results.json",
+    "sha256": "026c11002fb0f0f2a513f3a71a7b832b269a5695a4a9b1e52db81e7f75d66cb7"
+  },
+  "nativeReceiptAuthority": "NONE"
+}

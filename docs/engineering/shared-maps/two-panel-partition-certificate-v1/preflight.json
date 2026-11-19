@@ -1,0 +1,78 @@
+{
+  "base": "beafca54b7f6c18058a4a56f700e7303acede7aa",
+  "grant": {
+    "commit": "e2b8d83662a1bfbbb4b01c5684d727064b438c9f",
+    "path": "docs/engineering/shared-maps/two-panel-partition-certificate.md",
+    "sha256": "cd4ef8e5968b218621a0979a09f696ed28b4f8fc8754fca9cfe38ee99dedc63d"
+  },
+  "inputPins": [
+    {
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/selected-blueprints.json",
+      "sha256": "31cffb6c03f393446d10c4dd42b4242751ab895926b416e1b8a290f60e46076e"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-two-panel-native-diagnostic-v1/diagnostic-results.json",
+      "sha256": "026c11002fb0f0f2a513f3a71a7b832b269a5695a4a9b1e52db81e7f75d66cb7"
+    },
+    {
+      "path": "docs/engineering/shared-maps/new-york-native-cell-correction-v1/mapped-plan-proposal.json",
+      "sha256": "3dffa5a07e9a1e6a60ab8c879248cc799c3137f854b6a7871f75842aabf60cf1"
+    }
+  ],
+  "apis": [
+    {
+      "commit": "beafca54b7f6c18058a4a56f700e7303acede7aa",
+      "path": "workbenches/furnished-house/partition-error.js",
+      "lfSha256": "418dfed7111863c5519ac258c97227a61adf96fe5aa103c0086980654a2faab1",
+      "gitBlob": "e53ed2cdcdc03339a7c7fc92e76b182138628ad3"
+    },
+    {
+      "commit": "beafca54b7f6c18058a4a56f700e7303acede7aa",
+      "path": "workbenches/furnished-house/geometry.js",
+      "lfSha256": "4987f58cab20e01b4090622b817e4f5a4f96b6d629ebc23276a9af834c0516a9",
+      "gitBlob": "a6d92ed59e887df3128a4f3be3fa1421acd47241"
+    },
+    {
+      "commit": "beafca54b7f6c18058a4a56f700e7303acede7aa",
+      "path": "workbenches/furnished-house/scene.js",
+      "lfSha256": "b80ce81dfa615d419421437076d3bdd69fa5bba48fde4e6ef7f7492b1e908655",
+      "gitBlob": "7b6de3c89bc85f543c7ee0a259543da206d667c5"
+    },
+    {
+      "commit": "beafca54b7f6c18058a4a56f700e7303acede7aa",
+      "path": "src/simulation/source-carriers.js",
+      "lfSha256": "a564bbef05996c8a62027d319bf99d8b79360dfe7c2d6a9e1b9beae7b30ecfd6",
+      "gitBlob": "429c782cca02f92b5a4c00a07b81def83b0325be"
+    },
+    {
+      "commit": "beafca54b7f6c18058a4a56f700e7303acede7aa",
+      "path": "src/simulation/hybrid-world-publication.js",
+      "lfSha256": "c6aab29d8003a5f1c71b63a3147b65c8526d80999fdc20692bc92abcf69089b0",
+      "gitBlob": "ff56aa36806bc0537cd717eaeec8084d726bcfe9"
+    },
+    {
+      "commit": "beafca54b7f6c18058a4a56f700e7303acede7aa",
+      "path": "src/content/source-fixed-cell.js",
+      "lfSha256": "b77c8fe89d57d6b01d29132691a49adddd1bcdc2b89f0d34e97b6293d96340f8",
+      "gitBlob": "13e777154fd70eed7725283dc5402fbbe8880990"
+    }
+  ],
+  "cases": [
+    {
+      "bondId": "legacy-pair-008",
+      "partId": "main/5/cell-4-1/1"
+    },
+    {
+      "bondId": "legacy-pair-026",
+      "partId": "main/6/cell-4-8/1"
+    }
+  ],
+  "limits": {
+    "surfaces": 2,
+    "thermalTriangles": 4,
+    "canonicalCells": 12,
+    "timeoutMs": 30000
+  },
+  "oldAllowances": "SPENT_NO_REPLAY",
+  "nativeReceiptAuthority": "NONE"
+}
