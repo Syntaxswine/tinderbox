@@ -1,0 +1,71 @@
+{
+  "finished": true,
+  "status": "UNREVIEWED_NUMERICAL_CERTIFICATE_RESULT",
+  "error": null,
+  "gateStatus": "NUMERICAL_GATE_PASS",
+  "diagnostics": {
+    "certificateCalculations": 2,
+    "thermalInputTriangles": 4,
+    "canonicalCells": 12,
+    "ledgerValidations": 1,
+    "ledgersCreated": 1,
+    "ledgersDisposed": 1
+  },
+  "compiler": {
+    "calls": 0
+  },
+  "trial": {
+    "created": 0,
+    "steps": 0,
+    "disposed": 0
+  },
+  "outputs": [
+    {
+      "path": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/inputs/selected-blueprints.json",
+      "bytes": 3678,
+      "sha256": "31cffb6c03f393446d10c4dd42b4242751ab895926b416e1b8a290f60e46076e"
+    },
+    {
+      "path": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/source-grid.json",
+      "bytes": 424,
+      "sha256": "f6752f16cf8fd56ce673bbd9d8da9d31d14c5a38e9797597023b8cb3f1fd6a2f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/native-stock-inputs.json",
+      "bytes": 870,
+      "sha256": "486990b00b4cf39ad9343a57d4ab84b998f51c4eeff429725a965182fcc42091"
+    },
+    {
+      "path": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/surface-legacy-pair-008.json",
+      "bytes": 487,
+      "sha256": "735479f5d7c8cd77cffdf1be0d49880c9e458cddb41fb5141eeb8fb7ef5e2e0f"
+    },
+    {
+      "path": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/surface-legacy-pair-026.json",
+      "bytes": 488,
+      "sha256": "6bc38c3c6f2088da051d626e7e7719e92551c7ddf8297f5dd5119e3273f3948b"
+    },
+    {
+      "path": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/certificates.json",
+      "bytes": 6630,
+      "sha256": "2c19c2c0d18852440798f1c7492fe5a929da317d89eef886e9458fa08da09676"
+    },
+    {
+      "path": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/numerical-gate.json",
+      "bytes": 2264,
+      "sha256": "66bbf98b64b58a0c26103da365a076b9ac3e6c91e67c7ee1210a42a56e7babe6"
+    }
+  ],
+  "sourceDecodes": 0,
+  "sourceExpansions": 0,
+  "sourceTransforms": 0,
+  "producerCalls": 0,
+  "graphEvaluations": 0,
+  "trials": 0,
+  "clockSteps": 0,
+  "rendererCalls": 0,
+  "builds": 0,
+  "productionMutation": false,
+  "ports": [],
+  "retainedHelpers": []
+}

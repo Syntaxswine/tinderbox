@@ -1,0 +1,35 @@
+PARTITION_CERTIFICATE_SYNTHETIC {"evidence":[{"control":"exact-owner-aggregation","rows":[{"id":"owner","nativeQuantity":2,"sourceQuantity":2,"sourceCount":2,"partitionError":{"epsilon":1e-7,"positive":0.0000021333355232749877,"negative":0.000023911112163296204,"roundoffBound":1.620854001526584e-12,"surfaces":[{"id":"a","epsilon":1e-7,"sourceArea":0.5625,"lowerArea":0.56249940000016,"upperArea":0.56250060000016,"candidateTriangleCells":8,"areaDiscardBound":0.0000056,"coordinateScale":1.06,"minCrossingDelta":0.3749998,"positive":0.0000010666677616374939,"negative":0.00001182222274831477,"roundoffBound":8.10427000763292e-13},{"id":"b","epsilon":1e-7,"sourceArea":0.5625,"lowerArea":0.56249940000016,"upperArea":0.56250060000016,"candidateTriangleCells":8,"areaDiscardBound":0.0000056,"coordinateScale":1.06,"minCrossingDelta":0.3749998,"positive":0.0000010666677616374939,"negative":0.000012088889414981436,"roundoffBound":8.10427000763292e-13}]}}]},{"control":"positive-drift","rows":[{"id":"owner","nativeQuantity":2.0000010666677617,"sourceQuantity":2,"sourceCount":1,"partitionError":{"epsilon":1e-7,"positive":0.0000021333355232749877,"negative":0.00002284444549662954,"roundoffBound":1.620854001526584e-12,"surfaces":[{"id":"source","epsilon":1e-7,"sourceArea":0.5625,"lowerArea":0.56249940000016,"upperArea":0.56250060000016,"candidateTriangleCells":8,"areaDiscardBound":0.0000056,"coordinateScale":1.06,"minCrossingDelta":0.3749998,"positive":0.0000021333355232749877,"negative":0.00002284444549662954,"roundoffBound":1.620854001526584e-12}]}}],"gate":{"status":"NUMERICAL_GATE_PASS","certificatePresent":true,"committed":false,"before":{"staticInitial":2,"activeInitial":0,"coldReserve":2,"canonicalCarriers":1,"activeCarriers":0,"reservedCarriers":1,"nativeStaticBirths":0},"after":{"staticInitial":2,"activeInitial":0,"coldReserve":2,"canonicalCarriers":1,"activeCarriers":0,"reservedCarriers":1,"nativeStaticBirths":0},"nativeBirthQuantity":2.0000010666677617,"canonicalQuantity":2,"note":"Disposable local numerical validation; no native receipt or coupled installation authority"}},{"control":"numerical-refusals","cases":[{"direction":1,"gate":{"status":"NUMERICAL_GATE_REJECTED","certificatePresent":true,"committed":false,"error":{"name":"Error","message":"Native source quantity differs from its canonical stock"}}},{"direction":-1,"gate":{"status":"NUMERICAL_GATE_REJECTED","certificatePresent":true,"committed":false,"error":{"name":"Error","message":"Native source quantity differs from its canonical stock"}}},{"kind":"input","gate":{"status":"NUMERICAL_GATE_REJECTED","certificatePresent":true,"committed":false,"error":{"name":"Error","message":"Assigned native input differs from its canonical stock"}}},{"kind":"epsilon","gate":{"status":"NUMERICAL_GATE_REJECTED","certificatePresent":true,"committed":false,"error":{"name":"Error","message":"Invalid local source partition allowance"}}}],"batch":{"status":"NUMERICAL_GATE_REJECTED","certificatePresent":true,"committed":false,"error":{"name":"Error","message":"Hybrid native batch quantity mismatch"}}},{"control":"no-fallback","present":{"status":"NUMERICAL_GATE_REJECTED","certificatePresent":true,"committed":false,"error":{"name":"Error","message":"Native source quantity differs from its canonical stock"}},"missing":{"status":"NUMERICAL_GATE_REJECTED","certificatePresent":false,"committed":false,"error":{"name":"Error","message":"Explicit partition certificate required; fallback forbidden in this diagnostic"}}}],"diagnostics":{"certificateCalculations":5,"thermalInputTriangles":10,"canonicalCells":20,"ledgerValidations":8,"ledgersCreated":7,"ledgersDisposed":7},"compiler":{"calls":0},"trial":{"created":0,"steps":0,"disposed":0},"actualSavedCertificates":0,"sourceTransforms":0}
+TAP version 13
+# Subtest: whole source aggregation preserves owner quantity, finish and per-surface envelopes
+ok 1 - whole source aggregation preserves owner quantity, finish and per-surface envelopes
+  ---
+  duration_ms: 3.5863
+  type: 'test'
+  ...
+# Subtest: generated local certificate accepts positive drift without committing or normalizing raw stock
+ok 2 - generated local certificate accepts positive drift without committing or normalizing raw stock
+  ---
+  duration_ms: 1.8849
+  type: 'test'
+  ...
+# Subtest: certificate present rejects positive and negative overrun, wrong input, invalid epsilon and batch mismatch
+ok 3 - certificate present rejects positive and negative overrun, wrong input, invalid epsilon and batch mismatch
+  ---
+  duration_ms: 1.4779
+  type: 'test'
+  ...
+# Subtest: a present zero allowance overrides fallback and a missing certificate cannot use it
+ok 4 - a present zero allowance overrides fallback and a missing certificate cannot use it
+  ---
+  duration_ms: 0.9694
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 69.0909

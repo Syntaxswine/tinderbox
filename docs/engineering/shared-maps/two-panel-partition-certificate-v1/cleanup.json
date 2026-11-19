@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-11-19T01:59:21.4833460Z",
+  "helpers": [
+    {
+      "owner": "Coder Tinderbox",
+      "project": "Two-panel partition certificates",
+      "purpose": "Bounded source partition certificate and strict numerical ledger controls",
+      "run": "synthetic-ready",
+      "pid": 26200,
+      "creationTime": "2026-11-19T01:57:45.682Z",
+      "creationTimeBasis": "owned finite spawn interval; child synchronously reaped",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-19T01:57:45.682Z",
+      "endedAt": "2026-11-19T01:57:45.912Z",
+      "expiry": "30-second deadline, exit on completion",
+      "stopMethod": "owned spawnSync handle with timeout and synchronous reap",
+      "state": "exited-pid-absent",
+      "currentPidCreationTime": null,
+      "port": null,
+      "restart": {
+        "source": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/run-synthetic.mjs",
+        "permission": "Only newly justified bounded synthetic work; no actual allowance replay",
+        "runtime": "Node24.15.0, repository ESM and vendored dependencies",
+        "checkpoint": "Exact source snapshots, per-surface certificates, ledger validation and receipts persisted; no live ledger or in-memory state retained",
+        "inputs": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/synthetic-ready-inputs.json",
+        "arguments": "FRESH_NAME",
+        "outputs": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/synthetic-ready.json/.log and certificate/gate outputs",
+        "workdir": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox"
+      }
+    },
+    {
+      "owner": "Coder Tinderbox",
+      "project": "Two-panel partition certificates",
+      "purpose": "Single two-surface saved numeric certificate generation and isolated ledger validation; no retry",
+      "run": "numeric",
+      "pid": 53100,
+      "creationTime": "2026-11-19T01:58:11.735Z",
+      "creationTimeBasis": "owned finite spawn interval; child synchronously reaped",
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "startedAt": "2026-11-19T01:58:11.735Z",
+      "endedAt": "2026-11-19T01:58:14.731Z",
+      "expiry": "30-second deadline, exit on completion",
+      "stopMethod": "owned spawnSync handle with timeout and synchronous reap",
+      "state": "exited-pid-absent",
+      "currentPidCreationTime": null,
+      "port": null,
+      "restart": {
+        "source": "tools/generate-two-panel-partition-certificate.mjs",
+        "permission": "The single two-surface numeric certificate allowance is consumed; no retry/restart authorized",
+        "runtime": "Node24.15.0, repository ESM and vendored dependencies",
+        "checkpoint": "Exact source snapshots, per-surface certificates, ledger validation and receipts persisted; no live ledger or in-memory state retained",
+        "inputs": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/preflight.json, inputs/selected-blueprints.json, source-grid.json and native-stock-inputs.json",
+        "arguments": "--numeric-once (SPENT; never replay)",
+        "outputs": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/numeric.json/.log and certificate/gate outputs",
+        "workdir": "C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox"
+      }
+    }
+  ],
+  "unresolved": [],
+  "ports": [],
+  "retainedHelpers": []
+}

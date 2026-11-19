@@ -1,0 +1,69 @@
+{
+  "status": "NUMERICAL_GATE_PASS",
+  "certificatePresent": true,
+  "committed": false,
+  "before": {
+    "staticInitial": 4,
+    "activeInitial": 0,
+    "coldReserve": 4,
+    "canonicalCarriers": 2,
+    "activeCarriers": 0,
+    "reservedCarriers": 2,
+    "nativeStaticBirths": 0
+  },
+  "after": {
+    "staticInitial": 4,
+    "activeInitial": 0,
+    "coldReserve": 4,
+    "canonicalCarriers": 2,
+    "activeCarriers": 0,
+    "reservedCarriers": 2,
+    "nativeStaticBirths": 0
+  },
+  "nativeBirthQuantity": 4.000001410385229,
+  "canonicalQuantity": 4,
+  "note": "Disposable local numerical validation; no native receipt or coupled installation authority",
+  "rowsUnchanged": true,
+  "comparisons": [
+    {
+      "id": "new-york::carrier/main/5/cell-4-1/1",
+      "canonicalQuantity": 2,
+      "rawNativeQuantity": 2.0000007051926145,
+      "delta": 7.051926145251741e-7,
+      "inputRoundoff": 2.842170943040401e-14,
+      "certificatePositive": 0.0000016021640082178225,
+      "certificateNegative": 0.000012002163057223785,
+      "certificateRoundoff": 2.163676437173736e-9,
+      "allowedPositive": 0.000001602164036639532,
+      "allowedNegative": 0.000012002163085645494,
+      "allowedRoundoff": 2.1637048588831664e-9,
+      "positiveSlack": 8.969714221143579e-7
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-4-8/1",
+      "canonicalQuantity": 2,
+      "rawNativeQuantity": 2.0000007051926145,
+      "delta": 7.051926145251741e-7,
+      "inputRoundoff": 2.842170943040401e-14,
+      "certificatePositive": 0.0000016019054663486856,
+      "certificateNegative": 0.000012001904515576692,
+      "certificateRoundoff": 1.9051345680368344e-9,
+      "allowedPositive": 0.000001601905494770395,
+      "allowedNegative": 0.000012001904543998401,
+      "allowedRoundoff": 1.9051629897462648e-9,
+      "positiveSlack": 8.967128802452209e-7
+    }
+  ],
+  "aggregate": {
+    "canonical": 4,
+    "rawNative": 4.000001410385229,
+    "delta": 0.0000014103852290503482,
+    "allowedPositive": 0.0000032040695314099267,
+    "allowedNegative": 0.000024004067629643895,
+    "allowedRoundoff": 4.068867848629431e-9
+  },
+  "productionMutation": false,
+  "receiptAuthenticity": "NOT_ESTABLISHED",
+  "coupledInstallation": "NOT_RUN",
+  "futureProductionNativeIds": null
+}
