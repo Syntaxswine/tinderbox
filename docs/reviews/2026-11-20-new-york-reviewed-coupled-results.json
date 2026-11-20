@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "reviewDate": "2026-11-20",
+  "decision": "ACCEPT_INTERNAL_COUPLED_CPU_STAGE_HOLD_PAGES",
+  "coderCommit": "f0102cc9d0d056bc7741d82d8ec73d61f54c2f51",
+  "architectIntake": "b61d45b777228032a3cb8954fa0fade8d34936cd",
+  "sourceRevision": "72adc699d18826c950cd1b23a35b755f4a07a19d3144958c8e752ec4dc3d7876",
+  "changedCandidateFiles": 92,
+  "sourceScope": {
+    "parts": 38,
+    "bonds": 37,
+    "anchors": 2,
+    "ordinaryReferences": 179,
+    "outsideCohortUnresolved": 141,
+    "fullMapComplete": false
+  },
+  "controls": {
+    "passed": 53,
+    "total": 53,
+    "syntheticCompilerCalls": 95,
+    "trialsCreated": 25,
+    "trialsDisposed": 25,
+    "steps": 4,
+    "sourceHashes": [
+      {
+        "path": "tests/integration/reviewed-cohort-inputs.test.mjs",
+        "lfSha256": "83a7631938a8e5c7e90e3f5df63387df602d238380404d632f2188dbd8a3a7c9"
+      },
+      {
+        "path": "tests/integration/shared-map-inputs.test.mjs",
+        "lfSha256": "f1c0f245f26050685ed2d0824e0e86da93ea452b6c8bd93e9da9db5e562239a5"
+      },
+      {
+        "path": "tests/integration/map-source-geometry.test.mjs",
+        "lfSha256": "39a30f917abf23f2266e135a0d4ea06a37aa0b4b562c52b6b4ff66a82c2dfd40"
+      },
+      {
+        "path": "tests/integration/hybrid-world-publication.test.mjs",
+        "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8"
+      },
+      {
+        "path": "tests/integration/shared-map-source-preparation.test.mjs",
+        "lfSha256": "08d5e2ece4b9d06e0936294a333e98d3888817dc4315c0325445a9319e3c5a0b"
+      },
+      {
+        "path": "tests/integration/source-fixed-cell.test.mjs",
+        "lfSha256": "f08aa78301bc2428f966cde1969da2f58519cb97c6cce3c4ac9b535adb8204e8"
+      },
+      {
+        "path": "tests/integration/source-fixed-cell-native-clipping.test.mjs",
+        "lfSha256": "52dfb78292f3e79cbaabf2051747c9c8020e1741277d134cdc9e807158eb5dae"
+      },
+      {
+        "path": "tests/integration/two-panel-native-diagnostic.test.mjs",
+        "lfSha256": "d71b16ffab828c50e45eda1520eadda731c56e52ca9eafb6de1d53fa65a944f4"
+      },
+      {
+        "path": "tests/integration/two-panel-partition-certificate.test.mjs",
+        "lfSha256": "ed62bdb0886a779281d82201dd4bcbe82fe074b00b30c6b207ca8ded783cf44e"
+      },
+      {
+        "path": "tests/fixtures/reviewed-cohort-data.mjs",
+        "lfSha256": "f2796fee47466574321d12591de05f8a9567acc564cf8258402a24467458172d"
+      },
+      {
+        "path": "src/content/shared-map-admission.js",
+        "lfSha256": "e0cce3868875b97bb8f35e5fd2e9100122b057e6dad32287542b0f698b466e5b"
+      },
+      {
+        "path": "src/content/shared-map-inputs.js",
+        "lfSha256": "d364e9b40385f184b1b0704c031e167ab12686b4ff0f479ae30ba7c6912b746e"
+      },
+      {
+        "path": "src/content/shared-map.js",
+        "lfSha256": "a780d1b5c0e56f4ca5a69b2d664ad3fe392d945581825a0b5cfff8af6ff90e2d"
+      },
+      {
+        "path": "src/content/new-york-reviewed-inputs.js",
+        "lfSha256": "03e1d3074df242c2a79b8d1d6420b68f815d8103c04889f60aca74bcb7d5a8f0"
+      },
+      {
+        "path": "src/simulation/hybrid-source-support.js",
+        "lfSha256": "86bea1fa0d68aa37491e813ac85e4fab26f763309d63fef0eb7172e334d9750c"
+      },
+      {
+        "path": "src/simulation/hybrid-world-publication.js",
+        "lfSha256": "6966514feb505de47101a5dcdec0d93919a8cd219f9aa7af13768e4d16b0ebf2"
+      },
+      {
+        "path": "workbenches/furnished-house/scene.js",
+        "lfSha256": "2064f9b0739512419c52daae22d23322d18772ef63b75a1e3e8e6fcc4a6b8e11"
+      }
+    ]
+  },
+  "peerReview": {
+    "findings": [],
+    "scope": "Cold-cell correction, native binding/retirement regression and fixture; source only",
+    "hashesMatch": true
+  },
+  "actual": {
+    "passed": true,
+    "attempts": 2,
+    "correctedCompilerCalls": 5,
+    "totalCompilerCalls": 8,
+    "trials": {
+      "created": 2,
+      "steps": 0,
+      "disposed": 2
+    },
+    "correctedTransforms": 76,
+    "registryLifetimes": 2,
+    "clockSteps": 0,
+    "output": {
+      "records": 714,
+      "thermalTriangles": 2001,
+      "physicalTriangles": 2145,
+      "bound": {
+        "recordUpper": 782,
+        "thermalTriangleUpper": 10920,
+        "physicalTriangleUpper": 12096
+      }
+    },
+    "stock": {
+      "active": 42.40796988308893,
+      "rawNative": 42.408008245172816,
+      "delta": 0.00003836208388463547,
+      "positive": 0.00007895698317985159
+    },
+    "reset": {
+      "registryEpoch": 2,
+      "inputBinds": 2,
+      "sourceTransforms": 76,
+      "staleDescriptorRejected": true,
+      "staleReceiptRejected": true,
+      "freshPrivateProducerIdentity": true,
+      "activeCanonical": 0
+    },
+    "stageCaptures": [
+      {
+        "label": "WHOLE_STAGED",
+        "path": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/stage-WHOLE_STAGED.json",
+        "sha256": "0feb35a6e63a0fee88238da21dcc7730c2f9b91ec8ce867b47ef9786c91e4987",
+        "deadPortIds": [],
+        "nativePoolRecords": 646,
+        "capturedRecords": 18
+      },
+      {
+        "label": "FIRST_REGION_STAGED",
+        "path": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/stage-FIRST_REGION_STAGED.json",
+        "sha256": "b27499d38ec9940cd9c3c51a0a6d4d9e564d478cb8a99a7d2baaf045b7d4aa03",
+        "deadPortIds": [],
+        "nativePoolRecords": 682,
+        "capturedRecords": 20
+      },
+      {
+        "label": "LOSS_port-cornice",
+        "path": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/stage-LOSS_port-cornice.json",
+        "sha256": "74d66f676e0d3a621a167e87b6e1b2655f58f0113090aa49ea2cdeb30a2ff8f8",
+        "deadPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-01/port-cornice"
+        ],
+        "nativePoolRecords": 682,
+        "capturedRecords": 20
+      },
+      {
+        "label": "LOSS_port-roof-seat",
+        "path": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/stage-LOSS_port-roof-seat.json",
+        "sha256": "43665204592452f7b2cb7be777de1ec1309eaafa7fdb6461df2770dd5d7e7060",
+        "deadPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-01/port-roof-seat"
+        ],
+        "nativePoolRecords": 682,
+        "capturedRecords": 20
+      },
+      {
+        "label": "RETIREMENT_STAGED",
+        "path": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/stage-RETIREMENT_STAGED.json",
+        "sha256": "9da554d5b3a6d9c343722768322036ad06781abe1ef5c06ef67e68fa96833fa4",
+        "deadPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-01/port-roof-seat"
+        ],
+        "nativePoolRecords": 682,
+        "capturedRecords": 20
+      },
+      {
+        "label": "ADJACENT_REGION_STAGED",
+        "path": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/stage-ADJACENT_REGION_STAGED.json",
+        "sha256": "e030e4cbcf520acad1409a726729201eef4e821fa647edcc56a5b74b38978660",
+        "deadPortIds": [
+          "carrier/roof-saddle-native/main-parapet-6/bay-01/port-roof-seat"
+        ],
+        "nativePoolRecords": 714,
+        "capturedRecords": 20
+      }
+    ]
+  },
+  "verification": {
+    "intakenSourceHashesMatch": true,
+    "runtimeResourcesPinned": true,
+    "stagedEvidenceHashesMatch": true,
+    "protectedWipUnchanged": true
+  },
+  "cleanup": {
+    "task": "M29 architect reviewed coupled pilot",
+    "verification": "PROCESS_API_CHECKED",
+    "processes": [
+      {
+        "pid": 10424,
+        "status": "ABSENT"
+      },
+      {
+        "pid": 18848,
+        "status": "ABSENT"
+      },
+      {
+        "pid": 39432,
+        "status": "ABSENT"
+      }
+    ],
+    "ports": [],
+    "retainedHelpers": []
+  },
+  "remaining": [
+    "141 unresolved outside-cohort parent references",
+    "clocked fire behavior and partial-owner presentation",
+    "normal-zoom rendered review and usual promotion gate"
+  ],
+  "pagesDeployed": false,
+  "masterPromoted": false
+}
