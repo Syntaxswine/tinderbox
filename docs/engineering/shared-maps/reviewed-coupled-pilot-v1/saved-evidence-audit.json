@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "kind": "SAVED_HASH_AND_SCALAR_AUDIT_ONLY",
+  "passed": true,
+  "coupledActualAccepted": false,
+  "sourceRevision": "72adc699d18826c950cd1b23a35b755f4a07a19d3144958c8e752ec4dc3d7876",
+  "unchangedSourceTuples": 35,
+  "changedSourceTuples": 2,
+  "wholeRows": [
+    {
+      "id": "new-york::carrier/edge-6/cornice-7",
+      "canonical": 24.47992,
+      "native": 24.479946016342044,
+      "rawDelta": 0.000026016342044243856,
+      "inputRoundoff": 2.0872835193586072e-12,
+      "positive": 0.000053236160843853715,
+      "negative": 0.0005759859455562302,
+      "roundoffBound": 8.653198655044885e-8
+    },
+    {
+      "id": "new-york::carrier/main-parapet-6/base",
+      "canonical": 5.333333,
+      "native": 5.333337626086099,
+      "rawDelta": 0.000004626086099079885,
+      "inputRoundoff": 4.5474732246475466e-13,
+      "positive": 0.00000936261073682617,
+      "negative": 0.0001595638087571821,
+      "roundoffBound": 3.08899882599255e-8
+    },
+    {
+      "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "canonical": 0.04011965567822286,
+      "native": 0.04011971844277104,
+      "rawDelta": 6.276454818376909e-8,
+      "inputRoundoff": 9.947598300641403e-14,
+      "positive": 1.3466125328142615e-7,
+      "negative": 0.00001069577353148313,
+      "roundoffBound": 1.6336932591691579e-9
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-4-1/1",
+      "canonical": 2,
+      "native": 2.0000007051926145,
+      "rawDelta": 7.051926145251741e-7,
+      "inputRoundoff": 2.842170943040401e-14,
+      "positive": 0.0000016021640082178225,
+      "negative": 0.000012002163057223785,
+      "roundoffBound": 2.163676437173736e-9
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-4-8/1",
+      "canonical": 2,
+      "native": 2.0000007051926145,
+      "rawDelta": 7.051926145251741e-7,
+      "inputRoundoff": 2.842170943040401e-14,
+      "positive": 0.0000016019054663486856,
+      "negative": 0.000012001904515576692,
+      "roundoffBound": 1.9051345680368344e-9
+    }
+  ],
+  "wholeRawDelta": 0.00003211557792055786,
+  "wholePositiveAllowance": 0.00006593750500687806,
+  "firstRegion": {
+    "cellMin": [
+      96,
+      16,
+      116
+    ],
+    "canonical": 4.277298626527912,
+    "native": 4.277301678795964,
+    "rawDelta": 0.000003052268051639828,
+    "positive": 0.000006623176699096375,
+    "negative": 0.000039266933997788954,
+    "sourceCellVisits": 40,
+    "records": 36,
+    "triangles": 69,
+    "committed": false
+  },
+  "failure": "First regional staged support did not retain all live ports; exact staged port list not persisted",
+  "actualCompilerCalls": 3,
+  "actualTrials": 1,
+  "disposedTrials": 1,
+  "actualSteps": 0,
+  "originalTransforms": 38,
+  "archivedCodeAndResourcePinsMatch": true,
+  "postRunChanges": [
+    "tools/validate-reviewed-new-york-pilot.mjs",
+    "src/simulation/hybrid-source-support.js"
+  ],
+  "protectedWipUnchanged": true,
+  "additionalGeometryEvaluations": 0,
+  "additionalNativeCalls": 0
+}

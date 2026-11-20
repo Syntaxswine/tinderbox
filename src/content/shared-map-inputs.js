@@ -94,6 +94,7 @@ export function createSharedMapInputFactory({descriptor,policy,loadProjection=lo
         binds++;binding={mode,dispose,metrics:()=>producer?.diagnostics()};return binding;
       }catch(error){dispose();throw new MapInputNotReadyError(freezeInput({...report,phase:'SOURCE_VALIDATION',status:'NOT_READY',sourceValidation:'REJECTED',findings:[{code:'SOURCE_BINDING_NOT_READY',id:model.placeId,detail:error.message}]}));}
     }
-    return {report,ownerModes,prepare,bindRegistry,metrics:()=>({prepared,closed,binds,activeBindings:binding?1:0,producer:binding?.metrics()||lastProducer}),dispose(){if(closed)return;closed=true;binding?.dispose();}};
+    const regionalBinding=()=>{ready();if(!binding)throw Error('A live owned input registry is required');return binding.mode.producer;};
+    return {report,ownerModes,prepare,bindRegistry,inputRegions(ownerId){const id=qualify(ownerId);if(ownerModes[id]!=='regional')throw Error('Named input owner is not regional');return regionalBinding().regions(id);},compileInputRegion(descriptor){return regionalBinding().compile(descriptor);},metrics:()=>({prepared,closed,binds,activeBindings:binding?1:0,producer:binding?.metrics()||lastProducer}),dispose(){if(closed)return;closed=true;binding?.dispose();}};
   };
 }

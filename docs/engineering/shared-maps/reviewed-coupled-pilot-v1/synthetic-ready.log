@@ -1,0 +1,291 @@
+TAP version 13
+# Subtest: coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port
+ok 1 - coupled whole floor/fitting plus two roof regions publish into the same actual trial and lose the exact ALL port
+  ---
+  duration_ms: 129.1507
+  type: 'test'
+  ...
+# Subtest: stale, forged or changed stages cannot register partial physical/stock/query state
+ok 2 - stale, forged or changed stages cannot register partial physical/stock/query state
+  ---
+  duration_ms: 28.6565
+  type: 'test'
+  ...
+# Subtest: world index retirement synchronizes domains before observers; reset recreates one clean trial generation
+ok 3 - world index retirement synchronizes domains before observers; reset recreates one clean trial generation
+  ---
+  duration_ms: 24.6036
+  type: 'test'
+  ...
+# Subtest: final receipt liveness rejects reentrant publication and a bad whole quantity before any partial birth
+ok 4 - final receipt liveness rejects reentrant publication and a bad whole quantity before any partial birth
+  ---
+  duration_ms: 25.3343
+  type: 'test'
+  ...
+# Subtest: only an exact explicitly supplied mechanical mount may keep its original real gap and direction
+ok 5 - only an exact explicitly supplied mechanical mount may keep its original real gap and direction
+  ---
+  duration_ms: 1.4515
+  type: 'test'
+  ...
+# Subtest: thermal frontier uses eligible regions from nearby air without whole fallback, duplicate birth or cache escape
+ok 6 - thermal frontier uses eligible regions from nearby air without whole fallback, duplicate birth or cache escape
+  ---
+  duration_ms: 32.8334
+  type: 'test'
+  ...
+# Subtest: default factory stays whole-mode and genuine receipts still require exact world revision/grid admission
+ok 7 - default factory stays whole-mode and genuine receipts still require exact world revision/grid admission
+  ---
+  duration_ms: 5.1349
+  type: 'test'
+  ...
+# Subtest: explicit reviewed cohort preserves all alternatives; strict admission/default remains strict
+ok 8 - explicit reviewed cohort preserves all alternatives; strict admission/default remains strict
+  ---
+  duration_ms: 5.7173
+  type: 'test'
+  ...
+# Subtest: cohort omission, membership/reference edits and unreviewed witnesses cannot gain scope authority
+ok 9 - cohort omission, membership/reference edits and unreviewed witnesses cannot gain scope authority
+  ---
+  duration_ms: 6.1308
+  type: 'test'
+  ...
+# Subtest: owned receipts, staged stock/support inspection, independent ALL losses, adjacent publication and reset share one host
+ok 10 - owned receipts, staged stock/support inspection, independent ALL losses, adjacent publication and reset share one host
+  ---
+  duration_ms: 55.402
+  type: 'test'
+  ...
+# Subtest: an unborn regional boundary port remains fixed to its authored cold cell
+ok 11 - an unborn regional boundary port remains fixed to its authored cold cell
+  ---
+  duration_ms: 27.7935
+  type: 'test'
+  ...
+# Subtest: runtime loader consumes only pinned in-repository assets and numerical evidence stays non-authoritative
+ok 12 - runtime loader consumes only pinned in-repository assets and numerical evidence stays non-authoritative
+  ---
+  duration_ms: 6.1494
+  type: 'test'
+  ...
+# Subtest: whole then regional publication exposes complete stock/query/support to committed observers
+not ok 13 - whole then regional publication exposes complete stock/query/support to committed observers
+  ---
+  duration_ms: 30.9902
+  type: 'test'
+  location: 'C:\\Users\\baals\\.codex\\worktrees\\coding-9200\\tinderbox\\tests\\integration\\reviewed-cohort-inputs.test.mjs:25:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        1,
+    -   2
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 1
+    1: 2
+  actual:
+    0: 1
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/tests/integration/reviewed-cohort-inputs.test.mjs:43:12)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: diagnostic compiler ceiling rejects before another native invocation
+ok 14 - diagnostic compiler ceiling rejects before another native invocation
+  ---
+  duration_ms: 0.3309
+  type: 'test'
+  ...
+# Subtest: existing host prepares one projection, shares original transforms and binds genuine births with full Q
+ok 15 - existing host prepares one projection, shares original transforms and binds genuine births with full Q
+  ---
+  duration_ms: 45.1074
+  type: 'test'
+  ...
+# Subtest: metadata missing roots, ranges, canonical Q/mode, caps, mapping, cache and unknown paired proof reject before expansion
+ok 16 - metadata missing roots, ranges, canonical Q/mode, caps, mapping, cache and unknown paired proof reject before expansion
+  ---
+  duration_ms: 11.0395
+  type: 'test'
+  ...
+# Subtest: unborn native IDs are expected; unknown projection or source plans cannot masquerade as proof
+ok 17 - unborn native IDs are expected; unknown projection or source plans cannot masquerade as proof
+  ---
+  duration_ms: 1.231
+  type: 'test'
+  ...
+# Subtest: reset disposes each binding and reuses the same decoded owner; old disposal cannot release new pins
+ok 18 - reset disposes each binding and reuses the same decoded owner; old disposal cannot release new pins
+  ---
+  duration_ms: 47.9344
+  type: 'test'
+  ...
+# Subtest: late abort, disposal and bad projection mapping prevent installation and the runtime hook
+ok 19 - late abort, disposal and bad projection mapping prevent installation and the runtime hook
+  ---
+  duration_ms: 4.4063
+  type: 'test'
+  ...
+# Subtest: existing runtime hook routes one source decode and preparation, disposes failed setup and keeps rejection visible
+ok 20 - existing runtime hook routes one source decode and preparation, disposes failed setup and keeps rejection visible
+  ---
+  duration_ms: 1.6263
+  type: 'test'
+  ...
+HYBRID_RESOURCES {"compiler":{"calls":87},"trial":{"created":23,"steps":3,"disposed":23},"fixtures":[{"compiler":2,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":2,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":2,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":2,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":2,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":1,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":2,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":2,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":1,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":0,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":2,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":2,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":0,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":0,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":2,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":2,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":2,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}},{"compiler":1,"retainedReceipts":0,"logicalCells":13,"sourceTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":3,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":6,"peakTriangles":32,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":0,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0}}],"actualNewYorkCalls":0,"fullNewYorkDiagnostics":0,"rendererCalls":0,"builds":0}
+REVIEWED_COHORT_RESOURCES {"evidence":[{"committedGenerations":3,"sourceTransforms":8,"projectionLoads":3,"resetRegistryEpoch":2,"clockSteps":0},{"coldBoundaryPreview":{"generation":0,"revision":0,"supportedIds":["cold:roof@0/2,0,0/island-0","cold:roof@0/2,0,0/island-1","cold:roof@0/3,0,0/island-0","cold:roof@0/3,0,0/island-1","fixture::fit/part/1/face/0@0,0,0","fixture::fit/part/1/face/0@1,0,0","fixture::fit/part/1/face/0@2,0,0","fixture::fit/part/1/face/1@0,0,0","fixture::fit/part/1/face/1@1,0,0","fixture::fit/part/1/face/1@2,0,0","fixture::fit/part/1/face/2@0,0,0","fixture::fit/part/1/face/2@1,0,0","fixture::fit/part/1/face/2@2,0,0","fixture::fit/part/1/face/3@0,0,0","fixture::fit/part/1/face/3@1,0,0","fixture::fit/part/1/face/3@2,0,0","fixture::fit/part/1/face/4","fixture::fit/part/1/face/5","fixture::floor/part/0/face/0@0,-1,0","fixture::floor/part/0/face/0@1,-1,0","fixture::floor/part/0/face/1@0,-1,0","fixture::floor/part/0/face/1@1,-1,0","fixture::floor/part/0/face/2@0,-1,0","fixture::floor/part/0/face/2@1,-1,0","fixture::floor/part/0/face/3@0,0,0","fixture::floor/part/0/face/3@1,0,0","fixture::floor/part/0/face/4","fixture::floor/part/0/face/5","fixture::roof/part/2/face/0@4,0,0","fixture::roof/part/2/face/0@5,0,0","fixture::roof/part/2/face/0@6,0,0","fixture::roof/part/2/face/0@7,0,0","fixture::upper/part/4/face/0@0,0,0","fixture::upper/part/4/face/0@1,0,0"],"unrootedIds":[],"births":[],"ports":[{"id":"floor-port","parent":"fixture::floor/part/0/face/3@0,0,0","child":"fixture::fit/part/1/face/2@0,0,0","live":true},{"id":"roof-port","parent":"cold:roof@0/3,0,0/island-0","child":"fixture::fit/part/1/face/2@2,0,0","live":true},{"id":"upper-port","parent":"fixture::fit/part/1/face/3@0,0,0","child":"fixture::upper/part/4/face/0@0,0,0","live":true}],"unresolvedBindings":[],"oldEdgeConflicts":[]}}],"resources":[{"query":{"querySurfaces":6,"sourceParts":5,"sourceCarriers":5,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":1,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":2,"visitedCells":6,"certificateBuilds":2,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":5,"sourceParts":5,"decodedUniqueGeometries":4,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":4}},{"query":{"querySurfaces":6,"sourceParts":5,"sourceCarriers":5,"claimedCarriers":0,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":0,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":2,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":0,"visitedCells":0,"certificateBuilds":0,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":5,"sourceParts":5,"decodedUniqueGeometries":4,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":8,"renderExpansions":0,"nativeSourceExpansions":8,"nativePartTransforms":0,"borrowedNativeParts":8,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":4}},{"query":{"querySurfaces":6,"sourceParts":5,"sourceCarriers":5,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":7,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":1,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":1,"visitedCells":4,"certificateBuilds":1,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":5,"sourceParts":5,"decodedUniqueGeometries":4,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":4}},{"query":{"querySurfaces":6,"sourceParts":5,"sourceCarriers":5,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":15,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":1,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":1,"visitedCells":2,"certificateBuilds":1,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":5,"sourceParts":5,"decodedUniqueGeometries":4,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":4}}],"compiler":{"calls":87},"trial":{"created":23,"steps":3,"disposed":23},"actualReviewedPilotRuns":0,"actualSourceTransforms":0}
+INPUT_RESOURCES {"compiler":{"calls":87},"trial":{"created":23,"steps":3,"disposed":23},"resources":[{"logicalCells":32,"thermalTriangles":28,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":1,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":2,"visitedCells":6,"certificateBuilds":2,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2}},{"logicalCells":32,"thermalTriangles":28,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":1,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":2,"visitedCells":6,"certificateBuilds":2,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2}},{"logicalCells":32,"thermalTriangles":28,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":2,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":2,"visitedCells":6,"certificateBuilds":2,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":8,"renderExpansions":0,"nativeSourceExpansions":8,"nativePartTransforms":0,"borrowedNativeParts":8,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2}},{"logicalCells":32,"thermalTriangles":28,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":1,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":2,"visitedCells":6,"certificateBuilds":2,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2}},{"logicalCells":32,"thermalTriangles":28,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":1,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":2,"visitedCells":6,"certificateBuilds":2,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2}},{"logicalCells":21,"thermalTriangles":18,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":14,"peakTriangles":48,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"inputs":{"prepared":true,"closed":false,"binds":1,"activeBindings":0,"producer":{"productionEnabled":false,"closed":true,"epoch":2,"nativeCalls":2,"visitedCells":6,"certificateBuilds":2,"retainedReceipts":0,"owners":[]}},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2}}],"actualNewYorkExpansions":0,"actualNewYorkCompilerCalls":0,"rendererCalls":0,"builds":0}
+SOURCE_PREPARATION_SYNTHETIC {"evidence":[{"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":4,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2},"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":0,"cachedShapes":18,"cachedTriangles":56,"peakShapes":18,"peakTriangles":56,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":0,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"originalParts":4,"originalTriangles":28,"blueprintSurfaces":14,"blueprintTriangles":28,"nativeCompiles":0,"producers":0,"trials":0,"supportEvaluations":0,"clockSteps":0,"renderers":0,"builds":0},{"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":4,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2},"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":0,"cachedShapes":18,"cachedTriangles":56,"peakShapes":18,"peakTriangles":56,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":0,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"originalParts":4,"originalTriangles":28,"blueprintSurfaces":14,"blueprintTriangles":28,"nativeCompiles":0,"producers":0,"trials":0,"supportEvaluations":0,"clockSteps":0,"renderers":0,"builds":0},{"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":4,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2},"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":0,"cachedShapes":13,"cachedTriangles":46,"peakShapes":13,"peakTriangles":46,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":0,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"originalParts":4,"originalTriangles":28,"blueprintSurfaces":9,"blueprintTriangles":18,"nativeCompiles":0,"producers":0,"trials":0,"supportEvaluations":0,"clockSteps":0,"renderers":0,"builds":0}],"lifecycleEvidence":[{"sameLibrary":true,"parts":3,"owners":3,"partIds":3,"ownerIds":3,"geometryIds":["floor","fit","roof"],"queryAttempts":0,"worldWrites":0,"blueprintWrites":0,"geometry":{"canonicalCarriers":3,"sourceParts":3,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":0,"renderExpansions":0,"nativeSourceExpansions":0,"nativePartTransforms":0,"borrowedNativeParts":0,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":0},"query":null}],"compiler":{"calls":87},"trial":{"created":23,"steps":3,"disposed":23},"actualNewYorkSourcePreparations":0}
+NATIVE_CELL_RESOURCES {"evidence":[{"height":2.12,"axis":"x","point":[0.5,2.119999885559082,0.5],"bottom":2.119999885559082,"nativeCell":[1,2,0],"nativeTriangles":3,"nativePointMember":true,"oldSingleExpandedLowerBound":2.1199999000000003,"mapped":{"status":"FIXED_SOURCE_CELL_DERIVED","reason":"LEXICOGRAPHIC_OCCUPIED_INCIDENT_CELL","cell":[1,2,0],"sourceSpan":{"min":[1,1,0],"max":[1,3,1]},"floorCell":[1,1,1],"candidates":[{"cell":[1,1,0],"clipBounds":{"min":[0.4999999,1.0599999,-1e-7],"max":[1.0000001,2.1200001,0.5000001]},"clippedTriangleCount":0,"clippedArea":0,"positivePatch":false,"retainedPointMember":false,"valid":false},{"cell":[1,1,1],"clipBounds":{"min":[0.4999999,1.0599999,0.4999999],"max":[1.0000001,2.1200001,1.0000001]},"clippedTriangleCount":0,"clippedArea":0,"positivePatch":false,"retainedPointMember":false,"valid":false},{"cell":[1,2,0],"clipBounds":{"min":[0.4999999,2.1199999000000003,-1e-7],"max":[1.0000001,3.1800001,0.5000001]},"clippedTriangleCount":3,"clippedArea":0.3975001864153656,"positivePatch":true,"retainedPointMember":true,"valid":true},{"cell":[1,2,1],"clipBounds":{"min":[0.4999999,2.1199999000000003,0.4999999],"max":[1.0000001,3.1800001,1.0000001]},"clippedTriangleCount":4,"clippedArea":0.3975001864153658,"positivePatch":true,"retainedPointMember":true,"valid":true}],"selectedPatchArea":0.3975001864153656,"tolerance":1e-7,"positivePatchThreshold":1e-7,"nativeAuthority":"UNBORN_UNPROVED"}},{"height":2.12,"axis":"z","point":[0.5,2.119999885559082,0.5],"bottom":2.119999885559082,"nativeCell":[0,2,1],"nativeTriangles":3,"nativePointMember":true,"oldSingleExpandedLowerBound":2.1199999000000003,"mapped":{"status":"FIXED_SOURCE_CELL_DERIVED","reason":"LEXICOGRAPHIC_OCCUPIED_INCIDENT_CELL","cell":[0,2,1],"sourceSpan":{"min":[0,1,1],"max":[1,3,1]},"floorCell":[1,1,1],"candidates":[{"cell":[0,1,1],"clipBounds":{"min":[-1e-7,1.0599999,0.4999999],"max":[0.5000001,2.1200001,1.0000001]},"clippedTriangleCount":0,"clippedArea":0,"positivePatch":false,"retainedPointMember":false,"valid":false},{"cell":[0,2,1],"clipBounds":{"min":[-1e-7,2.1199999000000003,0.4999999],"max":[0.5000001,3.1800001,1.0000001]},"clippedTriangleCount":3,"clippedArea":0.3975001864153656,"positivePatch":true,"retainedPointMember":true,"valid":true},{"cell":[1,1,1],"clipBounds":{"min":[0.4999999,1.0599999,0.4999999],"max":[1.0000001,2.1200001,1.0000001]},"clippedTriangleCount":0,"clippedArea":0,"positivePatch":false,"retainedPointMember":false,"valid":false},{"cell":[1,2,1],"clipBounds":{"min":[0.4999999,2.1199999000000003,0.4999999],"max":[1.0000001,3.1800001,1.0000001]},"clippedTriangleCount":4,"clippedArea":0.3975001864153658,"positivePatch":true,"retainedPointMember":true,"valid":true}],"selectedPatchArea":0.3975001864153656,"tolerance":1e-7,"positivePatchThreshold":1e-7,"nativeAuthority":"UNBORN_UNPROVED"}},{"height":4.24,"axis":"x","point":[0.5,4.239999808371067,0.5],"bottom":4.239999771118164,"nativeCell":[1,4,0],"nativeTriangles":3,"nativePointMember":true,"oldSingleExpandedLowerBound":4.2399999,"mapped":{"status":"FIXED_SOURCE_CELL_DERIVED","reason":"LEXICOGRAPHIC_OCCUPIED_INCIDENT_CELL","cell":[1,4,0],"sourceSpan":{"min":[1,3,0],"max":[1,5,1]},"floorCell":[1,3,1],"candidates":[{"cell":[1,3,0],"clipBounds":{"min":[0.4999999,3.1799999000000003,-1e-7],"max":[1.0000001,4.2400001000000005,0.5000001]},"clippedTriangleCount":0,"clippedArea":0,"positivePatch":false,"retainedPointMember":false,"valid":false},{"cell":[1,3,1],"clipBounds":{"min":[0.4999999,3.1799999000000003,0.4999999],"max":[1.0000001,4.2400001000000005,1.0000001]},"clippedTriangleCount":0,"clippedArea":0,"positivePatch":false,"retainedPointMember":false,"valid":false},{"cell":[1,4,0],"clipBounds":{"min":[0.4999999,4.2399999,-1e-7],"max":[1.0000001,5.300000100000001,0.5000001]},"clippedTriangleCount":3,"clippedArea":0.39750015683467277,"positivePatch":true,"retainedPointMember":true,"valid":true},{"cell":[1,4,1],"clipBounds":{"min":[0.4999999,4.2399999,0.4999999],"max":[1.0000001,5.300000100000001,1.0000001]},"clippedTriangleCount":4,"clippedArea":0.3975001810000204,"positivePatch":true,"retainedPointMember":true,"valid":true}],"selectedPatchArea":0.39750015683467277,"tolerance":1e-7,"positivePatchThreshold":1e-7,"nativeAuthority":"UNBORN_UNPROVED"}},{"height":4.24,"axis":"z","point":[0.5,4.239999808371067,0.5],"bottom":4.239999771118164,"nativeCell":[0,4,1],"nativeTriangles":3,"nativePointMember":true,"oldSingleExpandedLowerBound":4.2399999,"mapped":{"status":"FIXED_SOURCE_CELL_DERIVED","reason":"LEXICOGRAPHIC_OCCUPIED_INCIDENT_CELL","cell":[0,4,1],"sourceSpan":{"min":[0,3,1],"max":[1,5,1]},"floorCell":[1,3,1],"candidates":[{"cell":[0,3,1],"clipBounds":{"min":[-1e-7,3.1799999000000003,0.4999999],"max":[0.5000001,4.2400001000000005,1.0000001]},"clippedTriangleCount":0,"clippedArea":0,"positivePatch":false,"retainedPointMember":false,"valid":false},{"cell":[0,4,1],"clipBounds":{"min":[-1e-7,4.2399999,0.4999999],"max":[0.5000001,5.300000100000001,1.0000001]},"clippedTriangleCount":3,"clippedArea":0.39750015683467277,"positivePatch":true,"retainedPointMember":true,"valid":true},{"cell":[1,3,1],"clipBounds":{"min":[0.4999999,3.1799999000000003,0.4999999],"max":[1.0000001,4.2400001000000005,1.0000001]},"clippedTriangleCount":0,"clippedArea":0,"positivePatch":false,"retainedPointMember":false,"valid":false},{"cell":[1,4,1],"clipBounds":{"min":[0.4999999,4.2399999,0.4999999],"max":[1.0000001,5.300000100000001,1.0000001]},"clippedTriangleCount":4,"clippedArea":0.3975001810000204,"positivePatch":true,"retainedPointMember":true,"valid":true}],"selectedPatchArea":0.39750015683467277,"tolerance":1e-7,"positivePatchThreshold":1e-7,"nativeAuthority":"UNBORN_UNPROVED"}},{"negative":"positive-nearby-patch-with-missing-retained-point","result":{"status":"UNBOUND","reason":"FIXED_POINT_NOT_IN_RETAINED_NATIVE_PATCH","cell":null,"candidates":[{"cell":[0,0,0],"clipBounds":{"min":[-1e-7,-1e-7,-1e-7],"max":[0.5000001,1.0600001000000001,0.5000001]},"clippedTriangleCount":2,"clippedArea":0.02500000000000001,"positivePatch":true,"retainedPointMember":false,"valid":false}],"sourceSpan":{"min":[0,0,0],"max":[0,0,0]},"floorCell":[0,0,0]}},{"height":2.12,"axis":"x","genuineBirth":true,"fixedCell":[1,2,0],"retiredId":"precision::root-a/part/0/face/0@1,2,0","neighborId":"precision::root-a/part/0/face/0@1,2,1","fixedPortRemainsBroken":true},{"height":2.12,"axis":"z","genuineBirth":true,"fixedCell":[0,2,1],"retiredId":"precision::root-a/part/0/face/0@0,2,1","neighborId":"precision::root-a/part/0/face/0@1,2,1","fixedPortRemainsBroken":true},{"height":4.24,"axis":"x","genuineBirth":true,"fixedCell":[1,4,0],"retiredId":"precision::root-a/part/0/face/0@1,4,0","neighborId":"precision::root-a/part/0/face/0@1,4,1","fixedPortRemainsBroken":true},{"height":4.24,"axis":"z","genuineBirth":true,"fixedCell":[0,4,1],"retiredId":"precision::root-a/part/0/face/0@0,4,1","neighborId":"precision::root-a/part/0/face/0@1,4,1","fixedPortRemainsBroken":true}],"resources":[{"option":{"height":2.12,"axis":"x"},"logicalCells":24,"thermalTriangles":8,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":9,"peakTriangles":18,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":2,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":4,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":1}},{"option":{"height":2.12,"axis":"z"},"logicalCells":24,"thermalTriangles":8,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":9,"peakTriangles":18,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":2,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":4,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":1}},{"option":{"height":4.24,"axis":"x"},"logicalCells":24,"thermalTriangles":8,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":9,"peakTriangles":18,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":2,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":4,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":1}},{"option":{"height":4.24,"axis":"z"},"logicalCells":24,"thermalTriangles":8,"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":9,"peakTriangles":18,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":2,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":4,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":1}}],"compiler":{"calls":87},"trial":{"created":23,"steps":3,"disposed":23},"actualSavedValidations":0,"actualSourceTransforms":0}
+FIXED_CELL_RESOURCES {"resources":[{"query":{"querySurfaces":5,"sourceParts":4,"sourceCarriers":4,"claimedCarriers":3,"cachedShapes":0,"cachedTriangles":0,"peakShapes":19,"peakTriangles":58,"workingShapes":0,"workingTriangles":0,"workingLeases":0,"peakWorkingShapes":1,"peakWorkingTriangles":0,"shapeBuilds":4,"maxSingleQueryTriangles":12,"maxShapes":192,"maxTriangles":65536,"thermalCellsAllocated":0,"fuelAllocated":0},"geometry":{"canonicalCarriers":4,"sourceParts":4,"decodedUniqueGeometries":3,"appearanceMaterials":1,"startupWorldShapesExpanded":0,"startupThermalCellsAllocated":0,"nativeBlueprints":0,"decodedAttributeGeometries":0,"transformedQueries":4,"renderExpansions":0,"nativeSourceExpansions":4,"nativePartTransforms":0,"borrowedNativeParts":4,"presentationBlueprints":0,"presentationPartTransforms":0,"staticIndexBins":2},"logicalCells":32,"thermalTriangles":28}],"compiler":{"calls":87},"trial":{"created":23,"steps":3,"disposed":23},"actualSavedCompletions":0,"actualSourceTransforms":0}
+# Subtest: projection fetch verifies pinned bytes and abort before interpreting geometry
+ok 21 - projection fetch verifies pinned bytes and abort before interpreting geometry
+  ---
+  duration_ms: 10.9076
+  type: 'test'
+  ...
+# Subtest: source binding failure is named and releases provider/pins without a native birth
+ok 22 - source binding failure is named and releases provider/pins without a native birth
+  ---
+  duration_ms: 2.3107
+  type: 'test'
+  ...
+# Subtest: explicit reviewed dual endpoints retain separate points/selectors and cells before genuine birth
+ok 23 - explicit reviewed dual endpoints retain separate points/selectors and cells before genuine birth
+  ---
+  duration_ms: 30.525
+  type: 'test'
+  ...
+# Subtest: P2 appended projections cannot become anchors and original anchors require exact reviewed tuples
+ok 24 - P2 appended projections cannot become anchors and original anchors require exact reviewed tuples
+  ---
+  duration_ms: 5.6593
+  type: 'test'
+  ...
+# Subtest: P2 caller mode mutation before trial construction cannot change captured query ledger or activation selection
+ok 25 - P2 caller mode mutation before trial construction cannot change captured query ledger or activation selection
+  ---
+  duration_ms: 24.5216
+  type: 'test'
+  ...
+# Subtest: P2 geometrically valid replacement witnesses cannot reuse a file ref or source revision as authority
+ok 26 - P2 geometrically valid replacement witnesses cannot reuse a file ref or source revision as authority
+  ---
+  duration_ms: 3.4783
+  type: 'test'
+  ...
+# Subtest: actual metadata recognizes the accepted two source roots while refusing unbound native derivation
+ok 27 - actual metadata recognizes the accepted two source roots while refusing unbound native derivation
+  ---
+  duration_ms: 6.9272
+  type: 'test'
+  ...
+# Subtest: reviewed native-panel solid projections keep original physical endpoint authority
+ok 28 - reviewed native-panel solid projections keep original physical endpoint authority
+  ---
+  duration_ms: 26.0204
+  type: 'test'
+  ...
+# Subtest: source-only preparation borrows originals once, derives unchanged own witnesses and preserves full finish allocation
+ok 29 - source-only preparation borrows originals once, derives unchanged own witnesses and preserves full finish allocation
+  ---
+  duration_ms: 4.7957
+  type: 'test'
+  ...
+# Subtest: source preflight refuses changed witnesses, modes, incomplete owners and budget overruns before any transform or load
+ok 30 - source preflight refuses changed witnesses, modes, incomplete owners and budget overruns before any transform or load
+  ---
+  duration_ms: 4.9131
+  type: 'test'
+  ...
+# Subtest: known pending source contacts and every outside ordinary parent remain explicit without an expansion
+ok 31 - known pending source contacts and every outside ordinary parent remain explicit without an expansion
+  ---
+  duration_ms: 3.9735
+  type: 'test'
+  ...
+# Subtest: source mapping uses the original native-panel projection without common-point or cell clamping
+ok 32 - source mapping uses the original native-panel projection without common-point or cell clamping
+  ---
+  duration_ms: 2.8127
+  type: 'test'
+  ...
+# Subtest: source boundary preserves produced world evidence and disposes its registry without a retry
+ok 33 - source boundary preserves produced world evidence and disposes its registry without a retry
+  ---
+  duration_ms: 2.0182
+  type: 'test'
+  ...
+# Subtest: source cancellation during projection loading appends nothing and transforms no source
+ok 34 - source cancellation during projection loading appends nothing and transforms no source
+  ---
+  duration_ms: 1.3088
+  type: 'test'
+  ...
+# Subtest: P2 owning host disposal during deferred projection loads prevents late append and retained buffers
+ok 35 - P2 owning host disposal during deferred projection loads prevents late append and retained buffers
+  ---
+  duration_ms: 1.107
+  type: 'test'
+  ...
+# Subtest: native Float32 retained patches own fixed points around 2.12 and 4.24 in both wall orientations
+ok 36 - native Float32 retained patches own fixed points around 2.12 and 4.24 in both wall orientations
+  ---
+  duration_ms: 2.8603
+  type: 'test'
+  ...
+# Subtest: a positive nearby native patch cannot bind a point absent from retained triangles
+ok 37 - a positive nearby native patch cannot bind a point absent from retained triangles
+  ---
+  duration_ms: 0.4117
+  type: 'test'
+  ...
+# Subtest: factory and mapper agree at genuine Float32 native birth and fixed retirement never substitutes
+ok 38 - factory and mapper agree at genuine Float32 native birth and fixed retirement never substitutes
+  ---
+  duration_ms: 94.2881
+  type: 'test'
+  ...
+# Subtest: fixed cell keeps valid floor ownership, chooses occupied lexicographic incidents and rejects empty/outside patches
+ok 39 - fixed cell keeps valid floor ownership, chooses occupied lexicographic incidents and rejects empty/outside patches
+  ---
+  duration_ms: 0.8866
+  type: 'test'
+  ...
+# Subtest: genuine boundary-cell birth agrees with mapper and retirement never substitutes another incident record
+ok 40 - genuine boundary-cell birth agrees with mapper and retirement never substitutes another incident record
+  ---
+  duration_ms: 29.7709
+  type: 'test'
+  ...
+# Subtest: factory refuses a floor cell outside the canonical loop even when the fixed source witness is valid
+ok 41 - factory refuses a floor cell outside the canonical loop even when the fixed source witness is valid
+  ---
+  duration_ms: 3.8318
+  type: 'test'
+  ...
+# Subtest: saved JSON restores exact facet sharing while native-panel planes remain derived and mapper results agree
+ok 42 - saved JSON restores exact facet sharing while native-panel planes remain derived and mapper results agree
+  ---
+  duration_ms: 3.8605
+  type: 'test'
+  ...
+1..42
+# tests 42
+# suites 0
+# pass 41
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1214.8172

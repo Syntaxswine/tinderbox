@@ -1,0 +1,3 @@
+{"phase":"EMPTY_INITIALIZED","compiler":{"calls":1},"trial":{"created":1,"steps":0,"disposed":0},"originalTransforms":38}
+{"phase":"WHOLE_COMMITTED","compiler":{"calls":2},"trial":{"created":1,"steps":0,"disposed":0},"originalTransforms":38}
+{"passed":false,"phase":"WHOLE_COMMITTED","compiler":{"calls":3},"trial":{"created":1,"steps":0,"disposed":1},"originalTransforms":38,"error":"The expression evaluated to a falsy value:\n\n  assert.ok(firstStage.inspect().support.ports.every(p=>p.live))\n"}

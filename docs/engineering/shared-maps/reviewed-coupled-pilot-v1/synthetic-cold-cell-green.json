@@ -1,0 +1,533 @@
+{
+  "owner": "Coder Tinderbox",
+  "purpose": "Reviewed cohort admission, genuine staged publication and scoped receipt/lifecycle controls",
+  "pid": 67080,
+  "creationTime": "2026-11-20T11:52:19.996Z",
+  "startedAt": "2026-11-20T11:52:19.996Z",
+  "endedAt": "2026-11-20T11:52:21.112Z",
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "tests/integration/reviewed-cohort-inputs.test.mjs",
+    "tests/integration/shared-map-inputs.test.mjs",
+    "tests/integration/hybrid-world-publication.test.mjs",
+    "tests/integration/shared-map-source-preparation.test.mjs",
+    "tests/integration/source-fixed-cell.test.mjs",
+    "tests/integration/source-fixed-cell-native-clipping.test.mjs"
+  ],
+  "sourcePins": [
+    {
+      "path": "src/content/shared-map-admission.js",
+      "lfSha256": "e0cce3868875b97bb8f35e5fd2e9100122b057e6dad32287542b0f698b466e5b"
+    },
+    {
+      "path": "src/content/shared-map-inputs.js",
+      "lfSha256": "d364e9b40385f184b1b0704c031e167ab12686b4ff0f479ae30ba7c6912b746e"
+    },
+    {
+      "path": "src/content/shared-map.js",
+      "lfSha256": "a780d1b5c0e56f4ca5a69b2d664ad3fe392d945581825a0b5cfff8af6ff90e2d"
+    },
+    {
+      "path": "src/content/new-york-reviewed-inputs.js",
+      "lfSha256": "03e1d3074df242c2a79b8d1d6420b68f815d8103c04889f60aca74bcb7d5a8f0"
+    },
+    {
+      "path": "src/simulation/hybrid-world-publication.js",
+      "lfSha256": "6966514feb505de47101a5dcdec0d93919a8cd219f9aa7af13768e4d16b0ebf2"
+    },
+    {
+      "path": "src/simulation/hybrid-source-support.js",
+      "lfSha256": "86bea1fa0d68aa37491e813ac85e4fab26f763309d63fef0eb7172e334d9750c"
+    },
+    {
+      "path": "src/simulation/original-support-ports.js",
+      "lfSha256": "6136977d0b40fcf455bdca1b1b4e32e92009760c959408daa78529396d9f880f"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "lfSha256": "2064f9b0739512419c52daae22d23322d18772ef63b75a1e3e8e6fcc4a6b8e11"
+    },
+    {
+      "path": "tests/fixtures/reviewed-cohort-data.mjs",
+      "lfSha256": "f2796fee47466574321d12591de05f8a9567acc564cf8258402a24467458172d"
+    },
+    {
+      "path": "tests/integration/reviewed-cohort-inputs.test.mjs",
+      "lfSha256": "83a7631938a8e5c7e90e3f5df63387df602d238380404d632f2188dbd8a3a7c9"
+    },
+    {
+      "path": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/run-synthetic.mjs",
+      "lfSha256": "f9054b1d5241738cbe3899aa3a03563a5a91032eb956317c0532c8ab3139c75c"
+    },
+    {
+      "path": "tools/validate-reviewed-new-york-pilot.mjs",
+      "lfSha256": "093976f779f96519d651c49fa4c13fea045ae3919c3b97a95de425c04392e593"
+    }
+  ],
+  "passed": true,
+  "exitCode": 0,
+  "groups": 43,
+  "resources": {
+    "evidence": [
+      {
+        "committedGenerations": 3,
+        "sourceTransforms": 8,
+        "projectionLoads": 3,
+        "resetRegistryEpoch": 2,
+        "clockSteps": 0
+      },
+      {
+        "coldBoundaryPreview": {
+          "generation": 0,
+          "revision": 0,
+          "supportedIds": [
+            "cold:roof@0/2,0,0/island-0",
+            "cold:roof@0/2,0,0/island-1",
+            "cold:roof@0/3,0,0/island-0",
+            "cold:roof@0/3,0,0/island-1",
+            "fixture::fit/part/1/face/0@0,0,0",
+            "fixture::fit/part/1/face/0@1,0,0",
+            "fixture::fit/part/1/face/0@2,0,0",
+            "fixture::fit/part/1/face/1@0,0,0",
+            "fixture::fit/part/1/face/1@1,0,0",
+            "fixture::fit/part/1/face/1@2,0,0",
+            "fixture::fit/part/1/face/2@0,0,0",
+            "fixture::fit/part/1/face/2@1,0,0",
+            "fixture::fit/part/1/face/2@2,0,0",
+            "fixture::fit/part/1/face/3@0,0,0",
+            "fixture::fit/part/1/face/3@1,0,0",
+            "fixture::fit/part/1/face/3@2,0,0",
+            "fixture::fit/part/1/face/4",
+            "fixture::fit/part/1/face/5",
+            "fixture::floor/part/0/face/0@0,-1,0",
+            "fixture::floor/part/0/face/0@1,-1,0",
+            "fixture::floor/part/0/face/1@0,-1,0",
+            "fixture::floor/part/0/face/1@1,-1,0",
+            "fixture::floor/part/0/face/2@0,-1,0",
+            "fixture::floor/part/0/face/2@1,-1,0",
+            "fixture::floor/part/0/face/3@0,0,0",
+            "fixture::floor/part/0/face/3@1,0,0",
+            "fixture::floor/part/0/face/4",
+            "fixture::floor/part/0/face/5",
+            "fixture::roof/part/2/face/0@4,0,0",
+            "fixture::roof/part/2/face/0@5,0,0",
+            "fixture::roof/part/2/face/0@6,0,0",
+            "fixture::roof/part/2/face/0@7,0,0",
+            "fixture::upper/part/4/face/0@0,0,0",
+            "fixture::upper/part/4/face/0@1,0,0"
+          ],
+          "unrootedIds": [],
+          "births": [],
+          "ports": [
+            {
+              "id": "floor-port",
+              "parent": "fixture::floor/part/0/face/3@0,0,0",
+              "child": "fixture::fit/part/1/face/2@0,0,0",
+              "live": true
+            },
+            {
+              "id": "roof-port",
+              "parent": "cold:roof@0/3,0,0/island-0",
+              "child": "fixture::fit/part/1/face/2@2,0,0",
+              "live": true
+            },
+            {
+              "id": "upper-port",
+              "parent": "fixture::fit/part/1/face/3@0,0,0",
+              "child": "fixture::upper/part/4/face/0@0,0,0",
+              "live": true
+            }
+          ],
+          "unresolvedBindings": [],
+          "oldEdgeConflicts": []
+        }
+      },
+      {
+        "atomicWholeThenRegional": [
+          1,
+          2
+        ]
+      },
+      {
+        "wideColdBoundary": {
+          "generation": 0,
+          "revision": 0,
+          "supportedIds": [
+            "cold:roof@0/0,0,0/island-0",
+            "cold:roof@0/1,0,0/island-0",
+            "cold:roof@0/2,0,0/island-0",
+            "cold:roof@0/3,0,0/island-0",
+            "fixture::fit/part/1/face/0@0,0,0",
+            "fixture::fit/part/1/face/0@1,0,0",
+            "fixture::fit/part/1/face/0@2,0,0",
+            "fixture::fit/part/1/face/1@0,0,0",
+            "fixture::fit/part/1/face/1@1,0,0",
+            "fixture::fit/part/1/face/1@2,0,0",
+            "fixture::fit/part/1/face/2@0,0,0",
+            "fixture::fit/part/1/face/2@1,0,0",
+            "fixture::fit/part/1/face/2@2,0,0",
+            "fixture::fit/part/1/face/3@0,0,0",
+            "fixture::fit/part/1/face/3@1,0,0",
+            "fixture::fit/part/1/face/3@2,0,0",
+            "fixture::fit/part/1/face/4",
+            "fixture::fit/part/1/face/5",
+            "fixture::floor/part/0/face/0@0,-1,0",
+            "fixture::floor/part/0/face/0@1,-1,0",
+            "fixture::floor/part/0/face/1@0,-1,0",
+            "fixture::floor/part/0/face/1@1,-1,0",
+            "fixture::floor/part/0/face/2@0,-1,0",
+            "fixture::floor/part/0/face/2@1,-1,0",
+            "fixture::floor/part/0/face/3@0,0,0",
+            "fixture::floor/part/0/face/3@1,0,0",
+            "fixture::floor/part/0/face/4",
+            "fixture::floor/part/0/face/5",
+            "fixture::roof/part/2/face/0@4,0,0",
+            "fixture::roof/part/2/face/0@5,0,0",
+            "fixture::roof/part/2/face/0@6,0,0",
+            "fixture::roof/part/2/face/0@7,0,0",
+            "fixture::upper/part/4/face/0@0,0,0",
+            "fixture::upper/part/4/face/0@1,0,0"
+          ],
+          "unrootedIds": [],
+          "births": [],
+          "ports": [
+            {
+              "id": "floor-port",
+              "parent": "fixture::floor/part/0/face/3@0,0,0",
+              "child": "fixture::fit/part/1/face/2@0,0,0",
+              "live": true
+            },
+            {
+              "id": "roof-port",
+              "parent": "cold:roof@0/3,0,0/island-0",
+              "child": "fixture::fit/part/1/face/2@2,0,0",
+              "live": true
+            },
+            {
+              "id": "upper-port",
+              "parent": "fixture::fit/part/1/face/3@0,0,0",
+              "child": "fixture::upper/part/4/face/0@0,0,0",
+              "live": true
+            }
+          ],
+          "unresolvedBindings": [],
+          "oldEdgeConflicts": []
+        }
+      },
+      {
+        "wideColdBecameNative": "fixture::roof/part/2/face/0@3,0,0",
+        "fixedRetirementLostPort": true,
+        "logicalCells": 15
+      }
+    ],
+    "resources": [
+      {
+        "query": {
+          "querySurfaces": 6,
+          "sourceParts": 5,
+          "sourceCarriers": 5,
+          "claimedCarriers": 3,
+          "cachedShapes": 0,
+          "cachedTriangles": 0,
+          "peakShapes": 19,
+          "peakTriangles": 58,
+          "workingShapes": 0,
+          "workingTriangles": 0,
+          "workingLeases": 0,
+          "peakWorkingShapes": 1,
+          "peakWorkingTriangles": 15,
+          "shapeBuilds": 4,
+          "maxSingleQueryTriangles": 12,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "inputs": {
+          "prepared": true,
+          "closed": false,
+          "binds": 1,
+          "activeBindings": 0,
+          "producer": {
+            "productionEnabled": false,
+            "closed": true,
+            "epoch": 2,
+            "nativeCalls": 2,
+            "visitedCells": 6,
+            "certificateBuilds": 2,
+            "retainedReceipts": 0,
+            "owners": []
+          }
+        },
+        "geometry": {
+          "canonicalCarriers": 5,
+          "sourceParts": 5,
+          "decodedUniqueGeometries": 4,
+          "appearanceMaterials": 1,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "nativeBlueprints": 0,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 4,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 4,
+          "nativePartTransforms": 0,
+          "borrowedNativeParts": 4,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 4
+        }
+      },
+      {
+        "query": {
+          "querySurfaces": 6,
+          "sourceParts": 5,
+          "sourceCarriers": 5,
+          "claimedCarriers": 0,
+          "cachedShapes": 0,
+          "cachedTriangles": 0,
+          "peakShapes": 19,
+          "peakTriangles": 58,
+          "workingShapes": 0,
+          "workingTriangles": 0,
+          "workingLeases": 0,
+          "peakWorkingShapes": 0,
+          "peakWorkingTriangles": 0,
+          "shapeBuilds": 4,
+          "maxSingleQueryTriangles": 12,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "inputs": {
+          "prepared": true,
+          "closed": false,
+          "binds": 2,
+          "activeBindings": 0,
+          "producer": {
+            "productionEnabled": false,
+            "closed": true,
+            "epoch": 2,
+            "nativeCalls": 0,
+            "visitedCells": 0,
+            "certificateBuilds": 0,
+            "retainedReceipts": 0,
+            "owners": []
+          }
+        },
+        "geometry": {
+          "canonicalCarriers": 5,
+          "sourceParts": 5,
+          "decodedUniqueGeometries": 4,
+          "appearanceMaterials": 1,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "nativeBlueprints": 0,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 8,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 8,
+          "nativePartTransforms": 0,
+          "borrowedNativeParts": 8,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 4
+        }
+      },
+      {
+        "query": {
+          "querySurfaces": 6,
+          "sourceParts": 5,
+          "sourceCarriers": 5,
+          "claimedCarriers": 3,
+          "cachedShapes": 0,
+          "cachedTriangles": 0,
+          "peakShapes": 19,
+          "peakTriangles": 58,
+          "workingShapes": 0,
+          "workingTriangles": 0,
+          "workingLeases": 0,
+          "peakWorkingShapes": 1,
+          "peakWorkingTriangles": 7,
+          "shapeBuilds": 4,
+          "maxSingleQueryTriangles": 12,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "inputs": {
+          "prepared": true,
+          "closed": false,
+          "binds": 1,
+          "activeBindings": 0,
+          "producer": {
+            "productionEnabled": false,
+            "closed": true,
+            "epoch": 2,
+            "nativeCalls": 1,
+            "visitedCells": 4,
+            "certificateBuilds": 1,
+            "retainedReceipts": 0,
+            "owners": []
+          }
+        },
+        "geometry": {
+          "canonicalCarriers": 5,
+          "sourceParts": 5,
+          "decodedUniqueGeometries": 4,
+          "appearanceMaterials": 1,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "nativeBlueprints": 0,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 4,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 4,
+          "nativePartTransforms": 0,
+          "borrowedNativeParts": 4,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 4
+        }
+      },
+      {
+        "query": {
+          "querySurfaces": 6,
+          "sourceParts": 5,
+          "sourceCarriers": 5,
+          "claimedCarriers": 3,
+          "cachedShapes": 0,
+          "cachedTriangles": 0,
+          "peakShapes": 19,
+          "peakTriangles": 58,
+          "workingShapes": 0,
+          "workingTriangles": 0,
+          "workingLeases": 0,
+          "peakWorkingShapes": 1,
+          "peakWorkingTriangles": 15,
+          "shapeBuilds": 4,
+          "maxSingleQueryTriangles": 12,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "inputs": {
+          "prepared": true,
+          "closed": false,
+          "binds": 1,
+          "activeBindings": 0,
+          "producer": {
+            "productionEnabled": false,
+            "closed": true,
+            "epoch": 2,
+            "nativeCalls": 1,
+            "visitedCells": 2,
+            "certificateBuilds": 1,
+            "retainedReceipts": 0,
+            "owners": []
+          }
+        },
+        "geometry": {
+          "canonicalCarriers": 5,
+          "sourceParts": 5,
+          "decodedUniqueGeometries": 4,
+          "appearanceMaterials": 1,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "nativeBlueprints": 0,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 4,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 4,
+          "nativePartTransforms": 0,
+          "borrowedNativeParts": 4,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 4
+        }
+      },
+      {
+        "query": {
+          "querySurfaces": 6,
+          "sourceParts": 5,
+          "sourceCarriers": 5,
+          "claimedCarriers": 3,
+          "cachedShapes": 0,
+          "cachedTriangles": 0,
+          "peakShapes": 19,
+          "peakTriangles": 58,
+          "workingShapes": 0,
+          "workingTriangles": 0,
+          "workingLeases": 0,
+          "peakWorkingShapes": 1,
+          "peakWorkingTriangles": 15,
+          "shapeBuilds": 4,
+          "maxSingleQueryTriangles": 12,
+          "maxShapes": 192,
+          "maxTriangles": 65536,
+          "thermalCellsAllocated": 0,
+          "fuelAllocated": 0
+        },
+        "inputs": {
+          "prepared": true,
+          "closed": false,
+          "binds": 1,
+          "activeBindings": 0,
+          "producer": {
+            "productionEnabled": false,
+            "closed": true,
+            "epoch": 2,
+            "nativeCalls": 2,
+            "visitedCells": 8,
+            "certificateBuilds": 2,
+            "retainedReceipts": 0,
+            "owners": []
+          }
+        },
+        "geometry": {
+          "canonicalCarriers": 5,
+          "sourceParts": 5,
+          "decodedUniqueGeometries": 4,
+          "appearanceMaterials": 1,
+          "startupWorldShapesExpanded": 0,
+          "startupThermalCellsAllocated": 0,
+          "nativeBlueprints": 0,
+          "decodedAttributeGeometries": 0,
+          "transformedQueries": 4,
+          "renderExpansions": 0,
+          "nativeSourceExpansions": 4,
+          "nativePartTransforms": 0,
+          "borrowedNativeParts": 4,
+          "presentationBlueprints": 0,
+          "presentationPartTransforms": 0,
+          "staticIndexBins": 4
+        }
+      }
+    ],
+    "compiler": {
+      "calls": 91
+    },
+    "trial": {
+      "created": 24,
+      "steps": 3,
+      "disposed": 24
+    },
+    "actualReviewedPilotRuns": 0,
+    "actualSourceTransforms": 0
+  },
+  "timeoutMs": 30000,
+  "maxSourceCells": 64,
+  "maxThermalTriangles": 256,
+  "maxSteps": 64,
+  "actualReviewedPilotRuns": 0,
+  "actualSourceTransforms": 0,
+  "ports": [],
+  "retainedHelpers": []
+}

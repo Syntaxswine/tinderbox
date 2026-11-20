@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "kind": "SAVED_IDS_HASHES_AND_SCALARS_ONLY",
+  "passed": true,
+  "correctedCpuValidation": true,
+  "actualCompilerCalls": 5,
+  "cumulativeCompilerCalls": 8,
+  "trials": {
+    "created": 2,
+    "steps": 0,
+    "disposed": 2
+  },
+  "originalTransforms": 76,
+  "registryLifetimes": 2,
+  "wholeRows": [
+    {
+      "id": "new-york::carrier/edge-6/cornice-7",
+      "canonical": 24.47992,
+      "native": 24.479946016342044,
+      "delta": 0.000026016342044243856,
+      "inputRoundoff": 2.0872835193586072e-12,
+      "positive": 0.000053236160843853715,
+      "negative": 0.0005759859455562302
+    },
+    {
+      "id": "new-york::carrier/main-parapet-6/base",
+      "canonical": 5.333333,
+      "native": 5.333337626086099,
+      "delta": 0.000004626086099079885,
+      "inputRoundoff": 4.5474732246475466e-13,
+      "positive": 0.00000936261073682617,
+      "negative": 0.0001595638087571821
+    },
+    {
+      "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "canonical": 0.04011965567822286,
+      "native": 0.04011971844277104,
+      "delta": 6.276454818376909e-8,
+      "inputRoundoff": 9.947598300641403e-14,
+      "positive": 1.3466125328142615e-7,
+      "negative": 0.00001069577353148313
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-4-1/1",
+      "canonical": 2,
+      "native": 2.0000007051926145,
+      "delta": 7.051926145251741e-7,
+      "inputRoundoff": 2.842170943040401e-14,
+      "positive": 0.0000016021640082178225,
+      "negative": 0.000012002163057223785
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-4-8/1",
+      "canonical": 2,
+      "native": 2.0000007051926145,
+      "delta": 7.051926145251741e-7,
+      "inputRoundoff": 2.842170943040401e-14,
+      "positive": 0.0000016019054663486856,
+      "negative": 0.000012001904515576692
+    }
+  ],
+  "regionalRows": [
+    {
+      "cellMin": [
+        96,
+        16,
+        116
+      ],
+      "canonical": 4.277298626527912,
+      "native": 4.277301678795964,
+      "delta": 0.000003052268051639828,
+      "positive": 0.000006623176699096375,
+      "negative": 0.000039266933997788954,
+      "records": 36,
+      "thermalTriangles": 69,
+      "sourceCellVisits": 40
+    },
+    {
+      "cellMin": [
+        100,
+        16,
+        116
+      ],
+      "canonical": 4.27729860088279,
+      "native": 4.277301795120706,
+      "delta": 0.000003194237915948861,
+      "positive": 0.0000063963012307407046,
+      "negative": 0.00003566586456468943,
+      "records": 32,
+      "thermalTriangles": 88,
+      "sourceCellVisits": 32
+    }
+  ],
+  "globalCanonical": {
+    "owners": 12447,
+    "quantity": 15767.984072656212
+  },
+  "selectedCohortCanonical": 113.10194765567827,
+  "selectedActiveCanonical": 42.40796988308893,
+  "selectedNativeBorn": 42.408008245172816,
+  "rawClippingDelta": 0.00003836208388463547,
+  "partitionAllowance": {
+    "signedDelta": 0.00003836208388463547,
+    "positive": 0.00007895698317985159,
+    "negative": 0.0008451823969216609,
+    "roundoffBound": 1.2819164129031677e-7
+  },
+  "roof": {
+    "canonicalWholeOwner": 42.088619,
+    "transferred": 8.554597227410703,
+    "coldReserve": 33.5340217725893,
+    "regionsBorn": 2,
+    "totalDescriptors": 30
+  },
+  "losses": [
+    {
+      "portId": "carrier/roof-saddle-native/main-parapet-6/bay-01/port-cornice",
+      "parentRetired": "new-york::carrier/edge-6/cornice-7/part/2636/face/0@99,16,120",
+      "unsupportedFittingAndUpperRecords": 214,
+      "totalUnsupported": 214
+    },
+    {
+      "portId": "carrier/roof-saddle-native/main-parapet-6/bay-01/port-roof-seat",
+      "parentRetired": "new-york::carrier/roof/rear-tail/part/10391/face/1@99,16,119",
+      "unsupportedFittingAndUpperRecords": 214,
+      "totalUnsupported": 214
+    }
+  ],
+  "reviewedColdBoundary": {
+    "id": "legacy-pair-018",
+    "parent": "cold:main-roof-deck/tile--1-33/0",
+    "child": "cold:roof/rear-tail@0/111,16,118/island-1",
+    "live": true
+  },
+  "retirement": {
+    "id": "new-york::carrier/roof/rear-tail/part/10391/face/1@99,16,119",
+    "portId": "carrier/roof-saddle-native/main-parapet-6/bay-01/port-roof-seat",
+    "cell": [
+      99,
+      16,
+      119
+    ]
+  },
+  "reset": {
+    "registryEpoch": 2,
+    "inputBinds": 2,
+    "sourceTransforms": 76,
+    "staleDescriptorRejected": true,
+    "staleReceiptRejected": true,
+    "freshPrivateProducerIdentity": true,
+    "activeCanonical": 0
+  },
+  "firstFailedAttemptUnchanged": true,
+  "reviewedSourcePinsMatch": true,
+  "resourcePinsMatch": true,
+  "protectedWipUnchanged": true,
+  "additionalGeometryEvaluations": 0,
+  "additionalNativeCalls": 0,
+  "limitations": [
+    "CPU-only positive cohort, not full-map acceptance",
+    "No clocked fire/world replay",
+    "No renderer/build/normal-entry change/Pages",
+    "Original failed port list remains unrecorded"
+  ]
+}

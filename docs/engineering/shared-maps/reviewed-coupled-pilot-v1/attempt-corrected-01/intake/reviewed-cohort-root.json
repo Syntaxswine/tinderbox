@@ -1,0 +1,103 @@
+{
+  "owner": "Tinderbox architect",
+  "purpose": "Independent read-only working-candidate conformance",
+  "cwd": "C:/Users/baals/.codex/worktrees/coding-9200/tinderbox",
+  "args": [
+    "--test",
+    "--test-reporter=tap",
+    "--experimental-test-isolation=none",
+    "--test-concurrency=1",
+    "tests/integration/reviewed-cohort-inputs.test.mjs",
+    "tests/integration/shared-map-inputs.test.mjs",
+    "tests/integration/map-source-geometry.test.mjs",
+    "tests/integration/hybrid-world-publication.test.mjs",
+    "tests/integration/shared-map-source-preparation.test.mjs",
+    "tests/integration/source-fixed-cell.test.mjs",
+    "tests/integration/source-fixed-cell-native-clipping.test.mjs",
+    "tests/integration/two-panel-native-diagnostic.test.mjs",
+    "tests/integration/two-panel-partition-certificate.test.mjs"
+  ],
+  "startedAt": "2026-11-20T11:58:56.941Z",
+  "endedAt": "2026-11-20T11:58:58.034Z",
+  "pid": 10424,
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "timeoutMs": 30000,
+  "exitCode": 0,
+  "passed": true,
+  "unchanged": true,
+  "sourcePins": [
+    {
+      "path": "tests/integration/reviewed-cohort-inputs.test.mjs",
+      "lfSha256": "83a7631938a8e5c7e90e3f5df63387df602d238380404d632f2188dbd8a3a7c9"
+    },
+    {
+      "path": "tests/integration/shared-map-inputs.test.mjs",
+      "lfSha256": "f1c0f245f26050685ed2d0824e0e86da93ea452b6c8bd93e9da9db5e562239a5"
+    },
+    {
+      "path": "tests/integration/map-source-geometry.test.mjs",
+      "lfSha256": "39a30f917abf23f2266e135a0d4ea06a37aa0b4b562c52b6b4ff66a82c2dfd40"
+    },
+    {
+      "path": "tests/integration/hybrid-world-publication.test.mjs",
+      "lfSha256": "4df30f1ce2ab553ed18dc5ff54a99fa757e743fa2ba4d491c265c26e01f224e8"
+    },
+    {
+      "path": "tests/integration/shared-map-source-preparation.test.mjs",
+      "lfSha256": "08d5e2ece4b9d06e0936294a333e98d3888817dc4315c0325445a9319e3c5a0b"
+    },
+    {
+      "path": "tests/integration/source-fixed-cell.test.mjs",
+      "lfSha256": "f08aa78301bc2428f966cde1969da2f58519cb97c6cce3c4ac9b535adb8204e8"
+    },
+    {
+      "path": "tests/integration/source-fixed-cell-native-clipping.test.mjs",
+      "lfSha256": "52dfb78292f3e79cbaabf2051747c9c8020e1741277d134cdc9e807158eb5dae"
+    },
+    {
+      "path": "tests/integration/two-panel-native-diagnostic.test.mjs",
+      "lfSha256": "d71b16ffab828c50e45eda1520eadda731c56e52ca9eafb6de1d53fa65a944f4"
+    },
+    {
+      "path": "tests/integration/two-panel-partition-certificate.test.mjs",
+      "lfSha256": "ed62bdb0886a779281d82201dd4bcbe82fe074b00b30c6b207ca8ded783cf44e"
+    },
+    {
+      "path": "tests/fixtures/reviewed-cohort-data.mjs",
+      "lfSha256": "f2796fee47466574321d12591de05f8a9567acc564cf8258402a24467458172d"
+    },
+    {
+      "path": "src/content/shared-map-admission.js",
+      "lfSha256": "e0cce3868875b97bb8f35e5fd2e9100122b057e6dad32287542b0f698b466e5b"
+    },
+    {
+      "path": "src/content/shared-map-inputs.js",
+      "lfSha256": "d364e9b40385f184b1b0704c031e167ab12686b4ff0f479ae30ba7c6912b746e"
+    },
+    {
+      "path": "src/content/shared-map.js",
+      "lfSha256": "a780d1b5c0e56f4ca5a69b2d664ad3fe392d945581825a0b5cfff8af6ff90e2d"
+    },
+    {
+      "path": "src/content/new-york-reviewed-inputs.js",
+      "lfSha256": "03e1d3074df242c2a79b8d1d6420b68f815d8103c04889f60aca74bcb7d5a8f0"
+    },
+    {
+      "path": "src/simulation/hybrid-source-support.js",
+      "lfSha256": "86bea1fa0d68aa37491e813ac85e4fab26f763309d63fef0eb7172e334d9750c"
+    },
+    {
+      "path": "src/simulation/hybrid-world-publication.js",
+      "lfSha256": "6966514feb505de47101a5dcdec0d93919a8cd219f9aa7af13768e4d16b0ebf2"
+    },
+    {
+      "path": "workbenches/furnished-house/scene.js",
+      "lfSha256": "2064f9b0739512419c52daae22d23322d18772ef63b75a1e3e8e6fcc4a6b8e11"
+    }
+  ],
+  "tests": 53,
+  "resources": [],
+  "actualNewYorkRuns": 0,
+  "retainedHelpers": [],
+  "ports": []
+}
