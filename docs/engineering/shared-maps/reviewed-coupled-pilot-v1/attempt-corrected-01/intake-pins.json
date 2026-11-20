@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "kind": "ONE_CORRECTED_ATTEMPT_AUTHORITY",
+  "pins": [
+    {
+      "primaryPath": "C:/Users/baals/Documents/ChatGPT/tinderbox/docs/engineering/shared-maps/new-york-corrected-coupled-run.md",
+      "savedPath": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/intake/new-york-corrected-coupled-run.md",
+      "sha256": "45e21039f99efe8f7e414cbdfecb78e797a4edc6595a8fe5a2817a2f306cc998"
+    },
+    {
+      "primaryPath": "C:/Users/baals/Documents/ChatGPT/tinderbox/artifacts/qa/m29-architect-intake/reviewed-cohort-root.json",
+      "savedPath": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/intake/reviewed-cohort-root.json",
+      "sha256": "35a4281980a087cfdd53e807b538acaa3942b4537eaa69a0ed2e4e6ff1969e52"
+    },
+    {
+      "primaryPath": "C:/Users/baals/Documents/ChatGPT/tinderbox/artifacts/qa/m29-architect-intake/reviewed-cohort-root.log",
+      "savedPath": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/intake/reviewed-cohort-root.log",
+      "sha256": "fc1c20318b5d83998d1b6fb6873bd4ecde6bfffe65a216cbf2c51c2b3680db21"
+    },
+    {
+      "primaryPath": "C:/Users/baals/Documents/ChatGPT/tinderbox/artifacts/qa/m29-architect-intake/reviewed-cohort-root-audit.json",
+      "savedPath": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/intake/reviewed-cohort-root-audit.json",
+      "sha256": "c6b4a4c8358e9b25d9b34529b8b0b14dde149410cc5904d76b539c529a8cbb84"
+    }
+  ],
+  "reviewedHarnessBeforeNaming": {
+    "path": "tools/validate-reviewed-new-york-pilot.mjs",
+    "savedPath": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/attempt-corrected-01/intake/reviewed-harness-before-naming.mjs.txt",
+    "sha256": "3499bd9b9e5c0653df108094c0570cc0f31bf82690afa2ac379471550a9d8a44"
+  },
+  "priorManifest": {
+    "path": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/working-file-hashes.json",
+    "sha256": "c49f101b312b7f1203b49872a19f3e48e9462841abc1e14d5e30e5561755b34e"
+  },
+  "firstFailedAttempt": {
+    "result": "docs/engineering/shared-maps/reviewed-coupled-pilot-v1/actual-result.json",
+    "sha256": "1feb7567e9b33d3f694ca028b0df5b8268250debf5bcebeb934e90315773e320",
+    "calls": 3
+  },
+  "additionalCaps": {
+    "compilerCalls": 5,
+    "trials": 2,
+    "steps": 0,
+    "transformsPerLifetime": 38,
+    "lifetimes": 2,
+    "totalTransforms": 76,
+    "deadlineMs": 30000
+  },
+  "cumulativeCompilerCeiling": 8
+}

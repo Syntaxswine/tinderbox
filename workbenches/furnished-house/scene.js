@@ -3,8 +3,9 @@ import {prepareFurnishedData} from './prepare-data.js';
 import {sourcePartitionAllowance} from './partition-error.js';
 import {readRegionalCompileDomain} from './regional-domain.js';
 import {readRegionalWorldAdmission} from '../../src/simulation/regional-source-pilot.js';
-let compileCalls=0;
+let compileCalls=0,diagnosticCompileCeiling=Infinity;
 export const sceneCompileDiagnostics=()=>({calls:compileCalls});
+export function limitDiagnosticSceneCompiles(value){if(!Number.isSafeInteger(value)||value<compileCalls)throw Error('Finite diagnostic compiler ceiling required');diagnosticCompileCeiling=value;}
 
 export const CELL=[.5,1.06,.5], STEP=1/30;
 export const DEFAULT_PROFILES=Object.freeze({
@@ -31,6 +32,7 @@ export function doorGeometry(b,fraction){
   return {solidTriangles,bounds:bounds(solidTriangles.flat()),position:centre(plane.flat()),normal};
 }
 export function compileScene(data,{profiles={},onLoadPhase,querySource,regionalPilot=null}={}) {
+  if(compileCalls>=diagnosticCompileCeiling)throw Error('Diagnostic compiler ceiling reached');
   compileCalls++;
   const region=regionalPilot?readRegionalCompileDomain(regionalPilot,data):null;
   if(data.partialCompilation&&!region||region&&querySource)throw Error('Isolated partial compilation is unavailable to world installation');

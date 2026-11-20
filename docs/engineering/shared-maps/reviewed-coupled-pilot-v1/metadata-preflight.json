@@ -1,0 +1,254 @@
+{
+  "grant": {
+    "commit": "52c8b96a2bf81ea7a26347badeb52d062c2cc85d",
+    "path": "docs/engineering/shared-maps/new-york-reviewed-coupled-pilot.md",
+    "sha256": "07eaf0514f473679cc280c82fec9a91a7921514ec23e2c103cb272f0dc2c2ae7"
+  },
+  "review": {
+    "commit": "8b4dfbc0c3976207bd477c6d21904f118fbb66b6",
+    "path": "docs/reviews/2026-11-18-two-panel-combined-review.md",
+    "sha256": "9e0e9718ab91674f556c4e713025292a032c1b48714a02a88603779473484d68"
+  },
+  "combined": {
+    "commit": "8b4dfbc0c3976207bd477c6d21904f118fbb66b6",
+    "path": "docs/reviews/2026-11-18-two-panel-combined-results.json",
+    "sha256": "7fc732db8b4494113748bb73ab9375d4af40b59ab5385b3e19ef9d14348c8497"
+  },
+  "sourceRevision": "72adc699d18826c950cd1b23a35b755f4a07a19d3144958c8e752ec4dc3d7876",
+  "inputResources": [
+    {
+      "path": "assets/runtime/map-inputs/new-york/reviewed-cohort-v1/pilot-plan.json",
+      "sha256": "956b7a1bd16c641f6fcd6b9cc1c12ec25ccadd6d803caee5fb0d4513ecac15a2"
+    },
+    {
+      "path": "assets/runtime/map-inputs/new-york/reviewed-cohort-v1/admission-policy.json",
+      "sha256": "f2ea997aaa44a877554c4a85d63eca7e9dff6deefdfed5ed3cabacdc6dd84215"
+    },
+    {
+      "path": "assets/runtime/map-inputs/new-york/reviewed-cohort-v1/numerical-evidence.json",
+      "sha256": "211343cc29818f80e5c5c846983e960415100dd856e443e67b83b02ac9ecdb3d"
+    }
+  ],
+  "admission": {
+    "status": "READY",
+    "supportScope": {
+      "kind": "reviewed-positive-cohort-v1",
+      "owners": 38,
+      "parts": 38,
+      "bonds": 37,
+      "anchors": 2,
+      "ordinaryParentReferences": 179,
+      "outsideCohortUnresolved": 141,
+      "excludedAlternatives": "RECORDED_NOT_SUPPORTING",
+      "fullMapComplete": false
+    },
+    "estimate": {
+      "incomplete": false,
+      "regionalParts": 1,
+      "descriptors": 30,
+      "sourceShapes": 121,
+      "sourceTriangles": 620,
+      "temporaryShapes": 1,
+      "temporaryTriangles": 11424
+    }
+  },
+  "wholeOwners": [
+    "new-york::carrier/edge-6/cornice-7",
+    "new-york::carrier/main-parapet-6/base",
+    "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01",
+    "new-york::carrier/main/5/cell-4-1/1",
+    "new-york::carrier/main/6/cell-4-8/1"
+  ],
+  "wholeRows": [
+    {
+      "id": "new-york::carrier/edge-6/cornice-7",
+      "sourceSurfaces": 6,
+      "thermalTriangles": 12,
+      "sourceCellVisits": 484,
+      "triangleCellPairs": 968
+    },
+    {
+      "id": "new-york::carrier/main-parapet-6/base",
+      "sourceSurfaces": 6,
+      "thermalTriangles": 12,
+      "sourceCellVisits": 196,
+      "triangleCellPairs": 392
+    },
+    {
+      "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "sourceSurfaces": 7,
+      "thermalTriangles": 16,
+      "sourceCellVisits": 18,
+      "triangleCellPairs": 40
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-4-1/1",
+      "sourceSurfaces": 1,
+      "thermalTriangles": 2,
+      "sourceCellVisits": 6,
+      "triangleCellPairs": 12
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-4-8/1",
+      "sourceSurfaces": 1,
+      "thermalTriangles": 2,
+      "sourceCellVisits": 6,
+      "triangleCellPairs": 12
+    }
+  ],
+  "wholeBounds": {
+    "recordUpper": 710,
+    "thermalTriangleUpper": 9968,
+    "physicalTriangleUpper": 11144
+  },
+  "regionalDomains": [
+    {
+      "ownerId": "new-york::carrier/roof/rear-tail",
+      "cellMin": [
+        96,
+        16,
+        116
+      ],
+      "cellMaxExclusive": [
+        100,
+        17,
+        120
+      ],
+      "rows": [
+        {
+          "id": "new-york::carrier/roof/rear-tail/part/10391/face/0",
+          "cells": 8,
+          "triangles": 2,
+          "triangleCellPairs": 16
+        },
+        {
+          "id": "new-york::carrier/roof/rear-tail/part/10391/face/1",
+          "cells": 8,
+          "triangles": 2,
+          "triangleCellPairs": 16
+        },
+        {
+          "id": "new-york::carrier/roof/rear-tail/part/10391/face/2",
+          "cells": 8,
+          "triangles": 1,
+          "triangleCellPairs": 8
+        },
+        {
+          "id": "new-york::carrier/roof/rear-tail/part/10391/face/3",
+          "cells": 0,
+          "triangles": 1,
+          "triangleCellPairs": 0
+        },
+        {
+          "id": "new-york::carrier/roof/rear-tail/part/10391/face/4",
+          "cells": 16,
+          "triangles": 2,
+          "triangleCellPairs": 32
+        }
+      ],
+      "sourceCellVisits": 40,
+      "triangleCellPairs": 72
+    },
+    {
+      "ownerId": "new-york::carrier/roof/rear-tail",
+      "cellMin": [
+        100,
+        16,
+        116
+      ],
+      "cellMaxExclusive": [
+        104,
+        17,
+        120
+      ],
+      "rows": [
+        {
+          "id": "new-york::carrier/roof/rear-tail/part/10391/face/0",
+          "cells": 8,
+          "triangles": 2,
+          "triangleCellPairs": 16
+        },
+        {
+          "id": "new-york::carrier/roof/rear-tail/part/10391/face/1",
+          "cells": 8,
+          "triangles": 2,
+          "triangleCellPairs": 16
+        },
+        {
+          "id": "new-york::carrier/roof/rear-tail/part/10391/face/2",
+          "cells": 0,
+          "triangles": 1,
+          "triangleCellPairs": 0
+        },
+        {
+          "id": "new-york::carrier/roof/rear-tail/part/10391/face/3",
+          "cells": 0,
+          "triangles": 1,
+          "triangleCellPairs": 0
+        },
+        {
+          "id": "new-york::carrier/roof/rear-tail/part/10391/face/4",
+          "cells": 16,
+          "triangles": 2,
+          "triangleCellPairs": 32
+        }
+      ],
+      "sourceCellVisits": 32,
+      "triangleCellPairs": 64
+    }
+  ],
+  "compilerBudget": {
+    "emptyInitialization": 1,
+    "wholeBatch": 1,
+    "firstRegion": 1,
+    "adjacentRegion": 1,
+    "resetInitialization": 1,
+    "total": 5
+  },
+  "trials": 2,
+  "clockSteps": 0,
+  "maxOriginalTransformsPerLifetime": 38,
+  "maxLifetimes": 2,
+  "totalOriginalTransforms": 76,
+  "coldAncestors": [
+    "new-york::carrier/main/5/seam-7-1/1",
+    "new-york::carrier/main/5/cell-7-1/1",
+    "new-york::carrier/attic-floor/tile-7-33",
+    "new-york::carrier/main/5/cell-6-1/1",
+    "new-york::carrier/main/5/seam-5-1/1",
+    "new-york::carrier/main/5/cell-5-1/1",
+    "new-york::carrier/main/5/seam-4-1/1",
+    "new-york::carrier/main/5/seam-3-1/1",
+    "new-york::carrier/main/5/cell-3-1/1",
+    "new-york::carrier/main/5/seam-2-1/1",
+    "new-york::carrier/main/5/cell-2-1/1",
+    "new-york::carrier/main/5/seam-1-1/1",
+    "new-york::carrier/main/5/cell-1-1/1",
+    "new-york::carrier/edge-5/cornice-0",
+    "new-york::carrier/main/4/cell-0-5/1",
+    "new-york::carrier/main-roof-deck/tile--1-31",
+    "new-york::carrier/main-roof-deck/tile--1-32",
+    "new-york::carrier/main-roof-deck/tile--1-33",
+    "new-york::carrier/main/6/cell-7-8/1",
+    "new-york::carrier/attic-floor/tile--1-33",
+    "new-york::carrier/main/6/cell-6-8/1",
+    "new-york::carrier/main/6/seam-5-8/1",
+    "new-york::carrier/main/6/cell-5-8/1",
+    "new-york::carrier/main/6/seam-4-8/1",
+    "new-york::carrier/main/6/seam-3-8/1",
+    "new-york::carrier/main/6/cell-3-8/1",
+    "new-york::carrier/main/6/seam-2-8/1",
+    "new-york::carrier/main/6/cell-2-8/1",
+    "new-york::carrier/main/6/seam-1-8/1",
+    "new-york::carrier/main/6/cell-1-8/1",
+    "new-york::carrier/edge-6/cornice-0",
+    "new-york::carrier/main/5/cell-0-1/1"
+  ],
+  "sharedSourceCache": {
+    "shapes": 116,
+    "triangles": 612,
+    "fallbackShapes": 24,
+    "fallbackTriangles": 8192
+  },
+  "nativeOutputBounds": "Per triangle/cell: at most seven clipped triangles; thick panels at most eight times this physical count. World-native records are retained world state, not a second source/query cache."
+}

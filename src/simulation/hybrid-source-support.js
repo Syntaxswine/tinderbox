@@ -27,7 +27,16 @@ export function createHybridSourceSupport({scene,querySource,definition}){
       const evaluate=coldPieces=>{const fs=fragments(records,regional,wholeClaims,coldPieces),basis=originalCore(new Map());try{
         for(const b of basis.bindings())for(const side of ['parent','child']){const key=b.id+'/'+side;if(nextFixed.has(key))continue;const endpoint=b[side],authored=definition.bonds.find(v=>v.id===b.id)[side];if(!authored.sourceSurfaceId||!authored.cell)throw Error('Fixed source surface/cell lineage required');const candidates=fs.filter(f=>f.mode==='native'&&f.partId===endpoint.partId&&f.component===endpoint.component&&f.primitives.includes(endpoint.primitive)&&JSON.stringify(f.cell)===JSON.stringify(authored.cell)&&records.find(r=>r.id===f.recordId)?.sourceSurfaceId===authored.sourceSurfaceId);if(candidates.length>1)throw Error('Ambiguous fixed native support owner');if(candidates.length===1)nextFixed.set(key,{nativeRecordId:candidates[0].recordId,cell:[...authored.cell]});}
       }finally{basis.dispose();}
-      const core=originalCore(nextFixed);try{return {result:core.evaluate({revision,fragments:fs}),fixed:nextFixed};}finally{core.dispose();}};
+      // A touched regional original is represented by cold cell fragments.
+      // Keep an unborn port in its already-reviewed source cell; neighboring
+      // epsilon halos must not create a second owner. This temporary selector
+      // is not a native binding and must not suppress its later genuine birth.
+      const effective=new Map(nextFixed);
+      for(const b of definition.bonds)for(const side of ['parent','child']){
+        const key=b.id+'/'+side,e=b[side];
+        if(!effective.has(key)&&regional?.has(e.partId)&&regional.touched(e.partId))effective.set(key,{cell:[...e.cell]});
+      }
+      const core=originalCore(effective);try{return {result:core.evaluate({revision,fragments:fs}),fixed:nextFixed};}finally{core.dispose();}};
       return parts.some(p=>regional?.has(p.id)&&regional.touched(p.id))?regional.withPieces(evaluate):evaluate([]);
     }
     const api={nodes:new Map(),links:new Map(),

@@ -1,0 +1,89 @@
+{
+  "sourceRevision": "72adc699d18826c950cd1b23a35b755f4a07a19d3144958c8e752ec4dc3d7876",
+  "status": "SOURCE_AND_CONTROLS_REVIEW_PASS_ACTUAL_HELD",
+  "pilotParts": 38,
+  "bonds": 37,
+  "anchors": 2,
+  "ordinaryReferences": 179,
+  "unresolvedOutsideCohort": 141,
+  "runtimeResourcePins": [
+    {
+      "path": "assets/runtime/map-inputs/new-york/reviewed-cohort-v1/pilot-plan.json",
+      "sha256": "956b7a1bd16c641f6fcd6b9cc1c12ec25ccadd6d803caee5fb0d4513ecac15a2"
+    },
+    {
+      "path": "assets/runtime/map-inputs/new-york/reviewed-cohort-v1/admission-policy.json",
+      "sha256": "f2ea997aaa44a877554c4a85d63eca7e9dff6deefdfed5ed3cabacdc6dd84215"
+    },
+    {
+      "path": "assets/runtime/map-inputs/new-york/reviewed-cohort-v1/numerical-evidence.json",
+      "sha256": "211343cc29818f80e5c5c846983e960415100dd856e443e67b83b02ac9ecdb3d"
+    }
+  ],
+  "whole": [
+    {
+      "id": "new-york::carrier/edge-6/cornice-7",
+      "canonical": 24.479919999999996,
+      "rawNative": 24.479946016342044,
+      "delta": 0.00002601634204779657,
+      "positive": 0.000053236160843853715
+    },
+    {
+      "id": "new-york::carrier/main-parapet-6/base",
+      "canonical": 5.333333,
+      "rawNative": 5.333337626086099,
+      "delta": 0.000004626086099079885,
+      "positive": 0.00000936261073682617
+    },
+    {
+      "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "canonical": 0.04011965567822286,
+      "rawNative": 0.04011971844277104,
+      "delta": 6.276454818376909e-8,
+      "positive": 1.3466125328142615e-7
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-4-1/1",
+      "canonical": 2,
+      "rawNative": 2.0000007051926145,
+      "delta": 7.051926145251741e-7,
+      "positive": 0.0000016021640082178225
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-4-8/1",
+      "canonical": 2,
+      "rawNative": 2.0000007051926145,
+      "delta": 7.051926145251741e-7,
+      "positive": 0.0000016019054663486856
+    }
+  ],
+  "failedActual": {
+    "compiler": {
+      "calls": 3
+    },
+    "trial": {
+      "created": 1,
+      "steps": 0,
+      "disposed": 1
+    },
+    "transforms": 38,
+    "phase": "WHOLE_COMMITTED",
+    "error": "The expression evaluated to a falsy value:\n\n  assert.ok(firstStage.inspect().support.ports.every(p=>p.live))\n"
+  },
+  "rootControls": {
+    "tests": 53,
+    "compiler": {
+      "calls": 95
+    },
+    "trial": {
+      "created": 25,
+      "steps": 4,
+      "disposed": 25
+    },
+    "pid": 10424
+  },
+  "peerHashesMatch": true,
+  "preservedSourcePins": true,
+  "protectedWipUnchanged": true,
+  "actualRunsByArchitect": 0
+}

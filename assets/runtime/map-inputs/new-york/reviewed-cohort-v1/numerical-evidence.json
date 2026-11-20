@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "kind": "reviewed-numerical-evidence-only",
+  "sourceRef": {
+    "commit": "2c1eaaeb94c0530d5a340c647a1dfae4f1de4656",
+    "path": "docs/engineering/shared-maps/two-panel-partition-certificate-v1/certificates.json",
+    "sha256": "2c19c2c0d18852440798f1c7492fe5a929da317d89eef886e9458fa08da09676"
+  },
+  "reviewRef": {
+    "commit": "8b4dfbc0c3976207bd477c6d21904f118fbb66b6",
+    "path": "docs/reviews/2026-11-18-two-panel-combined-review.md",
+    "sha256": "9e0e9718ab91674f556c4e713025292a032c1b48714a02a88603779473484d68"
+  },
+  "sourceGeometryRevision": "e733ed1050828f50b405f9927dd340acf3eba4d201eda79e939dcd5bf2af8a5b",
+  "grid": {
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "pitch": [
+      0.5,
+      1.06,
+      0.5
+    ]
+  },
+  "rows": [
+    {
+      "id": "new-york::carrier/main/5/cell-4-1/1",
+      "nativeQuantity": 2.0000007051926145,
+      "sourceQuantity": 2,
+      "sourceCount": 1,
+      "partitionError": {
+        "epsilon": 1e-7,
+        "positive": 0.0000016021640082178225,
+        "negative": 0.000012002163057223785,
+        "roundoffBound": 2.163676437173736e-9,
+        "surfaces": [
+          {
+            "id": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+            "epsilon": 1e-7,
+            "sourceArea": 2,
+            "lowerArea": 1.9999976000006192,
+            "upperArea": 2.000001600000332,
+            "candidateTriangleCells": 12,
+            "areaDiscardBound": 0.0000084,
+            "coordinateScale": 64,
+            "minCrossingDelta": 3.288818390956294e-7,
+            "positive": 0.0000016021640082178225,
+            "negative": 0.000012002163057223785,
+            "roundoffBound": 2.163676437173736e-9
+          }
+        ]
+      }
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-4-8/1",
+      "nativeQuantity": 2.0000007051926145,
+      "sourceQuantity": 2,
+      "sourceCount": 1,
+      "partitionError": {
+        "epsilon": 1e-7,
+        "positive": 0.0000016019054663486856,
+        "negative": 0.000012001904515576692,
+        "roundoffBound": 1.9051345680368344e-9,
+        "surfaces": [
+          {
+            "id": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+            "epsilon": 1e-7,
+            "sourceArea": 2,
+            "lowerArea": 1.999997600000619,
+            "upperArea": 2.000001600000332,
+            "candidateTriangleCells": 12,
+            "areaDiscardBound": 0.0000084,
+            "coordinateScale": 60,
+            "minCrossingDelta": 4.0000000467443897e-7,
+            "positive": 0.0000016019054663486856,
+            "negative": 0.000012001904515576692,
+            "roundoffBound": 1.9051345680368344e-9
+          }
+        ]
+      }
+    }
+  ],
+  "freshNativePreparation": "MUST_DERIVE_OWN_CERTIFICATES_AND_RECEIPTS",
+  "nativeReceiptAuthority": null
+}

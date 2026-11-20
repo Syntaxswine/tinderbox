@@ -1,0 +1,662 @@
+{
+  "version": 1,
+  "sourceRevision": "72adc699d18826c950cd1b23a35b755f4a07a19d3144958c8e752ec4dc3d7876",
+  "passed": false,
+  "phase": "WHOLE_COMMITTED",
+  "startedAt": "2026-11-20T11:46:21.940Z",
+  "events": [
+    {
+      "kind": "runtime-input",
+      "path": "assets/runtime/map-inputs/new-york/reviewed-cohort-v1/pilot-plan.json",
+      "sha256": "956b7a1bd16c641f6fcd6b9cc1c12ec25ccadd6d803caee5fb0d4513ecac15a2"
+    },
+    {
+      "kind": "runtime-input",
+      "path": "assets/runtime/map-inputs/new-york/reviewed-cohort-v1/admission-policy.json",
+      "sha256": "f2ea997aaa44a877554c4a85d63eca7e9dff6deefdfed5ed3cabacdc6dd84215"
+    },
+    {
+      "kind": "runtime-input",
+      "path": "assets/runtime/map-inputs/new-york/reviewed-cohort-v1/numerical-evidence.json",
+      "sha256": "211343cc29818f80e5c5c846983e960415100dd856e443e67b83b02ac9ecdb3d"
+    },
+    {
+      "kind": "runtime-input",
+      "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/physical.json",
+      "sha256": "85b98cb5b08f53573e7f3e96655908fb38d6eca431d052fa31869c7e2910a908"
+    },
+    {
+      "kind": "runtime-input",
+      "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/render.json",
+      "sha256": "f8ab8db6a18654e691580f2de3beb283a8675750e247aece503fd9080b697243"
+    },
+    {
+      "kind": "runtime-input",
+      "path": "assets/runtime/map-inputs/new-york/saddle6-01-v1/vertex-mapping.json",
+      "sha256": "72bc95fe33f77c80d863edba9ab4f1695dd2755026c368ebe5b823af0cacca8c"
+    }
+  ],
+  "publications": [
+    {
+      "observedAfterCommit": true,
+      "observation": "mutation callback",
+      "registryLifetime": 1,
+      "generation": 0,
+      "revision": 1,
+      "indexRevision": 6,
+      "canonicalActive": 33.85337265567823,
+      "nativeBorn": 33.853404771256145,
+      "nativeRecords": 646,
+      "claimedWhole": 5,
+      "supportRevision": 1
+    }
+  ],
+  "receipts": [],
+  "lossPreviews": [],
+  "resources": [],
+  "rejects": [
+    {
+      "label": "out-of-cohort activation",
+      "unchanged": true,
+      "nativeCalls": 1
+    }
+  ],
+  "steps": 0,
+  "ports": [],
+  "retainedHelpers": [],
+  "admission": {
+    "status": "READY",
+    "scope": {
+      "kind": "reviewed-positive-cohort-v1",
+      "owners": 38,
+      "parts": 38,
+      "bonds": 37,
+      "anchors": 2,
+      "ordinaryParentReferences": 179,
+      "outsideCohortUnresolved": 141,
+      "excludedAlternatives": "RECORDED_NOT_SUPPORTING",
+      "fullMapComplete": false
+    }
+  },
+  "globalCanonical": {
+    "owners": 12447,
+    "quantity": 15767.984072656212
+  },
+  "selectedCanonical": [
+    {
+      "id": "new-york::carrier/edge-6/cornice-7",
+      "fuel": 24.47992,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/roof/rear-tail",
+      "fuel": 42.088619,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main-parapet-6/base",
+      "fuel": 5.333333,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "fuel": 0.04011965567822286,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/seam-7-1/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-7-1/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/attic-floor/tile-7-33",
+      "fuel": 1,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-6-1/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/seam-5-1/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-5-1/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/seam-4-1/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-4-1/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/seam-3-1/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-3-1/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/seam-2-1/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-2-1/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/seam-1-1/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-1-1/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/edge-5/cornice-0",
+      "fuel": 0.76,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/4/cell-0-5/1",
+      "fuel": 0,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main-roof-deck/tile--1-31",
+      "fuel": 1,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main-roof-deck/tile--1-32",
+      "fuel": 1,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main-roof-deck/tile--1-33",
+      "fuel": 1,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-7-8/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/attic-floor/tile--1-33",
+      "fuel": 1,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-6-8/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/seam-5-8/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-5-8/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/seam-4-8/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-4-8/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/seam-3-8/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-3-8/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/seam-2-8/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-2-8/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/seam-1-8/1",
+      "fuel": 0.12,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-1-8/1",
+      "fuel": 2,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/edge-6/cornice-0",
+      "fuel": 6.079956,
+      "finish": null
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-0-1/1",
+      "fuel": 0,
+      "finish": null
+    }
+  ],
+  "compiler": {
+    "calls": 2
+  },
+  "trial": {
+    "created": 1,
+    "steps": 0,
+    "disposed": 0
+  },
+  "originalTransforms": 38,
+  "freshWholeQuantities": [
+    {
+      "id": "new-york::carrier/edge-6/cornice-7",
+      "nativeQuantity": 24.479946016342044,
+      "sourceQuantity": 24.479919999999996,
+      "sourceCount": 6,
+      "partitionError": {
+        "epsilon": 1e-7,
+        "positive": 0.000053236160843853715,
+        "negative": 0.0005759859455562302,
+        "roundoffBound": 8.653198655044885e-8,
+        "surfaces": [
+          {
+            "id": "new-york::carrier/edge-6/cornice-7/part/2636/face/0",
+            "epsilon": 1e-7,
+            "sourceArea": 16.3199462890625,
+            "lowerArea": 16.3199140331205,
+            "upperArea": 16.31997854503521,
+            "candidateTriangleCells": 288,
+            "areaDiscardBound": 0.0002016,
+            "coordinateScale": 64.51000022888184,
+            "minCrossingDelta": 0.00936249173962267,
+            "positive": 0.000020314263418495708,
+            "negative": 0.00017591934220116323,
+            "roundoffBound": 2.5464887444869222e-8
+          },
+          {
+            "id": "new-york::carrier/edge-6/cornice-7/part/2636/face/1",
+            "epsilon": 1e-7,
+            "sourceArea": 16.3199462890625,
+            "lowerArea": 16.3199140331205,
+            "upperArea": 16.31997854503521,
+            "candidateTriangleCells": 288,
+            "areaDiscardBound": 0.0002016,
+            "coordinateScale": 64.51000022888184,
+            "minCrossingDelta": 0.00936249173962267,
+            "positive": 0.000020314284179649243,
+            "negative": 0.00017591936296231677,
+            "roundoffBound": 2.5485648598404515e-8
+          },
+          {
+            "id": "new-york::carrier/edge-6/cornice-7/part/2636/face/2",
+            "epsilon": 1e-7,
+            "sourceArea": 2.6964000247478452,
+            "lowerArea": 2.696391944752599,
+            "upperArea": 2.696408104752376,
+            "candidateTriangleCells": 120,
+            "areaDiscardBound": 0.000084,
+            "coordinateScale": 63.489999771118164,
+            "minCrossingDelta": 0.00600800629683107,
+            "positive": 0.000005095351558947278,
+            "negative": 0.00006993080326057546,
+            "roundoffBound": 1.3080888382592049e-8
+          },
+          {
+            "id": "new-york::carrier/edge-6/cornice-7/part/2636/face/3",
+            "epsilon": 1e-7,
+            "sourceArea": 0.2596492513656,
+            "lowerArea": 0.25964816525132467,
+            "upperArea": 0.2596505411289778,
+            "candidateTriangleCells": 64,
+            "areaDiscardBound": 0.0000448,
+            "coordinateScale": 60.5099983215332,
+            "minCrossingDelta": 9.33330298380497e-7,
+            "positive": 8.142070559514739e-7,
+            "negative": 0.000035265023774536744,
+            "roundoffBound": 2.954220422277181e-9
+          },
+          {
+            "id": "new-york::carrier/edge-6/cornice-7/part/2636/face/4",
+            "epsilon": 1e-7,
+            "sourceArea": 3.0636002041339907,
+            "lowerArea": 3.0635908761393185,
+            "upperArea": 3.063609532139862,
+            "candidateTriangleCells": 144,
+            "areaDiscardBound": 0.0001008,
+            "coordinateScale": 64.51000022888184,
+            "minCrossingDelta": 0.005287892429826968,
+            "positive": 0.0000058834446218399994,
+            "negative": 0.00008368598662787064,
+            "roundoffBound": 1.618916771752936e-8
+          },
+          {
+            "id": "new-york::carrier/edge-6/cornice-7/part/2636/face/5",
+            "epsilon": 1e-7,
+            "sourceArea": 0.2596492513656,
+            "lowerArea": 0.259648165251322,
+            "upperArea": 0.2596505411289769,
+            "candidateTriangleCells": 64,
+            "areaDiscardBound": 0.0000448,
+            "coordinateScale": 64.51000022888184,
+            "minCrossingDelta": 9.33330298380497e-7,
+            "positive": 8.146100089700159e-7,
+            "negative": 0.00003526542672976737,
+            "roundoffBound": 3.357173984776513e-9
+          }
+        ]
+      }
+    },
+    {
+      "id": "new-york::carrier/main-parapet-6/base",
+      "nativeQuantity": 5.333337626086099,
+      "sourceQuantity": 5.333333,
+      "sourceCount": 6,
+      "partitionError": {
+        "epsilon": 1e-7,
+        "positive": 0.00000936261073682617,
+        "negative": 0.0001595638087571821,
+        "roundoffBound": 3.08899882599255e-8,
+        "surfaces": [
+          {
+            "id": "new-york::carrier/main-parapet-6/base/part/4641/face/0",
+            "epsilon": 1e-7,
+            "sourceArea": 0.03999999910593033,
+            "lowerArea": 0.039999935105931014,
+            "upperArea": 0.04000006310592964,
+            "candidateTriangleCells": 4,
+            "areaDiscardBound": 0.0000028,
+            "coordinateScale": 60.125,
+            "minCrossingDelta": 0.25,
+            "positive": 2.61492303068646e-8,
+            "negative": 0.0000015574623008726044,
+            "roundoffBound": 2.906461125480015e-10
+          },
+          {
+            "id": "new-york::carrier/main-parapet-6/base/part/4641/face/1",
+            "epsilon": 1e-7,
+            "sourceArea": 0.03999999910593033,
+            "lowerArea": 0.039999935105931014,
+            "upperArea": 0.04000006310592964,
+            "candidateTriangleCells": 4,
+            "areaDiscardBound": 0.0000028,
+            "coordinateScale": 64,
+            "minCrossingDelta": 0.25,
+            "positive": 2.618789726739595e-8,
+            "negative": 0.0000015575009678331358,
+            "roundoffBound": 3.29313073079351e-10
+          },
+          {
+            "id": "new-york::carrier/main-parapet-6/base/part/4641/face/2",
+            "epsilon": 1e-7,
+            "sourceArea": 4,
+            "lowerArea": 3.9999904000050055,
+            "upperArea": 4.000009500005069,
+            "candidateTriangleCells": 128,
+            "areaDiscardBound": 0.0000896,
+            "coordinateScale": 64,
+            "minCrossingDelta": 0.007812493750002147,
+            "positive": 0.000003847516041929844,
+            "negative": 0.0000528899342678904,
+            "roundoffBound": 9.13036163518269e-9
+          },
+          {
+            "id": "new-york::carrier/main-parapet-6/base/part/4641/face/3",
+            "epsilon": 1e-7,
+            "sourceArea": 4,
+            "lowerArea": 3.999990400005005,
+            "upperArea": 4.000009500005069,
+            "candidateTriangleCells": 128,
+            "areaDiscardBound": 0.0000896,
+            "coordinateScale": 64,
+            "minCrossingDelta": 0.007812493750002147,
+            "positive": 0.000003847516039440535,
+            "negative": 0.00005288993426558052,
+            "roundoffBound": 9.130359145873268e-9
+          },
+          {
+            "id": "new-york::carrier/main-parapet-6/base/part/4641/face/4",
+            "epsilon": 1e-7,
+            "sourceArea": 2.559999942779541,
+            "lowerArea": 2.559997894779563,
+            "upperArea": 2.5600019267795195,
+            "candidateTriangleCells": 64,
+            "areaDiscardBound": 0.0000448,
+            "coordinateScale": 64,
+            "minCrossingDelta": 0.49999979999999766,
+            "positive": 8.076207637576296e-7,
+            "negative": 0.000025334488477262164,
+            "roundoffBound": 6.0046539634855085e-9
+          },
+          {
+            "id": "new-york::carrier/main-parapet-6/base/part/4641/face/5",
+            "epsilon": 1e-7,
+            "sourceArea": 2.559999942779541,
+            "lowerArea": 2.5599978947795625,
+            "upperArea": 2.5600019267795195,
+            "candidateTriangleCells": 64,
+            "areaDiscardBound": 0.0000448,
+            "coordinateScale": 64,
+            "minCrossingDelta": 0.49999979999999766,
+            "positive": 8.076207641239007e-7,
+            "negative": 0.00002533448847774327,
+            "roundoffBound": 6.00465432975668e-9
+          }
+        ]
+      }
+    },
+    {
+      "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01",
+      "nativeQuantity": 0.04011971844277104,
+      "sourceQuantity": 0.04011965567822286,
+      "sourceCount": 7,
+      "partitionError": {
+        "epsilon": 1e-7,
+        "positive": 1.3466125328142615e-7,
+        "negative": 0.00001069577353148313,
+        "roundoffBound": 1.6336932591691579e-9,
+        "surfaces": [
+          {
+            "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01/part/12858/face/0",
+            "epsilon": 1e-7,
+            "sourceArea": 0.030089741758667785,
+            "lowerArea": 0.030089665092006754,
+            "upperArea": 0.03008981842532886,
+            "candidateTriangleCells": 6,
+            "areaDiscardBound": 0.0000042,
+            "coordinateScale": 60.08,
+            "minCrossingDelta": 0.11384618282318115,
+            "positive": 1.821740305777488e-8,
+            "negative": 0.0000016023842688200287,
+            "roundoffBound": 2.524536442728298e-10
+          },
+          {
+            "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01/part/12858/face/1",
+            "epsilon": 1e-7,
+            "sourceArea": 0.030089741758667788,
+            "lowerArea": 0.030089665092006754,
+            "upperArea": 0.030089818425328863,
+            "candidateTriangleCells": 6,
+            "areaDiscardBound": 0.0000042,
+            "coordinateScale": 60.08,
+            "minCrossingDelta": 0.11384618282318115,
+            "positive": 1.821742197106446e-8,
+            "negative": 0.000001602384287734101,
+            "roundoffBound": 2.524725575624119e-10
+          },
+          {
+            "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01/part/12858/face/2",
+            "epsilon": 1e-7,
+            "sourceArea": 0.020715973374178114,
+            "lowerArea": 0.020715848798591445,
+            "upperArea": 0.020716097950128715,
+            "candidateTriangleCells": 8,
+            "areaDiscardBound": 0.0000056,
+            "coordinateScale": 60.03384618282318,
+            "minCrossingDelta": 0.05692294910385698,
+            "positive": 2.9503447641640636e-8,
+            "negative": 0.000002141725850060102,
+            "roundoffBound": 3.121326766886045e-10
+          },
+          {
+            "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01/part/12858/face/3",
+            "epsilon": 1e-7,
+            "sourceArea": 0.007384610748290312,
+            "lowerArea": 0.007384592286763226,
+            "upperArea": 0.007384629209817399,
+            "candidateTriangleCells": 4,
+            "areaDiscardBound": 0.0000028,
+            "coordinateScale": 60.08,
+            "minCrossingDelta": 0.1599999999999966,
+            "positive": 4.494297480472964e-9,
+            "negative": 0.0000010606055413287597,
+            "roundoffBound": 1.6829194474367754e-10
+          },
+          {
+            "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01/part/12858/face/4",
+            "epsilon": 1e-7,
+            "sourceArea": 0.03359999971389626,
+            "lowerArea": 0.03359991571389599,
+            "upperArea": 0.03360008371389653,
+            "candidateTriangleCells": 4,
+            "areaDiscardBound": 0.0000028,
+            "coordinateScale": 60.08,
+            "minCrossingDelta": 0.1599999999999966,
+            "positive": 1.9851654611080574e-8,
+            "negative": 0.0000010759628984593672,
+            "roundoffBound": 1.683172332140378e-10
+          },
+          {
+            "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01/part/12858/face/5",
+            "epsilon": 1e-7,
+            "sourceArea": 0.02559999999999891,
+            "lowerArea": 0.02559987200015741,
+            "upperArea": 0.025600128000160403,
+            "candidateTriangleCells": 8,
+            "areaDiscardBound": 0.0000056,
+            "coordinateScale": 60.08,
+            "minCrossingDelta": 0.07999979999999596,
+            "positive": 3.030631019220349e-8,
+            "negative": 0.000002142528722905295,
+            "roundoffBound": 3.126154886518129e-10
+          },
+          {
+            "id": "new-york::carrier/roof-saddle-native/main-parapet-6/bay-01/part/12858/face/6",
+            "epsilon": 1e-7,
+            "sourceArea": 0.02373333121594846,
+            "lowerArea": 0.023733271882619728,
+            "upperArea": 0.023733390549277193,
+            "candidateTriangleCells": 4,
+            "areaDiscardBound": 0.0000028,
+            "coordinateScale": 59.92,
+            "minCrossingDelta": 0.1599999999999966,
+            "positive": 1.4070718327189164e-8,
+            "negative": 0.000001070181962175476,
+            "roundoffBound": 1.674097140357836e-10
+          }
+        ]
+      }
+    },
+    {
+      "id": "new-york::carrier/main/5/cell-4-1/1",
+      "nativeQuantity": 2.0000007051926145,
+      "sourceQuantity": 2,
+      "sourceCount": 1,
+      "partitionError": {
+        "epsilon": 1e-7,
+        "positive": 0.0000016021640082178225,
+        "negative": 0.000012002163057223785,
+        "roundoffBound": 2.163676437173736e-9,
+        "surfaces": [
+          {
+            "id": "new-york::carrier/main/5/cell-4-1/1/part/9178/plane",
+            "epsilon": 1e-7,
+            "sourceArea": 2,
+            "lowerArea": 1.9999976000006192,
+            "upperArea": 2.000001600000332,
+            "candidateTriangleCells": 12,
+            "areaDiscardBound": 0.0000084,
+            "coordinateScale": 64,
+            "minCrossingDelta": 3.288818390956294e-7,
+            "positive": 0.0000016021640082178225,
+            "negative": 0.000012002163057223785,
+            "roundoffBound": 2.163676437173736e-9
+          }
+        ]
+      }
+    },
+    {
+      "id": "new-york::carrier/main/6/cell-4-8/1",
+      "nativeQuantity": 2.0000007051926145,
+      "sourceQuantity": 2,
+      "sourceCount": 1,
+      "partitionError": {
+        "epsilon": 1e-7,
+        "positive": 0.0000016019054663486856,
+        "negative": 0.000012001904515576692,
+        "roundoffBound": 1.9051345680368344e-9,
+        "surfaces": [
+          {
+            "id": "new-york::carrier/main/6/cell-4-8/1/part/9279/plane",
+            "epsilon": 1e-7,
+            "sourceArea": 2,
+            "lowerArea": 1.999997600000619,
+            "upperArea": 2.000001600000332,
+            "candidateTriangleCells": 12,
+            "areaDiscardBound": 0.0000084,
+            "coordinateScale": 60,
+            "minCrossingDelta": 4.0000000467443897e-7,
+            "positive": 0.0000016019054663486856,
+            "negative": 0.000012001904515576692,
+            "roundoffBound": 1.9051345680368344e-9
+          }
+        ]
+      }
+    }
+  ],
+  "wholeOutput": {
+    "records": 646,
+    "thermalTriangles": 1844,
+    "physicalTriangles": 1988,
+    "bound": {
+      "recordUpper": 710,
+      "thermalTriangleUpper": 9968,
+      "physicalTriangleUpper": 11144
+    }
+  }
+}
