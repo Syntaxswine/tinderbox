@@ -140,3 +140,28 @@ Clean up before handing off numeric/profile/image evidence. No optimization,
 comparison rerun, New York native run, source regeneration, Pages or production
 promotion is granted here. Return exact tool/source hashes, raw data and closed
 helper receipts; report failures without blind retries.
+
+### Corrected launch environment
+
+The first invocation failed before a game page or timing sample. Edge's fresh
+Playwright profile was created in Codex AppContainer Temp and reported file
+access errors. Browser 22264 and driver 25724 are subsequently verified absent;
+port 63784 is released. Preserve the original failure and cleanup records.
+Playwright chooses its profile path from the Node driver's temporary directory,
+so a browser-only environment override would not fix this failure.
+
+Authorize one launch-only probe with a real 45-second deadline, one isolated
+browser/context, workspace-owned temporary/profile storage set before Node
+starts, and recorded WebGL2/timer-query/hardware capability plus full cleanup.
+Use process-scoped environment settings; do not change global browser settings,
+user profiles, shared browsers or unrelated processes. An approved escalated
+helper command is allowed if needed to launch the task-owned browser outside
+the application sandbox. Never disable the app's security controls.
+
+If that probe succeeds and closes, authorize one corrected baseline invocation
+under the original ten-minute/three-sequential-context bounds. Use a fresh
+attempt marker/output directory, the exact already archived reference package
+and inputs, and the same measurement policy. No second build or reference
+regeneration, optimization or unchanged-environment retry. Helper-only attempt
+naming and scoped launcher changes are allowed. A failed probe or corrected
+invocation stops for diagnosis, preserving evidence without blind retries.
