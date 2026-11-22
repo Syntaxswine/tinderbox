@@ -543,3 +543,117 @@ architect to assign to a runtime worker; no runtime producer edits yet. Focused
 source controls and a separate reversible patch are authorized; no renderer,
 build, optimization commit or actual-native run. Preserve the two held artist
 candidates independently. The root target and quality remain unchanged.
+
+### Accepted material source and combined source preparation
+
+Architect accepts UI's frozen material-family source controls (11 pass) and
+reviewed public-API/lifecycle path. Helper LF SHA is
+`282cffdeffe8fb8a8d23c5bd5435f1aa44ea31107eb9e3e75e46320567947af9`.
+It accepts an explicit render-mesh list; family creation follows batching and
+family disposal precedes batch disposal. This is source acceptance, not a
+performance or production acceptance.
+
+After the independent body-batch controls pass, coder may copy the exact reviewed
+UI helper/tests into its own checkout and reconcile only the character hooks
+with the batching candidate. Do not overwrite owned work wholesale or edit UI's
+checkout. Preserve the native logical bodyBinding, original visibility semantics,
+pose/attachments/shroud and authored overrides. Point families target the actual
+render set. Unknown/fallback paths retain previous behavior. Run meaningful
+coupled source controls; record exact combined hashes and patch separately from
+the held occupancy candidate and other artist experiments. No renderer, build
+or optimization commit until architect reviews the combined handoff.
+
+### Private receipt producer and injection
+
+Architect accepts UI's read-only boundary proposal. Authorize that existing
+worker to implement the minimal private native render-packet authority and
+injection, independently of its frozen material-family files. Capture the
+consuming native frame once, after immediate host overlays and owner assignment;
+derive owned immutable private packets and detached public DTOs without freezing
+live source/public rows or replaying deltas. Preserve public
+`structureFire === catalogueModules.fireSamples` for firelight recognition.
+
+Use closed factory membership and fail closed for public/copied/forged/proxied/
+stale frames, unknown providers and unknown/stateful samplers. A conservative
+physical mutation serial with separate owner tokens is sufficient initially.
+Cover all actual native/host mutations and lifecycle transitions in the reviewed
+artist receipt contract; keep actor/lantern metadata and animation time live.
+Certify the actual constant [1.5,0,0] sampler only with its owned immutable bounds
+descriptor. Keep the private channel in runtime construction/art-only context;
+do not expose private packets through public callbacks/snapshot return values.
+
+All packet construction, cloning, freezing and receipt preparation must remain
+inside the measured publication/art phases; a new unmeasured inter-phase cost
+cannot be omitted from the primary sum. Reuse one private payload without a
+per-row hit-validation scan. Preserve the existing source/hook semantics.
+
+Authorize finite focused source controls on small fixtures for immediate
+between-native door/deposit/barrel/retirement/registration changes, native and
+reset/generation/disposal invalidation, once-only deltas/events, detached public
+mutation/alias negatives, cross-owner proof, unknown fallbacks and measured-phase
+coverage. No actual full-map/NY diagnostic, build, renderer or optimization commit.
+Artist owns the consumer; UI owns this presentation-only producer/bridge source.
+Reconcile the agreed API through architect handoff, never another worker checkout.
+
+### Combined character candidate: first cost comparison
+
+Architect reviewed the combined native batching/shadow bridge and 42 passing
+controls, independently verified nine raw/LF source pins, exact diff and protected
+WIP, and accepts its six runtime files for a cost experiment. The helper remains
+the frozen UI bytes. The bridge recognizes only overrides observed through that
+helper; logical source overrides stay separate, and families release before batch
+fallback/disposal. Seven static parts merge; mutable forearms/uniforms/equipment
+remain separate. Added copied CPU buffers are 511,264/514,848/521,600 bytes for
+goat/horse/bear; actual GPU/resources and images remain unaccepted.
+
+Authorize coder's reviewed `character-combined-source-01/packaging-performance-plan.json`:
+copy the immutable firelit package and overlay only its six listed LF runtime
+files (four replacements, two additions; 3,678 files). Verify exact hashes,
+inventory, import closure and six-code-file delta. No ordinary build, source
+regeneration, held occupancy/artist experiment, tests or diagnostic renderer
+overlay. Preserve dist and the reference.
+
+Then one <=600-second ABBA invocation, four sequential contexts, maximum one
+live renderer, unchanged 309 commands/current prefix and 120 all-displayed dense
+rows per lane. Use existing CPU/GPU/endpoint/input tools with only necessary
+allowlist/count-rule glue. Do not capture/profile or retain full snapshot
+histories in timing lanes. All source-test children must be closed; other workers
+defer CPU test runs until this comparison closes.
+
+Physics/events/player/fire-source/settings/camera/zoom and endpoint must match;
+report actual submitted draws/triangles separately because batching intentionally
+changes draw structure. Preserve logical authored content and explain every count
+delta. Keep frame-sum mean/p95, native/between subsets, raw outliers, actual
+non-disjoint GPU and full-frame CPU. Report reference drift, both pairs and the
+fixed/paired half-target without replacing its denominator. No automatic retry.
+Stop on failure, preserve receipts and close/verify all helpers and ports.
+
+This run measures whether a larger step is useful. The final half-target and
+appearance gates remain. No optimization commit/promotion yet; matched normal-
+zoom shadows/paint/fire and mature body-shroud review follow the actual result
+under a separate finite grant.
+
+Artist's subsequent read-only hostile source review identifies a P2: batching
+does not reject or invalidate a non-default `material.onBeforeRender` callback,
+which may depend on the individual rendered native object. The frozen benchmark
+uses default native callbacks and should finish unchanged, preserving its exact
+source/package/results. After cleanup, coder must add admission/fallback guards
+and object-dependent/in-place callback regressions. That correction is a new
+source candidate; it cannot silently replace measured bytes or be committed
+without review. No unchanged or automatic timing retry is authorized.
+
+The B0 comparison is closed: all four context/source/workload/endpoint controls
+pass, but CPU improvement is inconsistent and the final reference mean drifts
+upward 40.1%. The half-target is unmet; GPU is lower in both pairs, with weaker-
+pair mean/p95 reductions of 18.6%/16.6%. Retain the exact B0 evidence as research,
+not production acceptance. Source-test deferral is lifted after cleanup.
+
+Architect also reviews and accepts the artist's optional receipt consumer for
+coupled source testing (42 controls): helper LF
+`6d7a4cc65b6e11146afd08838b47cc82dc794b4ba7146bf25dbbf77326f77b0d`,
+thermal art `32511db39c0d954d9fb213ec7423fef44f7978bea104c71b3eab76f2854bd197`,
+module art `17efd69d735191603712d27f7c1e45d26fced221db490e84df258e33d0b30cda`.
+UI may copy only those three runtime files and new consumer tests into its own
+checkout and wire the agreed producer/bridge. Preserve independent patches and
+verify exact pins; exclude artist packing/classification. Focused coupled
+source controls on small fixtures are authorized; no build/renderer/commit yet.

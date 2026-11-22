@@ -149,5 +149,46 @@ reuse from native publication receipts. All are source-stage candidates pending
 review, actual CPU/GPU measurement and appearance acceptance. No optimization
 has been promoted, and the half-target is still unmet.
 
+## Combined character B0 cost result
+
+Independent source controls pass 42/42. Normal native bodies merge seven static
+parts into one render mesh, keeping the mutable support arm separate; patrol
+clothing/equipment stay separate. Original logical geometry/skin/paint/shroud
+readers remain. A private bridge recognizes the frozen point-shadow helper's
+render-only overrides and releases leases before batch retirement. Added copied
+CPU buffers are about 0.51–0.52 MB per body, with no new texture or skeleton.
+
+The exact six-file candidate package has 3,678 files and a checked 213-file
+import closure. Its ABBA retains all 120 dense rows per lane. Architect
+independently recalculated phase sums/GPU queries, verified state/workload fields
+and evidence hashes, and checked the intentional -20 main-view draws/+5 geometry
+delta per candidate frame. Submitted main-view triangles and textures match.
+
+| Lane | Visual CPU mean / p95, ms | GPU mean / p95, ms |
+| --- | ---: | ---: |
+| Reference A1 | 15.846 / 19.500 | 9.394 / 12.289 |
+| Candidate B2 | 15.893 / 20.900 | 7.649 / 10.246 |
+| Candidate B3 | 14.564 / 18.100 | 7.376 / 9.866 |
+| Reference A4 | 22.202 / 31.200 | 12.455 / 16.379 |
+
+The first CPU pair is effectively unchanged in mean and 7.2% worse at p95; the
+other improves with a 40.1% upward reference mean drift. GPU improves in both
+pairs, with the weaker mean/p95 reductions 18.6%/16.6%. Neither half-target
+passes. Hold B0 as research; no CPU-halving, precise overall gain, pixel
+acceptance or promotion is established. Four contexts and all task helpers
+closed; raw evidence is in coder QA `character-combined-abba-01`.
+
+The artist's hostile source review found a P2 callback gap: admission/update
+omitted `material.onBeforeRender`, which can depend on individual native object
+identity. Default native callbacks in B0 are unaffected, but authored callbacks
+need exclusion/invalidation. Coder is preparing the correction and regressions
+as new bytes; B0 remains immutable and cannot stand in for that candidate.
+
+The separate optional owner-batch consumer passes 42 source controls. Architect
+reviewed its fixed-size receipt/presentation key, complete-batch bypass and live
+outside-gate occlusion/lighting. UI is coupling it with a private immutable
+render-packet producer while preserving public snapshots and existing geometry
+proofs. This remains source-stage work; no real-game saving is established.
+
 Master and Pages remain unchanged. M29's separate clocked/rendered-map gates
 and all other unpromoted work are outside this performance pass.
