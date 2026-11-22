@@ -165,3 +165,28 @@ and inputs, and the same measurement policy. No second build or reference
 regeneration, optimization or unchanged-environment retry. Helper-only attempt
 naming and scoped launcher changes are allowed. A failed probe or corrected
 invocation stops for diagnosis, preserving evidence without blind retries.
+
+### Corrected displayed-frame collection
+
+The isolated launch probe passed: Edge, WebGL2 and non-disjoint timer queries
+on RTX 3080, followed by complete cleanup. Attempt 02 then stopped before the
+timed sequence at `M30_FRAME_HOOK_MISSING`. Saved evidence actually contains a
+successful publication callback and displayed-frame callback with no runtime
+errors. The guard wrongly compared one host frame with 21 renderer calls: 20
+were offscreen character paint baking during initialization. No core forwarding
+fix or different reference build is justified by this diagnosis.
+
+The actual title/menu/application/custom-visit/runtime/simulation facade control
+now reproduces the 21-versus-one case with mock graphics and verifies both hooks
+before readiness. Authorize the minimal collector correction: identify the
+passed host scene, count/query its displayed renders and retain every frame
+callback, while recording offscreen preparation renders separately. Assert that
+no unaccounted preparation render occurs inside a scored window; report and
+stop if that assumption fails. Do not silently exclude in-window visual work.
+
+After focused checks pass, authorize one further baseline invocation in fresh
+attempt 03, with the same archived package, inputs, proved launch environment,
+ten-minute deadline and three sequential contexts / one live renderer. No new
+build, package modification, core/runtime/art optimization, source regeneration
+or further automatic retry. Preserve both prior attempts and all cleanup and
+diagnostic evidence. Freeze performance budgets only after a valid baseline.
