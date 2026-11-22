@@ -190,3 +190,54 @@ ten-minute deadline and three sequential contexts / one live renderer. No new
 build, package modification, core/runtime/art optimization, source regeneration
 or further automatic retry. Preserve both prior attempts and all cleanup and
 diagnostic evidence. Freeze performance budgets only after a valid baseline.
+
+### Complete the retained baseline evidence
+
+Attempt 03 correctly collected 1,621 host frames, 20 startup preparation renders
+and no preparation renders in scored windows. It completed the prefix but
+stopped at an overly strict body validator: historical M27 itself has only five
+active-contact rows of 24, and current data has four (ticks 77–80). All 24 current
+rows move 0.5175 m, at elevation zero. This does not establish a navigation
+defect or justify changing fire rules. The first abort saver omitted the GPU
+query map; CPU data survives. Context/browser/driver and ports 61612/61613 close.
+
+Architect independent calculation confirms primary dense all-frame visual CPU
+**14.439166688919068 ms mean / 17.40000009536743 ms p95**, across 120 rows.
+Raw `scalar-aborted.json` SHA-256 is
+`5a145300f551d908f04518530685f3e90415ccec6b36857ee89975cbeb0756a9`.
+Keep this first valid primary CPU observation. Do not replace it with a more
+favorable completion-run number. If CPU is the selected bottleneck, its fixed
+half budgets are 7.219583344459534 / 8.700000047683716 ms, also requiring a
+fresh paired ratio <=0.5. GPU/profile/appearance are still unestablished.
+
+Read-only artist review confirms `characterFire.active` is actual direct
+contact or a timed burn, with no independent shroud tail. Four active frames
+can show onset without mature cloth opacity. Correct the scalar validator to
+require actual moving/active overlap and report its duration, not continuous
+contact over the entire mixed contact/exit window. Preserve the exact 309
+commands and every primary scalar row. Add controls that reject zero overlap,
+no movement or invalid clocks. Do not call this short overlap sustained footage.
+
+After those focused checks, authorize one completion invocation, attempt 04,
+using the same immutable package and scoped-temp environment. Original
+ten-minute deadline, three sequential contexts and one live renderer remain.
+The scalar context fills missing GPU/control evidence; its additional CPU rows
+are disclosed consistency data, not a replacement denominator. Save complete
+GPU query results even on abort. Then complete the separate sampled profile
+and untimed appearance phases. No new build or runtime/art/thermal changes.
+
+In the untimed appearance context only, add a separate genuine oil-trail body
+control after the unchanged prefix. Reuse the established production recipe:
+jerry-can pouring, match ignition, bounded wait for continuous contact age
+above 0.4 seconds, then slow accepted movement back through the burning strip
+for 60 host steps at 1/60. Record/freeze every command for later paired replay;
+allow at most 240 additional host steps including setup. No injected burn,
+health or fuel state. Require movement, positive shroud flame/smoke splats,
+correct player ID and no missing/invalid/hidden/capped body or legacy actor
+cards. Save normal-zoom moving clip and start/middle/end frames, with natural
+clearing after exit if reached within the bound. Failure remains an explicit
+appearance gate; it need not discard valid primary scalar/profile results.
+
+Stop and preserve any new failure; no automatic retry, core rule tuning or
+Pages action. The measured limiting-resource choice is finalized after the
+completion evidence, before any optimization is enabled.
