@@ -192,3 +192,28 @@ proofs. This remains source-stage work; no real-game saving is established.
 
 Master and Pages remain unchanged. M29's separate clocked/rendered-map gates
 and all other unpromoted work are outside this performance pass.
+
+The corrected B1 character source passes its callback controls. Combined with
+the optional private receipt producer/consumer, the fourteen-file candidate
+passes source and saved actual normal-zoom quality review. Its qualification
+ends with a preserved signed-zero command-assertion failure; independent
+offline review confirms all serialized commands, physical rows and endpoint,
+and accepts the saved quality/eligibility evidence for cost testing only.
+
+The subsequent cost run stops at the browser helper's intentional safety
+deadline during lane three. Only one complete pair is available:
+
+| Lane | Visual CPU mean / p95, ms | GPU mean / p95, ms |
+| --- | ---: | ---: |
+| Reference A1 | 53.183 / 78.600 | 23.947 / 31.288 |
+| Candidate B2 | 104.124 / 183.500 | 22.416 / 25.346 |
+
+This is a regression, not a completed ABBA or accepted optimization. New
+publication copying outweighs the saved art/submission work. Root checks all
+120 dense rows, 1,621 physical rows and 31 evidence hashes independently.
+No second pair or reference-drift figure is available. All three contexts,
+driver/browser and ports close; there are no retained helpers. Exact records
+are coder QA `character-receipt-abba-01` and root QA
+`character-receipt-partial-root-audit.json`. The next source-only experiment
+targets unnecessary copying of already immutable native bounds. Original
+half-cost targets and all appearance/physics gates remain unchanged.

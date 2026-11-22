@@ -657,3 +657,147 @@ UI may copy only those three runtime files and new consumer tests into its own
 checkout and wire the agreed producer/bridge. Preserve independent patches and
 verify exact pins; exclude artist packing/classification. Focused coupled
 source controls on small fixtures are authorized; no build/renderer/commit yet.
+
+### Receipt source accepted for B1 integration
+
+UI's final producer/consumer handoff passes 41 controls. Architect inspects the
+closed-source registration, selective immutable/private and mutable/public
+projections, native/host invalidations, once-only frame consumption, constant
+sampler ownership, public firelight path and measured phase coverage; independent
+raw/LF/patch audit passes. Producer-only patch SHA is
+`4f41e7ce8a780898a1f7ded2c2d139d3dd4b6c4f6458306510f287f6a8499f51`;
+eight runtime files and fixtures/tests are explicitly listed in UI QA
+`prepared-batch-source/handoff.json`. Material and artist consumer pins remain
+unchanged. Source controls establish behavior, not a saving.
+
+Coder's B1 callback correction passes 44 controls plus two focused checks;
+body-helper LF SHA is
+`15adcb734441d6b0dda093d7495d2504a8e7ed16f8573ce814aa2a51b4d57e4e`.
+Architect reviews the actual admission/update guards and accepts B1 for combined
+source integration, without reusing B0's measured bytes as its result.
+
+Authorize coder to copy only UI's eight accepted producer/consumer runtime files
+and fixture/tests into its own checkout, verifying the final handoff's raw/LF
+pins. Reconcile with the six B1 character files (14 runtime files total). Keep
+the coder's B1 character hooks/tests; do not import UI's older material-only
+character wiring or any held occupancy, packing/classification or unrelated WIP.
+Preserve independent patches and all prior package/row records.
+
+Run meaningful coupled source controls for real default-runtime private routing,
+positive owner/wind eligibility, native/between-host reuse, public mutation/
+firelight/geometry contracts, material callback fallback, native poses/shroud,
+and reset/disposal. Include measurement phase coverage. No full-map/NY diagnostic,
+ordinary build, renderer, optimization commit or performance assertion yet.
+Deliver exact combined pins/diff and the narrow reference-package overlay plan.
+
+### Fourteen-file actual-path qualification
+
+Coder's integrated source handoff `character-receipt-source-01` is accepted after
+root raw/LF/diff audit. There are 91 distinct passing controls: 90 retained
+passes on unchanged source, plus the corrected new coupled control separately;
+do not call it one clean 91-test run. The coupled test uses exact frozen native
+modules at their original URLs, actual structure consumer/native goat and
+seven presentations/three receipt hits; callback fallback, public isolation,
+native invalidation, reset, phase coverage and disposal pass. Fixture-only
+material/metadata mistakes are preserved. Runtime source is unchanged beyond
+the accepted component copies.
+
+Authorize one fresh QA package copied from the immutable firelit reference with
+only the 14 listed LF files in `packaging-comparison-plan.json`: ten replacements,
+four additions, 3,680 files. Verify every hash, exact delta/import closure and
+unchanged reference/dist/B0; exclude all tests/load hooks/held experiments/WIP.
+No ordinary build or map source regeneration.
+
+Before cost scoring, authorize **one <=600-second candidate-only untimed actual
+qualification**, one context/renderer. Use the existing workspace-temp launcher,
+309 genuine commands/current prefix through 1620, normal camera/zoom/resolution
+and all visual channels. Require exact physical/input/event/source/endpoint
+proofs, actual positive owner/wind eligibility and real between-native reuse
+diagnostics in the settled dense window. Initial camera motion may legitimately
+prevent early reuse. Require positive shared firelight and active body batching
+without missing/invalid/hidden/legacy body effects. Keep bounded scalar records
+and only the current snapshot, no full history or profiler; make no speed claim.
+
+Capture matched quiet/dense JPGs and run the already accepted genuine mature-
+body recipe (95 commands, 112 baseline steps, <=240 extra-step hard cap) for
+moving 60-frame shroud start/middle/end and clip/natural clearing. Compare to
+the immutable corrected-firelit reference media/data rather than rerunning that
+reference. No injected heat/health/fuel/burn or new scenario. Include leases/
+resources/reset/disposal, source/import proofs and helper/port cleanup receipts.
+Stop on failure; no automatic retry or new cost invocation. Architect reviews
+actual quality/eligibility before granting ABBA for these bytes. No commit or
+promotion is established by source or this qualification alone.
+
+### Saved qualification review and fourteen-file cost grant
+
+The actual qualification finishes the frozen prefix and mature captures, then
+its original JS command assertion fails at command 95/host 1732: final stop
+`y:-0` versus persisted JSON `0`. Preserve the failed invocation and its original
+exit code; do not rerun or relabel it. Independent root offline audit confirms
+all 95 serialized commands/canonical hash and 112 complete body physical rows
+match the accepted reference, as do all 1,621 prefix proof rows and endpoint.
+The sole documented signed-zero stop has zero magnitude and unchanged observed
+behavior. Reference/actual media remain immutable.
+
+Root reviews the matched normal-zoom dense fire and mature start/middle/end:
+no visible loss of fire, street/wall illumination, paint, body or shroud. All
+60 dense between-native frames reuse all nine owners (540 reuse hits); owned
+wind eligibility, active batching and six shared firelights are confirmed.
+Mature control has 60 moving/burning frames, 112 steps, 0.09 m travel and natural
+clearing. One context, driver/browser/GL and shadow leases close, ports
+61063–61064 released. Root accepts saved actual quality/eligibility **for cost
+testing only**, alongside the preserved harness failure; no performance claim.
+
+Authorize coder to reverify/reuse that exact immutable qualified 3,680-file
+candidate and unchanged reference/dist, then **one <=600-second ABBA cost run**,
+four sequential contexts, maximum one renderer. Reuse the existing character
+comparison driver with only the 14-file pins/allowlist and essential report
+glue. No new build, package-source edits, diagnostic Three or qualification
+per-frame diagnostic wrapper. Keep all packet capture/freezing/public copying
+inside the measured publication/art sum. No screenshots/profiles/full histories
+in timed lanes; all source-test children remain closed during measurement.
+
+Same 309 inputs/current prefix/normal settings and 120 all-displayed dense rows
+per lane; retain every outlier, native/between subsets, CPU phases/full frame,
+actual non-disjoint GPU, logical geometry versus explained submitted-count
+changes, source/input/endpoint and cleanup proofs. Preserve original fixed
+8.280/10.500-ms budgets, both fresh paired ratios <=0.5 and GPU guard. Report
+reference drift and actual observations without replacing the denominator.
+Stop on failure; no automatic retry or promotion/commit before architect review.
+
+### Fourteen-file cost result and immutable-bounds experiment
+
+The cost invocation `character-receipt-abba-01` completes only its first
+reference/candidate pair. The browser helper deliberately closes at its own
+safety deadline, `2026-11-22T18:00:34.059Z`, during lane three; lane four never
+starts. This is not evidence of a browser crash. Preserve the original failed
+invocation and incomplete lanes; no unchanged retry is authorized.
+
+Root independently recalculates all 120 dense rows, both CPU sums and actual
+GPU query results, checks all 1,621 physical rows, endpoint and 31 evidence
+hashes. Reference/candidate visual CPU is 53.183/104.124 ms mean and
+78.600/183.500 ms p95. Publication increases by 59.783 ms mean, outweighing
+5.580 ms less art work and 3.262 ms less submission work. The CPU mean/p95
+ratios are 1.958/2.335; GPU ratios are 0.936/0.810. This candidate fails the
+half-cost goal. Reference drift and the second pair cannot be measured from
+this incomplete invocation. Do not replace the original fixed budget with
+these slower timings or claim a completed ABBA comparison.
+
+Three contexts close, driver/browser exit and ports 53274–53275 release. The
+first two lanes record lost GL contexts and zero remaining logical bytes;
+the third page's ledger is unavailable after its deadline. No retained helper
+or invented zero-byte ledger. Root evidence is
+`artifacts/qa/visual-half-cost-2026-11-22/character-receipt-partial-root-audit.json`.
+
+Assign the existing coder a source-only follow-up: cached deeply frozen native
+occupancy bounds currently lack a factory proof, so both receipt copiers clone
+their objects and coordinate arrays repeatedly. Add a separate narrowly owned
+bounds factory and share only its proven immutable objects, preserving the
+numeric-array geometry proof's existing semantics. Preserve and archive the
+rejected occupancy experiment before restoring only its active native files
+to the accepted reference; do not silently combine it with this experiment.
+The source-test loader must exercise the newly changed native source rather
+than overriding it. Require alias isolation, mutation/reset/grid controls,
+forgery/proxy/unknown fallback, mutable public-row separation, real native proof
+retention and measured operation counts. No new build, renderer, timing run,
+optimization commit or promotion until source review.
