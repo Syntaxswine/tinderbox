@@ -321,3 +321,38 @@ immutability does not prove source placement/routing/membership across native
 ticks. Existing reuse already covers the provable path. Coder now investigates
 native geometry creation ownership; UI investigates safe posed-character frustum
 culling. Both are read-only proposals, with no new actual invocation authorized.
+
+C20 moves canonical geometry certification to its owning constructor and passes
+119 source controls plus independent review. Its actual screen proves 75,954
+authoritative dense lookups with zero repeated shape/descriptor/coordinate/copy
+increments. Ordered endpoint files and all 1,621 physical rows still match.
+Startup construction records 1,695.2 ms separately; reset's 1,688.9 ms is charged
+once to its host frame, with no dense birth/charge increment. Root verifies 43
+evidence hashes, geometry/public isolation, six firelights, the saved JPG and
+complete cleanup.
+
+| Lane | Visual CPU mean / p95, ms | GPU mean / p95, ms |
+| --- | ---: | ---: |
+| Reference | 14.380 / 18.200 | 8.240 / 9.979 |
+| Construction-owned geometry | 17.922 / 30.500 | 9.137 / 12.725 |
+
+Both half targets fail. Publication mean is 3.833 versus 7.725 ms. GPU ratios
+1.109/1.275 flag the guard in this single pair. The candidate remains unpromoted;
+preserve coder `publication-native-construction-screen-01` and root
+`native-construction-screen-root-audit.json`.
+
+The subsequent exact-C20 attribution-only profile completes 120 dense intervals.
+Root independently checks its 7,597 samples, phase groups, 43 evidence hashes,
+physical/render rows, endpoint and cleanup. Of 988.900 sampled publication ms,
+native frame work is 270.661, private capture/build 266.998 and public projection
+137.565, with GC 24.859; other disjoint groups account for the remainder. These
+groups include DTO/routing work, not just cloning. Resolved `structuredClone`
+self is 20.236 ms; native work may remain pooled in caller self. Nested costs
+must not be added. Evidence is coder `publication-native-construction-profile-01`
+and root `native-construction-profile-root-audit.json`; it is not speed evidence.
+
+C21's conservative character/uniform culling passes 15 source checks, but final
+peer clearance is withheld for an unguarded bone-palette texture layout change.
+The UI specialist is correcting that source issue before any renderer trial.
+Coder is preparing a read-only remaining-publication proposal from actual hot
+rows. No optimization code, master or Pages promotion has occurred.

@@ -8,14 +8,15 @@ denominator. New York's accepted internal coupled checkpoint stays preserved;
 this task does not renew its actual-source/compiler allowances or enable it.
 
 Current status: the half-cost target is **unmet** and no optimization code is
-promoted. The latest C19 geometry/startup screen passes both complete ordered
-endpoint digests and all 1,621 physical rows. Source and focus correction pass
-93 controls and independent review. CPU nevertheless regresses to 20.234/35.100
-ms mean/p95 versus reference 15.998/20.100; publication remains too expensive.
-The candidate is rejected for promotion, with all evidence preserved and helpers
-closed. Current work is read-only proposals for authoritative native geometry
-creation proof and conservative character culling. No new implementation or
-actual invocation is granted. Historical first-phase restrictions below are
+promoted. The latest C20 construction-owned geometry screen passes complete
+ordered endpoint equality and 1,621 physical rows, with 119 source controls and
+independent review. CPU nevertheless regresses to 17.922/30.500 ms mean/p95 versus
+reference 14.380/18.200; publication remains too expensive. The single pair also
+flags the GPU guard. Preserve its rejected screen and closed helpers. Current
+work is a read-only remaining-publication proposal after C20's completed profile.
+C21 culling has 15 passing controls but is correcting the peer-found bone-texture
+layout guard; its actual invocation remains held. No new actual grant is active.
+Historical restrictions are
 superseded only by later explicit grants.
 
 ## Work and ownership
@@ -1256,3 +1257,133 @@ guessed envelopes, lost off-camera shadows or altered shrouds. Require actual
 rig/pose/attachment ownership and fallback for unknown/modified rigs. No edits,
 tests, helpers, build, actual render/profile or timing grant accompanies either
 proposal. Artist remains idle after its empty-diff finding.
+
+Coder's creation/writer audit identifies the seam immediately before canonical
+boundary construction in `compileScene`. Clipping may retain caller-owned
+vertices; adoption is unsafe. Authorize a small **source-only** closed-runtime
+opt-in that first makes detached factory-certified numeric triangles and derives
+dependent geometry from those same values. Defaults/direct trial/provider APIs,
+custom callbacks, regional data, unknown replacements and query-only falling
+bodies retain mutable fallback. Whole-source activation may explicitly propagate
+the opt-in only through the same owning constructor. Keep all ordinary in-place
+mutation controls and exact ordered numeric/consumer equivalence. Count copies
+moved to construction as work, not removed work. Startup is separate; birth
+certification during measured host frames must remain charged to the primary
+visual sum rather than moved outside its interval. Require focused controls,
+operation census, exact pins/diff and a measured-work plan for review before
+any new actual invocation. No build, actual render/profile, commit or push.
+
+UI's culling audit supports a separate source-only candidate: per-bone bind-space
+boxes over factory-owned body-batch and uniform geometry, transformed after final
+pose and enclosed conservatively for Three's own color/shadow frustum tests.
+Account for actual weight sums and outward rounding; unsafe transforms/materials,
+changed bindings/attributes/versions and unknown rigs retain uncullable fallback.
+Preserve logical visibility and shroud parts; mutable support arms and other
+equipment/effects stay on existing paths. Admission requires actual stock
+creation registration and a stated read-only vertex-buffer/known-writer contract;
+identity/version or a WeakMap alone does not prove arbitrary mutable buffers.
+Do not claim safety for unmarked external mutations or create a general ownership
+framework. The officer's uniform matters: four visible batches plus 22 uniform
+meshes give 26 eligible of 30 current skinned meshes per effective shadow view.
+The inferred draw ceiling is not measured savings.
+
+Authorize UI a small helper, factory/final-pose hooks and focused controls in its
+own worktree. Require test-only exhaustive posed-vertex enclosure for all species,
+tools/aim/elevation, weight/malformed negatives, six shadow faces and off-camera
+casters, retirement/disposal and shroud/equipment continuity. Count construction
+vertex reads and per-frame box work; bound updates stay inside existing visual
+CPU phases. Return exact pins/diff and work plan for independent review. No
+actual render/profile, build, commit or push is authorized yet.
+
+C20's final source passes 119 controls, root pin/collector/accounting audit and
+independent artist review. The artist verifies 44 pin records/35 unique files,
+13 unchanged C19 runtime files and 31 evidence hashes. Pins manifest is
+`10fa62c8e9a990ad3416f67b9ee8b682caad3f1401d0a7b16ae3900abdefa8ca`.
+Authorize exact package preparation only: immutable C19 plus five LF overlays,
+3,681 files, 18 reference deltas and 219 imports. Preserve previous packages/WIP.
+Actual launch waits for a separately granted quiet window after UI closes its
+source-test helpers. No ordinary build, actual invocation, profile, retry,
+optimization commit or promotion follows from source clearance.
+
+UI subsequently freezes C21 at 15 passing source controls and closes three test
+children. Paint-factory registration is in the new Tinderbox helper and actor
+loader hooks; donor files and the 17 earlier UI pins remain unchanged. C21 stays
+out of C20's package and awaits independent final review.
+
+With UI and artist idle, authorize one C20-only <=600-second reference/candidate
+screen after exact package verification. Preserve the measured-work plan,
+unchanged collector, frozen inputs/camera/effects, original CPU half budgets and
+GPU guard. Read existing publication and new detached geometry counters only
+outside the dense window; prove actual construction/authoritative sharing and
+separate startup/charged work/unproved fallback. Save every row/outlier and one
+final ordered endpoint DTO per lane before its unchanged hash assertion. Verify
+source/import/physical proofs, then dense JPG, triangle/bounds membership and
+public isolation after timing. No profile, extra scenario, retry, build, source
+change during execution, optimization commit or promotion. Close and verify all
+helpers, GL and ports. Root avoids CPU-heavy work during this quiet window.
+
+### C20 screen and C21 review finding
+
+Root verifies the C20 screen's identical ordered endpoint files, 1,621 physical
+rows, intentional prior body count deltas, six positive firelights, public/geometry
+isolation, 43 evidence hashes and cleanup. Dense mean/p95 CPU is 14.380/18.200 ms
+reference versus 17.922/30.500 candidate. Publication mean is 3.833 versus 7.725.
+GPU is 8.240/9.979 versus 9.137/12.725 ms; ratios 1.109/1.275 flag this single
+pair's guard, without establishing reproducibility. Both half-cost targets fail.
+The dense JPG retains the reviewed appearance at this checkpoint. No promotion.
+
+Actual counters prove 75,954 construction-owned lookups with zero dense shape,
+descriptor, coordinate-check or geometry-copy increments. Native bindings/reuse
+are 120/60 with no generic fallback. Initial construction makes 66,123 certified
+copies, recording 1,695.2 ms separately. Reset's 1,688.9 ms is charged exactly
+once to host frame 61; dense birth/charge increments are zero. Thus this is not
+unused candidate code or a hidden reset charge. Other costs remain. Preserve
+coder `publication-native-construction-screen-01` and root
+`native-construction-screen-root-audit.json`; all resources/helpers/ports close.
+
+Authorize one <=600-second attribution-only CPU profile of the exact immutable
+C20 candidate, one context/renderer, unchanged collector and fixed prefix/input.
+Collect the profiler only over the 120 dense frames; keep raw profile, phase
+intervals, physical/endpoint/import proofs and post-profile counters. Report self
+and correctly deduplicated inclusive costs separately, with GC identified. This
+is not speed evidence. No reference remeasurement, captures, snapshot history,
+extra scenario, source change, automatic retry, build, commit or promotion. Wait
+for artist review to finish, then use the quiet window with other workers idle;
+close and verify all helpers/ports. A post-timing saved-endpoint branch census may
+inform source reasoning but is not a cost measurement.
+
+C21's final hostile review verifies pins, donor preservation and the saved 15
+controls but withholds clearance: backing-array identity does not validate bone
+texture format/type/dimensions or `computeBoneTexture`. Changing an allocated
+palette to `RedFormat` with the same data changes GPU matrices without updating
+the bound. This is a structural change, outside the stated unmarked-write
+exception. Require stock constructor/layout guards preserving lazy allocation
+and a same-data/changed-metadata negative control. No other blocking finding is
+reported for the reviewed math, pose hooks or lifecycle. UI remains idle until
+the C20 profile closes, then receives this focused correction; no culling actual
+invocation is authorized by its source-control result.
+
+The C20 attribution run completes and root independently verifies all 7,597
+samples over 120 dense intervals, phase partitions, 43 evidence hashes, all 1,621
+physical/render rows, endpoint and cleanup. Sampled publication is 988.900 ms:
+disjoint native frame work 270.661, private capture/build 266.998, public
+projection 137.565, binding/metadata 24.775, thermal diagnostics 6.216, other
+publication 257.826 and GC 24.859. The first two builder groups include routing
+and DTO work; they are not measurements of cloning alone. Resolved builtin self
+is 20.236 ms `structuredClone` and 3.866 ms freeze; unresolved native work remains
+pooled in caller self. Snapshot assembly's 130.2 ms self and owner routing's
+62.6 ms self overlap those groups and must not be added again.
+
+The disjoint full-frame partition excluding GC is publication 964.041 ms, art
+584.694, submission 738.162 and other frame CPU 1,858.224; GC is 77.779 ms
+separately. These are attribution totals, not speed results. Preserve coder
+`publication-native-construction-profile-01` and root
+`native-construction-profile-root-audit.json`; all helpers/GL/ports close.
+
+After closure, assign coder a read-only strongest remaining publication proposal
+using the actual hot rows and saved endpoint census. Compare duplication removal
+and simpler construction against adding caches; retain public semantics, ordered
+proof and honest work charging. No implementation or new actual invocation yet.
+UI now receives the focused C21 palette correction, preserving its 15-control
+checkpoint, with finite source controls and final peer recheck before any actual
+culling trial. Artist remains idle until revised frozen pins arrive.
