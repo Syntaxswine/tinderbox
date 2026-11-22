@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "scope": "Completed accepted baseline/lighting; no optimization",
+  "coderCommit": "d9ca47426bdbbf1ff707fd6a1d6c37079417edc9",
+  "architectFreezeCommit": "d616cc4ae6ad8db4e34dd663801a9de80a48beb9",
+  "referenceVersion": "corrected-firelit-reference-v1",
+  "package": {
+    "files": 3676,
+    "bytes": 266632254,
+    "manifestSha256": "34eb56d5525b77e1b84e7b2ba53a01b0f0f9be0e9726275c4cabec8a9b31bd0d",
+    "canonicalSha256": "a26316d6366f0f9fedb9a2e799b3b1aadc594894d5a8309b8383a0a99b53f5bc"
+  },
+  "target": {
+    "name": "Complete host publication + art preparation + renderer submission CPU, summed per displayed host frame",
+    "units": "ms",
+    "reference": {
+      "count": 120,
+      "mean": 16.56000001033147,
+      "p95": 21.000000476837158,
+      "min": 12.799999713897705,
+      "max": 35.80000019073486
+    },
+    "target": {
+      "mean": 8.280000005165736,
+      "p95": 10.500000238418579,
+      "pairedMeanRatio": 0.5,
+      "pairedP95Ratio": 0.5
+    }
+  },
+  "referenceGpu": {
+    "reference": {
+      "count": 120,
+      "mean": 9.296776533333333,
+      "p95": 12.224512,
+      "min": 5.264384,
+      "max": 39.32672
+    },
+    "investigateReproducibleRatioAbove": 1.1,
+    "scope": "Actual non-disjoint whole-scene GPU queries; not added to CPU"
+  },
+  "physicalEndpoint": "cc8456dd205957547ec78030ac74a85fbb474177e812a5ffc8af5400685448db",
+  "quality": {
+    "sharedFirelightSites": 38,
+    "lightCandidates": 9,
+    "selectedFireLights": 6,
+    "normalZoomDenseAndMatureStartMiddleEndVisuallyReviewed": true,
+    "matureBody": {
+      "steps": 112,
+      "motionFrames": 60,
+      "travelXZ": 0.09000000000000341,
+      "naturalClearing": true
+    },
+    "flamesSmokeLightingEnabled": true
+  },
+  "focusedChecks": {
+    "lighting": 13,
+    "measurement": 23,
+    "lifecycle": 13
+  },
+  "referenceEvidenceDirectory": "artifacts/qa/visual-half-cost/reference-firelit-01",
+  "sourceRecordSha256": "cd6b0efb6f1998943c86f739d9456cd5a20c9593ab51c6e1a47075a56dd0f0c8",
+  "largePackagesExcludedFromGit": true,
+  "pagesDeployed": false
+}
