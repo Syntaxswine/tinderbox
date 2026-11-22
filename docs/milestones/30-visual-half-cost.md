@@ -241,3 +241,20 @@ appearance gate; it need not discard valid primary scalar/profile results.
 Stop and preserve any new failure; no automatic retry, core rule tuning or
 Pages action. The measured limiting-resource choice is finalized after the
 completion evidence, before any optimization is enabled.
+
+### Isolated artist candidate during baseline completion
+
+The immutable reference is now archived and primary CPU observations exist.
+Artist may prepare one isolated source candidate on the existing art branch:
+remove duplicate structural-splat packing in `src/reuse/ashland/splats.js` while
+preserving all packed Float32 values, stable ordering/ties, counts, uniforms,
+visibility, pool bounds and public interfaces. Add/reuse focused independent
+reference controls. No other optimization or artwork change is included.
+
+This candidate is not enabled in the baseline, integrated or benchmarked before
+the measured target is frozen. Preserve the current reference bytes. Prepare
+source/tests now, but run no test workload while the coder's timed/profile
+contexts are active; architect releases the finite test run after their cleanup.
+No artist browser/helper/build or native-source run. Deliver a source diff and
+check plan, then wait for the test/measurement gate. No speed claim or commit
+until the relevant behavior/measurement checks pass.
