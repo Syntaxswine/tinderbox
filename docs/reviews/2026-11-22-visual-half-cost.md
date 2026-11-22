@@ -247,3 +247,31 @@ public/ownership contracts preserved. No optimization code is accepted for
 promotion yet. QA records are coder `publication-bounds-diagnostic-01` and
 `publication-bounds-profile-01`, with independent root audit JSONs alongside the
 earlier M30 audits.
+
+The corrected one-file copier candidate passes all 55 source controls, including
+the peer-found inherited-setter regression. Its fresh two-lane screen still
+regresses and is rejected:
+
+| Lane | Visual CPU mean / p95, ms | GPU mean / p95, ms |
+| --- | ---: | ---: |
+| Reference | 17.131 / 23.000 | 9.702 / 12.743 |
+| Copier candidate | 25.842 / 47.200 | 9.515 / 14.387 |
+
+Publication grows from 4.654 to 16.107 ms mean. CPU ratios are 1.508/2.052;
+GPU ratios are 0.981/1.129, flagging the p95 guard for this pair. Root verifies
+all physical rows, sums, queries, 32 evidence hashes and cleanup, and observes
+no visible loss in the dense JPG. No repeatability claim follows from one pair.
+The exact source/package/rows and original failures remain in coder QA
+`publication-copier-screen-01`. No unchanged retry or further micro-optimization
+of the full generic copy cycle is approved.
+
+Read-only native-ownership and public-reader audits support a narrower native
+creation-owned art packet alongside one complete public publication. Whole
+returned native frames contain live nested references and cannot be adopted.
+Normal art does not consume physical metrics/events/registration instances or
+occupancy outside xray. Creation-proven immutable samples can be shared; poses,
+geometry and debris children require explicit ownership/copying. Public
+snapshots, unknown adapters, xray fallback, canonical firelight aliases,
+once-only deltas and phase accounting must remain correct. The architect
+authorizes this bounded source implementation, with source review before any
+new run. The primary half-cost target remains unmet and Pages unchanged.

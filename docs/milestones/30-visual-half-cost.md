@@ -890,3 +890,132 @@ framework; art, physics, lighting, camera, controls and donors stay unchanged.
 Require meaningful source controls, exact pins/diff and operation counts.
 No new renderer, performance/profile run, build, commit or promotion until
 architect source review.
+
+### Copier source acceptance and two-lane screen
+
+The one-file receipt candidate removes ordinary private `defineProperty` calls
+and repeated public descriptor checks for exact channel-created frozen copies.
+Unknown/unproved containers retain generic fallback. Public object spread owns
+data slots; scalars avoid recursive calls, while object children use the same
+alias/cycle map. An inherited-slot guard preserves explicit data definitions
+where ordinary assignment could call a setter. Clone allocations remain.
+
+The UI review finds one P2: manually assembled between-native packet fields
+could invoke an inherited setter before the wrapper received its proof. Coder
+corrects both header and packet assembly with guarded writes and passes the
+precise regression. Root reviews the complete final diff, including scalar
+projection and the fix. All 55 controls pass in one clean final run on actual
+native source. Runtime raw/LF SHA is
+`1c7c832387f6356ec0da806b663618bd5ab1352c5fa47b3c2e58aaa8e65cd735`.
+Tiny-fixture operation controls show private explicit definitions 264→0,
+public descriptor reads/definitions 528→0 and public recursive visits 530→106,
+with private/public clone nodes unchanged at 47/94. These are operation counts,
+not speed claims. All earlier source/profile/failure records remain preserved.
+
+Authorize a fresh package copied from immutable C16 with only that pinned
+receipt file replaced: still 3,680 files and 16 deltas from the frozen firelit
+reference, no new imports or ordinary build. Verify exact source/delta/import
+closure and preserve prior packages, archives, dist and protected WIP.
+
+Then authorize one <=600-second two-lane **hill-climbing screen**, reference
+then candidate, two sequential contexts and maximum one renderer. Reuse the
+existing runner with narrow candidate/allowlist/report changes. Both lanes use
+the same 309 genuine commands through 1620, normal view/resolution and all
+channels. No qualification wrapper, profile or capture in measured windows;
+collect all scalar phases, full-frame CPU and actual GPU queries/outliers.
+Compare every physical/input/endpoint/import proof and explain the existing
+body batching draw/geometry deltas. After candidate rows and queries finish,
+capture its dense JPG and check positive firelight, public isolation and
+disposal. Keep the original absolute half budgets, fresh paired half ratios
+and GPU guard. This screen is not final four-lane ABBA acceptance. Stop and
+preserve a failure; no automatic retry, source changes during execution,
+optimization commit or promotion before architect review. Close test children
+before timing and verify helper/port cleanup afterward.
+
+The artist's separate read-only scout proposes compatible fixed ordinary-world
+shadow batches. Entire shadow-pass inclusive time is 259.346 sampled ms/120
+frames (about 2.16 ms/frame); its eligible ordinary subset remains unmeasured.
+The nested recursive render total is not additive, and old draw counts do not
+predict its saving. Keep this as a held proposal, without implementation or
+renderer authorization while the larger copier target is tested.
+
+### Copier paired screen rejected; ownership audit
+
+The `publication-copier-screen-01` pair completes with matching physical rows,
+endpoint and source proofs. Reference visual CPU is 17.131/23.000 ms mean/p95;
+candidate is 25.842/47.200. Publication increases from 4.654 to 16.107 ms mean,
+outweighing lower art/submission. GPU mean is about 2% lower, while p95 is 12.9%
+higher and flags the pair's guard; retain that observation without inventing a
+repeatability claim. Both contexts/driver/browser close and ports release.
+No unchanged retry or further micro-optimization of these generic copiers is
+authorized. This is not an accepted optimization or final ABBA result.
+
+Assign coder and UI bounded read-only architecture audits. Coder traces actual
+native container/child ownership and lifetime: fresh, cached-safe, live or
+already exposed. UI traces actual public snapshot readers and exposure/order,
+including callbacks and injected-adapter fallback. Seek a narrow way to remove
+the extra full private/public copying cycle or carry only the required private
+art data while preserving fresh mutable public DTOs and old-snapshot isolation.
+Adoption/freezing requires demonstrated exclusive ownership; a per-cell guard
+that merely replaces copying is insufficient. Compare proposed overhead with
+the reference's approximately 4.65-ms publication cost, rather than with a
+failed candidate. No runtime change, new native replay, renderer/profile,
+build, helper, benchmark or commit is authorized by these audits. Review their
+concrete source-based plan before implementation.
+
+### Creation-owned art packet proposal accepted for source work
+
+Coder and UI audits agree on one complete public publication plus a smaller
+independently owned art packet. Native `frame()` outer rows do not prove
+ownership of their children: boundary/support geometry can alias the native
+index; items/falls/rubble borrow pose, geometry and ID arrays retained by art.
+Whole returned frames must not be frozen/adopted. The native fire-sample cache
+already creates frozen detached samples; certify that cache at creation rather
+than inferring proof from freezing. Host owner tagging creates separate rows.
+
+Normal structural art needs structural/debris/fire collections, tombstones,
+frame flags/time and generation/portable-lantern/carrier metadata. It does not
+read physical metrics/events, registration instances, or occupancy outside
+xray. Keep their effects in conservative invalidation. Preserve complete public
+data, HUD events/cells and `structureFire === catalogueModules.fireSamples`.
+The stock HUD/minimap do not read the physical frame. Public exposure can still
+occur through injected art, `snapshot()`, `onSnapshot`, profiling callbacks or
+`advance()` return. Existing order is art → UI → render → callbacks → return.
+The benchmark explicitly exposes public snapshots each tick; deferral cannot
+hide that cost or substitute later live data for a captured publication.
+
+Authorize the existing coder one source-only implementation of this narrow
+fork, preserving C17 and all rejected work first:
+
+- Construct private art records inside native publication, before return and
+  before consuming dirty/event/tombstone state. Read native deltas only once.
+  Copy only the required mutable pose/geometry/ID children explicitly; share
+  only creation-proven immutable data. Do not adopt any returned/public frame.
+- Bind that unpublished independently owned packet to its complete public
+  frame at the host/producer boundary. Replace the default full generic
+  private-clone/public-clone cycle with this binding. Preserve complete public
+  DTO mutability and old-snapshot isolation, explicitly detaching live children
+  as needed. Do not simply restore an unsafe borrowed reference.
+- Reuse private payloads between native changes, with fresh small host metadata.
+  Keep immediate mutations, source activation, generation/reset and disposal
+  invalidation. No new per-cell descriptor/provenance scan or whole-frame hash.
+- Limit the partial packet to a proved stock exterior/cutaway consumer. Xray
+  requires an occupancy-capable packet or complete uncached reference path;
+  unknown/injected consumers retain complete fallback. An omitted field must
+  never silently mean empty gameplay/visible geometry.
+- Keep physics, firelight, character/shroud, art rules, camera, controls and
+  collector phases unchanged. All packet creation/binding/public detachment
+  costs remain within the measured publication/art sum. No lazy-publication or
+  observer change is part of this proposal.
+
+Use the smallest native-publication/host/producer/stock-art-adapter changes,
+with a small private factory helper only if needed. Do not create a general
+serialization framework. Require source controls for actual creation proofs,
+public/private alias isolation and later native motion, raw/public/frozen/proxy
+forgeries, retained debris and changed geometry, full/delta/tombstone/event
+semantics, immediate/native/between-native/activation/reset/disposal, supported
+view and unknown fallback, shared canonical lighting, actor/lantern metadata
+and phase accounting. Include source operation evidence that the known default
+path no longer traverses two generic full-frame copies. Compare overhead with
+reference publication, not the rejected 16-ms path. Source-only handoff first;
+no build, renderer, new timing/profile, commit or promotion yet.
