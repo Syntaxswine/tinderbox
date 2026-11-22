@@ -258,3 +258,39 @@ contexts are active; architect releases the finite test run after their cleanup.
 No artist browser/helper/build or native-source run. Deliver a source diff and
 check plan, then wait for the test/measurement gate. No speed claim or commit
 until the relevant behavior/measurement checks pass.
+
+### Restore the required reference lighting
+
+Attempt 04 preserves complete GPU data and quiet/dense CPU profiles. Dense GPU
+is 8.928981333333336 / 11.006976 ms mean/p95; CPU remains the larger visual
+cost. Its appearance guard correctly caught a reference defect, not a wrong
+diagnostic path: the actual shared host pool has zero surface sites/candidates/
+fire lights, while component fire pools delegate to it. Native canonical samples
+lack `exposed`; the street-light selector requires `exposed === true`.
+
+This unpublished integration reference does not satisfy the enabled-lighting
+quality contract. Preserve attempts 01–04 and their measurements as diagnostic
+evidence, including the first CPU observation. They cannot establish a complete
+firelit acceptance denominator. A corrected quality reference must be versioned
+explicitly and measured before its half-budget is frozen; no earlier evidence
+is relabeled or replaced with a favorable run.
+
+Authorize coder presentation-only correction in `src/art/index.js` and
+`src/art/structure-fire.js` (or a smaller equivalent adapter), plus focused
+controls. Explicitly identify known native canonical samples before normalizing
+their missing light-exposure metadata. A valid burning physical surface emits
+light; keep explicit `exposed:false` respected and leave legacy/unknown inputs
+unchanged. Do not globally treat every missing flag as true. Preserve source
+IDs, geometry, heat/fuel/events, off-screen illumination, six-light/power215
+limits, lamps and lifecycle. No new simulation rule, light-intensity tuning or
+optimization is included. The actual shared-pool appearance assertion remains;
+do not weaken it to permit zero fire lights.
+
+Deliver the source correction, actual native-sample regression, explicit-false/
+legacy/smoke-only negatives, pool-limit/lifecycle results and read hashes for
+architect review. No new build/browser/reference regeneration until that review
+authorizes the particular corrected-quality capture/measurement. Artist may now
+run one finite <=30-second focused direct-packing test child, because all
+attempt04 contexts/browser/driver/ports are closed; no renderer or native-map
+work is granted to the artist. Keep the art candidate isolated and uncommitted
+until behavior and actual cost checks pass.
