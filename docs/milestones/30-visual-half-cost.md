@@ -331,3 +331,56 @@ cleanup receipts, and stop on failure. Once the fully firelit quality reference
 is accepted, freeze its first valid mean/p95 and paired half-target before
 benchmarking a candidate. Earlier unlit CPU/GPU numbers are not substituted as
 that denominator. No automatic retry, quality reduction or Pages action.
+
+## Frozen firelit reference and first hill-climbing experiment
+
+Architect accepts `corrected-firelit-reference-v1` after independent raw CPU/GPU
+recalculation, source-hash checks and normal-zoom dense/street and mature-body
+start/middle/end review. The shared pool has 38 surface sites, nine candidates
+and six fire lights. The genuine mature-body control passes 60 motion frames,
+112 total extra steps, 0.09 m accepted travel and natural clearing. Both contexts
+closed, maximum one renderer. [Frozen reference](../engineering/visual-half-cost/reference-v1.json)
+records package/input/media hashes and the exact scope.
+
+Primary metric is all-displayed dense-window visual CPU: complete snapshot
+publication + art + render submission, summed per frame. First valid firelit
+reference is **16.56000001033147 / 21.000000476837158 ms mean/p95**. Fixed half
+budgets are **8.280000005165736 / 10.500000238418579 ms**, and final fresh paired
+mean/p95 ratios must both be <=0.5. GPU reference is 9.296776533333333 /
+12.224512 ms; investigate a reproducible >10% paired GPU regression. Full-frame
+CPU remains separately reported (reference 29.1925 / 47.4 ms). No twice-FPS or
+half-memory claim follows from this metric.
+
+First experiment is only artist packing source
+`src/reuse/ashland/splats.js`, raw/LF SHA-256
+`d36848529642326f47bbbe11383458edf47267643248b1127e3b8c4017d42d88`.
+Thirty independent correctness controls pass. Coder may copy this exact source
+from the artist checkout into a separate candidate PACKAGE under owned QA
+output, never edit the artist checkout or the immutable reference. Verify its
+hash before/after. Copy the corrected reference package, overlay only this JS
+file and regenerate its inventory; document/assert the one-code-file delta and
+unchanged remaining bytes. No new ordinary build or additional optimization.
+
+Authorize minimal reuse of current browser/input/lane/metric tooling and focused
+comparison checks, then **one <=10-minute ABBA comparison**, four sequential
+contexts, maximum one live renderer: reference, candidate, candidate, reference.
+Each genuinely advances the same current command prefix; no stale packets or
+paused-state scoring. Save all raw rows, actual non-disjoint GPU results, stage/
+full-frame costs, workload equality, source/import-prefix and endpoint proofs,
+and lifecycle receipts. Score 120 all-displayed dense rows per lane, compute
+percentiles from frame sums, and retain outliers. No screenshots/video/profile
+or full snapshot histories in timing lanes. No artist/unit test load while the
+comparison is active. Stop on failure; no unchanged-build retry.
+
+This first experiment asks whether one mechanism is a useful step, not whether
+unit checks alone prove the final half-target. Architect decides retention from
+actual paired results. No optimization commit/push or integration if relevant
+behavior/cost checks fail. Promising cost results still need matched appearance
+before promotion. Baseline instrumentation and the corrected lighting are a
+separate completed passing stage and may now be committed/pushed with compact
+provenance/results, excluding large QA packages and protected WIP.
+
+In parallel, coder may prepare a read-only, profile-grounded proposal for one
+publication/allocation improvement; UI reviewer may inspect submission/material
+hotspots read-only. No further runtime experiment, renderer or source edits are
+granted by those proposals. Artist candidate remains isolated pending this run.

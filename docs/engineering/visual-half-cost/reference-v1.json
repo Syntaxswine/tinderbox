@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "decision": "ACCEPT_CORRECTED_FIRELIT_REFERENCE_FREEZE_TARGET",
+  "date": "2026-11-22",
+  "referenceVersion": "corrected-firelit-reference-v1",
+  "sourceBase": "b27ca225661323871e9f0bb8c536428a519d49b5",
+  "referenceLocation": "C:/Users/baals/.codex/worktrees/coding-9200/tinderbox/artifacts/qa/visual-half-cost/reference-firelit-01/",
+  "package": {
+    "files": 3676,
+    "bytes": 266632254,
+    "manifestSha256": "34eb56d5525b77e1b84e7b2ba53a01b0f0f9be0e9726275c4cabec8a9b31bd0d",
+    "canonicalSha256": "a26316d6366f0f9fedb9a2e799b3b1aadc594894d5a8309b8383a0a99b53f5bc"
+  },
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36 Edg/158.0.0.0",
+    "threeRevision": "180",
+    "viewport": {
+      "width": 1280,
+      "height": 494
+    },
+    "page": {
+      "width": 1280,
+      "height": 800,
+      "dpr": 1
+    },
+    "drawingBuffer": {
+      "width": 1280,
+      "height": 494
+    },
+    "camera": {
+      "type": "OrthographicCamera",
+      "zoom": 1,
+      "verticalSpan": 12.600000000000001,
+      "mode": "follow"
+    },
+    "exposure": 1,
+    "toneMapping": 0,
+    "antialias": true,
+    "timerQuery": true,
+    "glVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  },
+  "workload": {
+    "scenario": "neighborhood",
+    "character": "goat",
+    "seed": 1893,
+    "step": 0.016666666666666666,
+    "window": "growing-later",
+    "allDisplayedFrames": 120,
+    "newNativeFrames": 60,
+    "page": [
+      1280,
+      800
+    ],
+    "viewport": [
+      1280,
+      494
+    ],
+    "zoom": 1,
+    "span": 12.6,
+    "endpointStateSha256": "cc8456dd205957547ec78030ac74a85fbb474177e812a5ffc8af5400685448db"
+  },
+  "primary": {
+    "name": "Complete host publication + art preparation + renderer submission CPU, summed per displayed host frame",
+    "units": "ms",
+    "reference": {
+      "count": 120,
+      "mean": 16.56000001033147,
+      "p95": 21.000000476837158,
+      "min": 12.799999713897705,
+      "max": 35.80000019073486
+    },
+    "target": {
+      "mean": 8.280000005165736,
+      "p95": 10.500000238418579,
+      "pairedMeanRatio": 0.5,
+      "pairedP95Ratio": 0.5
+    }
+  },
+  "gpu": {
+    "reference": {
+      "count": 120,
+      "mean": 9.296776533333333,
+      "p95": 12.224512,
+      "min": 5.264384,
+      "max": 39.32672
+    },
+    "investigateReproducibleRatioAbove": 1.1,
+    "scope": "Actual non-disjoint whole-scene GPU queries; not added to CPU"
+  },
+  "fullFrameCPU": {
+    "count": 120,
+    "mean": 29.192500019073485,
+    "p95": 47.40000009536743,
+    "min": 15.099999904632568,
+    "max": 76.69999980926514
+  },
+  "quality": {
+    "sharedFirelightSites": 38,
+    "lightCandidates": 9,
+    "selectedFireLights": 6,
+    "normalZoomDenseAndMatureStartMiddleEndVisuallyReviewed": true,
+    "matureBody": {
+      "steps": 112,
+      "motionFrames": 60,
+      "travelXZ": 0.09000000000000341,
+      "naturalClearing": true
+    },
+    "flamesSmokeLightingEnabled": true
+  },
+  "sourceCorrectionControls": 13,
+  "isolatedPackingControls": 30,
+  "contexts": {
+    "created": 2,
+    "closed": 2,
+    "remaining": 0,
+    "pending": 0,
+    "maxLive": 1,
+    "stopping": false
+  },
+  "evidence": [
+    {
+      "path": "scalar-rows.json",
+      "sha256": "0f853900b8f03c2fd076c39424879d734c2e0ef71dcc93f4f63e16a260d0db2b"
+    },
+    {
+      "path": "scalar-gpu-results.json",
+      "sha256": "d575667730c011b9c0623eb8ed33b3ceb2db167b4bfb0160910701c841de91b8"
+    },
+    {
+      "path": "baseline-summary.json",
+      "sha256": "cf00bb8e5f96f4b1c759dc8f27c08666db96e67c5c271876d7ead4cccb5282b0"
+    },
+    {
+      "path": "source-record.json",
+      "sha256": "cd6b0efb6f1998943c86f739d9456cd5a20c9593ab51c6e1a47075a56dd0f0c8"
+    },
+    {
+      "path": "reference-package.json",
+      "sha256": "058212d5e5faa8ed8b34760080eabfc0687d22cb39813b70385193ca34680a99"
+    },
+    {
+      "path": "mature-body-control.json",
+      "sha256": "2bef0b0606c5e240d21e6da44daea462a86abc9835288d914034bce985b8381a"
+    },
+    {
+      "path": "mature-body-commands.json",
+      "sha256": "0686ce5a6712e86bc744d6e07cf986445e67200a907ba93d920074ced0d36ee0"
+    },
+    {
+      "path": "context-lifecycle.json",
+      "sha256": "14a741d9187d00dba5346f5c5d453bf2d9cec643a77c51af6abb3205f52f38dd"
+    },
+    {
+      "path": "growing-later.jpg",
+      "sha256": "7dd7ab2070c569230b376ff08821381ead19c69c0a8d7b35bf28c1d957433b11"
+    },
+    {
+      "path": "mature-body-start.jpg",
+      "sha256": "bac159f5efab0fbbb9e8a2a4e47d364c8742a9e74fb3ea4a712d8850df3b7de7"
+    },
+    {
+      "path": "mature-body-middle.jpg",
+      "sha256": "b5b688685be06c85d026cfb462410aaa38f88dd9f6567e065bbecc865feb5375"
+    },
+    {
+      "path": "mature-body-end.jpg",
+      "sha256": "15bf07f0491fea89c93aa21ad1cfeffc88cc08ad89e705fe845c56abff5ea2c3"
+    },
+    {
+      "path": "mature-body.webm",
+      "sha256": "1b9f934482e0d4d003c22fbfd84259c40c030f807c73f7acbcc24cc6f3f4fe3a"
+    }
+  ],
+  "earlierUnlitData": "Retained diagnostic observations, not the acceptance denominator",
+  "pagesDeployed": false
+}
