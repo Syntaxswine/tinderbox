@@ -293,3 +293,31 @@ performance gains. Preserve the failed invocation in coder QA
 `native-art-screen-failure-root-audit.json`. All helpers close. A source-only
 serialization-order correction and read-only remaining-copy audit are assigned;
 the frozen hash and performance targets remain unchanged.
+
+The subsequent C19 geometry/startup candidate passes 93 source controls and
+independent peer review, including the review-found pre-art focus-loss regression.
+Its actual two-lane screen now passes complete ordered endpoint equality as well
+as all 1,621 physical rows. The saved endpoint files are byte-identical. Root
+recalculates costs and verifies 41 evidence hashes, native-path counters, lights,
+public isolation and cleanup. The normal-zoom dense JPG matches the reference at
+that checkpoint.
+
+| Lane | Visual CPU mean / p95, ms | GPU mean / p95, ms |
+| --- | ---: | ---: |
+| Reference | 15.998 / 20.100 | 9.067 / 12.198 |
+| Geometry/startup candidate | 20.234 / 35.100 | 7.989 / 11.052 |
+
+CPU regresses 26.5% mean / 74.6% p95; both half-cost targets fail. Publication
+mean grows from 4.378 to 12.523 ms, concentrated on new-native updates. The
+intended path is active: 120 native bindings, 60 payload reuses and zero generic
+copy/fallback increments during the dense window. This is a rejected candidate,
+not an accepted speed improvement. All contexts/resources/helpers close; no
+optimization code or Pages promotion occurs. Evidence is coder QA
+`publication-geometry-startup-screen-01` and root
+`geometry-startup-screen-root-audit.json`.
+
+The artist's stationary-layout source pass returns an empty diff: geometry
+immutability does not prove source placement/routing/membership across native
+ticks. Existing reuse already covers the provable path. Coder now investigates
+native geometry creation ownership; UI investigates safe posed-character frustum
+culling. Both are read-only proposals, with no new actual invocation authorized.

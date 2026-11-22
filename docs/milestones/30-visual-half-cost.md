@@ -8,13 +8,15 @@ denominator. New York's accepted internal coupled checkpoint stays preserved;
 this task does not renew its actual-source/compiler allowances or enable it.
 
 Current status: the half-cost target is **unmet** and no optimization code is
-promoted. The latest C18 screen proves native bindings/reuse with zero generic
-copy increments, but fails the complete endpoint digest and CPU targets. All
-1,621 scalar rows match; source shows a JSON field-order difference, without
-establishing it as the sole digest difference. Current authorization is the
-source-only protocol-order correction and read-only remaining-copy proposal at
-the end of this record. No new actual invocation is granted. The historical
-first-phase restrictions below are superseded only by later explicit grants.
+promoted. The latest C19 geometry/startup screen passes both complete ordered
+endpoint digests and all 1,621 physical rows. Source and focus correction pass
+93 controls and independent review. CPU nevertheless regresses to 20.234/35.100
+ms mean/p95 versus reference 15.998/20.100; publication remains too expensive.
+The candidate is rejected for promotion, with all evidence preserved and helpers
+closed. Current work is read-only proposals for authoritative native geometry
+creation proof and conservative character culling. No new implementation or
+actual invocation is granted. Historical first-phase restrictions below are
+superseded only by later explicit grants.
 
 ## Work and ownership
 
@@ -1116,3 +1118,141 @@ For a later separately granted run, save one normalized current endpoint DTO
 per lane after measured rows/GPU queries and before the unchanged digest check;
 this is a final publication, not a snapshot history. Preserve exact ordering and
 normalization, observer access and all timed work.
+
+### Geometry snapshot reuse and startup construction source pass
+
+The frozen protocol-order correction passes 73 checks, including nine native/
+host publication cases, seven complete snapshots and endpoint-capture setup.
+Value/type equality precedes ordered JSON comparison; the hash function and
+target remain unchanged. Preserve this checkpoint and the failed C18 package.
+
+The read-only cost audit identifies repeated unproved boundary triangles in
+the captured seed, each public projection and private geometry certification.
+Heat-only dirty rows can repeat those copies without a shape change. The
+existing fast sample cache's index-revision/raw-reference checks alone do not
+cover an in-place edit; do not broaden that assumption. The audit also confirms
+one startup generic private/public copy before native enablement, with 1,458,908
+copied nodes on each side. Startup and dense-window savings are separate.
+
+Authorize coder a bounded source-only pass with two independently reported
+changes:
+
+1. Extend `sharePublicationGeometry` to creation-certified immutable boundary
+   triangle snapshots in the native publication path. Fresh public collection
+   arrays and rows remain mutable; certified numeric geometry may be borrowed
+   immutable, consistent with the existing option/proof. Ordinary non-sharing
+   calls retain their current contract, and unknown/malformed inputs retain
+   conservative fallback. This deliberately replaces repeated mutable public
+   geometry copies only where the caller already opts into geometry sharing.
+   Use bounded current snapshots with no retained version history. Reuse must
+   verify exact ordered current values within the existing boundary-publication
+   pass, including republished in-place edits with unchanged revision/reference;
+   an existing authoritative mutation proof may substitute if demonstrated.
+   Raw identity, revision or freezing alone is insufficient. Do not add a
+   separate whole-world/provenance/descriptor scan. Count comparisons and
+   capture/private/public geometry copies. Preserve float values, order, doors,
+   poses, retirement, activation, reset/disposal and old snapshots.
+2. Enable closed native construction before the first snapshot, while partial
+   delivery still requires the actual stock product/data/receipt proof. Reuse
+   that captured initial snapshot after validation rather than recapturing it.
+   Unknown/injected/modified consumers still receive complete public data;
+   cancellation, initial full state, metadata rejection and sticky retirement
+   keep their contracts. Construction ownership does not grant private delivery
+   to an unknown consumer. No lazy observer/publication change is authorized.
+
+Keep native-publication/geometry/runtime seams small. No new serializer or
+capability framework, asset/physics/art-rule change, build, actual invocation,
+profile, commit or promotion. Require ordered full JSON/value/type equivalence,
+geometry replacement/in-place/winding/order/malformed controls, immutable proof
+negatives, public-row/old-snapshot separation, actual consumer packed/pose
+equivalence, unknown/view fallback, first-snapshot/cancellation/retirement and
+operation counts. Review exact source and measured-work plan before another
+actual run; compare performance with the frozen reference, not failed C18.
+
+The first C19 handoff reaches 92 passing source controls. Independent UI review
+finds a startup gap: pre-art focus loss advances the paused host and replaces
+the initial full structural publication with an empty delta before first stock
+delivery. Source-only correction is required: retain the initial structural
+baseline until delivery with current host/pause metadata and once-only events.
+Add a focus-loss-during-loading regression and review revised pins before any
+actual invocation. Reviewed assertion changes for cold immutable geometry,
+carrier-only metadata and other mutable-boundary comparisons are legitimate;
+ordered value/JSON and real-consumer equivalence checks remain intact.
+
+The focus regression reproduces the issue before correction; the revised set
+passes 93 controls. Pre-presentation focus changes request full structure in
+the existing capture, with current host metadata and delta event cursor. Normal
+startup uses one publication, focus/hidden startup two; neither restores the
+generic startup copy pair. Root verifies the six runtime pins, four overlays,
+archives, tests/diffs, control sources and eleven unchanged prior runtime files.
+Final peer clearance and actual cost remain pending at this checkpoint.
+
+The existing artist is assigned a separate source-only experiment in its own
+worktree: reuse stationary source/layout/support preparation where existing
+creation proof and exact static fields establish validity. The earlier sampled
+disjoint-work ceiling is about 1.011 ms/frame, not a predicted saving. Preserve
+live heat, intensity, wind, time, camera, culling, sort and animation; invalidate
+membership, support, door pose, collapse, falling/landing, retirement and reset.
+Unknown or stale data follows the existing path. No new whole-world proof scan,
+general token framework or runtime edits are authorized. If current art seams
+cannot prove reuse, return that finding. A finite focused source control run
+is allowed; actual rendering, profiling, building and intake remain held.
+
+The artist returns a source finding with an empty diff: immutable geometry and
+sample-construction proof do not establish unchanged placement, routing or
+ordered burning-group membership across native ticks. A hottest-cell side
+change can change normal/offset with identical triangles. Existing same-tick
+reuse and geometry caching already cover the provable path. A separate trusted
+source-layout seam would be required for broader reuse; it is not implemented
+or granted by this finding. No controls or helpers are spent for the empty diff.
+
+Final independent UI review clears the 93-check source and all 20 recorded
+source pins, manifest SHA-256
+`c1faad464ad54b5400c37391b9bbfbe85d2db8a5e44147c6ed06643604007122`.
+Root accepts the exact four-overlay C18 package plan and one <=600-second
+reference-then-candidate screen with at most one live renderer. Preserve the
+frozen reference, input, phase sum, endpoint algorithm/target, original absolute
+and paired half budgets and GPU guard. Verify complete package/import inventory
+and unchanged prior packages/WIP before launch. No ordinary build or source
+changes during execution. Save one final ordered normalized endpoint DTO per
+lane after timing/GPU and before its unchanged assertion. Read existing scalar
+publication counters immediately outside the dense window; startup is separate.
+Preserve all rows/outliers, original failures and post-timing JPG/quality checks.
+No profile, extra scenario, automatic retry, optimization commit or promotion.
+Close and verify all disposable helpers and ports after the screen. Other
+workers stay idle and root avoids CPU-heavy work during measurement.
+
+### C19 result and next source questions
+
+The screen completes, preserving both single current endpoint DTOs. Their exact
+ordered normalized bytes are identical and hash to the frozen target. Root
+independently recalculates all dense rows/GPU queries, confirms 1,621 matching
+physical rows, intentional prior body draw deltas, six positive firelights,
+public isolation and 41 evidence hashes. Normal-zoom dense JPG shows no visible
+loss at that checkpoint; it is not a new whole-game or motion acceptance.
+
+Reference/candidate CPU mean/p95 is 15.998/20.100 versus 20.234/35.100 ms;
+publication mean 4.378 versus 12.523. New-native publication mean is 5.950 versus
+22.172; between-native 2.807 versus 2.875. GPU mean/p95 is 9.067/12.198 versus
+7.989/11.052 ms. CPU ratios 1.265/1.746 fail the original absolute and paired
+half targets; one pair does not establish a repeatable GPU improvement.
+Counters confirm 120 native bindings, 60 payload reuses and zero dense generic
+copy/fallback increments. Do not misdiagnose this as unused candidate code.
+
+Reject C19 for performance promotion. Preserve source, package and original
+run in coder QA `publication-geometry-startup-screen-01`; root audit is
+`geometry-startup-screen-root-audit.json`. Both contexts/GL, driver, browser and
+ports 55248–55249 close. No retained helper, retry, optimization commit or Pages
+change follows.
+
+Authorize only two read-only source proposals. Coder investigates whether a
+closed native-runtime opt-in can certify immutable triangles at actual creation
+and replacement, eliminating repeated geometry checks without assuming mutable
+inputs are stable. Identify every writer and mutable API consumer; ordinary and
+unknown paths must retain in-place-edit behavior. No blanket freeze, proxy or
+general token framework. UI investigates conservatively bounding native posed
+characters for color/point-shadow frustum culling without per-vertex CPU skinning,
+guessed envelopes, lost off-camera shadows or altered shrouds. Require actual
+rig/pose/attachment ownership and fallback for unknown/modified rigs. No edits,
+tests, helpers, build, actual render/profile or timing grant accompanies either
+proposal. Artist remains idle after its empty-diff finding.
