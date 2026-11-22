@@ -294,3 +294,40 @@ run one finite <=30-second focused direct-packing test child, because all
 attempt04 contexts/browser/driver/ports are closed; no renderer or native-map
 work is granted to the artist. Keep the art candidate isolated and uncommitted
 until behavior and actual cost checks pass.
+
+### Correctly firelit reference execution
+
+Architect source review accepts the explicit native-frame adapter: recognition
+requires the versioned physical frame's own canonical sample array, registered
+owner/metadata and valid burning surface. Missing exposure is normalized in the
+presentation copy only; original DTOs, explicit values and unknown/legacy
+producers remain unchanged. `physicalFrame()` caches the frame within the host
+snapshot, preserving the array identity used for this recognition.
+
+Architect independent controls pass 13/13 for native lighting and 30/30 for the
+isolated artist packing candidate; read hashes stayed unchanged. These were
+finite read-only children with no renderer/native-map work. This accepts the
+lighting source correction, not any measured optimization. Art packing is not
+part of the reference and remains uncommitted/disabled pending comparison.
+
+Authorize one additional ordinary build of the reviewed lighting correction and
+same optional measurement hooks, archived as a new immutable, fully firelit
+reference version. Record exact changed files, source hashes and a complete
+manifest; preserve the earlier unlit package and all observations. Do not mix
+the artist packing or any other saving into this reference. No original-map
+source regeneration or physics/heat/input changes.
+
+Authorize one finite reference invocation (ten-minute hard deadline), using the
+proved workspace-temp launcher and maximum one live renderer in two sequential
+contexts: scalar CPU/GPU over the unchanged prefix, then untimed appearance and
+the already granted <=240-step mature-body control. Prior CPU profiles remain
+diagnostic; no extra sampling context is needed before the first experiment.
+Require actual shared firelight selections/positive point lights in the dense
+capture, preserve flame/smoke/light channels, and inspect normal-zoom street/
+wall illumination. Capture quiet/dense JPGs and the body clip/diagnostics.
+
+Save numeric results independently of appearance failure, keep all rows and
+cleanup receipts, and stop on failure. Once the fully firelit quality reference
+is accepted, freeze its first valid mean/p95 and paired half-target before
+benchmarking a candidate. Earlier unlit CPU/GPU numbers are not substituted as
+that denominator. No automatic retry, quality reduction or Pages action.
