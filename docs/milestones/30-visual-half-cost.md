@@ -7,6 +7,15 @@ in this baseline. Its older reference and timing values are not this task's
 denominator. New York's accepted internal coupled checkpoint stays preserved;
 this task does not renew its actual-source/compiler allowances or enable it.
 
+Current status: the half-cost target is **unmet** and no optimization code is
+promoted. The latest C18 screen proves native bindings/reuse with zero generic
+copy increments, but fails the complete endpoint digest and CPU targets. All
+1,621 scalar rows match; source shows a JSON field-order difference, without
+establishing it as the sole digest difference. Current authorization is the
+source-only protocol-order correction and read-only remaining-copy proposal at
+the end of this record. No new actual invocation is granted. The historical
+first-phase restrictions below are superseded only by later explicit grants.
+
 ## Work and ownership
 
 Reuse the existing coder and artist chats/worktrees. No new chats/worktrees or
@@ -1019,3 +1028,91 @@ and phase accounting. Include source operation evidence that the known default
 path no longer traverses two generic full-frame copies. Compare overhead with
 reference publication, not the rejected 16-ms path. Source-only handoff first;
 no build, renderer, new timing/profile, commit or promotion yet.
+
+### Native packet source review and actual paired screen
+
+The six-file native packet fork passes 69 behavior controls plus one operation
+census (70 total). Its final source archive is `native-art-packet-source-01/
+candidate-source-19`; `final-source-pins.json`, controls-19 and overlay-plan.json
+pin the exact files. Real structural/debris consumer comparison preserves
+packed attributes/order, transforms, changed support/poses and complete xray
+fallback. Actual stock factory products and their exact runtime catalogue/
+receipt identities are checked; the unchanged observer-only factory delegation
+is eligible, while modified/substituted consumers receive complete fallback.
+
+The peer-found binder P2 is fixed by validating before authority commit and
+falling through with the already captured complete frame. The re-entry P2 is
+fixed conservatively: a modified consumer permanently retires native reuse for
+that runtime. Full structural recovery repairs its skipped door state even
+when the original method returns on the same native tick. Automatic recovery
+preserves ordinary delta event/tombstone IDs; explicit full native reads retain
+their original history contract. The final peer review has no remaining
+findings. Root reviews those paths and the subsequent one-property read-only
+runtime counter accessor, which adds no per-frame work or private authority.
+
+The tiny source census records zero generic full-frame private/public traversals,
+zero independent occupancy-proof scans and zero private fire scalar projections.
+It still performs five selected-live-branch clones, 13 owner routes and four
+fuel lookups across two captures and three public exposures. These are source
+operation counts, not a speed result. Eleven other C17 runtime deltas and the
+collector remain unchanged at source handoff.
+
+Authorize a fresh exact C17 package copy with only the six LF overlays in the
+final plan: one new file, 3,681 files, 17 reference deltas and expected 219-file
+import closure. Reverify full inventory, immutable previous packages/dist,
+archives and protected WIP. No ordinary build or unrelated intake.
+
+Authorize one <=600-second reference-then-candidate **two-lane screen**, maximum
+one context/renderer at a time. Same frozen reference, 309 genuine commands,
+prefix through 1620, 120 displayed dense rows, normal camera/resolution and all
+effects. Preserve all raw rows/outliers, CPU phase sum/full-frame and actual
+GPU queries; compare physical/input/endpoint/import proofs and intentional
+body batching count changes. Keep original absolute and paired half targets
+and GPU guard; this is not final ABBA acceptance.
+
+Runner glue may retain the unchanged runtime object and read the existing scalar
+`publicationDiagnostics()` immediately before/after the dense window. Do not
+modify the stock art object, whitelist the harness, wrap each frame, change
+observer access, or shift cost out of measurement. Require positive native
+binding/payload reuse and zero generic private/public full-frame-copy deltas
+in that window; explain exact counts. Capture dense candidate JPG and inspect
+public isolation/firelight only after timing rows and GPU queries complete.
+No profile, full snapshot history, extra scenario, automatic retry, source
+change during execution, optimization commit or promotion. Close source-test
+children before timing, then close and verify helpers/ports afterward.
+
+### Native packet screen failure and protocol-order correction
+
+The C18 screen completes both 1,620-step sequences and saves the dense rows,
+but stops at the candidate endpoint digest assertion. Reference digest remains
+`cc8456dd205957547ec78030ac74a85fbb474177e812a5ffc8af5400685448db`;
+candidate is `b13c7e9b67e9a63c885c8f1936227f7f1e8b3aee65dfffc5f76e6790f78e0bab`.
+Root independently confirms all 1,621 scalar workload rows match. Actual dense
+counters show 120 native bindings, 60 reuses and zero generic-copy/fallback
+increments. This proves use of the intended path, not complete state equality.
+
+Retained diagnostic visual CPU is 19.807/27.200 ms reference versus
+20.795/36.600 candidate; publication is 5.267 versus 12.282 ms mean. Candidate
+new-native publication is 21.477 ms versus 3.087 between native updates. GPU is
+10.420/13.561 versus 8.742/12.249 ms. The half-cost targets are unmet. Endpoint,
+post-assertion actual-source and final quality acceptance remain failed/unreached;
+do not turn these timings into an accepted improvement. Both contexts and all
+helpers/ports close. Preserve raw records and original failure unchanged.
+
+Source inspection confirms a public field insertion-order difference: reference
+places `falls` after `items`, candidate places `parts`. The frozen endpoint uses
+unsorted JSON. The single current endpoint DTO was not saved, so ordering cannot
+be declared the sole difference. Authorize only a source protocol-order fix,
+preserving reference constructor/host serialization order and the exact hash
+algorithm/target. Add ordered JSON-equivalence source controls over initial,
+native/between-native and changed pose/debris/full/delta publication, complete
+metadata and canonical alias. Diagnose any value/type differences rather than
+normalizing them away. No new actual invocation is authorized yet.
+
+Coder also supplies a read-only source proposal locating stable geometry or
+registration branches still recopied at publication and the existing creation
+proof/cache seam that could avoid that work. No performance code change yet.
+For a later separately granted run, save one normalized current endpoint DTO
+per lane after measured rows/GPU queries and before the unchanged digest check;
+this is a final publication, not a snapshot history. Preserve exact ordering and
+normalization, observer access and all timed work.

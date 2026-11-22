@@ -275,3 +275,21 @@ snapshots, unknown adapters, xray fallback, canonical firelight aliases,
 once-only deltas and phase accounting must remain correct. The architect
 authorizes this bounded source implementation, with source review before any
 new run. The primary half-cost target remains unmet and Pages unchanged.
+
+The native creation-owned packet passes 70 source checks, including real
+consumer equivalence, transactional fallback, exact stock product/data/receipt
+proof and safe recovery after skipped updates. The actual C18 screen confirms
+120 native bindings, 60 payload reuses and zero generic-copy increments in the
+dense window. It nevertheless fails the complete endpoint digest and both CPU
+half-cost goals. Root confirms all 1,621 recorded scalar rows match; the single
+endpoint DTO was not retained. Source inspection identifies JSON field-order
+differences, without proving they are the only difference.
+
+Diagnostic reference/candidate visual CPU is 19.807/20.795 ms mean and
+27.200/36.600 ms p95; publication remains too expensive at 5.267/12.282 ms mean.
+GPU is 10.420/8.742 ms mean and 13.561/12.249 ms p95. These are not accepted
+performance gains. Preserve the failed invocation in coder QA
+`native-art-packet-screen-01`; root independent recalculation is
+`native-art-screen-failure-root-audit.json`. All helpers close. A source-only
+serialization-order correction and read-only remaining-copy audit are assigned;
+the frozen hash and performance targets remain unchanged.
