@@ -217,3 +217,33 @@ are coder QA `character-receipt-abba-01` and root QA
 `character-receipt-partial-root-audit.json`. The next source-only experiment
 targets unnecessary copying of already immutable native bounds. Original
 half-cost targets and all appearance/physics gates remain unchanged.
+
+The follow-up bounds-only source passes 46 distinct controls and a focused
+seven-test rerun. A separate factory proof preserves cached immutable native
+bounds across private/public copying; numeric geometry proof remains unchanged.
+Root and the UI specialist review its source without actionable findings.
+The actual C16 diagnostic passes all 1,621 physical rows, final endpoint, 22
+actual imported-file proofs, positive firelight and mutable public-row isolation.
+Root views its dense JPG against the frozen reference and observes no visible
+loss. The complete dense window is still too costly:
+
+| C16 diagnostic phase | Mean / p95, ms |
+| --- | ---: |
+| Publication | 22.196 / 38.800 |
+| Art | 4.232 / 9.200 |
+| Submission | 4.461 / 5.300 |
+| Combined visual CPU | 30.888 / 51.000 |
+| GPU | 10.088 / 14.702 |
+
+This is a single candidate, not a paired improvement. Its subsequent bounded
+CPU profile is attribution only. Independent root recalculation of the raw
+profile confirms that the private and public recursive copiers account for
+77.8% of sampled publication time; native frame generation accounts for 6.1%
+inclusive. Recursive inclusive counts are deduplicated per sample; unresolved
+builtins remain within caller self time. Do not add nested function totals or
+treat profiled timings as speed evidence. Both invocations and their helpers
+close. The existing coder is assigned a bounded copier optimization with the
+public/ownership contracts preserved. No optimization code is accepted for
+promotion yet. QA records are coder `publication-bounds-diagnostic-01` and
+`publication-bounds-profile-01`, with independent root audit JSONs alongside the
+earlier M30 audits.

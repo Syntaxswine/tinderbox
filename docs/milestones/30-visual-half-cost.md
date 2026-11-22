@@ -801,3 +801,92 @@ than overriding it. Require alias isolation, mutation/reset/grid controls,
 forgery/proxy/unknown fallback, mutable public-row separation, real native proof
 retention and measured operation counts. No new build, renderer, timing run,
 optimization commit or promotion until source review.
+
+### Bounds source acceptance and bounded actual-path diagnostic
+
+The three-file bounds delta passes 46 distinct controls, with seven focused
+bounds controls rerun after the copy census. Tests exercise the changed native
+simulation directly, without the old source loader. Root checks the actual
+diff, factory/consumer code, test assertions and hashes; the existing UI worker's
+independent read-only review reports no actionable findings. The numeric
+geometry factory prefix is unchanged. Native cache identity/invalidation, old
+snapshots, factory/proxy/unknown negatives, mutable public-row separation and
+generation/disposal controls pass. The one-cell operation control removes
+three private nodes and six across two public projections; this is allocation
+evidence, not a speed claim. Occupancy arrays and rows still copy.
+
+Authorize one fresh QA package copied from the immutable qualified C14 package
+and replaced only with the three files pinned in
+`publication-bounds-source-01/handoff.json`: publication geometry, native
+simulation and receipt producer. The total reference delta is 16 runtime files;
+file count remains 3,680. Verify the exact source/import closure and all prior
+packages, dist, preserved rejected occupancy and protected WIP. No ordinary
+build or unrelated intake.
+
+Authorize one candidate-only actual prefix diagnostic, <=600 seconds with one
+context/renderer and the existing safety/cleanup backstops. Adapt the existing
+runner narrowly; use the same 309 genuine inputs through 1620 and normal view,
+resolution and visual channels. Keep scalar CPU phases and actual GPU queries
+with all outliers. Disable per-frame qualification wrappers during the measured
+window, and capture the dense JPG only after those rows/queries are collected.
+Check all physical rows and endpoint against the saved qualification, actual
+imports/source and positive firelight. New art/body code is unchanged; this
+bounded pass need not repeat the mature-body command recipe. It is an actual
+quality/copy-cost diagnostic, not a fresh paired or final half-target result.
+No profiler, full snapshot history, fresh reference lane, automatic retry,
+optimization commit, promotion or Pages change. Review the result before any
+additional experiment or final paired comparison.
+
+### Bounds actual-path result and publication attribution
+
+The single `publication-bounds-diagnostic-01` invocation succeeds: all 1,621
+physical rows, endpoint, actual imports, six shared firelights and publication
+isolation controls match. The dense JPG is captured only after measurement;
+root inspects it against the frozen firelit reference without finding visible
+loss. Dense visual CPU remains 30.888/51.000 ms mean/p95. Publication alone is
+22.196 ms mean (36.778 on new-native frames, 7.613 between-native), art 4.232
+and submission 4.461. GPU mean/p95 is 10.088/14.702 ms. Retain all outliers.
+This candidate-only run does not establish a paired improvement or half-cost
+acceptance. Do not score it against the prior run as if machine load matched.
+
+After the diagnostic handoff and cleanup, authorize one bounded attribution
+invocation: <=600 seconds, one context/renderer, exact immutable C16 package,
+same 309-command prefix through 1620. Reuse the existing runner narrowly and
+profile only dense host ticks 1501–1620 using the DevTools CPU profiler. Keep
+physical/input/endpoint/import proofs. No screenshots, additional world steps,
+qualification wrapper, full snapshot history, ordinary build, production
+instrumentation or new reference. This profiled invocation cannot be scored as
+speed evidence. Report publication call-tree self/inclusive attribution,
+particularly private/public copying, native frame generation and other large
+publication work; do not add nested costs twice. Close helpers and verify
+ports. No automatic retry, further optimization implementation, commit or
+promotion is authorized by this attribution grant.
+
+### Measured copier target
+
+The attribution-only `publication-bounds-profile-01` completes on unchanged
+C16 source and closes its driver/browser and ports 65502–65503. Within the 120
+dense publication intervals, sampled `copyPublic` is about 1,201 ms (42.2%) and
+`copyOwned` about 1,016 ms (35.7%). Native frame generation is about 173 ms
+inclusive (6.1%); GC is about 116 ms self (4.1%), without attributing its cause
+to a particular allocator. Descriptor/freezing/Map builtins are not separately
+resolved and remain in caller self time. Recursive inclusive costs are counted
+once per sample; nested ancestor totals must not be added. This is attribution,
+not a speed result.
+
+Authorize the existing coder one bounded source-only optimization of the two
+measured copier paths on top of exact C16, preserving its source/profile first.
+Use the smallest defensible mechanism to remove repeated deep-copy or
+per-property descriptor/defineProperty work from provably owned DTO paths.
+Safe adoption is limited to exclusively owned fresh containers; frozen objects
+or caller stamps alone prove nothing. Unknown/unproved values retain safe
+fallback, and other collections must not be assumed free of live references.
+Keep public rows/arrays fresh and mutable, old snapshots isolated, cycles/
+aliases and sparse/proxy/accessor/unknown controls intact, existing numeric
+geometry and bounds proofs unchanged, and native/between-native authority,
+generation/reset/disposal and measurement phase coverage correct. Keep the
+change within receipt/native-publication helpers rather than a general new
+framework; art, physics, lighting, camera, controls and donors stay unchanged.
+Require meaningful source controls, exact pins/diff and operation counts.
+No new renderer, performance/profile run, build, commit or promotion until
+architect source review.
