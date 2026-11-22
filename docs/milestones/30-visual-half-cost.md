@@ -128,6 +128,11 @@ freeze the measured limiting metric and absolute mean/p95/paired budgets after
 this baseline. A fire-only substage reduction cannot be called half of all
 visual cost. Old M27 GPU data suggests quiet scene work also merits inspection.
 
+Collect scalar rows for every rendered host frame and flag new-native frames.
+Also report the combined visual CPU distribution across all displayed frames,
+including frames between native ticks. Those still animate and submit graphics;
+the new-native subset alone must not stand in for all displayed visual work.
+
 Untimed appearance captures use matched normal game zoom and enabled flame,
 smoke/light channels. Save quiet/growing wall-roof JPGs and a short moving
 burning-character clip; preserve actual movement/elevation and visible coverage.
