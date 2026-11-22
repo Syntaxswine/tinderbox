@@ -384,3 +384,40 @@ In parallel, coder may prepare a read-only, profile-grounded proposal for one
 publication/allocation improvement; UI reviewer may inspect submission/material
 hotspots read-only. No further runtime experiment, renderer or source edits are
 granted by those proposals. Artist candidate remains isolated pending this run.
+
+## Round one result and next source experiments
+
+The packing-only ABBA finished with all four workload/source/endpoint controls
+passing and helpers closed. Visual CPU mean/p95 in milliseconds was reference
+28.457/41.000, candidate 22.621/33.800, candidate 19.754/26.300, reference
+20.470/28.000. Both pairs improved, but reference mean drifted downward 28.1%.
+The weaker paired improvement was only 3.5% mean and 6.1% p95. Neither the fixed
+nor paired half-target passes. Retain packing as isolated QA-only work; do not
+claim a precise gain, commit it or retry the unchanged build. Raw lanes remain
+in coder QA `packing-abba-01`.
+
+Reuse the existing coder for one bounded publication/allocation experiment from
+the reviewed firelit source. Separate unchanged private native publication data
+from fresh host metadata and detached public DTOs. Audit ownership and implement
+the smallest measured seam first. Preserve every public state/event, native and
+host clock, source ID, geometry, light, input and thermal rule. Cover between-
+native updates, immediate door/barrel/deposit/retirement changes, scene changes,
+reset/disposal and mutation/alias negatives; unknown mutable producers fall back
+to fresh publication. One finite focused source-test invocation is authorized;
+no build, renderer or timing run until source review. Keep the unrelated support
+proposal unchanged and packing separate. Deliver diff, controls and read hashes.
+
+Reuse the existing UI specialist for a diagnostic shadow attribution candidate.
+After clean-status/worktree checks, use a new `codex/` branch in the existing UI
+checkout from the reviewed firelit source. Prepare private QA-only counters for
+program-change reasons, skinned versus ordinary point-shadow draws, material/
+program switches and submissions. Do not alter production vendored Three source
+or runtime behavior. Record exactly how a copied QA package is instrumented and
+prove counters cannot change draw/state ordering. A short source-only harness
+control is authorized. No browser/native replay or production shadow experiment
+until architect reviews the patcher and specific finite probe plan. In
+particular, the diagnostic profile's sampled weights are not saved-time claims.
+
+Artist packing stays preserved and idle. No new worker chats, worktrees or
+background services; no Pages action. The accepted reference and half-target
+remain fixed.

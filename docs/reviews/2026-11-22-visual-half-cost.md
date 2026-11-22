@@ -2,7 +2,7 @@
 
 The corrected firelit reference passes source, numeric and initial appearance
 review. **The requested further halving has not yet been demonstrated.** The
-first isolated packing comparison is authorized; its result remains pending.
+first isolated packing comparison is complete; it did not reach the target.
 
 Baseline source is coder `d9ca47426bdbbf1ff707fd6a1d6c37079417edc9`,
 intaken as architect `e619918b`. All 23 recorded source hashes match that commit;
@@ -70,11 +70,33 @@ Thirty independent controls preserve complete packed Float32 bits, ordering,
 ties, counts, wind/camera/elevation behavior, culling, limits, retirement/reuse
 and disposal. This proves output behavior, not reduced cost.
 
-Only that file may be overlaid into a separate QA candidate package. The one
-authorized counterbalanced comparison has four sequential reference/candidate/
-candidate/reference contexts, one renderer at a time, current native states,
-matched inputs and scalar/GPU/workload/endpoint evidence. No captures/profile
-work in its timed lanes. Retention and further experiments follow real results.
+The candidate package overlaid only that file. The counterbalanced comparison
+used four sequential reference/candidate/candidate/reference contexts, one
+renderer at a time, with current native states and no captures/profile work in
+the timed lanes. Architect independently recalculated the 120 dense rows in
+each lane, verified per-frame publication/art/submission sums and actual GPU
+queries, compared 29 state/workload fields across all lanes, checked nine
+evidence hashes and the common endpoint. All pass; all four contexts closed.
+
+| Lane | Visual CPU mean / p95, ms | GPU mean / p95, ms |
+| --- | ---: | ---: |
+| Reference A1 | 28.457 / 41.000 | 15.158 / 18.904 |
+| Candidate B2 | 22.621 / 33.800 | 12.500 / 17.084 |
+| Candidate B3 | 19.754 / 26.300 | 11.147 / 15.071 |
+| Reference A4 | 20.470 / 28.000 | 11.998 / 16.427 |
+
+Both pairs improved, but reference mean drifted downward 28.1%. The weaker
+pair's CPU reduction is 3.5% mean /6.1% p95, with no GPU guard violation. This
+does not establish a precise packing benefit or either half-target. Packing
+remains uncommitted and QA-only; no unchanged-build timing retry is authorized.
+Raw data, input/package proofs and cleanup receipts remain in coder QA
+`packing-abba-01`; independent root audit is retained under architect QA.
+
+The next source-only experiments are private native publication-payload reuse
+(coder) and QA-only point-shadow program-change attribution (UI specialist).
+Artist is inspecting the existing art-preparation profile for a larger remaining
+mechanism. No new renderer or timing invocation has been granted by those source
+assignments. The accepted reference, quality and half-target remain fixed.
 
 Master and Pages remain unchanged. M29's separate clocked/rendered-map gates
 and all other unpromoted work are outside this performance pass.
