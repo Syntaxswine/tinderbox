@@ -1,0 +1,94 @@
+{
+  "provenance": {
+    "source": "artifacts/qa/fire-half-cost/quality-round6/2-candidate-growing-later-state.json",
+    "sha256": "248ad2aa2e7771140554a1d5eec74d08994347a13cdbe1c12a603e9267ecc3b3",
+    "producerCommit": "489ba8fcf42c6c73d468f0cfdcdc56dadf6f9bd5",
+    "hostTick": 1620,
+    "nativeTick": 780,
+    "adaptation": "Two unmodified actual canonical sample records; frame registry reduced to version and owner IDs for a non-simulation presentation regression. No historical timings or saved thermal state replay."
+  },
+  "metadata": {
+    "version": 1,
+    "instances": [
+      {
+        "id": "bell-and-alder"
+      },
+      {
+        "id": "hopkins-fifteen"
+      },
+      {
+        "id": "hopkins-twelve"
+      },
+      {
+        "id": "ashland-cottage"
+      },
+      {
+        "id": "hopkins-nine"
+      },
+      {
+        "id": "hopkins-thirteen"
+      },
+      {
+        "id": "monroe-row-house"
+      },
+      {
+        "id": "monroe-row-middle"
+      },
+      {
+        "id": "monroe-row-east"
+      },
+      {
+        "id": "terrain"
+      },
+      {
+        "id": "street-props"
+      }
+    ]
+  },
+  "samples": [
+    {
+      "id": "fuel:bell-and-alder::upper/front/0@73,2,34",
+      "buildingId": "bell-and-alder",
+      "part": "walls",
+      "x": 36.63249996249999,
+      "y": 2.816666683333333,
+      "z": 17.08,
+      "nx": 0,
+      "ny": 0,
+      "nz": 1,
+      "area": 0.5300001560000112,
+      "flame": 1,
+      "smoke": 0.5,
+      "ignitionTime": 23.4,
+      "ignited": true,
+      "heatFraction": 0.9940179640539352,
+      "sourceSurfaceId": "bell-and-alder::upper/front/0",
+      "originalSourceSurfaceId": "bell-and-alder::upper/front/0",
+      "boundaryId": "bell-and-alder::upper/front/0@73,2,34",
+      "ownerInstanceId": "bell-and-alder",
+      "fuelClass": "clapboard"
+    },
+    {
+      "id": "fuel:bell-and-alder::roof/1,6@75,3,31",
+      "buildingId": "bell-and-alder",
+      "part": "roof",
+      "x": 37.74999995,
+      "y": 4.12,
+      "z": 15.74999995,
+      "nx": 0,
+      "ny": -1,
+      "nz": 0,
+      "area": 0.2500001000000107,
+      "flame": 1,
+      "smoke": 0.5,
+      "ignitionTime": 25.566666666666666,
+      "ignited": true,
+      "heatFraction": 0.9940179640539352,
+      "sourceSurfaceId": "bell-and-alder::roof/1,6",
+      "originalSourceSurfaceId": "bell-and-alder::roof/1,6",
+      "boundaryId": "bell-and-alder::roof/1,6@75,3,31",
+      "ownerInstanceId": "bell-and-alder",
+      "fuelClass": "roof"
+    }
+  ]
+}
