@@ -84,3 +84,54 @@ automatic Pages deployment. Commit/push only task files after relevant checks
 pass; preserve failed experiments without committing a failing checkpoint.
 Architect independently reviews the combined result and checks the exact
 release scope. M29/other unpromoted work is not silently promoted with this pass.
+
+## Baseline execution grant, 2026-11-22
+
+Both read-only audits are accepted. Worker branches are at common contract
+`b27ca225661323871e9f0bb8c536428a519d49b5`. The unrelated coder WIP remains
+unchanged. The coder verified prior M27 helpers exited and their eight recorded
+ports are free; the 194 matching lifecycle records are marked exited. No old
+helper is reused or inferred disposable from its executable name.
+
+Authorize coder-only measurement tooling and symmetric optional timing hooks,
+focused tooling checks, one ordinary build, and **one finite baseline/profile
+invocation** on the current Catalogue implementation. No runtime optimization
+or art edits yet. Keep M27 tooling/reference/evidence immutable; use a fresh M30
+wrapper and output directory. Archive the complete current reference package,
+canonical file hashes, source diff/commit, inputs, launcher and restart record
+before any optimization. Both later comparison lanes must use the same timing
+hooks and collection policy. Do not measure the historical reference package.
+
+The invocation has a real ten-minute deadline, an owned hidden helper/browser,
+verified process identity, dynamic ports and finally-cleanup. Enforce maximum
+one live WebGL renderer, with three sequential contexts: scalar baseline, CPU
+sampling, then untimed appearance. Reuse the compatible 309 recorded production
+commands, goat, seed 1893 and host step 1/60 through host tick 1620. Run genuine
+current native states; compute fresh endpoint digests. If the prefix no longer
+produces the required visible wall/roof/body controls, save the named failure
+and stop instead of silently replacing states or retrying.
+
+During timing, retain only the current native snapshot plus scalar rows, GPU
+queries and workload counts. No video, screenshots, full-state export, profile
+sampling or endpoint hashing between primary timed windows. Compute endpoint
+digests outside timing. GPU samples must be actual non-disjoint queries.
+Profile sampling is separate from the scored scalar context. Record hardware,
+browser, page/viewport, resolution, camera, exposure, draw calls/triangles and
+visible source counts. Include a quiet window as well as growing wall/roof and
+moving-body controls. Keep every scalar row and outlier.
+
+Report visual preparation/publication CPU, render-submission CPU, their
+sequential per-new-state sum, actual GPU mean/p95, and full-frame CPU. Publication
+already inside simulation is counted once. The combined visual CPU sum is a
+candidate target if CPU-bound; actual GPU is another candidate. Architect will
+freeze the measured limiting metric and absolute mean/p95/paired budgets after
+this baseline. A fire-only substage reduction cannot be called half of all
+visual cost. Old M27 GPU data suggests quiet scene work also merits inspection.
+
+Untimed appearance captures use matched normal game zoom and enabled flame,
+smoke/light channels. Save quiet/growing wall-roof JPGs and a short moving
+burning-character clip; preserve actual movement/elevation and visible coverage.
+Clean up before handing off numeric/profile/image evidence. No optimization,
+comparison rerun, New York native run, source regeneration, Pages or production
+promotion is granted here. Return exact tool/source hashes, raw data and closed
+helper receipts; report failures without blind retries.
