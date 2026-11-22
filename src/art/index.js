@@ -141,7 +141,7 @@ export async function createArtScene({THREE:T,scene,renderer,assetBaseUrl=ART_AS
       shop?.update(map,{player,camera:timing.camera});
       if(profile)markPresentation(profile,'playerAndLegacyShop');
       const standardHousing=cottages?{...map,buildings:map.buildings.filter(b=>!cottageIds.has(b.id))}:map;
-      const preheatSites=[],structureSites=groupStructureFire(snapshot.structureFire);
+      const preheatSites=[],structureSites=groupStructureFire(snapshot.structureFire,{nativeFrame:catalogueModules?snapshot.catalogueModules:gameplayMap?snapshot.scene:undefined});
       const rubbleSites=rubble?.update(snapshot,worldTime);
       if(profile)markPresentation(profile,'structureSources');
       firelight.update(moduleArt||mapArt?{...snapshot,cells:NO_GROUND_CELLS}:snapshot,structureSites,worldTime,rubbleSites);

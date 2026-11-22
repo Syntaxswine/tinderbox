@@ -26,7 +26,7 @@ export {DEFAULT_CONFIG, TOOLS, DRUGS} from './config.js';
 export {SCENARIOS} from './fixtures.js';
 export {movementVector, worldToStick} from './geometry.js';
 const EPS = 1e-9;
-export function createSimulation({seed = 1947, scenario, config: override,characterId='bear',cottageWind,catalogueModules,gameplayMap,onLoadPhase} = {}) {
+export function createSimulation({seed = 1947, scenario, config: override,characterId='bear',cottageWind,catalogueModules,gameplayMap,onLoadPhase,onPublicationProfile} = {}) {
   const profile=CHARACTER_PROFILES[characterId];if(!profile)throw Error('Unknown player character');
   if(gameplayMap&&(scenario!==undefined||catalogueModules||cottageWind))throw Error('A shared gameplay map must own its geometry/scenario');
   let nativeScene=catalogueModules??gameplayMap;
@@ -364,6 +364,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
   }
   function snapshot() {
     if (disposed) throw Error('Simulation disposed');
+    const publicationStart=onPublicationProfile?performance.now():null;
     const cells = field.snapshot(), obstacles = publishObstacles(state.obstacles), present = new Set(obstacles.map(o => o.id));
     const intactSupport = new Map(definition.modules.map(m => [m.id, m.colliderIds.length > 0 && m.colliderIds.every(id => present.has(id))]));
     const modules = definition.modules.filter(module=>!catalogueModules?.masks.moduleIds.includes(module.id)).map(module => {
@@ -372,7 +373,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       copy.parts = copy.parts.map(part => ({...part, destroyed: part.solid ? !present.has(part.id) : part.role === 'lintel' ? !present.has(copy.id + ':pier-left') || !present.has(copy.id + ':pier-right') : copy.destroyed}));
       return copy;
     });
-    return {version: 1, capabilities, tick: state.tick, paused: state.paused,
+    const published={version: 1, capabilities, tick: state.tick, paused: state.paused,
       clocks: {...state.clocks}, player: {...state.player, inventory: {...state.player.inventory}, lanternAim: structuredClone(state.player.lanternAim),characterFire:characterFire.snapshot(state.player,state.clocks.world),
         ...(shop ? {interaction: shop.interaction()} : {}),
         torch: {...state.player.torch, remainingSeconds: state.player.inventory.torchFuel / config.tools.torch.fuelPerSecond}},
@@ -398,6 +399,8 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
         localHeatIndex: field.heatIndex(state.player,1),
         ...(nativeScene?{thermal:field.diagnostics()}:{}),burningCells: field.publishedStats.burningCells,
         frontX: field.publishedStats.frontX}};
+    if(onPublicationProfile){const endMs=performance.now();onPublicationProfile({tick:state.tick,generation,startMs:publicationStart,endMs,publicationMs:endMs-publicationStart});}
+    return published;
   }
   function dispatch(command) {
     if (disposed || !command || typeof command !== 'object') return false;
@@ -428,7 +431,7 @@ export function createSimulation({seed = 1947, scenario, config: override,charac
       if (disposed) throw Error('Simulation disposed');
       return field.heatIndex(point,radius);
     },
-    dispose() { disposed = true; commands = []; field?.dispose?.();characterFire.reset();state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; rubble=null; shop=null; witness=null; publishObstacles=null;catalogueModules=null;gameplayMap=null;nativeScene=null;cottageWind=null;onLoadPhase=null; }
+    dispose() { disposed = true; commands = []; field?.dispose?.();characterFire.reset();state = null; field = null; buildingFuel = null; obstacleFuel = null; housing=null; joinedRoof=null; cottages=null; rubble=null; shop=null; witness=null; publishObstacles=null;catalogueModules=null;gameplayMap=null;nativeScene=null;cottageWind=null;onLoadPhase=null;onPublicationProfile=null; }
   };
 }
 function inBox(p, o) { return Math.abs(p.x - o.x) < o.width / 2 + p.size / 2 - EPS && Math.abs(p.y - o.y) < o.depth / 2 + p.size / 2 - EPS; }

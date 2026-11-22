@@ -6,7 +6,7 @@ import {createDiagnosticScene} from './diagnostics.js';
 import {visitCapabilities,restrictedCapabilities,GAMEPLAY_CAPABILITIES,EXPLORATION_CAPABILITIES} from '../content/visit-capabilities.js';
 export {THREE};
 export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,assetBaseUrl,simulation,seed,scenario,config,characterId='bear',autoStart=true,uiOptions={},signal:externalSignal,cottageWind,catalogueModules,gameplayMap,onLoadPhase,
-  rendererFactory=()=>new THREE.WebGLRenderer({antialias:true,alpha:false}),observerFactory=callback=>new ResizeObserver(callback),onSnapshot=()=>{},onError=error=>console.error(error)}={}){
+  rendererFactory=()=>new THREE.WebGLRenderer({antialias:true,alpha:false}),observerFactory=callback=>new ResizeObserver(callback),onSnapshot=()=>{},onPublicationProfile,onFrameProfile,onError=error=>console.error(error)}={}){
   if(!root)throw Error('A viewport root is required');
   if(externalSignal?.aborted)throw new DOMException('Visit cancelled','AbortError');
   let settings,sim=simulation,retiredArtDiagnostics,capabilities;
@@ -23,7 +23,7 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
   }
   function projectInteraction(anchor){return disposed?{x:0,y:0,visible:false}:camera.projectInteraction(anchor,uiRoot);}
   function zoom(factor){if(disposed)return;camera.magnify(factor);if(art)present(snapshot,0);}
-  function present(next,delta,simulationMs=0){
+  function present(next,delta,simulationMs=0,advanceStart=null){
     if(Object.hasOwn(next,'capabilities'))restrictedCapabilities(capabilities,next.capabilities);
     const before=performance.now(),previous=snapshot;snapshot=next;
     const timing={alpha:snapshot.diagnostics.alpha,playerDelta:Math.max(0,snapshot.clocks.player-previous.clocks.player),worldDelta:Math.max(0,snapshot.clocks.world-previous.clocks.world),
@@ -36,11 +36,13 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
       simulationCpuP95Ms:simSorted[Math.floor((simSorted.length-1)*.95)]??0,observedHz:intervals.length?1000*intervals.length/intervals.reduce((n,v)=>n+v,0):0,
       renderCpuP95Ms:sorted[Math.floor((sorted.length-1)*.95)]??0,drawCalls:renderer.info.render.calls,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,
       viewport:{width:root.clientWidth,height:root.clientHeight},threeRevision:THREE.REVISION,camera:camera.diagnostics()};
-    onSnapshot(snapshot,lastMetrics);return next;
+    onSnapshot(snapshot,lastMetrics);
+    if(onFrameProfile){const endMs=performance.now();onFrameProfile({tick:snapshot.tick,generation:snapshot.diagnostics.generation,nativeTick:snapshot.catalogueModules?.tick??snapshot.scene?.tick??null,kind:advanceStart===null?'presentation':'advance',startMs:advanceStart??before,endMs,fullFrameCpuMs:endMs-(advanceStart??before),camera:[before,artStart],art:[artStart,uiStart],ui:[uiStart,renderStart],submission:[renderStart,renderEnd]});}
+    return next;
   }
   function advance(delta){
     if(disposed)throw Error('Runtime disposed');const before=performance.now();
-    try{return present(sim.advance(delta),delta,performance.now()-before);}catch(error){dispose();throw error;}
+    try{return present(sim.advance(delta),delta,performance.now()-before,before);}catch(error){dispose();throw error;}
   }
   function frame(now){
     if(disposed)return;const delta=lastTime===null?0:Math.max(0,(now-lastTime)/1000);lastTime=now;
@@ -50,7 +52,7 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
   const abort=()=>dispose();externalSignal?.addEventListener('abort',abort,{once:true});
   try{
     onLoadPhase?.({phase:'host-simulation-begin'});checkLoad();settings=configuration(config,gameplayMap?.configuration);
-    if(!sim){const created=createSimulation({seed,scenario,config:settings,characterId,cottageWind,catalogueModules,gameplayMap,onLoadPhase});if(disposed||externalSignal?.aborted){created.dispose();checkLoad();}sim=created;}
+    if(!sim){const created=createSimulation({seed,scenario,config:settings,characterId,cottageWind,catalogueModules,gameplayMap,onLoadPhase,onPublicationProfile});if(disposed||externalSignal?.aborted){created.dispose();checkLoad();}sim=created;}
     onLoadPhase?.({phase:'host-simulation-ready'});checkLoad();snapshot=sim.snapshot();capabilities=visitCapabilities('capabilities' in sim?sim.capabilities:Object.hasOwn(snapshot,'capabilities')?snapshot.capabilities:(uiOptions.mode==='explore'?EXPLORATION_CAPABILITIES:GAMEPLAY_CAPABILITIES));if(Object.hasOwn(snapshot,'capabilities'))restrictedCapabilities(capabilities,snapshot.capabilities);onLoadPhase?.({phase:'initial-publication-ready'});checkLoad();
     const createdRenderer=rendererFactory();if(disposed||externalSignal?.aborted){createdRenderer.forceContextLoss?.();createdRenderer.dispose();createdRenderer.domElement.remove();checkLoad();}renderer=createdRenderer;
     renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio||1,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.setClearColor(0x35281e);root.append(renderer.domElement);onLoadPhase?.({phase:'renderer-ready'});checkLoad();
@@ -85,6 +87,6 @@ export async function createRuntime({root,uiRoot=root,createArtScene,mountUI,ass
     clean(()=>ui?.dispose());clean(()=>art?.dispose());clean(()=>{retiredArtDiagnostics=art?.diagnostics?.();});clean(()=>sim?.dispose());clean(()=>gameplayMap?.dispose());clean(()=>scene?.clear());clean(()=>renderer?.forceContextLoss());clean(()=>renderer?.dispose());clean(()=>renderer?.domElement.remove());
     if(failures.length)lastMetrics={...lastMetrics,cleanupErrors:failures};
     // A retired public handle keeps receipts, not a complete physical/art world.
-    sim=simulation=null;snapshot=null;art=null;ui=null;scene=null;camera=null;renderer=null;observer=null;catalogueModules=gameplayMap=null;createArtScene=null;onLoadPhase=null;
+    sim=simulation=null;snapshot=null;art=null;ui=null;scene=null;camera=null;renderer=null;observer=null;catalogueModules=gameplayMap=null;createArtScene=null;onLoadPhase=null;onPublicationProfile=null;onFrameProfile=null;
   }
 }
