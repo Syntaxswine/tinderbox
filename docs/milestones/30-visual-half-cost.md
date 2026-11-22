@@ -418,6 +418,128 @@ control is authorized. No browser/native replay or production shadow experiment
 until architect reviews the patcher and specific finite probe plan. In
 particular, the diagnostic profile's sampled weights are not saved-time claims.
 
-Artist packing stays preserved and idle. No new worker chats, worktrees or
+The artist's existing-profile inspection identifies `classifySample` as the
+largest art self-time hotspot while anchor/envelope caches already hit. Authorize
+one separate structural sample-classification/support-binding reuse candidate
+and focused source controls in the existing art checkout. Preserve the packing
+candidate as a separately reversible delta. Cache only proven stable dependencies;
+live camera/cutaway, wind, time, fuel intensity, collapse/landing/retirement and
+unknown mutable samples must remain correct. Compare full outputs to the frozen
+reference under mutations and source lifecycle changes. No renderer/build/timing
+or optimization commit until source review. Do not optimize simulation rules.
+
+Artist packing stays separately preserved. No new worker chats, worktrees or
 background services; no Pages action. The accepted reference and half-target
 remain fixed.
+
+### Shadow attribution probe grant
+
+Architect reviewed the insertion-only QA patcher/collector and six source/mock
+controls in the UI worker's `shadow-probe-plan.md`. Its 39 additions cover 25
+program-change reasons; stripping them restores exact pinned renderer bytes.
+The initial LF-anchor refusal and CRLF correction are preserved. This accepts
+diagnostic preparation, not a production renderer optimization.
+
+After current source-test children exit, coder may reuse the reviewed UI tools
+(patcher SHA `f2fc1d70513d1effdb95e4b3b5da87a6de631480a60b6c77fef73970f6e36ad1`,
+collector SHA `a2dc21f60f7b0bb5fa9885cefd45bec134f3446c77a22d34da847f7fb7b10f4f`)
+to make one private diagnostic package copy. Authorize minimal existing-driver
+glue and one <=10-minute untimed invocation: unchanged reference then
+instrumented copy, two sequential contexts, maximum one renderer. Verify every
+reference byte/source/import and unchanged dist inventory before launch; no
+build, source regeneration or optimization overlay. Run the same 309 commands
+through host 1620. Enable counters only in frozen quiet and dense windows;
+retain bounded numeric counters/current snapshot, not full histories.
+
+Keep all normal camera/quality/shadow settings. Compare draws, triangles,
+workload and endpoint; require balanced scopes, zero overflow and no errors.
+Capture matched stills outside collection. Report skinned/ordinary point-shadow
+reason shares, materials, switches and binding/VAO checks; no speed inference
+from this instrumented run. Stop on failure with receipts, close all helpers
+and release ports. No automatic retry or additional native steps. UI specialist
+finishes source handoff then stays available for source/attribution review.
+
+### Source-operation review of the two cache candidates
+
+Publication occupancy reuse passes 36 source controls, but it keeps all public
+row allocations and adds provenance/property/coordinate scans plus private
+rebuild allocations. Existing bounds already cache. Coder and architect reject
+an unchanged performance run or production intake; retain the isolated diff,
+tests, operation census and receipts in coder QA `publication-source-01`.
+
+Artist classification reuse (`2d8d6de6e284b1cdf4356dfca8c3a47031b7056e4fd8b041bcd67f516fef2bd1`)
+passes 36 controls but only skips a post-routing suffix. Validation, q copying,
+dynamic lookups, liveness, geometry-cache calls, anchoring and animation remain;
+dependency checks add work. The whole classifySample diagnostic self weight is
+85.051 ms, 11.2% of sampled art, and only part is addressable. This is not a
+5.178-ms saving. Hold it QA-only without a renderer run/commit. Artist now audits
+the existing inclusive call tree and per-owner state for broader preparation or
+fan-out removal. No new source experiment or replay is granted by that audit.
+
+### Confirmed shadow transitions: presentation candidate
+
+The single untimed probe passes workload/draw/triangle/endpoint/source controls,
+balanced zero-overflow counters and cleanup (two contexts closed). In 120 dense
+frames, point shadows issue 43,200 ordinary and 72,000 skinned draws; all 5,760
+point-shadow program-change reasons are skinning transitions on material 137.
+These are counts, not saved milliseconds.
+
+Authorize the existing UI specialist to implement the smallest private,
+compatible stable point-shadow distance-material family at the character art
+boundary, using public Three APIs and preserving native bodies/rigs/paint,
+transforms, geometry, draw order/counts, shadow side/clipping/alpha/displacement,
+per-light uniforms, existing authored overrides and resource ownership. No
+production vendor edits. Unknown/incompatible materials retain the old path.
+Run focused source controls for transitions, output-affecting state, overrides,
+reset/reuse/disposal and no retained resources. No build/renderer or cost claim
+until architect reviews the candidate. Keep this reversible and independent of
+the held packing/publication/classification deltas.
+
+In the same source audit, report the largest safely compatible body batching
+subset, matching bind matrices/skeleton/material/attribute layouts, and exclude
+the horse's mutable support arm. That is a read-only fallback proposal; do not
+implement batching in this first candidate. Coder holds preserved experiments
+and reviews actual probe evidence; no further replay until a candidate grant.
+
+### Larger submission experiment: compatible character body batching
+
+The dense probe attributes 72,000 of 143,805 all-pass draws to skinned point
+shadows alone. Authorize coder to audit and implement one reversible compatible
+body-mesh batching candidate in the existing code checkout. Preserve the held
+occupancy diff/tests/evidence separately; do not build or include that delta.
+Batch only parts with matching material, attribute/index layouts, skeleton and
+bind transforms. Preserve authored coordinates, weights, paint and triangle
+content; do not simplify or rescale. Keep original logical part records and pose,
+attachment, headroom and shroud readers correct. Exclude horse support-arm or
+other mutable/independently transformed geometry; incompatible/unknown sources
+keep their original path. Source audit must identify the actual safe subset.
+
+Include meaningful source controls for complete posed vertices/paint/triangles,
+tool grip/attachments, original-reader behavior, exclusions, repeated creation,
+reset/disposal and resource counts. No renderer/build/commit or cost assertion
+yet. Coordinate presentation ownership with UI's separate distance-material
+candidate; do not edit each other's checkouts or silently merge the candidates.
+If compatibility cannot be proved without a broader rewrite, stop at the exact
+blocker and retained proposal instead of weakening the controls.
+
+### Whole prepared owner-batch experiment
+
+Artist inclusive-profile review finds nine owners/1,080 structure updates over
+120 intervals. Cold owners together cost only 0.397 ms in the quiet window;
+zero fire samples alone does not imply unchanged state. The dense path processes
+83,255 sample rows, 41,546 between native ticks. Structural animation uses the
+native frame time, which repeats between those ticks. Nested sampled weights
+(art 735.529, module update 616.610, structure update 575.867, animated shroud
+207.438 ms) are inclusive, not additive or predicted savings.
+
+Authorize artist to prepare an art-consumer candidate for a private producer-
+issued owner payload receipt. An unchanged receipt may reuse classifications,
+support/group results and applied structural state as a batch; do not replace
+that with another per-row dependency scan. Camera/cutaway/occlusion, wind, effect
+time and host lighting remain live. Splat-buffer reuse additionally requires all
+actual presentation inputs to match. Unknown producer/sampler falls back.
+Artist supplies a concrete minimal receipt/ownership/invalidation contract for
+architect to assign to a runtime worker; no runtime producer edits yet. Focused
+source controls and a separate reversible patch are authorized; no renderer,
+build, optimization commit or actual-native run. Preserve the two held artist
+candidates independently. The root target and quality remain unchanged.

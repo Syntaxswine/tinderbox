@@ -98,5 +98,56 @@ Artist is inspecting the existing art-preparation profile for a larger remaining
 mechanism. No new renderer or timing invocation has been granted by those source
 assignments. The accepted reference, quality and half-target remain fixed.
 
+## Source experiments held after review
+
+Coder's occupancy-payload cache passes 36 controls but preserves every public
+row allocation and adds cell/provenance/descriptor checks and private miss
+allocations. Bounds already cache. Its operation census supports holding the
+candidate without a performance run; it is uncommitted in coder QA
+`publication-source-01`.
+
+Artist's support/classification-binding cache also passes 36 controls, including
+exact packed-output and mutation/lifecycle comparisons. Source hash is
+`2d8d6de6e284b1cdf4356dfca8c3a47031b7056e4fd8b041bcd67f516fef2bd1`.
+It skips only a post-routing suffix, adding dependency checks while retaining
+validation, copies, dynamic routing, liveness, geometry calls and animation.
+The entire classifySample sampled self weight is only 11.2% of art; the candidate
+cannot claim the whole 5.178-ms building-art stage. Keep it QA-only without a
+renderer run or production intake. Evidence/cleanup are in artist QA
+`visual-half-cost-art/classify-bindings-attempt01`.
+
+UI diagnostic preparation `bc521fe63aea54ea283f4b09c2d78e86a5cbd054`
+passes six source/mock controls. Architect reviewed its insertion-only patch,
+exact byte restoration, bounded counters, branch decisions and ordered draw/
+state/error paths; independently verified source hashes. One separately granted
+untimed probe compares unchanged and instrumented packages using the same current
+input prefix. It establishes shadow/program attribution and workload/appearance
+equivalence, not a performance saving. Production vendored renderer is unchanged.
+
+The untimed probe now passes. Architect independently compared all 1,621 current
+rows across 27 state/workload fields, checked 17 evidence hashes, reconciled
+main-view and point-shadow draws, verified balanced zero-overflow counters and
+inspected matched dense JPGs. No appearance discrepancy was observed. Two
+contexts closed; browser/driver exited and ports 63548–63549 released.
+
+| Attribution count | Quiet, 60 frames | Dense, 120 frames |
+| --- | ---: | ---: |
+| Ordinary point-shadow draws | 22,260 | 43,200 |
+| Skinned point-shadow draws | 41,760 | 72,000 |
+| Point-shadow program changes | 2,880 | 5,760 |
+| Share caused by skinning transitions | 100% | 100% |
+
+Both skinned and ordinary transitions use shared distance material 137. The
+dense lane has 143,805 all-pass draws; renderer main-view accounting resets after
+the shadow pass, so its 28,605 draws cannot stand in for the total. These counts
+do not imply saved time.
+
+UI is preparing a private compatible point-shadow material-family candidate;
+coder is preparing compatible body-part batching, with native pose/shroud/
+attachment and mutable-part exclusions. Artist is preparing whole owner-batch
+reuse from native publication receipts. All are source-stage candidates pending
+review, actual CPU/GPU measurement and appearance acceptance. No optimization
+has been promoted, and the half-target is still unmet.
+
 Master and Pages remain unchanged. M29's separate clocked/rendered-map gates
 and all other unpromoted work are outside this performance pass.
