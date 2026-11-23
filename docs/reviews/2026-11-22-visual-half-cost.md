@@ -534,3 +534,16 @@ One separate <=600-second quality invocation is granted: unchanged C22 versus
 C22+mask, six existing-frame JPGs, exact physical/source checks and full cleanup.
 The half budget and original reference stay unchanged; no speed or rendered
 quality acceptance is implied by this grant.
+
+The single mask-quality run completes in 145.184 s with exact state/endpoint,
+21 HTTP proofs per lane, 238 corrected native distance materials and no GL error.
+Root audits capture clocks/frames, permitted metadata-only changes, 68 final
+evidence hashes and all cleanup. Artist clears the six actual JPGs; root views
+dense/end pairs. Accept this bounded correction-quality control, preserving
+untested worst-case pixel/motion limits and the original half budgets.
+
+Coder receives one source-only Bell & Alder structural shadow-union prototype,
+using the reviewed stock routing and corrected masks. Original color/picking,
+fallback/occlusion/lifecycle and all effect/state behavior must hold. Additional
+color work, conservative bounds and buffer memory remain part of its cost.
+No actual optimization run, runtime intake or Pages promotion is authorized yet.

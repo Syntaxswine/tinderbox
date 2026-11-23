@@ -1912,3 +1912,34 @@ preparation plan/handoff unchanged. Bind resulting exact pins to one single-use
 grant (invocation1/context2/maxLive1/profile0/census0/deadline600000/scoredfalse).
 Other workers idle and root avoids heavy work during the run. Return actual
 results and media for source/state/visual review before any union experiment.
+
+The correction-quality invocation exits 0 in 145.184 seconds. Root independently
+verifies both 1,621-row physical sequences/ordered endpoints, matched capture
+metadata, hardware, 21 HTTP source proofs per lane, 238 native distance materials
+in the masked lane, no GL/shader error and complete context/GL/process/port
+closure. Only the permitted launch flags/config hash change; preparation plan
+and handoff remain unchanged. Root verifies 68 final evidence hashes and views
+dense/end pairs. Artist reviews all six JPGs: startup is byte-identical; later
+changes are localized shopfront shadow/light differences, with geometry, coverage,
+silhouettes, fire/smoke and broad illumination preserved. Accept bounded mask
+quality via `mask-quality-result-root-audit.json` and
+`mask-quality-evidence-root-audit.json`. Separate worst-case retirement/cutaway/
+glass pixel fixtures and continuous motion are not established by these stills.
+There is no speed acceptance, new denominator, optimization intake or Pages change.
+
+Authorize **one source-only static shadow-union prototype** based on immutable
+masked C22 manifest `3ecee12e...`, Bell & Alder's 14 structural batches only.
+Use the reviewed stock route: one union Mesh under the existing static parent,
+ordinary opaque DoubleSide material with color/depth/stencil writes disabled and
+separately owned corrected masked depth/distance materials. Original color
+meshes/geometry/UVs remain intact. Preserve all native `fh*` values, common
+transform/layers, live mask state, authored casting on fallback, whole-owner
+occlusion/unfade, view/reset/disposal and picker behavior; the proxy adds no
+raycast hits. Exclude VSM and incompatible or unknown material, geometry,
+callback, layer or override states. Moving doors/items, falls/debris, other
+owners and native sources stay separate. No engine fork, global render hooks,
+cache/DTO/proof framework or per-frame vertex rescanning. Include the added
+color submission, buffer memory and conservative shadow-bound overhead in later
+cost evaluation. Meaningful offline geometry/attribute/mask, fallback, visibility,
+occlusion, picker and lifecycle controls precede source review. No package,
+actual renderer/profile/census/cost run, build or promotion is granted yet.
