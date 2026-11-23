@@ -1698,3 +1698,59 @@ deduplicated inclusive samples and GC, and keep physical/endpoint/import/hardwar
 and cleanup proof. Remove C20-only receipt diagnostics absent from C22; do not
 change runtime or add a cache/framework. No reference remeasurement, actual
 profile launch, timing acceptance, build, optimization commit or promotion yet.
+
+The prepared clean-candidate profiler passes five pure analyzer controls and
+root's 264 pin/preservation checks, with 15 engine working files, both quality
+records and the collector unchanged. Root reviews candidate-only driver and
+interval-clipped analyzer; obsolete C20 receipt grouping is absent. Source-pins
+manifest is `104c92c926fa3d77d13bebf49ea0bf5bb26a40b0a70d1951df5b671a7eca9b91`.
+
+Authorize exactly one <=600-second **attribution-only** invocation in fresh
+`character-culling-profile-01`, one candidate context/renderer, exact C22 package
+manifest `2dfa34970202c05353bc98c3496295ed2a5ae663e7219c5e3076d100cef257ca`.
+Use genuine fixed prefix through tick1620; start CPU sampling only immediately
+before host1501 and stop immediately after1620, 120 displayed/60 native frames,
+250 us sampling, existing native phase ranges and validated monotonic clock.
+Keep raw profile/ranges/rows/outliers, unchanged physical/ordered endpoint,
+hardware/import/actual HTTP proof, correctly separated self/deduplicated inclusive
+and GC results, and partial profile/failure evidence. No reference renderer,
+captures, full art diagnostics, snapshot history, C20 accessors, per-frame
+wrapper, extra step/scenario, runtime/source change, automatic retry, build,
+speed acceptance, optimization commit or promotion. Only launch-review metadata
+and hash records may advance, preserving before/after and binding a single-use
+grant to exact reviewed inputs/profile1/deadline. Source workers idle; root avoids
+heavy work. Stop/disable/detach profiler and verify GL/context/process/port cleanup.
+
+The single clean-C22 profile exits 0 in 114.649 seconds. Root independently
+recomputes all 12,722 sampled overlaps, phase self/deduplicated inclusive costs,
+1,621 physical rows and the unchanged ordered endpoint. The final metadata audit
+checks 55 evidence hashes, 18 archived input pins and launch-review-only changes;
+profiler, context/GL allocations, all recorded processes and ports close. Preserve
+`clean-c22-profile-root-audit.json` and `clean-c22-profile-metadata-root-audit.json`.
+This is attribution only: 120 dense frames, one candidate and no reference.
+
+Sampled art time is 1,853.300 ms including GC. The thermal-art update stack
+accounts for 1,255.477 ms inclusive; its descendants must not be added again.
+Independent read-only worker proposals identify two small repeated-work hills:
+house-flame support layout (`splat` self budget 117.022 ms) and thermal fire-row
+assembly (mapper self budget 134.395 ms). Those are upper ceilings, not predicted
+savings. Submission divides into shadow 464.793 ms, color 613.547 ms, other
+renderer 154.987 ms, host 37.574 ms, unresolved .565 ms and GC 5.434 ms.
+The profile lacks object/material arguments, so no category-specific shadow
+batching or draw-count benefit is established. Default Three renderer call totals
+exclude shadow draws because its automatic reset follows shadow rendering.
+
+Select **one per-flame support-layout experiment** first. Artist owns the single
+`art/source/furnished-house/shroud.js` delta against exact clean C22. Compute only
+shared support mode/tangent/slope/clipping setup once per house flame invocation,
+after its existing wind callback; discard it immediately. Preserve per-lobe
+arithmetic, output ordering, wind calls, smoke ceilings, mutable placement and all
+other effects. No cross-frame cache, new DTO/proof framework or engine change.
+Independent C22 packed Float32/order/count and wind transcript controls cover
+walls/floors/roofs/ceilings/ground, cutaways, evolving heat/time/support, falling,
+landing, clear/reset/dispose and callback mutation. Count three/five shared setups
+becoming one. Freeze source, diff and results in fresh worker QA evidence.
+No browser run, profile, ABBA, build, implementation commit or promotion is granted
+at this stage. Coder's publication hill is deferred; UI's submission budget is
+accepted as a diagnostic limit only. The half-cost target remains unmet and
+master/Pages is unchanged.

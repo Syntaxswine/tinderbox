@@ -462,3 +462,22 @@ The half-cost target is still unmet. Coder prepares a clean-candidate CPU
 attribution profile using the fixed prefix/dense window and native phase ranges;
 no actual profile or ABBA grant is active. Reference drift remains unresolved
 and must not supply an easier denominator. Master/Pages stays unchanged.
+
+The separately granted clean-C22 profile completes once, exit 0 in 114.649 s.
+Root audits all 12,722 samples and 120 dense phase intervals, exact physical
+prefix/ordered endpoint, hardware and 18 actual HTTP source proofs. The final
+audit verifies 55 evidence hashes, 18 archived pins, metadata-only grant changes
+and complete profiler/GL/process/port closure. No reference was rendered and no
+speed result is accepted. The raw profile SHA is
+`e0b28d7553705307ab0279c475abfac7fea4d37af1cbc29816726a554ffe37d1`.
+
+Artist, coder and UI return read-only proposals from these actual samples.
+Select the artist's small same-invocation house-flame support-layout experiment;
+the entire affected `splat` self budget is only .975 ms/frame, so expected savings
+are lower. Require exact packed-output/wind/behavior controls before any actual
+comparison. Defer publication-row assembly and unsupported object-specific
+shadow batching. Current authority is one source/control experiment in the art
+worktree; there is no new renderer/profile/ABBA grant. Root evidence is
+`clean-c22-profile-root-audit.json` and `clean-c22-profile-metadata-root-audit.json`.
+The half target is unmet, no optimization code is intaken, and master/Pages
+remains unchanged.
