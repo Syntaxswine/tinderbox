@@ -1797,3 +1797,27 @@ completed row (frame1503/native721). One candidate context, no reference/profile
 capture, full-art diagnostics, snapshot history or extra render/step. Keep exact
 physical/endpoint/HTTP/hardware and cleanup proof. No support-layout overlay or
 runtime change. Both source deliveries require root review before an actual grant.
+
+The UI helper passes nine pure controls, root's 408 pin/preservation checks and
+independent artist review. Helper SHA is
+`e32d5bda44d9e2080ffe3b6d786fdf41088bc5d323fc1cabd6eba308cc9a792b`.
+The integrated driver then passes root source review, 86 source/evidence checks,
+all 3,679 candidate file hashes, 15 preserved engine working files and complete
+prefix coverage. Driver SHA is
+`1f1a72b73c849a556f4db778c7265864cc24d49377370f553c90e767a38cbe05`;
+pre-grant source pins are
+`334f047db451da806a63e0e8ed741ac3cccb75c2544e4e30b1190c3f5ea7bb78`.
+Two metadata-preparation failures are retained; neither was a renderer run.
+
+Authorize exactly one <=300-second **diagnostic census** in fresh
+`character-draw-census-01`, using exact reviewed source/clean C22, one candidate
+context and fixed genuine prefix. Arm after1501; instrument only the already
+required1502 native render, then remove hooks and finish through1620. Preserve
+raw records before eligibility assertions, unsupported cases, descriptor receipts,
+1,621 physical rows, ordered endpoint, hardware, all 18 HTTP source proofs and
+GL/context/process/port cleanup. All timings are unscored. No reference, profile,
+image capture, full-art diagnostics, history, extra render/step, runtime change,
+retry, build, commit of optimization code or promotion. Archive before-state;
+only config review/launch flags and corresponding config/pin/evidence hashes may
+advance. Bind the resulting pins to a single-use grant (census1/profile0/max one
+renderer/deadline300000). Artist/UI idle and root avoids heavy work during the run.

@@ -493,3 +493,12 @@ Saved source/micro root audits preserve that decision; no renderer was created
 and all four child lifetimes close. No optimization is intaken. UI is assigned
 read-only feasibility for one dense-frame object/material draw census; no actual
 grant exists. Half-cost and Pages remain unchanged.
+
+The one-frame census helper subsequently passes nine controls, root's 408
+source/preservation checks and independent artist review. Root verifies the
+integrated driver, 86 input/evidence records, 3,679 candidate file hashes and
+complete unchanged prefix. `draw-census-helper-root-audit.json` and
+`draw-census-driver-root-audit.json` preserve the source decision. One separately
+bounded <=300-second diagnostic invocation is granted in fresh output; no timing
+or optimization acceptance follows. Instrument only existing native host1502,
+restore hooks, finish the original sequence and verify state/source/cleanup.
