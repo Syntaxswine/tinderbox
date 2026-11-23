@@ -7,8 +7,8 @@
 | Architect | `codex/review-visual-half-cost`; M29/M28/M27 reviews preserved | `C:/Users/baals/Documents/ChatGPT/tinderbox` | M30 current-build visual-cost contract, measured target, combined review and promotion |
 | Artist | `codex/visual-half-cost-art`; M29 `codex/shared-map-fire-bindings` preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | M30 support-layout exact-output pass held for insufficient CPU benefit; idle; all art frozen |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | `codex/visual-half-cost-code`; M29 `codex/shared-map-gameplay-code` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | M30 one <=300 s exact-C22 draw-census diagnostic granted; no speed acceptance; preserve all checkpoints |
-| UI designer | `codex/visual-shadow-probe`; M29 `codex/shared-map-tools-ui`, `codex/fire-brigade-study` and unrelated train branch preserved | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | M30 draw-census helper9/source review clear; idle; preserve C22 and all checkpoints |
+| Coder | `codex/visual-half-cost-code`; M29 `codex/shared-map-gameplay-code` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | M30 census fully audited/closed; native point-shadow mask source experiment and offline controls only; no actual grant |
+| UI designer | `codex/visual-shadow-probe`; M29 `codex/shared-map-tools-ui`, `codex/fire-brigade-study` and unrelated train branch preserved | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | M30 read-only static-owner shadow-union routing feasibility; no implementation/actual grant |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 

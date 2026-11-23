@@ -1821,3 +1821,43 @@ retry, build, commit of optimization code or promotion. Archive before-state;
 only config review/launch flags and corresponding config/pin/evidence hashes may
 advance. Bind the resulting pins to a single-use grant (census1/profile0/max one
 renderer/deadline300000). Artist/UI idle and root avoids heavy work during the run.
+
+The census completes once, exit 0 in 89.419 s. Root independently reconciles all
+660 attempts, 657 completed submissions (441 shadow/216 color), three zero-draw
+attempts and 344 identity groups. All 1,621 physical rows, ordered endpoint,
+hardware, 18 actual HTTP proofs and 17 archived inputs match. Only the permitted
+two config flags and corresponding config hash advance; preparation handoff is
+unchanged. Root checks 50 final evidence hashes and exact process identities.
+Hooks, context/GL allocations, driver/browser/supervisor and ports63636/63637
+close. Root `draw-census-result-root-audit.json` and
+`draw-census-evidence-root-audit.json` accept this diagnostic only, not speed.
+
+Both independent source assessments select Bell & Alder's 14 static structural
+batches: 141 observed point-shadow submissions across 12 face matrices. A union
+would have at most 12 submissions in that frame, with approximately 6.1% additional
+submitted vertex entries from less precise culling. This is a count opportunity,
+not a per-family time or saving. Doors, furniture and other moving owners stay
+separate. UI checks stock-Three shadow-only routing and its additional color-pass,
+visibility, occlusion, lifecycle and picker cost before an implementation decision.
+
+The census/source review also confirms a **separate correctness gap**. Native
+`thermal-art.js` installs the decorated patch-state mask on color and custom depth
+materials; point lights select custom distance materials, which are absent for
+these batches. Partially retired or cut-away geometry therefore keeps its full
+point-shadow silhouette. Whole-owner occlusion disables casting independently.
+Visible severity has not been measured. Do not treat the color/depth mask as
+proof of correct point shadows or silently include a correction in a speed claim.
+
+Authorize coder one minimal **mask-correctness source experiment** against clean
+C22: wire the existing same-owner retirement/cutaway/glass mask into native
+distance shadows through the existing owned material/disposal path. Preserve
+geometry, UVs, native bindings, current item/door matrices, whole-owner occlusion,
+reset/clear/disposal, simulation, lights and all effect channels. No global state
+sharing, new cache/DTO/proof framework or batching. Reuse meaningful offline
+shader/state/ownership/lifecycle controls, freeze one-file delta and pins, then
+return for source review. No actual renderer, package, build, code commit or
+promotion yet. Later appearance controls may derive originalR+mask and C22+mask;
+the original frozen reference is preserved and its absolute 8.28/10.5 ms half
+budgets do not change. The user reports the computer is mostly idle; do not
+attribute reference drift to another build without evidence. Final cost runs
+still require the frozen reference-validity guards.

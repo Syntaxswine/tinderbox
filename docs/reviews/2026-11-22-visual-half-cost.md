@@ -502,3 +502,18 @@ complete unchanged prefix. `draw-census-helper-root-audit.json` and
 bounded <=300-second diagnostic invocation is granted in fresh output; no timing
 or optimization acceptance follows. Instrument only existing native host1502,
 restore hooks, finish the original sequence and verify state/source/cleanup.
+
+That census passes once in 89.419 s. Root reconciles 660 attempts/657 draws,
+441 shadow/216 color, three zero-draw attempts and 344 groups, exact physical
+prefix/endpoint/hardware/source proofs, launch-metadata-only changes and all
+50 evidence hashes. Every helper/GL allocation/port closes. The two actual root
+audits accept the diagnostic, with no speed or optimization acceptance.
+
+Independent source assessments identify a bounded 14-batch static Bell & Alder
+point-shadow union opportunity, with routing/culling overhead still unresolved.
+They also confirm absent native point-distance retirement/cutaway masking.
+Correct that mask first through one source-only coder experiment using the
+existing owner mask and resource lifecycle. Source and later appearance review
+precede batching or cost acceptance. Preserve the original reference and fixed
+absolute half budgets; a corrected appearance control is not a new denominator.
+No runtime optimization or Pages change is promoted.
