@@ -5,10 +5,10 @@
 | Role | Branch | Checkout | Responsibility |
 | --- | --- | --- | --- |
 | Architect | `codex/review-visual-half-cost`; M29/M28/M27 reviews preserved | `C:/Users/baals/Documents/ChatGPT/tinderbox` | M30 current-build visual-cost contract, measured target, combined review and promotion |
-| Artist | `codex/visual-half-cost-art`; M29 `codex/shared-map-fire-bindings` preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | M30 numeric shadow fixture frozen; C22 constructor-accessor finding awaits revised source recheck; frozen art preserved |
+| Artist | `codex/visual-half-cost-art`; M29 `codex/shared-map-fire-bindings` preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | M30 C22 source28/archive and actual paired image review clear; idle; frozen art preserved |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | `codex/visual-half-cost-code`; M29 `codex/shared-map-gameplay-code` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | M30 quality fixture/tooling and exact package preparation only; C22 source withheld pending revision; preserve failures/WIP |
-| UI designer | `codex/visual-shadow-probe`; M29 `codex/shared-map-tools-ui`, `codex/fire-brigade-study` and unrelated train branch preserved | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | M30 C22 revision02 constructor-accessor correction and finite controls; preserve source01/26 checkpoint; no actual launch |
+| Coder | `codex/visual-half-cost-code`; M29 `codex/shared-map-gameplay-code` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | M30 combined bounded quality accepted; clean-candidate attribution profile preparation only; no actual grant or cost acceptance |
+| UI designer | `codex/visual-shadow-probe`; M29 `codex/shared-map-tools-ui`, `codex/fire-brigade-study` and unrelated train branch preserved | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | M30 C22 revision02/28 source controls frozen and reviewed; idle; preserve all checkpoints |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 

@@ -415,3 +415,50 @@ passes 21 pure source controls and pin review, with original command/endpoint
 targets preserved. Actual moving-body and shadow pixels remain pending; coder
 is preparing source/package glue, without a launch grant. The half-cost target
 and Pages remain unchanged.
+
+The focused source correction passes 28 controls, root's 389 file/pin checks and
+final independent archive review. Corrected helper is
+`a6718de99ef28cd4e863fceefb6d9159f06c592f42d74bbf08cf45935e2adb40`.
+The clean 3,679-entry package (manifest
+`2dfa34970202c05353bc98c3496295ed2a5ae663e7219c5e3076d100cef257ca`)
+passes complete inventory, 214 imports and source/tooling review before one
+bounded quality-only invocation. No performance acceptance follows from this.
+
+That invocation preserves its original exit 1: candidate whole-officer fixture
+diagnostics require an ordinary Mesh's lazy geometry sphere before rendering.
+Both lanes nevertheless pass 1,621 physical rows, full ordered endpoint, actual
+HTTP source bytes, 95 canonical body commands/112 player-state rows, 60
+moving-burning frames and natural clearing. Reference's on/off/restored shadow
+control passes all 480 ROI pixels; candidate pixels are not reached. Root views
+paired mature-middle images with equivalent shroud, pose and firelight.
+
+Root independently verifies 84 evidence hashes, 17 archived source pins,
+metadata-only launch-review changes and complete process/context/GL/port
+cleanup. Evidence is coder `character-culling-quality-v2-01` and root
+`character-quality-partial-root-audit.json` / `character-quality-metadata-root-audit.json`.
+All helpers close. Authorize a QA-only ordinary-bound correction and preparation
+of a small shadow-only follow-up, reusing the passed body/state evidence against
+unchanged runtime. There is no automatic retry or new actual grant yet.
+Candidate quality and half-cost remain unaccepted; master/Pages is unchanged.
+
+The QA-only lazy-bound correction passes 23 controls, root's 241 file/pin checks
+and independent source review. A separate shadow-only invocation then exits 0,
+with no gameplay steps or repeated body replay. Root independently checks both
+480-pixel masks, IoU1/MAE0 and unchanged startup/final clocks. All three complete
+R/C framebuffers are byte-identical. Actual bounds/whole-officer clearance,
+hardware, HTTP sources, three scene passes/lane and complete cleanup pass.
+The audit includes 90 evidence hashes, 21 archived source pins and metadata-only
+launch-review changes.
+
+Accept the combined **bounded quality** evidence: original run01's matching
+state/body replay and normal-zoom image review, plus
+`character-shadow-fixture-only-01`'s off-camera shadow pixels. Preserve the
+original exit1; neither its history nor missing stage is relabeled. Root's
+`shadow-only-result-root-audit.json` and `shadow-only-metadata-root-audit.json`
+record the combined decision. Whole-game/mobile acceptance and cost remain
+separate. All disposable helpers close; no runtime optimization is promoted.
+
+The half-cost target is still unmet. Coder prepares a clean-candidate CPU
+attribution profile using the fixed prefix/dense window and native phase ranges;
+no actual profile or ABBA grant is active. Reference drift remains unresolved
+and must not supply an easier denominator. Master/Pages stays unchanged.

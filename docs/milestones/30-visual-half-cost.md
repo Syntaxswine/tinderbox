@@ -13,11 +13,11 @@ ordered endpoint equality and 1,621 physical rows, with 119 source controls and
 independent review. CPU nevertheless regresses to 17.922/30.500 ms mean/p95 versus
 reference 14.380/18.200; publication remains too expensive. The single pair also
 flags the GPU guard. Preserve its rejected screen and closed helpers. Current
-work is a focused C22 source revision after independent review found live
-constructor accessors after transform capture. C21 source17 and package pass
-review; its retained state/data audit passes, but cost and actual motion/shadow
-quality remain unaccepted. Coder prepares quality tooling/package only. No
-actual renderer grant is active.
+work is clean-candidate attribution profile preparation after C22's combined
+bounded state/body/image/shadow quality is accepted. Its shadow-only follow-up
+passes all fixed pixel/clock/bounds/source/lifecycle gates; the original quality
+exit1 remains preserved. The half-cost target is unmet. No actual renderer/profile
+grant is active; both quality allowances are consumed and closed.
 Historical restrictions are
 superseded only by later explicit grants.
 
@@ -1573,3 +1573,128 @@ ground/light reach with torso-crossing rays. Actual constructed-pose bounds and
 pixels remain separate gates. Connected masks use four edge-sharing neighbors;
 RGB MAE is the average of all 1,440 ROI channel differences. These definitions
 are frozen before any pixel results, without changing the artist's thresholds.
+
+Revision02's final helper `a6718de99ef28cd4e863fceefb6d9159f06c592f42d74bbf08cf45935e2adb40`
+passes 28 controls, root's 389 file/pin checks and final independent source/archive
+review. Manifest RAW is `08dfccecab9d7bcbfcc2e8e34f11bf7611f82233b77692b02cceec58149f95f1`.
+The correction also rejects own palette length overrides/non-view proxy storage
+and checks independent matrix copies; global prototype changes remain excluded.
+All three finite children close and previous checkpoints remain intact.
+
+The corrected quality package passes root's full five-package hash audit,
+214-import closure, nine reference/two C21 runtime deltas, 35 evidence hashes,
+107 preservation records and 22 tooling controls. It has 3,679 entries with
+manifest `2dfa34970202c05353bc98c3496295ed2a5ae663e7219c5e3076d100cef257ca`
+and canonical `70c403b795c930eb42c73e49fd33006b6e3b7db4cbde4d18ac1f7de9b0eff481`.
+The uniformed officer's actual body batch contains three exposed authored
+members, not the ordinary character's generic seven. Accept that exact saved
+mapping: reference three body parts plus 22 uniform meshes versus candidate
+one body batch plus 22 uniform meshes. Arms/equipment stay unchanged. Ordinary
+fresh native paint-baking setup is counted separately from three fixture scene
+passes per lane, with one borrowed renderer.
+
+Authorize one <=600-second **quality-only** original/corrected-candidate replay,
+maximum one live renderer, in fresh `character-culling-quality-v2-01` evidence.
+Use unchanged 309-command prefix/1,621 physical rows and ordered endpoint,
+95-command/112-step mature body recipe with 60 moving-burning frames and natural
+clearing, and the exact frozen on/off/restored shadow fixture. Keep all source,
+hardware, camera/effects, pixel gates and failure evidence. Actual constructed
+bounds must pass before fixture rendering; no repositioning or threshold tuning.
+Save lossless pixels/PNG, JPGs, clip, masks/difference, group/identity proofs,
+actual HTTP byte/source proof and final GL/context/process/port cleanup.
+
+Only launch-review metadata may advance to accepted with before/after evidence;
+refresh its hash records and bind the single-use actual-grant receipt to the
+unchanged package/source pins and 600-second deadline. No runtime/tooling source
+change, profile, build, extra scenario, automatic retry, performance acceptance,
+optimization commit or promotion. UI/artist remain idle and root avoids heavy
+work during the run. Complete cleanup and return the actual result for review.
+
+### First C22 quality result and focused remaining fixture
+
+The original quality invocation exits 1 at candidate pre-render
+`FIXTURE_SPHERE_MISSING`, preserved in `character-culling-quality-v2-01`. Both
+lanes pass all 1,621 physical rows, ordered endpoint, actual HTTP byte proofs
+(15 reference/18 candidate), the unchanged 95-command/112-step body sequence,
+60 moving-burning frames and natural clearing. Root independently verifies
+those results and positive hero shroud/no legacy cards on every motion frame.
+Reference's three-pass shadow control passes all 480 ROI pixels; candidate's
+managed 23-sphere check completes, but whole-officer diagnostics fail before
+candidate shadow pixels are rendered. This is not a whole-quality pass.
+
+The QA helper skips lazy geometry-sphere calculation for an ordinary static
+Mesh whose default `frustumCulled` is true. Three normally creates that bound
+on first render. Managed skinned bounds must still be present and must not be
+masked by such a fallback. Authorize only a small QA correction and meaningful
+ordinary-versus-managed non-render regression; no runtime/package change.
+
+Root checks 84 evidence hashes, 17 archived source pins, unchanged grant-bound
+package/inputs and metadata-only launch-review changes. All three recorded
+process lifetimes, both contexts/GL allocations and ports close; no helpers are
+retained. Root views paired mature-middle JPGs and finds equivalent shroud,
+pose and street illumination. Artist reviews the wider actual image set.
+
+Prepare a **shadow-fixture-only** follow-up in fresh delivery/output, proposed
+maximum 300 seconds, with fresh original/candidate contexts and the same
+production app/borrowed renderer, fixed actor/time/camera/light/ground, three
+passes and frozen pixel gates. No state injection, live repositioning or repeated
+gameplay steps. Preserve the original failed invocation. Reuse its completed
+prefix/body evidence against the byte-identical runtime package; do not repeat
+those passed sequences for a QA-only static-bound correction. A combined quality
+decision must link both runs explicitly. Source/config/pins review precedes any
+new actual grant. No retry is automatically authorized, and there is still no
+performance/ABBA grant, accepted half-cost gain or promotion.
+
+Source03's QA correction passes 23 non-render checks, root's 241 pin/preservation
+records and independent UI specialist review. Managed character bounds remain
+mandatory; only ordinary geometry receives its normal lazy diagnostic sphere.
+No game source changes. Fixture helper SHA is
+`d984e648bf9ef2b08ce91ee5c94292b532b0e6c106e4528f89987bb6425e4517`,
+driver `c40f254ddbcfd6f2ad06219024767e8683a217d0851c79fb8ce190a36ac28a07`,
+source-pins manifest `8d8c726db65df028d0bf4868c515ba0415d240c96ef10dcb9697afd2999283bb`.
+Artist review of ten actual normal-zoom JPGs finds no visible shroud, smoke,
+illumination, silhouette, uniform or natural-clearing regression. Metadata and
+60 moving-burning rows agree; stills alone do not prove every rendered frame.
+
+Authorize exactly one <=300-second **shadow-fixture-only** run in fresh
+`character-shadow-fixture-only-01` against original reference and unchanged
+candidate manifest `2dfa34970202c05353bc98c3496295ed2a5ae663e7219c5e3076d100cef257ca`.
+Use reviewed `--shadow-fixture-only` mode, fresh sequential contexts/max one
+renderer, normal visit startup with no dispatched gameplay commands/steps,
+same fixed scene/pose and all original bounds/source/hardware/pixel gates.
+Require startup tick/world clock unchanged across three fixture passes per lane.
+Link retained run01 body/state evidence explicitly and preserve its exit 1.
+Only launch-review metadata/hash records may advance with before/after proof;
+bind a new single-use grant to exact reviewed package/source pins and 300-second
+deadline. Save all pixels/media/masks/difference and cleanup receipts. No live
+repositioning, threshold/source change, extra scenario, profile, build, automatic
+retry, performance acceptance or promotion. Other workers idle; root stays quiet
+during the run. Return the actual result for combined quality review.
+
+The shadow-only invocation exits 0 in 68.967 seconds. Root independently checks
+lossless raw pixels: both masks have 480 shadow pixels in one four-connected
+component; IoU is 1, RGB MAE 0 and all 480 pixels are within tolerance. Entire
+reference/candidate on, off and restored framebuffers are byte-identical, not
+only the ROI. Both startup/final clocks stay tick0/world0. Actual 23-sphere and
+whole-officer clearance, hardware and HTTP byte proofs pass. Each fixture makes
+four normal paint-baking setup passes plus exactly three scene passes; flags,
+owned kit resources, family leases and borrowed renderer state are released.
+Both contexts/GL allocations, driver/browser/supervisor and ports close.
+
+Root verifies 90 evidence hashes, 21 archived source pins and metadata-only
+launch-review changes. Accept **combined bounded quality** from retained run01
+state/body evidence and `character-shadow-fixture-only-01` pixel evidence. The
+original run01 exit1 remains failed. This acceptance covers the frozen workload,
+actual normal-zoom stills/motion-state checks and explicit off-camera shadows;
+it is not whole-game/mobile or performance acceptance. Preserve root
+`shadow-only-result-root-audit.json` and `shadow-only-metadata-root-audit.json`.
+
+The unscored quality-prefix reference still differs substantially from the frozen
+cost reference; do not infer an accepted speed gain or start an unchanged ABBA
+attempt. Authorize coder **preparation only** for one candidate-only attribution
+profile of the exact clean C22 package, genuine prefix and 120 dense frames.
+Reuse the unchanged collector's native phase intervals, separate self from
+deduplicated inclusive samples and GC, and keep physical/endpoint/import/hardware
+and cleanup proof. Remove C20-only receipt diagnostics absent from C22; do not
+change runtime or add a cache/framework. No reference remeasurement, actual
+profile launch, timing acceptance, build, optimization commit or promotion yet.
