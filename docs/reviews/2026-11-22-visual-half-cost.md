@@ -547,3 +547,21 @@ using the reviewed stock routing and corrected masks. Original color/picking,
 fallback/occlusion/lifecycle and all effect/state behavior must hold. Additional
 color work, conservative bounds and buffer memory remain part of its cost.
 No actual optimization run, runtime intake or Pages promotion is authorized yet.
+
+The revised union source passes root review at
+`3495c3842baaf0dd238bee90b038fa63fcc7636a3464fc1e1bd5c29f929ecf18`.
+Both independent reviewers clear owned-resource cleanup and actual forwarded
+shadow-material routing. Root verifies 220 records/79 evidence files. Preserve
+the initial timeout, earlier 12-pass checkpoint and final-runtime run03's
+13-pass/one harness failure plus corrected run04's focused pass. The final
+runtime has 14 distinct relevant passing controls across those two runs; there
+was no clean full-14 run. All four child lifetimes close.
+
+Source acceptance authorizes preparation of one masked-C22 versus union screen,
+not its launch. The unchanged prefix/collector measures the existing dense
+window; startup/endpoint PNGs and proxy/shader checks occur outside measurement.
+Keep every CPU/GPU row and outlier, exact state/source checks and full cleanup.
+The additional color submission, memory and conservative bounds remain costs
+to measure. This is a directional quality/cost screen; the frozen reference,
+absolute half budgets and later robust comparison are unchanged. No optimization
+is intaken or promoted, and the half-cost goal remains unmet.

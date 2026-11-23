@@ -1943,3 +1943,43 @@ color submission, buffer memory and conservative shadow-bound overhead in later
 cost evaluation. Meaningful offline geometry/attribute/mask, fallback, visibility,
 occlusion, picker and lifecycle controls precede source review. No package,
 actual renderer/profile/census/cost run, build or promotion is granted yet.
+
+The static-union source is accepted at
+`3495c3842baaf0dd238bee90b038fa63fcc7636a3464fc1e1bd5c29f929ecf18`,
+source pins `031ff164cfa96dd3ede75677580e27a0cefffc7a6b828fd7d115a6479899cac8`.
+Root audits 220 records, including 79 evidence files. Artist and UI independently
+clear the focused corrections: cleanup releases captured owned resources rather
+than borrowed replacements; the routing guard covers actual Three shadow inputs
+and no-write/callback state. The 14 admitted meshes retain exact attributes,
+common coordinates, live masks and original color/picking behavior. The union
+allocates 5,623,380 raw attribute bytes. Conservative shadow bounds can submit
+6.08% more triangles and the proxy adds one color draw when visible; draw-count
+reductions alone do not establish savings.
+
+Preserve the actual offline history: run01 times out at 90 seconds with its
+precise phase unknown; corrected-harness run02 passes 12 controls on the earlier
+runtime. Run03 on the final runtime passes 13 and fails one harness assertion
+that incorrectly treats Three's `addEventListener` bookkeeping as forwarded
+material data. Run04 corrects that extraction and passes the one focused routing
+control on identical runtime bytes. These are 14 distinct relevant passing
+controls across run03/run04, not a clean full-14 invocation. All four children
+close. `static-union-source-root-audit.json` preserves the audit before the two
+independent focused clears; its pending-review label is historical.
+
+Authorize **preparation only** for one rendered quality/incremental-cost screen:
+immutable corrected-mask C22 manifest `3ecee12e...` versus a fresh package with
+exactly the accepted union file delta. Reuse the reviewed two-lane lifecycle,
+unchanged collector and genuine 309-command prefix through 1620, two fresh
+sequential contexts and at most one live renderer, with a proposed 600-second
+cap. Capture lossless matched PNGs only at existing startup 0 and endpoint 1620,
+after each row's timing finishes. No screenshots or diagnostics inside the
+120-frame growing-fire window. Preserve every raw CPU/GPU row and outlier;
+compute framewise publication plus art plus render-submit mean/p95 without
+adding nested physical/raster work. Inspect proxy admission, shader/picker/
+material state only outside measurement; verify physical/ordered endpoint,
+hardware, 21 actual HTTP source proofs per lane and full cleanup. No new census,
+profile, body replay, officer fixture, full-art diagnostics, history, extra
+render/step, build, runtime intake or promotion. Freeze packages, driver, config
+and pins for review before a separate launch grant. This directional screen
+cannot replace the original reference, change the fixed 8.28/10.5 ms budgets or
+establish final half-cost acceptance. Master and Pages remain unchanged.
