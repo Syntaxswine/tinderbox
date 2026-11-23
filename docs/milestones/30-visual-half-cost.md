@@ -1754,3 +1754,46 @@ No browser run, profile, ABBA, build, implementation commit or promotion is gran
 at this stage. Coder's publication hill is deferred; UI's submission budget is
 accepted as a diagnostic limit only. The half-cost target remains unmet and
 master/Pages is unchanged.
+
+The support-layout source passes ten controls and root's 87 source/evidence
+checks: 37 exact comparisons/313,600 packed words, 35 wind transcripts and
+three/five-to-one setup counts. Independent UI review catches one cleanup case;
+the minimal correction uses current post-wind `supportCell` or null, preserving
+the original behavior after `clear()`. Earlier import failure and nine-control
+checkpoint remain preserved. Corrected shroud SHA is
+`d77d2083c3de779cd83d5c20ecb159f3942891aec4e2352f006a47e21935d068`.
+
+Before game packaging, authorize one <=30-second non-render kernel CPU screen:
+80 mixed cells/all flame and smoke channels, real unchanged C22 packer, separate
+256-update warmups then two fixed ABBA sequences of 128 updates/block. The
+single child exits 0 in 1.193 s; all 1,024 update timings remain saved. Post-timing
+original/candidate comparison passes 512 evolving states/4,587,520 words, with
+matching measured endpoints. Root recomputes all statistics and verifies 58
+source/evidence records and disposal. Mean .222458 -> .220858 ms is only .7%
+better; median is 1.5% worse and paired ratios are .960/1.026/.984/1.003.
+Hold this candidate as **insufficient benefit**; do not package or intake it.
+This function screen is not whole-game, GPU or half-target acceptance.
+
+Root records `support-layout-source-root-audit.json` and
+`support-layout-micro-root-audit.json`. All four non-render child lifetimes close;
+no helper is retained. Artist/coder idle. UI reads existing hooks to propose the
+smallest one-dense-frame object/material draw census, because sampled shadow and
+color costs alone do not identify a safe batching opportunity. This is read-only
+planning; no new renderer, profile, game package or actual census is granted.
+
+Accept the minimal census plan for **source preparation only**. UI supplies a
+one-shot per-instance page helper: gate the existing host-scene render, scope
+`shadowMap.render`, stack `renderBufferDirect` arguments and record `info.update`
+completed submissions. Preserve attempt/completed distinctions, exact descriptor
+restoration in `finally`, timer queries/auto-reset and effective material state;
+never invoke callbacks for inspection. Unsupported nested/multi-draw/unattributed
+work is explicit. Test scope, zero-instance returns, thrown calls and restoration
+with small fake-instance controls, then freeze source/pins for review.
+
+Coder reuses the reviewed lifecycle/collector and exact clean-C22 package for
+fresh <=300-second diagnostic preparation. Genuine prefix still ends at1620;
+arm after1501 and census only the required1502 native render, validating its
+completed row (frame1503/native721). One candidate context, no reference/profile,
+capture, full-art diagnostics, snapshot history or extra render/step. Keep exact
+physical/endpoint/HTTP/hardware and cleanup proof. No support-layout overlay or
+runtime change. Both source deliveries require root review before an actual grant.

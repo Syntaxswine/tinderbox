@@ -481,3 +481,15 @@ worktree; there is no new renderer/profile/ABBA grant. Root evidence is
 `clean-c22-profile-root-audit.json` and `clean-c22-profile-metadata-root-audit.json`.
 The half target is unmet, no optimization code is intaken, and master/Pages
 remains unchanged.
+
+The support-layout experiment passes exact-output/source review after one focused
+clear-in-wind correction. Ten controls cover 37 packed comparisons/313,600 words
+and 35 wind transcripts; root audits 87 source/evidence pins. A single bounded
+non-render CPU screen then records all 1,024 timings and matches 512 states /
+4,587,520 packed words. Root independently verifies 58 pins and all statistics.
+Mean improves only .7%, median worsens 1.5%, and paired blocks are mixed.
+Reject this hill as insufficient benefit without spending a full game replay.
+Saved source/micro root audits preserve that decision; no renderer was created
+and all four child lifetimes close. No optimization is intaken. UI is assigned
+read-only feasibility for one dense-frame object/material draw census; no actual
+grant exists. Half-cost and Pages remain unchanged.
