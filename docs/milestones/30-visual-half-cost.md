@@ -7,19 +7,16 @@ in this baseline. Its older reference and timing values are not this task's
 denominator. New York's accepted internal coupled checkpoint stays preserved;
 this task does not renew its actual-source/compiler allowances or enable it.
 
-Current status: the half-cost target is **unmet** and no optimization code is
-promoted. The latest C20 construction-owned geometry screen passes complete
-ordered endpoint equality and 1,621 physical rows, with 119 source controls and
-independent review. CPU nevertheless regresses to 17.922/30.500 ms mean/p95 versus
-reference 14.380/18.200; publication remains too expensive. The single pair also
-flags the GPU guard. Preserve its rejected screen and closed helpers. Current
-work is clean-candidate attribution profile preparation after C22's combined
-bounded state/body/image/shadow quality is accepted. Its shadow-only follow-up
-passes all fixed pixel/clock/bounds/source/lifecycle gates; the original quality
-exit1 remains preserved. The half-cost target is unmet. No actual renderer/profile
-grant is active; both quality allowances are consumed and closed.
-Historical restrictions are
-superseded only by later explicit grants.
+Current status: this round concludes with the half-cost target **unmet** and
+no optimization code intake or promotion. Clean C22's bounded quality and native
+distance-mask correction are accepted at their documented scopes. The subsequent
+static shadow union and local-matrix experiments pass their relevant correctness
+checks but show no cost benefit; hold both without retry. All workers are idle,
+all actual helpers are closed, and no renderer/profile/timing/package grant is
+active. Preserve the measured failures, original reference and absolute half
+budgets. Further implementation needs a new supported source hypothesis rather
+than another unchanged timing attempt. Historical restrictions are superseded
+only by later explicit grants.
 
 ## Work and ownership
 
@@ -2034,3 +2031,79 @@ each from actual samples/current masked C22: publication/art CPU and rendering,
 respectively. No implementation, package, helper, profiler, census or timing
 invocation follows from that assessment. Artist is idle. Half-cost remains
 unmet, with no optimization code intake or master/Pages change.
+
+The bounded follow-up audits find no supported high-value publication/art hill.
+`classifySample` accounts for 224.142 sampled ms/120 frames, but its removable
+portion is unproven; existing metrics/fuel caches and indexed debris lookup are
+already present. Both saved point-shadow lights remain positive, so a possible
+zero-intensity-light routing issue has no demonstrated dense-window budget.
+Do not invent savings for either finding. Artist may assess conservative unseen
+effect work without edits or helpers.
+
+Authorize UI **one source-only constant-local-matrix experiment** in its own QA
+overlay, explicitly assigning this experimental `thermal-art.js` copy while
+coder/artist checkouts and tracked runtime stay untouched. Derive from immutable
+masked C22 `3ecee12e...`; initialize factory-owned constant-local structural
+native mesh matrices once, then disable their local recomposition while keeping
+world-matrix updates. Exclude every local transform writer, door/item/debris,
+occupancy and effect. Preserve geometry, masks/materials, layers, rendering and
+picking. No generic guard/proxy/cache framework. Relevant real-factory CPU
+controls compare local/world matrices under ancestor transforms, views/reset/
+occlusion/lifecycle, bounds, picking and shadow-frustum decisions; count removed
+local recompositions. One <=60-second offline Node control invocation is granted,
+with exact before/source/pins and lifecycle receipt. No micro timing, renderer,
+profile, package, ordinary build, commit or promotion yet. Source/control review
+precedes any further grant. The complete `Object3D.updateMatrixWorld` sampled
+self ceiling is only .974 ms/frame across all objects; this eligible fraction is
+unknown and smaller, with no predicted GPU saving or half-target claim.
+
+The three-line matrix source passes root review at
+`97018b15e4c86cad394ab20e07bdb084a6d58f8522cd4c94923e058ee3db2190`,
+pins `d53ad865d3359168f079d519e60e7fe86b9965eddc9693de634092c8e7d871da`.
+Root verifies 423 records, including 393 unchanged preserved files and 19
+evidence pins. Five real-factory control groups match matrices/masks/effects,
+928 bounds, five picking and 2,820 shadow-frustum comparisons plus disposal.
+Sixteen eligible meshes avoid 32 local recompositions per fixture step, while
+78 excluded meshes retain their path; construction adds 16 initializations.
+The single child 34988 closes after 1.495 seconds, exit 0. Preserve the earlier
+multiple-executable launcher failure, which created no child and ran no controls.
+These are CPU presentation fixtures, not native simulation or rendered quality.
+
+Authorize **one <=30-second CPU matrix micro screen**, in fresh UI QA output,
+using unchanged saved source/real Bell & Alder setup. Freeze micro sources and
+config before launch; no separate preparation round is required for this small
+offline screen. Remove test wrappers; time the full-tree two-pass matrix work,
+not isolated compose calls. Warm both lanes, then two fixed ABBA sequences/eight
+blocks, <=1,024 iterations per block. Preserve every raw time/order/outlier,
+report normalized kernel mean/p95 and pair ratios, and compare matrices/bounds
+outside timing across ancestor transforms. Record exact process identity,
+deadline and closure. Do not rerun saved controls or modify their evidence.
+No renderer, profile, package, build, source revision, retry or promotion. This
+measures one incremental kernel, not global frame savings or half acceptance;
+hold a negligible result without a rendered replay.
+
+The matrix micro completes once, child 65920 exit 0 in 1.529 seconds and closed.
+Root verifies 438 records and independently recomputes all 8,192 raw timings,
+eight blocks, four pair ratios and two sequence summaries. The 20 before/after
+snapshots match 150 nodes and 184 world bounds each; prior evidence, source
+copies and dependencies are unchanged. World-matrix visits stay 301 per kernel;
+local recompositions fall from 301 to 269. The reduction does not save time:
+
+| Two-pass matrix kernel | Reference | Candidate |
+| --- | ---: | ---: |
+| Mean | .010967 ms | .011930 ms |
+| Declared micro p95 | .014700 ms | .017900 ms |
+
+All four paired means are worse (ratios 1.059--1.104). The .000964 ms mean
+difference is tiny and supplies no case for another rendered replay. The micro
+explicitly uses nearest-rank p95; the frozen game convention would give .014600/
+.017900 ms here and does not change the decision or any game target. Final micro
+pins are `825e221a1e8b6d813ba7e142e90bf14549e68599de3dffa1443659e4186a7246`;
+`static-matrix-micro-root-audit.json` preserves raw/statistical/state/lifecycle
+verification. **Hold the matrix candidate with no retry, intake or promotion.**
+
+This round has found no supported remaining large cut that preserves the
+contract. It has not established that halving cost is impossible. Close these
+bounded experiments with all evidence and failures retained; do not substitute
+favorable historical timings or call the target achieved. No worker/helper or
+rendering service is retained. Master, the published game and Pages are unchanged.

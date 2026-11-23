@@ -589,3 +589,46 @@ audits preserve 222 checked records, final pins `dc65a6bb...`, all cleanup and
 image hashes. Workers may make bounded read-only next-hill proposals using the
 accepted samples. The original reference, absolute half budgets and Pages stay
 unchanged; the goal remains unmet.
+
+The follow-up read-only audits find no supported large cut. The largest resolved
+classification self sample is 1.868 ms/frame, with its removable share unknown;
+existing metrics/fuel caches and indexed debris work already exist. Saved point
+lights are positive. The artist finds independent flame/smoke culling already
+active and only 78 of 3,029 generated splats rejected downstream in the matched
+endpoint; that 2.6% is not a removable whole-source budget. Whole-shroud sampled
+cost is 3.444 ms/frame, with smoke's .662 ms included, not added. Do not claim
+either entire stage as savings.
+
+UI is assigned one small source-only static-local-matrix experiment and one
+<=60-second real-factory Node control invocation. Constant-local structural
+leaves may avoid local recomposition while world transforms, geometry, masks,
+picking and shadow-frustum behavior remain equal. Dynamic groups/effects stay
+excluded. Source and operation-count review precede any micro timing, package
+or actual renderer grant. The all-object matrix self ceiling is .974 ms/frame;
+the eligible fraction is smaller and unknown. Artist and coder are idle.
+
+Root accepts the three-line matrix source `97018b15...` and pins `d53ad865...`:
+423 records/393 preserved files/19 evidence pins and five control groups pass.
+All matrices, masks/effects, 928 bounds, five picking and 2,820 shadow-frustum
+comparisons match. Local recompositions fall 32 -> 0 per fixture step for 16
+eligible meshes. Child 34988 exits 0 in 1.495 s and closes. An earlier launcher
+failure created no child and is preserved. Grant one <=30-second CPU-only
+full-tree matrix micro screen: warmed lanes, two fixed ABBA sequences, every
+raw timing/outlier, source/state checks and exact cleanup. No actual renderer
+or final speed acceptance follows; hold negligible savings without replay.
+
+The one matrix micro also supplies no benefit. Across two ABBA sequences/8,192
+raw timings, two-pass kernel mean rises .010967 -> .011930 ms, with all four
+paired means worse. Declared nearest-rank micro p95 rises .014700 -> .017900 ms;
+the unchanged game percentile convention would yield .014600/.017900 here.
+Neither interpretation supports a speed claim. Root verifies all statistics,
+438 records, 20 matched matrix/bounds snapshots and unchanged inputs/evidence.
+Child 65920 closes after 1.529 s; no renderer or port is created. Final micro
+pins are `825e221a...`. Hold without retry or a rendered replay.
+
+This bounded round concludes with **no accepted speedup and the half target
+unmet**. Both actual candidates remain QA experiments; no runtime code is
+intaken or promoted. All workers/helpers are idle/closed, all raw evidence and
+failures are retained, and master/Pages is unchanged. A new supported hypothesis
+is needed before further implementation or actual comparison; this is not a
+claim that the target is impossible.
