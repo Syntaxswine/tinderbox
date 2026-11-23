@@ -393,3 +393,25 @@ Evidence is coder `character-culling-screen-01` and root
 ports close. The candidate remains unpromoted; half-cost is still unmet. Artist
 saved-image review, UI's bounded read-only same-pose guard-sharing proposal and
 coder qualification/protocol preparation are assigned before any new launch.
+
+C22's call-local validation sharing passes 26 source controls and root's 172
+pin/file checks. It preserves 83 C21 archive files, 17 earlier frozen files and
+eight donors; all three finite source-test children close. The patrol census
+is 23 requests, one skeleton/palette evaluation, 17 bone visits and 56 unchanged
+box transforms, with 46 added mesh guard passes and 63 matrix copies. Those
+counts are not measured savings.
+
+Independent review nevertheless finds two reachable live constructor lookups
+after transforms have been copied. An own constructor getter on the palette
+array or a later mesh matrix can mutate the common root and yield an accepted
+mixed-time bound. Source clearance is withheld. A bounded revision02 correction
+and two regressions are assigned, preserving the original 26-control checkpoint.
+No C22 renderer or performance acceptance has occurred.
+
+The [small shadow fixture](../engineering/visual-half-cost/shadow-fixture-v1.json)
+now has frozen transforms/ROI/pixel gates. Root independently checks all 23
+saved officer bounds and static receiver/ray geometry. The new replay tooling
+passes 21 pure source controls and pin review, with original command/endpoint
+targets preserved. Actual moving-body and shadow pixels remain pending; coder
+is preparing source/package glue, without a launch grant. The half-cost target
+and Pages remain unchanged.

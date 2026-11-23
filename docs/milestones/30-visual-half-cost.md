@@ -13,10 +13,11 @@ ordered endpoint equality and 1,621 physical rows, with 119 source controls and
 independent review. CPU nevertheless regresses to 17.922/30.500 ms mean/p95 versus
 reference 14.380/18.200; publication remains too expensive. The single pair also
 flags the GPU guard. Preserve its rejected screen and closed helpers. Current
-work is a C22 call-local character-validation source overlay and quality/tooling
-preparation after C21's preserved exit-1 screen. C21 source17 and package pass
+work is a focused C22 source revision after independent review found live
+constructor accessors after transform capture. C21 source17 and package pass
 review; its retained state/data audit passes, but cost and actual motion/shadow
-quality remain unaccepted. No actual renderer grant is active.
+quality remain unaccepted. Coder prepares quality tooling/package only. No
+actual renderer grant is active.
 Historical restrictions are
 superseded only by later explicit grants.
 
@@ -1511,3 +1512,64 @@ Require existing controls plus identity/count, mutation-between-call, palette,
 lazy-allocation, retirement and disposal cases. Finite source-test children must
 close. New pins/diff and independent peer review precede any actual launch;
 no renderer/profile/build, optimization commit, push or promotion is granted.
+
+C22's frozen two-file delta passes 26 controls (original17 unchanged plus nine)
+and root's 172 file/pin checks. All 83 C21 archive files, 17 protected files and
+eight donors remain unchanged; three finite test children close. Preserve the
+first 21/25 fixture failure, corrected explicit-bind fixture's 25/25 result and
+final 26/26 capture-order regression check. Root reviewed both runtime diffs;
+independent artist source review remains pending. Helper SHA is
+`c9edb67f2fc4c394b204caeaf3281e46023ddac972df4d71baa9a8b3011f70cc`,
+body-batch SHA `5b467aaee5220129d78bfd9271eb3abc20b713877ff33be452314925078af0c9`,
+pins RAW SHA `7f41aadf7dc3e5ec1d5619c02534bb9dbbc1a2a9a18d6b633c696c96c18c4288`.
+
+Actual source counters confirm one patrol call: 23 requests, one skeleton/palette
+evaluation, 17 bone visits and 56 box transforms. Added work is 46 mesh guard
+passes and 63 private matrix copies. Savings are unproved. Per-member palette
+evaluation counts may now be zero; future QA must prove member requests and the
+shared group evaluation explicitly rather than reuse C21's per-member counter
+assertion or waive palette validation.
+
+Artist's saved-image review confirms quiet24 bounded positive-light eligibility
+witnesses and dense0, with no identifiable visible-ground shadow proof. Freeze
+the [small numeric shadow fixture](../engineering/visual-half-cost/shadow-fixture-v1.json)
+with on/off/restored controls and precommitted ROI/pixel gates. Authorize coder
+minimal fixture/quality-v2 source glue and exact C22 package preparation only:
+immutable C21 plus the two pinned deltas, expecting 3,679 entries, nine original
+reference deltas and 214 imports. Review source/import/pins and prelaunch math
+before any actual quality grant. Preserve all previous packages; no build.
+
+Coder's checkpoint-v2 passes 21 pure tooling checks and root pin/plan review.
+It fixes ownership/visibility partition and ordered finite JSON command
+comparison; signed-zero differences are recorded without changing commands or
+endpoint targets. These checks use saved counters/synthetic traversal and are
+not new actual scene observations. The future ABBA protocol has no prefix QA,
+fixed absolute/paired targets and all outliers. Freeze the validity addendum:
+reference dense CPU/GPU mean/p95 <=1.25 times frozen; no lower cutoff for faster
+references; R1/R4 max/min <=1.10 for each statistic. First invalid reference
+stops the finite attempt, without automatic retry. This is protocol preparation,
+not an actual performance grant or accepted half-cost gain.
+
+Independent C22 source review withholds clearance for one P2 at two live reads:
+the palette array's `constructor` and `matrixCopy()`'s matrix `constructor`.
+An own getter can move the shared root/update matrices while returning the
+expected constructor, after an earlier mesh transform was captured. Accepted
+mixed-time transforms can then produce an inconsistent sphere. This uses no
+global prototype changes or vertex-buffer writes. Preserve source01/26 controls
+and root's point-in-time pin audit; that audit does not override peer findings.
+
+Authorize a focused revision02 source correction with non-invoking type/descriptor
+checks and one regression per lookup site, retaining the original 26 controls.
+Preserve the exact 26-test source and all source01 bytes; the new revision has
+self-contained test copies/pins. Finite <=120-second source children only;
+no renderer/profile/build/commit/push. New pins and focused peer recheck precede
+any actual grant. Coder's fixture tooling can continue, but old C22 package
+preparation remains a preserved, withheld checkpoint pending corrected pins.
+
+Root independently verifies the numeric fixture against all 23 saved officer
+spheres: .3519293136 m minimum color-frustum clearance, .8418153565 m maximum
+horizontal radius and Y [-.1374539624,1.7915654594]. All ROI corners are inside
+ground/light reach with torso-crossing rays. Actual constructed-pose bounds and
+pixels remain separate gates. Connected masks use four edge-sharing neighbors;
+RGB MAE is the average of all 1,440 ROI channel differences. These definitions
+are frozen before any pixel results, without changing the artist's thresholds.
