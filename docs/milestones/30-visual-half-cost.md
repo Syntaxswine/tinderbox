@@ -1983,3 +1983,54 @@ render/step, build, runtime intake or promotion. Freeze packages, driver, config
 and pins for review before a separate launch grant. This directional screen
 cannot replace the original reference, change the fixed 8.28/10.5 ms budgets or
 establish final half-cost acceptance. Master and Pages remain unchanged.
+
+Preparation passes five pure tooling controls, independent UI source review and
+root's 178 source/preservation checks plus 14,710 package file checks. Candidate
+manifest is `762adedcc64946a6a8c7c9e08d697b1bc00a18b1cf7d2f86db45631e80f63837`;
+the sole delta over masked C22 is the accepted union runtime. Driver SHA is
+`b998e6a40561280446386a7073c7929cf6c0752001d304c4692f2ac6b74f2e6d`,
+pre-grant pins `05dd097aa40446488230232ee3946e10102462ccd171e2b4d47ca8d5ee204d1e`.
+Root archives the reviewed driver, host, config, pins, plan and handoff in its
+ignored QA directory. Tooling child 58116 is closed; no renderer has launched.
+
+Authorize exactly **one <=600-second directional union screen** in fresh
+`static-shadow-union-screen-01`, with the prepared two sequential contexts,
+unchanged workload/collector, four startup/end PNGs, dense-window exclusions,
+exact physical/source/hardware checks and full cleanup above. Bind final pins
+to one single-use grant: invocation1/context2/maxLive1/profile0/census0,
+scoredfalse/automaticRetryfalse. Preserve before-state; only the two config
+launch/clearance flags and corresponding config hash in final pins may advance.
+Leave preparation plan/handoff unchanged. Preserve partial failures without
+retry. Other workers idle; root avoids heavy work during measurement. Actual
+state, appearance and cost review must follow; no intake or promotion is granted.
+
+The directional screen completes once in 169.431 seconds, exit 0. The union is
+active at the endpoint. Root independently verifies all 1,621 physical rows per
+lane, ordered endpoints, hardware, 21 HTTP source proofs, raw phasewise timing
+statistics, capture clocks and permitted metadata-only changes. Both contexts
+and GL allocations close; driver 14604, browser 31520 and launcher 5164 are gone,
+ports 53636/53637 are released, and no helpers remain. Final source pins are
+`dc65a6bbd06418ec2932c54d99c288d2588bb94caad7983cef4a44661fe2dcc1`.
+Root verifies 70 final evidence hashes plus preserved source/WIP records and
+pins (222 records total). Root views the endpoint pair; artist reviews all four
+PNGs and finds no visible regression. This clears bounded stills, not motion or
+worst-case masking.
+
+| Dense 120-frame metric | Masked C22 control | Static union | Candidate/control |
+| --- | ---: | ---: | ---: |
+| Visual CPU mean | 19.219 ms | 21.458 ms | 1.117 |
+| Visual CPU p95 | 25.300 ms | 27.500 ms | 1.087 |
+| GPU mean | 8.808 ms | 11.446 ms | 1.300 |
+| GPU p95 | 11.114 ms | 16.014 ms | 1.441 |
+
+**Hold the union for cost regression; no retry or intake.** This one sequential
+pair does not establish causal attribution, particularly since unchanged phase
+costs also vary, but supplies no case for spending a final robust comparison.
+Color counters rise by exactly one draw/31,241 triangles; they do not count the
+shadow submissions. Original reference and 8.28/10.5 ms targets stay fixed.
+`union-screen-result-root-audit.json` and `union-screen-evidence-root-audit.json`
+preserve the decision. Coder and UI may now make one bounded read-only proposal
+each from actual samples/current masked C22: publication/art CPU and rendering,
+respectively. No implementation, package, helper, profiler, census or timing
+invocation follows from that assessment. Artist is idle. Half-cost remains
+unmet, with no optimization code intake or master/Pages change.

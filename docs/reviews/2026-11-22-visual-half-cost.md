@@ -565,3 +565,27 @@ The additional color submission, memory and conservative bounds remain costs
 to measure. This is a directional quality/cost screen; the frozen reference,
 absolute half budgets and later robust comparison are unchanged. No optimization
 is intaken or promoted, and the half-cost goal remains unmet.
+
+Root and UI accept the frozen screen preparation, with five pure controls,
+178 source/preservation checks and 14,710 package file checks. Candidate manifest
+`762adedc...` differs from immutable masked C22 only by the reviewed union file.
+Driver `b998e6a4...` and pre-grant pins `05dd097a...` are archived. Grant one
+separate <=600-second directional run: two sequential fresh contexts, unchanged
+prefix/collector, four startup/end PNGs, no dense-window diagnostics, preserved
+raw rows/outliers and complete cleanup. Only allowed launch metadata may change.
+There is no final speed acceptance, new denominator, retry or promotion.
+
+The screen completes once, exit 0 in 169.431 s. Root verifies exact physical
+sequences/endpoints/hardware/21 HTTP sources per lane, raw timing statistics,
+capture clocks, launch metadata and 70 final evidence hashes. All three recorded
+process lifetimes, both contexts/GL allocations and ports close. Artist clears
+all four normal-zoom stills; motion and worst-case masking remain unestablished.
+
+Hold the union: visual CPU mean/p95 regress 19.219/25.300 -> 21.458/27.500 ms;
+GPU regress 8.808/11.114 -> 11.446/16.014 ms. This is directional evidence, with
+unchanged phases also varying; it does not prove causal attribution or final
+ABBA performance. No retry, intake or promotion. Root's final result/evidence
+audits preserve 222 checked records, final pins `dc65a6bb...`, all cleanup and
+image hashes. Workers may make bounded read-only next-hill proposals using the
+accepted samples. The original reference, absolute half budgets and Pages stay
+unchanged; the goal remains unmet.
