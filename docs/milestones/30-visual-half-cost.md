@@ -13,9 +13,10 @@ ordered endpoint equality and 1,621 physical rows, with 119 source controls and
 independent review. CPU nevertheless regresses to 17.922/30.500 ms mean/p95 versus
 reference 14.380/18.200; publication remains too expensive. The single pair also
 flags the GPU guard. Preserve its rejected screen and closed helpers. Current
-work is a read-only remaining-publication proposal after C20's completed profile.
-C21 culling has 15 passing controls but is correcting the peer-found bone-texture
-layout guard; its actual invocation remains held. No new actual grant is active.
+work is a C22 call-local character-validation source overlay and quality/tooling
+preparation after C21's preserved exit-1 screen. C21 source17 and package pass
+review; its retained state/data audit passes, but cost and actual motion/shadow
+quality remain unaccepted. No actual renderer grant is active.
 Historical restrictions are
 superseded only by later explicit grants.
 
@@ -1387,3 +1388,126 @@ proof and honest work charging. No implementation or new actual invocation yet.
 UI now receives the focused C21 palette correction, preserving its 15-control
 checkpoint, with finite source controls and final peer recheck before any actual
 culling trial. Artist remains idle until revised frozen pins arrive.
+
+The corrected C21 palette guard passes 17 controls, including same-data metadata
+changes, Float32 storage and normal lazy allocation/update. Final artist review
+clears the finding. Root audits 47 files/pins, six runtime overlays, six before
+files matching C20/B1, 17 protected files, saved controls and five closed test
+children. Prior 15-checkpoint files and eight donors remain intact. Final helper
+SHA is `c2c049a3382504c0c3b4dd91307c71f8c984298fa7ca973e8c63e65799a3f6fa`;
+pins SHA is `b8a1443dd6418f789c93b9621b00f4ac9220ae9faf6138ff56bbadc994c26209`.
+This is source clearance only.
+
+The coder's strongest bounded remaining publication proposal removes a third
+boundary-row representation. Its measured self-cost ceiling is only 52.5 ms
+(5.3% of publication samples), before replacement checks/freezing. It cannot
+close C20's gap and is not authorized for implementation. Broader reuse lacks
+mutation proof. C20 also introduced stronger DTO isolation than the reference's
+cached/live-alias semantics; reverting that architecture is an explicit scope
+choice, not an equivalent isolation optimization.
+
+Keep C14–C20 publication/isolation experiments unpromoted as separate work.
+Authorize **package preparation and measured-work plan only** for a clean C21
+character-rendering candidate on the original immutable firelit reference. Apply
+the six accepted C21 overlays and only the reviewed B1 point-shadow helper and
+shroud-fit dependency. Preserve original public/simulation semantics; those paths
+are unchanged, so C20's stronger experimental isolation tests do not apply to
+this rendering-only candidate. The original reference lane stays byte-identical.
+Inventory/import closure and all source pins must be verified; no ordinary build.
+
+The plan must retain original CPU half budgets/GPU guard, input/state/endpoints,
+native geometry/paint/skin/rig/shroud/equipment and all visual channels. Bound
+construction, updates and palette guards remain charged to art. Submitted draws
+and triangles may decrease through conservative culling; explain those deltas
+rather than require C16's uncullable submitted counts. Require post-only actual
+bound admission/update/retirement/operation counters, zero runtime vertex skinning
+and normal-zoom still/shadow review before acceptance. No new scenario, per-frame
+diagnostic wrapper, profile, runtime change beyond reviewed overlays, actual
+launch, optimization commit, push or promotion is authorized at preparation.
+
+Preparation finds that actual rigs expose `bodyBatchDiagnostics()` but the
+reference art facade does not forward those counters. Authorize one minimal
+read-only forwarding overlay in the reference-based QA facade (a ninth runtime
+delta), with exact diff/pin for root review. Keep the active C20 facade and its
+receipt/product implementation untouched. No art-update/render/observer/collector
+change, per-frame diagnostic wrapper or moved bound work is allowed; QA requests
+the existing counters only after timing. Revised package/plan remain required
+before actual launch.
+
+The prepared clean package passes root's full inventory/hash audit: original
+3,676 entries unchanged, candidate 3,679 entries with exactly nine runtime
+deltas/three added helpers, 214 imports and 52 evidence hashes. The source-only
+facade line is the sole difference from its reference file. Manifest SHA is
+`9d645f6ff2efe6f46349d1621c6b93ddcc059b3383866f122c3fb45178082fa1`;
+canonical SHA is `2204da7875a76f97a1d214c30f9c6e47721be82857b73a5601ce328441c76379`.
+
+Authorize one <=600-second original-reference/candidate screen, maximum one
+renderer, with the unchanged workload, primary CPU targets and GPU guard. All
+bound work stays in art; the collector is byte-identical. Keep all raw rows and
+original failures. Save one final ordered endpoint DTO per lane before its
+unchanged assertion. Read actual bound/retirement/operation counters only after
+timing; zero vertex skins refers to the new bound helper, not the entire game.
+Capture matched quiet/dense JPGs after their respective windows and GPU flush,
+without extra steps, quality changes or diagnostic re-render. Current-scene
+shadow-frustum math uses clones, preserving real cameras/logical visibility;
+eligibility is not measured GL submission. An absent off-color-camera witness
+leaves that actual-quality gate unresolved; do not invent a new scenario. No
+profile, build, new scenario, automatic retry, source change, optimization commit
+or promotion. Artist/UI stay idle and root avoids CPU-heavy work. Close and
+verify all contexts, GL, owned processes and ports afterward.
+
+### C21 retained screen: original failure preserved
+
+The original invocation exits 1 after timing: 27 active bound owners versus 26
+visible bounded meshes. The additional owner is the dead hidden Bell & Alder
+resident. This explains a diagnostic expectation error; it does not convert the
+failed invocation into a pass. No retry or runtime change occurred.
+
+Root independently recalculates every visual CPU sum, dense mean/p95 and GPU
+query; checks all 1,621 physical rows, byte-identical ordered endpoints, 66
+evidence hashes, nine requested module pins, authored geometry, equipment,
+pose anchors and complete cleanup. Candidate requests and immutable package
+hashes are proved; the candidate stopped before its separate HTTP byte re-fetch
+loop. Do not claim that loop completed. Preserve coder
+`character-culling-screen-01` and root `character-culling-screen-root-audit.json`.
+
+Dense CPU mean/p95 is 52.736/73.200 ms reference versus 26.759/34.500 candidate;
+GPU is 24.970/31.703 versus 11.394/15.466. Paired CPU ratios are .507/.471, GPU
+.456/.488. Both absolute CPU budgets and the paired mean half-target fail.
+Reference CPU is far above the frozen 16.560/21.000 ms reference; unchanged
+publication also nearly halves across these lanes. Attribution and repeatability
+remain unresolved. Do not claim the whole paired reduction as an accepted gain.
+
+The four normal-zoom JPGs retain the reviewed appearance; quiet JPGs are
+byte-identical. Correct the earlier global absence claim: quiet has 24 off-color
+shadow-frustum eligibility witnesses, dense has zero. Eligibility is not visible
+ground shadow pixel proof. All resources, two contexts and three recorded
+process lifetimes close; both ports are released. No test helper is retained.
+
+Assign artist read-only saved-image/shadow review, distinguishing positive-light
+eligibility from actual visible-ground shadow evidence. If needed, propose one
+small quality-only fixture. Assign UI a read-only source proposal for sharing
+repeated skeleton/palette validation within the same final-pose call, retaining
+per-mesh guards and palette negatives; no cross-frame cache. Assign coder only
+tooling/work-plan preparation for corrected owner/visibility assertions, exact
+canonical mature-body command comparison, bounded quality qualification and a
+future fresh ABBA protocol that addresses reference drift. No new game launch,
+runtime implementation, build, optimization commit or promotion is authorized
+by these preparation assignments. Original targets and reference stay frozen.
+
+UI's source census identifies the officer's 22 uniform meshes and body batch
+using the same 17-bone skeleton. Current successful final-pose work repeats 23
+full skeleton scans, 391 bone guard visits and 23 palette validations; the
+proposed grouped path performs one scan, 17 visits and one palette validation.
+The 56 posed box transforms stay unchanged. These are source operation counts,
+not measured savings.
+
+Authorize a separate C22 source overlay with call-local shared validation only
+for identical creation-time binding expectations. Keep all per-mesh guards,
+capture shared transforms privately, make no callbacks/re-reads after validation
+and discard validity on return. Retain independent fallback for unproved inputs;
+no cross-call cache or general framework. Preserve C21's final17 checkpoint.
+Require existing controls plus identity/count, mutation-between-call, palette,
+lazy-allocation, retirement and disposal cases. Finite source-test children must
+close. New pins/diff and independent peer review precede any actual launch;
+no renderer/profile/build, optimization commit, push or promotion is granted.

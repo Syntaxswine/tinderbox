@@ -356,3 +356,40 @@ peer clearance is withheld for an unguarded bone-palette texture layout change.
 The UI specialist is correcting that source issue before any renderer trial.
 Coder is preparing a read-only remaining-publication proposal from actual hot
 rows. No optimization code, master or Pages promotion has occurred.
+
+The focused palette correction subsequently passes 17 source controls and
+independent artist/root review. Its clean rendering-only package is built on
+the original immutable reference, leaving the failed publication architecture
+experiments separate. The nine runtime deltas preserve original public and
+simulation behavior; C20's stronger experimental DTO isolation is not claimed.
+
+C21's first actual screen exits 1 on a post-timing diagnostic: 27 active bound
+owners includes one dead hidden resident, while 26 bounded meshes are visible.
+Root independently verifies the retained data, including all 1,621 physical
+rows, complete ordered endpoint equality, 66 evidence hashes, original source
+requests/package pins, geometry/equipment/pose preservation and cleanup.
+
+| Lane | Visual CPU mean / p95, ms | GPU mean / p95, ms |
+| --- | ---: | ---: |
+| Reference | 52.736 / 73.200 | 24.970 / 31.703 |
+| Character culling candidate | 26.759 / 34.500 | 11.394 / 15.466 |
+
+CPU ratios .507/.471 and GPU .456/.488 are promising observations, not accepted
+performance. Both absolute CPU budgets and the paired mean half-target fail.
+The reference is far above the frozen baseline, and unchanged publication also
+nearly halves across lanes. The entire paired change cannot be attributed to
+the optimization. All raw rows/outliers and the failed invocation remain saved.
+
+Root finds no visible loss in four normal-zoom JPGs; quiet images are
+byte-identical. Quiet has 24 off-color shadow-frustum eligibility witnesses,
+correcting an earlier dense-only zero generalized to the whole run. Those
+witnesses do not establish shadows on visible ground. Moving-body and actual
+off-camera-shadow qualification remain pending. The separate candidate HTTP
+byte re-fetch did not complete; requested modules and immutable disk package
+hashes are verified with that explicit limit.
+
+Evidence is coder `character-culling-screen-01` and root
+`character-culling-screen-root-audit.json`. All helpers/contexts/resources and
+ports close. The candidate remains unpromoted; half-cost is still unmet. Artist
+saved-image review, UI's bounded read-only same-pose guard-sharing proposal and
+coder qualification/protocol preparation are assigned before any new launch.
