@@ -1861,3 +1861,54 @@ the original frozen reference is preserved and its absolute 8.28/10.5 ms half
 budgets do not change. The user reports the computer is mostly idle; do not
 attribute reference drift to another build without evidence. Final cost runs
 still require the frozen reference-validity guards.
+
+The one-file correction passes 11 CPU-only real factory/shader/selector checks.
+Root verifies 164 records over 80 unique files, including 64 preserved records
+and 17 evidence files; the sole child closes. Candidate SHA is
+`6918ff1f1122fda09fa23f634e8121d1ed171cf73eb396ec9a4fdf8698941656`,
+source pins `4204bfe2737da8135b3e40078aec3943714118acf5da5e5a7971d23f999ced73`.
+The delta adds one owned distance material per native batch and recognizes the
+actual distance shader's main-declaration whitespace. Controls verify identical
+color/depth output and geometry, live retirement/view/glass state, moving item
+and door matrices, owner isolation, whole-owner occlusion and cleanup. GPU shader
+compilation and pixels remain pending. Independent artist review clears the same
+source/control hashes and the bounded owner/lifecycle behavior without reruns.
+
+Authorize **quality preparation only**: retain unchanged C22 as an unmasked
+control and derive one fresh C22+mask package with exactly this file delta. Reuse
+the reviewed collector/lifecycle and genuine fixed prefix to 1620, fresh sequential
+contexts/max one renderer, matched normal-zoom startup/dense/end JPGs, exact
+physical/endpoint/hardware and actual changed-module/Three HTTP proof. All timing
+rows are unscored. Reuse earlier unchanged C22 body/shadow evidence without
+repeating those sequences. Proposed total limit is 600 seconds. No actual launch,
+profile, state injection, extra render/step, full-art diagnostics/history, ordinary
+build, union implementation or promotion. Source/package/pins review precedes a
+separate actual grant. This correction-only comparison does not derive or replace
+the original performance reference or change either absolute half budget.
+
+Quality preparation passes five pure tooling checks, independent UI review and
+root's 120 input/evidence checks plus 14,710 package file checks across control,
+candidate, original reference and preserved dist. The candidate is exactly one
+runtime delta, with 214 imports and manifest
+`3ecee12e361b559de35149b45979ea11235da86d1a5ce38b0a68465730d8b05b`.
+Reviewed driver SHA is
+`330446bf259065bd8c8270db61cad988cf021fbc30d0bc8d293dfacfce179b36`,
+QA host `efd35673a0253a2888b828a28dc4c0a93f3a6d3c131ce8edc4c3f1580ef4bf9f`,
+pre-grant pins `9fd649b03d1ddc7ebc3e28667f61c75bc69927229554f206a41e559ec53b670b`.
+Root saves reviewed source/config/pins/plan/handoff before launch metadata changes.
+
+Authorize exactly one <=600-second **mask-correction quality** invocation in fresh
+`native-distance-mask-quality-01`: unchanged C22 control and exact C22+mask,
+two fresh sequential contexts/max one renderer, genuine prefix through1620,
+six matched normal-zoom JPGs only at existing host0/1502/1620. Preserve all rows,
+physical/ordered endpoint, hardware, 21 actual HTTP source proofs per lane,
+shader/material/error and capture-before/after checks, partial failure evidence
+and complete GL/context/process/port cleanup. No new performance denominator,
+speed score, profile, census, body replay, officer fixture, full-art diagnostics,
+snapshot history, extra render/step, runtime/source change, retry, build or
+promotion. Archive before-state; only config review/launch flags and the
+corresponding config hash in final pins/evidence may advance. Leave historical
+preparation plan/handoff unchanged. Bind resulting exact pins to one single-use
+grant (invocation1/context2/maxLive1/profile0/census0/deadline600000/scoredfalse).
+Other workers idle and root avoids heavy work during the run. Return actual
+results and media for source/state/visual review before any union experiment.

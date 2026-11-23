@@ -517,3 +517,20 @@ existing owner mask and resource lifecycle. Source and later appearance review
 precede batching or cost acceptance. Preserve the original reference and fixed
 absolute half budgets; a corrected appearance control is not a new denominator.
 No runtime optimization or Pages change is promoted.
+
+The minimal mask correction passes 11 real-factory/shader/selector CPU controls
+and root's source/evidence audit (80 unique files, 64 preserved records). Each
+native batch owns its decorated distance material; color/depth shader output,
+geometry and state stay unchanged in controls. Artist independently reviews the
+source while coder prepares an unscored unchanged-C22 versus C22+mask appearance
+comparison. No GPU/pixel acceptance, actual launch grant or new performance
+denominator follows from the offline checks.
+
+Artist clears the mask source; UI independently clears the exact quality runner
+and contained package selector. Root verifies 120 source/evidence pins and all
+14,710 files across four preserved/derived packages. The correction-only
+candidate manifest is `3ecee12e361b559de35149b45979ea11235da86d1a5ce38b0a68465730d8b05b`.
+One separate <=600-second quality invocation is granted: unchanged C22 versus
+C22+mask, six existing-frame JPGs, exact physical/source checks and full cleanup.
+The half budget and original reference stay unchanged; no speed or rendered
+quality acceptance is implied by this grant.
