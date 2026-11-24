@@ -396,3 +396,87 @@ process identities and 13 ports: no matching helper or listener remains, with
 zero terminations (`final-live-helper-closure.json`).
 Commit/push only this review and the workflow status on the architect branch;
 documentation path/scope checks govern that evidence delivery.
+
+## Owner-authorized unattended follow-up
+
+After receiving the replay/costs, the owner offers several unattended hours for
+testing. This supplies new authorization for one quiet-window repeat of the
+unchanged ordering comparison, to investigate the earlier control drift. It is
+not an automatic search for a passing number and does not erase the first ABBA.
+
+Reuse the existing coder and frozen packages/collector/309 commands. Prepare
+one fresh four-context ABBA, <=600 seconds with at most one live renderer, same
+120 dense frames, complete physical/endpoint/22 HTTP source and cleanup gates.
+Only runner delivery/output identity changes; no runtime/art/build/profile/
+capture/encoding work. Artist/UI remain idle and root avoids heavy work during
+actual measurement. Record light CPU/GPU telemetry before and after, outside the
+timing run; human absence alone is not proof of complete machine idleness.
+
+Pre-register the comparison reliability guard: both control mean visual CPU and
+mean GPU max/min ratios must be <=1.10. Report p95 drift separately and preserve
+both pairs/all samples. Retain original half budgets and denominator; do not
+select the best visit or fold the old/new blocks into a misleading gain. Source
+review/pins precede a distinct single-use actual grant. If the guard fails, keep
+the result inconclusive and stop. This follow-up grants no runtime intake or
+master/Pages change, and no further unchanged timing loops.
+
+### Source, actual grant and quiet-window result
+
+Root accepts 84 source/evidence/preservation/manifest checks, including all 50
+held WIP files. Reversing only paths/mode restores the exact original scalar
+driver hash; collector, workload, packages, metrics and measured logic are
+unchanged. Two unused body-fixture config pointers are omitted: neither scalar
+driver reads them, and the real moving-body prefix stays intact. Seven static
+QA dependencies are reused in place; no package or helper copies are added.
+Derived driver SHA is
+`409922669627d0400233972cbe081206e2fbbb6c71f1a5bcffe0b65d301e9782`;
+pre-grant pins are
+`7baf4d5d9fb69d539a2c7ab70c2a187ce44f5cec478bec7303c3eb4bf27cf43b`.
+
+Root grants exactly one `source-ordering-quiet-scalar` invocation, <=600 seconds,
+four fresh ABBA contexts/max one renderer, under the frozen settings and gates
+above. Only the two launch flags and config hash may advance; preserve launched
+pins and all prior evidence. No new profiles, captures, encoding, runtime/art
+changes, automatic retries or promotion. Root/other assigned workers remain
+quiet during measurement. Launched pins are
+`b8fcca8e083a2edbb5dbe4f96a3affc858726702892e0cedbaf0cfa9b2488d9f`.
+
+The single run passes its operational gates in 237.849 seconds. Root independently
+recalculates all 3,960 statistics and checks 168 source/evidence/preservation
+records, all 6,484 physical rows, four full ordered endpoints, 88 HTTP module
+proofs, exact framewise draw/triangle/source counts, metadata-only transitions
+and cleanup. All 480 dense samples/outliers remain, with 60 native and 60
+between-native frames per lane. The root audit is
+`artifacts/qa/ordering-quiet-window-2026-11-24/ordering-scalar-root-audit.json`.
+
+| Visit order | Ordering | CPU mean / p95, ms | GPU mean / p95, ms |
+| --- | --- | --- | --- |
+| 1 | Existing per-lobe | 14.605 / 17.800 | 6.576 / 8.842 |
+| 2 | Source ordering | 14.463 / 17.900 | 6.594 / 8.851 |
+| 3 | Source ordering | 16.599 / 20.800 | 7.965 / 10.719 |
+| 4 | Existing per-lobe | 14.365 / 18.100 | 6.088 / 8.090 |
+
+The pre-registered control-mean guard passes: CPU max/min drift 1.67%, GPU 8.00%.
+Control p95 drift is 1.69% CPU and 9.30% GPU. This is substantially steadier than
+the original 72% mean CPU drift, without establishing its cause. Candidate visit
+one is roughly tied (CPU mean -0.97%, p95 +0.56%; GPU mean +0.27%). The second
+pair is slower: CPU mean +15.55%, p95 +14.92%; GPU mean +30.81%, p95 +32.51%.
+The second pair trips the GPU regression guard; that regression is not reproduced
+in the first pair. Keep both observations rather than attributing the entire
+second-visit slowdown to ordering or selecting the small first-visit mean gain.
+There is no consistent saving; both original absolute CPU half budgets and both
+paired half checks fail. Hold the candidate and stop this bounded repeat.
+
+Light snapshots outside timing record CPU 5% before/after, GPU 19%/18% utilization
+at 210 MHz graphics clock and 43/46 C. They are descriptive snapshots, not proof
+of continuous in-window idleness or a substitute for the control guard. The
+before snapshot ends at 18:35:23 UTC; measurement runs 18:37:00--18:40:58 UTC;
+the after snapshot starts at 18:42:08 UTC. No settings change or in-window monitor.
+
+Four contexts lose their GL resources to zero logical payload, all helpers close,
+and ports 50411/50412 release. Root's fresh OS check finds no matching identity
+for outer 20124, driver 27496 or browser 67200 and no listeners; no termination
+is needed. No retained helper or further run remains. Existing nine-second media,
+art/runtime sources and protected WIP remain unchanged. Artist/UI stay idle.
+Only this evidence record and workflow status are committed/pushed; master and
+Pages remain unchanged. The broader half-cost objective remains unmet.

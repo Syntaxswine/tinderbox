@@ -7,12 +7,21 @@
 | Architect | `codex/review-visual-half-cost`; M29/M28/M27 reviews preserved | `C:/Users/baals/Documents/ChatGPT/tinderbox` | M30 current-build visual-cost contract, measured target, combined review and promotion |
 | Artist | `codex/visual-half-cost-art`; M29 `codex/shared-map-fire-bindings` preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | M30 ordering source/12 controls and bounded 28-PNG review complete; visually promising; idle; no promotion |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | `codex/visual-half-cost-code`; M29 `codex/shared-map-gameplay-code` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | M30 event diagnostic, ABBA costs and validated nine-second replay complete; no speedup; all task helpers closed; idle; no promotion |
+| Coder | `codex/visual-half-cost-code`; M29 `codex/shared-map-gameplay-code` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | M30 replay/probe and unattended ABBA complete; control drift 1.67% CPU / 8% GPU, no consistent ordering gain; helpers closed; idle; no promotion |
 | UI designer | `codex/visual-shadow-probe`; M29 `codex/shared-map-tools-ui`, `codex/fire-brigade-study` and unrelated train branch preserved | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | M30 matrix micro complete with no benefit; candidate held; idle; no actual grant |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
 
 The current task is [Milestone 30: another half of visual cost](milestones/30-visual-half-cost.md), from `7164932e`, with common worker contract `b27ca225`. The owner's [house-fire ordering and event-copy tests](reviews/2026-11-24-ordering-event-copy.md) are complete: actual normal-zoom nine-second side-by-side replay, paired JPG/PNG stills, CPU/GPU costs and event-copy attribution. Root checks source/state, all raw statistics and media playback/cleanup; profiling, clean timing and capture stay separate. Ordering appearance is promising within 28 sampled PNGs, with no verified cost gain and substantial control drift; the half target remains unmet. Original failed capture/export visits stay preserved. Workers are idle; no runtime intake or Pages promotion. Preserve M27 appearance, original M30 reference and absolute budgets. M29's [internal coupled pilot](reviews/2026-11-20-new-york-reviewed-coupled-pilot.md) remains accepted at its CPU scope, with clocked/rendered adoption and Pages still pending. No unrelated work or production/Pages promotion is authorized by this test.
+
+The owner's later unattended-window invitation authorizes one deliberate repeat
+of the unchanged ordering ABBA. It completes in 237.849 seconds with the control
+mean reliability guard passing (CPU drift 1.67%, GPU 8.00%); the first candidate
+pair is roughly tied and the second is slower. No consistent gain or half-cost
+acceptance. Root verifies all raw statistics/state/source/preservation/cleanup;
+before/after telemetry stays outside timing. Both blocks remain in the linked
+review, with no best-visit selection, further unchanged loop or runtime/Pages
+promotion. All assigned workers are idle and all task helpers are closed.
 
 The cross-map assignment remains [Milestone 29: shared gameplay maps](milestones/29-shared-gameplay-maps.md), based on published `52c0266f`. The owner requests common fire tools and appropriate fire response, and permits reusing the existing landmark workproduct in new gameplay maps. Rehost existing sections/doors/stairs in the common gameplay core rather than adding independent tool/fire implementations to each exploration model. Audit first, validate New York as the engineering pilot, then reuse the accepted adapter for Administration and Horticulture and reconcile supported legacy/cottage entry routes. Keep exactly four menu destinations and preserve original sources/controls. Material bindings are explicit gameplay assignments, not deductions from paint. No renderer or production promotion is authorized by the initial audit/contract alone.
 
