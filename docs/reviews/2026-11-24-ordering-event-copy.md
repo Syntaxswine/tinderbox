@@ -3,8 +3,10 @@
 Owner request, November 24: test the artist's cheaper ordering and the coder's
 event-copy probe, then show a side-by-side replay at normal game zoom with
 CPU/GPU costs before any integration. The [M30 contract](../milestones/30-visual-half-cost.md)
-and earlier failures remain in force. This review begins with preparation;
-there are no actual results or launch grants yet.
+and earlier failures remain in force. Event attribution, clean ordering costs
+and the actual nine-second replay are independently checked below. Source
+ordering remains visually promising in sampled images, with no demonstrated
+speedup. No runtime intake or promotion is accepted.
 
 The control is the immutable corrected-mask C22 package, manifest
 `3ecee12e361b559de35149b45979ea11235da86d1a5ce38b0a68465730d8b05b`.
@@ -120,11 +122,9 @@ Preparation plan/handoff stay historical and unchanged. Preserve partial failure
 Other source/testing/media work pauses during this diagnostic; root avoids heavy
 work. The allocation/CPU report must not supply a speed comparison denominator.
 
-Current status: the event diagnostic is complete and accepted at its attribution
-scope. Clean ordering comparison/capture inputs are under root review, with a
-focused capture revision for genuine movement around the same burning shop.
-Artist is idle until replay review; UI is idle. No scalar/capture run or game
-integration has been authorized yet.
+Status at this first grant: the event diagnostic is complete and accepted at its
+attribution scope. Clean ordering comparison/capture inputs await source review.
+Later grants and results are recorded below; no game integration is authorized.
 
 The first outer launcher (Windows PowerShell PID 65088) exits before executing
 the script: its stderr reports scripts disabled. No Node driver, context,
@@ -176,3 +176,223 @@ movement-command extension while the same shop keeps burning. Compare R/C
 physical rows and endpoint for that extension; keep the shop visible with camera
 follow and no direct pose/camera/state assignment. Any reset stage is separate
 and explicitly labeled. Scalar timing keeps the original 120-frame window.
+
+## Ordering preparation and clean timing grant
+
+Root accepts 348 source/preservation records and 14,710 package file checks for
+ordering manifest `eb616b9be38010d609ba8da53659a88db7ba50fb22b9ff78d9122e8c2ec7ca5c`.
+Its only deltas are the reviewed artist shroud/packer; the event diagnostic
+helpers are absent. The unchanged collector, fixed ABBA scalar driver and 22
+required HTTP modules cover both changed files. Artist controls (12), prior
+tooling controls (7) and focused continuous-motion controls (4) pass. All five
+tooling children close, including the preserved parser and signed-zero harness
+failures. The latter correction compares finite frozen commands under existing
+ordered-JSON semantics; it changes no commands, runtime or scalar logic.
+
+Pre-grant common pins are
+`2f043a249f8c828b984b69324c00735238e47992cfe1394460fbe35fa049bd56`;
+scalar driver is `82d53c46d2fad27587d0ee1555d3243851c47e297d928a6352c7441df3ccfb5a`.
+The capture plan freezes four genuine commands over 240 additional steps, with
+300 frames/30 fps: six seconds of growth plus four seconds around the same
+burning shop. The route is not established by the pure controls. Capture and
+encoder execution still need separate actual grants after source review.
+
+Grant exactly one <=600-second `source-ordering-scalar` invocation, four fresh
+sequential contexts in control/candidate/candidate/control order, max one live
+renderer. Keep the genuine prefix/collector, dense 120 rows, all raw timings and
+outliers, exact physical/endpoints/hardware/22 HTTP source checks and complete
+context/GL/process/port closure. No profiler, heap sampler, census, screenshots,
+video, motion extension, full-art diagnostics/history, extra step/render, retry
+or promotion. Root avoids heavy work and other task preparation stays idle.
+
+Use the reviewed bundled pwsh without policy changes/bypass flags. Archive the
+exact launched pins inside this mode's output before the run so later mode
+metadata cannot erase its identity. Only the scalar config's two launch flags
+and common pins' `configSha256` may advance; capture/encode config/hash fields,
+all source, commands, historical preparation handoff and work plan stay unchanged.
+Bind one single-use grant to the final pins and preserve partial failure. This
+is a clean incremental ABBA screen, not a new original denominator or final
+half-cost acceptance. Replay capture/encoding remain separate and required.
+
+## Ordering cost result
+
+The single ABBA invocation completes in 391.802 seconds. Root independently
+recalculates 3,960 statistics, verifies 298 source/evidence records and 88 HTTP
+module proofs, and matches all 1,621 physical rows and ordered endpoints in each
+lane. All four contexts, GL payloads, browser, driver, outer launcher and both
+ports close. See `ordering-scalar-root-audit.json` in the architect QA directory.
+Each lane retains all 120 dense frames, including 60 native updates; no outlier
+is removed. CPU is the framewise sum of publication, art and render submission.
+GPU is measured separately with timer queries. Hardware is RTX 3080 / Edge 158,
+native canvas 1280 by 494 at DPR 1 and zoom 1.
+
+| Visit order | Ordering | CPU mean / p95, ms | GPU mean / p95, ms |
+| --- | --- | --- | --- |
+| 1 | Existing per-lobe | 20.17 / 26.10 | 9.11 / 12.28 |
+| 2 | Cheaper source | 26.91 / 40.10 | 11.84 / 15.54 |
+| 3 | Cheaper source | 38.08 / 51.10 | 15.06 / 18.21 |
+| 4 | Existing per-lobe | 34.71 / 46.20 | 14.38 / 19.46 |
+
+No demonstrated speedup: both paired candidate CPU results are worse and fail
+the unchanged half budgets. Control CPU mean drifts 72.0% and GPU mean 57.8%,
+including changes in unchanged publication work. These observations cannot
+establish the ordering change's causal slowdown magnitude. Keep both pairs;
+do not replace them with a pooled apparent gain, normalize clocks, retry the
+unchanged screen or call it half-cost acceptance. The source-ordering visual
+feasibility question remains separate from implementing a future GPU emitter.
+
+## Replay capture and bounded recovery
+
+Root reviews capture source and grants one unscored <=600-second visit pair,
+300 actual PNG frames per pane at 30 fps: six seconds of growth plus four of
+genuine frozen movement, without resetting the burning shop. Capture source is
+`aec79a65348385a1d9c0f4e99180a30bcf04f2ea2cfd0a469341f0a045175886`;
+capture-page source is
+`73fece20a7a43c4a51c459d72f35d4d5bac0b3b4cac761ae4cdbd62f2b00b1ed`.
+The control fails its survival gate at tick 1838. Preserve all 300 actual PNGs
+and the failed receipt; the candidate is never started. Node 47288 and outer
+launcher 28556 close, one game context closes with lost GL/zero payload, browser
+closes and both ports release. The frozen prefix still passes.
+
+Root authorizes preparation of a bounded nine-second comparison, ending at
+tick 1800 before the death: reuse the first 270 existing control PNGs and make
+one candidate-only visit with the same truncated commands. Keep the failed
+visit explicitly failed; reuse establishes only the surviving segment, not a
+successful escape or complete original route. Preserve accepted movement,
+camera travel, visible wall/roof fire and exact matching physical/source gates
+over that segment. No altered health, direct pose/camera assignment or reset.
+Use fresh recovery outputs/pins and obtain root source review before the one
+candidate visit or subsequent 2D-only encoding. No extra control/scalar visit.
+
+Root accepts recovery source after verifying 130 records, all 270 retained PNG
+hashes and 180 motion rows. Offline child 31040 passes five import/input/motion/
+config checks in 1.054 seconds and closes. Two stale encoder paths are corrected
+before launch; the unused missing-module import is removed and control input
+proof names the actual retained manifest. No gameplay source changes. Reviewed
+capture driver is
+`e3c4a355c3f6f80a3e31f988336ac1db835d7f06def0d0dd1d0962fd834f5814`;
+encoder driver is
+`036bcb5505d3e406340a623ad764deda74876f3f72663072fd2c93e53d432c0e`;
+pre-grant pins are
+`abbe08fa597d9200c979338f8e303ad288a25184ae0efcfef1bd7897253be353`.
+The source review is `recovery-source-root-audit.json`.
+
+Grant one candidate-only <=300-second capture in fresh `source-ordering-capture-02`,
+one fresh renderer/context. Preserve the original prefix/full endpoint, all 180
+paired physical/motion rows, 270 frame clock/camera records, survival/movement/
+visibility gates, 22 HTTP modules, native pixels, shader checks and full cleanup.
+There is no full normalized control snapshot at 1800: candidate's full snapshot
+there is one-sided evidence, with no manufactured paired hash. Prefix 1620 has
+the exact paired full hash. The original ten-second control visit stays failed.
+
+Separately grant one <=180-second encoding invocation in `source-ordering-encode-02`,
+conditional on every candidate capture gate and complete renderer/process/port
+closure passing. Use one blank 2D-only context, zero WebGL/game contexts and the
+reviewed encoder. Produce three actual nine-second/270-frame/30-fps MP4s, labels
+outside full native panes, with decode and complete helper cleanup checks. Both
+grants are single use; failure stops the sequence. Only each mode's two launch
+flags and corresponding common-pins config hash may advance. Archive launched
+pins separately per mode; preserve prior sources, configs and evidence. No cost
+score, runtime intake, automatic retry or promotion is granted.
+
+## Actual recovery capture and retained video
+
+The candidate-only capture passes in 165.162 seconds. Root verifies all 540 raw
+PNG hashes and native dimensions, 270 paired frame clock/camera records, 180
+paired physical/motion rows, the original 1,621-row prefix and full endpoint,
+22 HTTP module bytes, hardware/shader checks and complete helper/GL/port closure.
+The three-second motion segment has 157 accepted moving frames and 2.763 metres
+of player/camera path, minimum HP 11.374; visible shop wall/roof fire persists.
+`recovery-capture-root-audit.json` records the exact bounded pass and endpoint
+limitation. Capture-launched pins are
+`aa598ba56daf6c4d668dd79ef6078d20d84b180c782d15478858680e43a47a11`.
+
+The separately granted encoder saves the complete side-by-side MP4, then fails
+with a page/context-closed error before its decode/export suite completes. Its
+failed receipt remains failed: one context, Node 13140, browser 47080 and ports
+57035/57037 all close. Do not claim the three-clip job or disposal checks passed.
+Root verifies the retained MP4 container, all 270 AVC samples and media payload
+bytes, dimensions 2560 by 542 (two native panes plus a 48-pixel label strip),
+30 fps and nine seconds. It is 4,735,857 bytes with SHA-256
+`b0742222f10a94e84d97936875d2d5c51dc9c405502da750d09ece37b9327ef1`.
+See `retained-mp4-root-audit.json`; actual browser decode is still pending.
+
+Standalone clips were architect-added exports, beyond the owner's requested
+side-by-side. Defer them and do not repeat game capture or encoding. Prepare one
+minimal <=90-second 2D-only media check to validate the finished primary MP4's
+actual playback and compose comparison stills from preserved native PNGs, with
+per-operation timeouts/checkpoints and complete cleanup. Source review/grant
+precedes that check; zero encoder invocations, WebGL/game contexts, timing retries or runtime
+edits. Preserve the encoder failure and accurately distinguish retained output
+validation from a successful original job. The owner still receives the actual
+side-by-side replay and CPU/GPU results before any game change.
+
+## Artist's actual image review
+
+The artist directly reviews 28 original PNGs: 13 matched frame pairs, including
+six consecutive pairs at 0177--0182 and later camera-follow keyframes, plus the
+dense full-page pair. Source ordering produces slightly brighter flame edges
+and less local smoke attenuation at front windows/entry. Overall fire coverage,
+window/door depth, character silhouettes/shroud contact and broad pavement light
+remain similar; no new seam, detached band or obvious geometry leak appears in
+those images. Root independently verifies all 41 cited image/record/source hashes.
+Review SHA is
+`5c0a68d50f3e4f01e99ff0de988ba0ca6c84a964f7f3b3752fbca385dfff9c38`,
+copied to architect QA as `artist-visual-review.json`.
+
+This is provisionally viable appearance evidence for a possible future GPU
+ordering experiment. It is neither continuous nine-second motion acceptance,
+a new full-body/traversal qualification nor a speedup. Keep the artist's actual
+viewing limits explicit. Root's native first/last source-image review is
+consistent with those bounded findings. No runtime candidate is accepted.
+
+## Validated replay delivery and final decision
+
+Root reviews the minimal media checker and 31 source/input/evidence records at
+pre-grant pins
+`789242cc537a854596d2574c7b5453b32efb73a9e62fc84a5c161962bd18e483`;
+driver SHA is
+`cf04b81adac5a71ba5df754723b046e0b92cbafa1d10c913e8a565333f3d7587`.
+Grant exactly one <=90-second blank 2D-only context, no game/WebGL/encoder, to
+decode the pinned MP4 over allowlisted HTTP with bounded metadata/play/seek
+operations and checkpoints, then compose four stills from the existing exact
+PNGs. Only the two launch flags and config hash may change. Preserve all prior
+failures and obtain complete resource/helper cleanup; no retry or promotion.
+
+The check passes in 5.479 seconds. Actual browser decoding at 0.1, 4.5 and 8.9
+seconds returns the correct dimensions/time and nonblank pixels in each pane.
+Four ImageBitmaps open/close; the one 2D canvas and video release. There are zero
+WebGL attempts and zero new encodes/game contexts. Node 9388, its outer launcher,
+browser/context and ports 61725/61726 close. Root independently checks 74 final
+source/input/evidence records, metadata-only transitions and launched pins
+`8ae8fc64cbb30e3285eeb1b2aedae0a4e28f59fb37c5baa47860072e2acbc630`.
+The original MP4 remains byte-identical. `media-check-result-root-audit.json`
+records the actual playback, source identity and cleanup acceptance; it does
+not erase the failed original export job.
+
+Local owner deliverables are under
+`artifacts/qa/ordering-event-copy-2026-11-24/media/` in the architect checkout:
+
+- `side-by-side.mp4`: nine seconds / 270 frames / 30 fps, two full native
+  1280-by-494 panes at game zoom 1, unchanged camera/exposure and external labels.
+- `paired-native-canvas-end.jpg` and `.png`: matched host tick 1800, 2560 by 542.
+- `paired-full-page-dense.jpg` and `.png`: matched host tick 1502, 2560 by 848.
+
+Root inspects both actual paired stills and agrees with the artist's bounded
+appearance findings. Human continuous-motion acceptance remains open; three
+decoder samples are playback validation, not a full temporal visual score.
+The nine-second surviving segment is not a successful escape test, and the
+unavailable paired full DTO at tick 1800 remains explicit. Raw media and root
+audits are local QA evidence, not assets published to Pages by this task.
+
+Decision: deliver the requested replay and all four cost lanes. Hold the source
+ordering candidate: no speedup or half-cost acceptance, with substantial control
+drift preventing a causal slowdown claim. The event-history copy probe identifies
+a sampled CPU location; no specialized copier is implemented. No future GPU
+emitter is implemented or authorized by these results. Keep runtime, master and
+Pages unchanged. The assigned coder and artist are idle; no disposable helper
+from this task remains. Final read-only OS verification checks 18 recorded
+process identities and 13 ports: no matching helper or listener remains, with
+zero terminations (`final-live-helper-closure.json`).
+Commit/push only this review and the workflow status on the architect branch;
+documentation path/scope checks govern that evidence delivery.
