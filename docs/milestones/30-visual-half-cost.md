@@ -7,16 +7,14 @@ in this baseline. Its older reference and timing values are not this task's
 denominator. New York's accepted internal coupled checkpoint stays preserved;
 this task does not renew its actual-source/compiler allowances or enable it.
 
-Current status: this round concludes with the half-cost target **unmet** and
-no optimization code intake or promotion. Clean C22's bounded quality and native
-distance-mask correction are accepted at their documented scopes. The subsequent
-static shadow union and local-matrix experiments pass their relevant correctness
-checks but show no cost benefit; hold both without retry. All workers are idle,
-all actual helpers are closed, and no renderer/profile/timing/package grant is
-active. Preserve the measured failures, original reference and absolute half
-budgets. Further implementation needs a new supported source hypothesis rather
-than another unchanged timing attempt. Historical restrictions are superseded
-only by later explicit grants.
+Current status: the half-cost target is **unmet**, with no optimization code
+intake or promotion. The owner authorized a house-fire ordering test, event-copy
+probe, normal-zoom side-by-side replay and CPU/GPU report on November 24. The
+[current experiment review](../reviews/2026-11-24-ordering-event-copy.md) records
+source/runner preparation and later bounded grants/results. Earlier shadow-union
+and local-matrix experiments remain held. Preserve the measured failures,
+original reference and absolute half budgets; no production or Pages promotion
+is authorized. Historical restrictions change only through explicit later grants.
 
 ## Work and ownership
 
@@ -2107,3 +2105,17 @@ contract. It has not established that halving cost is impossible. Close these
 bounded experiments with all evidence and failures retained; do not substitute
 favorable historical timings or call the target achieved. No worker/helper or
 rendering service is retained. Master, the published game and Pages are unchanged.
+
+## November 24: ordering and event-copy tests
+
+The owner accepts testing both reviewed proposals and explicitly requests a
+side-by-side replay at normal game zoom plus CPU/GPU costs before integration.
+The [focused review/contract](../reviews/2026-11-24-ordering-event-copy.md) assigns
+artist order-only source/controls and coder separate diagnostic, clean scalar
+comparison and actual replay preparation over immutable masked C22 `3ecee12e...`.
+Root reviews the frozen sources and runners before granting bounded actual runs.
+The event probe keeps the existing copying behavior, and profiling overhead is
+excluded from speed comparisons. Capture/encoding is separate from scalar
+measurement. No GPU-emitter shader rewrite, event-copy optimization, runtime
+intake or Pages promotion is included. Preserve original half budgets and all
+earlier failures; the next output must include actual media and costs.
