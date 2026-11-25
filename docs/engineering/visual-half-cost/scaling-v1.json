@@ -1,0 +1,1020 @@
+{
+  "version": 1,
+  "recordedAt": "2026-11-25T00:11:51.198Z",
+  "scope": "AS-IS native Catalogue QA ignition ladder:1/2/4 seeded building owners; natural spread retained; actual owner counts1/3/4. Research timing only, no production/Pages or appearance acceptance.",
+  "invocationStatus": "FAILED_HELPER_SAFETY_DEADLINE_LAST_SCALE_INCOMPLETE",
+  "retainedAuditPassed": true,
+  "completeSeedScales": [
+    1,
+    2
+  ],
+  "incompleteSeedScales": [
+    4
+  ],
+  "goalAchieved": false,
+  "source": {
+    "controlManifest": "3ecee12e361b559de35149b45979ea11235da86d1a5ce38b0a68465730d8b05b",
+    "candidateManifest": "eb616b9be38010d609ba8da53659a88db7ba50fb22b9ff78d9122e8c2ec7ca5c",
+    "launchedPinsSha256": "15538d5237facafa1c7ec0dcfe29e2a6f0f2277cc2ed1f6f786e485d9256bcdc",
+    "pageSha256": "810cd0d1142b8adeebf6c9d720e22ee7b3fd1a658b3681aba36d31e9c743e1ca",
+    "driverSha256": "4cd4204f5d03e4fbf3af102d452930b46c3ceece190a14061bfad0a347ef545a",
+    "postCaseAuditSha256": "4072a2a7ec456ff257eb28a9b6ce8ec7cee941365891d6433b54441f653ac4e4",
+    "sameTimedFilesAsFailedScalar01": true
+  },
+  "timing": {
+    "unit": "milliseconds per displayed frame",
+    "visualCpu": "publicationMs + artMs + renderSubmitMs; framewise sum",
+    "gpu": "actual disjoint-checked WebGL2 elapsed query, separate from CPU",
+    "p95": "sort ascending, index floor((n-1)*.95)",
+    "localHostSteps": [
+      481,
+      600
+    ],
+    "worldSeconds": [
+      8.016666666666667,
+      10
+    ],
+    "nativeTicks": [
+      240,
+      300
+    ],
+    "rowsPerWindow": 120,
+    "newNativeRowsPerWindow": 60,
+    "interveningRowsPerWindow": 60,
+    "seedHeatLastNativeTick": 181,
+    "controlMeanDriftLimit": 1.1,
+    "allOutliersRetained": true,
+    "normalization": false,
+    "bestVisitSelection": false,
+    "originalM30DenominatorReplaced": false
+  },
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3080 (0x0000220A) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36 Edg/158.0.0.0",
+    "threeRevision": "180",
+    "viewport": {
+      "width": 1280,
+      "height": 494
+    },
+    "page": {
+      "width": 1280,
+      "height": 800,
+      "dpr": 1
+    },
+    "drawingBuffer": {
+      "width": 1280,
+      "height": 494
+    },
+    "camera": {
+      "type": "OrthographicCamera",
+      "zoom": 1,
+      "verticalSpan": 12.600000000000001,
+      "mode": "follow"
+    },
+    "exposure": 1,
+    "toneMapping": 0,
+    "antialias": true,
+    "timerQuery": true,
+    "glVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  },
+  "camera": {
+    "followOffset": [
+      3,
+      -15
+    ],
+    "worldPosition": [
+      33,
+      14,
+      15
+    ],
+    "normalZoom": 1,
+    "projectedAnchorsAreNotOcclusionAware": true,
+    "wholeFacadesNotAllInView": true
+  },
+  "lighting": {
+    "globalPools": 1,
+    "capacity": 6,
+    "powerCap": 215,
+    "flames": true,
+    "smoke": true,
+    "lighting": true
+  },
+  "cases": [
+    {
+      "seededCount": 1,
+      "completeAbba": true,
+      "reliableControlMeans": true,
+      "actualBurningOwnerSets": [
+        [
+          "bell-and-alder"
+        ]
+      ],
+      "controlDrift": {
+        "visualCpumean": 1.0098839143915868,
+        "visualCpup95": 1.0057143076682584,
+        "gpumean": 1.0793699907175436,
+        "gpup95": 1.0143392090601882
+      },
+      "pairs": [
+        {
+          "visualCpumean": 1.0346511862107668,
+          "visualCpup95": 1.0114285880886784,
+          "gpumean": 1.0378261302887486,
+          "gpup95": 1.0067586080920632
+        },
+        {
+          "visualCpumean": 1.074826450300947,
+          "visualCpup95": 1.102272738664111,
+          "gpumean": 1.1134744222308726,
+          "gpup95": 1.0441202953358546
+        }
+      ],
+      "workload": {
+        "actualOwnerSets": [
+          [
+            "bell-and-alder"
+          ]
+        ],
+        "positiveFlames": {
+          "n": 120,
+          "mean": 855.4833333333333,
+          "p95": 883,
+          "min": 822,
+          "max": 898
+        },
+        "sourceCount": {
+          "n": 120,
+          "mean": 902.1666666666666,
+          "p95": 922,
+          "min": 880,
+          "max": 929
+        },
+        "projectedPositive": {
+          "n": 120,
+          "mean": 8,
+          "p95": 8,
+          "min": 8,
+          "max": 8
+        },
+        "activeBatches": {
+          "n": 120,
+          "mean": 3.6666666666666665,
+          "p95": 5,
+          "min": 3,
+          "max": 5
+        },
+        "submittedLobes": {
+          "n": 120,
+          "mean": 179.43333333333334,
+          "p95": 183,
+          "min": 172,
+          "max": 186
+        },
+        "endpointGeneratedLobes": 3101,
+        "endpointSubmittedLobes": 183,
+        "endpointRetainedFlameContextSources": 280,
+        "limitations": []
+      },
+      "lanes": [
+        {
+          "lane": "1-control",
+          "costs": {
+            "visualCpu": {
+              "mean": 14.501666720708211,
+              "p95": 17.499999523162842,
+              "min": 12.099999904632568,
+              "max": 19.000000476837158
+            },
+            "gpu": {
+              "mean": 8.305228799999998,
+              "p95": 11.211776,
+              "min": 4.063232,
+              "max": 42.202112
+            },
+            "publication": {
+              "mean": 3.6291666785875956,
+              "p95": 5.199999809265137,
+              "min": 2.1999998092651367,
+              "max": 6.400000095367432
+            },
+            "art": {
+              "mean": 7.160833346843719,
+              "p95": 8.900000095367432,
+              "min": 6.199999809265137,
+              "max": 10.699999809265137
+            },
+            "submission": {
+              "mean": 3.711666695276896,
+              "p95": 4.300000190734863,
+              "min": 3.3999996185302734,
+              "max": 5.200000286102295
+            },
+            "simulation": {
+              "mean": 16.574166655540466,
+              "p95": 28.800000190734863,
+              "min": 6.099999904632568,
+              "max": 32.40000009536743
+            },
+            "fullFrame": {
+              "mean": 27.92083330154419,
+              "p95": 41.40000009536743,
+              "min": 16.699999809265137,
+              "max": 44.40000009536743
+            }
+          },
+          "endpoint": {
+            "publicSha256": "e4e6e0b81656f8cab9165ddce42d5b97e2aa8f5537aa87c2918b6dc102da1fb4",
+            "nativeSha256": "430898636d826dcfea3c39555c3d43adc10b5d103e6438021aad011320d0c22f"
+          },
+          "rawSha256": "864b588fba33c03852f231017ec31a7848ce7023819fcdb0f5ca83852f96afe4",
+          "seedCommands": 1668,
+          "seedEnergy": 1876.5,
+          "ordinaryCommands": 0,
+          "ordinaryEnergy": 0,
+          "lastOrdinaryHeatTick": null,
+          "pendingCommands": 0
+        },
+        {
+          "lane": "2-candidate",
+          "costs": {
+            "visualCpu": {
+              "mean": 15.004166674613952,
+              "p95": 17.699999809265137,
+              "min": 12.599999904632568,
+              "max": 18.40000009536743
+            },
+            "gpu": {
+              "mean": 8.619383466666665,
+              "p95": 11.287552,
+              "min": 3.977216,
+              "max": 43.36128
+            },
+            "publication": {
+              "mean": 3.6666666348775228,
+              "p95": 5.399999618530273,
+              "min": 2.1999998092651367,
+              "max": 6.699999809265137
+            },
+            "art": {
+              "mean": 7.55083335240682,
+              "p95": 9,
+              "min": 6.5,
+              "max": 9.900000095367432
+            },
+            "submission": {
+              "mean": 3.78666668732961,
+              "p95": 4.200000286102295,
+              "min": 3.4000000953674316,
+              "max": 7.199999809265137
+            },
+            "simulation": {
+              "mean": 16.44249996741613,
+              "p95": 29.09999990463257,
+              "min": 6.5,
+              "max": 31.699999809265137
+            },
+            "fullFrame": {
+              "mean": 28.25833334128062,
+              "p95": 41.90000009536743,
+              "min": 17.40000009536743,
+              "max": 43.5
+            }
+          },
+          "endpoint": {
+            "publicSha256": "e4e6e0b81656f8cab9165ddce42d5b97e2aa8f5537aa87c2918b6dc102da1fb4",
+            "nativeSha256": "430898636d826dcfea3c39555c3d43adc10b5d103e6438021aad011320d0c22f"
+          },
+          "rawSha256": "ff21db5c75b4043f85e6f2d498f5869ee555f6565b6e36d992f7047b8557caf6",
+          "seedCommands": 1668,
+          "seedEnergy": 1876.5,
+          "ordinaryCommands": 0,
+          "ordinaryEnergy": 0,
+          "lastOrdinaryHeatTick": null,
+          "pendingCommands": 0
+        },
+        {
+          "lane": "3-candidate",
+          "costs": {
+            "visualCpu": {
+              "mean": 15.740833314259847,
+              "p95": 19.40000009536743,
+              "min": 12.999999523162842,
+              "max": 20.5
+            },
+            "gpu": {
+              "mean": 8.567645866666668,
+              "p95": 11.874304,
+              "min": 3.813376,
+              "max": 46.163968
+            },
+            "publication": {
+              "mean": 3.8049999713897704,
+              "p95": 5.699999809265137,
+              "min": 2.299999713897705,
+              "max": 6.599999904632568
+            },
+            "art": {
+              "mean": 7.760833326975504,
+              "p95": 9.599999904632568,
+              "min": 6.599999904632568,
+              "max": 10.799999713897705
+            },
+            "submission": {
+              "mean": 4.175000015894572,
+              "p95": 4.699999809265137,
+              "min": 3.8000001907348633,
+              "max": 5.599999904632568
+            },
+            "simulation": {
+              "mean": 16.607500004768372,
+              "p95": 28.300000190734863,
+              "min": 6.599999904632568,
+              "max": 36.39999961853027
+            },
+            "fullFrame": {
+              "mean": 29.0400000333786,
+              "p95": 42,
+              "min": 17.700000286102295,
+              "max": 50.19999980926514
+            }
+          },
+          "endpoint": {
+            "publicSha256": "e4e6e0b81656f8cab9165ddce42d5b97e2aa8f5537aa87c2918b6dc102da1fb4",
+            "nativeSha256": "430898636d826dcfea3c39555c3d43adc10b5d103e6438021aad011320d0c22f"
+          },
+          "rawSha256": "e1b963019e151f521dbe0071251b6f4d85a3638720dcc52f9f6645379268fdd4",
+          "seedCommands": 1668,
+          "seedEnergy": 1876.5,
+          "ordinaryCommands": 0,
+          "ordinaryEnergy": 0,
+          "lastOrdinaryHeatTick": null,
+          "pendingCommands": 0
+        },
+        {
+          "lane": "4-control",
+          "costs": {
+            "visualCpu": {
+              "mean": 14.644999953111013,
+              "p95": 17.59999990463257,
+              "min": 12.400000095367432,
+              "max": 19.899999618530273
+            },
+            "gpu": {
+              "mean": 7.6945152000000006,
+              "p95": 11.372544,
+              "min": 3.697664,
+              "max": 41.60512
+            },
+            "publication": {
+              "mean": 3.7266666650772096,
+              "p95": 5.300000190734863,
+              "min": 2.299999713897705,
+              "max": 7
+            },
+            "art": {
+              "mean": 7.261666671435038,
+              "p95": 8.899999618530273,
+              "min": 6.399999618530273,
+              "max": 10.699999809265137
+            },
+            "submission": {
+              "mean": 3.656666616598765,
+              "p95": 4,
+              "min": 3.3999996185302734,
+              "max": 4.5
+            },
+            "simulation": {
+              "mean": 16.403333338101707,
+              "p95": 28.199999809265137,
+              "min": 6.199999809265137,
+              "max": 31
+            },
+            "fullFrame": {
+              "mean": 27.78833336830139,
+              "p95": 40.90000009536743,
+              "min": 16.899999618530273,
+              "max": 44.799999713897705
+            }
+          },
+          "endpoint": {
+            "publicSha256": "e4e6e0b81656f8cab9165ddce42d5b97e2aa8f5537aa87c2918b6dc102da1fb4",
+            "nativeSha256": "430898636d826dcfea3c39555c3d43adc10b5d103e6438021aad011320d0c22f"
+          },
+          "rawSha256": "1d17bb48dc17a332c9ae6b8684ffd854d2cb5f7254f8e2035da8c1ca6a4b744e",
+          "seedCommands": 1668,
+          "seedEnergy": 1876.5,
+          "ordinaryCommands": 0,
+          "ordinaryEnergy": 0,
+          "lastOrdinaryHeatTick": null,
+          "pendingCommands": 0
+        }
+      ]
+    },
+    {
+      "seededCount": 2,
+      "completeAbba": true,
+      "reliableControlMeans": true,
+      "actualBurningOwnerSets": [
+        [
+          "ashland-cottage",
+          "bell-and-alder",
+          "hopkins-fifteen"
+        ]
+      ],
+      "controlDrift": {
+        "visualCpumean": 1.0259574550847692,
+        "visualCpup95": 1.0425531965620973,
+        "gpumean": 1.0691915147174997,
+        "gpup95": 1.5863483382414807
+      },
+      "pairs": [
+        {
+          "visualCpumean": 1.0213504171219014,
+          "visualCpup95": 0.9897959135513116,
+          "gpumean": 0.8974750697392858,
+          "gpup95": 0.6437048332559836
+        },
+        {
+          "visualCpumean": 1.0347171579714953,
+          "visualCpup95": 1.0510638318163283,
+          "gpumean": 0.9412797896445884,
+          "gpup95": 0.9889040807740849
+        }
+      ],
+      "workload": {
+        "actualOwnerSets": [
+          [
+            "ashland-cottage",
+            "bell-and-alder",
+            "hopkins-fifteen"
+          ]
+        ],
+        "positiveFlames": {
+          "n": 120,
+          "mean": 6582.075,
+          "p95": 6655,
+          "min": 6470,
+          "max": 6674
+        },
+        "sourceCount": {
+          "n": 120,
+          "mean": 6758.433333333333,
+          "p95": 6803,
+          "min": 6689,
+          "max": 6813
+        },
+        "projectedPositive": {
+          "n": 120,
+          "mean": 5156.1,
+          "p95": 5225,
+          "min": 5077,
+          "max": 5229
+        },
+        "activeBatches": {
+          "n": 120,
+          "mean": 75.38333333333334,
+          "p95": 76,
+          "min": 75,
+          "max": 76
+        },
+        "submittedLobes": {
+          "n": 120,
+          "mean": 28272.058333333334,
+          "p95": 28698,
+          "min": 27828,
+          "max": 28710
+        },
+        "endpointGeneratedLobes": 33534,
+        "endpointSubmittedLobes": 28709,
+        "endpointRetainedFlameContextSources": 288,
+        "limitations": []
+      },
+      "lanes": [
+        {
+          "lane": "1-control",
+          "costs": {
+            "visualCpu": {
+              "mean": 79.74083333015442,
+              "p95": 98.00000047683716,
+              "min": 62.10000038146973,
+              "max": 114.59999990463257
+            },
+            "gpu": {
+              "mean": 16.689971200000002,
+              "p95": 30.889984,
+              "min": 6.160384,
+              "max": 103.155712
+            },
+            "publication": {
+              "mean": 20.948333303133648,
+              "p95": 34.80000019073486,
+              "min": 9.399999618530273,
+              "max": 53.19999980926514
+            },
+            "art": {
+              "mean": 53.89166667461395,
+              "p95": 58.30000019073486,
+              "min": 48,
+              "max": 74.7000002861023
+            },
+            "submission": {
+              "mean": 4.90083335240682,
+              "p95": 5.699999809265137,
+              "min": 4.399999618530273,
+              "max": 6.699999809265137
+            },
+            "simulation": {
+              "mean": 60.97583332459132,
+              "p95": 95.5,
+              "min": 30,
+              "max": 140.90000009536743
+            },
+            "fullFrame": {
+              "mean": 120.35500000317892,
+              "p95": 157.10000038146973,
+              "min": 86.89999961853027,
+              "max": 204
+            }
+          },
+          "endpoint": {
+            "publicSha256": "f506ca0015950342530282f577a9dfbe727ce8c6020cae24ba9048e1e12ffb8b",
+            "nativeSha256": "a7eb202a19b241e07220b1fe30c8f9bd3d332da89ae70f22ba52d1ceaa6e2de0"
+          },
+          "rawSha256": "a3b8570081d11631a832aae7d68e9eb413e2f58dc5b3a3af131fed33de64f8f7",
+          "seedCommands": 4648,
+          "seedEnergy": 5229,
+          "ordinaryCommands": 24,
+          "ordinaryEnergy": 2.8000000000000003,
+          "lastOrdinaryHeatTick": 52,
+          "pendingCommands": 0
+        },
+        {
+          "lane": "2-candidate",
+          "costs": {
+            "visualCpu": {
+              "mean": 81.44333338340124,
+              "p95": 97,
+              "min": 66.60000038146973,
+              "max": 117.40000009536743
+            },
+            "gpu": {
+              "mean": 14.978833066666674,
+              "p95": 19.884032,
+              "min": 8.906752,
+              "max": 106.862592
+            },
+            "publication": {
+              "mean": 20.475000007947287,
+              "p95": 34.09999990463257,
+              "min": 9.299999713897705,
+              "max": 51.80000019073486
+            },
+            "art": {
+              "mean": 55.9100000222524,
+              "p95": 60.69999980926514,
+              "min": 49.59999990463257,
+              "max": 68
+            },
+            "submission": {
+              "mean": 5.058333353201548,
+              "p95": 5.900000095367432,
+              "min": 4.299999713897705,
+              "max": 16.40000009536743
+            },
+            "simulation": {
+              "mean": 60.356666652361554,
+              "p95": 91.7000002861023,
+              "min": 29.800000190734863,
+              "max": 131.90000009536743
+            },
+            "fullFrame": {
+              "mean": 121.94416666030884,
+              "p95": 154.10000038146973,
+              "min": 87.40000009536743,
+              "max": 198.2000002861023
+            }
+          },
+          "endpoint": {
+            "publicSha256": "f506ca0015950342530282f577a9dfbe727ce8c6020cae24ba9048e1e12ffb8b",
+            "nativeSha256": "a7eb202a19b241e07220b1fe30c8f9bd3d332da89ae70f22ba52d1ceaa6e2de0"
+          },
+          "rawSha256": "43c40025e9b199553994f4b8ca05acd2a49d065e48d8c711dc3dac8ef11283ea",
+          "seedCommands": 4648,
+          "seedEnergy": 5229,
+          "ordinaryCommands": 24,
+          "ordinaryEnergy": 2.8000000000000003,
+          "lastOrdinaryHeatTick": 52,
+          "pendingCommands": 0
+        },
+        {
+          "lane": "3-candidate",
+          "costs": {
+            "visualCpu": {
+              "mean": 80.42166663805644,
+              "p95": 98.80000019073486,
+              "min": 62.299999713897705,
+              "max": 115.09999990463257
+            },
+            "gpu": {
+              "mean": 14.693282133333332,
+              "p95": 19.25632,
+              "min": 8.94464,
+              "max": 97.63328
+            },
+            "publication": {
+              "mean": 20.03583332300186,
+              "p95": 34.700000286102295,
+              "min": 9.099999904632568,
+              "max": 53
+            },
+            "art": {
+              "mean": 55.05666666428248,
+              "p95": 60.5,
+              "min": 47.59999990463257,
+              "max": 67.90000009536743
+            },
+            "submission": {
+              "mean": 5.329166650772095,
+              "p95": 6.100000381469727,
+              "min": 4.799999713897705,
+              "max": 7.800000190734863
+            },
+            "simulation": {
+              "mean": 58.846666665871936,
+              "p95": 91.40000009536743,
+              "min": 28.700000286102295,
+              "max": 128
+            },
+            "fullFrame": {
+              "mean": 119.81583335399628,
+              "p95": 155.5,
+              "min": 86.5,
+              "max": 194
+            }
+          },
+          "endpoint": {
+            "publicSha256": "f506ca0015950342530282f577a9dfbe727ce8c6020cae24ba9048e1e12ffb8b",
+            "nativeSha256": "a7eb202a19b241e07220b1fe30c8f9bd3d332da89ae70f22ba52d1ceaa6e2de0"
+          },
+          "rawSha256": "39851647afeb3b714731dda3ef797d8aae3f6f45acd733d767bbe87009c24cab",
+          "seedCommands": 4648,
+          "seedEnergy": 5229,
+          "ordinaryCommands": 24,
+          "ordinaryEnergy": 2.8000000000000003,
+          "lastOrdinaryHeatTick": 52,
+          "pendingCommands": 0
+        },
+        {
+          "lane": "4-control",
+          "costs": {
+            "visualCpu": {
+              "mean": 77.72333339452743,
+              "p95": 94,
+              "min": 61.40000009536743,
+              "max": 115.90000057220459
+            },
+            "gpu": {
+              "mean": 15.609898666666657,
+              "p95": 19.472384,
+              "min": 8.890368,
+              "max": 96.461824
+            },
+            "publication": {
+              "mean": 19.933333333333334,
+              "p95": 31.90000009536743,
+              "min": 9.200000286102295,
+              "max": 54.40000009536743
+            },
+            "art": {
+              "mean": 52.83833335638046,
+              "p95": 57.09999990463257,
+              "min": 46.700000286102295,
+              "max": 65.40000009536743
+            },
+            "submission": {
+              "mean": 4.951666704813639,
+              "p95": 5.700000286102295,
+              "min": 4.399999618530273,
+              "max": 8.700000286102295
+            },
+            "simulation": {
+              "mean": 59.16416666507721,
+              "p95": 92.5,
+              "min": 30.09999990463257,
+              "max": 138.30000019073486
+            },
+            "fullFrame": {
+              "mean": 117.5325000166893,
+              "p95": 152.5,
+              "min": 86.10000038146973,
+              "max": 200.40000009536743
+            }
+          },
+          "endpoint": {
+            "publicSha256": "f506ca0015950342530282f577a9dfbe727ce8c6020cae24ba9048e1e12ffb8b",
+            "nativeSha256": "a7eb202a19b241e07220b1fe30c8f9bd3d332da89ae70f22ba52d1ceaa6e2de0"
+          },
+          "rawSha256": "7c653d21f96c0d452893001c85a5a5263694ec460b80cea7b0fdc941eacb4adf",
+          "seedCommands": 4648,
+          "seedEnergy": 5229,
+          "ordinaryCommands": 24,
+          "ordinaryEnergy": 2.8000000000000003,
+          "lastOrdinaryHeatTick": 52,
+          "pendingCommands": 0
+        }
+      ]
+    },
+    {
+      "seededCount": 4,
+      "completeAbba": false,
+      "reliableControlMeans": null,
+      "actualBurningOwnerSets": [
+        [
+          "ashland-cottage",
+          "bell-and-alder",
+          "hopkins-fifteen",
+          "hopkins-twelve"
+        ]
+      ],
+      "controlDrift": null,
+      "pairs": [
+        {
+          "visualCpumean": 1.0566634013142133,
+          "visualCpup95": 1.0768229158070257,
+          "gpumean": 0.8768812245186818,
+          "gpup95": 0.7620652945351313
+        },
+        null
+      ],
+      "workload": {
+        "actualOwnerSets": [
+          [
+            "ashland-cottage",
+            "bell-and-alder",
+            "hopkins-fifteen",
+            "hopkins-twelve"
+          ]
+        ],
+        "positiveFlames": {
+          "n": 120,
+          "mean": 15768.625,
+          "p95": 15814,
+          "min": 15695,
+          "max": 15833
+        },
+        "sourceCount": {
+          "n": 120,
+          "mean": 15918.966666666667,
+          "p95": 15938,
+          "min": 15878,
+          "max": 15940
+        },
+        "projectedPositive": {
+          "n": 120,
+          "mean": 10907.241666666667,
+          "p95": 10944,
+          "min": 10866,
+          "max": 10949
+        },
+        "activeBatches": {
+          "n": 120,
+          "mean": 185.34166666666667,
+          "p95": 187,
+          "min": 184,
+          "max": 187
+        },
+        "submittedLobes": {
+          "n": 120,
+          "mean": 63597.125,
+          "p95": 63827,
+          "min": 63351,
+          "max": 63864
+        },
+        "endpointGeneratedLobes": 84851,
+        "endpointSubmittedLobes": 63864,
+        "endpointRetainedFlameContextSources": 639,
+        "limitations": []
+      },
+      "lanes": [
+        {
+          "lane": "1-control",
+          "costs": {
+            "visualCpu": {
+              "mean": 195.6583333571752,
+              "p95": 230.40000009536743,
+              "min": 155.5,
+              "max": 484.80000019073486
+            },
+            "gpu": {
+              "mean": 21.342694399999996,
+              "p95": 28.85632,
+              "min": 10.729472,
+              "max": 230.370304
+            },
+            "publication": {
+              "mean": 48.65500001907348,
+              "p95": 80.30000019073486,
+              "min": 19.40000009536743,
+              "max": 308.90000009536743
+            },
+            "art": {
+              "mean": 140.526666645209,
+              "p95": 147.40000009536743,
+              "min": 129.69999980926514,
+              "max": 400.2999997138977
+            },
+            "submission": {
+              "mean": 6.47666669289271,
+              "p95": 7.5,
+              "min": 5.5,
+              "max": 9.300000190734863
+            },
+            "simulation": {
+              "mean": 123.35333336194357,
+              "p95": 180,
+              "min": 68.5,
+              "max": 414.40000009536743
+            },
+            "fullFrame": {
+              "mean": 271.0108333349228,
+              "p95": 332.2000002861023,
+              "min": 206.80000019073486,
+              "max": 591.4000000953674
+            }
+          },
+          "endpoint": {
+            "publicSha256": "fc1946a3506094d132f141eec84420e3969c03ed855a02b0b1de9493cff6a933",
+            "nativeSha256": "a28255ec2f9f9af76cd986ca49499a02410898b0ec2c8549138262ec4834fa13"
+          },
+          "rawSha256": "2e28b517598490faa0cde16136ecedf92fe15d4c131ca222860e4c34eef51357",
+          "seedCommands": 11188,
+          "seedEnergy": 12586.5,
+          "ordinaryCommands": 48,
+          "ordinaryEnergy": 5.599999999999995,
+          "lastOrdinaryHeatTick": 71,
+          "pendingCommands": 0
+        },
+        {
+          "lane": "2-candidate",
+          "costs": {
+            "visualCpu": {
+              "mean": 206.74500002066296,
+              "p95": 248.09999990463257,
+              "min": 160.10000038146973,
+              "max": 496.90000009536743
+            },
+            "gpu": {
+              "mean": 18.715008000000008,
+              "p95": 21.9904,
+              "min": 10.587136,
+              "max": 240.66048
+            },
+            "publication": {
+              "mean": 50.46416667302449,
+              "p95": 85.09999990463257,
+              "min": 20,
+              "max": 128.5
+            },
+            "art": {
+              "mean": 149.66000001033146,
+              "p95": 158.5,
+              "min": 133.2000002861023,
+              "max": 409.69999980926514
+            },
+            "submission": {
+              "mean": 6.620833337306976,
+              "p95": 7.700000286102295,
+              "min": 5.699999809265137,
+              "max": 10.800000190734863
+            },
+            "simulation": {
+              "mean": 133.22333334684373,
+              "p95": 198.5,
+              "min": 70.10000038146973,
+              "max": 260.2999997138977
+            },
+            "fullFrame": {
+              "mean": 290.2125000039736,
+              "p95": 362.09999990463257,
+              "min": 215.5,
+              "max": 603.5999999046326
+            }
+          },
+          "endpoint": {
+            "publicSha256": "fc1946a3506094d132f141eec84420e3969c03ed855a02b0b1de9493cff6a933",
+            "nativeSha256": "a28255ec2f9f9af76cd986ca49499a02410898b0ec2c8549138262ec4834fa13"
+          },
+          "rawSha256": "5692480289db24ec260630468f8353f0f876e7e29e42ab6a4ce498552acb0d65",
+          "seedCommands": 11188,
+          "seedEnergy": 12586.5,
+          "ordinaryCommands": 48,
+          "ordinaryEnergy": 5.599999999999995,
+          "lastOrdinaryHeatTick": 71,
+          "pendingCommands": 0
+        },
+        {
+          "lane": "3-candidate",
+          "costs": {
+            "visualCpu": {
+              "mean": 196.52166664600372,
+              "p95": 233.7999997138977,
+              "min": 159.2000002861023,
+              "max": 338.8999996185303
+            },
+            "gpu": {
+              "mean": 19.3695232,
+              "p95": 23.069696,
+              "min": 10.517504,
+              "max": 225.353728
+            },
+            "publication": {
+              "mean": 46.079999975363414,
+              "p95": 76.69999980926514,
+              "min": 18.899999618530273,
+              "max": 109.80000019073486
+            },
+            "art": {
+              "mean": 143.59833333492278,
+              "p95": 150.19999980926514,
+              "min": 132.39999961853027,
+              "max": 304.7999997138977
+            },
+            "submission": {
+              "mean": 6.843333335717519,
+              "p95": 7.899999618530273,
+              "min": 6,
+              "max": 14.599999904632568
+            },
+            "simulation": {
+              "mean": 124.44249997933706,
+              "p95": 179.69999980926514,
+              "min": 66.2999997138977,
+              "max": 468.40000009536743
+            },
+            "fullFrame": {
+              "mean": 275.97249997059504,
+              "p95": 342.40000009536743,
+              "min": 208.90000009536743,
+              "max": 630.8000001907349
+            }
+          },
+          "endpoint": {
+            "publicSha256": "fc1946a3506094d132f141eec84420e3969c03ed855a02b0b1de9493cff6a933",
+            "nativeSha256": "a28255ec2f9f9af76cd986ca49499a02410898b0ec2c8549138262ec4834fa13"
+          },
+          "rawSha256": "6c1e9fecdf72a2a609faa0cfaa43236958dccde7fcddb101a6fe7cd23548f9d5",
+          "seedCommands": 11188,
+          "seedEnergy": 12586.5,
+          "ordinaryCommands": 48,
+          "ordinaryEnergy": 5.599999999999995,
+          "lastOrdinaryHeatTick": 71,
+          "pendingCommands": 0
+        },
+        {
+          "lane": "4-control",
+          "missing": true
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Four-seeded scale has one complete pair; second candidate retained separately, final control missing. No scale4 repeatability verdict.",
+    "Three-active-building GPU p95 controls drift58.6%; do not claim a stable tail saving from its favorable first pair.",
+    "The common camera crops most of the one-building fire; visible/submitted work grows far more than the building count. Do not fit a linear per-building cost curve.",
+    "Authored roof provenance is counted separately from runtime semantic roof kind. Known frozen gable classification issue remains unchanged and is not verified on Pages.",
+    "QA finite native heat seeds are not player-input/coupled-world acceptance. Ordinary barrel heat is kept and accounted separately.",
+    "No fresh continuous-motion quality review at these sizes; earlier28-PNG ordering review has its original limited scope.",
+    "First3 contexts have explicit disposed/lost/logical0 receipts. Last context closed at the helper safety deadline; no finalGL ledger read. Process/port closure verified.",
+    "Final context did not reach the end-of-lane HTTP byte-proof phase; exact saved per-scale endpoints/workloads and immutable served-package hashes were verified. No release acceptance.",
+    "Raw QA/source packages are local, not all bundled in a repository clone."
+  ],
+  "evidence": {
+    "workerQaRelative": "artifacts/qa/visual-half-cost/source-ordering-scaling-scalar-02",
+    "workerSourceRelative": "artifacts/qa/visual-half-cost/source-ordering-scaling-source-05",
+    "architectQaRelative": "artifacts/qa/fire-scale-2026-11-24",
+    "retainedRows": 6604,
+    "measuredRows": 1320,
+    "preservedWipFiles": 50,
+    "independentAssertions": 226324
+  },
+  "lifecycle": {
+    "startedAt": "2026-11-24T23:45:43.526Z",
+    "endedAt": "2026-11-25T00:04:30.671Z",
+    "elapsedSeconds": 1127.145,
+    "outerDeadlineMs": 1200000,
+    "helperCleanupReserveMs": 75000,
+    "exitCode": 1,
+    "outerHardTimedOut": false,
+    "contexts": {
+      "created": 4,
+      "closed": 4,
+      "remaining": 0,
+      "pending": 0,
+      "maxLive": 1,
+      "stopping": true
+    },
+    "processesExited": true,
+    "portsReleased": true,
+    "retainedHelpers": []
+  }
+}

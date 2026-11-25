@@ -16,6 +16,13 @@ and local-matrix experiments remain held. Preserve the measured failures,
 original reference and absolute half budgets; no production or Pages promotion
 is authorized. Historical restrictions change only through explicit later grants.
 
+The [builder experiment log](../engineering/visual-half-cost/experiment-log.md)
+summarizes attempted mechanisms, metrics and outcomes. The owner's larger-fire
+study retains complete comparisons at one/three burning buildings and partial
+four-building data after a safety deadline. Three-building mean GPU time falls
+5.87--10.25%, while visual CPU rises 2.14--3.47%; no half-cost acceptance. The
+tracked scale summary preserves matched work, raw identities and limitations.
+
 ## Work and ownership
 
 Reuse the existing coder and artist chats/worktrees. No new chats/worktrees or
