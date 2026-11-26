@@ -23,6 +23,17 @@ four-building data after a safety deadline. Three-building mean GPU time falls
 5.87--10.25%, while visual CPU rises 2.14--3.47%; no half-cost acceptance. The
 tracked scale summary preserves matched work, raw identities and limitations.
 
+The owner's November 26 [no-visual CPU contract](../engineering/visual-half-cost/no-visual-cpu-contract.md)
+now assigns direct measurement and separate profiling of those same fires to
+the existing coder. Preserve physical/gameplay behavior while excluding visual
+data generation and rendering; replace subtraction estimates with measured
+results at their stated runtime scope. This authorizes diagnosis, not a new
+optimization or production release.
+The [completed CPU review](../engineering/visual-half-cost/no-visual-cpu-review.md)
+finds substantial remaining gameplay/solver costs and proposes testing the
+read-only smoke consumer's existing immutable borrow option. All nine states
+match; the largest clean repeat varies 31.54%. No optimization or promotion.
+
 ## Work and ownership
 
 Reuse the existing coder and artist chats/worktrees. No new chats/worktrees or

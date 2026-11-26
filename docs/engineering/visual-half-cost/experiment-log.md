@@ -272,6 +272,19 @@ failed fourth-window record. No helper, server or browser is retained.
 
 ## Evidence and availability
 
+The November 26 [no-visual CPU experiment](no-visual-cpu-review.md) directly
+measures the same one/three/four-building fires without rendering or per-step
+visual exports. Mean advance times are 11.76/11.94, 42.89/42.36 and 86.84/114.22 ms
+in two clean repeats; the largest case has 31.54% drift. All six clean and three
+separately profiled cases match native/gameplay state and ledgers. Gameplay smoke
+source production remains: its stack group is 39.42% of sampled CPU at four
+buildings, with `fireSamples` self at 30.64%. The existing immutable-cache borrow
+option for the read-only smoke consumer is the next proposed experiment, not
+an implemented optimization or a predicted saving. [Tracked data](no-visual-cpu-v1.json)
+preserves distributions, phase counters, profile identities and limits. Earlier
+residual estimates are not direct no-visual measurements; these results are
+advance-only CPU, not displayed-frame/GPU/FPS gains. All helpers are closed.
+
 The linked review documents and M27 measurements are tracked in Git. Raw M30
 profiles, timing rows, candidate packages, replay and root audits are retained
 locally under coder/artist/architect `artifacts/qa/` paths named in the reviews;

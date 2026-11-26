@@ -7,7 +7,7 @@
 | Architect | `codex/review-visual-half-cost`; M29/M28/M27 reviews preserved | `C:/Users/baals/Documents/ChatGPT/tinderbox` | M30 current-build visual-cost contract, measured target, combined review and promotion |
 | Artist | `codex/visual-half-cost-art`; M29 `codex/shared-map-fire-bindings` preserved | `C:/Users/baals/.codex/worktrees/art-assets/tinderbox` | M30 source/28-PNG review and read-only scaling audit complete; idle; no promotion |
 | Art review helper | `codex/hostile-review-art` | `C:/Users/baals/.codex/worktrees/fire-art-corrections/tinderbox` | Independent round-three review of native floor fire and its prior controls |
-| Coder | `codex/visual-half-cost-code`; M29 `codex/shared-map-gameplay-code` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | M30 scale study stopped at safety deadline; complete one/three-building pairs, partial four; no CPU gain or promotion; helpers closed; idle |
+| Coder | `codex/visual-half-cost-code`; M29 `codex/shared-map-gameplay-code` preserved | `C:/Users/baals/.codex/worktrees/coding-9200/tinderbox` | No-visual clean/profile suites complete; all nine states/ledgers match; smoke-source copying is next proposed target; helpers closed; idle; no optimization/promotion |
 | UI designer | `codex/visual-shadow-probe`; M29 `codex/shared-map-tools-ui`, `codex/fire-brigade-study` and unrelated train branch preserved | `C:/Users/baals/.codex/worktrees/fire-ui-reconcile/tinderbox` | M30 matrix micro complete with no benefit; candidate held; idle; no actual grant |
 
 The existing worker chats are **Artist, Tinderbox**, **Coder Tinderbox**, and **Set up Tinderbox UI worktree**. Reuse those workers. No worker edits the primary checkout. Git worktree metadata is the authority for actual branch occupancy; update this table when assignments change.
@@ -35,6 +35,23 @@ retained raw costs, source/state/input/light/work parity and helper/port closure
 No CPU half-cost acceptance, new production map, runtime intake or Pages change.
 QA seeding, camera visibility differences, the frozen roof-label issue and
 missing final-window/GL/HTTP checks stay explicit limitations; no automatic retry.
+
+On November 26 the owner requests an actual all-visual-data-off replay and CPU
+profile of the same one/three/four-building fires. The [focused contract](engineering/visual-half-cost/no-visual-cpu-contract.md)
+assigns the existing coder a QA-only no-publication advance path, physical/host
+equivalence, two clean repeats and separate sampling profiles. Shared physical
+geometry and gameplay smoke/contact/AI remain; per-step presentation exports and
+all rendering are excluded. The earlier subtraction estimates are not measured
+headless results. Coder may execute after its controls pass within the stated
+bounds; architect reviews the outputs. Artist/UI remain idle. No optimization,
+game intake or Pages deployment is authorized by this diagnostic assignment.
+The [completed review](engineering/visual-half-cost/no-visual-cpu-review.md)
+records direct mean advance costs of 11.76/11.94, 42.89/42.36 and 86.84/114.22 ms.
+All nine case endpoints/ledgers and zero-export/WebGL controls pass; four-building
+mean drift is 31.54%. Root independently checks every raw timing and CPU sample.
+Shared NPC smoke-source preparation is the leading proposed next experiment,
+using the existing immutable borrow option only for its read-only consumer.
+No optimization was made; all owned helpers/ports and profilers are closed.
 
 The cross-map assignment remains [Milestone 29: shared gameplay maps](milestones/29-shared-gameplay-maps.md), based on published `52c0266f`. The owner requests common fire tools and appropriate fire response, and permits reusing the existing landmark workproduct in new gameplay maps. Rehost existing sections/doors/stairs in the common gameplay core rather than adding independent tool/fire implementations to each exploration model. Audit first, validate New York as the engineering pilot, then reuse the accepted adapter for Administration and Horticulture and reconcile supported legacy/cottage entry routes. Keep exactly four menu destinations and preserve original sources/controls. Material bindings are explicit gameplay assignments, not deductions from paint. No renderer or production promotion is authorized by the initial audit/contract alone.
 

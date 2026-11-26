@@ -1,0 +1,816 @@
+{
+  "version": 1,
+  "recordedAt": "2026-11-26T19:27:53.212Z",
+  "status": "PASS_NO_VISUAL_CPU_DIAGNOSTIC",
+  "scope": "Actual sim.advance CPU with per-step public visual data and all rendering disabled. Gameplay-required smoke-source production remains. Not pure thermal-kernel time, displayed-frame time, GPU/FPS or an optimization speedup.",
+  "controlManifest": "3ecee12e361b559de35149b45979ea11235da86d1a5ce38b0a68465730d8b05b",
+  "sourcePinsSha256": "5a1f420edb70059c360acbe24eb46b6a1c908af219ee455ed0bab52d6c72afbe",
+  "overlays": [
+    {
+      "path": "src/simulation/index.js",
+      "sha256": "0603fd009b80eda451f32a54232298a12ac684a5ce5f9faeef8dc83a3e723219"
+    },
+    {
+      "path": "src/simulation/scene-thermal.js",
+      "sha256": "c2d18e4085bdd44bfa1357d14f3a358586d4f6768a8583ba30a7769f78851aaa"
+    }
+  ],
+  "method": {
+    "browser": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36 Edg/158.0.0.0",
+      "hardwareConcurrency": 16,
+      "deviceMemory": 32,
+      "threeRevision": "180",
+      "page": {
+        "width": 1280,
+        "height": 800,
+        "dpr": 1
+      },
+      "rendererCreated": false,
+      "webglContexts": 0,
+      "browserVersion": {
+        "protocolVersion": "1.3",
+        "product": "Edg/158.0.4370.33",
+        "revision": "@56b8f691820060b6e15f702165117f203442943f",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36 Edg/158.0.0.0",
+        "jsVersion": "15.8.13.3"
+      },
+      "node": "v24.15.0",
+      "cpu": "AMD Ryzen 7 5800X 8-Core Processor             ",
+      "logicalCpus": 16,
+      "platform": "win32",
+      "gpuIdentity": "Not queried: zero WebGL contexts. Prior GPU metadata is reference evidence only."
+    },
+    "hostHz": 60,
+    "nativeHz": 30,
+    "stepsPerCase": 600,
+    "measuredLocalSteps": [
+      481,
+      600
+    ],
+    "measuredNativeTicks": [
+      240,
+      300
+    ],
+    "rowsPerWindow": 120,
+    "nativeRows": 60,
+    "interveningRows": 60,
+    "seededToActualBurning": [
+      {
+        "seeded": 1,
+        "burning": 1
+      },
+      {
+        "seeded": 2,
+        "burning": 3
+      },
+      {
+        "seeded": 4,
+        "burning": 4
+      }
+    ],
+    "seedHeatTicks": [
+      1,
+      61,
+      121,
+      181
+    ],
+    "windows": "Same source05 recipe and physical/gameplay inputs as scaling-v1; ordinary barrel heat retained.",
+    "units": "milliseconds per host advance; performance.now interval around sim.advance only",
+    "p95": "sorted element floor((n-1)*.95)",
+    "recordingAndValidationOutsideTiming": true,
+    "cleanRepeats": 2,
+    "profileReplays": 1,
+    "profileWindows": 3,
+    "profileIntervalUs": 250,
+    "profilesUsedForCleanTiming": false
+  },
+  "proof": {
+    "exactOrderedNativeAndGameplayHostCases": 9,
+    "exactQaOrdinaryInputsAndHeatFuelLedgers": true,
+    "publicationsDuringWindows": 0,
+    "physicalFrameExportMsDuringWindows": 0,
+    "rasterExportMsDuringWindows": 0,
+    "diagnosticExportMsDuringWindows": 0,
+    "webglAttempts": 0,
+    "webglContexts": 0,
+    "canvas2dRequests": 0,
+    "animationFrameRequests": 0,
+    "gameplaySmokeCallsPerWindow": 60,
+    "excludedHostFields": [
+      "catalogueModules",
+      "structureFire",
+      "cells",
+      "player/actors.characterFire",
+      "diagnostics.thermal.timing"
+    ],
+    "nativeStateFullyCompared": true,
+    "packageFilesVerified": 3679,
+    "preservedWipFiles": 50,
+    "rawRowsIndependentlyChecked": 5400,
+    "measuredRowsIndependentlyChecked": 1080,
+    "cpuSamplesIndependentlyWeighted": 41586
+  },
+  "cases": [
+    {
+      "seeded": 1,
+      "burningOwners": [
+        "bell-and-alder"
+      ],
+      "meanDriftRatio": 1.0150924679248838,
+      "meanWithin10Percent": true,
+      "cleanVisits": [
+        {
+          "lane": "1-repeat1",
+          "statistics": {
+            "all": {
+              "count": 120,
+              "mean": 11.760833333184321,
+              "median": 10.599999994039536,
+              "p95": 21.19999998807907,
+              "min": 4.5,
+              "max": 22.900000005960464
+            },
+            "native": {
+              "count": 60,
+              "mean": 18.064999999602637,
+              "median": 18.69999998807907,
+              "p95": 21.799999982118607,
+              "min": 13.099999994039536,
+              "max": 22.900000005960464
+            },
+            "intervening": {
+              "count": 60,
+              "mean": 5.456666666766008,
+              "median": 5.200000017881393,
+              "p95": 6.5,
+              "min": 4.5,
+              "max": 8.099999994039536
+            }
+          },
+          "phaseCounterDeltas": {
+            "hostSteps": 120,
+            "nativeSteps": 60,
+            "nativeSimulationMs": 591.799999922514,
+            "backendAdvanceMs": 980.1999999582767,
+            "metricsQueriesMs": 387.69999998807907,
+            "looseFuelQueriesMs": 0.20000001788139343,
+            "physicalPublicationMs": 0,
+            "rasterPublicationMs": 0,
+            "diagnosticsMs": 0,
+            "smokeSignalCalls": 60,
+            "smokeSignalsMs": 216.00000002980232,
+            "smokeSightMs": 0,
+            "navigationMs": 204.00000017881393
+          },
+          "rawSha256": "4f2fb140187fcb4e8b842d07f6f785d5c465c2b865f92b368ed29bbe7f031dc5",
+          "nativeSha256": "430898636d826dcfea3c39555c3d43adc10b5d103e6438021aad011320d0c22f"
+        },
+        {
+          "lane": "2-repeat2",
+          "statistics": {
+            "all": {
+              "count": 120,
+              "mean": 11.93833333303531,
+              "median": 10.649999991059303,
+              "p95": 21.599999994039536,
+              "min": 4.5999999940395355,
+              "max": 24.600000023841858
+            },
+            "native": {
+              "count": 60,
+              "mean": 18.366666665673257,
+              "median": 18.799999997019768,
+              "p95": 21.900000005960464,
+              "min": 13.299999982118607,
+              "max": 24.600000023841858
+            },
+            "intervening": {
+              "count": 60,
+              "mean": 5.510000000397365,
+              "median": 5.300000011920929,
+              "p95": 6.4000000059604645,
+              "min": 4.5999999940395355,
+              "max": 8
+            }
+          },
+          "phaseCounterDeltas": {
+            "hostSteps": 120,
+            "nativeSteps": 60,
+            "nativeSimulationMs": 622.6000000834465,
+            "backendAdvanceMs": 998.9000000357628,
+            "metricsQueriesMs": 375.79999992251396,
+            "looseFuelQueriesMs": 0.19999998807907104,
+            "physicalPublicationMs": 0,
+            "rasterPublicationMs": 0,
+            "diagnosticsMs": 0,
+            "smokeSignalCalls": 60,
+            "smokeSignalsMs": 219.19999983906746,
+            "smokeSightMs": 0.20000001788139343,
+            "navigationMs": 201.80000007152557
+          },
+          "rawSha256": "a450789d7e34b34c038608d8c12261dc492b9a51271ec30e81635f27ee30b694",
+          "nativeSha256": "430898636d826dcfea3c39555c3d43adc10b5d103e6438021aad011320d0c22f"
+        }
+      ]
+    },
+    {
+      "seeded": 2,
+      "burningOwners": [
+        "ashland-cottage",
+        "bell-and-alder",
+        "hopkins-fifteen"
+      ],
+      "meanDriftRatio": 1.012650756478416,
+      "meanWithin10Percent": true,
+      "cleanVisits": [
+        {
+          "lane": "1-repeat1",
+          "statistics": {
+            "all": {
+              "count": 120,
+              "mean": 42.89166666592161,
+              "median": 45.1499999910593,
+              "p95": 60.400000005960464,
+              "min": 27.099999994039536,
+              "max": 139.7000000178814
+            },
+            "native": {
+              "count": 60,
+              "mean": 56.319999997317794,
+              "median": 53.54999999701977,
+              "p95": 77,
+              "min": 48.099999994039536,
+              "max": 139.7000000178814
+            },
+            "intervening": {
+              "count": 60,
+              "mean": 29.463333334525426,
+              "median": 28.80000001192093,
+              "p95": 33.099999994039536,
+              "min": 27.099999994039536,
+              "max": 42.19999998807907
+            }
+          },
+          "phaseCounterDeltas": {
+            "hostSteps": 120,
+            "nativeSteps": 60,
+            "nativeSimulationMs": 2619.3000000715256,
+            "backendAdvanceMs": 3266.0000000596046,
+            "metricsQueriesMs": 644.8999999463558,
+            "looseFuelQueriesMs": 0.4999999701976776,
+            "physicalPublicationMs": 0,
+            "rasterPublicationMs": 0,
+            "diagnosticsMs": 0,
+            "smokeSignalCalls": 60,
+            "smokeSignalsMs": 1634.900000154972,
+            "smokeSightMs": 0.29999998211860657,
+            "navigationMs": 229.5999996960163
+          },
+          "rawSha256": "15cfcf5df1ff0de30701fb5516d9c706d7b329063992a9d2fc8eb05b8c1deb44",
+          "nativeSha256": "a7eb202a19b241e07220b1fe30c8f9bd3d332da89ae70f22ba52d1ceaa6e2de0"
+        },
+        {
+          "lane": "2-repeat2",
+          "statistics": {
+            "all": {
+              "count": 120,
+              "mean": 42.35583333298564,
+              "median": 42.5,
+              "p95": 60.5,
+              "min": 26.5,
+              "max": 179.10000002384186
+            },
+            "native": {
+              "count": 60,
+              "mean": 55.51666666616996,
+              "median": 51.599999994039536,
+              "p95": 71.30000001192093,
+              "min": 46,
+              "max": 179.10000002384186
+            },
+            "intervening": {
+              "count": 60,
+              "mean": 29.19499999980132,
+              "median": 28.75,
+              "p95": 31.599999994039536,
+              "min": 26.5,
+              "max": 39
+            }
+          },
+          "phaseCounterDeltas": {
+            "hostSteps": 120,
+            "nativeSteps": 60,
+            "nativeSimulationMs": 2708.2000000476837,
+            "backendAdvanceMs": 3213.399999976158,
+            "metricsQueriesMs": 502.7999999523163,
+            "looseFuelQueriesMs": 0.19999998807907104,
+            "physicalPublicationMs": 0,
+            "rasterPublicationMs": 0,
+            "diagnosticsMs": 0,
+            "smokeSignalCalls": 60,
+            "smokeSignalsMs": 1621.5000001490116,
+            "smokeSightMs": 0.40000003576278687,
+            "navigationMs": 231.99999967217445
+          },
+          "rawSha256": "2234b5eeddddd59634333c76f4e5944f6a4cb5576ba1a26f3818655b434f573f",
+          "nativeSha256": "a7eb202a19b241e07220b1fe30c8f9bd3d332da89ae70f22ba52d1ceaa6e2de0"
+        }
+      ]
+    },
+    {
+      "seeded": 4,
+      "burningOwners": [
+        "ashland-cottage",
+        "bell-and-alder",
+        "hopkins-fifteen",
+        "hopkins-twelve"
+      ],
+      "meanDriftRatio": 1.315393990570006,
+      "meanWithin10Percent": false,
+      "cleanVisits": [
+        {
+          "lane": "1-repeat1",
+          "statistics": {
+            "all": {
+              "count": 120,
+              "mean": 86.83583333343267,
+              "median": 87.00000001490116,
+              "p95": 105.7999999821186,
+              "min": 70.2000000178814,
+              "max": 133.30000001192093
+            },
+            "native": {
+              "count": 60,
+              "mean": 98.86999999880791,
+              "median": 97.05000001192093,
+              "p95": 113.39999997615814,
+              "min": 90.10000002384186,
+              "max": 133.30000001192093
+            },
+            "intervening": {
+              "count": 60,
+              "mean": 74.80166666805744,
+              "median": 74.5,
+              "p95": 78.80000001192093,
+              "min": 70.2000000178814,
+              "max": 83.90000000596046
+            }
+          },
+          "phaseCounterDeltas": {
+            "hostSteps": 120,
+            "nativeSteps": 60,
+            "nativeSimulationMs": 4979.4000000059605,
+            "backendAdvanceMs": 5819.699999958277,
+            "metricsQueriesMs": 837.5999999940395,
+            "looseFuelQueriesMs": 0.6000000238418579,
+            "physicalPublicationMs": 0,
+            "rasterPublicationMs": 0,
+            "diagnosticsMs": 0,
+            "smokeSignalCalls": 60,
+            "smokeSignalsMs": 4346.199999988079,
+            "smokeSightMs": 0.09999999403953552,
+            "navigationMs": 243.10000005364418
+          },
+          "rawSha256": "f8c8f975e004f08bcbd84ddba62c3c4c1a34d373202463e750d4a79d10c4bb11",
+          "nativeSha256": "a28255ec2f9f9af76cd986ca49499a02410898b0ec2c8549138262ec4834fa13"
+        },
+        {
+          "lane": "2-repeat2",
+          "statistics": {
+            "all": {
+              "count": 120,
+              "mean": 114.22333333293597,
+              "median": 102.1000000089407,
+              "p95": 180.60000002384186,
+              "min": 75.39999997615814,
+              "max": 234
+            },
+            "native": {
+              "count": 60,
+              "mean": 129.50666666726272,
+              "median": 112.90000000596046,
+              "p95": 194.2999999821186,
+              "min": 92.5,
+              "max": 234
+            },
+            "intervening": {
+              "count": 60,
+              "mean": 98.93999999860922,
+              "median": 88.19999998807907,
+              "p95": 152.80000001192093,
+              "min": 75.39999997615814,
+              "max": 194.39999997615814
+            }
+          },
+          "phaseCounterDeltas": {
+            "hostSteps": 120,
+            "nativeSteps": 60,
+            "nativeSimulationMs": 6546.299999713898,
+            "backendAdvanceMs": 7597.899999886751,
+            "metricsQueriesMs": 1049.1000002026558,
+            "looseFuelQueriesMs": 0.7999999821186066,
+            "physicalPublicationMs": 0,
+            "rasterPublicationMs": 0,
+            "diagnosticsMs": 0,
+            "smokeSignalCalls": 60,
+            "smokeSignalsMs": 5737.8999998271465,
+            "smokeSightMs": 0,
+            "navigationMs": 353.8000003397465
+          },
+          "rawSha256": "9090592e2e552162ca661c6f23c1cd224b5f68e0c3bdfd1f5e0bee71c7b067f0",
+          "nativeSha256": "a28255ec2f9f9af76cd986ca49499a02410898b0ec2c8549138262ec4834fa13"
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "seeded": 1,
+      "rawSamples": 3096,
+      "profileSha256": "d67d4ecce5a6c636f46ddf8cd08e6f12618cb48c0872f44afb44151c71bd833a",
+      "sampledAdvanceMs": 1740.409000015256,
+      "nativeSampledMs": 1311.900000061035,
+      "interveningSampledMs": 428.5089999542229,
+      "exclusiveStackGroupsPercent": {
+        "gameplayAiMovementContact": 14.825365765103102,
+        "gameplaySmokeSourcesAndSight": 16.135402655211408,
+        "otherNativeHostAdvanceOrCallerSelf": 0.34991774921565083,
+        "otherNativeSolveOrCallerSelf": 6.17647920684493,
+        "nativeHeatAndFuel": 37.32174448616996,
+        "metricsAndFuelBookkeeping": 23.26154369441036,
+        "otherHostAdvanceOrUnresolved": 0.30487086392779644,
+        "gc": 1.3434773090575285,
+        "supportAndDebris": 0.2811982700593424
+      },
+      "fireSamples": [
+        {
+          "name": "fireSamples",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 406,
+          "column": 23,
+          "selfMs": 264.26699999999994,
+          "inclusiveMs": 265.37799999999993,
+          "selfPercent": 15.18418946337806,
+          "inclusivePercent": 15.248025033062556
+        }
+      ],
+      "gcSelfPercent": 1.3434773090575285,
+      "topSelf": [
+        {
+          "name": "fuelTotals",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 31,
+          "column": 22,
+          "selfMs": 347.1919999999992,
+          "inclusiveMs": 347.1919999999992,
+          "selfPercent": 19.94887408631855
+        },
+        {
+          "name": "fireSamples",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 406,
+          "column": 23,
+          "selfMs": 264.26699999999994,
+          "inclusiveMs": 265.37799999999993,
+          "selfPercent": 15.18418946337806
+        },
+        {
+          "name": "segmentCandidates",
+          "url": "<PACKAGE>/workbenches/furnished-house/geometry.js",
+          "line": 105,
+          "column": 29,
+          "selfMs": 204.44100000000006,
+          "inclusiveMs": 207.23200000000006,
+          "selfPercent": 11.746721603841854
+        },
+        {
+          "name": "transport",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 122,
+          "column": 21,
+          "selfMs": 181.915,
+          "inclusiveMs": 292.4710000000001,
+          "selfPercent": 10.452428136053387
+        },
+        {
+          "name": "stepOnce",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 289,
+          "column": 20,
+          "selfMs": 81.00800000000001,
+          "inclusiveMs": 757.047,
+          "selfPercent": 4.6545380999115675
+        },
+        {
+          "name": "crossings",
+          "url": "<PACKAGE>/workbenches/furnished-house/geometry.js",
+          "line": 118,
+          "column": 21,
+          "selfMs": 55.64599999999998,
+          "inclusiveMs": 181.75700000000006,
+          "selfPercent": 3.197294429040082
+        },
+        {
+          "name": "emitRadiation",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 106,
+          "column": 25,
+          "selfMs": 53.493999999999964,
+          "inclusiveMs": 53.493999999999964,
+          "selfPercent": 3.073645332765519
+        },
+        {
+          "name": "furniture",
+          "url": "<PACKAGE>/workbenches/furnished-house/navigation.js",
+          "line": 38,
+          "column": 22,
+          "selfMs": 52.67499999999999,
+          "inclusiveMs": 52.67499999999999,
+          "selfPercent": 3.0265874285606578
+        }
+      ]
+    },
+    {
+      "seeded": 2,
+      "rawSamples": 11516,
+      "profileSha256": "3b07e8c3103e0b5f083e1ede7467e7bc31ee3f1d91229aa49a6252c3fbc72c44",
+      "sampledAdvanceMs": 6446.90000003044,
+      "nativeSampledMs": 4176.099999984744,
+      "interveningSampledMs": 2270.8000000457737,
+      "exclusiveStackGroupsPercent": {
+        "gameplayAiMovementContact": 4.072546495905582,
+        "gameplaySmokeSourcesAndSight": 32.24669220850607,
+        "gc": 1.2226961795533946,
+        "otherNativeSolveOrCallerSelf": 16.043540306117933,
+        "nativeHeatAndFuel": 33.16730521630382,
+        "metricsAndFuelBookkeeping": 10.226232762985095,
+        "otherNativeHostAdvanceOrCallerSelf": 1.6599761125423809,
+        "otherHostAdvanceOrUnresolved": 0.18273899059525647,
+        "supportAndDebris": 1.1782717274913725
+      },
+      "fireSamples": [
+        {
+          "name": "fireSamples",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 406,
+          "column": 23,
+          "selfMs": 1605.089999999995,
+          "inclusiveMs": 1717.5029999999952,
+          "selfPercent": 24.897082318516127,
+          "inclusivePercent": 26.64075757328151
+        }
+      ],
+      "gcSelfPercent": 1.2226961795533946,
+      "topSelf": [
+        {
+          "name": "fireSamples",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 406,
+          "column": 23,
+          "selfMs": 1605.089999999995,
+          "inclusiveMs": 1717.5029999999952,
+          "selfPercent": 24.897082318516127
+        },
+        {
+          "name": "<anonymous>",
+          "url": "<PACKAGE>/workbenches/furnished-house/geometry.js",
+          "line": 116,
+          "column": 29,
+          "selfMs": 494.54799999999994,
+          "inclusiveMs": 494.54799999999994,
+          "selfPercent": 7.671097736860582
+        },
+        {
+          "name": "transport",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 122,
+          "column": 21,
+          "selfMs": 466.1949999999997,
+          "inclusiveMs": 1115.702,
+          "selfPercent": 7.23130496824518
+        },
+        {
+          "name": "stepOnce",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 289,
+          "column": 20,
+          "selfMs": 436.4350000000005,
+          "inclusiveMs": 3215.345999999992,
+          "selfPercent": 6.769687756874464
+        },
+        {
+          "name": "fuelTotals",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 31,
+          "column": 22,
+          "selfMs": 397.8159999999999,
+          "inclusiveMs": 397.8159999999999,
+          "selfPercent": 6.170655663933387
+        },
+        {
+          "name": "<anonymous>",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 48,
+          "column": 197,
+          "selfMs": 291.89799999999985,
+          "inclusiveMs": 291.89799999999985,
+          "selfPercent": 4.527726504189945
+        },
+        {
+          "name": "deposit",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 63,
+          "column": 19,
+          "selfMs": 238.5290000000001,
+          "inclusiveMs": 238.5290000000001,
+          "selfPercent": 3.69990227859706
+        },
+        {
+          "name": "storedCellHeat",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 30,
+          "column": 26,
+          "selfMs": 192.1610000000002,
+          "inclusiveMs": 219.8860000000002,
+          "selfPercent": 2.9806728815258943
+        }
+      ]
+    },
+    {
+      "seeded": 4,
+      "rawSamples": 26974,
+      "profileSha256": "1d1c271c102ef229626a45027b9eaf5c60a90908249f432915c8ebaeb45852cd",
+      "sampledAdvanceMs": 15816.400000015645,
+      "nativeSampledMs": 9084.199999984769,
+      "interveningSampledMs": 6732.200000030469,
+      "exclusiveStackGroupsPercent": {
+        "gameplayAiMovementContact": 2.8205723177245985,
+        "gameplaySmokeSourcesAndSight": 39.417079739977346,
+        "otherNativeSolveOrCallerSelf": 22.402297615111372,
+        "otherNativeHostAdvanceOrCallerSelf": 3.0412420019696262,
+        "nativeHeatAndFuel": 21.847816190767656,
+        "gc": 2.3018449204600304,
+        "metricsAndFuelBookkeeping": 7.365721655995359,
+        "otherHostAdvanceOrUnresolved": 0.08771907611219941,
+        "supportAndDebris": 0.7157064818788603
+      },
+      "fireSamples": [
+        {
+          "name": "fireSamples",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 406,
+          "column": 23,
+          "selfMs": 4846.365999999973,
+          "inclusiveMs": 4943.549999999978,
+          "selfPercent": 30.641397536703543,
+          "inclusivePercent": 31.255848359899147
+        }
+      ],
+      "gcSelfPercent": 2.3018449204600304,
+      "topSelf": [
+        {
+          "name": "fireSamples",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 406,
+          "column": 23,
+          "selfMs": 4846.365999999973,
+          "inclusiveMs": 4943.549999999978,
+          "selfPercent": 30.641397536703543
+        },
+        {
+          "name": "stepOnce",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 289,
+          "column": 20,
+          "selfMs": 1721.229999999998,
+          "inclusiveMs": 7103.704999999918,
+          "selfPercent": 10.882564932590826
+        },
+        {
+          "name": "transport",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 122,
+          "column": 21,
+          "selfMs": 936.7449999999991,
+          "inclusiveMs": 1977.8750000000027,
+          "selfPercent": 5.922618294928508
+        },
+        {
+          "name": "<anonymous>",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 48,
+          "column": 197,
+          "selfMs": 883.8130000000002,
+          "inclusiveMs": 883.8130000000002,
+          "selfPercent": 5.587953010793392
+        },
+        {
+          "name": "<anonymous>",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 410,
+          "column": 80,
+          "selfMs": 798.4740000000004,
+          "inclusiveMs": 798.4740000000004,
+          "selfPercent": 5.048392807460678
+        },
+        {
+          "name": "registryOrder",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 47,
+          "column": 23,
+          "selfMs": 620.7600000000004,
+          "inclusiveMs": 652.2710000000008,
+          "selfPercent": 3.924786930018123
+        },
+        {
+          "name": "deposit",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 63,
+          "column": 19,
+          "selfMs": 577.8050000000009,
+          "inclusiveMs": 577.8050000000009,
+          "selfPercent": 3.653201739962503
+        },
+        {
+          "name": "fuelTotals",
+          "url": "<PACKAGE>/workbenches/furnished-house/simulation.js",
+          "line": 31,
+          "column": 22,
+          "selfMs": 522.4099999999996,
+          "inclusiveMs": 522.4099999999996,
+          "selfPercent": 3.302964012034868
+        }
+      ]
+    }
+  ],
+  "rankedFindings": [
+    {
+      "rank": 1,
+      "target": "Gameplay smoke perception builds/clones full fireSamples rows",
+      "source": [
+        "workbenches/bell-and-alder-closing/smoke.js:21",
+        "workbenches/furnished-house/simulation.js:406",
+        "src/simulation/scene-thermal.js:216"
+      ],
+      "measurement": "fireSamples SELF264.267/1605.090/4846.366 sampled ms; inclusive265.378/1717.503/4943.550 over120advance intervals at1/3/4burning owners. Inclusive shares15.25/26.64/31.26%; whole smoke group16.14/32.25/39.42%.",
+      "mechanism": "ventSmokeSignals calls public fireSamples() which builds the immutable cache on miss, then structuredClone returns mutable rows/geometry. The smoke reader filters and reads rows without mutating them.",
+      "smallestNextExperiment": "In a separate reviewed candidate, borrow the existing immutable cache only for the read-only smoke consumer. Keep public defaults/copies and all physical inputs unchanged. Compare exact smoke signals/NPC state, old snapshots/doors/falls/reset, then repeat bounded no-visual cases. This distinguishes avoided clone from required construction. No optimization implemented here.",
+      "ceiling": "Entire fireSamples inclusive time is a diagnostic upper envelope, not removable budget. Clone cost is unresolved inside caller self; cache creation/sorting/required smoke values remain. No predicted saving."
+    },
+    {
+      "rank": 2,
+      "target": "Native heat/fuel solve and ordered active/preheat work",
+      "source": [
+        "workbenches/furnished-house/simulation.js:122",
+        "workbenches/furnished-house/simulation.js:289",
+        "workbenches/furnished-house/simulation.js:48"
+      ],
+      "measurement": "Clean transport subphase averages4.03/14.38/24.39 ms per host step in pass1; nested in nativeSimulation4.93/21.83/41.50. Profile transport inclusive16.80/17.31/12.51%; direct caller self and comparator work remain partly unresolved.",
+      "risk": "These calculations own actual propagation and numerical association. A proposed fix requires source-specific attribution and exact native equivalence, not removal of the whole solve stage."
+    },
+    {
+      "rank": 3,
+      "target": "Fuel/heat metrics and bookkeeping retained by host",
+      "source": [
+        "workbenches/furnished-house/simulation.js:31",
+        "workbenches/furnished-house/simulation.js:365",
+        "src/simulation/scene-thermal.js:185"
+      ],
+      "measurement": "Clean pass1 metricsQueries averages3.23/5.37/6.98ms per host step; profile metrics/fuel bucket23.26/10.23/7.37%. fuelTotals SELF347.192/397.816/522.410 sampledms.",
+      "risk": "Existing ordered prefix/cache already avoids some work; no claim that duplicate metric calls are all expensive or removable. Preserve exact ledgers/association."
+    }
+  ],
+  "limits": [
+    "No pure-kernel or whole-game FPS claim: gameplay smoke, AI/contact queries and metrics remain.",
+    "Clean repeat4 mean drift31.54%; both visits and every outlier retained. No cause inferred or retake.",
+    "Profiler timings are attribution-only and are not mixed into clean distributions. Inclusive ancestors overlap. Unresolved native builtins stay caller self.",
+    "Shared smoke fireSamples cache creation remains despite zero visual export; actorStep precedes field native step, so its heavy refresh generally falls on intervening host steps.",
+    "One post-window validation snapshot changes publication cadence; full native/gameplay equality passes, but render/publication GC effects differ from old visual runs. No direct causal speed ratio against previous whole-frame timings.",
+    "System snapshots outside the suites showed25% before and42% after total CPU load; no in-window load monitor. No cause inferred for four-building timing variation.",
+    "The existing immutable-cache borrow option is a proposed next experiment only. Public sample-copy semantics must remain unchanged; construction/sorting/required source values are not all removable.",
+    "Raw QA, frozen packages and full profiles are retained locally at evidence paths; a repository clone contains this summary, not every raw artifact."
+  ],
+  "failuresPreserved": [
+    "clean01 outer launch attempt: removed versioned PowerShell executable; no Node invocation",
+    "clean01 post-window object transfer failure; exact protocol error preserved, endpoint equality not reached. source02 separate JSON-text transport succeeds; scored/runtime bytes unchanged."
+  ],
+  "evidence": {
+    "workerClean": "artifacts/qa/visual-half-cost/no-visual-cpu-clean-02",
+    "workerProfiles": "artifacts/qa/visual-half-cost/no-visual-cpu-profile-02",
+    "workerSource": "artifacts/qa/visual-half-cost/no-visual-cpu-source-02",
+    "workerAnalysis": "artifacts/qa/visual-half-cost/no-visual-cpu-analysis-01",
+    "architect": "artifacts/qa/no-visual-cpu-2026-11-26"
+  },
+  "delivery": {
+    "optimizationImplemented": false,
+    "productionEdits": 0,
+    "pagesChanged": false,
+    "retainedHelpers": [],
+    "cleanSuiteExitCode": 0,
+    "profileSuiteExitCode": 0,
+    "ownedIdentityClosureVerified": true,
+    "portsReleased": true,
+    "profilerStoppedDisabledDetached": true
+  }
+}
